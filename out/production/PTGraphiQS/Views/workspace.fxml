@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1015.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.workspaceController">
+<children>
+   <AnchorPane focusTraversable="true" layoutX="198.0" layoutY="239.0" prefHeight="243.0" prefWidth="419.0" style="-fx-background-color: #0F1E25;" AnchorPane.leftAnchor="198.0" AnchorPane.rightAnchor="398.0" AnchorPane.topAnchor="239.0">
+      <children>
+         <JFXButton ellipsisString="" layoutX="111.0" layoutY="68.0" prefHeight="41.0" prefWidth="140.0" text="Import PDF" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.leftAnchor="111.0" AnchorPane.rightAnchor="111.0" AnchorPane.topAnchor="68.0">
+            <font>
+               <Font name="Segoe UI Semilight" size="16.0" />
+            </font>
+            <graphic>
+               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@images/add_30px.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </JFXButton>
+            <JFXButton ellipsisString="" layoutX="110.0" layoutY="122.0" prefHeight="41.0" prefWidth="140.0" text="Recent Files" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="109.0" AnchorPane.topAnchor="122.0">
+               <font>
+                  <Font name="Segoe UI Semilight" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/time_machine_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+      </children>
+   </AnchorPane>
+      <VBox layoutY="205.0" prefWidth="65.0" style="-fx-background-color: #263238; -fx-background-radius: 10px;" AnchorPane.leftAnchor="0.0">
+         <children>
+            <JFXButton ellipsisString="" prefHeight="55.0" prefWidth="65.0">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/add_40px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="New PDF">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </JFXButton>
+            <JFXButton ellipsisString="" prefHeight="55.0" prefWidth="65.0">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/save_40px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Save PDF">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </JFXButton>
+            <JFXButton ellipsisString="" prefHeight="55.0" prefWidth="65.0">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/ruler_40px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Scale">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </JFXButton>
+            <JFXButton ellipsisString="" prefHeight="55.0" prefWidth="65.0">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/height_40px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Length">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </JFXButton>
+            <JFXButton ellipsisString="" prefHeight="55.0" prefWidth="65.0">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/crop_40px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Area">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </JFXButton>
+            <JFXButton ellipsisString="" prefHeight="55.0" prefWidth="65.0">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/rubber_stamp_40px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Stamp">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </JFXButton>
+            <JFXButton ellipsisString="" prefHeight="55.0" prefWidth="65.0">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/rotate_right_40px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Rotate">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </JFXButton>
+         </children>
+      </VBox>
+</children>
+</AnchorPane>
