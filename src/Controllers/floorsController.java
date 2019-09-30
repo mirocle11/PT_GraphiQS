@@ -180,6 +180,7 @@ public class floorsController implements Initializable {
         if (i > 0) {
             i--;
         }
+        floorIndicator();
     }
 
     public void next(ActionEvent actionEvent) {
@@ -221,7 +222,7 @@ public class floorsController implements Initializable {
             }
             if (ground_floor.isVisible()) {
                 ground_floor.setVisible(false);
-                third_floor.setVisible(true);
+                subfloor.setVisible(true);
             }
             if (subfloor.isVisible()) {
                 subfloor.setVisible(false);

@@ -1,44 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXTextArea?>
-<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-
-<AnchorPane prefHeight="560.0" prefWidth="1015.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" >
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="560.0" prefWidth="1015.0"
+            style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171">
     <children>
-        <Label layoutX="116.0" layoutY="123.0" prefHeight="42.0" prefWidth="155.0" text="Second Floor" textFill="#b8b8b8">
+        <Label layoutX="114.0" layoutY="113.0" prefHeight="42.0" prefWidth="155.0" text="Second Floor"
+               textFill="#b8b8b8">
             <font>
                 <Font name="Segoe UI" size="25.0" />
             </font>
         </Label>
-        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="154.0" layoutY="185.0" prefHeight="35.0" prefWidth="205.0" promptText="Joists" style="-fx-text-inner-color: #b9b9b9;">
+        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="144.0" layoutY="175.0" prefHeight="35.0"
+                      prefWidth="205.0" promptText="Joists" style="-fx-text-inner-color: #b9b9b9;">
             <font>
                 <Font name="Segoe UI" size="16.0" />
             </font>
         </JFXTextField>
-        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="153.0" layoutY="244.0" prefHeight="35.0" prefWidth="205.0" promptText="Beam" style="-fx-text-inner-color: #b9b9b9;">
+        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="144.0" layoutY="234.0" prefHeight="35.0"
+                      prefWidth="205.0" promptText="Beam" style="-fx-text-inner-color: #b9b9b9;">
             <font>
                 <Font name="Segoe UI" size="16.0" />
             </font>
         </JFXTextField>
-        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="153.0" layoutY="362.0" prefHeight="35.0" prefWidth="169.0" promptText="JH" style="-fx-text-inner-color: #b9b9b9;">
+        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="144.0" layoutY="352.0" prefHeight="35.0"
+                      prefWidth="169.0" promptText="JH" style="-fx-text-inner-color: #b9b9b9;">
             <font>
                 <Font name="Segoe UI" size="16.0" />
             </font>
         </JFXTextField>
-        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="552.0" layoutY="185.0" prefHeight="35.0" prefWidth="351.0" promptText="Flooring 1" style="-fx-text-inner-color: #b9b9b9;">
+        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="542.0" layoutY="175.0" prefHeight="35.0"
+                      prefWidth="351.0" promptText="Flooring 1" style="-fx-text-inner-color: #b9b9b9;">
             <font>
                 <Font name="Segoe UI" size="16.0" />
             </font>
         </JFXTextField>
-        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="552.0" layoutY="244.0" prefHeight="35.0" prefWidth="351.0" promptText="Flooring 2" style="-fx-text-inner-color: #b9b9b9;">
+        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="542.0" layoutY="234.0" prefHeight="35.0"
+                      prefWidth="351.0" promptText="Flooring 2" style="-fx-text-inner-color: #b9b9b9;">
             <font>
                 <Font name="Segoe UI" size="16.0" />
             </font>
         </JFXTextField>
-        <JFXTextArea focusColor="#0f9d58" layoutX="552.0" layoutY="308.0" prefHeight="94.0" prefWidth="351.0" promptText="Notes" style="-fx-text-inner-color: #b9b9b9;">
+        <JFXTextArea focusColor="#0f9d58" layoutX="542.0" layoutY="298.0" prefHeight="94.0" prefWidth="351.0"
+                     promptText="Notes" style="-fx-text-inner-color: #b9b9b9;">
             <font>
                 <Font name="Segoe UI" size="16.0" />
             </font>
@@ -48,12 +54,14 @@
                 <Font name="Segoe UI" size="15.0" />
             </font>
         </Label>
-        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="153.0" layoutY="424.0" prefHeight="35.0" prefWidth="169.0" promptText="D/JH" style="-fx-text-inner-color: #b9b9b9;">
+        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="144.0" layoutY="414.0" prefHeight="35.0"
+                      prefWidth="169.0" promptText="D/JH" style="-fx-text-inner-color: #b9b9b9;">
             <font>
                 <Font name="Segoe UI" size="16.0" />
             </font>
         </JFXTextField>
-        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="153.0" layoutY="485.0" prefHeight="35.0" prefWidth="169.0" promptText="Multi" style="-fx-text-inner-color: #b9b9b9;">
+        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="144.0" layoutY="475.0" prefHeight="35.0"
+                      prefWidth="169.0" promptText="Multi" style="-fx-text-inner-color: #b9b9b9;">
             <font>
                 <Font name="Segoe UI" size="16.0" />
             </font>
