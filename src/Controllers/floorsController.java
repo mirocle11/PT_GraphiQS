@@ -222,12 +222,13 @@ public class floorsController implements Initializable {
             }
             if (ground_floor.isVisible()) {
                 ground_floor.setVisible(false);
-                subfloor.setVisible(true);
+                first_floor.setVisible(true);
             }
             if (subfloor.isVisible()) {
                 subfloor.setVisible(false);
                 ground_floor.setVisible(true);
             }
+
         } else if (i <= 5) {
             if (third_floor.isVisible()) {
                 third_floor.setVisible(false);
@@ -341,7 +342,10 @@ public class floorsController implements Initializable {
     }
 
     public void back(ActionEvent actionEvent) {
-        if (!seventh_floor.isVisible()) if (sixth_floor.isVisible()) {
+        if (seventh_floor.isVisible()) {
+            seventh_floor.setVisible((false));
+            sixth_floor.setVisible(true);
+        }else if (sixth_floor.isVisible()) {
             sixth_floor.setVisible(false);
             fifth_floor.setVisible(true);
         } else if (fifth_floor.isVisible()) {
