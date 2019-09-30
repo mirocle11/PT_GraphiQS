@@ -14,9 +14,10 @@ public class floorsController implements Initializable {
 
     @FXML
     private AnchorPane rootpane,subfloor;
-    //floor indicator
-    int i = 0;
     private AnchorPane ground_floor, first_floor, second_floor, third_floor, fourth_floor, fifth_floor, sixth_floor, seventh_floor;
+
+    //floor indicator
+    private int i = 0;
     @FXML
     private Label floor_indicator;
 
