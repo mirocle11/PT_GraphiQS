@@ -16,10 +16,11 @@ public class floorsController implements Initializable {
     private AnchorPane rootpane,subfloor;
     private AnchorPane ground_floor, first_floor, second_floor, third_floor, fourth_floor, fifth_floor, sixth_floor, seventh_floor;
 
-    //floor indicator
-    private int i = 0;
     @FXML
     private Label floor_indicator;
+
+    //floor indicator
+    private int i = 0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
