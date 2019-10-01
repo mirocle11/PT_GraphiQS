@@ -25,7 +25,7 @@ public class floorsController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/ground_floor.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/Floors/ground_floor.fxml"));
             ground_floor = loader.load();
             rootpane.getChildren().addAll(ground_floor);
             ground_floor.setVisible(false);
@@ -34,7 +34,7 @@ public class floorsController implements Initializable {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/first_floor.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/Floors/first_floor.fxml"));
             first_floor = loader.load();
             rootpane.getChildren().addAll(first_floor);
             first_floor.setVisible(false);
@@ -43,7 +43,7 @@ public class floorsController implements Initializable {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/second_floor.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/Floors/second_floor.fxml"));
             second_floor = loader.load();
             rootpane.getChildren().addAll(second_floor);
             second_floor.setVisible(false);
@@ -52,7 +52,7 @@ public class floorsController implements Initializable {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/third_floor.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/Floors/third_floor.fxml"));
             third_floor = loader.load();
             rootpane.getChildren().addAll(third_floor);
             third_floor.setVisible(false);
@@ -61,7 +61,7 @@ public class floorsController implements Initializable {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/fourth_floor.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/Floors/fourth_floor.fxml"));
             fourth_floor = loader.load();
             rootpane.getChildren().addAll(fourth_floor);
             fourth_floor.setVisible(false);
@@ -70,7 +70,7 @@ public class floorsController implements Initializable {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/fifth_floor.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/Floors/fifth_floor.fxml"));
             fifth_floor = loader.load();
             rootpane.getChildren().addAll(fifth_floor);
             fifth_floor.setVisible(false);
@@ -79,7 +79,7 @@ public class floorsController implements Initializable {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/sixth_floor.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/Floors/sixth_floor.fxml"));
             sixth_floor = loader.load();
             rootpane.getChildren().addAll(sixth_floor);
             sixth_floor.setVisible(false);
@@ -88,7 +88,7 @@ public class floorsController implements Initializable {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/seventh_floor.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/Floors/seventh_floor.fxml"));
             seventh_floor = loader.load();
             rootpane.getChildren().addAll(seventh_floor);
             seventh_floor.setVisible(false);
