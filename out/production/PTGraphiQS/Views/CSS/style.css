@@ -45,7 +45,7 @@
     -fx-font-size: 16;
 }
 
-.jfx-tab-pane .headers-region .tab:closable .tab-container .tab-label{
+.jfx-tab-pane .headers-region .tab:closable .tab-container .tab-label {
     -fx-padding: 0 8 0 6;
 }
 
@@ -68,33 +68,28 @@
 }
 
 /*radiobutton*/
-.jfx-radio-button{
+.jfx-radio-button {
     -jfx-selected-color: #0F9D58;
     -jfx-unselected-color: #5A5A5A;
 }
 
-.jfx-radio-button .radio-container:hover{
+.jfx-radio-button .radio-container:hover {
     -fx-cursor: hand;
 }
 
 /*treetable column*/
+.jfx-tree-table-view {
+    -fx-tree-table-color: rgba(82, 100, 174, 0.4);
+    -fx-tree-table-rippler-color: rgba(82, 100, 174, 0.6);
+    -jfx-header-color: #1d1d1d;
+}
+
 .tree-table-view .column-header {
-    -fx-font-family: "Segoe UI Semilight";
-    -fx-font-size: 15;
-    -fx-font-style: normal;
-    -fx-text-fill: darkslategrey;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 14;
 }
 
 .tree-table-view .header {
-    -fx-font-family: "Segoe UI Light";
-    -fx-font-size: 15;
-    -fx-font-style: normal;
-    -fx-text-fill: darkslategrey;
-}
-
-.tree-table-view .column {
-    -fx-font-family: "Segoe UI Light";
-    -fx-font-size: 15;
-    -fx-font-style: normal;
-    -fx-text-fill: darkslategrey;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 14;
 }

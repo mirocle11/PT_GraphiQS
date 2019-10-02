@@ -347,7 +347,7 @@ public class floorsController implements Initializable {
         if (seventh_floor.isVisible()) {
             seventh_floor.setVisible((false));
             sixth_floor.setVisible(true);
-        }else if (sixth_floor.isVisible()) {
+        } else if (sixth_floor.isVisible()) {
             sixth_floor.setVisible(false);
             fifth_floor.setVisible(true);
         } else if (fifth_floor.isVisible()) {
