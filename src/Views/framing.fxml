@@ -94,7 +94,7 @@
             <Font name="Segoe UI" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTreeTableView layoutX="75.0" layoutY="364.0" prefHeight="342.0" prefWidth="865.0" AnchorPane.bottomAnchor="14.0" AnchorPane.topAnchor="364.0">
+      <JFXTreeTableView layoutX="75.0" layoutY="364.0" prefHeight="336.0" prefWidth="865.0" AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="364.0">
          <columns>
             <TreeTableColumn editable="false" prefWidth="220.0" resizable="false" sortable="false" text="Section" />
             <TreeTableColumn editable="false" prefWidth="129.0" resizable="false" sortable="false" text="Height" />
@@ -122,5 +122,33 @@
             </ImageView>
          </graphic>
       </JFXButton>
+      <JFXButton ellipsisString="" layoutX="428.0" layoutY="77.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="47.0" style="-fx-background-radius: 100px;">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/circled_left_2_30px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton ellipsisString="" layoutX="529.0" layoutY="78.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="47.0" style="-fx-background-radius: 100px;">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/circled_right_2_30px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="475.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/1_circle_c_25px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="36.0" layoutX="504.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/2_circle_25px.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

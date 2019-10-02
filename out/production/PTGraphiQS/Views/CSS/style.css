@@ -81,15 +81,15 @@
 .jfx-tree-table-view {
     -fx-tree-table-color: rgba(82, 100, 174, 0.4);
     -fx-tree-table-rippler-color: rgba(82, 100, 174, 0.6);
-    -jfx-header-color: #1d1d1d;
+    -jfx-header-color: #252326;
 }
 
 .tree-table-view .column-header {
-    -fx-font-family: "Segoe UI";
+    -fx-font-family: "Segoe UI Semilight";
     -fx-font-size: 14;
 }
 
 .tree-table-view .header {
-    -fx-font-family: "Segoe UI";
+    -fx-font-family: "Segoe UI Semilight";
     -fx-font-size: 14;
 }
