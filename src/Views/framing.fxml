@@ -20,7 +20,6 @@
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
-
       </JFXTextField>
       <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="462.0" layoutY="154.0" prefHeight="35.0" prefWidth="210.0" promptText="Height" style="-fx-text-inner-color: #b9b9b9;">
          <font>
