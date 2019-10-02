@@ -76,3 +76,25 @@
 .jfx-radio-button .radio-container:hover{
     -fx-cursor: hand;
 }
+
+/*treetable column*/
+.tree-table-view .column-header {
+    -fx-font-family: "Segoe UI Semilight";
+    -fx-font-size: 15;
+    -fx-font-style: normal;
+    -fx-text-fill: darkslategrey;
+}
+
+.tree-table-view .header {
+    -fx-font-family: "Segoe UI Light";
+    -fx-font-size: 15;
+    -fx-font-style: normal;
+    -fx-text-fill: darkslategrey;
+}
+
+.tree-table-view .column {
+    -fx-font-family: "Segoe UI Light";
+    -fx-font-size: 15;
+    -fx-font-style: normal;
+    -fx-text-fill: darkslategrey;
+}
