@@ -9,43 +9,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="720.0" prefWidth="1015.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootpane" prefHeight="600.0" prefWidth="1015.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <JFXButton ellipsisString="" layoutX="428.0" layoutY="77.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="47.0" style="-fx-background-radius: 100px;">
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/circled_left_2_30px.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton ellipsisString="" layoutX="529.0" layoutY="77.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="47.0" style="-fx-background-radius: 100px;">
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/circled_right_2_30px.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="475.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/1_circle_25px.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="36.0" layoutX="504.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/2_circle_c_25px.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="22.0" layoutY="143.0" prefHeight="36.0" prefWidth="156.0" text="Beams/Columns" textFill="#b5b5b5" underline="true">
+      <Label layoutX="23.0" layoutY="75.0" prefHeight="36.0" prefWidth="151.0" text="Beams/Columns" textFill="#b5b5b5" underline="true">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font>
       </Label>
-      <JFXTreeTableView layoutX="22.0" layoutY="200.0" prefHeight="400.0" prefWidth="466.0">
+      <JFXTreeTableView layoutX="23.0" layoutY="132.0" prefHeight="400.0" prefWidth="466.0" AnchorPane.bottomAnchor="100.0" AnchorPane.topAnchor="132.0">
          <columns>
             <TreeTableColumn editable="false" prefWidth="66.0" resizable="false" sortable="false" text="No." />
             <TreeTableColumn editable="false" prefWidth="99.0" resizable="false" sortable="false" text="Beam" />
@@ -54,7 +25,7 @@
             <TreeTableColumn editable="false" prefWidth="100.0" resizable="false" sortable="false" text="Size" />
          </columns>
       </JFXTreeTableView>
-      <JFXButton ellipsisString="" layoutX="388.0" layoutY="159.0" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
+      <JFXButton ellipsisString="" layoutX="389.0" layoutY="91.0" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -63,7 +34,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton ellipsisString="" layoutX="438.0" layoutY="159.0" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
+      <JFXButton ellipsisString="" layoutX="439.0" layoutY="91.0" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -72,7 +43,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXTreeTableView layoutX="501.0" layoutY="200.0" prefHeight="400.0" prefWidth="491.0">
+      <JFXTreeTableView layoutX="502.0" layoutY="132.0" prefHeight="400.0" prefWidth="491.0" AnchorPane.bottomAnchor="100.0" AnchorPane.topAnchor="132.0">
          <columns>
             <TreeTableColumn editable="false" prefWidth="65.0" resizable="false" sortable="false" text="No." />
             <TreeTableColumn editable="false" prefWidth="85.0" resizable="false" sortable="false" text="Column" />
@@ -82,7 +53,7 @@
             <TreeTableColumn editable="false" prefWidth="85.0" resizable="false" sortable="false" text="Cladding" />
          </columns>
       </JFXTreeTableView>
-      <JFXButton ellipsisString="" layoutX="892.0" layoutY="159.0" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
+      <JFXButton ellipsisString="" layoutX="893.0" layoutY="91.0" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -91,7 +62,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton ellipsisString="" layoutX="942.0" layoutY="159.0" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
+      <JFXButton ellipsisString="" layoutX="943.0" layoutY="91.0" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>

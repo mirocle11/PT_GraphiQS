@@ -12,99 +12,99 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1015.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Label layoutX="75.0" layoutY="154.0" prefHeight="35.0" prefWidth="116.0" text="Chimney" textFill="#b9b9b9">
+<AnchorPane fx:id="rootpane" prefHeight="720.0" prefWidth="1015.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.framingController">
+   <AnchorPane fx:id="firstpane" layoutY="119.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1015.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="119.0">
+      <Label layoutX="43.0" layoutY="27.0" prefHeight="35.0" prefWidth="116.0" text="Chimney" textFill="#b9b9b9">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </Label>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="204.0" layoutY="154.0" prefHeight="35.0" prefWidth="210.0" promptText="Length" style="-fx-text-inner-color: #b9b9b9;">
+      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="172.0" layoutY="27.0" prefHeight="35.0" prefWidth="215.0" promptText="Length" style="-fx-text-inner-color: #b9b9b9;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="462.0" layoutY="154.0" prefHeight="35.0" prefWidth="210.0" promptText="Height" style="-fx-text-inner-color: #b9b9b9;">
+      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="441.0" layoutY="27.0" prefHeight="35.0" prefWidth="237.0" promptText="Height" style="-fx-text-inner-color: #b9b9b9;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="730.0" layoutY="154.0" prefHeight="35.0" prefWidth="210.0" promptText="Weight" style="-fx-text-inner-color: #b9b9b9;">
+      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="736.0" layoutY="27.0" prefHeight="35.0" prefWidth="237.0" promptText="Weight" style="-fx-text-inner-color: #b9b9b9;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </JFXTextField>
-      <Label layoutX="75.0" layoutY="216.0" prefHeight="35.0" prefWidth="116.0" text="Door Jambs" textFill="#b9b9b9">
+      <Label layoutX="43.0" layoutY="89.0" prefHeight="35.0" prefWidth="116.0" text="Door Jambs" textFill="#b9b9b9">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </Label>
-      <JFXRadioButton layoutX="204.0" layoutY="216.0" prefHeight="35.0" prefWidth="116.0" text="Grooved" textFill="#b9b9b9">
+      <JFXRadioButton layoutX="172.0" layoutY="89.0" prefHeight="35.0" prefWidth="116.0" text="Grooved" textFill="#b9b9b9">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </JFXRadioButton>
-      <JFXRadioButton layoutX="332.0" layoutY="216.0" prefHeight="35.0" prefWidth="83.0" text="Flat" textFill="#b9b9b9">
+      <JFXRadioButton layoutX="300.0" layoutY="89.0" prefHeight="35.0" prefWidth="91.0" text="Flat" textFill="#b9b9b9">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </JFXRadioButton>
-      <Label layoutX="462.0" layoutY="216.0" prefHeight="35.0" prefWidth="109.0" text="Skirting" textFill="#b9b9b9">
+      <Label layoutX="440.0" layoutY="89.0" prefHeight="35.0" prefWidth="109.0" text="Skirting" textFill="#b9b9b9">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </Label>
-      <JFXCheckBox layoutX="598.0" layoutY="216.0" prefHeight="35.0" prefWidth="74.0" text="STD" textFill="#b8b8b8">
+      <JFXCheckBox layoutX="567.0" layoutY="89.0" prefHeight="35.0" prefWidth="74.0" text="STD" textFill="#b8b8b8">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </JFXCheckBox>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="730.0" layoutY="216.0" prefHeight="35.0" prefWidth="210.0" promptText="Other" style="-fx-text-inner-color: #b9b9b9;">
+      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="736.0" layoutY="89.0" prefHeight="35.0" prefWidth="237.0" promptText="Other" style="-fx-text-inner-color: #b9b9b9;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </JFXTextField>
-      <Label layoutX="75.0" layoutY="278.0" prefHeight="35.0" prefWidth="116.0" text="Architraves" textFill="#b9b9b9">
+      <Label layoutX="43.0" layoutY="151.0" prefHeight="35.0" prefWidth="116.0" text="Architraves" textFill="#b9b9b9">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </Label>
-      <JFXCheckBox layoutX="204.0" layoutY="278.0" prefHeight="35.0" prefWidth="74.0" text="STD" textFill="#b8b8b8">
+      <JFXCheckBox layoutX="172.0" layoutY="151.0" prefHeight="35.0" prefWidth="74.0" text="STD" textFill="#b8b8b8">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </JFXCheckBox>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="291.0" layoutY="278.0" prefHeight="35.0" prefWidth="123.0" promptText="Other" style="-fx-text-inner-color: #b9b9b9;">
+      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="259.0" layoutY="151.0" prefHeight="35.0" prefWidth="132.0" promptText="Other" style="-fx-text-inner-color: #b9b9b9;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </JFXTextField>
-      <Label layoutX="462.0" layoutY="278.0" prefHeight="35.0" prefWidth="109.0" text="Scotia" textFill="#b9b9b9">
+      <Label layoutX="440.0" layoutY="151.0" prefHeight="35.0" prefWidth="109.0" text="Scotia" textFill="#b9b9b9">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </Label>
-      <JFXCheckBox layoutX="598.0" layoutY="278.0" prefHeight="35.0" prefWidth="74.0" text="STD" textFill="#b8b8b8">
+      <JFXCheckBox layoutX="567.0" layoutY="151.0" prefHeight="35.0" prefWidth="74.0" text="STD" textFill="#b8b8b8">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </JFXCheckBox>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="730.0" layoutY="278.0" prefHeight="35.0" prefWidth="210.0" promptText="Other" style="-fx-text-inner-color: #b9b9b9;">
+      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="736.0" layoutY="151.0" prefHeight="35.0" prefWidth="237.0" promptText="Other" style="-fx-text-inner-color: #b9b9b9;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTreeTableView layoutX="75.0" layoutY="364.0" prefHeight="336.0" prefWidth="865.0" AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="364.0">
+      <JFXTreeTableView layoutX="43.0" layoutY="236.0" prefHeight="335.0" prefWidth="930.0" AnchorPane.bottomAnchor="33.0" AnchorPane.topAnchor="236.0">
          <columns>
-            <TreeTableColumn editable="false" prefWidth="220.0" resizable="false" sortable="false" text="Section" />
-            <TreeTableColumn editable="false" prefWidth="129.0" resizable="false" sortable="false" text="Height" />
-            <TreeTableColumn editable="false" prefWidth="129.0" resizable="false" sortable="false" text="Length" />
-            <TreeTableColumn editable="false" prefWidth="129.0" resizable="false" sortable="false" text="Type" />
-            <TreeTableColumn editable="false" prefWidth="129.0" resizable="false" sortable="false" text="Stud" />
-            <TreeTableColumn editable="false" prefWidth="128.0" resizable="false" sortable="false" text="Spacing" />
+            <TreeTableColumn editable="false" prefWidth="189.0" resizable="false" sortable="false" text="Section" />
+            <TreeTableColumn editable="false" prefWidth="147.0" resizable="false" sortable="false" text="Height" />
+            <TreeTableColumn editable="false" prefWidth="141.0" resizable="false" sortable="false" text="Length" />
+            <TreeTableColumn editable="false" prefWidth="145.0" resizable="false" sortable="false" text="Type" />
+            <TreeTableColumn editable="false" prefWidth="153.0" resizable="false" sortable="false" text="Stud" />
+            <TreeTableColumn editable="false" prefWidth="154.0" resizable="false" sortable="false" text="Spacing" />
          </columns>
       </JFXTreeTableView>
-      <JFXButton ellipsisString="" layoutX="75.0" layoutY="324.0" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
+      <JFXButton ellipsisString="" layoutX="43.0" layoutY="196.0" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -113,7 +113,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton ellipsisString="" layoutX="125.0" layoutY="324.0" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
+      <JFXButton ellipsisString="" layoutX="93.0" layoutY="196.0" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -122,33 +122,33 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton ellipsisString="" layoutX="428.0" layoutY="77.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="47.0" style="-fx-background-radius: 100px;">
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/circled_left_2_30px.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton ellipsisString="" layoutX="529.0" layoutY="77.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="47.0" style="-fx-background-radius: 100px;">
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/circled_right_2_30px.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="475.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/1_circle_c_25px.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="36.0" layoutX="504.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/2_circle_25px.png" />
-         </image>
-      </ImageView>
-   </children>
+   </AnchorPane>
+   <JFXButton ellipsisString="" layoutX="434.0" layoutY="57.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#back" prefHeight="42.0" prefWidth="47.0" style="-fx-background-radius: 100px;">
+      <graphic>
+         <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@images/circled_left_2_30px.png" />
+            </image>
+         </ImageView>
+      </graphic>
+   </JFXButton>
+   <JFXButton ellipsisString="" layoutX="535.0" layoutY="57.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#next" prefHeight="42.0" prefWidth="47.0" style="-fx-background-radius: 100px;">
+      <graphic>
+         <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@images/circled_right_2_30px.png" />
+            </image>
+         </ImageView>
+      </graphic>
+   </JFXButton>
+   <ImageView fx:id="first" fitHeight="25.0" fitWidth="25.0" layoutX="481.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@images/1_circle_c_25px.png" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="second" fitHeight="25.0" fitWidth="36.0" layoutX="510.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@images/2_circle_25px.png" />
+      </image>
+   </ImageView>
 </AnchorPane>
