@@ -16,7 +16,7 @@
             <Font name="Segoe UI" size="20.0" />
          </font>
       </Label>
-      <JFXTreeTableView layoutX="23.0" layoutY="132.0" prefHeight="400.0" prefWidth="466.0" AnchorPane.bottomAnchor="100.0" AnchorPane.topAnchor="132.0">
+      <JFXTreeTableView layoutX="23.0" layoutY="132.0" prefHeight="411.0" prefWidth="466.0" AnchorPane.bottomAnchor="120.0" AnchorPane.topAnchor="132.0">
          <columns>
             <TreeTableColumn editable="false" prefWidth="66.0" resizable="false" sortable="false" text="No." />
             <TreeTableColumn editable="false" prefWidth="99.0" resizable="false" sortable="false" text="Beam" />
@@ -43,7 +43,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXTreeTableView layoutX="502.0" layoutY="132.0" prefHeight="400.0" prefWidth="491.0" AnchorPane.bottomAnchor="100.0" AnchorPane.topAnchor="132.0">
+      <JFXTreeTableView layoutX="502.0" layoutY="132.0" prefHeight="411.0" prefWidth="491.0" AnchorPane.bottomAnchor="120.0" AnchorPane.topAnchor="132.0">
          <columns>
             <TreeTableColumn editable="false" prefWidth="65.0" resizable="false" sortable="false" text="No." />
             <TreeTableColumn editable="false" prefWidth="85.0" resizable="false" sortable="false" text="Column" />

@@ -26,6 +26,8 @@ public class framingController implements Initializable {
             secondpane = loader.load();
             rootpane.getChildren().addAll(secondpane);
             secondpane.setLayoutY(120);
+            AnchorPane.setBottomAnchor(secondpane,0.0);
+            AnchorPane.setTopAnchor(secondpane,120.0);
             secondpane.setVisible(false);
         } catch (Exception e) {
             e.printStackTrace();
