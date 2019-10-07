@@ -66,8 +66,6 @@
             </graphic>
         </JFXButton>
         <JFXButton ellipsisString="" layoutX="93.0" layoutY="162.0" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
-            <graphic>
-            </graphic>
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
