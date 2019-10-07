@@ -115,6 +115,8 @@
       </JFXButton>
       <JFXButton ellipsisString="" layoutX="93.0" layoutY="196.0" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
          <graphic>
+         </graphic>
+         <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/cancel_30px.png" />
@@ -133,7 +135,12 @@
       </graphic>
    </JFXButton>
    <JFXButton ellipsisString="" layoutX="535.0" layoutY="57.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#next" prefHeight="42.0" prefWidth="47.0" style="-fx-background-radius: 100px;">
-      <graphic>
+      <graphic>            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/cancel_30px.png" />
+         </image>
+      </ImageView>
+
          <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@images/circled_right_2_30px.png" />

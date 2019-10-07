@@ -1,5 +1,4 @@
 package Controllers;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -34,7 +33,7 @@ public class framingController implements Initializable {
         }
     }
 
-    public void next(ActionEvent actionEvent) {
+    public void next() {
         firstpane.setVisible(false);
         secondpane.setVisible(true);
 
@@ -42,7 +41,7 @@ public class framingController implements Initializable {
         second.setImage(new Image("Views/images/2_circle_c_25px.png"));
     }
 
-    public void back(ActionEvent actionEvent) {
+    public void back() {
         firstpane.setVisible(true);
         secondpane.setVisible(false);
 
