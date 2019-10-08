@@ -27,27 +27,27 @@
             <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
          </content>
       </Tab>
-      <Tab text="Cladding">
+      <Tab fx:id="claddingTab" text="Cladding">
          <content>
             <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
          </content>
       </Tab>
-      <Tab text="Doors">
+      <Tab fx:id="doorsTab" text="Doors">
          <content>
             <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
          </content>
       </Tab>
-      <Tab text="Roof">
+      <Tab fx:id="roofTab" text="Roof">
          <content>
             <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
          </content>
       </Tab>
-      <Tab text="Deck">
+      <Tab fx:id="deckTab" text="Deck">
          <content>
             <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
          </content>
       </Tab>
-      <Tab text="Misc">
+      <Tab fx:id="MiscTab" text="Misc">
          <content>
             <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
          </content>
