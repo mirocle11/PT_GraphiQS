@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1015.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label layoutX="70.0" layoutY="163.0" prefHeight="35.0" prefWidth="107.0" text="Door Jambs" textFill="#b9b9b9" AnchorPane.leftAnchor="70.0">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </Label>
+        <JFXRadioButton layoutX="188.0" layoutY="164.0" prefHeight="35.0" prefWidth="107.0" text="Direct Fix" textFill="#b9b9b9">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </JFXRadioButton>
+        <JFXRadioButton layoutX="302.0" layoutY="164.0" prefHeight="35.0" prefWidth="92.0" text="Cavity" textFill="#b9b9b9">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </JFXRadioButton>
+      <Label layoutX="70.0" layoutY="216.0" prefHeight="35.0" prefWidth="107.0" text="Fixings" textFill="#b9b9b9">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </Label>
+      <JFXRadioButton layoutX="188.0" layoutY="217.0" prefHeight="35.0" prefWidth="79.0" text="SS" textFill="#b9b9b9">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXRadioButton layoutX="302.0" layoutY="217.0" prefHeight="35.0" prefWidth="92.0" text="GALV" textFill="#b9b9b9">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </JFXRadioButton>
+      <Label layoutX="70.0" layoutY="273.0" prefHeight="35.0" prefWidth="107.0" text="Facing" textFill="#b9b9b9">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </Label>
+      <JFXRadioButton layoutX="188.0" layoutY="274.0" prefHeight="35.0" prefWidth="79.0" text="Yes" textFill="#b9b9b9">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXRadioButton layoutX="302.0" layoutY="274.0" prefHeight="35.0" prefWidth="79.0" text="No" textFill="#b9b9b9">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </JFXRadioButton>
+    </children>
+</AnchorPane>

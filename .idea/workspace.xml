@@ -6,15 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="#19 commit">
-      <change afterPath="$PROJECT_DIR$/src/Views/cladding.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/wallsAndInsulation_2.fxml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="#20 commit">
+      <change afterPath="$PROJECT_DIR$/src/Views/doors.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/roof.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/layoutsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/layoutsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/wallsAndInsulationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/wallsAndInsulationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/layouts.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/layouts.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/wallsAndInsulation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/wallsAndInsulation.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -276,7 +273,7 @@
       <workItem from="1570061313734" duration="20136000" />
       <workItem from="1570149165202" duration="15175000" />
       <workItem from="1570404303611" duration="20707000" />
-      <workItem from="1570493636900" duration="18891000" />
+      <workItem from="1570493636900" duration="24048000" />
     </task>
     <task id="LOCAL-00001" summary="2nd commit">
       <created>1569805393110</created>
@@ -453,7 +450,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570429405317</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="#20 commit">
+      <created>1570516787910</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1570516787910</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,6 +486,7 @@
     <MESSAGE value="#6 commit" />
     <MESSAGE value="#7 commit" />
     <MESSAGE value="#19 commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="#19 commit" />
+    <MESSAGE value="#20 commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="#20 commit" />
   </component>
 </project>
