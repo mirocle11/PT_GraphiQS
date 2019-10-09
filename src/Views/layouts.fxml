@@ -47,7 +47,7 @@
             <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
          </content>
       </Tab>
-      <Tab fx:id="MiscTab" text="Misc">
+      <Tab fx:id="miscTab" text="Misc">
          <content>
             <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
          </content>
