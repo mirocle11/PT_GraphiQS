@@ -40,101 +40,101 @@
                 <Font name="Segoe UI" size="16.0" />
             </font>
         </JFXRadioButton>
-      <JFXRadioButton layoutX="338.0" layoutY="234.0" prefHeight="35.0" prefWidth="74.0" text="Klass" textFill="#b9b9b9">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </JFXRadioButton>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="429.0" layoutY="234.0" prefHeight="35.0" prefWidth="110.0" style="-fx-text-inner-color: #b9b9b9;">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="577.0" layoutY="234.0" prefHeight="35.0" prefWidth="235.0" promptText="Length" style="-fx-text-inner-color: #b9b9b9;">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </JFXTextField>
-      <Label layoutX="62.0" layoutY="300.0" prefHeight="35.0" prefWidth="110.0" text="Soffit Linings" textFill="#b9b9b9">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </Label>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="302.0" layoutY="300.0" prefHeight="35.0" prefWidth="208.0" promptText="Other" style="-fx-text-inner-color: #b9b9b9;">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="577.0" layoutY="300.0" prefHeight="35.0" prefWidth="235.0" promptText="Area" style="-fx-text-inner-color: #b9b9b9;">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </JFXTextField>
-      <JFXCheckBox layoutX="190.0" layoutY="300.0" prefHeight="35.0" prefWidth="74.0" text="STD" textFill="#b8b8b8">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </JFXCheckBox>
-      <Label layoutX="63.0" layoutY="369.0" prefHeight="35.0" prefWidth="110.0" text="Roof Paper" textFill="#b9b9b9">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </Label>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="303.0" layoutY="369.0" prefHeight="35.0" prefWidth="208.0" promptText="Other" style="-fx-text-inner-color: #b9b9b9;">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="578.0" layoutY="369.0" prefHeight="35.0" prefWidth="235.0" promptText="Area" style="-fx-text-inner-color: #b9b9b9;">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </JFXTextField>
-      <JFXCheckBox layoutX="191.0" layoutY="369.0" prefHeight="35.0" prefWidth="74.0" text="STD" textFill="#b8b8b8">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="62.0" layoutY="441.0" prefHeight="35.0" prefWidth="200.0" promptText="Roofing" style="-fx-text-inner-color: #b9b9b9;">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="303.0" layoutY="441.0" prefHeight="35.0" prefWidth="208.0" promptText="Area" style="-fx-text-inner-color: #b9b9b9;">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </JFXTextField>
-      <Label layoutX="63.0" layoutY="515.0" prefHeight="35.0" prefWidth="110.0" text="Roof Paper" textFill="#b9b9b9">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </Label>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="181.0" layoutY="515.0" prefHeight="35.0" prefWidth="119.0" promptText="Size" style="-fx-text-inner-color: #b9b9b9;">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="331.0" layoutY="515.0" prefHeight="35.0" prefWidth="163.0" promptText="Treatment" style="-fx-text-inner-color: #b9b9b9;">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </JFXTextField>
-      <JFXComboBox focusColor="#0f9d58" layoutX="524.0" layoutY="515.0" prefHeight="35.0" prefWidth="163.0" promptText="Spacing" />
-      <Label layoutX="723.0" layoutY="515.0" prefHeight="35.0" prefWidth="74.0" text="Mesh" textFill="#b9b9b9">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </Label>
-      <JFXRadioButton layoutX="797.0" layoutY="515.0" prefHeight="35.0" prefWidth="74.0" text="Yes" textFill="#b9b9b9">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </JFXRadioButton>
-      <JFXRadioButton layoutX="872.0" layoutY="515.0" prefHeight="35.0" prefWidth="74.0" text="No" textFill="#b9b9b9">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </JFXRadioButton>
+        <JFXRadioButton layoutX="338.0" layoutY="234.0" prefHeight="35.0" prefWidth="74.0" text="Klass" textFill="#b9b9b9">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </JFXRadioButton>
+        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="429.0" layoutY="234.0" prefHeight="35.0" prefWidth="110.0" style="-fx-text-inner-color: #b9b9b9;">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </JFXTextField>
+        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="577.0" layoutY="234.0" prefHeight="35.0" prefWidth="235.0" promptText="Length" style="-fx-text-inner-color: #b9b9b9;">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </JFXTextField>
+        <Label layoutX="62.0" layoutY="300.0" prefHeight="35.0" prefWidth="110.0" text="Soffit Linings" textFill="#b9b9b9">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </Label>
+        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="302.0" layoutY="300.0" prefHeight="35.0" prefWidth="208.0" promptText="Other" style="-fx-text-inner-color: #b9b9b9;">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </JFXTextField>
+        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="577.0" layoutY="300.0" prefHeight="35.0" prefWidth="235.0" promptText="Area" style="-fx-text-inner-color: #b9b9b9;">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </JFXTextField>
+        <JFXCheckBox layoutX="190.0" layoutY="300.0" prefHeight="35.0" prefWidth="74.0" text="STD" textFill="#b8b8b8">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </JFXCheckBox>
+        <Label layoutX="63.0" layoutY="369.0" prefHeight="35.0" prefWidth="110.0" text="Roof Paper" textFill="#b9b9b9">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </Label>
+        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="303.0" layoutY="369.0" prefHeight="35.0" prefWidth="208.0" promptText="Other" style="-fx-text-inner-color: #b9b9b9;">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </JFXTextField>
+        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="578.0" layoutY="369.0" prefHeight="35.0" prefWidth="235.0" promptText="Area" style="-fx-text-inner-color: #b9b9b9;">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </JFXTextField>
+        <JFXCheckBox layoutX="191.0" layoutY="369.0" prefHeight="35.0" prefWidth="74.0" text="STD" textFill="#b8b8b8">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </JFXCheckBox>
+        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="62.0" layoutY="441.0" prefHeight="35.0" prefWidth="200.0" promptText="Roofing" style="-fx-text-inner-color: #b9b9b9;">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </JFXTextField>
+        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="303.0" layoutY="441.0" prefHeight="35.0" prefWidth="208.0" promptText="Area" style="-fx-text-inner-color: #b9b9b9;">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </JFXTextField>
+        <Label layoutX="63.0" layoutY="515.0" prefHeight="35.0" prefWidth="110.0" text="Roof Paper" textFill="#b9b9b9">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </Label>
+        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="181.0" layoutY="515.0" prefHeight="35.0" prefWidth="119.0" promptText="Size" style="-fx-text-inner-color: #b9b9b9;">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </JFXTextField>
+        <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="331.0" layoutY="515.0" prefHeight="35.0" prefWidth="163.0" promptText="Treatment" style="-fx-text-inner-color: #b9b9b9;">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </JFXTextField>
+        <JFXComboBox focusColor="#0f9d58" layoutX="524.0" layoutY="515.0" prefHeight="35.0" prefWidth="163.0" promptText="Spacing" />
+        <Label layoutX="723.0" layoutY="515.0" prefHeight="35.0" prefWidth="74.0" text="Mesh" textFill="#b9b9b9">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </Label>
+        <JFXRadioButton layoutX="797.0" layoutY="515.0" prefHeight="35.0" prefWidth="74.0" text="Yes" textFill="#b9b9b9">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </JFXRadioButton>
+        <JFXRadioButton layoutX="872.0" layoutY="515.0" prefHeight="35.0" prefWidth="74.0" text="No" textFill="#b9b9b9">
+            <font>
+                <Font name="Segoe UI" size="16.0" />
+            </font>
+        </JFXRadioButton>
     </children>
 </AnchorPane>
