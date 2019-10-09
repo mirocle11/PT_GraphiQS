@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 public class layoutsController implements Initializable {
 
     @FXML
-    private Tab slabAndFootingTab, floorsTab, framingTab, wallsAndInsulationTab, claddingTab, doorsTab, roofTab;
+    private Tab slabAndFootingTab, floorsTab, framingTab, wallsAndInsulationTab, claddingTab, doorsTab, roofTab, deckTab, miscTab;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -67,6 +67,22 @@ public class layoutsController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/roof.fxml"));
             AnchorPane roof = loader.load();
             roofTab.setContent(roof);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/deck.fxml"));
+            AnchorPane deck = loader.load();
+            deckTab.setContent(deck);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/misc.fxml"));
+            AnchorPane misc = loader.load();
+            miscTab.setContent(misc);
         } catch (Exception e) {
             e.printStackTrace();
         }
