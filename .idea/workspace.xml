@@ -7,11 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="#21 commit">
-      <change afterPath="$PROJECT_DIR$/src/Views/deck.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/misc.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Data/framingData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/layoutsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/layoutsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/framingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/framingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Data/DataHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/DataHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/framing.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/framing.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,9 +83,9 @@
       <list>
         <option value="CSS File" />
         <option value="Gradle Kotlin DSL Build Script" />
-        <option value="Class" />
         <option value="package-info" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -118,14 +119,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../NetBeansProjects/PTGraphiQS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../NetBeansProjects/JavaProjects/Enrollment System Source code (Unfinish)" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -275,7 +276,11 @@
       <workItem from="1570149165202" duration="15175000" />
       <workItem from="1570404303611" duration="20707000" />
       <workItem from="1570493636900" duration="25910000" />
-      <workItem from="1570578808747" duration="11627000" />
+      <workItem from="1570578808747" duration="21962000" />
+      <workItem from="1570666218439" duration="17475000" />
+      <workItem from="1570754478903" duration="7160000" />
+      <workItem from="1570775117192" duration="1037000" />
+      <workItem from="1571014275323" duration="16430000" />
     </task>
     <task id="LOCAL-00001" summary="2nd commit">
       <created>1569805393110</created>
@@ -480,7 +485,21 @@
       <option name="project" value="LOCAL" />
       <updated>1570588450044</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="#21 commit">
+      <created>1570592665490</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1570592665490</updated>
+    </task>
+    <task id="LOCAL-00031" summary="#21 commit">
+      <created>1570592771165</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1570592771165</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -501,6 +520,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="2nd commit" />

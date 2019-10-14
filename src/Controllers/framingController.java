@@ -1,7 +1,16 @@
 package Controllers;
+import Data.framingData;
+import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -18,6 +27,12 @@ public class framingController implements Initializable {
     @FXML
     private ImageView first,second;
 
+    @FXML
+    public JFXTreeTableView<framingData> tableView;
+    public TreeTableColumn COL_SECTION, COL_HEIGHT, COL_LENGTH, COL_TYPE, COL_STUD, COL_SPACING;
+
+    ObservableList<framingData> data;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -31,6 +46,35 @@ public class framingController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        data = FXCollections.observableArrayList(
+                new framingData("Exterior","0.0","0.0","0.0","0.0","0.0"),
+                new framingData("Interior","0.0","0.0","0.0","0.0","0.0"),
+                new framingData("Wet Areas","0.0","0.0","0.0","0.0","0.0")
+        );
+
+        COL_SECTION.setCellValueFactory(
+                new TreeItemPropertyValueFactory<framingData,String>("section")
+        );
+        COL_HEIGHT.setCellValueFactory(
+                new TreeItemPropertyValueFactory<framingData,String>("height")
+        );
+        COL_LENGTH.setCellValueFactory(
+                new TreeItemPropertyValueFactory<framingData,String>("length")
+        );
+        COL_TYPE.setCellValueFactory(
+                new TreeItemPropertyValueFactory<framingData,String>("type")
+        );
+        COL_STUD.setCellValueFactory(
+                new TreeItemPropertyValueFactory<framingData,String>("stud")
+        );
+        COL_SPACING.setCellValueFactory(
+                new TreeItemPropertyValueFactory<framingData,String>("spacing")
+        );
+
+        TreeItem<framingData> root = new RecursiveTreeItem<>(data, RecursiveTreeObject::getChildren);
+        tableView.setRoot(root);
+        tableView.setShowRoot(false);
     }
 
     public void next() {

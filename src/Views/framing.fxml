@@ -94,14 +94,14 @@
             <Font name="Segoe UI" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTreeTableView layoutX="43.0" layoutY="236.0" prefHeight="335.0" prefWidth="930.0" AnchorPane.bottomAnchor="33.0" AnchorPane.topAnchor="236.0">
+      <JFXTreeTableView fx:id="tableView" layoutX="43.0" layoutY="236.0" prefHeight="335.0" prefWidth="930.0" AnchorPane.bottomAnchor="33.0" AnchorPane.topAnchor="236.0">
          <columns>
-            <TreeTableColumn editable="false" prefWidth="189.0" resizable="false" sortable="false" text="Section" />
-            <TreeTableColumn editable="false" prefWidth="147.0" resizable="false" sortable="false" text="Height" />
-            <TreeTableColumn editable="false" prefWidth="141.0" resizable="false" sortable="false" text="Length" />
-            <TreeTableColumn editable="false" prefWidth="145.0" resizable="false" sortable="false" text="Type" />
-            <TreeTableColumn editable="false" prefWidth="153.0" resizable="false" sortable="false" text="Stud" />
-            <TreeTableColumn editable="false" prefWidth="154.0" resizable="false" sortable="false" text="Spacing" />
+            <TreeTableColumn fx:id="COL_SECTION" editable="false" prefWidth="189.0" resizable="false" sortable="false" text="Section" />
+            <TreeTableColumn fx:id="COL_HEIGHT" editable="false" prefWidth="147.0" resizable="false" sortable="false" text="Height" />
+            <TreeTableColumn fx:id="COL_LENGTH" editable="false" prefWidth="141.0" resizable="false" sortable="false" text="Length" />
+            <TreeTableColumn fx:id="COL_TYPE" editable="false" prefWidth="145.0" resizable="false" sortable="false" text="Type" />
+            <TreeTableColumn fx:id="COL_STUD" editable="false" prefWidth="153.0" resizable="false" sortable="false" text="Stud" />
+            <TreeTableColumn fx:id="COL_SPACING" editable="false" prefWidth="154.0" resizable="false" sortable="false" text="Spacing" />
          </columns>
       </JFXTreeTableView>
       <JFXButton ellipsisString="" layoutX="43.0" layoutY="196.0" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
