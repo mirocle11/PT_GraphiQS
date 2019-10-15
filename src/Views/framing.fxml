@@ -140,7 +140,6 @@
             <Image url="@images/cancel_30px.png" />
          </image>
       </ImageView>
-
          <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@images/circled_right_2_30px.png" />

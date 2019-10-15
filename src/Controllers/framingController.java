@@ -1,5 +1,5 @@
 package Controllers;
-import Data.framingData;
+import Data.framing.framingData;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
