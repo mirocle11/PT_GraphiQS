@@ -11,17 +11,17 @@
 
 <AnchorPane fx:id="rootpane" prefHeight="600.0" prefWidth="1015.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="23.0" layoutY="75.0" prefHeight="36.0" prefWidth="151.0" text="Beams/Columns" textFill="#b5b5b5" underline="true">
+      <Label layoutX="23.0" layoutY="75.0" prefHeight="36.0" prefWidth="151.0" text="Beams" textFill="#b5b5b5">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font>
       </Label>
       <JFXTreeTableView layoutX="23.0" layoutY="132.0" prefHeight="411.0" prefWidth="466.0" AnchorPane.bottomAnchor="120.0" AnchorPane.topAnchor="132.0">
          <columns>
-            <TreeTableColumn editable="false" prefWidth="66.0" resizable="false" sortable="false" text="No." />
-            <TreeTableColumn editable="false" prefWidth="99.0" resizable="false" sortable="false" text="Beam" />
-            <TreeTableColumn editable="false" prefWidth="98.0" resizable="false" sortable="false" text="Length" />
-            <TreeTableColumn editable="false" prefWidth="102.0" resizable="false" sortable="false" text="Type" />
+            <TreeTableColumn editable="false" prefWidth="65.0" resizable="false" sortable="false" text="No." />
+            <TreeTableColumn editable="false" prefWidth="100.0" resizable="false" sortable="false" text="Beam" />
+            <TreeTableColumn editable="false" prefWidth="100.0" resizable="false" sortable="false" text="Length" />
+            <TreeTableColumn editable="false" prefWidth="100.0" resizable="false" sortable="false" text="Type" />
             <TreeTableColumn editable="false" prefWidth="100.0" resizable="false" sortable="false" text="Size" />
          </columns>
       </JFXTreeTableView>
@@ -71,5 +71,10 @@
             </ImageView>
          </graphic>
       </JFXButton>
+      <Label layoutX="508.0" layoutY="75.0" prefHeight="36.0" prefWidth="151.0" text="Columns" textFill="#b5b5b5">
+         <font>
+            <Font name="Segoe UI" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
