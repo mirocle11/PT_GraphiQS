@@ -55,23 +55,38 @@ public class dashboardController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         setWorkspace();
         initClock();
     }
 
     private void toggleDashBoard() {
         if (i == 0) {
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.1), dashboard_max);
+            dashboard_max.setDisable(true);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.2), dashboard_max);
             translateTransition1.setByX(-265);
-            dashboard_min.setVisible(true);
             translateTransition1.play();
+            translateTransition1.setOnFinished(event -> {
+                TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.2), dashboard_min);
+                translateTransition2.setByX(+65);
+                translateTransition2.play();
+                translateTransition2.setOnFinished(event1 -> {
+                    dashboard_min.setDisable(false);
+                });
+            });
             i++;
         } else {
-            TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.1), dashboard_max);
-            dashboard_min.setVisible(false);
-            translateTransition2.setByX(+265);
-            translateTransition2.play();
+            dashboard_min.setDisable(true);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.2), dashboard_min);
+            translateTransition1.setByX(-65);
+            translateTransition1.play();
+            translateTransition1.setOnFinished(event -> {
+                TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.2), dashboard_max);
+                translateTransition2.setByX(+265);
+                translateTransition2.play();
+                translateTransition2.setOnFinished(event1 -> {
+                    dashboard_max.setDisable(false);
+                });
+            });
             i--;
         }
     }

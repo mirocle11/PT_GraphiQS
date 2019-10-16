@@ -1,5 +1,6 @@
 package Controllers;
 import Data.framing.framingData;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
@@ -21,11 +22,11 @@ import java.util.ResourceBundle;
 public class framingController implements Initializable {
 
     @FXML
-    private AnchorPane rootpane,firstpane;
+    private AnchorPane rootpane, firstpane;
     private AnchorPane secondpane;
 
     @FXML
-    private ImageView first,second;
+    private ImageView first, second;
 
     @FXML
     public JFXTreeTableView<framingData> tableView;
@@ -91,6 +92,10 @@ public class framingController implements Initializable {
 
         first.setImage(new Image("Views/images/1_circle_c_25px.png"));
         second.setImage(new Image("Views/images/2_circle_25px.png"));
+    }
+
+    public void addRow() {
+
     }
 
 }
