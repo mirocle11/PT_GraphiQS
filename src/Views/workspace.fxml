@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1015.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.workspaceController">
 <children>
-   <AnchorPane fx:id="centerpane" focusTraversable="true" layoutX="300.0" layoutY="233.0" prefHeight="255.0" prefWidth="415.0" style="-fx-background-color: #0F1E25;" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="250.0">
+   <AnchorPane fx:id="centerpane" focusTraversable="true" layoutX="300.0" layoutY="233.0" prefHeight="255.0" prefWidth="415.0" style="-fx-background-color: #0F1E25;" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="230.0">
       <children>
          <JFXButton ellipsisString="" layoutX="110.0" layoutY="91.0" prefHeight="41.0" prefWidth="140.0" text="Import PDF" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.leftAnchor="65.0" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="90.0">
             <font>

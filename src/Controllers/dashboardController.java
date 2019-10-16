@@ -1,8 +1,6 @@
 package Controllers;
 
 import Main.Main;
-import Controllers.workspaceController;
-import com.jfoenix.controls.JFXButton;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
