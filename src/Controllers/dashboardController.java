@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 public class dashboardController implements Initializable {
 
     @FXML
-    private AnchorPane rootpane,dashboard_max,dashboard_min;
+    private AnchorPane rootpane,dashboard_max,dashboard_min,centerpane;
     private AnchorPane workspace,layouts;
 
     @FXML
@@ -92,32 +92,30 @@ public class dashboardController implements Initializable {
     }
 
     private void setWorkspace() {
-        if (i == 0) {
-            workspace.setTranslateX(270);
-        } else {
-            workspace.setTranslateX(70);
-        }
-        AnchorPane.setLeftAnchor(workspace,0.0);
         AnchorPane.setRightAnchor(workspace,0.0);
         AnchorPane.setTopAnchor(workspace,0.0);
         AnchorPane.setBottomAnchor(workspace,0.0);
+        if (i == 0) {
+            AnchorPane.setLeftAnchor(workspace,270.0);
+        } else {
+            AnchorPane.setLeftAnchor(workspace,70.0);
+        }
         workspace.setVisible(true);
         layouts.setVisible(false);
     }
 
     private void setLayouts() {
-        if (i == 0) {
-            layouts.setTranslateX(265);
-        } else {
-            layouts.setTranslateX(65);
-        }
-        AnchorPane.setLeftAnchor(layouts,0.0);
         AnchorPane.setRightAnchor(layouts,0.0);
         AnchorPane.setTopAnchor(layouts,0.0);
         AnchorPane.setBottomAnchor(layouts,0.0);
+        if (i == 0) {
+            AnchorPane.setLeftAnchor(layouts,270.0);
+        } else {
+            AnchorPane.setLeftAnchor(layouts,70.0);
+        }
         workspace.setVisible(false);
         layouts.setVisible(true);
-}
+    }
 
     private void initClock() {
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
