@@ -1,6 +1,5 @@
 package Controllers;
 import Data.framing.framingData;
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
@@ -30,7 +29,12 @@ public class framingController implements Initializable {
 
     @FXML
     public JFXTreeTableView<framingData> tableView;
-    public TreeTableColumn COL_SECTION, COL_HEIGHT, COL_LENGTH, COL_TYPE, COL_STUD, COL_SPACING;
+    public TreeTableColumn<framingData, String> COL_SECTION;
+    public TreeTableColumn<framingData, String> COL_HEIGHT;
+    public TreeTableColumn<framingData, String> COL_LENGTH;
+    public TreeTableColumn<framingData, String> COL_TYPE;
+    public TreeTableColumn<framingData, String> COL_STUD;
+    public TreeTableColumn<framingData, String> COL_SPACING;
 
     ObservableList<framingData> data;
 
@@ -55,22 +59,22 @@ public class framingController implements Initializable {
         );
 
         COL_SECTION.setCellValueFactory(
-                new TreeItemPropertyValueFactory<framingData,String>("section")
+                new TreeItemPropertyValueFactory<>("section")
         );
         COL_HEIGHT.setCellValueFactory(
-                new TreeItemPropertyValueFactory<framingData,String>("height")
+                new TreeItemPropertyValueFactory<>("height")
         );
         COL_LENGTH.setCellValueFactory(
-                new TreeItemPropertyValueFactory<framingData,String>("length")
+                new TreeItemPropertyValueFactory<>("length")
         );
         COL_TYPE.setCellValueFactory(
-                new TreeItemPropertyValueFactory<framingData,String>("type")
+                new TreeItemPropertyValueFactory<>("type")
         );
         COL_STUD.setCellValueFactory(
-                new TreeItemPropertyValueFactory<framingData,String>("stud")
+                new TreeItemPropertyValueFactory<>("stud")
         );
         COL_SPACING.setCellValueFactory(
-                new TreeItemPropertyValueFactory<framingData,String>("spacing")
+                new TreeItemPropertyValueFactory<>("spacing")
         );
 
         TreeItem<framingData> root = new RecursiveTreeItem<>(data, RecursiveTreeObject::getChildren);

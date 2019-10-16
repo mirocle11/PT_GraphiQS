@@ -6,12 +6,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="#31 commit">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="#35 commit">
+      <change afterPath="$PROJECT_DIR$/src/Views/framingAddRow.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/dashboardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/dashboardController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/framingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/framingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/CSS/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/CSS/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/framingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/framingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/wallsAndInsulation_2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/wallsAndInsulation_2.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,8 +84,8 @@
         <option value="CSS File" />
         <option value="Gradle Kotlin DSL Build Script" />
         <option value="package-info" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -281,7 +282,7 @@
       <workItem from="1570775117192" duration="1037000" />
       <workItem from="1571014275323" duration="22616000" />
       <workItem from="1571098540971" duration="12727000" />
-      <workItem from="1571184676953" duration="4659000" />
+      <workItem from="1571184676953" duration="15054000" />
     </task>
     <task id="LOCAL-00001" summary="2nd commit">
       <created>1569805393110</created>
@@ -556,7 +557,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571189300082</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="#35 commit">
+      <created>1571189775879</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1571189775879</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,6 +599,7 @@
     <MESSAGE value="#27 commit" />
     <MESSAGE value="#30 commit" />
     <MESSAGE value="#31 commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="#31 commit" />
+    <MESSAGE value="#35 commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="#35 commit" />
   </component>
 </project>
