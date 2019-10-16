@@ -85,11 +85,11 @@
 }
 
 .tree-table-view .column-header {
-    -fx-font-family: "Segoe UI Semilight";
-    -fx-font-size: 14;
+    -fx-font-family: "Segoe UI Symbol";
+    -fx-font-size: 16;
 }
 
-.tree-table-view .header {
-    -fx-font-family: "Segoe UI Semilight";
-    -fx-font-size: 14;
+.tree-table-view {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 16;
 }
