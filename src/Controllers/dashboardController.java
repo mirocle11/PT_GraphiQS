@@ -109,9 +109,9 @@ public class dashboardController implements Initializable {
         AnchorPane.setTopAnchor(layouts,0.0);
         AnchorPane.setBottomAnchor(layouts,0.0);
         if (i == 0) {
-            AnchorPane.setLeftAnchor(layouts,270.0);
+            AnchorPane.setLeftAnchor(layouts,265.0);
         } else {
-            AnchorPane.setLeftAnchor(layouts,70.0);
+            AnchorPane.setLeftAnchor(layouts,65.0);
         }
         workspace.setVisible(false);
         layouts.setVisible(true);
