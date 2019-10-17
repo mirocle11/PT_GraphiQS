@@ -41,22 +41,22 @@ public class splashScreenController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        TranslateTransition loadingLabelTransition = new TranslateTransition(Duration.seconds(0.5),loadingLabel);
+        TranslateTransition loadingLabelTransition = new TranslateTransition(Duration.seconds(0.5), loadingLabel);
         loadingLabelTransition.setByY(700);
         loadingLabelTransition.play();
 
-        TranslateTransition titlePaneTransition = new TranslateTransition(Duration.seconds(0.5),titlePane);
+        TranslateTransition titlePaneTransition = new TranslateTransition(Duration.seconds(0.5), titlePane);
         titlePaneTransition.setByY(700);
         titlePaneTransition.play();
 
-        TranslateTransition waitLabelTransition = new TranslateTransition(Duration.seconds(0.5),waitLabel);
+        TranslateTransition waitLabelTransition = new TranslateTransition(Duration.seconds(0.5), waitLabel);
         waitLabelTransition.setByY(700);
         waitLabelTransition.play();
 
         loadingLabelTransition.setOnFinished(event -> {
             loadingLabel.setVisible(true);
 
-            TranslateTransition loadingLabelTransition1 = new TranslateTransition(Duration.seconds(1),loadingLabel);
+            TranslateTransition loadingLabelTransition1 = new TranslateTransition(Duration.seconds(1), loadingLabel);
             loadingLabelTransition1.setByY(-700);
             loadingLabelTransition1.play();
 
@@ -71,21 +71,21 @@ public class splashScreenController implements Initializable {
                 titlePaneTransition1.setOnFinished(event2 -> {
                     waitLabel.setVisible(true);
 
-                    TranslateTransition waitLabelTransition1 = new TranslateTransition(Duration.seconds(0.5),waitLabel);
+                    TranslateTransition waitLabelTransition1 = new TranslateTransition(Duration.seconds(0.5), waitLabel);
                     waitLabelTransition1.setByY(-700);
                     waitLabelTransition1.play();
 
                     waitLabelTransition1.setOnFinished(event3 -> {
                         spinner.setVisible(true);
 
-                        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(3),spinner);
+                        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(3), spinner);
                         fadeTransition.setFromValue(0);
                         fadeTransition.setToValue(3);
                         fadeTransition.play();
 
                         fadeTransition.setOnFinished(event4 -> {
 
-                            FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(2),rootPane);
+                            FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(2), rootPane);
                             fadeTransition1.setFromValue(1);
                             fadeTransition1.setToValue(0.1);
                             fadeTransition1.play();

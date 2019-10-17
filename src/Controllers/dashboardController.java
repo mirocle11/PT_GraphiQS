@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 public class dashboardController implements Initializable {
 
     @FXML
-    private AnchorPane rootpane,dashboard_max,dashboard_min,centerpane;
+    private AnchorPane rootpane,dashboard_max,dashboard_min;
     private AnchorPane workspace,layouts;
 
     @FXML
@@ -93,6 +93,7 @@ public class dashboardController implements Initializable {
         AnchorPane.setRightAnchor(workspace,0.0);
         AnchorPane.setTopAnchor(workspace,0.0);
         AnchorPane.setBottomAnchor(workspace,0.0);
+
         if (i == 0) {
             AnchorPane.setLeftAnchor(workspace,270.0);
         } else {
@@ -106,6 +107,7 @@ public class dashboardController implements Initializable {
         AnchorPane.setRightAnchor(layouts,0.0);
         AnchorPane.setTopAnchor(layouts,0.0);
         AnchorPane.setBottomAnchor(layouts,0.0);
+
         if (i == 0) {
             AnchorPane.setLeftAnchor(layouts,265.0);
         } else {
@@ -117,10 +119,10 @@ public class dashboardController implements Initializable {
 
     private void initClock() {
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
-        DateTimeFormatter timeformat = DateTimeFormatter.ofPattern("hh:mm:ss");
-        DateTimeFormatter dateformat = DateTimeFormatter.ofPattern("MM-dd-yyyy");
-        time.setText(LocalDateTime.now().format(timeformat));
-        date.setText(LocalDateTime.now().format(dateformat));
+            DateTimeFormatter timeformat = DateTimeFormatter.ofPattern("hh:mm:ss");
+            DateTimeFormatter dateformat = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+            time.setText(LocalDateTime.now().format(timeformat));
+            date.setText(LocalDateTime.now().format(dateformat));
         }), new KeyFrame(Duration.seconds(1)));
         clock.setCycleCount(Animation.INDEFINITE);
         clock.play();
