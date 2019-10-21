@@ -1,15 +1,18 @@
 package Controllers;
 import Data.framing.framingData;
 import Main.Main;
+import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
@@ -19,6 +22,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -46,6 +50,8 @@ public class framingController implements Initializable {
     public TreeTableColumn<framingData, String> COL_STUD;
     public TreeTableColumn<framingData, String> COL_SPACING;
 
+    static ObservableList<framingData> data;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -60,7 +66,7 @@ public class framingController implements Initializable {
             e.printStackTrace();
         }
 
-        ObservableList<framingData> data = FXCollections.observableArrayList(
+         data = FXCollections.observableArrayList(
                 new framingData("Exterior", "0.0", "0.0", "0.0", "0.0", "0.0"),
                 new framingData("Interior", "0.0", "0.0", "0.0", "0.0", "0.0"),
                 new framingData("Wet Areas", "0.0", "0.0", "0.0", "0.0", "0.0")
@@ -135,9 +141,17 @@ public class framingController implements Initializable {
         }
     }
 
-        static void closeStage() {
-        framingAddRowStage.close();
+    public void deleteRow() {
+        if (!tableView.isManaged()) {
+            int index = tableView.getSelectionModel().getSelectedIndex();
+            if (index != 0 && index != 1 && index != 2) {
+                data.remove(index);
+            }
+        }
     }
 
+    static void closeStage() {
+        framingAddRowStage.close();
+    }
 
 }

@@ -12,42 +12,42 @@
 
 <AnchorPane fx:id="rootpane" focusTraversable="true" prefHeight="349.0" prefWidth="720.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.framingAddRowController">
    <children>
-      <Label layoutX="27.0" layoutY="22.0" prefHeight="36.0" prefWidth="134.0" text="Add Framing Row" textFill="#b8b8b8">
+      <Label layoutX="34.0" layoutY="32.0" prefHeight="36.0" prefWidth="134.0" text="Add Framing Row" textFill="#b8b8b8">
          <font>
             <Font name="Segoe UI" size="17.0" />
          </font>
       </Label>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="45.0" layoutY="111.0" prefHeight="35.0" prefWidth="177.0" promptText="Section" style="-fx-text-inner-color: #b9b9b9;">
+      <JFXTextField fx:id="SECTION" focusColor="#0f9d58" labelFloat="true" layoutX="45.0" layoutY="111.0" prefHeight="35.0" prefWidth="177.0" promptText="Section" style="-fx-text-inner-color: #b9b9b9;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="272.0" layoutY="111.0" prefHeight="35.0" prefWidth="177.0" promptText="Height" style="-fx-text-inner-color: #b9b9b9;">
+      <JFXTextField fx:id="HEIGHT" focusColor="#0f9d58" labelFloat="true" layoutX="272.0" layoutY="111.0" prefHeight="35.0" prefWidth="177.0" promptText="Height" style="-fx-text-inner-color: #b9b9b9;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="498.0" layoutY="111.0" prefHeight="35.0" prefWidth="177.0" promptText="Length" style="-fx-text-inner-color: #b9b9b9;">
+      <JFXTextField fx:id="LENGTH" focusColor="#0f9d58" labelFloat="true" layoutX="498.0" layoutY="111.0" prefHeight="35.0" prefWidth="177.0" promptText="Length" style="-fx-text-inner-color: #b9b9b9;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="45.0" layoutY="193.0" prefHeight="35.0" prefWidth="177.0" promptText="Type" style="-fx-text-inner-color: #b9b9b9;">
+      <JFXTextField fx:id="TYPE" focusColor="#0f9d58" labelFloat="true" layoutX="45.0" layoutY="193.0" prefHeight="35.0" prefWidth="177.0" promptText="Type" style="-fx-text-inner-color: #b9b9b9;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="272.0" layoutY="193.0" prefHeight="35.0" prefWidth="177.0" promptText="Stud" style="-fx-text-inner-color: #b9b9b9;">
+      <JFXTextField fx:id="STUD" focusColor="#0f9d58" labelFloat="true" layoutX="272.0" layoutY="193.0" prefHeight="35.0" prefWidth="177.0" promptText="Stud" style="-fx-text-inner-color: #b9b9b9;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="498.0" layoutY="193.0" prefHeight="35.0" prefWidth="177.0" promptText="Spacing" style="-fx-text-inner-color: #b9b9b9;">
+      <JFXTextField fx:id="SPACING" focusColor="#0f9d58" labelFloat="true" layoutX="498.0" layoutY="193.0" prefHeight="35.0" prefWidth="177.0" promptText="Spacing" style="-fx-text-inner-color: #b9b9b9;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="460.0" layoutY="293.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="103.0" style="-fx-background-radius: 30px;" text="Save" textAlignment="CENTER" textFill="#b5b5b5">
+      <JFXButton alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="460.0" layoutY="293.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#save" prefHeight="36.0" prefWidth="103.0" style="-fx-background-radius: 30px;" text="Save" textAlignment="CENTER" textFill="#b5b5b5">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>

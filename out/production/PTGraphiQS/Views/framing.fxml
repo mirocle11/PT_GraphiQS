@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootpane" prefHeight="720.0" prefWidth="1015.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.framingController">
-   <AnchorPane fx:id="firstpane" layoutY="119.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1015.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="119.0">
+   <AnchorPane fx:id="firstpane" layoutY="120.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1015.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">
       <Label layoutX="43.0" layoutY="27.0" prefHeight="35.0" prefWidth="116.0" text="Chimney" textFill="#b9b9b9">
          <font>
             <Font name="Segoe UI" size="16.0" />
@@ -104,7 +104,7 @@
             <TreeTableColumn fx:id="COL_SPACING" editable="false" prefWidth="150.0" resizable="false" sortable="false" text="Spacing" />
          </columns>
       </JFXTreeTableView>
-      <JFXButton ellipsisString="" layoutX="43.0" layoutY="196.0" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;" onAction="#addRow">
+      <JFXButton ellipsisString="" layoutX="43.0" layoutY="196.0" onAction="#addRow" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -113,7 +113,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton ellipsisString="" layoutX="93.0" layoutY="196.0" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
+      <JFXButton ellipsisString="" layoutX="93.0" layoutY="196.0" onAction="#deleteRow" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
          <graphic>
          </graphic>
          <graphic>
@@ -137,10 +137,10 @@
    <JFXButton ellipsisString="" layoutX="535.0" layoutY="57.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#next" prefHeight="42.0" prefWidth="47.0" style="-fx-background-radius: 100px;">
       <graphic>
          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/cancel_30px.png" />
-         </image>
-      </ImageView>
+            <image>
+               <Image url="@images/cancel_30px.png" />
+            </image>
+         </ImageView>
          <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@images/circled_right_2_30px.png" />
