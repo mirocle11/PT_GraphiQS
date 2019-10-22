@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
@@ -23,7 +24,7 @@
                </ImageView>
             </graphic>
          </JFXButton>
-            <JFXButton ellipsisString="" layoutX="110.0" layoutY="132.0" prefHeight="41.0" prefWidth="140.0" text="Recent Files" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.leftAnchor="65.0" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="132.0">
+            <JFXButton ellipsisString="" layoutX="110.0" layoutY="132.0" prefHeight="41.0" prefWidth="140.0" text="Recent Files" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.leftAnchor="65.0" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="134.0">
                <font>
                   <Font name="Segoe UI Semilight" size="16.0" />
                </font>

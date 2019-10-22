@@ -2,7 +2,6 @@ package Controllers;
 
 import Main.Main;
 import javafx.animation.*;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -67,9 +66,7 @@ public class dashboardController implements Initializable {
                 TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.2), dashboard_min);
                 translateTransition2.setByX(+65);
                 translateTransition2.play();
-                translateTransition2.setOnFinished(event1 -> {
-                    dashboard_min.setDisable(false);
-                });
+                translateTransition2.setOnFinished(event1 -> dashboard_min.setDisable(false));
             });
             i++;
         } else {
@@ -81,9 +78,7 @@ public class dashboardController implements Initializable {
                 TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.2), dashboard_max);
                 translateTransition2.setByX(+265);
                 translateTransition2.play();
-                translateTransition2.setOnFinished(event1 -> {
-                    dashboard_max.setDisable(false);
-                });
+                translateTransition2.setOnFinished(event1 -> dashboard_max.setDisable(false));
             });
             i--;
         }
@@ -128,15 +123,15 @@ public class dashboardController implements Initializable {
         clock.play();
     }
 
-    public void workspaceAction(ActionEvent actionEvent) {
+    public void workspaceAction() {
         setWorkspace();
     }
 
-    public void layoutsAction(ActionEvent actionEvent) {
+    public void layoutsAction() {
         setLayouts();
     }
 
-    public void toggle(ActionEvent actionEvent) {
+    public void toggle() {
         toggleDashBoard();
         if (workspace.isVisible()) {
             setWorkspace();

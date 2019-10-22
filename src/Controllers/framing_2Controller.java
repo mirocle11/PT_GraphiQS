@@ -1,14 +1,9 @@
 package Controllers;
 
-import Data.framing.framingData;
 import com.jfoenix.controls.JFXTreeTableView;
-import com.jfoenix.controls.RecursiveTreeItem;
-import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import Data.framing.beamsData;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;

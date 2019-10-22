@@ -8,14 +8,14 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="#41 commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/dashboardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/dashboardController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/framingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/framingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/framing.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/framing.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/splashScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/splashScreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/framingAddRowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/framingAddRowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/framing_2Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/framing_2Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/dashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/dashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/framingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/framingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/framing.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/framing.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/framingAddRow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/framingAddRow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/splashScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/splashScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/framing_2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/framing_2Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/workspace.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +129,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -289,7 +289,9 @@
       <workItem from="1571271244747" duration="12909000" />
       <workItem from="1571289126593" duration="11600000" />
       <workItem from="1571356606627" duration="18259000" />
-      <workItem from="1571612930425" duration="16094000" />
+      <workItem from="1571612930425" duration="30355000" />
+      <workItem from="1571698579532" duration="943000" />
+      <workItem from="1571701536215" duration="4397000" />
     </task>
     <task id="LOCAL-00001" summary="2nd commit">
       <created>1569805393110</created>
@@ -613,7 +615,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571302219538</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="#41 commit">
+      <created>1571630379222</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1571630379222</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
