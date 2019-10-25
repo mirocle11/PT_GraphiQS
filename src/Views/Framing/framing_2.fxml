@@ -25,11 +25,11 @@
             <TreeTableColumn fx:id="COL_BEAM_SIZE" editable="false" prefWidth="100.0" resizable="false" sortable="false" text="Size" />
          </columns>
       </JFXTreeTableView>
-      <JFXButton ellipsisString="" layoutX="389.0" layoutY="91.0" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
+      <JFXButton ellipsisString="" layoutX="389.0" layoutY="91.0" onAction="#addRow" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/add_30px.png" />
+                  <Image url="@../images/add_30px.png" />
                </image>
             </ImageView>
          </graphic>
@@ -38,7 +38,7 @@
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/cancel_30px.png" />
+                  <Image url="@../images/cancel_30px.png" />
                </image>
             </ImageView>
          </graphic>
@@ -57,7 +57,7 @@
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/add_30px.png" />
+                  <Image url="@../images/add_30px.png" />
                </image>
             </ImageView>
          </graphic>
@@ -66,7 +66,7 @@
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/cancel_30px.png" />
+                  <Image url="@../images/cancel_30px.png" />
                </image>
             </ImageView>
          </graphic>

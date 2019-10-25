@@ -6,16 +6,21 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="#41 commit">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="#42 commit">
+      <change afterPath="$PROJECT_DIR$/src/Controllers/framingAddBeamRowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/Framing/addBeamRow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/dashboardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/dashboardController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/framingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/framingController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/framing_2Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/framing_2Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/dashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/dashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/framing.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/framing.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/framing_2.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/framingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/framingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/framing_2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/framing_2Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/workspace.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Data/framing/beamsData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/framing/beamsData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/framing.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/framing.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/framingAddRow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Framing/framingAddRow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/framing_2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Framing/framing_2.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -122,7 +127,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../The extras" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../NetBeansProjects/BTRS" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
@@ -136,6 +141,7 @@
       <recent name="Controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Framing" />
       <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Floors" />
       <recent name="C:\Users\User\Documents\IdeaProjects\PTGraphiQS\src\Views" />
     </key>
@@ -291,7 +297,10 @@
       <workItem from="1571356606627" duration="18259000" />
       <workItem from="1571612930425" duration="30355000" />
       <workItem from="1571698579532" duration="943000" />
-      <workItem from="1571701536215" duration="4397000" />
+      <workItem from="1571701536215" duration="20423000" />
+      <workItem from="1571787104965" duration="18166000" />
+      <workItem from="1571872800041" duration="14439000" />
+      <workItem from="1571959468117" duration="3995000" />
     </task>
     <task id="LOCAL-00001" summary="2nd commit">
       <created>1569805393110</created>
@@ -622,7 +631,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571630379222</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="#42 commit">
+      <created>1571706684017</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1571706684018</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -662,6 +678,7 @@
     <MESSAGE value="#39 commit" />
     <MESSAGE value="#40 commit" />
     <MESSAGE value="#41 commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="#41 commit" />
+    <MESSAGE value="#42 commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="#42 commit" />
   </component>
 </project>

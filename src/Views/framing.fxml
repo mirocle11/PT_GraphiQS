@@ -113,7 +113,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton ellipsisString="" layoutX="93.0" layoutY="196.0" onAction="#deleteRow" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
+      <JFXButton ellipsisString="" layoutX="93.0" layoutY="196.0" onAction="#removeRow" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 120px; -fx-border-radius: 120px;">
          <graphic>
          </graphic>
          <graphic>

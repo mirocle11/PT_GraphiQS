@@ -54,7 +54,7 @@
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/ok_35px.png" />
+                  <Image url="@../images/ok_35px.png" />
                </image>
                <viewport>
                   <Rectangle2D />
@@ -69,7 +69,7 @@
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/cancel_30px.png" />
+                  <Image url="@../images/cancel_30px.png" />
                </image>
                <viewport>
                   <Rectangle2D />

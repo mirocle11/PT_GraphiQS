@@ -51,7 +51,7 @@ public class framingController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/framing_2.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/Framing/framing_2.fxml"));
             secondpane = loader.load();
             rootpane.getChildren().addAll(secondpane);
             secondpane.setLayoutY(120);
@@ -110,7 +110,7 @@ public class framingController implements Initializable {
 
     public void addRow() {
         try {
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("../Views/framingAddRow.fxml"));
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("../Views/Framing/framingAddRow.fxml"));
             AnchorPane pane = loader.load();
 
             //draggable pop up
@@ -137,7 +137,7 @@ public class framingController implements Initializable {
         }
     }
 
-    public void deleteRow() {
+    public void removeRow() {
         int index = tableView.getSelectionModel().getSelectedIndex();
         if (index > 2) {
             data.remove(index);
