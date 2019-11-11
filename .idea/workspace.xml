@@ -6,16 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="#46 commit">
-      <change afterPath="$PROJECT_DIR$/src/Views/images/more_than_25px.png" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="#47 commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/workspace.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/workspaceSideNavigation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/workspaceSideNavigation.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -312,14 +304,7 @@
       <workItem from="1573200801796" duration="599000" />
       <workItem from="1573428590655" duration="2902000" />
       <workItem from="1573433255842" duration="891000" />
-      <workItem from="1573438245400" duration="16066000" />
-    </task>
-    <task id="LOCAL-00003" summary="2nd commit">
-      <created>1569814458361</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1569814458361</updated>
+      <workItem from="1573438245400" duration="20551000" />
     </task>
     <task id="LOCAL-00004" summary="2nd commit">
       <created>1569824189717</created>
@@ -657,7 +642,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573439501809</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="#47 commit">
+      <created>1573459260740</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1573459260740</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -700,6 +692,7 @@
     <MESSAGE value="#42 commit" />
     <MESSAGE value="#44 commit" />
     <MESSAGE value="#46 commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="#46 commit" />
+    <MESSAGE value="#47 commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="#47 commit" />
   </component>
 </project>
