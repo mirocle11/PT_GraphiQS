@@ -1,7 +1,6 @@
 package Controllers;
 import Main.Main;
 import Model.ShapeObject;
-import Controllers.workspaceSideNavigatorController.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
@@ -47,7 +46,6 @@ public class workspaceController implements Initializable {
     //buttons
     public JFXButton IMPORT, SAVE, SCALE, LENGTH, AREA, STAMP;
     public JFXHamburger hamburger;
-    public JFXDrawer drawer;
 
     //containers
     public AnchorPane frontPane;
@@ -56,6 +54,8 @@ public class workspaceController implements Initializable {
     public StackPane zoomPane;
     public Canvas canvas;
     public Pane pane;
+    public JFXDrawer drawer;
+    public VBox measurementList, slabList, floorsList, framingList, wallsList;
     public Image image;
     public ColorPicker cpLine;
 
@@ -264,6 +264,7 @@ public class workspaceController implements Initializable {
                             lbl.setStyle("-fx-background-color: white");
                             lbl.setOpacity(1);
                         });
+//                        lbl.setL
                         lbl.setOnMouseExited(event -> {
                             lbl.setStyle("-fx-background-color: transparent");
                             lbl.setOpacity(.5);
@@ -498,6 +499,61 @@ public class workspaceController implements Initializable {
         mode = "AREA";
     }
 
-    public void handlePan(MouseEvent mouseEvent) {
+    //measurements popup
+    public void viewMeasurementList() {
+        if (measurementList.isVisible()) {
+            measurementList.setVisible(false);
+            slabList.setVisible(false);
+            floorsList.setVisible(false);
+            framingList.setVisible(false);
+            wallsList.setVisible(false);
+        } else {
+            measurementList.setVisible(true);
+        }
     }
+
+    public void showSlab() {
+        if (!slabList.isVisible()) {
+            slabList.setVisible(true);
+            floorsList.setVisible(false);
+            framingList.setVisible(false);
+            wallsList.setVisible(false);
+        } else {
+            slabList.setVisible(false);
+        }
+    }
+
+    public void showFloors() {
+        if (!floorsList.isVisible()) {
+            floorsList.setVisible(true);
+            slabList.setVisible(false);
+            framingList.setVisible(false);
+            wallsList.setVisible(false);
+        } else {
+            floorsList.setVisible(false);
+        }
+    }
+
+    public void showFraming() {
+        if (!framingList.isVisible()) {
+            framingList.setVisible(true);
+            slabList.setVisible(false);
+            floorsList.setVisible(false);
+            wallsList.setVisible(false);
+        } else {
+            framingList.setVisible(false);
+        }
+    }
+
+    public void showWalls() {
+        if (!wallsList.isVisible()) {
+            wallsList.setVisible(true);
+            slabList.setVisible(false);
+            floorsList.setVisible(false);
+            framingList.setVisible(false);
+        } else {
+            wallsList.setVisible(false);
+        }
+    }
+
 }

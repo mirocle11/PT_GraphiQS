@@ -60,7 +60,7 @@
                   <children>
                      <JFXButton alignment="BASELINE_LEFT" graphicTextGap="50.0" onAction="#workspaceAction" prefHeight="54.0" prefWidth="265.0" text="Workspace" textAlignment="CENTER" textFill="#b5b5b5">
                         <font>
-                           <Font name="Segoe UI Semilight" size="18.0" />
+                           <Font name="Segoe UI" size="18.0" />
                         </font>
                         <graphic>
                            <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
@@ -75,7 +75,7 @@
                      </JFXButton>
                      <JFXButton alignment="BASELINE_LEFT" graphicTextGap="50.0" onAction="#layoutsAction" prefHeight="54.0" prefWidth="265.0" text="Layouts" textAlignment="CENTER" textFill="#b5b5b5">
                         <font>
-                           <Font name="Segoe UI Semilight" size="18.0" />
+                           <Font name="Segoe UI" size="18.0" />
                         </font>
                         <graphic>
                            <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
@@ -90,7 +90,7 @@
                      </JFXButton>
                      <JFXButton alignment="BASELINE_LEFT" graphicTextGap="50.0" prefHeight="54.0" prefWidth="265.0" text="Comments" textAlignment="CENTER" textFill="#b5b5b5">
                         <font>
-                           <Font name="Segoe UI Semilight" size="18.0" />
+                           <Font name="Segoe UI" size="18.0" />
                         </font>
                         <graphic>
                            <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
@@ -105,7 +105,7 @@
                      </JFXButton>
                      <JFXButton alignment="BASELINE_LEFT" graphicTextGap="50.0" prefHeight="54.0" prefWidth="265.0" text="Plans" textAlignment="CENTER" textFill="#b5b5b5">
                         <font>
-                           <Font name="Segoe UI Semilight" size="18.0" />
+                           <Font name="Segoe UI" size="18.0" />
                         </font>
                         <graphic>
                            <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
@@ -120,7 +120,7 @@
                      </JFXButton>
                      <JFXButton alignment="BASELINE_LEFT" graphicTextGap="50.0" prefHeight="24.0" prefWidth="265.0" text="Settings" textAlignment="CENTER" textFill="#b5b5b5">
                         <font>
-                           <Font name="Segoe UI Semilight" size="18.0" />
+                           <Font name="Segoe UI" size="18.0" />
                         </font>
                         <graphic>
                            <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox style="-fx-background-color: #263238;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.workspaceSideNavigatorController">
+<VBox style="-fx-background-color: #0F1E25;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.workspaceSideNavigatorController">
    <children>
       <Label prefHeight="42.0" prefWidth="220.0" text="History" textFill="#b8b8b8">
          <VBox.margin>
@@ -24,7 +24,7 @@
          </VBox.margin>
          <columns>
             <TreeTableColumn prefWidth="110.0" text="Column X" />
-            <TreeTableColumn prefWidth="110.0" text="Column X" />
+            <TreeTableColumn prefWidth="110.0" text="Column Y" />
          </columns>
       </JFXTreeTableView>
       <Label prefHeight="42.0" prefWidth="220.0" text="Line Width" textFill="#b8b8b8">
