@@ -55,7 +55,9 @@ public class workspaceController implements Initializable {
     public Canvas canvas;
     public Pane pane;
     public JFXDrawer drawer;
-    public VBox measurementList, slabList, floorsList, framingList, wallsList;
+    public VBox measurementList, slabList, floorsList, framingList, wallsList,
+            insulationList, doorsList, roofList, deckList, miscList;
+
     public Image image;
     public ColorPicker cpLine;
 
@@ -507,6 +509,11 @@ public class workspaceController implements Initializable {
             floorsList.setVisible(false);
             framingList.setVisible(false);
             wallsList.setVisible(false);
+            insulationList.setVisible(false);
+            doorsList.setVisible(false);
+            roofList.setVisible(false);
+            deckList.setVisible(false);
+            miscList.setVisible(false);
         } else {
             measurementList.setVisible(true);
         }
@@ -518,6 +525,11 @@ public class workspaceController implements Initializable {
             floorsList.setVisible(false);
             framingList.setVisible(false);
             wallsList.setVisible(false);
+            insulationList.setVisible(false);
+            doorsList.setVisible(false);
+            roofList.setVisible(false);
+            deckList.setVisible(false);
+            miscList.setVisible(false);
         } else {
             slabList.setVisible(false);
         }
@@ -529,6 +541,11 @@ public class workspaceController implements Initializable {
             slabList.setVisible(false);
             framingList.setVisible(false);
             wallsList.setVisible(false);
+            insulationList.setVisible(false);
+            doorsList.setVisible(false);
+            roofList.setVisible(false);
+            deckList.setVisible(false);
+            miscList.setVisible(false);
         } else {
             floorsList.setVisible(false);
         }
@@ -540,6 +557,11 @@ public class workspaceController implements Initializable {
             slabList.setVisible(false);
             floorsList.setVisible(false);
             wallsList.setVisible(false);
+            insulationList.setVisible(false);
+            doorsList.setVisible(false);
+            roofList.setVisible(false);
+            deckList.setVisible(false);
+            miscList.setVisible(false);
         } else {
             framingList.setVisible(false);
         }
@@ -551,9 +573,93 @@ public class workspaceController implements Initializable {
             slabList.setVisible(false);
             floorsList.setVisible(false);
             framingList.setVisible(false);
+            insulationList.setVisible(false);
+            doorsList.setVisible(false);
+            roofList.setVisible(false);
+            deckList.setVisible(false);
+            miscList.setVisible(false);
         } else {
             wallsList.setVisible(false);
         }
     }
 
+    public void showInsulation() {
+        if (!insulationList.isVisible()) {
+            insulationList.setVisible(true);
+            slabList.setVisible(false);
+            floorsList.setVisible(false);
+            framingList.setVisible(false);
+            wallsList.setVisible(false);
+            doorsList.setVisible(false);
+            roofList.setVisible(false);
+            deckList.setVisible(false);
+            miscList.setVisible(false);
+        } else {
+            insulationList.setVisible(false);
+        }
+    }
+
+    public void showDoors() {
+        if (!doorsList.isVisible()) {
+            doorsList.setVisible(true);
+            slabList.setVisible(false);
+            floorsList.setVisible(false);
+            framingList.setVisible(false);
+            wallsList.setVisible(false);
+            insulationList.setVisible(false);
+            roofList.setVisible(false);
+            deckList.setVisible(false);
+            miscList.setVisible(false);
+        } else {
+            doorsList.setVisible(false);
+        }
+    }
+
+    public void showRoof() {
+        if (!roofList.isVisible()) {
+            roofList.setVisible(true);
+            slabList.setVisible(false);
+            floorsList.setVisible(false);
+            framingList.setVisible(false);
+            wallsList.setVisible(false);
+            insulationList.setVisible(false);
+            doorsList.setVisible(false);
+            deckList.setVisible(false);
+            miscList.setVisible(false);
+        } else {
+            roofList.setVisible(false);
+        }
+    }
+
+    public void showDeck() {
+        if (!deckList.isVisible()) {
+            deckList.setVisible(true);
+            slabList.setVisible(false);
+            floorsList.setVisible(false);
+            framingList.setVisible(false);
+            wallsList.setVisible(false);
+            insulationList.setVisible(false);
+            doorsList.setVisible(false);
+            roofList.setVisible(false);
+            miscList.setVisible(false);
+        } else {
+            deckList.setVisible(false);
+        }
+    }
+
+    public void showMisc() {
+        if (!miscList.isVisible()) {
+            miscList.setVisible(true);
+            slabList.setVisible(false);
+            floorsList.setVisible(false);
+            framingList.setVisible(false);
+            wallsList.setVisible(false);
+            insulationList.setVisible(false);
+            doorsList.setVisible(false);
+            roofList.setVisible(false);
+            deckList.setVisible(false);
+        } else {
+            miscList.setVisible(false);
+        }
+    }
 }
