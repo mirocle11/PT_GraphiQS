@@ -1,6 +1,7 @@
 package Controllers;
 import Main.Main;
 import Model.ShapeObject;
+import Controllers.workspaceSideNavigatorController.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
@@ -8,7 +9,6 @@ import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
@@ -58,7 +58,6 @@ public class workspaceController implements Initializable {
     public Pane pane;
     public Image image;
     public ColorPicker cpLine;
-    public Slider slider;
 
     //temp shapes
     Line line = new Line();
@@ -265,7 +264,6 @@ public class workspaceController implements Initializable {
                             lbl.setStyle("-fx-background-color: white");
                             lbl.setOpacity(1);
                         });
-//                        lbl.setL
                         lbl.setOnMouseExited(event -> {
                             lbl.setStyle("-fx-background-color: transparent");
                             lbl.setOpacity(.5);
@@ -287,7 +285,7 @@ public class workspaceController implements Initializable {
     //=====CREATING BOX OUTLINE=====//
     public Shape createBox(double x, double y) {
 
-        double boxW = slider.getValue() * 3;
+        double boxW = workspaceSideNavigatorController.slider.getValue() * 3;
         shapeList.add(new Rectangle(x - boxW / 2, y - boxW / 2, boxW, boxW));
         Rectangle r = (Rectangle) shapeList.get(shapeList.size() - 1);
         r.setStroke(Color.GREEN);
@@ -310,7 +308,7 @@ public class workspaceController implements Initializable {
             canDraw = false;
             ShapeObject shapeObj = new ShapeObject();
             shapeObj.setPane(pane);
-            shapeObj.setStrokeWidth(slider.getValue());
+            shapeObj.setStrokeWidth(workspaceSideNavigatorController.slider.getValue());
             shapeObj.setColor(cpLine.getValue());
             Point2D p2d = new Point2D(r.getX() + r.getHeight() / 2, r.getY() + r.getHeight() / 2);
 
@@ -339,7 +337,7 @@ public class workspaceController implements Initializable {
 
         l.setStroke(color);
         l.setStrokeLineCap(StrokeLineCap.BUTT);
-        l.setStrokeWidth(slider.getValue());
+        l.setStrokeWidth(workspaceSideNavigatorController.slider.getValue());
         l.setOpacity(.5);
 
         l.setOnMouseEntered(event -> {
@@ -411,7 +409,7 @@ public class workspaceController implements Initializable {
 //                line.setEndX(clamp.getX());
 //                line.setEndY(clamp.getY());
 //                pointList.add(clamp);
-//                line.setStrokeWidth(slider.getValue());
+//                line.setStrokeWidth(workspaceSideNavigatorController.slider.getValue());
 //                line.setStroke(cpLine.getValue());
 //                pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
 //                line.setVisible(true);
