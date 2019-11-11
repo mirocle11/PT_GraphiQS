@@ -12,11 +12,11 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
-    Stage stage, dashboard_stage;
+    public static Stage stage, dashboard_stage;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        this.stage = primaryStage;
+        stage = primaryStage;
         splashScreenWindow();
     }
 

@@ -90,9 +90,9 @@ public class dashboardController implements Initializable {
         AnchorPane.setBottomAnchor(workspace,0.0);
 
         if (i == 0) {
-            AnchorPane.setLeftAnchor(workspace,270.0);
+            AnchorPane.setLeftAnchor(workspace,265.0);
         } else {
-            AnchorPane.setLeftAnchor(workspace,70.0);
+            AnchorPane.setLeftAnchor(workspace,65.0);
         }
         workspace.setVisible(true);
         layouts.setVisible(false);

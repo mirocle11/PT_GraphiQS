@@ -27,7 +27,7 @@
                </Label>
                <JFXButton alignment="BASELINE_LEFT" graphicTextGap="50.0" layoutY="145.0" onAction="#toggle" prefHeight="62.0" prefWidth="264.0" text="Dashboard" textAlignment="CENTER" textFill="WHITE">
                   <font>
-                     <Font name="Segoe UI Semilight" size="20.0" />
+                     <Font name="Segoe UI" size="20.0" />
                   </font>
                   <graphic>
                      <ImageView fitHeight="37.0" fitWidth="39.0" nodeOrientation="INHERIT" preserveRatio="true">

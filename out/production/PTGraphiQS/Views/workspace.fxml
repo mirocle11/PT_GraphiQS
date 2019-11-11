@@ -1,18 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1015.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.workspaceController">
-<children>
-   <AnchorPane focusTraversable="true" layoutX="300.0" layoutY="233.0" prefHeight="255.0" prefWidth="415.0" style="-fx-background-color: #0F1E25;" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="230.0">
+   <children>
+      <ScrollPane fx:id="scroller" centerShape="false" layoutX="78.0" layoutY="16.0" opacity="0.0" pannable="true" prefHeight="660.0" prefWidth="885.0" scaleShape="false" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="30.0">
+         <content>
+            <Group fx:id="scrollContent" onMouseDragged="#handlePan">
+               <children>
+                  <StackPane fx:id="zoomPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onScroll="#zoom" prefHeight="660.0" prefWidth="885.0">
+                     <children>
+                        <Group fx:id="group">
+                           <children>
+                              <Canvas fx:id="canvas" height="660.0" nodeOrientation="INHERIT" width="885.0" />
+                              <Pane fx:id="pane" onMouseDragged="#updateLine" onMouseMoved="#updateLine" onMouseReleased="#drawAction" prefHeight="660.0" prefWidth="885.0" />
+                           </children>
+                        </Group>
+                     </children>
+                  </StackPane>
+               </children>
+            </Group>
+         </content>
+      </ScrollPane>
+      <AnchorPane fx:id="frontPane" focusTraversable="true" layoutX="300.0" layoutY="233.0" prefHeight="255.0" prefWidth="415.0" style="-fx-background-color: #0F1E25;" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="230.0">
       <children>
-         <JFXButton ellipsisString="" layoutX="110.0" layoutY="91.0" prefHeight="41.0" prefWidth="140.0" text="Import PDF" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.leftAnchor="65.0" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="90.0">
+         <JFXButton ellipsisString="" layoutX="110.0" layoutY="91.0" prefHeight="41.0" prefWidth="140.0" text="Import PDF" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="90.0">
             <font>
                <Font name="Segoe UI Semilight" size="16.0" />
             </font>
@@ -24,7 +49,7 @@
                </ImageView>
             </graphic>
          </JFXButton>
-            <JFXButton ellipsisString="" layoutX="110.0" layoutY="132.0" prefHeight="41.0" prefWidth="140.0" text="Recent Files" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.leftAnchor="65.0" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="134.0">
+            <JFXButton ellipsisString="" layoutX="110.0" layoutY="132.0" prefHeight="41.0" prefWidth="140.0" text="Recent Files" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="135.0">
                <font>
                   <Font name="Segoe UI Semilight" size="16.0" />
                </font>
@@ -38,9 +63,9 @@
             </JFXButton>
       </children>
    </AnchorPane>
-      <VBox layoutY="205.0" prefWidth="65.0" style="-fx-background-color: #263238; -fx-background-radius: 10px;" AnchorPane.leftAnchor="0.0">
+      <VBox fx:id="toolsMenu" layoutY="205.0" prefWidth="65.0" style="-fx-background-color: #263238; -fx-background-radius: 10px;" AnchorPane.leftAnchor="5.0">
          <children>
-            <JFXButton ellipsisString="" prefHeight="55.0" prefWidth="65.0">
+            <JFXButton fx:id="IMPORT" ellipsisString="" onAction="#openFile" prefHeight="55.0" prefWidth="65.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -56,7 +81,7 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
-            <JFXButton ellipsisString="" prefHeight="55.0" prefWidth="65.0">
+            <JFXButton fx:id="SAVE" ellipsisString="" prefHeight="55.0" prefWidth="65.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -72,7 +97,7 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
-            <JFXButton ellipsisString="" prefHeight="55.0" prefWidth="65.0">
+            <JFXButton fx:id="SCALE" ellipsisString="" onAction="#scaleAction" prefHeight="55.0" prefWidth="65.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -88,7 +113,7 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
-            <JFXButton ellipsisString="" prefHeight="55.0" prefWidth="65.0">
+            <JFXButton fx:id="LENGTH" ellipsisString="" prefHeight="55.0" prefWidth="65.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -104,7 +129,7 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
-            <JFXButton ellipsisString="" prefHeight="55.0" prefWidth="65.0">
+            <JFXButton fx:id="AREA" ellipsisString="" onAction="#areaAction" prefHeight="55.0" prefWidth="65.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -120,7 +145,7 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
-            <JFXButton ellipsisString="" prefHeight="55.0" prefWidth="65.0">
+            <JFXButton fx:id="STAMP" ellipsisString="" prefHeight="55.0" prefWidth="65.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -154,5 +179,7 @@
             </JFXButton>
          </children>
       </VBox>
+      <JFXHamburger fx:id="hamburger" layoutX="980.0" layoutY="38.0" opacity="0.61" prefHeight="30.0" prefWidth="30.0" stylesheets="@CSS/style.css" AnchorPane.rightAnchor="12.0" />
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="240.0" direction="RIGHT" layoutX="795.0" layoutY="84.0" miniDrawerSize="0.0" prefHeight="515.0" prefWidth="240.0" AnchorPane.bottomAnchor="120.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="85.0" />
 </children>
 </AnchorPane>

@@ -93,3 +93,15 @@
     -fx-font-family: "Segoe UI";
     -fx-font-size: 16;
 }
+
+/*hamburger*/
+.jfx-hamburger StackPane{
+    /*-fx-pref-width: 50px;*/
+    -fx-pref-height: 5px;
+    -fx-background-color: #394F5A;
+    -fx-background-radius: 10px;
+}
+
+.jfx-hamburger-icon {
+    -fx-spacing: 7;
+}

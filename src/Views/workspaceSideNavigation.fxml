@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXSlider?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox style="-fx-background-color: #263238;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label prefHeight="42.0" prefWidth="220.0" text="History" textFill="#b8b8b8">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+         <font>
+            <Font name="Segoe UI" size="15.0" />
+         </font>
+      </Label>
+      <JFXTreeTableView prefHeight="300.0" prefWidth="199.0">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+         <columns>
+            <TreeTableColumn prefWidth="110.0" text="Column X" />
+            <TreeTableColumn prefWidth="110.0" text="Column X" />
+         </columns>
+      </JFXTreeTableView>
+      <Label prefHeight="42.0" prefWidth="220.0" text="Line Width" textFill="#b8b8b8">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+         <font>
+            <Font name="Segoe UI Semilight" size="15.0" />
+         </font>
+      </Label>
+      <JFXSlider prefHeight="22.0" prefWidth="201.0">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </JFXSlider>
+   </children>
+</VBox>
