@@ -88,6 +88,11 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="MIXED" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -304,21 +309,7 @@
       <workItem from="1573428590655" duration="2902000" />
       <workItem from="1573433255842" duration="891000" />
       <workItem from="1573438245400" duration="20551000" />
-      <workItem from="1573515301541" duration="2905000" />
-    </task>
-    <task id="LOCAL-00009" summary="2nd commit">
-      <created>1569830022823</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1569830022823</updated>
-    </task>
-    <task id="LOCAL-00010" summary="2nd commit">
-      <created>1569830316568</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1569830316568</updated>
+      <workItem from="1573515301541" duration="3155000" />
     </task>
     <task id="LOCAL-00011" summary="2nd commit">
       <created>1569830574435</created>
@@ -649,7 +640,21 @@
       <option name="project" value="LOCAL" />
       <updated>1573518874674</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="#49 commit">
+      <created>1573519020674</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1573519020674</updated>
+    </task>
+    <task id="LOCAL-00059" summary="#49 commit">
+      <created>1573519141221</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1573519141221</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
