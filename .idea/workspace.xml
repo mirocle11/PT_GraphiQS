@@ -304,14 +304,7 @@
       <workItem from="1573428590655" duration="2902000" />
       <workItem from="1573433255842" duration="891000" />
       <workItem from="1573438245400" duration="20551000" />
-      <workItem from="1573515301541" duration="2557000" />
-    </task>
-    <task id="LOCAL-00008" summary="2nd commit">
-      <created>1569829735283</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1569829735283</updated>
+      <workItem from="1573515301541" duration="2905000" />
     </task>
     <task id="LOCAL-00009" summary="2nd commit">
       <created>1569830022823</created>
@@ -649,7 +642,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573518392393</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="#49 commit">
+      <created>1573518874674</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1573518874674</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -658,6 +658,31 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -666,6 +691,11 @@
           </value>
         </entry>
       </map>
+    </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
