@@ -87,7 +87,9 @@ public class workspaceController implements Initializable {
     double origScaleY;
     String mode;
     ContextMenu contextMenu = new ContextMenu();
-    int i = 0;
+
+    //indicator
+    private int i = 0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -784,7 +786,7 @@ public class workspaceController implements Initializable {
             structurePane.setDisable(true);
             structureToggle.setDisable(true);
             TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.2), structurePane);
-            translateTransition1.setByX(+310);
+            translateTransition1.setByX(+315);
             translateTransition1.play();
             translateTransition1.setOnFinished(event1 -> {
                 structurePane.setDisable(false);
@@ -795,7 +797,7 @@ public class workspaceController implements Initializable {
             structurePane.setDisable(true);
             structureToggle.setDisable(true);
             TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.2), structurePane);
-            translateTransition1.setByX(-310);
+            translateTransition1.setByX(-315);
             translateTransition1.play();
             translateTransition1.setOnFinished(event1 -> {
                 structurePane.setDisable(false);
@@ -804,6 +806,20 @@ public class workspaceController implements Initializable {
             });
             i--;
         }
+    }
+
+    public void cancel() {
+        structurePane.setDisable(true);
+        structureToggle.setDisable(true);
+        TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.2), structurePane);
+        translateTransition1.setByX(-315);
+        translateTransition1.play();
+        translateTransition1.setOnFinished(event1 -> {
+            structurePane.setDisable(false);
+            structurePane.setVisible(false);
+            structureToggle.setDisable(false);
+        });
+        i--;
     }
 
     public void rotateAction(ActionEvent actionEvent) {
@@ -832,7 +848,6 @@ public class workspaceController implements Initializable {
             rect.setWidth(10);
             rect.setHeight(10);
             rect.setOpacity(.5);
-//            rect.setFill(Color.);
             rect.setStroke(Color.BLUE);
             rect.setStrokeWidth(15);
             rect.setOnMouseEntered(event1 -> {
