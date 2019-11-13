@@ -10,6 +10,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -26,6 +28,10 @@ public class ShapeObject {
     Pane pane;
     workspaceController controller;
     static ContextMenu contextMenu;
+    boolean remStart = true;
+    boolean remEnd = true;
+    boolean segmentRemoved = false;
+
 
     public ShapeObject() {
     }
@@ -102,15 +108,21 @@ public class ShapeObject {
             l.setOnMousePressed(event -> {
                 if (event.getButton() == MouseButton.SECONDARY) {
                     contextMenu = new ContextMenu();
-                    MenuItem item = new MenuItem("REMOVE SEGMENT");
-                    item.setOnAction(event1 -> {
-                        System.out.println("SEGMENT REMOVED");
-                        lineList.remove(l);
-
-                        pane.getChildren().remove(l);
-                        controller.redrawShapes();
-                    });
-                    contextMenu.getItems().add(item);
+                    if (type == "LENGTH") {
+                        MenuItem removeLength = new MenuItem("REMOVE LENGTH");
+                        removeLength.setOnAction(event1 -> {
+                            controller.shapeObjList.remove(this);
+                            controller.redrawShapes();
+                        });
+                        contextMenu.getItems().add(removeLength);
+                    } else {
+                        MenuItem removeArea = new MenuItem("REMOVE AREA");
+                        removeArea.setOnAction(event1 -> {
+                            controller.shapeObjList.remove(this);
+                            controller.redrawShapes();
+                        });
+                        contextMenu.getItems().add(removeArea);
+                    }
                     contextMenu.show(l, event.getScreenX(), event.getScreenY());
                 }
             });
@@ -120,20 +132,46 @@ public class ShapeObject {
     public void creatBoxes(List<Point2D> point2DS) {
         boxList.clear();
         double boxW = strokeWidth * 3;
-        for (int x = 0; x < point2DS.size() - 1; x++) {
+        int ctr = point2DS.size();
+        System.out.println("ASA ANG BOX SA LINE "+ctr);
+        for (int x = 0; x < ctr; x++) {
+
             boxList.add(new Rectangle(point2DS.get(x).getX() - boxW / 2, point2DS.get(x).getY() - boxW / 2, boxW, boxW));
             Rectangle r = boxList.get(boxList.size() - 1);
             r.setStroke(Color.GREEN);
             r.setOpacity(.5);
             r.setStrokeWidth(boxW / 5);
             r.setFill(Color.TRANSPARENT);
-
             r.setOnMouseEntered(event -> {
                 r.setStroke(Color.RED);
             });
             r.setOnMouseExited(event -> {
                 r.setStroke(Color.GREEN);
             });
+            int finalX = x;
+            r.setOnMousePressed(event -> {
+                if (event.getButton() == MouseButton.SECONDARY) {
+                    contextMenu = new ContextMenu();
+                    if (type == "LENGTH") {
+                        MenuItem removeLength = new MenuItem("REMOVE LENGTH");
+                        removeLength.setOnAction(event1 -> {
+                            controller.shapeObjList.remove(this);
+                            controller.redrawShapes();
+                        });
+                        contextMenu.getItems().add(removeLength);
+                    } else {
+                        MenuItem removeArea = new MenuItem("REMOVE AREA");
+                        removeArea.setOnAction(event1 -> {
+                            controller.shapeObjList.remove(this);
+                            controller.redrawShapes();
+                        });
+                        contextMenu.getItems().add(removeArea);
+                    }
+                    contextMenu.show(r, event.getScreenX(), event.getScreenY());
+                }
+
+            });
+
         }
     }
 
@@ -148,6 +186,5 @@ public class ShapeObject {
         polygon.setFill(color);
         polygon.setOpacity(.3);
     }
-
 }
 

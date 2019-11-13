@@ -114,3 +114,7 @@
 .scroll-bar:horizontal, .scroll-bar:vertical{
     -fx-background-color:transparent;
 }
+
+.scroll-pane > .corner {
+    -fx-background-color: #0F1E25;
+}
