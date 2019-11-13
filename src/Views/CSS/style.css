@@ -105,3 +105,12 @@
 .jfx-hamburger-icon {
     -fx-spacing: 7;
 }
+
+/*scrollpane*/
+.scroll-pane {
+    -fx-background-color: #0F1E25;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}

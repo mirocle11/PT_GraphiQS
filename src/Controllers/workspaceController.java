@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
+import javafx.animation.TranslateTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -29,6 +30,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
+import javafx.util.Duration;
 
 import javax.swing.*;
 import java.io.File;
@@ -44,19 +46,19 @@ import java.util.logging.Logger;
 public class workspaceController implements Initializable {
 
     //buttons
-    public JFXButton IMPORT, SAVE, SCALE, LENGTH, AREA, STAMP;
+    public JFXButton IMPORT, SAVE, SCALE, LENGTH, AREA, STAMP, structureToggle;
     public JFXHamburger hamburger;
 
     //containers
     public AnchorPane frontPane;
-    public ScrollPane scroller;
+    public ScrollPane scroller, structureScrollPane;
     public Group scrollContent, group;
     public StackPane zoomPane;
     public Canvas canvas;
     public Pane pane;
     public JFXDrawer drawer;
     public VBox measurementList, slabList, floorsList, framingList, wallsList,
-            insulationList, doorsList, roofList, deckList, miscList;
+            insulationList, doorsList, roofList, deckList, miscList, structureBox;
 
     public Image image;
     public ColorPicker cpLine;
@@ -86,6 +88,7 @@ public class workspaceController implements Initializable {
     double origScaleY;
     String mode;
     ContextMenu contextMenu = new ContextMenu();
+    int i = 0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -660,6 +663,35 @@ public class workspaceController implements Initializable {
             deckList.setVisible(false);
         } else {
             miscList.setVisible(false);
+        }
+    }
+
+    public void structureListTransition() {
+        if (i == 0) {
+            structureScrollPane.setVisible(true);
+            structureScrollPane.setDisable(true);
+            structureToggle.setDisable(true);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.2), structureScrollPane);
+            translateTransition1.setByX(+310);
+            translateTransition1.play();
+            translateTransition1.setOnFinished(event1 -> {
+                structureScrollPane.setDisable(false);
+                structureToggle.setDisable(false);
+            });
+            i++;
+        }
+        else {
+            structureScrollPane.setDisable(true);
+            structureToggle.setDisable(true);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.2), structureScrollPane);
+            translateTransition1.setByX(-310);
+            translateTransition1.play();
+            translateTransition1.setOnFinished(event1 -> {
+                structureScrollPane.setDisable(false);
+                structureScrollPane.setVisible(false);
+                structureToggle.setDisable(false);
+            });
+            i--;
         }
     }
 }
