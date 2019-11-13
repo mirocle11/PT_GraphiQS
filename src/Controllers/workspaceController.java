@@ -7,12 +7,8 @@ import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
 import javafx.animation.TranslateTransition;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -61,49 +57,37 @@ public class workspaceController implements Initializable {
             insulationList, doorsList, roofList, deckList, miscList, structureBox;
 
     public Image image;
-    public ColorPicker cpLine;
+//    public ColorPicker cpLine;
 
     //temp shapes
-    Line line = new Line();
-    Rectangle rect = new Rectangle();
-    Circle circ = new Circle();
-    Ellipse elps = new Ellipse();
-    Polyline poline = new Polyline();
+    private Line line = new Line();
+    private Rectangle rect = new Rectangle();
 
     //booleans
-    boolean isNew = true;
-    boolean canDraw = true;
+    private boolean isNew = true;
+    private boolean canDraw = true;
 
     //collections
-    Stack<Shape> undoHistory = new Stack();
-    Stack<Shape> redoHistory = new Stack();
-    List<Shape> shapeList = new ArrayList<>();
-    ArrayList<Point2D> pointList = new ArrayList<>();
+    private Stack<Line> undoHistory = new Stack<>();
+//    private Stack redoHistory = new Stack();
+    private List<Shape> shapeList = new ArrayList<>();
+    private ArrayList<Point2D> pointList = new ArrayList<>();
     public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
-    //others
-    double SCALE_DELTA = 1.1;
-    double m_Scale = 0;
-    double origScaleX;
-    double origScaleY;
-    String mode;
-    ContextMenu contextMenu = new ContextMenu();
+
+    private double m_Scale = 0;
+    private String mode;
+    private ContextMenu contextMenu = new ContextMenu();
 
     //indicator
     private int i = 0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        origScaleX = group.getScaleX();
-        origScaleY = group.getScaleY();
+        group.getScaleX();
+        group.getScaleY();
         pane.getChildren().add(line);
-        scroller.viewportBoundsProperty().addListener(new ChangeListener<Bounds>() {
-            @Override
-            public void changed(ObservableValue<? extends Bounds> observable,
-                                Bounds oldValue, Bounds newValue) {
-                zoomPane.setMinSize(newValue.getWidth(), newValue.getHeight());
-            }
-        });
-
+        scroller.viewportBoundsProperty().addListener((observable, oldValue, newValue) ->
+                zoomPane.setMinSize(newValue.getWidth(), newValue.getHeight()));
         try {
             VBox box = FXMLLoader.load(getClass().getResource("../Views/workspaceSideNavigation.fxml"));
             drawer.setSidePane(box);
@@ -159,21 +143,22 @@ public class workspaceController implements Initializable {
     }
 
     //=====STICKING POINTS TO IMAGE BOUNDARIES=====//
-    public Point2D clamp(double x, double y) {
+    private Point2D clamp(double x, double y) {
         double maxX = canvas.getBoundsInLocal().getMaxX();
         double maxY = canvas.getBoundsInLocal().getMaxY();
         double a = Math.max(0, x);
         double b = Math.max(0, y);
         double c = Math.min(a, maxX);
         double d = Math.min(b, maxY);
-        Point2D p = new Point2D(c, d);
-        return p;
+        return new Point2D(c, d);
     }
 
     public void zoom(ScrollEvent event) {
         if (event.getDeltaY() == 0) {
             return;
         }
+        //others
+        double SCALE_DELTA = 1.1;
         double scaleFactor = (event.getDeltaY() > 0) ? SCALE_DELTA : 1 / SCALE_DELTA;
         // amount of scrolling in each direction in scrollContent coordinate
         // units
@@ -195,6 +180,7 @@ public class workspaceController implements Initializable {
 
                     }
                     if (node.getClass() == Label.class) {
+                        assert node instanceof Label;
                         Label lbl = (Label) node;
                         lbl.setFont(new Font("Arial", 18 / group.getScaleY()));
                     }
@@ -229,7 +215,7 @@ public class workspaceController implements Initializable {
             }
         }
 //===========CHANGES=======================================================
-        if (mode == "DRAW_RECT") {
+        if (mode.equals("DRAW_RECT")) {
             if (!isNew) {
                 rect.setWidth(cP.getX() - rect.getX());
                 rect.setHeight(cP.getY() - rect.getY());
@@ -241,7 +227,7 @@ public class workspaceController implements Initializable {
     public void redrawShapes() {
         pane.getChildren().clear();
         for (ShapeObject sp0 : shapeObjList) {
-            if (sp0.getType() == "AREA") {
+            if (sp0.getType().equals("AREA")) {
                 pane.getChildren().add(sp0.getPolygon());
                 double area = 0;
 
@@ -276,7 +262,7 @@ public class workspaceController implements Initializable {
         }
 
         for (ShapeObject sp1 : shapeObjList) {
-            if (sp1.getType() == "LENGTH") {
+            if (sp1.getType().equals("LENGTH")) {
                 for (Line l : sp1.getLineList()) {
                     Point2D p1 = new Point2D(l.getStartX(), l.getStartY());
                     Point2D p2 = new Point2D(l.getEndX(), l.getEndY());
@@ -319,13 +305,14 @@ public class workspaceController implements Initializable {
 
             }
             if (node.getClass() == Label.class) {
+                assert node instanceof Label;
                 Label lbl = (Label) node;
                 lbl.setFont(new Font("Arial", 18 / group.getScaleY()));
             }
         });
     }
 
-    public Shape createBox(double x, double y) {
+    private Shape createBox(double x, double y) {
 
         double boxW = 10 * 3;
         shapeList.add(new Rectangle(x - (boxW / 2) / group.getScaleY(), y - (boxW / 2) / group.getScaleY(), boxW / group.getScaleY(), boxW / group.getScaleY()));
@@ -335,12 +322,8 @@ public class workspaceController implements Initializable {
         r.setStrokeWidth((boxW / 5) / group.getScaleY());
         r.setFill(Color.TRANSPARENT);
 
-        r.setOnMouseEntered(event -> {
-            r.setStroke(Color.RED);
-        });
-        r.setOnMouseExited(event -> {
-            r.setStroke(Color.GREEN);
-        });
+        r.setOnMouseEntered(event -> r.setStroke(Color.RED));
+        r.setOnMouseExited(event -> r.setStroke(Color.GREEN));
 
         r.setOnMouseReleased(event -> {
             if (!canDraw) {
@@ -371,41 +354,7 @@ public class workspaceController implements Initializable {
         return shapeList.get(shapeList.size() - 1);
     }
 
-    //=====CREATING LINES=====//
-//    public Shape createLine(Line param) {
-//        Color color = cpLine.getValue();
-//        shapeList.add(new Line(line.getStartX(), line.getStartY(), line.getEndX(), line.getEndY()));
-//        Line l = (Line) shapeList.get(shapeList.size() - 1);
-//
-//        l.setStroke(color);
-//        l.setStrokeLineCap(StrokeLineCap.BUTT);
-//        l.setStrokeWidth(workspaceSideNavigatorController.slider.getValue());
-//        l.setOpacity(.5);
-//
-//        l.setOnMouseEntered(event -> {
-//            l.setStroke(Color.RED);
-//        });
-//        l.setOnMouseExited(event -> {
-//            l.setStroke(color);
-//        });
-//        l.setOnMousePressed(event -> {
-//            if (event.getButton() == MouseButton.SECONDARY) {
-//                contextMenu = new ContextMenu();
-//                MenuItem item = new MenuItem("REMOVE SEGMENT");
-//                item.setOnAction(event1 -> {
-//                    System.out.println("SEGMENT REMOVED");
-//                    pane.getChildren().remove(l);
-//                    undoHistory.push(l);
-//                });
-//                contextMenu.getItems().add(item);
-//                contextMenu.show(l, event.getScreenX(), event.getScreenY());
-//            }
-//        });
-//
-//        return shapeList.get(shapeList.size() - 1);
-//    }
-    public Shape createLine(Line param) {
-//        Color color =
+    private Shape createLine() {
         Color color = Color.BLUE;
         shapeList.add(new Line(line.getStartX(), line.getStartY(), line.getEndX(), line.getEndY()));
         Line l = (Line) shapeList.get(shapeList.size() - 1);
@@ -413,15 +362,10 @@ public class workspaceController implements Initializable {
         l.setStroke(color);
         l.setStrokeLineCap(StrokeLineCap.BUTT);
         l.setStrokeWidth(10 / group.getScaleY());
-//        l.setStrokeWidth(workspaceSideNavigatorController.slider.getValue());
         l.setOpacity(.5);
 
-        l.setOnMouseEntered(event -> {
-            l.setStroke(Color.RED);
-        });
-        l.setOnMouseExited(event -> {
-            l.setStroke(color);
-        });
+        l.setOnMouseEntered(event -> l.setStroke(Color.RED));
+        l.setOnMouseExited(event -> l.setStroke(color));
         l.setOnMousePressed(event -> {
             if (event.getButton() == MouseButton.SECONDARY) {
                 contextMenu = new ContextMenu();
@@ -435,7 +379,6 @@ public class workspaceController implements Initializable {
                 contextMenu.show(l, event.getScreenX(), event.getScreenY());
             }
         });
-
         return shapeList.get(shapeList.size() - 1);
     }
 
@@ -457,116 +400,121 @@ public class workspaceController implements Initializable {
         line.setOpacity(.5);
         line.setStrokeLineCap(StrokeLineCap.BUTT);
 
-        if (mode == "SCALE") {
-            if (isNew) {
-                line.setVisible(true);
-                line.setStartX(clamp.getX());
-                line.setStartY(clamp.getY());
-                line.setEndX(clamp.getX());
-                line.setEndY(clamp.getY());
-                line.setStroke(Color.CHOCOLATE);
-                line.setStrokeWidth(15 / group.getScaleY());
-                line.setVisible(true);
-                pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
-                isNew = false;
-            } else {
-                pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
-                Point2D start = new Point2D(line.getStartX(), line.getStartY());
-                Point2D end = new Point2D(line.getEndX(), line.getEndY());
-                try {
-                    double m_input = Float.parseFloat(JOptionPane.showInputDialog("Enter Scale (mm)", 0.00 + " mm"));
-                    if (m_input <= 0) {
-                        throw new NumberFormatException();
+        switch (mode) {
+            case "SCALE":
+                if (isNew) {
+                    line.setVisible(true);
+                    line.setStartX(clamp.getX());
+                    line.setStartY(clamp.getY());
+                    line.setEndX(clamp.getX());
+                    line.setEndY(clamp.getY());
+                    line.setStroke(Color.CHOCOLATE);
+                    line.setStrokeWidth(15 / group.getScaleY());
+                    line.setVisible(true);
+                    pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
+                    isNew = false;
+                } else {
+                    pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
+                    Point2D start = new Point2D(line.getStartX(), line.getStartY());
+                    Point2D end = new Point2D(line.getEndX(), line.getEndY());
+                    try {
+                        double m_input = Float.parseFloat(JOptionPane.showInputDialog("Enter Scale (mm)", 0.00 + " mm"));
+                        if (m_input <= 0) {
+                            throw new NumberFormatException();
+                        }
+                        double m_Length = start.distance(end);
+                        m_Scale = m_Length / m_input;
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, "Please enter a valid number.", "Invalid Scale", JOptionPane.ERROR_MESSAGE);
                     }
-                    double m_Length = start.distance(end);
-                    m_Scale = m_Length / m_input;
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "Please enter a valid number.", "Invalid Scale", JOptionPane.ERROR_MESSAGE);
+                    redrawShapes();
+                    isNew = true;
+                    canDraw = false;
+                    scroller.setPannable(true);
+                    mode = "FREE_HAND";
                 }
-                redrawShapes();
+
+                break;
+            case "LENGTH":
+                if (isNew) {
+                    line.setStartX(clamp.getX());
+                    line.setStartY(clamp.getY());
+                    line.setEndX(clamp.getX());
+                    line.setEndY(clamp.getY());
+                    pointList.add(clamp);
+                    line.setStrokeWidth(10 / group.getScaleY());
+                    line.setStroke(Color.BLUE);
+                    pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
+                    line.setVisible(true);
+                    isNew = false;
+                } else {
+                    Point2D start = new Point2D(line.getStartX(), line.getStartY());
+                    Point2D end = new Point2D(line.getEndX(), line.getEndY());
+                    Point2D mid = start.midpoint(end);
+                    System.out.println(line.contains(mid) + " line contains");
+                    pointList.add(end);
+
+                    double length = (start.distance(end) / m_Scale);
+                    Label lbl = new Label(Math.round(length * 100.0) / 100.0 + " mm");
+                    lbl.setFont(new Font("Arial", 18 / group.getScaleY()));
+                    lbl.setLayoutY(mid.getY());
+                    lbl.setLayoutX(mid.getX());
+                    lbl.setTextFill(Color.BLUE);
+                    lbl.setOpacity(.5);
+                    pane.getChildren().add(lbl);
+                    pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
+                    pane.getChildren().add(createLine());
+                    ShapeObject shapeObj = new ShapeObject();
+                    shapeObj.setPane(pane);
+                    shapeObj.setStrokeWidth(10 / group.getScaleY());
+                    shapeObj.setColor(Color.BLUE);
+                    shapeObj.setPointList(pointList);
+                    shapeObj.setController(this);
+                    shapeObj.setType(mode);
+                    shapeObjList.add(shapeObj);
+                    isNew = true;
+                    line.setVisible(false);
+                    canDraw = false;
+                    pointList.clear();
+                    redrawShapes();
+
+                }
+                break;
+            case "AREA":
+                if (isNew) {
+                    line.setStartX(clamp.getX());
+                    line.setStartY(clamp.getY());
+                    line.setEndX(clamp.getX());
+                    line.setEndY(clamp.getY());
+                    pointList.add(clamp);
+                    line.setStrokeWidth(10 / group.getScaleY());
+                    line.setStroke(Color.BLUE);
+                    pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
+                    line.setVisible(true);
+                    isNew = false;
+                } else {
+                    Point2D start = new Point2D(line.getStartX(), line.getStartY());
+                    Point2D end = new Point2D(line.getEndX(), line.getEndY());
+                    start.midpoint(end);
+                    pointList.add(end);
+
+                    pane.getChildren().add(createLine());
+                    pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
+                    line.setStartX(line.getEndX());
+                    line.setStartY(line.getEndY());
+                    line.setEndX(clamp.getX());
+                    line.setEndY(clamp.getY());
+                }
+                break;
+            case "DRAW_RECT":
                 isNew = true;
                 canDraw = false;
-                scroller.setPannable(true);
-                mode = "FREE_HAND";
-            }
-
-        } else if (mode == "LENGTH") {
-            if (isNew) {
-                line.setStartX(clamp.getX());
-                line.setStartY(clamp.getY());
-                line.setEndX(clamp.getX());
-                line.setEndY(clamp.getY());
-                pointList.add(clamp);
-                line.setStrokeWidth(10 / group.getScaleY());
-                line.setStroke(Color.BLUE);
-                pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
-                line.setVisible(true);
-                isNew = false;
-            } else {
-                Point2D start = new Point2D(line.getStartX(), line.getStartY());
-                Point2D end = new Point2D(line.getEndX(), line.getEndY());
-                Point2D mid = start.midpoint(end);
-                System.out.println(line.contains(mid) + " line contains");
-                pointList.add(end);
-
-                double length = (start.distance(end) / m_Scale);
-                Label lbl = new Label(Math.round(length * 100.0) / 100.0 + " mm");
-                lbl.setFont(new Font("Arial", 18 / group.getScaleY()));
-                lbl.setLayoutY(mid.getY());
-                lbl.setLayoutX(mid.getX());
-                lbl.setTextFill(Color.BLUE);
-                lbl.setOpacity(.5);
-                pane.getChildren().add(lbl);
-                pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
-                pane.getChildren().add(createLine(line));
-                ShapeObject shapeObj = new ShapeObject();
-                shapeObj.setPane(pane);
-                shapeObj.setStrokeWidth(10 / group.getScaleY());
-                shapeObj.setColor(Color.BLUE);
-                shapeObj.setPointList(pointList);
-                shapeObj.setController(this);
-                shapeObj.setType(mode);
-                shapeObjList.add(shapeObj);
-                isNew = true;
-                line.setVisible(false);
-                canDraw = false;
-                pointList.clear();
-                redrawShapes();
-
-            }
-        } else if (mode == "AREA") {
-            if (isNew) {
-                line.setStartX(clamp.getX());
-                line.setStartY(clamp.getY());
-                line.setEndX(clamp.getX());
-                line.setEndY(clamp.getY());
-                pointList.add(clamp);
-                line.setStrokeWidth(10 / group.getScaleY());
-                line.setStroke(Color.BLUE);
-                pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
-                line.setVisible(true);
-                isNew = false;
-            } else {
-                Point2D start = new Point2D(line.getStartX(), line.getStartY());
-                Point2D end = new Point2D(line.getEndX(), line.getEndY());
-                Point2D mid = start.midpoint(end);
-                pointList.add(end);
-
-                pane.getChildren().add(createLine(line));
-                pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
-                line.setStartX(line.getEndX());
-                line.setStartY(line.getEndY());
-                line.setEndX(clamp.getX());
-                line.setEndY(clamp.getY());
-            }
-        } else if (mode == "DRAW_RECT") {
-            isNew = true;
-            canDraw = false;
-            ShapeObject sp = new ShapeObject();
+                new ShapeObject();
+                break;
         }
     }
 
-    public void openFile(ActionEvent actionEvent) {
+    public void openFile() {
         FileChooser fileChooser = new FileChooser();
         File selectedFile = fileChooser.showOpenDialog(Main.dashboard_stage);
         if (selectedFile == null) {
@@ -582,8 +530,8 @@ public class workspaceController implements Initializable {
             GraphicsContext gc = canvas.getGraphicsContext2D();
             gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
             gc.drawImage(image, 0, 0);
-            origScaleX = group.getScaleX();
-            origScaleY = group.getScaleY();
+            group.getScaleX();
+            group.getScaleY();
             System.out.println(group.getBoundsInParent());
             System.out.println(group.getBoundsInLocal());
             System.out.println(group.getScaleX() + " " + group.getScaleY());
@@ -598,16 +546,14 @@ public class workspaceController implements Initializable {
     }
 
     //=====SCALE ACTION====//
-    public void scaleAction(ActionEvent actionEvent) {
+    public void scaleAction() {
         mode = "SCALE";
         canDraw = true;
         isNew = true;
     }
 
     //=====AREA ACTION====//
-    public void areaAction(ActionEvent actionEvent) {
-//        cpLine.setValue(null);
-//        cpLine.relocate(AREA.getWidth() + 20, (vbox.getHeight() / 2) + lengthbtn.getHeight());
+    public void areaAction() {
         mode = "AREA";
         isNew = true;
         canDraw = true;
@@ -822,11 +768,11 @@ public class workspaceController implements Initializable {
         i--;
     }
 
-    public void rotateAction(ActionEvent actionEvent) {
+    public void rotateAction() {
         group.setRotate(group.getRotate() + 90);
     }
 
-    public void drawRectangle(ActionEvent actionEvent) {
+    public void drawRectangle() {
         mode = "DRAW_RECT";
         canDraw = true;
         isNew = true;
@@ -834,7 +780,7 @@ public class workspaceController implements Initializable {
 
     public void drawRect(MouseEvent event) {
         Point2D clamp = clamp(event.getX(), event.getY());
-        if (mode == "DRAW_RECT") {
+        if (mode.equals("DRAW_RECT")) {
             if (!canDraw) {
                 return;
             }
@@ -850,19 +796,13 @@ public class workspaceController implements Initializable {
             rect.setOpacity(.5);
             rect.setStroke(Color.BLUE);
             rect.setStrokeWidth(15);
-            rect.setOnMouseEntered(event1 -> {
-                rect.setStroke(Color.RED);
-            });
-            rect.setOnMouseExited(event1 -> {
-                rect.setStroke(Color.BLUE);
-            });
+            rect.setOnMouseEntered(event1 -> rect.setStroke(Color.RED));
+            rect.setOnMouseExited(event1 -> rect.setStroke(Color.BLUE));
             rect.setOnMousePressed(event1 -> {
                 if (event1.getButton() == MouseButton.SECONDARY) {
                     contextMenu = new ContextMenu();
                     MenuItem removeLength = new MenuItem("REMOVE FILL");
-                    removeLength.setOnAction(event12 -> {
-                        pane.getChildren().remove(rect);
-                    });
+                    removeLength.setOnAction(event12 -> pane.getChildren().remove(rect));
                     contextMenu.getItems().add(removeLength);
                 }
                 contextMenu.show(rect, event1.getScreenX(), event1.getScreenY());
@@ -870,7 +810,7 @@ public class workspaceController implements Initializable {
 
             pane.getChildren().add(rect);
             isNew = false;
-        } else if (mode == "STAMP") {
+        } else if (mode.equals("STAMP")) {
             Rectangle r = new Rectangle();
             r.setX(clamp.getX());
             r.setY(clamp.getY());
@@ -889,7 +829,7 @@ public class workspaceController implements Initializable {
         }
     }
 
-    public void stampAction(ActionEvent actionEvent) {
+    public void stampAction() {
         mode = "STAMP";
         canDraw = true;
         System.out.println("STAMPING");
