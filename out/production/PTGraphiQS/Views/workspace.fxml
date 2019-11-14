@@ -619,9 +619,9 @@
             </Tooltip>
          </tooltip>
       </JFXButton>
-      <AnchorPane fx:id="structurePane" focusTraversable="true" layoutX="-240.0" layoutY="20.0" opacity="0.9" prefWidth="240.0" style="-fx-background-color: #102027; -fx-border-radius: 20px; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.topAnchor="20.0">
+      <AnchorPane fx:id="structurePane" focusTraversable="true" layoutX="-240.0" layoutY="20.0" prefWidth="240.0" style="-fx-background-color: #102027; -fx-border-radius: 20px; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.topAnchor="20.0">
          <children>
-            <JFXCheckBox layoutX="135.0" prefHeight="59.0" prefWidth="108.0" style="-fx-background-color: #102027; -fx-background-radius: 20px;" text="Select All" textFill="#b8b8b8">
+            <JFXCheckBox fx:id="selectAllBox" layoutX="135.0" onAction="#selectAll" prefHeight="59.0" prefWidth="108.0" style="-fx-background-color: #102027; -fx-background-radius: 20px;" text="Select All" textFill="#b8b8b8">
                <font>
                   <Font name="Segoe UI" size="14.0" />
                </font>
@@ -1163,7 +1163,7 @@
             </JFXButton>
          </children>
          <effect>
-            <DropShadow blurType="GAUSSIAN" height="15.0" radius="7.0" width="15.0" />
+            <DropShadow blurType="GAUSSIAN" color="#171717" height="15.0" radius="7.0" spread="0.1" width="15.0" />
          </effect>
       </AnchorPane>
 </children>

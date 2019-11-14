@@ -3,6 +3,7 @@ package Controllers;
 import Main.Main;
 import Model.ShapeObject;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
@@ -49,6 +50,9 @@ public class workspaceController implements Initializable {
     public JFXButton IMPORT, SAVE, SCALE, LENGTH, AREA, STAMP, structureToggle;
     public JFXHamburger hamburger;
 
+    //checkbox
+    public JFXCheckBox selectAllBox;
+
     //containers
     public AnchorPane frontPane, structurePane;
     public ScrollPane scroller, structureScrollPane;
@@ -77,6 +81,7 @@ public class workspaceController implements Initializable {
     List<Shape> shapeList = new ArrayList<>();
     ArrayList<Point2D> pointList = new ArrayList<>();
     public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
+
     //others
     double SCALE_DELTA = 1.1;
     double m_Scale = 0;
@@ -573,6 +578,79 @@ public class workspaceController implements Initializable {
         canDraw = true;
     }
 
+    public void rotateAction(ActionEvent actionEvent) {
+        group.setRotate(group.getRotate() + 90);
+    }
+
+    public void drawRectangle(ActionEvent actionEvent) {
+        mode = "DRAW_RECT";
+        canDraw = true;
+        isNew = true;
+    }
+
+    public void drawRect(MouseEvent event) {
+        Point2D clamp = clamp(event.getX(), event.getY());
+        if (mode == "DRAW_RECT") {
+            if (!canDraw) {
+                return;
+            }
+            if (event.getButton() == MouseButton.SECONDARY) {
+                return;
+            }
+            line.setVisible(false);
+            rect = new Rectangle();
+            rect.setX(clamp.getX());
+            rect.setY(clamp.getY());
+            rect.setWidth(10);
+            rect.setHeight(10);
+            rect.setOpacity(.5);
+            rect.setStroke(Color.BLUE);
+            rect.setStrokeWidth(15);
+            rect.setOnMouseEntered(event1 -> {
+                rect.setStroke(Color.RED);
+            });
+            rect.setOnMouseExited(event1 -> {
+                rect.setStroke(Color.BLUE);
+            });
+            rect.setOnMousePressed(event1 -> {
+                if (event1.getButton() == MouseButton.SECONDARY) {
+                    contextMenu = new ContextMenu();
+                    MenuItem removeLength = new MenuItem("REMOVE FILL");
+                    removeLength.setOnAction(event12 -> {
+                        pane.getChildren().remove(rect);
+                    });
+                    contextMenu.getItems().add(removeLength);
+                }
+                contextMenu.show(rect, event1.getScreenX(), event1.getScreenY());
+            });
+
+            pane.getChildren().add(rect);
+            isNew = false;
+        } else if (mode == "STAMP") {
+            Rectangle r = new Rectangle();
+            r.setX(clamp.getX());
+            r.setY(clamp.getY());
+            r.setWidth(5 / group.getScaleY());
+            r.setWidth(5 / group.getScaleY());
+            pane.getChildren().add(r);
+            System.out.println("ADD STAMP");
+        }
+    }
+
+    public void handlePan(MouseEvent event) {
+        if (event.getButton() == MouseButton.PRIMARY) {
+            scroller.setPannable(false);
+        } else {
+            scroller.setPannable(true);
+        }
+    }
+
+    public void stampAction(ActionEvent actionEvent) {
+        mode = "STAMP";
+        canDraw = true;
+        System.out.println("STAMPING");
+    }
+
     //measurements popup
     public void viewMeasurementList() {
         if (measurementList.isVisible()) {
@@ -782,76 +860,18 @@ public class workspaceController implements Initializable {
         i--;
     }
 
-    public void rotateAction(ActionEvent actionEvent) {
-        group.setRotate(group.getRotate() + 90);
-    }
-
-    public void drawRectangle(ActionEvent actionEvent) {
-        mode = "DRAW_RECT";
-        canDraw = true;
-        isNew = true;
-    }
-
-    public void drawRect(MouseEvent event) {
-        Point2D clamp = clamp(event.getX(), event.getY());
-        if (mode == "DRAW_RECT") {
-            if (!canDraw) {
-                return;
-            }
-            if (event.getButton() == MouseButton.SECONDARY) {
-                return;
-            }
-            line.setVisible(false);
-            rect = new Rectangle();
-            rect.setX(clamp.getX());
-            rect.setY(clamp.getY());
-            rect.setWidth(10);
-            rect.setHeight(10);
-            rect.setOpacity(.5);
-            rect.setStroke(Color.BLUE);
-            rect.setStrokeWidth(15);
-            rect.setOnMouseEntered(event1 -> {
-                rect.setStroke(Color.RED);
+    public void selectAll() {
+        if (selectAllBox.isSelected()) {
+            structureBox.getChildren().forEach(node -> {
+                JFXCheckBox checkBox = (JFXCheckBox) node;
+                ((JFXCheckBox) node).setSelected(true);
             });
-            rect.setOnMouseExited(event1 -> {
-                rect.setStroke(Color.BLUE);
-            });
-            rect.setOnMousePressed(event1 -> {
-                if (event1.getButton() == MouseButton.SECONDARY) {
-                    contextMenu = new ContextMenu();
-                    MenuItem removeLength = new MenuItem("REMOVE FILL");
-                    removeLength.setOnAction(event12 -> {
-                        pane.getChildren().remove(rect);
-                    });
-                    contextMenu.getItems().add(removeLength);
-                }
-                contextMenu.show(rect, event1.getScreenX(), event1.getScreenY());
-            });
-
-            pane.getChildren().add(rect);
-            isNew = false;
-        } else if (mode == "STAMP") {
-            Rectangle r = new Rectangle();
-            r.setX(clamp.getX());
-            r.setY(clamp.getY());
-            r.setWidth(5 / group.getScaleY());
-            r.setWidth(5 / group.getScaleY());
-            pane.getChildren().add(r);
-            System.out.println("ADD STAMP");
-        }
-    }
-
-    public void handlePan(MouseEvent event) {
-        if (event.getButton() == MouseButton.PRIMARY) {
-            scroller.setPannable(false);
         } else {
-            scroller.setPannable(true);
+            structureBox.getChildren().forEach(node -> {
+                JFXCheckBox checkBox = (JFXCheckBox) node;
+                ((JFXCheckBox) node).setSelected(false);
+            });
         }
     }
 
-    public void stampAction(ActionEvent actionEvent) {
-        mode = "STAMP";
-        canDraw = true;
-        System.out.println("STAMPING");
-    }
 }
