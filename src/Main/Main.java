@@ -26,7 +26,7 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/splashScreen.fxml"));
             AnchorPane pane = loader.load();
             splashScreenController splashScreenController = loader.getController();
-            splashScreenController.main(stage,this);
+            splashScreenController.main(this);
 
             Scene scene = new Scene(pane);
             scene.setFill(Color.TRANSPARENT);

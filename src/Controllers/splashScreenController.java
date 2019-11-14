@@ -34,7 +34,7 @@ public class splashScreenController implements Initializable {
     Main main;
     Stage stage;
 
-    public void main(Stage stage, Main main) {
+    public void main(Main main) {
         this.main = main;
         this.stage = stage;
     }
