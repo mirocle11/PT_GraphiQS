@@ -8,10 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="#60 commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/CSS/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/workspace.fxml" afterDir="false" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
@@ -323,14 +321,8 @@
       <workItem from="1573615009204" duration="4378000" />
       <workItem from="1573621822308" duration="1274000" />
       <workItem from="1573623235179" duration="8933000" />
-      <workItem from="1573688555769" duration="18585000" />
-    </task>
-    <task id="LOCAL-00015" summary="#3 commit">
-      <created>1569835026005</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1569835026005</updated>
+      <workItem from="1573688555769" duration="20963000" />
+      <workItem from="1573775403896" duration="4313000" />
     </task>
     <task id="LOCAL-00016" summary="#3 commit">
       <created>1569893452628</created>
@@ -668,7 +660,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573700331355</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="#60 commit">
+      <created>1573719415885</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1573719415885</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

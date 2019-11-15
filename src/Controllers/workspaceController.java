@@ -24,10 +24,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Font;
@@ -61,8 +58,8 @@ public class workspaceController implements Initializable {
     public Canvas canvas;
     public Pane pane;
     public JFXDrawer drawer;
-    public VBox measurementList, slabList, floorsList, framingList, wallsList,
-            insulationList, doorsList, roofList, deckList, miscList, structureBox;
+    public VBox measurementList, slabList, floorsList, framingList, wallsList, insulationList, doorsList,
+            roofList, deckList, miscList, structureBox, shortListBox;
 
     public Image image;
     public ColorPicker cpLine;
@@ -862,16 +859,21 @@ public class workspaceController implements Initializable {
 
     public void selectAll() {
         if (selectAllBox.isSelected()) {
-            structureBox.getChildren().forEach(node -> {
-                JFXCheckBox checkBox = (JFXCheckBox) node;
-                ((JFXCheckBox) node).setSelected(true);
-            });
+            structureBox.getChildren().forEach(node -> ((JFXCheckBox) node).setSelected(true));
         } else {
-            structureBox.getChildren().forEach(node -> {
-                JFXCheckBox checkBox = (JFXCheckBox) node;
-                ((JFXCheckBox) node).setSelected(false);
-            });
+            structureBox.getChildren().forEach(node -> ((JFXCheckBox) node).setSelected(false));
         }
+    }
+
+    public void addStructure() {
+        structureBox.getChildren().forEach(node -> {
+            if (((JFXCheckBox) node).isSelected()) {
+                String box = ((JFXCheckBox) node).getText();
+                JFXButton button = new JFXButton(box);
+                shortListBox.getChildren().add(button);
+            }
+        });
+//        shortListBox.setVisible(true);
     }
 
 }

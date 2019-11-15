@@ -1137,7 +1137,7 @@
                   </VBox>
                </content>
             </ScrollPane>
-            <JFXButton ellipsisString="" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #102027; -fx-background-radius: 20px;" text="Select" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.bottomAnchor="0.0">
+            <JFXButton ellipsisString="" onAction="#addStructure" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #102027; -fx-background-radius: 20px;" text="Select" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.bottomAnchor="0.0">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
@@ -1166,5 +1166,6 @@
             <DropShadow blurType="GAUSSIAN" color="#171717" height="15.0" radius="7.0" spread="0.1" width="15.0" />
          </effect>
       </AnchorPane>
+      <VBox fx:id="shortListBox" layoutX="400.0" layoutY="20.0" prefHeight="200.0" prefWidth="130.0" />
 </children>
 </AnchorPane>
