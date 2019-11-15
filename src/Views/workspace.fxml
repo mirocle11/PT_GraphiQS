@@ -1166,7 +1166,7 @@
             <DropShadow blurType="GAUSSIAN" color="#171717" height="15.0" radius="7.0" spread="0.1" width="15.0" />
          </effect>
       </AnchorPane>
-      <AnchorPane fx:id="shortListPane" layoutX="72.0" layoutY="205.0" prefHeight="400.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;">
+      <AnchorPane fx:id="shortListPane" layoutX="72.0" layoutY="205.0" opacity="0.95" prefHeight="400.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false">
          <children>
             <ScrollPane hbarPolicy="NEVER" prefHeight="400.0" prefWidth="220.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="42.0">
                <content>
