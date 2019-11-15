@@ -51,7 +51,7 @@ public class workspaceController implements Initializable {
     public JFXCheckBox selectAllBox;
 
     //containers
-    public AnchorPane frontPane, structurePane;
+    public AnchorPane frontPane, structurePane, shortListPane;
     public ScrollPane scroller, structureScrollPane;
     public Group scrollContent, group;
     public StackPane zoomPane;
@@ -650,22 +650,27 @@ public class workspaceController implements Initializable {
 
     //measurements popup
     public void viewMeasurementList() {
-        if (measurementList.isVisible()) {
-            measurementList.setVisible(false);
-            slabList.setVisible(false);
-            floorsList.setVisible(false);
-            framingList.setVisible(false);
-            wallsList.setVisible(false);
-            insulationList.setVisible(false);
-            doorsList.setVisible(false);
-            roofList.setVisible(false);
-            deckList.setVisible(false);
-            miscList.setVisible(false);
+//        if (measurementList.isVisible()) {
+//            measurementList.setVisible(false);
+//            slabList.setVisible(false);
+//            floorsList.setVisible(false);
+//            framingList.setVisible(false);
+//            wallsList.setVisible(false);
+//            insulationList.setVisible(false);
+//            doorsList.setVisible(false);
+//            roofList.setVisible(false);
+//            deckList.setVisible(false);
+//            miscList.setVisible(false);
+//        } else {
+//            measurementList.setVisible(true);
+//            mode = "LENGTH";
+//            isNew = true;
+//            canDraw = true;
+//        }
+        if (shortListPane.isVisible()) {
+            shortListPane.setVisible(false);
         } else {
-            measurementList.setVisible(true);
-            mode = "LENGTH";
-            isNew = true;
-            canDraw = true;
+            shortListPane.setVisible(true);
         }
     }
 
@@ -873,7 +878,6 @@ public class workspaceController implements Initializable {
                 shortListBox.getChildren().add(button);
             }
         });
-//        shortListBox.setVisible(true);
     }
 
 }

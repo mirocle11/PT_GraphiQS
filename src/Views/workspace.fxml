@@ -1166,6 +1166,20 @@
             <DropShadow blurType="GAUSSIAN" color="#171717" height="15.0" radius="7.0" spread="0.1" width="15.0" />
          </effect>
       </AnchorPane>
-      <VBox fx:id="shortListBox" layoutX="400.0" layoutY="20.0" prefHeight="200.0" prefWidth="140.0" />
+      <AnchorPane fx:id="shortListPane" layoutX="72.0" layoutY="205.0" prefHeight="400.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;">
+         <children>
+            <ScrollPane hbarPolicy="NEVER" prefHeight="400.0" prefWidth="220.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="42.0">
+               <content>
+                  <VBox fx:id="shortListBox" prefHeight="336.0" prefWidth="220.0" style="-fx-background-color: #1A1C1D;" />
+               </content>
+            </ScrollPane>
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="220.0" text="Selected List" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Separator layoutY="40.0" prefWidth="220.0" />
+         </children>
+      </AnchorPane>
 </children>
 </AnchorPane>
