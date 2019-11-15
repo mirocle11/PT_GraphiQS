@@ -1166,6 +1166,6 @@
             <DropShadow blurType="GAUSSIAN" color="#171717" height="15.0" radius="7.0" spread="0.1" width="15.0" />
          </effect>
       </AnchorPane>
-      <VBox fx:id="shortListBox" layoutX="400.0" layoutY="20.0" prefHeight="200.0" prefWidth="130.0" />
+      <VBox fx:id="shortListBox" layoutX="400.0" layoutY="20.0" prefHeight="200.0" prefWidth="140.0" />
 </children>
 </AnchorPane>
