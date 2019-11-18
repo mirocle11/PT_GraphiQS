@@ -724,21 +724,35 @@ public class workspaceController implements Initializable {
                 shortListBox.getChildren().add(button);
 
                 button.setOnMouseClicked(event -> {
-                    if (button.getText().equals("Preliminary & General")) {
-                        if (!preliminaryAndGeneralBox.isVisible()) {
-                            preliminaryAndGeneralBox.setVisible(true);
-                            foundationsBox.setVisible(false);
-                        } else {
-                            preliminaryAndGeneralBox.setVisible(false);
-                        }
-                    } else if (button.getText().equals("Foundations")) {
-                        if (!foundationsBox.isVisible()) {
-                            foundationsBox.setVisible(true);
-                            preliminaryAndGeneralBox.setVisible(false);
-                        } else {
-                            foundationsBox.setVisible(false);
+                    switch (button.getText()) {
+                        case "Preliminary & General":
+                            if (!preliminaryAndGeneralBox.isVisible()) {
+                                preliminaryAndGeneralBox.setVisible(true);
+                                foundationsBox.setVisible(false);
+                                prestressedFloorsBox.setVisible(false);
+                            } else {
+                                preliminaryAndGeneralBox.setVisible(false);
+                            }
+                            break;
+                        case "Foundations":
+                            if (!foundationsBox.isVisible()) {
+                                foundationsBox.setVisible(true);
+                                preliminaryAndGeneralBox.setVisible(false);
+                                prestressedFloorsBox.setVisible(false);
+                            } else {
+                                foundationsBox.setVisible(false);
+                            }
+                            break;
+                        case "Prestressed Floors":
+                            if (!prestressedFloorsBox.isVisible()) {
+                                prestressedFloorsBox.setVisible(true);
+                                preliminaryAndGeneralBox.setVisible(false);
+                                foundationsBox.setVisible(false);
+                            } else {
+                                prestressedFloorsBox.setVisible(false);
+                            }
+                            break;
                     }
-                }
             });
         }
     }
