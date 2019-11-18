@@ -11,6 +11,7 @@ import javafx.animation.TranslateTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
@@ -51,15 +52,14 @@ public class workspaceController implements Initializable {
     public JFXCheckBox selectAllBox;
 
     //containers
-    public AnchorPane frontPane, structurePane, shortListPane;
+    public AnchorPane frontPane, structurePane, shortListPane, preliminaryAndGeneralBox;
     public ScrollPane scroller, structureScrollPane;
     public Group scrollContent, group;
     public StackPane zoomPane;
     public Canvas canvas;
     public Pane pane;
     public JFXDrawer drawer;
-    public VBox measurementList, slabList, floorsList, framingList, wallsList, insulationList, doorsList,
-            roofList, deckList, miscList, structureBox, shortListBox;
+    public VBox measurementList, structureBox, shortListBox;
 
     public Image image;
     public ColorPicker cpLine;
@@ -411,11 +411,6 @@ public class workspaceController implements Initializable {
             return;
         }
         measurementList.setVisible(false);
-        measurementList.setVisible(false);
-        slabList.setVisible(false);
-        floorsList.setVisible(false);
-        framingList.setVisible(false);
-        wallsList.setVisible(false);
 
         Point2D clamp = clamp(event.getX(), event.getY());
         line.setOpacity(.5);
@@ -650,173 +645,10 @@ public class workspaceController implements Initializable {
 
     //measurements popup
     public void viewMeasurementList() {
-//        if (measurementList.isVisible()) {
-//            measurementList.setVisible(false);
-//            slabList.setVisible(false);
-//            floorsList.setVisible(false);
-//            framingList.setVisible(false);
-//            wallsList.setVisible(false);
-//            insulationList.setVisible(false);
-//            doorsList.setVisible(false);
-//            roofList.setVisible(false);
-//            deckList.setVisible(false);
-//            miscList.setVisible(false);
-//        } else {
-//            measurementList.setVisible(true);
-//            mode = "LENGTH";
-//            isNew = true;
-//            canDraw = true;
-//        }
         if (shortListPane.isVisible()) {
             shortListPane.setVisible(false);
         } else {
             shortListPane.setVisible(true);
-        }
-    }
-
-    public void showSlab() {
-        if (!slabList.isVisible()) {
-            slabList.setVisible(true);
-            floorsList.setVisible(false);
-            framingList.setVisible(false);
-            wallsList.setVisible(false);
-            insulationList.setVisible(false);
-            doorsList.setVisible(false);
-            roofList.setVisible(false);
-            deckList.setVisible(false);
-            miscList.setVisible(false);
-        } else {
-            slabList.setVisible(false);
-        }
-    }
-
-    public void showFloors() {
-        if (!floorsList.isVisible()) {
-            floorsList.setVisible(true);
-            slabList.setVisible(false);
-            framingList.setVisible(false);
-            wallsList.setVisible(false);
-            insulationList.setVisible(false);
-            doorsList.setVisible(false);
-            roofList.setVisible(false);
-            deckList.setVisible(false);
-            miscList.setVisible(false);
-        } else {
-            floorsList.setVisible(false);
-        }
-    }
-
-    public void showFraming() {
-        if (!framingList.isVisible()) {
-            framingList.setVisible(true);
-            slabList.setVisible(false);
-            floorsList.setVisible(false);
-            wallsList.setVisible(false);
-            insulationList.setVisible(false);
-            doorsList.setVisible(false);
-            roofList.setVisible(false);
-            deckList.setVisible(false);
-            miscList.setVisible(false);
-        } else {
-            framingList.setVisible(false);
-            mode = "LENGTH";
-            isNew = true;
-        }
-    }
-
-    public void showWalls() {
-        if (!wallsList.isVisible()) {
-            wallsList.setVisible(true);
-            slabList.setVisible(false);
-            floorsList.setVisible(false);
-            framingList.setVisible(false);
-            insulationList.setVisible(false);
-            doorsList.setVisible(false);
-            roofList.setVisible(false);
-            deckList.setVisible(false);
-            miscList.setVisible(false);
-        } else {
-            wallsList.setVisible(false);
-        }
-    }
-
-    public void showInsulation() {
-        if (!insulationList.isVisible()) {
-            insulationList.setVisible(true);
-            slabList.setVisible(false);
-            floorsList.setVisible(false);
-            framingList.setVisible(false);
-            wallsList.setVisible(false);
-            doorsList.setVisible(false);
-            roofList.setVisible(false);
-            deckList.setVisible(false);
-            miscList.setVisible(false);
-        } else {
-            insulationList.setVisible(false);
-        }
-    }
-
-    public void showDoors() {
-        if (!doorsList.isVisible()) {
-            doorsList.setVisible(true);
-            slabList.setVisible(false);
-            floorsList.setVisible(false);
-            framingList.setVisible(false);
-            wallsList.setVisible(false);
-            insulationList.setVisible(false);
-            roofList.setVisible(false);
-            deckList.setVisible(false);
-            miscList.setVisible(false);
-        } else {
-            doorsList.setVisible(false);
-        }
-    }
-
-    public void showRoof() {
-        if (!roofList.isVisible()) {
-            roofList.setVisible(true);
-            slabList.setVisible(false);
-            floorsList.setVisible(false);
-            framingList.setVisible(false);
-            wallsList.setVisible(false);
-            insulationList.setVisible(false);
-            doorsList.setVisible(false);
-            deckList.setVisible(false);
-            miscList.setVisible(false);
-        } else {
-            roofList.setVisible(false);
-        }
-    }
-
-    public void showDeck() {
-        if (!deckList.isVisible()) {
-            deckList.setVisible(true);
-            slabList.setVisible(false);
-            floorsList.setVisible(false);
-            framingList.setVisible(false);
-            wallsList.setVisible(false);
-            insulationList.setVisible(false);
-            doorsList.setVisible(false);
-            roofList.setVisible(false);
-            miscList.setVisible(false);
-        } else {
-            deckList.setVisible(false);
-        }
-    }
-
-    public void showMisc() {
-        if (!miscList.isVisible()) {
-            miscList.setVisible(true);
-            slabList.setVisible(false);
-            floorsList.setVisible(false);
-            framingList.setVisible(false);
-            wallsList.setVisible(false);
-            insulationList.setVisible(false);
-            doorsList.setVisible(false);
-            roofList.setVisible(false);
-            deckList.setVisible(false);
-        } else {
-            miscList.setVisible(false);
         }
     }
 
@@ -848,7 +680,7 @@ public class workspaceController implements Initializable {
         }
     }
 
-    public void cancel() {
+    public void closeMeasurementList() {
         structurePane.setDisable(true);
         structureToggle.setDisable(true);
         TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.2), structurePane);
@@ -876,8 +708,22 @@ public class workspaceController implements Initializable {
                 String box = ((JFXCheckBox) node).getText();
                 JFXButton button = new JFXButton(box);
                 shortListBox.getChildren().add(button);
+
+                button.setOnMouseClicked(event -> {
+                    if (button.getText().equals("Preliminary & General")) {
+                        if (!preliminaryAndGeneralBox.isVisible()) {
+                            preliminaryAndGeneralBox.setVisible(true);
+                        } else {
+                            preliminaryAndGeneralBox.setVisible(false);
+                        }
+                    }
+                    else if (button.getText().equals("Foundations")) {
+
+                    }
+                });
             }
         });
+        closeMeasurementList();
     }
 
 }
