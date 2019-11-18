@@ -56,7 +56,6 @@
 /*textfield*/
 .jfx-text-field, .jfx-password-field {
     -fx-prompt-text-fill: #6e6e6e;
-    /*-jfx-focus-color: #0F9D58;*/
     -jfx-unfocus-color: #b9b9b9;
     -fx-text-inner-color: #b9b9b9;
 }
@@ -108,9 +107,31 @@
 
 /*scrollpane*/
 .scroll-pane {
-    -fx-background-color: #0F1E25;
+    -fx-background-color: #102027;
 }
 
 .scroll-bar:horizontal, .scroll-bar:vertical{
     -fx-background-color:transparent;
 }
+
+.scroll-pane > .corner {
+    -fx-background-color:  #102027;
+}
+
+/*shortlist buttons since its manually added*/
+#shortListBox .jfx-button {
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 3px;
+    -fx-background-insets: 0px;
+    -fx-text-fill: whitesmoke;
+    -fx-pref-width: 220.0;
+    -fx-pref-height: 30px;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 16;
+    -fx-content-display: left;
+    -fx-background-image: url("../images/more_than_25px.png");
+    -fx-background-size: 20px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 190;
+    -fx-text-alignment: left;
+ }

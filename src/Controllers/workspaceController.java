@@ -1,7 +1,9 @@
 package Controllers;
+
 import Main.Main;
 import Model.ShapeObject;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
@@ -27,14 +29,16 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.*;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
+import javafx.scene.shape.StrokeLineCap;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
 import javax.swing.*;
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,26 +53,25 @@ public class workspaceController implements Initializable {
     public JFXButton IMPORT, SAVE, SCALE, LENGTH, AREA, STAMP, structureToggle;
     public JFXHamburger hamburger;
 
+    //checkbox
+    public JFXCheckBox selectAllBox;
+
     //containers
-    public AnchorPane frontPane;
+    public AnchorPane frontPane, structurePane, shortListPane, preliminaryAndGeneralBox, foundationsBox, prestressedFloorsBox;
     public ScrollPane scroller, structureScrollPane;
     public Group scrollContent, group;
     public StackPane zoomPane;
     public Canvas canvas;
     public Pane pane;
     public JFXDrawer drawer;
-    public VBox measurementList, slabList, floorsList, framingList, wallsList,
-            insulationList, doorsList, roofList, deckList, miscList, structureBox;
+    public VBox structureBox, shortListBox;
 
     public Image image;
-    public ColorPicker cpLine;
+    public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
 
     //temp shapes
     Line line = new Line();
     Rectangle rect = new Rectangle();
-    Circle circ = new Circle();
-    Ellipse elps = new Ellipse();
-    Polyline poline = new Polyline();
 
     //booleans
     boolean isNew = true;
@@ -79,7 +82,6 @@ public class workspaceController implements Initializable {
     Stack<Shape> redoHistory = new Stack();
     List<Shape> shapeList = new ArrayList<>();
     ArrayList<Point2D> pointList = new ArrayList<>();
-    ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
 
     //others
     double SCALE_DELTA = 1.1;
@@ -88,11 +90,15 @@ public class workspaceController implements Initializable {
     double origScaleY;
     String mode;
     ContextMenu contextMenu = new ContextMenu();
-    int i = 0;
+
+    //indicator
+    private int i = 0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        origScaleX = group.getScaleX();
+        origScaleY = group.getScaleY();
+        pane.getChildren().add(line);
         scroller.viewportBoundsProperty().addListener(new ChangeListener<Bounds>() {
             @Override
             public void changed(ObservableValue<? extends Bounds> observable,
@@ -107,19 +113,18 @@ public class workspaceController implements Initializable {
 
             HamburgerNextArrowBasicTransition burgerTask = new HamburgerNextArrowBasicTransition(hamburger);
             burgerTask.setRate(-1);
-            hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED,(e) ->{
-                burgerTask.setRate(burgerTask.getRate()*-1);
+            hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
+                burgerTask.setRate(burgerTask.getRate() * -1);
                 burgerTask.play();
 
                 if (drawer.isOpened()) {
                     drawer.close();
-                }
-                else {
+                } else {
                     drawer.toggle();
                 }
             });
-        } catch(Exception e) {
-            Logger.getLogger(workspaceController.class.getName()).log(Level.SEVERE,null, e);
+        } catch (Exception e) {
+            Logger.getLogger(workspaceController.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
@@ -182,13 +187,28 @@ public class workspaceController implements Initializable {
                 group.setScaleY(newScale);
                 Point2D scrollOffset = figureScrollOffset(scrollContent, scroller);
                 repositionScroller(scrollContent, scroller, scaleFactor, scrollOffset);
+
+                //===========CHANGES=======================================================
+                pane.getChildren().forEach(node -> {
+                    if (node.getClass().getSuperclass() == Shape.class) {
+                        Shape sp = (Shape) node;
+                        System.out.println(10 / group.getScaleY());
+                        sp.setStrokeWidth(10 / group.getScaleY());
+
+
+                    }
+                    if (node.getClass() == Label.class) {
+                        Label lbl = (Label) node;
+                        lbl.setFont(new Font("Arial", 18 / group.getScaleY()));
+                    }
+                });
             }
         }
     }
 
     public void updateLine(MouseEvent event) {
+        Point2D cP = clamp(event.getX(), event.getY());
         if (!isNew) {
-            Point2D cP = clamp(event.getX(), event.getY());
             if (event.isShiftDown()) {
                 if (cP.getX() < cP.getY()) {
                     line.setEndX(line.getStartX());
@@ -211,9 +231,16 @@ public class workspaceController implements Initializable {
                 line.setEndY(cP.getY());
             }
         }
+//===========CHANGES=======================================================
+        if (mode == "DRAW_RECT") {
+            if (!isNew) {
+                rect.setWidth(cP.getX() - rect.getX());
+                rect.setHeight(cP.getY() - rect.getY());
+            }
+        }
+//===========CHANGES=======================================================
     }
 
-    //=====REPAINT ALL SHAPES====//
     public void redrawShapes() {
         pane.getChildren().clear();
         for (ShapeObject sp0 : shapeObjList) {
@@ -230,9 +257,8 @@ public class workspaceController implements Initializable {
                 area = area / 1000;
 
                 Label lbl = new Label(Math.round(area * 100.0) / 100.0 + " m²");
-                lbl.setFont(new Font("Arial", 24));
+                lbl.setFont(new Font("Arial", 36));
                 lbl.setTextFill(sp0.getColor());
-
                 double layX = sp0.getPolygon().getBoundsInParent().getMinX() + (sp0.getPolygon().getBoundsInParent().getWidth() - lbl.getWidth()) / 2;
                 double layY = sp0.getPolygon().getBoundsInParent().getMinY() + (sp0.getPolygon().getBoundsInParent().getHeight() - lbl.getHeight()) / 2;
                 System.out.println(lbl.getWidth() + " LBL GET WIDTH");
@@ -248,6 +274,7 @@ public class workspaceController implements Initializable {
                 lbl.setLayoutY(layY);
                 lbl.setOpacity(.5);
                 pane.getChildren().add(lbl);
+
             }
         }
 
@@ -262,7 +289,7 @@ public class workspaceController implements Initializable {
                     if (p1.distance(p2) != 0) {
                         double length = (p1.distance(p2) / m_Scale);
                         Label lbl = new Label(Math.round(length * 100.0) / 100.0 + " mm");
-                        lbl.setFont(new Font("Arial", 24));
+                        lbl.setFont(new Font("Arial", 36));
                         lbl.setLayoutY(mid.getY());
                         lbl.setLayoutX(mid.getX());
                         lbl.setOnMouseEntered(event -> {
@@ -286,17 +313,29 @@ public class workspaceController implements Initializable {
         }
         pane.getChildren().add(line);
         line.setVisible(false);
+        pane.getChildren().forEach(node -> {
+            if (node.getClass().getSuperclass() == Shape.class) {
+                Shape sp = (Shape) node;
+                System.out.println(10 / group.getScaleY());
+                sp.setStrokeWidth(10 / group.getScaleY());
+
+
+            }
+            if (node.getClass() == Label.class) {
+                Label lbl = (Label) node;
+                lbl.setFont(new Font("Arial", 18 / group.getScaleY()));
+            }
+        });
     }
 
-    //=====CREATING BOX OUTLINE=====//
     public Shape createBox(double x, double y) {
 
-        double boxW = workspaceSideNavigatorController.slider.getValue() * 3;
-        shapeList.add(new Rectangle(x - boxW / 2, y - boxW / 2, boxW, boxW));
+        double boxW = 10 * 3;
+        shapeList.add(new Rectangle(x - (boxW / 2) / group.getScaleY(), y - (boxW / 2) / group.getScaleY(), boxW / group.getScaleY(), boxW / group.getScaleY()));
         Rectangle r = (Rectangle) shapeList.get(shapeList.size() - 1);
         r.setStroke(Color.GREEN);
         r.setOpacity(.5);
-        r.setStrokeWidth(boxW / 5);
+        r.setStrokeWidth((boxW / 5) / group.getScaleY());
         r.setFill(Color.TRANSPARENT);
 
         r.setOnMouseEntered(event -> {
@@ -311,11 +350,10 @@ public class workspaceController implements Initializable {
                 return;
             }
 
-            canDraw = false;
             ShapeObject shapeObj = new ShapeObject();
             shapeObj.setPane(pane);
-            shapeObj.setStrokeWidth(workspaceSideNavigatorController.slider.getValue());
-            shapeObj.setColor(cpLine.getValue());
+            shapeObj.setStrokeWidth(10 / group.getScaleY());
+            shapeObj.setColor(Color.BLUE);
             Point2D p2d = new Point2D(r.getX() + r.getHeight() / 2, r.getY() + r.getHeight() / 2);
 
             if (p2d != pointList.get(pointList.size() - 1)) {
@@ -331,19 +369,19 @@ public class workspaceController implements Initializable {
             LENGTH.setDisable(false);
             AREA.setDisable(false);
             scroller.setPannable(true);
+            canDraw = false;
         });
         return shapeList.get(shapeList.size() - 1);
     }
 
-    //=====CREATING LINES=====//
     public Shape createLine(Line param) {
-        Color color = cpLine.getValue();
+        Color color = Color.BLUE;
         shapeList.add(new Line(line.getStartX(), line.getStartY(), line.getEndX(), line.getEndY()));
         Line l = (Line) shapeList.get(shapeList.size() - 1);
 
         l.setStroke(color);
         l.setStrokeLineCap(StrokeLineCap.BUTT);
-        l.setStrokeWidth(workspaceSideNavigatorController.slider.getValue());
+        l.setStrokeWidth(10 / group.getScaleY());
         l.setOpacity(.5);
 
         l.setOnMouseEntered(event -> {
@@ -355,7 +393,7 @@ public class workspaceController implements Initializable {
         l.setOnMousePressed(event -> {
             if (event.getButton() == MouseButton.SECONDARY) {
                 contextMenu = new ContextMenu();
-                MenuItem item = new MenuItem("REMOVE SEGMENT");
+                MenuItem item = new MenuItem("REMOVE LENGTH");
                 item.setOnAction(event1 -> {
                     System.out.println("SEGMENT REMOVED");
                     pane.getChildren().remove(l);
@@ -369,7 +407,6 @@ public class workspaceController implements Initializable {
         return shapeList.get(shapeList.size() - 1);
     }
 
-    //=====START DRAW (MOUSE RELEASED)=====//
     public void drawAction(MouseEvent event) {
         if (event.getButton() == MouseButton.SECONDARY) {
             return;
@@ -377,17 +414,20 @@ public class workspaceController implements Initializable {
         if (!canDraw) {
             return;
         }
+
         Point2D clamp = clamp(event.getX(), event.getY());
         line.setOpacity(.5);
         line.setStrokeLineCap(StrokeLineCap.BUTT);
+
         if (mode == "SCALE") {
             if (isNew) {
+                line.setVisible(true);
                 line.setStartX(clamp.getX());
                 line.setStartY(clamp.getY());
                 line.setEndX(clamp.getX());
                 line.setEndY(clamp.getY());
                 line.setStroke(Color.CHOCOLATE);
-                line.setStrokeWidth(5);
+                line.setStrokeWidth(15 / group.getScaleY());
                 line.setVisible(true);
                 pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
                 isNew = false;
@@ -397,6 +437,9 @@ public class workspaceController implements Initializable {
                 Point2D end = new Point2D(line.getEndX(), line.getEndY());
                 try {
                     double m_input = Float.parseFloat(JOptionPane.showInputDialog("Enter Scale (mm)", 0.00 + " mm"));
+                    if (m_input <= 0) {
+                        throw new NumberFormatException();
+                    }
                     double m_Length = start.distance(end);
                     m_Scale = m_Length / m_input;
                 } catch (Exception e) {
@@ -408,45 +451,80 @@ public class workspaceController implements Initializable {
                 scroller.setPannable(true);
                 mode = "FREE_HAND";
             }
-        } else if (mode != "FREE_HAND") {
-            if (isNew) {
-//                line.setStartX(clamp.getX());
-//                line.setStartY(clamp.getY());
-//                line.setEndX(clamp.getX());
-//                line.setEndY(clamp.getY());
-//                pointList.add(clamp);
-//                line.setStrokeWidth(workspaceSideNavigatorController.slider.getValue());
-//                line.setStroke(cpLine.getValue());
-//                pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
-//                line.setVisible(true);
-//                isNew = false;
-            } else {
 
+        } else if (mode == "LENGTH") {
+            if (isNew) {
+                line.setStartX(clamp.getX());
+                line.setStartY(clamp.getY());
+                line.setEndX(clamp.getX());
+                line.setEndY(clamp.getY());
+                pointList.add(clamp);
+                line.setStrokeWidth(10 / group.getScaleY());
+                line.setStroke(Color.BLUE);
+                pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
+                line.setVisible(true);
+                isNew = false;
+            } else {
                 Point2D start = new Point2D(line.getStartX(), line.getStartY());
                 Point2D end = new Point2D(line.getEndX(), line.getEndY());
                 Point2D mid = start.midpoint(end);
                 System.out.println(line.contains(mid) + " line contains");
                 pointList.add(end);
-                if (mode == "LENGTH") {
 
-                    double length = (start.distance(end) / m_Scale);
-                    Label lbl = new Label(Math.round(length * 100.0) / 100.0 + " mm");
-                    lbl.setFont(new Font("Arial", 24));
-                    lbl.setLayoutY(mid.getY());
-                    lbl.setLayoutX(mid.getX());
-                    lbl.setTextFill(cpLine.getValue());
-                    lbl.setOpacity(.5);
-                    pane.getChildren().add(lbl);
-                }
+                double length = (start.distance(end) / m_Scale);
+                Label lbl = new Label(Math.round(length * 100.0) / 100.0 + " mm");
+                lbl.setFont(new Font("Arial", 18 / group.getScaleY()));
+                lbl.setLayoutY(mid.getY());
+                lbl.setLayoutX(mid.getX());
+                lbl.setTextFill(Color.BLUE);
+                lbl.setOpacity(.5);
+                pane.getChildren().add(lbl);
+                pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
+                pane.getChildren().add(createLine(line));
+                ShapeObject shapeObj = new ShapeObject();
+                shapeObj.setPane(pane);
+                shapeObj.setStrokeWidth(10 / group.getScaleY());
+                shapeObj.setColor(Color.BLUE);
+                shapeObj.setPointList(pointList);
+                shapeObj.setController(this);
+                shapeObj.setType(mode);
+                shapeObjList.add(shapeObj);
+                isNew = true;
+                line.setVisible(false);
+                canDraw = false;
+                pointList.clear();
+                redrawShapes();
+
+            }
+        } else if (mode == "AREA") {
+            if (isNew) {
+                line.setStartX(clamp.getX());
+                line.setStartY(clamp.getY());
+                line.setEndX(clamp.getX());
+                line.setEndY(clamp.getY());
+                pointList.add(clamp);
+                line.setStrokeWidth(10 / group.getScaleY());
+                line.setStroke(Color.BLUE);
+                pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
+                line.setVisible(true);
+                isNew = false;
+            } else {
+                Point2D start = new Point2D(line.getStartX(), line.getStartY());
+                Point2D end = new Point2D(line.getEndX(), line.getEndY());
+                Point2D mid = start.midpoint(end);
+                pointList.add(end);
 
                 pane.getChildren().add(createLine(line));
                 pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
-                undoHistory.push(createLine(line));
                 line.setStartX(line.getEndX());
                 line.setStartY(line.getEndY());
                 line.setEndX(clamp.getX());
                 line.setEndY(clamp.getY());
             }
+        } else if (mode == "DRAW_RECT") {
+            isNew = true;
+            canDraw = false;
+            ShapeObject sp = new ShapeObject();
         }
     }
 
@@ -485,213 +563,183 @@ public class workspaceController implements Initializable {
     public void scaleAction(ActionEvent actionEvent) {
         mode = "SCALE";
         canDraw = true;
+        isNew = true;
     }
 
     //=====AREA ACTION====//
     public void areaAction(ActionEvent actionEvent) {
-        cpLine.setValue(null);
-//        cpLine.relocate(AREA.getWidth() + 20, (vbox.getHeight() / 2) + lengthbtn.getHeight());
-        cpLine.show();
-        cpLine.setOnHidden(event -> {
-            if (cpLine.getValue() != null) {
-                LENGTH.setDisable(true);
-                canDraw = true;
-                isNew = true;
-            } else {
-                LENGTH.setDisable(false);
-            }
-        });
         mode = "AREA";
+        isNew = true;
+        canDraw = true;
+    }
+
+    public void rotateAction(ActionEvent actionEvent) {
+        group.setRotate(group.getRotate() + 90);
+    }
+
+    public void drawRectangle(ActionEvent actionEvent) {
+        mode = "DRAW_RECT";
+        canDraw = true;
+        isNew = true;
+    }
+
+    public void drawRect(MouseEvent event) {
+        Point2D clamp = clamp(event.getX(), event.getY());
+        if (mode == "DRAW_RECT") {
+            if (!canDraw) {
+                return;
+            }
+            if (event.getButton() == MouseButton.SECONDARY) {
+                return;
+            }
+            line.setVisible(false);
+            rect = new Rectangle();
+            rect.setX(clamp.getX());
+            rect.setY(clamp.getY());
+            rect.setWidth(10);
+            rect.setHeight(10);
+            rect.setOpacity(.5);
+            rect.setStroke(Color.BLUE);
+            rect.setStrokeWidth(15);
+            rect.setOnMouseEntered(event1 -> {
+                rect.setStroke(Color.RED);
+            });
+            rect.setOnMouseExited(event1 -> {
+                rect.setStroke(Color.BLUE);
+            });
+            rect.setOnMousePressed(event1 -> {
+                if (event1.getButton() == MouseButton.SECONDARY) {
+                    contextMenu = new ContextMenu();
+                    MenuItem removeLength = new MenuItem("REMOVE FILL");
+                    removeLength.setOnAction(event12 -> {
+                        pane.getChildren().remove(rect);
+                    });
+                    contextMenu.getItems().add(removeLength);
+                }
+                contextMenu.show(rect, event1.getScreenX(), event1.getScreenY());
+            });
+
+            pane.getChildren().add(rect);
+            isNew = false;
+        } else if (mode == "STAMP") {
+            Rectangle r = new Rectangle();
+            r.setX(clamp.getX());
+            r.setY(clamp.getY());
+            r.setWidth(5 / group.getScaleY());
+            r.setWidth(5 / group.getScaleY());
+            pane.getChildren().add(r);
+            System.out.println("ADD STAMP");
+        }
+    }
+
+    public void handlePan(MouseEvent event) {
+        if (event.getButton() == MouseButton.PRIMARY) {
+            scroller.setPannable(false);
+        } else {
+            scroller.setPannable(true);
+        }
+    }
+
+    public void stampAction() {
+        mode = "STAMP";
+        canDraw = true;
+        System.out.println("STAMPING");
     }
 
     //measurements popup
     public void viewMeasurementList() {
-        if (measurementList.isVisible()) {
-            measurementList.setVisible(false);
-            slabList.setVisible(false);
-            floorsList.setVisible(false);
-            framingList.setVisible(false);
-            wallsList.setVisible(false);
-            insulationList.setVisible(false);
-            doorsList.setVisible(false);
-            roofList.setVisible(false);
-            deckList.setVisible(false);
-            miscList.setVisible(false);
-        } else {
-            measurementList.setVisible(true);
-        }
-    }
+        if (shortListPane.isVisible()) {
+            shortListPane.setVisible(false);
 
-    public void showSlab() {
-        if (!slabList.isVisible()) {
-            slabList.setVisible(true);
-            floorsList.setVisible(false);
-            framingList.setVisible(false);
-            wallsList.setVisible(false);
-            insulationList.setVisible(false);
-            doorsList.setVisible(false);
-            roofList.setVisible(false);
-            deckList.setVisible(false);
-            miscList.setVisible(false);
-        } else {
-            slabList.setVisible(false);
-        }
-    }
+            preliminaryAndGeneralBox.setVisible(false);
+            foundationsBox.setVisible(false);
 
-    public void showFloors() {
-        if (!floorsList.isVisible()) {
-            floorsList.setVisible(true);
-            slabList.setVisible(false);
-            framingList.setVisible(false);
-            wallsList.setVisible(false);
-            insulationList.setVisible(false);
-            doorsList.setVisible(false);
-            roofList.setVisible(false);
-            deckList.setVisible(false);
-            miscList.setVisible(false);
+            isNew = true;
+            canDraw = true;
+            mode = "LENGTH";
         } else {
-            floorsList.setVisible(false);
-        }
-    }
-
-    public void showFraming() {
-        if (!framingList.isVisible()) {
-            framingList.setVisible(true);
-            slabList.setVisible(false);
-            floorsList.setVisible(false);
-            wallsList.setVisible(false);
-            insulationList.setVisible(false);
-            doorsList.setVisible(false);
-            roofList.setVisible(false);
-            deckList.setVisible(false);
-            miscList.setVisible(false);
-        } else {
-            framingList.setVisible(false);
-        }
-    }
-
-    public void showWalls() {
-        if (!wallsList.isVisible()) {
-            wallsList.setVisible(true);
-            slabList.setVisible(false);
-            floorsList.setVisible(false);
-            framingList.setVisible(false);
-            insulationList.setVisible(false);
-            doorsList.setVisible(false);
-            roofList.setVisible(false);
-            deckList.setVisible(false);
-            miscList.setVisible(false);
-        } else {
-            wallsList.setVisible(false);
-        }
-    }
-
-    public void showInsulation() {
-        if (!insulationList.isVisible()) {
-            insulationList.setVisible(true);
-            slabList.setVisible(false);
-            floorsList.setVisible(false);
-            framingList.setVisible(false);
-            wallsList.setVisible(false);
-            doorsList.setVisible(false);
-            roofList.setVisible(false);
-            deckList.setVisible(false);
-            miscList.setVisible(false);
-        } else {
-            insulationList.setVisible(false);
-        }
-    }
-
-    public void showDoors() {
-        if (!doorsList.isVisible()) {
-            doorsList.setVisible(true);
-            slabList.setVisible(false);
-            floorsList.setVisible(false);
-            framingList.setVisible(false);
-            wallsList.setVisible(false);
-            insulationList.setVisible(false);
-            roofList.setVisible(false);
-            deckList.setVisible(false);
-            miscList.setVisible(false);
-        } else {
-            doorsList.setVisible(false);
-        }
-    }
-
-    public void showRoof() {
-        if (!roofList.isVisible()) {
-            roofList.setVisible(true);
-            slabList.setVisible(false);
-            floorsList.setVisible(false);
-            framingList.setVisible(false);
-            wallsList.setVisible(false);
-            insulationList.setVisible(false);
-            doorsList.setVisible(false);
-            deckList.setVisible(false);
-            miscList.setVisible(false);
-        } else {
-            roofList.setVisible(false);
-        }
-    }
-
-    public void showDeck() {
-        if (!deckList.isVisible()) {
-            deckList.setVisible(true);
-            slabList.setVisible(false);
-            floorsList.setVisible(false);
-            framingList.setVisible(false);
-            wallsList.setVisible(false);
-            insulationList.setVisible(false);
-            doorsList.setVisible(false);
-            roofList.setVisible(false);
-            miscList.setVisible(false);
-        } else {
-            deckList.setVisible(false);
-        }
-    }
-
-    public void showMisc() {
-        if (!miscList.isVisible()) {
-            miscList.setVisible(true);
-            slabList.setVisible(false);
-            floorsList.setVisible(false);
-            framingList.setVisible(false);
-            wallsList.setVisible(false);
-            insulationList.setVisible(false);
-            doorsList.setVisible(false);
-            roofList.setVisible(false);
-            deckList.setVisible(false);
-        } else {
-            miscList.setVisible(false);
+            shortListPane.setVisible(true);
         }
     }
 
     public void structureListTransition() {
         if (i == 0) {
-            structureScrollPane.setVisible(true);
-            structureScrollPane.setDisable(true);
+            structurePane.setVisible(true);
+            structurePane.setDisable(true);
             structureToggle.setDisable(true);
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.2), structureScrollPane);
-            translateTransition1.setByX(+310);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.2), structurePane);
+            translateTransition1.setByX(+313);
             translateTransition1.play();
             translateTransition1.setOnFinished(event1 -> {
-                structureScrollPane.setDisable(false);
+                structurePane.setDisable(false);
                 structureToggle.setDisable(false);
             });
             i++;
-        }
-        else {
-            structureScrollPane.setDisable(true);
+        } else {
+            structurePane.setDisable(true);
             structureToggle.setDisable(true);
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.2), structureScrollPane);
-            translateTransition1.setByX(-310);
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.2), structurePane);
+            translateTransition1.setByX(-313);
             translateTransition1.play();
             translateTransition1.setOnFinished(event1 -> {
-                structureScrollPane.setDisable(false);
-                structureScrollPane.setVisible(false);
+                structurePane.setDisable(false);
+                structurePane.setVisible(false);
                 structureToggle.setDisable(false);
             });
             i--;
+        }
+    }
+
+    public void closeMeasurementList() {
+        structurePane.setDisable(true);
+        structureToggle.setDisable(true);
+        TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.2), structurePane);
+        translateTransition1.setByX(-313);
+        translateTransition1.play();
+        translateTransition1.setOnFinished(event1 -> {
+            structurePane.setDisable(false);
+            structurePane.setVisible(false);
+            structureToggle.setDisable(false);
+        });
+        i--;
+    }
+
+    public void selectAll() {
+        if (selectAllBox.isSelected()) {
+            structureBox.getChildren().forEach(node -> ((JFXCheckBox) node).setSelected(true));
+        } else {
+            structureBox.getChildren().forEach(node -> ((JFXCheckBox) node).setSelected(false));
+        }
+    }
+
+    public void addStructure() {
+        structureBox.getChildren().forEach(this::accept);
+        closeMeasurementList();
+        }
+
+        private void accept(Node node) {
+            if (((JFXCheckBox) node).isSelected()) {
+                String box = ((JFXCheckBox) node).getText();
+                JFXButton button = new JFXButton(box);
+                shortListBox.getChildren().add(button);
+
+                button.setOnMouseClicked(event -> {
+                    if (button.getText().equals("Preliminary & General")) {
+                        if (!preliminaryAndGeneralBox.isVisible()) {
+                            preliminaryAndGeneralBox.setVisible(true);
+                            foundationsBox.setVisible(false);
+                        } else {
+                            preliminaryAndGeneralBox.setVisible(false);
+                        }
+                    } else if (button.getText().equals("Foundations")) {
+                        if (!foundationsBox.isVisible()) {
+                            foundationsBox.setVisible(true);
+                            preliminaryAndGeneralBox.setVisible(false);
+                        } else {
+                            foundationsBox.setVisible(false);
+                    }
+                }
+            });
         }
     }
 }
