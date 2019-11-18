@@ -7,10 +7,16 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -20,7 +26,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1015.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.workspaceController">
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1015.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.workspaceController">
    <children>
       <ScrollPane fx:id="scroller" centerShape="false" layoutX="78.0" layoutY="16.0" opacity="0.0" pannable="true" prefHeight="660.0" prefWidth="885.0" scaleShape="false" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="30.0">
          <content>
@@ -31,7 +37,7 @@
                         <Group fx:id="group">
                            <children>
                               <Canvas fx:id="canvas" height="660.0" nodeOrientation="INHERIT" width="885.0" />
-                              <Pane fx:id="pane" onMouseDragged="#updateLine" onMouseMoved="#updateLine" onMousePressed="#drawRect" onMouseReleased="#drawAction" prefHeight="660.0" prefWidth="885.0" />
+                              <Pane fx:id="pane" layoutY="-7.0" onMouseDragged="#updateLine" onMouseMoved="#updateLine" onMousePressed="#drawRect" onMouseReleased="#drawAction" prefHeight="660.0" prefWidth="885.0" />
                            </children>
                         </Group>
                      </children>
@@ -118,7 +124,7 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
-            <JFXButton fx:id="LENGTH" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#viewMeasurementList" prefHeight="50.0" prefWidth="50.0">
+            <JFXButton fx:id="LENGTH" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#lengthAction" prefHeight="50.0" prefWidth="50.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -790,7 +796,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prelimBox" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Insurance" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -803,7 +809,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="foundationsBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="145.0" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="foundationsBox" layoutX="294.0" layoutY="205.0" prefHeight="356.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="145.0" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Foundations" textFill="WHITE">
                <font>
@@ -813,7 +819,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="foundBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Post Footings" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -946,7 +952,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox prefHeight="221.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox" prefHeight="221.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Concrete Floor" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -977,6 +983,28 @@
                   </VBox>
                </content>
             </ScrollPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="sectionPane" layoutX="499.0" layoutY="206.0" prefHeight="232.0" prefWidth="444.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false">
+         <children>
+            <TreeTableView layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="108.0">
+              <columns>
+                <TreeTableColumn prefWidth="108.0" text="Sections" />
+              </columns>
+            </TreeTableView>
+            <ComboBox layoutX="261.0" layoutY="23.0" prefHeight="25.0" prefWidth="168.0" />
+            <ComboBox layoutX="261.0" layoutY="61.0" prefHeight="25.0" prefWidth="168.0" />
+            <TextField layoutX="367.0" layoutY="102.0" prefHeight="25.0" prefWidth="62.0" />
+            <TextField layoutX="261.0" layoutY="102.0" prefHeight="25.0" prefWidth="62.0" />
+            <Label layoutX="331.0" layoutY="106.0" text="Length" textFill="WHITE" />
+            <Label layoutX="215.0" layoutY="108.0" text="Height" textFill="WHITE" />
+            <Label layoutX="205.0" layoutY="65.0" text="Override" textFill="WHITE" />
+            <Label layoutX="234.0" layoutY="27.0" text="Set" textFill="#fffbfb" />
+            <ColorPicker fx:id="colorPicker" layoutX="262.0" layoutY="152.0" prefHeight="25.0" prefWidth="168.0" />
+            <Label layoutX="218.0" layoutY="156.0" text="Color" textFill="WHITE" />
+            <Button fx:id="sectionDone" layoutX="367.0" layoutY="193.0" mnemonicParsing="false" onAction="#sectionDoneAction" prefHeight="25.0" prefWidth="62.0" text="Done" />
+            <Button layoutX="129.0" layoutY="15.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Add" />
+            <Button layoutX="129.0" layoutY="49.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Remove" />
          </children>
       </AnchorPane>
 </children>

@@ -7,10 +7,16 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -20,7 +26,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1015.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.workspaceController">
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1015.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.workspaceController">
    <children>
       <ScrollPane fx:id="scroller" centerShape="false" layoutX="78.0" layoutY="16.0" opacity="0.0" pannable="true" prefHeight="660.0" prefWidth="885.0" scaleShape="false" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="30.0">
          <content>
@@ -31,7 +37,7 @@
                         <Group fx:id="group">
                            <children>
                               <Canvas fx:id="canvas" height="660.0" nodeOrientation="INHERIT" width="885.0" />
-                              <Pane fx:id="pane" onMouseDragged="#updateLine" onMouseMoved="#updateLine" onMousePressed="#drawRect" onMouseReleased="#drawAction" prefHeight="660.0" prefWidth="885.0" />
+                              <Pane fx:id="pane" layoutY="-7.0" onMouseDragged="#updateLine" onMouseMoved="#updateLine" onMousePressed="#drawRect" onMouseReleased="#drawAction" prefHeight="660.0" prefWidth="885.0" />
                            </children>
                         </Group>
                      </children>
@@ -118,7 +124,7 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
-            <JFXButton fx:id="LENGTH" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#viewMeasurementList" prefHeight="50.0" prefWidth="50.0">
+            <JFXButton fx:id="LENGTH" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#lengthAction" prefHeight="50.0" prefWidth="50.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -202,407 +208,6 @@
       </VBox>
       <JFXHamburger fx:id="hamburger" layoutX="980.0" layoutY="38.0" opacity="0.6" prefHeight="30.0" prefWidth="30.0" stylesheets="@CSS/style.css" AnchorPane.rightAnchor="12.0" />
       <JFXDrawer fx:id="drawer" defaultDrawerSize="240.0" direction="RIGHT" layoutX="700.0" layoutY="82.0" miniDrawerSize="0.0" prefHeight="515.0" prefWidth="240.0" AnchorPane.bottomAnchor="123.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="82.0" />
-      <VBox fx:id="measurementList" layoutX="72.0" layoutY="205.0" opacity="0.8" prefWidth="140.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 10px;" visible="false">
-         <children>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="140.0" text="Measurement List" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Bold" size="15.0" />
-               </font>
-            </Label>
-            <Separator prefWidth="200.0" />
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" onAction="#showSlab" prefHeight="40.0" prefWidth="140.0" ripplerFill="#727272" text="Slab" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/more_than_25px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" onAction="#showFloors" prefHeight="40.0" prefWidth="140.0" ripplerFill="#727272" text="Floors" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/more_than_25px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" onAction="#showFraming" prefHeight="40.0" prefWidth="140.0" ripplerFill="#727272" text="Framing" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/more_than_25px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" onAction="#showWalls" prefHeight="40.0" prefWidth="140.0" ripplerFill="#727272" text="Walls" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/more_than_25px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" onAction="#showInsulation" prefHeight="40.0" prefWidth="140.0" ripplerFill="#727272" text="Insulation" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/more_than_25px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" onAction="#showDoors" prefHeight="40.0" prefWidth="140.0" ripplerFill="#727272" text="Doors" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/more_than_25px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" onAction="#showRoof" prefHeight="40.0" prefWidth="140.0" ripplerFill="#727272" text="Roof" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/more_than_25px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" onAction="#showDeck" prefHeight="40.0" prefWidth="140.0" ripplerFill="#727272" text="Deck" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/more_than_25px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" onAction="#showMisc" prefHeight="40.0" prefWidth="140.0" ripplerFill="#727272" text="Misc" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/more_than_25px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-         </children>
-         <effect>
-            <DropShadow height="15.0" radius="5.75" width="10.0" />
-         </effect>
-      </VBox>
-      <VBox fx:id="slabList" layoutX="215.0" layoutY="205.0" opacity="0.8" prefWidth="160.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 10px;" visible="false">
-         <children>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="174.0" text="Slab" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Bold" size="15.0" />
-               </font>
-            </Label>
-            <Separator prefWidth="200.0" />
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Concrete Foundation" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Example Popup" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-         </children>
-         <effect>
-            <DropShadow height="15.0" radius="5.75" width="10.0" />
-         </effect>
-      </VBox>
-      <VBox fx:id="floorsList" layoutX="215.0" layoutY="205.0" opacity="0.8" prefWidth="160.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 10px;" visible="false">
-         <children>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="174.0" text="Floors" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Bold" size="15.0" />
-               </font>
-            </Label>
-            <Separator prefWidth="200.0" />
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Sublfoor Framing" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Ground Floor" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="First Floor" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Example" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Example" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-         </children>
-         <effect>
-            <DropShadow height="15.0" radius="5.75" width="10.0" />
-         </effect>
-      </VBox>
-      <VBox fx:id="framingList" layoutX="215.0" layoutY="205.0" opacity="0.8" prefWidth="160.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 10px;" visible="false">
-         <children>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="174.0" text="Framing" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Bold" size="15.0" />
-               </font>
-            </Label>
-            <Separator prefWidth="200.0" />
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Chimney" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Exterior" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Interior" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Wet Areas" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-         </children>
-         <effect>
-            <DropShadow height="15.0" radius="5.75" width="10.0" />
-         </effect>
-      </VBox>
-      <VBox fx:id="wallsList" layoutX="215.0" layoutY="205.0" opacity="0.8" prefWidth="160.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 10px;" visible="false">
-         <children>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="174.0" text="Walls" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Bold" size="15.0" />
-               </font>
-            </Label>
-            <Separator prefWidth="200.0" />
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Wall Linings" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Example" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Example" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-         </children>
-         <effect>
-            <DropShadow height="15.0" radius="5.75" width="10.0" />
-         </effect>
-      </VBox>
-      <VBox fx:id="insulationList" layoutX="215.0" layoutY="205.0" opacity="0.8" prefWidth="160.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 10px;" visible="false">
-         <children>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="174.0" text="Insulation" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Bold" size="15.0" />
-               </font>
-            </Label>
-            <Separator prefWidth="200.0" />
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Ceiling Batts" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Wall Batts" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Mid Floor" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-         </children>
-         <effect>
-            <DropShadow height="15.0" radius="5.75" width="10.0" />
-         </effect>
-      </VBox>
-      <VBox fx:id="doorsList" layoutX="215.0" layoutY="205.0" opacity="0.8" prefWidth="160.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 10px;" visible="false">
-         <children>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="174.0" text="Doors" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Bold" size="15.0" />
-               </font>
-            </Label>
-            <Separator prefWidth="200.0" />
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Example" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Example" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-         </children>
-         <effect>
-            <DropShadow height="15.0" radius="5.75" width="10.0" />
-         </effect>
-      </VBox>
-      <VBox fx:id="roofList" layoutX="215.0" layoutY="205.0" opacity="0.8" prefWidth="160.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 10px;" visible="false">
-         <children>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="174.0" text="Roof" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Bold" size="15.0" />
-               </font>
-            </Label>
-            <Separator prefWidth="200.0" />
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Spouting" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Soffit Linings" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Roof Paper" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-         </children>
-         <effect>
-            <DropShadow height="15.0" radius="5.75" width="10.0" />
-         </effect>
-      </VBox>
-      <VBox fx:id="deckList" layoutX="215.0" layoutY="205.0" opacity="0.8" prefWidth="160.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 10px;" visible="false">
-         <children>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="174.0" text="Deck" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Bold" size="15.0" />
-               </font>
-            </Label>
-            <Separator prefWidth="200.0" />
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Joists" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Bearer Pilings" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Ordinary Pile" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Anchor Pile" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Braced" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-         </children>
-         <effect>
-            <DropShadow height="15.0" radius="5.75" width="10.0" />
-         </effect>
-      </VBox>
-      <VBox fx:id="miscList" layoutX="215.0" layoutY="205.0" opacity="0.8" prefWidth="160.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 10px;" visible="false">
-         <children>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="174.0" text="Misc" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Bold" size="15.0" />
-               </font>
-            </Label>
-            <Separator prefWidth="200.0" />
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="GIB Slimline Angles" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Roof Pitch" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Cupboard" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Ceiling Hatch" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton contentDisplay="RIGHT" ellipsisString="" prefHeight="40.0" prefWidth="187.0" ripplerFill="#727272" text="Smoked Alarm" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </JFXButton>
-         </children>
-         <effect>
-            <DropShadow height="15.0" radius="5.75" width="10.0" />
-         </effect>
-      </VBox>
       <JFXButton fx:id="structureToggle" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" layoutX="5.0" layoutY="155.0" onAction="#structureListTransition" prefHeight="50.0" prefWidth="50.0" text="Button">
          <graphic>
             <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
@@ -619,7 +224,7 @@
             </Tooltip>
          </tooltip>
       </JFXButton>
-      <AnchorPane fx:id="structurePane" focusTraversable="true" layoutX="-240.0" layoutY="20.0" prefWidth="240.0" style="-fx-background-color: #102027; -fx-border-radius: 20px; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.topAnchor="20.0">
+      <AnchorPane fx:id="structurePane" focusTraversable="true" layoutX="-243.0" layoutY="20.0" prefWidth="240.0" style="-fx-background-color: #102027; -fx-border-radius: 20px; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.topAnchor="20.0">
          <children>
             <JFXCheckBox fx:id="selectAllBox" layoutX="135.0" onAction="#selectAll" prefHeight="59.0" prefWidth="108.0" style="-fx-background-color: #102027; -fx-background-radius: 20px;" text="Select All" textFill="#b8b8b8">
                <font>
@@ -1137,7 +742,7 @@
                   </VBox>
                </content>
             </ScrollPane>
-            <JFXButton ellipsisString="" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #102027; -fx-background-radius: 20px;" text="Select" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.bottomAnchor="0.0">
+            <JFXButton ellipsisString="" onAction="#addStructure" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #102027; -fx-background-radius: 20px;" text="Select" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.bottomAnchor="0.0">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
@@ -1149,7 +754,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton ellipsisString="" layoutX="120.0" layoutY="10.0" onAction="#cancel" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #102027; -fx-background-radius: 20px;" text="Cancel" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.bottomAnchor="0.0">
+            <JFXButton ellipsisString="" layoutX="120.0" layoutY="10.0" onAction="#closeMeasurementList" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #102027; -fx-background-radius: 20px;" text="Cancel" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.bottomAnchor="0.0">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
@@ -1163,8 +768,244 @@
             </JFXButton>
          </children>
          <effect>
-            <DropShadow blurType="GAUSSIAN" color="#171717" height="15.0" radius="7.0" spread="0.1" width="15.0" />
+            <DropShadow blurType="GAUSSIAN" color="#1e1e1e" height="15.0" radius="7.0" spread="0.1" width="15.0" />
          </effect>
+      </AnchorPane>
+      <AnchorPane fx:id="shortListPane" layoutX="72.0" layoutY="205.0" opacity="0.98" prefHeight="400.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false">
+         <children>
+            <ScrollPane hbarPolicy="NEVER" prefHeight="400.0" prefWidth="220.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="42.0">
+               <content>
+                  <VBox fx:id="shortListBox" prefHeight="336.0" prefWidth="220.0" style="-fx-background-color: #1A1C1D;" />
+               </content>
+            </ScrollPane>
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="220.0" text="Selected List" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Separator layoutY="40.0" prefWidth="220.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="preliminaryAndGeneralBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false">
+         <children>
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Preliminary &amp; General" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
+            <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.topAnchor="42.0">
+               <content>
+                  <VBox fx:id="prelimBox" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                     <children>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Insurance" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="foundationsBox" layoutX="294.0" layoutY="205.0" prefHeight="356.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="145.0" AnchorPane.topAnchor="205.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Foundations" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
+            <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
+               <content>
+                  <VBox fx:id="foundBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                     <children>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Post Footings" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Concrete Bores" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Footings" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Concrete Floor" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Raft Piles" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Raft Footings" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Raft Slab" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Patio Footings" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Patio Slab" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Carpot Footings" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Carpot Slab" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Deck Footing" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Deck Slab" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Wall Plates" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Water Proofing" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Columns" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Beams" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Concrete Wall" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Conc Steps" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Block Cnrs &amp; Ends" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Site Works" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Profiles" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Boxing" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="foundationsBox1" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="220.0" AnchorPane.topAnchor="205.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Prestressed Floors" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
+            <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
+               <content>
+                  <VBox fx:id="prestressedBox" prefHeight="221.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                     <children>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Concrete Floor" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Concrete Deck" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Saddles" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Bar Reinforcing" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Beams" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="sectionPane" layoutX="499.0" layoutY="206.0" prefHeight="232.0" prefWidth="444.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false">
+         <children>
+            <TreeTableView layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="108.0">
+              <columns>
+                <TreeTableColumn prefWidth="108.0" text="Sections" />
+              </columns>
+            </TreeTableView>
+            <ComboBox layoutX="261.0" layoutY="23.0" prefHeight="25.0" prefWidth="168.0" />
+            <ComboBox layoutX="261.0" layoutY="61.0" prefHeight="25.0" prefWidth="168.0" />
+            <TextField layoutX="367.0" layoutY="102.0" prefHeight="25.0" prefWidth="62.0" />
+            <TextField layoutX="261.0" layoutY="102.0" prefHeight="25.0" prefWidth="62.0" />
+            <Label layoutX="331.0" layoutY="106.0" text="Length" textFill="WHITE" />
+            <Label layoutX="215.0" layoutY="108.0" text="Height" textFill="WHITE" />
+            <Label layoutX="205.0" layoutY="65.0" text="Override" textFill="WHITE" />
+            <Label layoutX="234.0" layoutY="27.0" text="Set" textFill="#fffbfb" />
+            <ColorPicker fx:id="colorPicker" layoutX="262.0" layoutY="152.0" prefHeight="25.0" prefWidth="168.0" />
+            <Label layoutX="218.0" layoutY="156.0" text="Color" textFill="WHITE" />
+            <Button fx:id="sectionDone" layoutX="367.0" layoutY="193.0" mnemonicParsing="false" onAction="#sectionDoneAction" prefHeight="25.0" prefWidth="62.0" text="Done" />
+            <Button layoutX="129.0" layoutY="15.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Add" />
+            <Button layoutX="129.0" layoutY="49.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Remove" />
+         </children>
       </AnchorPane>
 </children>
 </AnchorPane>

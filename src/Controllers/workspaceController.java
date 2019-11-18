@@ -68,6 +68,11 @@ public class workspaceController implements Initializable {
 
     public Image image;
     public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
+    public VBox prelimBox;
+    public VBox foundBox;
+    public static AnchorPane mainPane;
+    public AnchorPane sectionPane;
+    public ColorPicker colorPicker;
 
     //temp shapes
     Line line = new Line();
@@ -90,7 +95,7 @@ public class workspaceController implements Initializable {
     double origScaleY;
     String mode;
     ContextMenu contextMenu = new ContextMenu();
-
+    Color color;
     //indicator
     private int i = 0;
 
@@ -99,6 +104,26 @@ public class workspaceController implements Initializable {
         origScaleX = group.getScaleX();
         origScaleY = group.getScaleY();
         pane.getChildren().add(line);
+        prelimBox.getChildren().forEach(nodes -> {
+            nodes.setOnMouseReleased(event -> {
+//                preliminaryAndGeneralBox.setVisible(false);
+//                shortListPane.setVisible(false);
+//                isNew = true;
+//                canDraw = true;
+                sectionPane.setVisible(true);
+//                sectionPopupController sc = new sectionPopupController();
+//               sc.show();
+            });
+        });
+        foundBox.getChildren().forEach(nodes -> {
+            nodes.setOnMouseReleased(event -> {
+//                foundationsBox.setVisible(false);
+//                shortListPane.setVisible(false);
+//                isNew = true;
+//                canDraw = true;
+                sectionPane.setVisible(true);
+            });
+        });
         scroller.viewportBoundsProperty().addListener(new ChangeListener<Bounds>() {
             @Override
             public void changed(ObservableValue<? extends Bounds> observable,
@@ -353,7 +378,7 @@ public class workspaceController implements Initializable {
             ShapeObject shapeObj = new ShapeObject();
             shapeObj.setPane(pane);
             shapeObj.setStrokeWidth(10 / group.getScaleY());
-            shapeObj.setColor(Color.BLUE);
+            shapeObj.setColor(color);
             Point2D p2d = new Point2D(r.getX() + r.getHeight() / 2, r.getY() + r.getHeight() / 2);
 
             if (p2d != pointList.get(pointList.size() - 1)) {
@@ -375,7 +400,6 @@ public class workspaceController implements Initializable {
     }
 
     public Shape createLine(Line param) {
-        Color color = Color.BLUE;
         shapeList.add(new Line(line.getStartX(), line.getStartY(), line.getEndX(), line.getEndY()));
         Line l = (Line) shapeList.get(shapeList.size() - 1);
 
@@ -460,7 +484,7 @@ public class workspaceController implements Initializable {
                 line.setEndY(clamp.getY());
                 pointList.add(clamp);
                 line.setStrokeWidth(10 / group.getScaleY());
-                line.setStroke(Color.BLUE);
+                line.setStroke(color);
                 pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
                 line.setVisible(true);
                 isNew = false;
@@ -476,7 +500,7 @@ public class workspaceController implements Initializable {
                 lbl.setFont(new Font("Arial", 18 / group.getScaleY()));
                 lbl.setLayoutY(mid.getY());
                 lbl.setLayoutX(mid.getX());
-                lbl.setTextFill(Color.BLUE);
+                lbl.setTextFill(color);
                 lbl.setOpacity(.5);
                 pane.getChildren().add(lbl);
                 pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
@@ -484,7 +508,7 @@ public class workspaceController implements Initializable {
                 ShapeObject shapeObj = new ShapeObject();
                 shapeObj.setPane(pane);
                 shapeObj.setStrokeWidth(10 / group.getScaleY());
-                shapeObj.setColor(Color.BLUE);
+                shapeObj.setColor(color);
                 shapeObj.setPointList(pointList);
                 shapeObj.setController(this);
                 shapeObj.setType(mode);
@@ -504,7 +528,7 @@ public class workspaceController implements Initializable {
                 line.setEndY(clamp.getY());
                 pointList.add(clamp);
                 line.setStrokeWidth(10 / group.getScaleY());
-                line.setStroke(Color.BLUE);
+                line.setStroke(color);
                 pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
                 line.setVisible(true);
                 isNew = false;
@@ -564,13 +588,21 @@ public class workspaceController implements Initializable {
         mode = "SCALE";
         canDraw = true;
         isNew = true;
+        shortListPane.setVisible(false);
+        preliminaryAndGeneralBox.setVisible(false);
+        foundationsBox.setVisible(false);
+        sectionPane.setVisible(false);
     }
 
     //=====AREA ACTION====//
     public void areaAction(ActionEvent actionEvent) {
         mode = "AREA";
-        isNew = true;
-        canDraw = true;
+        viewMeasurementList();
+    }
+
+    public void lengthAction(ActionEvent actionEvent) {
+        mode = "LENGTH";
+        viewMeasurementList();
     }
 
     public void rotateAction(ActionEvent actionEvent) {
@@ -599,13 +631,13 @@ public class workspaceController implements Initializable {
             rect.setWidth(10);
             rect.setHeight(10);
             rect.setOpacity(.5);
-            rect.setStroke(Color.BLUE);
+            rect.setStroke(color);
             rect.setStrokeWidth(15);
             rect.setOnMouseEntered(event1 -> {
                 rect.setStroke(Color.RED);
             });
             rect.setOnMouseExited(event1 -> {
-                rect.setStroke(Color.BLUE);
+                rect.setStroke(color);
             });
             rect.setOnMousePressed(event1 -> {
                 if (event1.getButton() == MouseButton.SECONDARY) {
@@ -650,13 +682,9 @@ public class workspaceController implements Initializable {
     public void viewMeasurementList() {
         if (shortListPane.isVisible()) {
             shortListPane.setVisible(false);
-
             preliminaryAndGeneralBox.setVisible(false);
             foundationsBox.setVisible(false);
-
-            isNew = true;
-            canDraw = true;
-            mode = "LENGTH";
+            sectionPane.setVisible(false);
         } else {
             shortListPane.setVisible(true);
         }
@@ -715,31 +743,46 @@ public class workspaceController implements Initializable {
     public void addStructure() {
         structureBox.getChildren().forEach(this::accept);
         closeMeasurementList();
-        }
+    }
 
-        private void accept(Node node) {
-            if (((JFXCheckBox) node).isSelected()) {
-                String box = ((JFXCheckBox) node).getText();
-                JFXButton button = new JFXButton(box);
-                shortListBox.getChildren().add(button);
-
-                button.setOnMouseClicked(event -> {
-                    if (button.getText().equals("Preliminary & General")) {
-                        if (!preliminaryAndGeneralBox.isVisible()) {
-                            preliminaryAndGeneralBox.setVisible(true);
-                            foundationsBox.setVisible(false);
-                        } else {
-                            preliminaryAndGeneralBox.setVisible(false);
-                        }
-                    } else if (button.getText().equals("Foundations")) {
-                        if (!foundationsBox.isVisible()) {
-                            foundationsBox.setVisible(true);
-                            preliminaryAndGeneralBox.setVisible(false);
-                        } else {
-                            foundationsBox.setVisible(false);
+    private void accept(Node node) {
+        if (((JFXCheckBox) node).isSelected()) {
+            String box = ((JFXCheckBox) node).getText();
+            JFXButton button = new JFXButton(box);
+            shortListBox.getChildren().add(button);
+            button.setOnMouseClicked(event -> {
+                if (button.getText().equals("Preliminary & General")) {
+                    if (!preliminaryAndGeneralBox.isVisible()) {
+                        preliminaryAndGeneralBox.setVisible(true);
+                        foundationsBox.setVisible(false);
+                        sectionPane.setVisible(true);
+                    } else {
+                        preliminaryAndGeneralBox.setVisible(false);
+                        sectionPane.setVisible(false);
+                    }
+                } else if (button.getText().equals("Foundations")) {
+                    if (!foundationsBox.isVisible()) {
+                        foundationsBox.setVisible(true);
+                        preliminaryAndGeneralBox.setVisible(false);
+                        sectionPane.setVisible(true);
+                    } else {
+                        foundationsBox.setVisible(false);
+                        sectionPane.setVisible(false);
                     }
                 }
             });
         }
     }
+
+    public void sectionDoneAction(ActionEvent actionEvent) {
+        isNew = true;
+        canDraw = true;
+        preliminaryAndGeneralBox.setVisible(false);
+        foundationsBox.setVisible(false);
+        shortListPane.setVisible(false);
+        sectionPane.setVisible(false);
+        color = colorPicker.getValue();
+    }
+
+
 }
