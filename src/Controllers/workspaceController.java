@@ -11,7 +11,6 @@ import javafx.animation.TranslateTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
@@ -25,9 +24,15 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
-import javafx.scene.layout.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.*;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
+import javafx.scene.shape.StrokeLineCap;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
@@ -52,17 +57,17 @@ public class workspaceController implements Initializable {
     public JFXCheckBox selectAllBox;
 
     //containers
-    public AnchorPane frontPane, structurePane, shortListPane, preliminaryAndGeneralBox;
+    public AnchorPane frontPane, structurePane, shortListPane, preliminaryAndGeneralBox, foundationsBox, prestressedFloorsBox;
     public ScrollPane scroller, structureScrollPane;
     public Group scrollContent, group;
     public StackPane zoomPane;
     public Canvas canvas;
     public Pane pane;
     public JFXDrawer drawer;
-    public VBox measurementList, structureBox, shortListBox;
+    public VBox structureBox, shortListBox;
 
     public Image image;
-    public ColorPicker cpLine;
+    public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
 
     //temp shapes
     Line line = new Line();
@@ -77,7 +82,6 @@ public class workspaceController implements Initializable {
     Stack<Shape> redoHistory = new Stack();
     List<Shape> shapeList = new ArrayList<>();
     ArrayList<Point2D> pointList = new ArrayList<>();
-    public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
 
     //others
     double SCALE_DELTA = 1.1;
@@ -410,7 +414,6 @@ public class workspaceController implements Initializable {
         if (!canDraw) {
             return;
         }
-        measurementList.setVisible(false);
 
         Point2D clamp = clamp(event.getX(), event.getY());
         line.setOpacity(.5);
@@ -637,7 +640,7 @@ public class workspaceController implements Initializable {
         }
     }
 
-    public void stampAction(ActionEvent actionEvent) {
+    public void stampAction() {
         mode = "STAMP";
         canDraw = true;
         System.out.println("STAMPING");
@@ -647,6 +650,13 @@ public class workspaceController implements Initializable {
     public void viewMeasurementList() {
         if (shortListPane.isVisible()) {
             shortListPane.setVisible(false);
+
+            preliminaryAndGeneralBox.setVisible(false);
+            foundationsBox.setVisible(false);
+
+            isNew = true;
+            canDraw = true;
+            mode = "LENGTH";
         } else {
             shortListPane.setVisible(true);
         }
@@ -703,7 +713,11 @@ public class workspaceController implements Initializable {
     }
 
     public void addStructure() {
-        structureBox.getChildren().forEach(node -> {
+        structureBox.getChildren().forEach(this::accept);
+        closeMeasurementList();
+        }
+
+        private void accept(Node node) {
             if (((JFXCheckBox) node).isSelected()) {
                 String box = ((JFXCheckBox) node).getText();
                 JFXButton button = new JFXButton(box);
@@ -713,17 +727,19 @@ public class workspaceController implements Initializable {
                     if (button.getText().equals("Preliminary & General")) {
                         if (!preliminaryAndGeneralBox.isVisible()) {
                             preliminaryAndGeneralBox.setVisible(true);
+                            foundationsBox.setVisible(false);
                         } else {
                             preliminaryAndGeneralBox.setVisible(false);
                         }
+                    } else if (button.getText().equals("Foundations")) {
+                        if (!foundationsBox.isVisible()) {
+                            foundationsBox.setVisible(true);
+                            preliminaryAndGeneralBox.setVisible(false);
+                        } else {
+                            foundationsBox.setVisible(false);
                     }
-                    else if (button.getText().equals("Foundations")) {
-
-                    }
-                });
-            }
-        });
-        closeMeasurementList();
+                }
+            });
+        }
     }
-
 }
