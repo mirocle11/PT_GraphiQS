@@ -1,5 +1,6 @@
 package Controllers;
 
+import Data.historyData;
 import Main.Main;
 import Model.ShapeObject;
 import com.jfoenix.controls.*;
@@ -376,6 +377,17 @@ public class workspaceController implements Initializable {
             shapeObj.setController(this);
             shapeObj.setType(mode);
             shapeObjList.add(shapeObj);
+            double area = 0;
+            for (int xx = 0; xx < shapeObj.getPointList().size() - 1; xx++) {
+                Point2D p1 = shapeObj.getPointList().get(xx);
+                Point2D p2 = shapeObj.getPointList().get(xx + 1);
+                area += ((p1.getX() / m_Scale) * (p2.getY() / m_Scale)) - ((p1.getY() / m_Scale) * (p2.getX() / m_Scale));
+            }
+            area = Math.abs(area / 2);
+            area = area / 1000;
+
+            Label lbl = new Label(Math.round(area * 100.0) / 100.0 + " m²");
+            workspaceSideNavigatorController.historyList.addAll(new historyData(mode,lbl.getText()));
             redrawShapes();
             pointList.clear();
             LENGTH.setDisable(false);
@@ -505,6 +517,7 @@ public class workspaceController implements Initializable {
                 canDraw = false;
                 pointList.clear();
                 redrawShapes();
+                workspaceSideNavigatorController.historyList.addAll(new historyData(mode,lbl.getText()));
 
             }
         } else if (mode == "AREA") {
