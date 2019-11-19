@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class beamsData extends RecursiveTreeObject<beamsData> {
 
+
     private final SimpleStringProperty beam, length, type, size;
     private final SimpleIntegerProperty beam_no;
 
@@ -16,7 +17,6 @@ public class beamsData extends RecursiveTreeObject<beamsData> {
         this.type = new SimpleStringProperty(type);
         this.size = new SimpleStringProperty(size);
     }
-
     public int getBeam_no() {
         return beam_no.get();
     }
