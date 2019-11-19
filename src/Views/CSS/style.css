@@ -135,3 +135,16 @@
     -fx-background-position: 190;
     -fx-text-alignment: left;
  }
+
+/*jfx colorpicker*/
+.jfx-color-picker {
+    -fx-background-color: TRANSPARENT, TRANSPARENT, TRANSPARENT, TRANSPARENT;
+    -fx-background-radius: 3px;
+    -fx-background-insets: 0px;
+    -fx-min-height: 30px;
+}
+
+.jfx-combo-box {
+    -fx-font-size: 15px;
+    -fx-font-family: "Segoe UI";
+}

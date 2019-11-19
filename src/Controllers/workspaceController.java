@@ -2,10 +2,7 @@ package Controllers;
 
 import Main.Main;
 import Model.ShapeObject;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXCheckBox;
-import com.jfoenix.controls.JFXDrawer;
-import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.controls.*;
 import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
 import javafx.animation.TranslateTransition;
 import javafx.beans.value.ChangeListener;
@@ -57,7 +54,9 @@ public class workspaceController implements Initializable {
     public JFXCheckBox selectAllBox;
 
     //containers
-    public AnchorPane frontPane, structurePane, shortListPane, preliminaryAndGeneralBox, foundationsBox, prestressedFloorsBox;
+    public AnchorPane frontPane, structurePane, shortListPane, preliminaryAndGeneralBox, foundationsBox,
+            prestressedFloorsBox, blockOpeningsBox, blockWallsBox, floorPackingBox;
+
     public ScrollPane scroller, structureScrollPane;
     public Group scrollContent, group;
     public StackPane zoomPane;
@@ -72,7 +71,7 @@ public class workspaceController implements Initializable {
     public VBox foundBox;
     public static AnchorPane mainPane;
     public AnchorPane sectionPane;
-    public ColorPicker colorPicker;
+    public JFXColorPicker colorPicker;
 
     //temp shapes
     Line line = new Line();
@@ -106,21 +105,11 @@ public class workspaceController implements Initializable {
         pane.getChildren().add(line);
         prelimBox.getChildren().forEach(nodes -> {
             nodes.setOnMouseReleased(event -> {
-//                preliminaryAndGeneralBox.setVisible(false);
-//                shortListPane.setVisible(false);
-//                isNew = true;
-//                canDraw = true;
                 sectionPane.setVisible(true);
-//                sectionPopupController sc = new sectionPopupController();
-//               sc.show();
             });
         });
         foundBox.getChildren().forEach(nodes -> {
             nodes.setOnMouseReleased(event -> {
-//                foundationsBox.setVisible(false);
-//                shortListPane.setVisible(false);
-//                isNew = true;
-//                canDraw = true;
                 sectionPane.setVisible(true);
             });
         });
@@ -219,7 +208,6 @@ public class workspaceController implements Initializable {
                         Shape sp = (Shape) node;
                         System.out.println(10 / group.getScaleY());
                         sp.setStrokeWidth(10 / group.getScaleY());
-
 
                     }
                     if (node.getClass() == Label.class) {
@@ -321,7 +309,6 @@ public class workspaceController implements Initializable {
                             lbl.setStyle("-fx-background-color: white");
                             lbl.setOpacity(1);
                         });
-//                        lbl.setL
                         lbl.setOnMouseExited(event -> {
                             lbl.setStyle("-fx-background-color: transparent");
                             lbl.setOpacity(.5);
@@ -751,30 +738,78 @@ public class workspaceController implements Initializable {
             JFXButton button = new JFXButton(box);
             shortListBox.getChildren().add(button);
             button.setOnMouseClicked(event -> {
-                if (button.getText().equals("Preliminary & General")) {
-                    if (!preliminaryAndGeneralBox.isVisible()) {
-                        preliminaryAndGeneralBox.setVisible(true);
-                        foundationsBox.setVisible(false);
-                        sectionPane.setVisible(true);
-                    } else {
-                        preliminaryAndGeneralBox.setVisible(false);
-                        sectionPane.setVisible(false);
-                    }
-                } else if (button.getText().equals("Foundations")) {
-                    if (!foundationsBox.isVisible()) {
-                        foundationsBox.setVisible(true);
-                        preliminaryAndGeneralBox.setVisible(false);
-                        sectionPane.setVisible(true);
-                    } else {
-                        foundationsBox.setVisible(false);
-                        sectionPane.setVisible(false);
-                    }
+                switch (button.getText()) {
+                    case "Preliminary & General":
+                        if (!preliminaryAndGeneralBox.isVisible()) {
+                            preliminaryAndGeneralBox.setVisible(true);
+                            foundationsBox.setVisible(false);
+                            prestressedFloorsBox.setVisible(false);
+                            blockOpeningsBox.setVisible(false);
+                            blockWallsBox.setVisible(false);
+                            sectionPane.setVisible(true);
+                        } else {
+                            preliminaryAndGeneralBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Foundations":
+                        if (!foundationsBox.isVisible()) {
+                            foundationsBox.setVisible(true);
+                            preliminaryAndGeneralBox.setVisible(false);
+                            prestressedFloorsBox.setVisible(false);
+                            blockOpeningsBox.setVisible(false);
+                            blockWallsBox.setVisible(false);
+                            sectionPane.setVisible(true);
+                        } else {
+                            foundationsBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Prestressed Floors":
+                        if (!prestressedFloorsBox.isVisible()) {
+                            prestressedFloorsBox.setVisible(true);
+                            preliminaryAndGeneralBox.setVisible(false);
+                            foundationsBox.setVisible(false);
+                            blockOpeningsBox.setVisible(false);
+                            blockWallsBox.setVisible(false);
+                            sectionPane.setVisible(true);
+                        } else {
+                            prestressedFloorsBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Block Openings":
+                        if (!blockOpeningsBox.isVisible()) {
+                            blockOpeningsBox.setVisible(true);
+                            preliminaryAndGeneralBox.setVisible(false);
+                            foundationsBox.setVisible(false);
+                            prestressedFloorsBox.setVisible(false);
+                            blockWallsBox.setVisible(false);
+                            sectionPane.setVisible(true);
+                        } else {
+                            blockOpeningsBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Block Walls":
+                        if (!blockWallsBox.isVisible()) {
+                            blockWallsBox.setVisible(true);
+                            preliminaryAndGeneralBox.setVisible(false);
+                            foundationsBox.setVisible(false);
+                            prestressedFloorsBox.setVisible(false);
+                            blockOpeningsBox.setVisible(false);
+                            sectionPane.setVisible(true);
+                        } else {
+                            blockWallsBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
                 }
             });
         }
     }
 
-    public void sectionDoneAction(ActionEvent actionEvent) {
+    public void sectionDoneAction() {
         isNew = true;
         canDraw = true;
         preliminaryAndGeneralBox.setVisible(false);
