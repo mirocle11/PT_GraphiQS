@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXSlider?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -23,23 +22,9 @@
             <Insets left="10.0" right="10.0" />
          </VBox.margin>
          <columns>
-            <TreeTableColumn editable="false" prefWidth="62.0" resizable="false" sortable="false" text="Color" />
             <TreeTableColumn fx:id="COL_Type" editable="false" prefWidth="65.0" resizable="false" sortable="false" text="Type" />
             <TreeTableColumn fx:id="COL_Measurements" editable="false" prefWidth="168.0" resizable="false" sortable="false" text="Measurements" />
          </columns>
       </JFXTreeTableView>
-      <Label prefHeight="42.0" prefWidth="220.0" text="Line Width" textFill="#b8b8b8">
-         <VBox.margin>
-            <Insets left="10.0" right="10.0" top="10.0" />
-         </VBox.margin>
-         <font>
-            <Font name="Segoe UI Semilight" size="15.0" />
-         </font>
-      </Label>
-      <JFXSlider fx:id="slider" prefHeight="22.0" prefWidth="201.0">
-         <VBox.margin>
-            <Insets left="10.0" right="10.0" top="10.0" />
-         </VBox.margin>
-      </JFXSlider>
    </children>
 </VBox>
