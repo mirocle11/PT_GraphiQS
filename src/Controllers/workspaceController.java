@@ -666,7 +666,7 @@ public class workspaceController implements Initializable {
     }
 
     //measurements popup
-    public void viewMeasurementList() {
+    private void viewMeasurementList() {
         if (shortListPane.isVisible()) {
             shortListPane.setVisible(false);
             preliminaryAndGeneralBox.setVisible(false);
@@ -746,6 +746,7 @@ public class workspaceController implements Initializable {
                             prestressedFloorsBox.setVisible(false);
                             blockOpeningsBox.setVisible(false);
                             blockWallsBox.setVisible(false);
+                            floorPackingBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             preliminaryAndGeneralBox.setVisible(false);
@@ -759,6 +760,7 @@ public class workspaceController implements Initializable {
                             prestressedFloorsBox.setVisible(false);
                             blockOpeningsBox.setVisible(false);
                             blockWallsBox.setVisible(false);
+                            floorPackingBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             foundationsBox.setVisible(false);
@@ -772,6 +774,7 @@ public class workspaceController implements Initializable {
                             foundationsBox.setVisible(false);
                             blockOpeningsBox.setVisible(false);
                             blockWallsBox.setVisible(false);
+                            floorPackingBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             prestressedFloorsBox.setVisible(false);
@@ -785,6 +788,7 @@ public class workspaceController implements Initializable {
                             foundationsBox.setVisible(false);
                             prestressedFloorsBox.setVisible(false);
                             blockWallsBox.setVisible(false);
+                            floorPackingBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             blockOpeningsBox.setVisible(false);
@@ -798,9 +802,24 @@ public class workspaceController implements Initializable {
                             foundationsBox.setVisible(false);
                             prestressedFloorsBox.setVisible(false);
                             blockOpeningsBox.setVisible(false);
+                            floorPackingBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             blockWallsBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Floor Packing":
+                        if (!floorPackingBox.isVisible()) {
+                            floorPackingBox.setVisible(true);
+                            preliminaryAndGeneralBox.setVisible(false);
+                            foundationsBox.setVisible(false);
+                            prestressedFloorsBox.setVisible(false);
+                            blockOpeningsBox.setVisible(false);
+                            blockWallsBox.setVisible(false);
+                            sectionPane.setVisible(true);
+                        } else {
+                            floorPackingBox.setVisible(false);
                             sectionPane.setVisible(false);
                         }
                         break;
@@ -812,12 +831,20 @@ public class workspaceController implements Initializable {
     public void sectionDoneAction() {
         isNew = true;
         canDraw = true;
-        preliminaryAndGeneralBox.setVisible(false);
-        foundationsBox.setVisible(false);
-        shortListPane.setVisible(false);
-        sectionPane.setVisible(false);
         color = colorPicker.getValue();
+        hideAllPopup();
     }
 
+    private void hideAllPopup() {
+        preliminaryAndGeneralBox.setVisible(false);
+        foundationsBox.setVisible(false);
+        prestressedFloorsBox.setVisible(false);
+        blockOpeningsBox.setVisible(false);
+        blockWallsBox.setVisible(false);
+        floorPackingBox.setVisible(false);
+
+        shortListPane.setVisible(false);
+        sectionPane.setVisible(false);
+    }
 
 }

@@ -2,18 +2,17 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXColorPicker?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDrawer?>
 <?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.canvas.Canvas?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ColorPicker?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.control.TreeTableView?>
@@ -48,18 +47,6 @@
       </ScrollPane>
       <AnchorPane fx:id="frontPane" layoutX="300.0" layoutY="233.0" prefHeight="255.0" prefWidth="415.0" style="-fx-background-color: #0F1E25; -fx-background-radius: 20px;" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="230.0">
       <children>
-         <JFXButton ellipsisString="" layoutX="110.0" layoutY="91.0" prefHeight="41.0" prefWidth="140.0" text="Import PDF" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="90.0">
-            <font>
-               <Font name="Segoe UI" size="15.0" />
-            </font>
-            <graphic>
-               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@images/add_30px.png" />
-                  </image>
-               </ImageView>
-            </graphic>
-         </JFXButton>
             <JFXButton ellipsisString="" layoutX="110.0" layoutY="132.0" prefHeight="41.0" prefWidth="140.0" text="Recent Files" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="135.0">
                <font>
                   <Font name="Segoe UI" size="15.0" />
@@ -68,6 +55,18 @@
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/time_machine_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton ellipsisString="" layoutX="95.0" layoutY="87.0" prefHeight="41.0" prefWidth="225.0" text=" Import PDF" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="87.0">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/add_30px.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -771,6 +770,76 @@
             <DropShadow blurType="GAUSSIAN" color="#1e1e1e" height="15.0" radius="7.0" spread="0.1" width="15.0" />
          </effect>
       </AnchorPane>
+      <AnchorPane fx:id="sectionPane" layoutX="499.0" layoutY="206.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="465.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false">
+         <children>
+            <TreeTableView layoutX="23.0" layoutY="14.0" prefHeight="223.0" prefWidth="120.0">
+              <columns>
+                <TreeTableColumn prefWidth="119.0" text="Sections" />
+              </columns>
+            </TreeTableView>
+         <JFXButton contentDisplay="GRAPHIC_ONLY" ellipsisString="" layoutX="143.0" layoutY="16.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="50.0" textFill="#bcbcbc" textOverrun="CLIP">
+            <font>
+               <Font name="Segoe UI" size="15.0" />
+            </font>
+            <graphic>
+               <ImageView fitHeight="30.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@images/add_30px.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </JFXButton>
+            <JFXButton contentDisplay="GRAPHIC_ONLY" ellipsisString="" layoutX="143.0" layoutY="57.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="50.0" text="Button" textFill="#bcbcbc" textOverrun="CLIP">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/minus_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXComboBox focusColor="#0f9d58" layoutX="229.0" layoutY="20.0" prefHeight="32.0" prefWidth="200.0" promptText="Sets" stylesheets="@CSS/style.css" />
+            <JFXComboBox focusColor="#0f9d58" layoutX="229.0" layoutY="72.0" prefHeight="32.0" prefWidth="200.0" promptText="Override" stylesheets="@CSS/style.css" />
+            <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="230.0" layoutY="126.0" prefHeight="31.0" prefWidth="92.0" promptText="Length" style="-fx-text-inner-color: #b9b9b9;">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="336.0" layoutY="126.0" prefHeight="30.0" prefWidth="92.0" promptText="Height" style="-fx-text-inner-color: #b9b9b9;">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXColorPicker fx:id="colorPicker" layoutX="226.0" layoutY="171.0" minWidth="30.0" prefHeight="30.0" prefWidth="200.0" styleClass="st" stylesheets="@CSS/style.css" />
+            <JFXButton fx:id="sectionDone" ellipsisString="" layoutX="332.0" layoutY="217.0" minWidth="-Infinity" onAction="#sectionDoneAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-radius: 20px;" text="Cancel" textFill="#bcbcbc" textOverrun="CLIP">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/cancel_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="sectionDone1" ellipsisString="" layoutX="226.0" layoutY="217.0" minWidth="-Infinity" onAction="#sectionDoneAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-radius: 20px;" text="Done" textFill="#bcbcbc" textOverrun="CLIP">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/ok_35px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
       <AnchorPane fx:id="shortListPane" layoutX="72.0" layoutY="205.0" opacity="0.98" prefHeight="400.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false">
          <children>
             <ScrollPane hbarPolicy="NEVER" prefHeight="400.0" prefWidth="220.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="42.0">
@@ -942,7 +1011,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="foundationsBox1" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="220.0" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="prestressedFloorsBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Prestressed Floors" textFill="WHITE">
                <font>
@@ -985,26 +1054,133 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="sectionPane" layoutX="499.0" layoutY="206.0" prefHeight="232.0" prefWidth="444.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false">
+      <AnchorPane fx:id="blockOpeningsBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false">
          <children>
-            <TreeTableView layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="108.0">
-              <columns>
-                <TreeTableColumn prefWidth="108.0" text="Sections" />
-              </columns>
-            </TreeTableView>
-            <ComboBox layoutX="261.0" layoutY="23.0" prefHeight="25.0" prefWidth="168.0" />
-            <ComboBox layoutX="261.0" layoutY="61.0" prefHeight="25.0" prefWidth="168.0" />
-            <TextField layoutX="367.0" layoutY="102.0" prefHeight="25.0" prefWidth="62.0" />
-            <TextField layoutX="261.0" layoutY="102.0" prefHeight="25.0" prefWidth="62.0" />
-            <Label layoutX="331.0" layoutY="106.0" text="Length" textFill="WHITE" />
-            <Label layoutX="215.0" layoutY="108.0" text="Height" textFill="WHITE" />
-            <Label layoutX="205.0" layoutY="65.0" text="Override" textFill="WHITE" />
-            <Label layoutX="234.0" layoutY="27.0" text="Set" textFill="#fffbfb" />
-            <ColorPicker fx:id="colorPicker" layoutX="262.0" layoutY="152.0" prefHeight="25.0" prefWidth="168.0" />
-            <Label layoutX="218.0" layoutY="156.0" text="Color" textFill="WHITE" />
-            <Button fx:id="sectionDone" layoutX="367.0" layoutY="193.0" mnemonicParsing="false" onAction="#sectionDoneAction" prefHeight="25.0" prefWidth="62.0" text="Done" />
-            <Button layoutX="129.0" layoutY="15.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Add" />
-            <Button layoutX="129.0" layoutY="49.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Remove" />
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Block Openings" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
+            <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
+               <content>
+                  <VBox fx:id="prestressedBox1" prefHeight="221.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                     <children>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Lintels" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Jamb Steel" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Doors" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Windows" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="blockWallsBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false">
+         <children>
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Block Walls" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
+            <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
+               <content>
+                  <VBox fx:id="prestressedBox11" prefHeight="221.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                     <children>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Walls" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Cnrs &amp; Ends" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Water Proofing" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Cols &amp; Piers" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="C &amp; P Measured Items" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Conc Lintels" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Beams" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Walls Plates" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Timber-Block Wall Intersections" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="floorPackingBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false">
+         <children>
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Floor Packing" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
+            <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
+               <content>
+                  <VBox fx:id="prestressedBox111" prefHeight="221.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                     <children>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Conc Packing" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Flooring" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
          </children>
       </AnchorPane>
 </children>

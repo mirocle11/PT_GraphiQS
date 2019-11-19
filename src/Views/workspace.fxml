@@ -801,8 +801,8 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXComboBox layoutX="229.0" layoutY="20.0" prefHeight="32.0" prefWidth="200.0" promptText="Sets" stylesheets="@CSS/style.css" />
-            <JFXComboBox layoutX="229.0" layoutY="72.0" prefHeight="32.0" prefWidth="200.0" promptText="Override" stylesheets="@CSS/style.css" />
+            <JFXComboBox focusColor="#0f9d58" layoutX="229.0" layoutY="20.0" prefHeight="32.0" prefWidth="200.0" promptText="Sets" stylesheets="@CSS/style.css" />
+            <JFXComboBox focusColor="#0f9d58" layoutX="229.0" layoutY="72.0" prefHeight="32.0" prefWidth="200.0" promptText="Override" stylesheets="@CSS/style.css" />
             <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="230.0" layoutY="126.0" prefHeight="31.0" prefWidth="92.0" promptText="Length" style="-fx-text-inner-color: #b9b9b9;">
                <font>
                   <Font name="Segoe UI" size="15.0" />
