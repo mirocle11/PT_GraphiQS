@@ -86,7 +86,6 @@ public class workspaceController implements Initializable {
     Stack<Shape> redoHistory = new Stack();
     List<Shape> shapeList = new ArrayList<>();
     ArrayList<Point2D> pointList = new ArrayList<>();
-    ArrayList<String> shortList = new ArrayList<>();
 
     //others
     double SCALE_DELTA = 1.1;
