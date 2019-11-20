@@ -67,7 +67,7 @@ public class workspaceController implements Initializable {
     public JFXCheckBox selectAllBox;
     //containers
     public AnchorPane frontPane, structurePane, shortListPane, preliminaryAndGeneralBox, foundationsBox,
-            prestressedFloorsBox, blockOpeningsBox, blockWallsBox, floorPackingBox;
+            prestressedFloorsBox, blockOpeningsBox, blockWallsBox, floorPackingBox, subfloorBox;
     public ScrollPane scroller, structureScrollPane;
     public Group scrollContent, group;
     public StackPane zoomPane;
@@ -805,6 +805,7 @@ public class workspaceController implements Initializable {
                             blockOpeningsBox.setVisible(false);
                             blockWallsBox.setVisible(false);
                             floorPackingBox.setVisible(false);
+                            subfloorBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             preliminaryAndGeneralBox.setVisible(false);
@@ -819,6 +820,7 @@ public class workspaceController implements Initializable {
                             blockOpeningsBox.setVisible(false);
                             blockWallsBox.setVisible(false);
                             floorPackingBox.setVisible(false);
+                            subfloorBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             foundationsBox.setVisible(false);
@@ -833,6 +835,7 @@ public class workspaceController implements Initializable {
                             blockOpeningsBox.setVisible(false);
                             blockWallsBox.setVisible(false);
                             floorPackingBox.setVisible(false);
+                            subfloorBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             prestressedFloorsBox.setVisible(false);
@@ -847,6 +850,7 @@ public class workspaceController implements Initializable {
                             prestressedFloorsBox.setVisible(false);
                             blockWallsBox.setVisible(false);
                             floorPackingBox.setVisible(false);
+                            subfloorBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             blockOpeningsBox.setVisible(false);
@@ -861,6 +865,7 @@ public class workspaceController implements Initializable {
                             prestressedFloorsBox.setVisible(false);
                             blockOpeningsBox.setVisible(false);
                             floorPackingBox.setVisible(false);
+                            subfloorBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             blockWallsBox.setVisible(false);
@@ -875,9 +880,25 @@ public class workspaceController implements Initializable {
                             prestressedFloorsBox.setVisible(false);
                             blockOpeningsBox.setVisible(false);
                             blockWallsBox.setVisible(false);
+                            subfloorBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             floorPackingBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Subfloor":
+                        if (!subfloorBox.isVisible()) {
+                            subfloorBox.setVisible(true);
+                            preliminaryAndGeneralBox.setVisible(false);
+                            foundationsBox.setVisible(false);
+                            prestressedFloorsBox.setVisible(false);
+                            blockOpeningsBox.setVisible(false);
+                            blockWallsBox.setVisible(false);
+                            floorPackingBox.setVisible(false);
+                            sectionPane.setVisible(true);
+                        } else {
+                            subfloorBox.setVisible(false);
                             sectionPane.setVisible(false);
                         }
                         break;
@@ -900,6 +921,7 @@ public class workspaceController implements Initializable {
         blockOpeningsBox.setVisible(false);
         blockWallsBox.setVisible(false);
         floorPackingBox.setVisible(false);
+        subfloorBox.setVisible(false);
 
         shortListPane.setVisible(false);
         sectionPane.setVisible(false);
