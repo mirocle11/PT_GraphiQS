@@ -6,15 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="#65 commit fix path">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/PTGraphiQS_jar/PTGraphiQS.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/PTGraphiQS_jar/PTGraphiQS.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/workspace.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="#91 commit sections progress" />
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
     <list id="4dddbee8-77b6-41fd-be25-1624817806eb" name="Revert &quot;#60 commit&quot;" comment="Revert &quot;#60 commit&quot;&#10;&#10;This reverts commit 096c3c72" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -337,13 +329,6 @@
       <workItem from="1574152165952" duration="1700000" />
       <workItem from="1574208139415" duration="6059000" />
       <workItem from="1574217621603" duration="5422000" />
-    </task>
-    <task id="LOCAL-00025" summary="#19 commit">
-      <created>1570429405317</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1570429405317</updated>
     </task>
     <task id="LOCAL-00026" summary="#20 commit">
       <created>1570516787910</created>
@@ -681,7 +666,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574219958069</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="#91 commit sections progress">
+      <created>1574235574360</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1574235574360</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -745,7 +737,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="#6 commit" />
     <MESSAGE value="#7 commit" />
     <MESSAGE value="#19 commit" />
     <MESSAGE value="#20 commit" />
@@ -768,8 +759,9 @@
     <MESSAGE value="#60 commit" />
     <MESSAGE value="#62 commit added section &amp; sets" />
     <MESSAGE value="#63 commit sections progress" />
-    <MESSAGE value="#64 commit sections progress" />
     <MESSAGE value="#65 commit fix path" />
-    <option name="LAST_COMMIT_MESSAGE" value="#65 commit fix path" />
+    <MESSAGE value="#64 commit sections progress" />
+    <MESSAGE value="#91 commit sections progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="#91 commit sections progress" />
   </component>
 </project>
