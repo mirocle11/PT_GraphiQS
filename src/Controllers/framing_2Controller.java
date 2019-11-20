@@ -68,7 +68,7 @@ public class framing_2Controller implements Initializable {
 
     public void addRow() {
         try {
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("../Views/Framing/addBeamRow.fxml"));
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/Views/Framing/addBeamRow.fxml"));
             AnchorPane pane = loader.load();
 
             //draggable pop up
@@ -83,7 +83,7 @@ public class framing_2Controller implements Initializable {
             });
 
             Scene scene = new Scene(pane);
-            scene.getStylesheets().addAll(Main.class.getResource("../Views/CSS/style.css").toExternalForm());
+            scene.getStylesheets().addAll(Main.class.getResource("/Views/CSS/style.css").toExternalForm());
             beamAddRowStage = new Stage();
             beamAddRowStage.setScene(scene);
             beamAddRowStage.initStyle(StageStyle.UNDECORATED);

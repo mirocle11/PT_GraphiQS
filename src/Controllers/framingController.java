@@ -51,7 +51,7 @@ public class framingController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/Framing/framing_2.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Framing/framing_2.fxml"));
             secondpane = loader.load();
             rootpane.getChildren().addAll(secondpane);
             secondpane.setLayoutY(120);
@@ -110,7 +110,7 @@ public class framingController implements Initializable {
 
     public void addRow() {
         try {
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("../Views/Framing/framingAddRow.fxml"));
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/Views/Framing/framingAddRow.fxml"));
             AnchorPane pane = loader.load();
 
             //draggable pop up
@@ -125,7 +125,7 @@ public class framingController implements Initializable {
             });
 
             Scene scene = new Scene(pane);
-            scene.getStylesheets().addAll(Main.class.getResource("../Views/CSS/style.css").toExternalForm());
+            scene.getStylesheets().addAll(Main.class.getResource("/Views/CSS/style.css").toExternalForm());
             framingAddRowStage = new Stage();
             framingAddRowStage.setScene(scene);
             framingAddRowStage.initStyle(StageStyle.UNDECORATED);

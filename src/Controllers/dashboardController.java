@@ -37,7 +37,7 @@ public class dashboardController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/workspace.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/workspace.fxml"));
             workspace = loader.load();
             rootpane.getChildren().addAll(workspace);
         } catch (Exception e) {
@@ -45,7 +45,7 @@ public class dashboardController implements Initializable {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/layouts.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/layouts.fxml"));
             layouts = loader.load();
             rootpane.getChildren().addAll(layouts);
             layouts.setVisible(false);

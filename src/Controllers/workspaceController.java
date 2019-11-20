@@ -124,7 +124,7 @@ public class workspaceController implements Initializable {
         });
 
         try {
-            VBox box = FXMLLoader.load(getClass().getResource("../Views/workspaceSideNavigation.fxml"));
+            VBox box = FXMLLoader.load(getClass().getResource("/Views/workspaceSideNavigation.fxml"));
             drawer.setSidePane(box);
 
             HamburgerNextArrowBasicTransition burgerTask = new HamburgerNextArrowBasicTransition(hamburger);

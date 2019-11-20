@@ -16,7 +16,7 @@ public class sectionPopupController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/sectionPopup.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/sectionPopup.fxml"));
             secondpane = loader.load();
             ap.getChildren().addAll(secondpane);
             secondpane.setLayoutY(120);
