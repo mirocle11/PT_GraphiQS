@@ -6,39 +6,14 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="#64 commit sections progress">
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/PTGraphiQS.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/PTGraphiQS_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/PTGraphiQS_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jfoenix_8_0_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/jfoenix_8_0_8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="#65 commit fix path">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PTGraphiQS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PTGraphiQS.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/PTGraphiQS/PTGraphiQS.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/PTGraphiQS/PTGraphiQS.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/PTGraphiQS/PTGraphiQS.jnlp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/PTGraphiQS_jar/PTGraphiQS.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/PTGraphiQS_jar/PTGraphiQS.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/dashboardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/dashboardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/floorsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/floorsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/framingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/framingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/framing_2Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/framing_2Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/sectionPopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/sectionPopupController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/wallsAndInsulationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/wallsAndInsulationController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/META-INF/PTGraphiQS.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/dashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/dashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/floorsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/floorsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/framingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/framingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/framing_2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/framing_2Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/layoutsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/layoutsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/sectionPopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/sectionPopupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/wallsAndInsulationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/wallsAndInsulationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/workspace.fxml" afterDir="false" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
     <list id="4dddbee8-77b6-41fd-be25-1624817806eb" name="Revert &quot;#60 commit&quot;" comment="Revert &quot;#60 commit&quot;&#10;&#10;This reverts commit 096c3c72" />
@@ -361,14 +336,7 @@
       <workItem from="1574121551904" duration="20998000" />
       <workItem from="1574152165952" duration="1700000" />
       <workItem from="1574208139415" duration="6059000" />
-      <workItem from="1574217621603" duration="2272000" />
-    </task>
-    <task id="LOCAL-00024" summary="#7 commit">
-      <created>1570429072850</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1570429072850</updated>
+      <workItem from="1574217621603" duration="5422000" />
     </task>
     <task id="LOCAL-00025" summary="#19 commit">
       <created>1570429405317</created>
@@ -706,7 +674,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574152563916</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="#65 commit fix path">
+      <created>1574219958069</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1574219958069</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -770,7 +745,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="#5 commit" />
     <MESSAGE value="#6 commit" />
     <MESSAGE value="#7 commit" />
     <MESSAGE value="#19 commit" />
@@ -795,6 +769,7 @@
     <MESSAGE value="#62 commit added section &amp; sets" />
     <MESSAGE value="#63 commit sections progress" />
     <MESSAGE value="#64 commit sections progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="#64 commit sections progress" />
+    <MESSAGE value="#65 commit fix path" />
+    <option name="LAST_COMMIT_MESSAGE" value="#65 commit fix path" />
   </component>
 </project>
