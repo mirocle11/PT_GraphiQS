@@ -16,7 +16,7 @@ public class layoutsController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/slabAndFooting.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/slabAndFooting.fxml"));
             AnchorPane slabAndFooting = loader.load();
             slabAndFootingTab.setContent(slabAndFooting);
         } catch (Exception e) {
@@ -24,7 +24,7 @@ public class layoutsController implements Initializable {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/floors.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/floors.fxml"));
             AnchorPane floors = loader.load();
             floorsTab.setContent(floors);
         } catch (Exception e) {
@@ -32,7 +32,7 @@ public class layoutsController implements Initializable {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/framing.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/framing.fxml"));
             AnchorPane framing = loader.load();
             framingTab.setContent(framing);
         } catch (Exception e) {
@@ -40,7 +40,7 @@ public class layoutsController implements Initializable {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/wallsAndInsulation.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/wallsAndInsulation.fxml"));
             AnchorPane wallsAndInsulation = loader.load();
             wallsAndInsulationTab.setContent(wallsAndInsulation);
         } catch (Exception e) {
@@ -48,7 +48,7 @@ public class layoutsController implements Initializable {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/cladding.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/cladding.fxml"));
             AnchorPane cladding = loader.load();
             claddingTab.setContent(cladding);
         } catch (Exception e) {
@@ -56,7 +56,7 @@ public class layoutsController implements Initializable {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/doors.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/doors.fxml"));
             AnchorPane doors = loader.load();
             doorsTab.setContent(doors);
         } catch (Exception e) {
@@ -64,7 +64,7 @@ public class layoutsController implements Initializable {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/roof.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/roof.fxml"));
             AnchorPane roof = loader.load();
             roofTab.setContent(roof);
         } catch (Exception e) {
@@ -72,7 +72,7 @@ public class layoutsController implements Initializable {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/deck.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/deck.fxml"));
             AnchorPane deck = loader.load();
             deckTab.setContent(deck);
         } catch (Exception e) {
@@ -80,7 +80,7 @@ public class layoutsController implements Initializable {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/misc.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/misc.fxml"));
             AnchorPane misc = loader.load();
             miscTab.setContent(misc);
         } catch (Exception e) {

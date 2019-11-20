@@ -5,9 +5,12 @@ import Main.Main;
 import Model.ShapeObject;
 import com.jfoenix.controls.*;
 import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
+import com.spire.pdf.PdfDocument;
+import com.spire.pdf.graphics.PdfImageType;
 import javafx.animation.TranslateTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,6 +18,7 @@ import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ContextMenu;
@@ -22,6 +26,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
@@ -38,8 +43,12 @@ import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -123,7 +132,7 @@ public class workspaceController implements Initializable {
         });
 
         try {
-            VBox box = FXMLLoader.load(getClass().getResource("../Views/workspaceSideNavigation.fxml"));
+            VBox box = FXMLLoader.load(getClass().getResource("/Views/workspaceSideNavigation.fxml"));
             drawer.setSidePane(box);
 
             HamburgerNextArrowBasicTransition burgerTask = new HamburgerNextArrowBasicTransition(hamburger);
@@ -556,12 +565,21 @@ public class workspaceController implements Initializable {
         FileChooser fileChooser = new FileChooser();
         File selectedFile = fileChooser.showOpenDialog(Main.dashboard_stage);
         if (selectedFile == null) {
-            JOptionPane.showMessageDialog(null, "No Image selected");
+            JOptionPane.showMessageDialog(null, "No File selected");
         } else {
+
+            String inputFile = selectedFile.getAbsolutePath();
+            PdfDocument doc = new PdfDocument();
+            doc.loadFromFile(inputFile);
+            BufferedImage bImage = doc.saveAsImage(0, PdfImageType.Bitmap, 300, 300);
+
+            image = SwingFXUtils.toFXImage(bImage, null);
+            doc.close();
+
             scroller.setOpacity(1.0);
             frontPane.setVisible(false);
 
-            image = new Image("file:" + selectedFile);
+
             canvas.setWidth(image.getWidth());
             canvas.setHeight(image.getHeight());
             pane.setPrefSize(canvas.getWidth(), canvas.getHeight());
@@ -580,6 +598,30 @@ public class workspaceController implements Initializable {
             }
             group.setScaleX(newScale);
             group.setScaleY(newScale);
+        }
+    }
+
+    public void saveFile(ActionEvent actionEvent) {
+        double scaleX = group.getScaleX();
+        double scaleY = group.getScaleY();
+        FileChooser savefile = new FileChooser();
+        savefile.setTitle("Save File");
+        group.setScaleX(1);
+        group.setScaleY(1);
+        File file = savefile.showSaveDialog(Main.stage);
+        if (file != null) {
+            try {
+                WritableImage writableImage = new WritableImage((int) image.getWidth(), (int) image.getHeight());
+
+                group.snapshot(new SnapshotParameters(), writableImage);
+                group.setScaleX(scaleX);
+                group.setScaleY(scaleY);
+
+                RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
+                ImageIO.write(renderedImage, "png", new File(file + ".jpg"));
+            } catch (IOException ex) {
+                System.out.println("Error!");
+            }
         }
     }
 

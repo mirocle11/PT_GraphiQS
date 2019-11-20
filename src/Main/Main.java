@@ -23,7 +23,7 @@ public class Main extends Application {
     private void splashScreenWindow() {
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/splashScreen.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/splashScreen.fxml"));
             AnchorPane pane = loader.load();
             splashScreenController splashScreenController = loader.getController();
             splashScreenController.main(this);
@@ -44,13 +44,13 @@ public class Main extends Application {
     public void mainWindow() {
 
         try {
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("../Views/dashboard.fxml"));
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/Views/dashboard.fxml"));
             AnchorPane pane = loader.load();
 
             Scene scene = new Scene(pane);
             dashboardController controller = loader.getController();
             controller.setMain(dashboard_stage,this);
-            scene.getStylesheets().addAll(Main.class.getResource("../Views/CSS/style.css").toExternalForm());
+            scene.getStylesheets().addAll(Main.class.getResource("/Views/CSS/style.css").toExternalForm());
             dashboard_stage = new Stage();
             dashboard_stage.setScene(scene);
             dashboard_stage.show();

@@ -91,7 +91,7 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
-            <JFXButton fx:id="SAVE" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" prefHeight="50.0" prefWidth="50.0">
+            <JFXButton fx:id="SAVE" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#saveFile" prefHeight="50.0" prefWidth="50.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>

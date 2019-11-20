@@ -22,7 +22,7 @@ public class wallsAndInsulationController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/wallsAndInsulation_2.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/wallsAndInsulation_2.fxml"));
             secondpane = loader.load();
             rootpane.getChildren().addAll(secondpane);
             secondpane.setLayoutY(120);
