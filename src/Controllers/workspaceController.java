@@ -571,7 +571,7 @@ public class workspaceController implements Initializable {
             String inputFile = selectedFile.getAbsolutePath();
             PdfDocument doc = new PdfDocument();
             doc.loadFromFile(inputFile);
-            BufferedImage bImage = doc.saveAsImage(0, PdfImageType.Bitmap, 300, 300);
+            BufferedImage bImage = doc.saveAsImage(3, PdfImageType.Bitmap, 300, 300);
 
             image = SwingFXUtils.toFXImage(bImage, null);
             doc.close();
