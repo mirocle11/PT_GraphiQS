@@ -147,4 +147,5 @@
 .jfx-combo-box {
     -fx-font-size: 15px;
     -fx-font-family: "Segoe UI";
+    -fx-prompt-text-fill: dimgray;
 }

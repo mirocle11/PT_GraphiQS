@@ -17,7 +17,10 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.*;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -47,17 +50,15 @@ import java.util.logging.Logger;
 
 public class workspaceController implements Initializable {
 
+    public static AnchorPane mainPane;
     //buttons
     public JFXButton IMPORT, SAVE, SCALE, LENGTH, AREA, STAMP, structureToggle;
     public JFXHamburger hamburger;
-
     //checkbox
     public JFXCheckBox selectAllBox;
-
     //containers
     public AnchorPane frontPane, structurePane, shortListPane, preliminaryAndGeneralBox, foundationsBox,
             prestressedFloorsBox, blockOpeningsBox, blockWallsBox, floorPackingBox;
-
     public ScrollPane scroller, structureScrollPane;
     public Group scrollContent, group;
     public StackPane zoomPane;
@@ -65,12 +66,10 @@ public class workspaceController implements Initializable {
     public Pane pane;
     public JFXDrawer drawer;
     public VBox structureBox, shortListBox;
-
     public Image image;
     public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
     public VBox prelimBox;
     public VBox foundBox;
-    public static AnchorPane mainPane;
     public AnchorPane sectionPane;
     public JFXColorPicker colorPicker;
 
@@ -87,6 +86,7 @@ public class workspaceController implements Initializable {
     Stack<Shape> redoHistory = new Stack();
     List<Shape> shapeList = new ArrayList<>();
     ArrayList<Point2D> pointList = new ArrayList<>();
+    ArrayList<String> shortList = new ArrayList<>();
 
     //others
     double SCALE_DELTA = 1.1;
@@ -96,6 +96,7 @@ public class workspaceController implements Initializable {
     String mode;
     ContextMenu contextMenu = new ContextMenu();
     Color color;
+
     //indicator
     private int i = 0;
 
@@ -387,7 +388,7 @@ public class workspaceController implements Initializable {
             area = area / 1000;
 
             Label lbl = new Label(Math.round(area * 100.0) / 100.0 + " m²");
-            workspaceSideNavigatorController.historyList.addAll(new historyData(mode,lbl.getText()));
+            workspaceSideNavigatorController.historyList.addAll(new historyData(mode, lbl.getText()));
             redrawShapes();
             pointList.clear();
             LENGTH.setDisable(false);
@@ -517,7 +518,7 @@ public class workspaceController implements Initializable {
                 canDraw = false;
                 pointList.clear();
                 redrawShapes();
-                workspaceSideNavigatorController.historyList.addAll(new historyData(mode,lbl.getText()));
+                workspaceSideNavigatorController.historyList.addAll(new historyData(mode, lbl.getText()));
 
             }
         } else if (mode == "AREA") {
@@ -679,7 +680,7 @@ public class workspaceController implements Initializable {
     }
 
     //measurements popup
-    public void viewMeasurementList() {
+    private void viewMeasurementList() {
         if (shortListPane.isVisible()) {
             shortListPane.setVisible(false);
             preliminaryAndGeneralBox.setVisible(false);
@@ -741,6 +742,8 @@ public class workspaceController implements Initializable {
     }
 
     public void addStructure() {
+        shortListBox.getChildren().removeAll();
+        shortListBox.getChildren().clear();
         structureBox.getChildren().forEach(this::accept);
         closeMeasurementList();
     }
@@ -750,6 +753,7 @@ public class workspaceController implements Initializable {
             String box = ((JFXCheckBox) node).getText();
             JFXButton button = new JFXButton(box);
             shortListBox.getChildren().add(button);
+
             button.setOnMouseClicked(event -> {
                 switch (button.getText()) {
                     case "Preliminary & General":
@@ -759,6 +763,7 @@ public class workspaceController implements Initializable {
                             prestressedFloorsBox.setVisible(false);
                             blockOpeningsBox.setVisible(false);
                             blockWallsBox.setVisible(false);
+                            floorPackingBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             preliminaryAndGeneralBox.setVisible(false);
@@ -772,6 +777,7 @@ public class workspaceController implements Initializable {
                             prestressedFloorsBox.setVisible(false);
                             blockOpeningsBox.setVisible(false);
                             blockWallsBox.setVisible(false);
+                            floorPackingBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             foundationsBox.setVisible(false);
@@ -785,6 +791,7 @@ public class workspaceController implements Initializable {
                             foundationsBox.setVisible(false);
                             blockOpeningsBox.setVisible(false);
                             blockWallsBox.setVisible(false);
+                            floorPackingBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             prestressedFloorsBox.setVisible(false);
@@ -798,6 +805,7 @@ public class workspaceController implements Initializable {
                             foundationsBox.setVisible(false);
                             prestressedFloorsBox.setVisible(false);
                             blockWallsBox.setVisible(false);
+                            floorPackingBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             blockOpeningsBox.setVisible(false);
@@ -811,9 +819,24 @@ public class workspaceController implements Initializable {
                             foundationsBox.setVisible(false);
                             prestressedFloorsBox.setVisible(false);
                             blockOpeningsBox.setVisible(false);
+                            floorPackingBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             blockWallsBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Floor Packing":
+                        if (!floorPackingBox.isVisible()) {
+                            floorPackingBox.setVisible(true);
+                            preliminaryAndGeneralBox.setVisible(false);
+                            foundationsBox.setVisible(false);
+                            prestressedFloorsBox.setVisible(false);
+                            blockOpeningsBox.setVisible(false);
+                            blockWallsBox.setVisible(false);
+                            sectionPane.setVisible(true);
+                        } else {
+                            floorPackingBox.setVisible(false);
                             sectionPane.setVisible(false);
                         }
                         break;
@@ -825,12 +848,20 @@ public class workspaceController implements Initializable {
     public void sectionDoneAction() {
         isNew = true;
         canDraw = true;
-        preliminaryAndGeneralBox.setVisible(false);
-        foundationsBox.setVisible(false);
-        shortListPane.setVisible(false);
-        sectionPane.setVisible(false);
         color = colorPicker.getValue();
+        hideAllPopup();
     }
 
+    private void hideAllPopup() {
+        preliminaryAndGeneralBox.setVisible(false);
+        foundationsBox.setVisible(false);
+        prestressedFloorsBox.setVisible(false);
+        blockOpeningsBox.setVisible(false);
+        blockWallsBox.setVisible(false);
+        floorPackingBox.setVisible(false);
+
+        shortListPane.setVisible(false);
+        sectionPane.setVisible(false);
+    }
 
 }
