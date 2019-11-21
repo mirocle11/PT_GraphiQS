@@ -67,7 +67,14 @@ public class workspaceController implements Initializable {
     public JFXCheckBox selectAllBox;
     //containers
     public AnchorPane frontPane, structurePane, shortListPane, preliminaryAndGeneralBox, foundationsBox,
-            prestressedFloorsBox, blockOpeningsBox, blockWallsBox, floorPackingBox, subfloorBox;
+            prestressedFloorsBox, blockOpeningsBox, blockWallsBox, floorPackingBox, subfloorBox, intFloorLev1Box,
+            intFloorLev2Box, extOpeningsBox, intOpeningsBox, braceHardwareBox, braceSglLevBox, interTenancySectionBox,
+            wetLiningsBox, wallStrappingBox, miscManufBox, postAndBeamHardwareBox, wallsSglLevBox, wallsBasementBox,
+            wallsGndLevBox, wallsLev1Box, wallsLev2Box, wallsLev3Box, wallsLev4Box, bp_packersBox, wallHardwareBox,
+            boltsManualBox, chimneyBox, trussesBox, roofBox, extLiningBox, rainScreenBox, wetCeilingsBox, ceilingsBox,
+            cupboardsBox, showersAndBathsBox, decksBox, pergolaBox, miscellaniousBox, plumbingBox, bulkHeadsBox,
+            windowSeatsBox, landscapingBox, fencingBox;
+
     public ScrollPane scroller, structureScrollPane;
     public Group scrollContent, group;
     public StackPane zoomPane;
@@ -806,6 +813,10 @@ public class workspaceController implements Initializable {
                             blockWallsBox.setVisible(false);
                             floorPackingBox.setVisible(false);
                             subfloorBox.setVisible(false);
+                            intFloorLev1Box.setVisible(false);
+                            intFloorLev2Box.setVisible(false);
+                            extOpeningsBox.setVisible(false);
+
                             sectionPane.setVisible(true);
                         } else {
                             preliminaryAndGeneralBox.setVisible(false);
@@ -821,6 +832,9 @@ public class workspaceController implements Initializable {
                             blockWallsBox.setVisible(false);
                             floorPackingBox.setVisible(false);
                             subfloorBox.setVisible(false);
+                            intFloorLev1Box.setVisible(false);
+                            intFloorLev2Box.setVisible(false);
+                            extOpeningsBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             foundationsBox.setVisible(false);
@@ -836,6 +850,9 @@ public class workspaceController implements Initializable {
                             blockWallsBox.setVisible(false);
                             floorPackingBox.setVisible(false);
                             subfloorBox.setVisible(false);
+                            intFloorLev1Box.setVisible(false);
+                            intFloorLev2Box.setVisible(false);
+                            extOpeningsBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             prestressedFloorsBox.setVisible(false);
@@ -851,6 +868,9 @@ public class workspaceController implements Initializable {
                             blockWallsBox.setVisible(false);
                             floorPackingBox.setVisible(false);
                             subfloorBox.setVisible(false);
+                            intFloorLev1Box.setVisible(false);
+                            intFloorLev2Box.setVisible(false);
+                            extOpeningsBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             blockOpeningsBox.setVisible(false);
@@ -866,6 +886,9 @@ public class workspaceController implements Initializable {
                             blockOpeningsBox.setVisible(false);
                             floorPackingBox.setVisible(false);
                             subfloorBox.setVisible(false);
+                            intFloorLev1Box.setVisible(false);
+                            intFloorLev2Box.setVisible(false);
+                            extOpeningsBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             blockWallsBox.setVisible(false);
@@ -881,6 +904,9 @@ public class workspaceController implements Initializable {
                             blockOpeningsBox.setVisible(false);
                             blockWallsBox.setVisible(false);
                             subfloorBox.setVisible(false);
+                            intFloorLev1Box.setVisible(false);
+                            intFloorLev2Box.setVisible(false);
+                            extOpeningsBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             floorPackingBox.setVisible(false);
@@ -896,9 +922,65 @@ public class workspaceController implements Initializable {
                             blockOpeningsBox.setVisible(false);
                             blockWallsBox.setVisible(false);
                             floorPackingBox.setVisible(false);
+                            intFloorLev1Box.setVisible(false);
+                            intFloorLev2Box.setVisible(false);
+                            extOpeningsBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             subfloorBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Int Floor Lev 1":
+                        if (!intFloorLev1Box.isVisible()) {
+                            intFloorLev1Box.setVisible(true);
+                            preliminaryAndGeneralBox.setVisible(false);
+                            foundationsBox.setVisible(false);
+                            prestressedFloorsBox.setVisible(false);
+                            blockOpeningsBox.setVisible(false);
+                            blockWallsBox.setVisible(false);
+                            floorPackingBox.setVisible(false);
+                            subfloorBox.setVisible(false);
+                            intFloorLev2Box.setVisible(false);
+                            extOpeningsBox.setVisible(false);
+                            sectionPane.setVisible(true);
+                        } else {
+                            intFloorLev1Box.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Int Floor Lev 2":
+                        if (!intFloorLev2Box.isVisible()) {
+                            intFloorLev2Box.setVisible(true);
+                            preliminaryAndGeneralBox.setVisible(false);
+                            foundationsBox.setVisible(false);
+                            prestressedFloorsBox.setVisible(false);
+                            blockOpeningsBox.setVisible(false);
+                            blockWallsBox.setVisible(false);
+                            floorPackingBox.setVisible(false);
+                            subfloorBox.setVisible(false);
+                            intFloorLev1Box.setVisible(false);
+                            extOpeningsBox.setVisible(false);
+                            sectionPane.setVisible(true);
+                        } else {
+                            intFloorLev2Box.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Ext Openings":
+                        if (!extOpeningsBox.isVisible()) {
+                            extOpeningsBox.setVisible(true);
+                            preliminaryAndGeneralBox.setVisible(false);
+                            foundationsBox.setVisible(false);
+                            prestressedFloorsBox.setVisible(false);
+                            blockOpeningsBox.setVisible(false);
+                            blockWallsBox.setVisible(false);
+                            floorPackingBox.setVisible(false);
+                            subfloorBox.setVisible(false);
+                            intFloorLev2Box.setVisible(false);
+                            sectionPane.setVisible(true);
+                        } else {
+                            extOpeningsBox.setVisible(false);
                             sectionPane.setVisible(false);
                         }
                         break;
@@ -922,6 +1004,9 @@ public class workspaceController implements Initializable {
         blockWallsBox.setVisible(false);
         floorPackingBox.setVisible(false);
         subfloorBox.setVisible(false);
+        intFloorLev1Box.setVisible(false);
+        intFloorLev2Box.setVisible(false);
+        extOpeningsBox.setVisible(false);
 
         shortListPane.setVisible(false);
         sectionPane.setVisible(false);
