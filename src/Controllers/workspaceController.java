@@ -88,8 +88,6 @@ public class workspaceController implements Initializable {
     public VBox structureBox, shortListBox;
     public Image image;
     public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
-    public VBox prelimBox;
-    public VBox foundBox;
     public AnchorPane sectionPane;
     public JFXColorPicker colorPicker;
 
@@ -124,16 +122,6 @@ public class workspaceController implements Initializable {
         origScaleX = group.getScaleX();
         origScaleY = group.getScaleY();
         pane.getChildren().add(line);
-        prelimBox.getChildren().forEach(nodes -> {
-            nodes.setOnMouseReleased(event -> {
-                sectionPane.setVisible(true);
-            });
-        });
-        foundBox.getChildren().forEach(nodes -> {
-            nodes.setOnMouseReleased(event -> {
-                sectionPane.setVisible(true);
-            });
-        });
         scroller.viewportBoundsProperty().addListener(new ChangeListener<Bounds>() {
             @Override
             public void changed(ObservableValue<? extends Bounds> observable,
