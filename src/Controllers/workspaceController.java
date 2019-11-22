@@ -60,20 +60,24 @@ import java.util.logging.Logger;
 public class workspaceController implements Initializable {
 
     public static AnchorPane mainPane;
+
     //buttons
     public JFXButton IMPORT, SAVE, SCALE, LENGTH, AREA, STAMP, structureToggle;
     public JFXHamburger hamburger;
+
     //checkbox
     public JFXCheckBox selectAllBox;
+
     //containers
-    public AnchorPane frontPane, structurePane, shortListPane, preliminaryAndGeneralBox, foundationsBox,
-            prestressedFloorsBox, blockOpeningsBox, blockWallsBox, floorPackingBox, subfloorBox, intFloorLev1Box,
-            intFloorLev2Box, extOpeningsBox, intOpeningsBox, braceHardwareBox, braceSglLevBox, interTenancySectionBox,
-            wetLiningsBox, wallStrappingBox, miscManufBox, postAndBeamHardwareBox, wallsSglLevBox, wallsBasementBox,
-            wallsGndLevBox, wallsLev1Box, wallsLev2Box, wallsLev3Box, wallsLev4Box, bp_packersBox, wallHardwareBox,
-            boltsManualBox, chimneyBox, trussesBox, roofBox, extLiningBox, rainScreenBox, wetCeilingsBox, ceilingsBox,
-            cupboardsBox, showersAndBathsBox, decksBox, pergolaBox, miscellaniousBox, plumbingBox, bulkHeadsBox,
-            windowSeatsBox, landscapingBox, fencingBox;
+    public AnchorPane frontPane, structurePane, shortListPane;
+    //custom popups
+    public AnchorPane preliminaryAndGeneralBox, foundationsBox,prestressedFloorsBox, blockOpeningsBox, blockWallsBox,
+            floorPackingBox, subfloorBox, intFloorLev1Box,intFloorLev2Box, extOpeningsBox, intOpeningsBox,
+            braceHardwareBox, braceSglLevBox, interTenancySectionBox, wetLiningsBox, wallStrappingBox, miscManufBox,
+            postAndBeamHardwareBox, wallsSglLevBox, wallsBasementBox,wallsGndLevBox, wallsLev1Box, wallsLev2Box,
+            wallsLev3Box, wallsLev4Box, bp_packersBox, wallHardwareBox, boltsManualBox, chimneyBox, trussesBox,
+            roofBox, extLiningBox, rainScreenBox, wetCeilingsBox, ceilingsBox, cupboardsBox, showersAndBathsBox,
+            decksBox, pergolaBox, miscellaniousBox, plumbingBox, bulkHeadsBox, windowSeatsBox, landscapingBox, fencingBox;
 
     public ScrollPane scroller, structureScrollPane;
     public Group scrollContent, group;
