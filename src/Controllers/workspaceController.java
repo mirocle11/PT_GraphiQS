@@ -96,8 +96,8 @@ public class workspaceController implements Initializable {
     Rectangle rect = new Rectangle();
 
     //booleans
-    boolean isNew = true;
-    boolean canDraw = true;
+    private boolean isNew = true;
+    private boolean canDraw = true;
 
     //collections
     Stack<Shape> undoHistory = new Stack();
@@ -723,8 +723,7 @@ public class workspaceController implements Initializable {
     private void viewMeasurementList() {
         if (shortListPane.isVisible()) {
             shortListPane.setVisible(false);
-            preliminaryAndGeneralBox.setVisible(false);
-            foundationsBox.setVisible(false);
+            hideShortList();
             sectionPane.setVisible(false);
         } else {
             shortListPane.setVisible(true);
