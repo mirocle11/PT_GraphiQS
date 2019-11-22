@@ -855,7 +855,7 @@
             <Separator layoutY="40.0" prefWidth="220.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="preliminaryAndGeneralBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="preliminaryAndGeneralBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Preliminary &amp; General" textFill="WHITE">
                <font>
@@ -878,7 +878,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="foundationsBox" layoutX="294.0" layoutY="205.0" prefHeight="356.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="145.0" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="foundationsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="356.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="145.0" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Foundations" textFill="WHITE">
                <font>
@@ -1011,7 +1011,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="prestressedFloorsBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="prestressedFloorsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Prestressed Floors" textFill="WHITE">
                <font>
@@ -1054,7 +1054,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="blockOpeningsBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="blockOpeningsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Block Openings" textFill="WHITE">
                <font>
@@ -1092,7 +1092,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="blockWallsBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="blockWallsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Block Walls" textFill="WHITE">
                <font>
@@ -1155,7 +1155,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="floorPackingBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="floorPackingBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Floor Packing" textFill="WHITE">
                <font>
@@ -1183,7 +1183,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="subfloorBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="subfloorBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Sub Floor" textFill="WHITE">
                <font>
@@ -1261,7 +1261,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="intFloorLev1Box" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="intFloorLev1Box" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Int Floor Lev 1" textFill="WHITE">
                <font>
@@ -1334,7 +1334,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="intFloorLev2Box" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="intFloorLev2Box" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Int Floor Lev 2" textFill="WHITE">
                <font>
@@ -1407,7 +1407,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="extOpeningsBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="extOpeningsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Ext Openings" textFill="WHITE">
                <font>
@@ -1465,7 +1465,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="intOpeningsBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="intOpeningsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Int Openings" textFill="WHITE">
                <font>
@@ -1538,7 +1538,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="braceHardwareBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="braceHardwareBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Brace Hardware" textFill="WHITE">
                <font>
@@ -1561,7 +1561,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="braceSglLevBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="braceSglLevBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Brace Sgl Lev" textFill="WHITE">
                <font>
@@ -1584,7 +1584,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="interTenancySectionBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="interTenancySectionBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Inter-Tenancy Section" textFill="WHITE">
                <font>
@@ -1617,7 +1617,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wetLiningsBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wetLiningsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Wet Linings" textFill="WHITE">
                <font>
@@ -1645,7 +1645,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wallStrappingBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wallStrappingBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Wall Strapping" textFill="WHITE">
                <font>
@@ -1668,7 +1668,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="miscManufBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="miscManufBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Misc Manuf" textFill="WHITE">
                <font>
@@ -1691,7 +1691,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="postAndBeamHardwareBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="postAndBeamHardwareBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Post &amp; Beam Hardware" textFill="WHITE">
                <font>
@@ -1729,7 +1729,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wallsSglLevBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wallsSglLevBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Walls Sgl Lev" textFill="WHITE">
                <font>
@@ -1807,7 +1807,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wallsBasementBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wallsBasementBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Walls Basement" textFill="WHITE">
                <font>
@@ -1885,7 +1885,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wallsGndLevBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wallsGndLevBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Walls Gnd Lev" textFill="WHITE">
                <font>
@@ -1963,7 +1963,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wallsLev1Box" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wallsLev1Box" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Walls Lev 1" textFill="WHITE">
                <font>
@@ -2041,7 +2041,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wallsLev2Box" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wallsLev2Box" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Walls Lev 2" textFill="WHITE">
                <font>
@@ -2119,7 +2119,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wallsLev3Box" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wallsLev3Box" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Walls Lev 3" textFill="WHITE">
                <font>
@@ -2197,7 +2197,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wallsLev4Box" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wallsLev4Box" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Walls Lev 4" textFill="WHITE">
                <font>
@@ -2275,7 +2275,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="bp_packersBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="bp_packersBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="BP Packers" textFill="WHITE">
                <font>
@@ -2313,7 +2313,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wallHardwareBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wallHardwareBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Wall Hardware" textFill="WHITE">
                <font>
@@ -2336,7 +2336,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="boltsManualBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="boltsManualBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Bolts Manual" textFill="WHITE">
                <font>
@@ -2364,7 +2364,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="chimneyBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="chimneyBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Chimney" textFill="WHITE">
                <font>
@@ -2387,7 +2387,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="trussesBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="trussesBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Trusses" textFill="WHITE">
                <font>
@@ -2420,7 +2420,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="roofBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="160.0" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="roofBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="160.0" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Roof" textFill="WHITE">
                <font>
@@ -2588,7 +2588,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="extLiningBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="extLiningBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Ext Lining" textFill="WHITE">
                <font>
@@ -2651,7 +2651,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="rainScreenBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="rainScreenBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Rain Screen" textFill="WHITE">
                <font>
@@ -2694,7 +2694,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wetCeilingsBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wetCeilingsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Wet Ceilings" textFill="WHITE">
                <font>
@@ -2737,7 +2737,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="ceilingsBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="ceilingsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Ceilings" textFill="WHITE">
                <font>
@@ -2775,7 +2775,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="cupboardsBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="cupboardsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Cupboards" textFill="WHITE">
                <font>
@@ -2798,7 +2798,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="showersAndBathsBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="showersAndBathsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Showers &amp; Baths" textFill="WHITE">
                <font>
@@ -2821,7 +2821,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="decksBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="210.0" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="decksBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="230.0" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Decks" textFill="WHITE">
                <font>
@@ -2929,7 +2929,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="pergolaBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="pergolaBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Pergola" textFill="WHITE">
                <font>
@@ -2967,7 +2967,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="miscellaniousBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="miscellaniousBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Miscellanious" textFill="WHITE">
                <font>
@@ -3010,7 +3010,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="plumbingBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="plumbingBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Plumbing" textFill="WHITE">
                <font>
@@ -3033,7 +3033,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="bulkHeadsBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="bulkHeadsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Bulk Heads" textFill="WHITE">
                <font>
@@ -3061,7 +3061,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="windowSeatsBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="windowSeatsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Window Seats" textFill="WHITE">
                <font>
@@ -3089,7 +3089,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="landscapingBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="landscapingBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Landscaping" textFill="WHITE">
                <font>
@@ -3142,7 +3142,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="fencingBox" layoutX="294.0" layoutY="205.0" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="fencingBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Fencing" textFill="WHITE">
                <font>

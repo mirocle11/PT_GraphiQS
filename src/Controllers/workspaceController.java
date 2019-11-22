@@ -806,17 +806,8 @@ public class workspaceController implements Initializable {
                 switch (button.getText()) {
                     case "Preliminary & General":
                         if (!preliminaryAndGeneralBox.isVisible()) {
+                            hideShortList();
                             preliminaryAndGeneralBox.setVisible(true);
-                            foundationsBox.setVisible(false);
-                            prestressedFloorsBox.setVisible(false);
-                            blockOpeningsBox.setVisible(false);
-                            blockWallsBox.setVisible(false);
-                            floorPackingBox.setVisible(false);
-                            subfloorBox.setVisible(false);
-                            intFloorLev1Box.setVisible(false);
-                            intFloorLev2Box.setVisible(false);
-                            extOpeningsBox.setVisible(false);
-
                             sectionPane.setVisible(true);
                         } else {
                             preliminaryAndGeneralBox.setVisible(false);
@@ -825,16 +816,8 @@ public class workspaceController implements Initializable {
                         break;
                     case "Foundations":
                         if (!foundationsBox.isVisible()) {
+                            hideShortList();
                             foundationsBox.setVisible(true);
-                            preliminaryAndGeneralBox.setVisible(false);
-                            prestressedFloorsBox.setVisible(false);
-                            blockOpeningsBox.setVisible(false);
-                            blockWallsBox.setVisible(false);
-                            floorPackingBox.setVisible(false);
-                            subfloorBox.setVisible(false);
-                            intFloorLev1Box.setVisible(false);
-                            intFloorLev2Box.setVisible(false);
-                            extOpeningsBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             foundationsBox.setVisible(false);
@@ -843,16 +826,8 @@ public class workspaceController implements Initializable {
                         break;
                     case "Prestressed Floors":
                         if (!prestressedFloorsBox.isVisible()) {
+                            hideShortList();
                             prestressedFloorsBox.setVisible(true);
-                            preliminaryAndGeneralBox.setVisible(false);
-                            foundationsBox.setVisible(false);
-                            blockOpeningsBox.setVisible(false);
-                            blockWallsBox.setVisible(false);
-                            floorPackingBox.setVisible(false);
-                            subfloorBox.setVisible(false);
-                            intFloorLev1Box.setVisible(false);
-                            intFloorLev2Box.setVisible(false);
-                            extOpeningsBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             prestressedFloorsBox.setVisible(false);
@@ -861,16 +836,8 @@ public class workspaceController implements Initializable {
                         break;
                     case "Block Openings":
                         if (!blockOpeningsBox.isVisible()) {
+                            hideShortList();
                             blockOpeningsBox.setVisible(true);
-                            preliminaryAndGeneralBox.setVisible(false);
-                            foundationsBox.setVisible(false);
-                            prestressedFloorsBox.setVisible(false);
-                            blockWallsBox.setVisible(false);
-                            floorPackingBox.setVisible(false);
-                            subfloorBox.setVisible(false);
-                            intFloorLev1Box.setVisible(false);
-                            intFloorLev2Box.setVisible(false);
-                            extOpeningsBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             blockOpeningsBox.setVisible(false);
@@ -879,16 +846,8 @@ public class workspaceController implements Initializable {
                         break;
                     case "Block Walls":
                         if (!blockWallsBox.isVisible()) {
+                            hideShortList();
                             blockWallsBox.setVisible(true);
-                            preliminaryAndGeneralBox.setVisible(false);
-                            foundationsBox.setVisible(false);
-                            prestressedFloorsBox.setVisible(false);
-                            blockOpeningsBox.setVisible(false);
-                            floorPackingBox.setVisible(false);
-                            subfloorBox.setVisible(false);
-                            intFloorLev1Box.setVisible(false);
-                            intFloorLev2Box.setVisible(false);
-                            extOpeningsBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             blockWallsBox.setVisible(false);
@@ -897,16 +856,8 @@ public class workspaceController implements Initializable {
                         break;
                     case "Floor Packing":
                         if (!floorPackingBox.isVisible()) {
+                            hideShortList();
                             floorPackingBox.setVisible(true);
-                            preliminaryAndGeneralBox.setVisible(false);
-                            foundationsBox.setVisible(false);
-                            prestressedFloorsBox.setVisible(false);
-                            blockOpeningsBox.setVisible(false);
-                            blockWallsBox.setVisible(false);
-                            subfloorBox.setVisible(false);
-                            intFloorLev1Box.setVisible(false);
-                            intFloorLev2Box.setVisible(false);
-                            extOpeningsBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             floorPackingBox.setVisible(false);
@@ -915,16 +866,8 @@ public class workspaceController implements Initializable {
                         break;
                     case "Subfloor":
                         if (!subfloorBox.isVisible()) {
+                            hideShortList();
                             subfloorBox.setVisible(true);
-                            preliminaryAndGeneralBox.setVisible(false);
-                            foundationsBox.setVisible(false);
-                            prestressedFloorsBox.setVisible(false);
-                            blockOpeningsBox.setVisible(false);
-                            blockWallsBox.setVisible(false);
-                            floorPackingBox.setVisible(false);
-                            intFloorLev1Box.setVisible(false);
-                            intFloorLev2Box.setVisible(false);
-                            extOpeningsBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             subfloorBox.setVisible(false);
@@ -933,16 +876,8 @@ public class workspaceController implements Initializable {
                         break;
                     case "Int Floor Lev 1":
                         if (!intFloorLev1Box.isVisible()) {
+                            hideShortList();
                             intFloorLev1Box.setVisible(true);
-                            preliminaryAndGeneralBox.setVisible(false);
-                            foundationsBox.setVisible(false);
-                            prestressedFloorsBox.setVisible(false);
-                            blockOpeningsBox.setVisible(false);
-                            blockWallsBox.setVisible(false);
-                            floorPackingBox.setVisible(false);
-                            subfloorBox.setVisible(false);
-                            intFloorLev2Box.setVisible(false);
-                            extOpeningsBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             intFloorLev1Box.setVisible(false);
@@ -951,16 +886,8 @@ public class workspaceController implements Initializable {
                         break;
                     case "Int Floor Lev 2":
                         if (!intFloorLev2Box.isVisible()) {
+                            hideShortList();
                             intFloorLev2Box.setVisible(true);
-                            preliminaryAndGeneralBox.setVisible(false);
-                            foundationsBox.setVisible(false);
-                            prestressedFloorsBox.setVisible(false);
-                            blockOpeningsBox.setVisible(false);
-                            blockWallsBox.setVisible(false);
-                            floorPackingBox.setVisible(false);
-                            subfloorBox.setVisible(false);
-                            intFloorLev1Box.setVisible(false);
-                            extOpeningsBox.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             intFloorLev2Box.setVisible(false);
@@ -969,18 +896,361 @@ public class workspaceController implements Initializable {
                         break;
                     case "Ext Openings":
                         if (!extOpeningsBox.isVisible()) {
+                            hideShortList();
                             extOpeningsBox.setVisible(true);
-                            preliminaryAndGeneralBox.setVisible(false);
-                            foundationsBox.setVisible(false);
-                            prestressedFloorsBox.setVisible(false);
-                            blockOpeningsBox.setVisible(false);
-                            blockWallsBox.setVisible(false);
-                            floorPackingBox.setVisible(false);
-                            subfloorBox.setVisible(false);
-                            intFloorLev2Box.setVisible(false);
                             sectionPane.setVisible(true);
                         } else {
                             extOpeningsBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Int Openings":
+                        if (!intOpeningsBox.isVisible()) {
+                            hideShortList();
+                            intOpeningsBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            intOpeningsBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Brace Hardware":
+                        if (!braceHardwareBox.isVisible()) {
+                            hideShortList();
+                            braceHardwareBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            braceHardwareBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Brace Sgl Lev":
+                        if (!braceSglLevBox.isVisible()) {
+                            hideShortList();
+                            braceSglLevBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            braceSglLevBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Inter-Tenancy Section":
+                        if (!interTenancySectionBox.isVisible()) {
+                            hideShortList();
+                            interTenancySectionBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            interTenancySectionBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Wet Linings":
+                        if (!wetLiningsBox.isVisible()) {
+                            hideShortList();
+                            wetLiningsBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            wetLiningsBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Wall Strapping":
+                        if (!wallStrappingBox.isVisible()) {
+                            hideShortList();
+                            wallStrappingBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            wallStrappingBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Misc Manuf":
+                        if (!miscManufBox.isVisible()) {
+                            hideShortList();
+                            miscManufBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            miscManufBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Post&Beam Hardware":
+                        if (!postAndBeamHardwareBox.isVisible()) {
+                            hideShortList();
+                            postAndBeamHardwareBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            postAndBeamHardwareBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Walls Sgl Lev":
+                        if (!wallsSglLevBox.isVisible()) {
+                            hideShortList();
+                            wallsSglLevBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            wallsSglLevBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Walls Basement":
+                        if (!wallsBasementBox.isVisible()) {
+                            hideShortList();
+                            wallsBasementBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            wallsBasementBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Walls Gnd Lev":
+                        if (!wallsGndLevBox.isVisible()) {
+                            hideShortList();
+                            wallsGndLevBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            wallsGndLevBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Walls Lev 1":
+                        if (!wallsLev1Box.isVisible()) {
+                            hideShortList();
+                            wallsLev1Box.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            wallsLev1Box.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Walls Lev 2":
+                        if (!wallsLev2Box.isVisible()) {
+                            hideShortList();
+                            wallsLev2Box.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            wallsLev2Box.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Walls Lev 3":
+                        if (!wallsLev3Box.isVisible()) {
+                            hideShortList();
+                            wallsLev3Box.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            wallsLev3Box.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Walls Lev 4":
+                        if (!wallsLev4Box.isVisible()) {
+                            hideShortList();
+                            wallsLev4Box.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            wallsLev4Box.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "BP Packers":
+                        if (!bp_packersBox.isVisible()) {
+                            hideShortList();
+                            bp_packersBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            bp_packersBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Wall Hardware":
+                        if (!wallHardwareBox.isVisible()) {
+                            hideShortList();
+                            wallHardwareBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            wallHardwareBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Bolts Manual":
+                        if (!boltsManualBox.isVisible()) {
+                            hideShortList();
+                            boltsManualBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            boltsManualBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Chimney":
+                        if (!chimneyBox.isVisible()) {
+                            hideShortList();
+                            chimneyBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            chimneyBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Trusses":
+                        if (!trussesBox.isVisible()) {
+                            hideShortList();
+                            trussesBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            trussesBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Roof":
+                        if (!roofBox.isVisible()) {
+                            hideShortList();
+                            roofBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            roofBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Ext Lining":
+                        if (!extLiningBox.isVisible()) {
+                            hideShortList();
+                            extLiningBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            extLiningBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Rain Screen":
+                        if (!rainScreenBox.isVisible()) {
+                            hideShortList();
+                            rainScreenBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            rainScreenBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Wet Ceilings":
+                        if (!wetCeilingsBox.isVisible()) {
+                            hideShortList();
+                            wetCeilingsBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            wetCeilingsBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Ceilings":
+                        if (!ceilingsBox.isVisible()) {
+                            hideShortList();
+                            ceilingsBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            ceilingsBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Cupboards":
+                        if (!cupboardsBox.isVisible()) {
+                            hideShortList();
+                            cupboardsBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            cupboardsBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Showers & Baths":
+                        if (!showersAndBathsBox.isVisible()) {
+                            hideShortList();
+                            showersAndBathsBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            showersAndBathsBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Decks":
+                        if (!decksBox.isVisible()) {
+                            hideShortList();
+                            decksBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            decksBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Pergola":
+                        if (!pergolaBox.isVisible()) {
+                            hideShortList();
+                            pergolaBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            pergolaBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Miscellanious":
+                        if (!miscellaniousBox.isVisible()) {
+                            hideShortList();
+                            miscellaniousBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            miscellaniousBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Plumbing":
+                        if (!plumbingBox.isVisible()) {
+                            hideShortList();
+                            plumbingBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            plumbingBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Bulk Heads":
+                        if (!bulkHeadsBox.isVisible()) {
+                            hideShortList();
+                            bulkHeadsBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            bulkHeadsBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Window Seats":
+                        if (!windowSeatsBox.isVisible()) {
+                            hideShortList();
+                            windowSeatsBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            windowSeatsBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Landscaping":
+                        if (!landscapingBox.isVisible()) {
+                            hideShortList();
+                            landscapingBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            landscapingBox.setVisible(false);
+                            sectionPane.setVisible(false);
+                        }
+                        break;
+                    case "Fencing":
+                        if (!fencingBox.isVisible()) {
+                            hideShortList();
+                            fencingBox.setVisible(true);
+                            sectionPane.setVisible(true);
+                        } else {
+                            fencingBox.setVisible(false);
                             sectionPane.setVisible(false);
                         }
                         break;
@@ -993,10 +1263,13 @@ public class workspaceController implements Initializable {
         isNew = true;
         canDraw = true;
         color = colorPicker.getValue();
-        hideAllPopup();
+
+        hideShortList();
+        shortListPane.setVisible(false);
+        sectionPane.setVisible(false);
     }
 
-    private void hideAllPopup() {
+    private void hideShortList(){
         preliminaryAndGeneralBox.setVisible(false);
         foundationsBox.setVisible(false);
         prestressedFloorsBox.setVisible(false);
@@ -1007,9 +1280,41 @@ public class workspaceController implements Initializable {
         intFloorLev1Box.setVisible(false);
         intFloorLev2Box.setVisible(false);
         extOpeningsBox.setVisible(false);
-
-        shortListPane.setVisible(false);
-        sectionPane.setVisible(false);
+        intOpeningsBox.setVisible(false);
+        braceHardwareBox.setVisible(false);
+        braceSglLevBox.setVisible(false);
+        interTenancySectionBox.setVisible(false);
+        wetLiningsBox.setVisible(false);
+        wallStrappingBox.setVisible(false);
+        miscManufBox.setVisible(false);
+        postAndBeamHardwareBox.setVisible(false);
+        wallsSglLevBox.setVisible(false);
+        wallsBasementBox.setVisible(false);
+        wallsGndLevBox.setVisible(false);
+        wallsLev1Box.setVisible(false);
+        wallsLev2Box.setVisible(false);
+        wallsLev3Box.setVisible(false);
+        wallsLev4Box.setVisible(false);
+        bp_packersBox.setVisible(false);
+        wallHardwareBox.setVisible(false);
+        boltsManualBox.setVisible(false);
+        chimneyBox.setVisible(false);
+        trussesBox.setVisible(false);
+        roofBox.setVisible(false);
+        extLiningBox.setVisible(false);
+        rainScreenBox.setVisible(false);
+        wetCeilingsBox.setVisible(false);
+        ceilingsBox.setVisible(false);
+        cupboardsBox.setVisible(false);
+        showersAndBathsBox.setVisible(false);
+        decksBox.setVisible(false);
+        pergolaBox.setVisible(false);
+        miscellaniousBox.setVisible(false);
+        plumbingBox.setVisible(false);
+        bulkHeadsBox.setVisible(false);
+        windowSeatsBox.setVisible(false);
+        landscapingBox.setVisible(false);
+        fencingBox.setVisible(false);
     }
 
 }
