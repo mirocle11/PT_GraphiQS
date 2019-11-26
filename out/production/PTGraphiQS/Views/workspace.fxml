@@ -770,7 +770,7 @@
             <DropShadow blurType="GAUSSIAN" color="#1e1e1e" height="15.0" radius="7.0" spread="0.1" width="15.0" />
          </effect>
       </AnchorPane>
-      <AnchorPane fx:id="sectionPane" layoutX="499.0" layoutY="206.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="465.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false">
+      <AnchorPane fx:id="sectionPane" layoutX="499.0" layoutY="206.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="465.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;">
          <children>
             <TreeTableView layoutX="23.0" layoutY="14.0" prefHeight="223.0" prefWidth="120.0">
               <columns>

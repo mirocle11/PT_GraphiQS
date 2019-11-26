@@ -88,11 +88,12 @@ public class workspaceController implements Initializable {
     public Pane pane;
     public JFXDrawer drawer;
     public VBox structureBox, shortListBox, foundBox;
-    public Image image;
-    public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
     public AnchorPane sectionPane;
     public JFXColorPicker colorPicker;
     public JFXComboBox<String> setsComboBox;
+
+    public Image image;
+    public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
 
     //temp shapes
     Line line = new Line();
@@ -124,7 +125,28 @@ public class workspaceController implements Initializable {
     private ObservableList<String> FOUNDATIONS_CONCRETE_BORES = FXCollections.observableArrayList("17.5 Mpa D12 rod CHANGE",
             "20 Mpa D12 rod CHANGE");
 
-    private ObservableList<String> FOUNDATIONS_FOOTINGS = FXCollections.observableArrayList("2-D12 17.5mpa D10-600", "2-12 17.5mpa D12-600");
+    private ObservableList<String> FOUNDATIONS_FOOTINGS = FXCollections.observableArrayList("2-D12 17.5mpa D10-600",
+            "2-D12 17.5mpa D12-600", "2-D12 17.5mpa R6-600", "2-D12 17.5mpa D10-600", "2-D16 17.5mpa D10-600",
+            "3-D12 17.5mpa D10LS-600");
+
+    private ObservableList<String> FOUNDATIONS_CONCRETE_FLOOR = FXCollections.observableArrayList("SE62 Mesh 17.5 Mpa & Polythene",
+            "SE62 Mesh 20 Mpa & Polythene", "SE62 Mesh 25 Mpa & Polythene", "688 mesh 17.5 Mpa & Polythene", "688 mesh 20.0 Mpa & Polythene",
+            "Harwood Homes", "Mt Masonry Fibermesh CHANGE", "No mesh 17.5 Mpa & Polythene", "Polythene Only", "SE625-500 Mesh 17.5 Mpa & Polythene",
+            "SE625-500 Mesh 20 Mpa & Polythene", "SE625-500 Mesh 25 Mpa & Polythene");
+
+    private ObservableList<String> FOUNDATIONS_RAFT_PILES = FXCollections.observableArrayList("Raft HD12 Rod");
+
+    private ObservableList<String> FOUNDATIONS_RAFT_FOOTINGS = FXCollections.observableArrayList("Raft 3-HD12 20Mpa",
+            "Raft Rod & Starters to Existing", "Raft Internal Beams");
+
+    private ObservableList<String> FOUNDATIONS_RAFT_SLAB = FXCollections.observableArrayList("Raft 20 Mpa & Polythene",
+            "Raft 20 Mpa [Whangarei]");
+
+    private ObservableList<String> FOUNDATIONS_PATIO_FOOTINGS = FXCollections.observableArrayList("1-D12 17.5 Mpa D10-600",
+            "2-D12 17.5 Mpa D10-600", "2-D12 17.5 Mpa D12-600", "2-D12 17.5 Mpa R6-600");
+
+    private ObservableList<String> FOUNDATIONS_PATIO_SLAB = FXCollections.observableArrayList("SE62 Mesh 17.5 Mpa & Polythene",
+            "668 mesh 17.5 Mpa & Polythene", "17.5 Mpa concrete only", "No mesh 17.5 Mpa & Polythene, SE625-500 Mesh 17.5 Mpa & Polythene");
 
     //indicator
     private int i = 0;
@@ -1340,8 +1362,25 @@ public class workspaceController implements Initializable {
         if (type.equals("Footings")) {
             setsComboBox.setItems(FOUNDATIONS_FOOTINGS);
         }
+        if (type.equals("Concrete Floor")) {
+            setsComboBox.setItems(FOUNDATIONS_CONCRETE_FLOOR);
+        }
+        if (type.equals("Raft Piles")) {
+            setsComboBox.setItems(FOUNDATIONS_RAFT_PILES);
+        }
+        if (type.equals("Raft Footings")) {
+            setsComboBox.setItems(FOUNDATIONS_RAFT_FOOTINGS);
+        }
+        if (type.equals("Patio Slab")) {
+            setsComboBox.setItems(FOUNDATIONS_PATIO_SLAB);
+        }
+        if (type.equals("Patio Footings")) {
+            setsComboBox.setItems(FOUNDATIONS_FOOTINGS);
+        }
+        if (type.equals("Patio Slab")) {
+            setsComboBox.setItems(FOUNDATIONS_PATIO_SLAB);
+        }
+
     }
-
-
 
 }
