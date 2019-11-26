@@ -145,7 +145,11 @@
 }
 
 .jfx-combo-box {
-    -fx-font-size: 15px;
+    -fx-font-size: 14px;
     -fx-font-family: "Segoe UI";
-    -fx-prompt-text-fill: dimgray;
+    -fx-prompt-text-fill: gray;
+}
+
+.jfx-combo-box > .cell {
+    -fx-text-fill: gray;
 }

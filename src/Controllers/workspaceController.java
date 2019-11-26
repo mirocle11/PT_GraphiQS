@@ -10,6 +10,8 @@ import com.spire.pdf.graphics.PdfImageType;
 import javafx.animation.TranslateTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -68,8 +70,6 @@ public class workspaceController implements Initializable {
     //checkbox
     public JFXCheckBox selectAllBox;
 
-    //containers
-    public AnchorPane frontPane, structurePane, shortListPane;
     //custom popups
     public AnchorPane preliminaryAndGeneralBox, foundationsBox,prestressedFloorsBox, blockOpeningsBox, blockWallsBox,
             floorPackingBox, subfloorBox, intFloorLev1Box,intFloorLev2Box, extOpeningsBox, intOpeningsBox,
@@ -79,17 +79,20 @@ public class workspaceController implements Initializable {
             roofBox, extLiningBox, rainScreenBox, wetCeilingsBox, ceilingsBox, cupboardsBox, showersAndBathsBox,
             decksBox, pergolaBox, miscellaniousBox, plumbingBox, bulkHeadsBox, windowSeatsBox, landscapingBox, fencingBox;
 
+    //containers
+    public AnchorPane frontPane, structurePane, shortListPane;
     public ScrollPane scroller, structureScrollPane;
     public Group scrollContent, group;
     public StackPane zoomPane;
     public Canvas canvas;
     public Pane pane;
     public JFXDrawer drawer;
-    public VBox structureBox, shortListBox;
+    public VBox structureBox, shortListBox, foundBox;
     public Image image;
     public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
     public AnchorPane sectionPane;
     public JFXColorPicker colorPicker;
+    public JFXComboBox<String> setsComboBox;
 
     //temp shapes
     Line line = new Line();
@@ -100,8 +103,8 @@ public class workspaceController implements Initializable {
     private boolean canDraw = true;
 
     //collections
-    Stack<Shape> undoHistory = new Stack();
-    Stack<Shape> redoHistory = new Stack();
+    Stack<Shape> undoHistory = new Stack<>();
+    Stack<Shape> redoHistory = new Stack<>();
     List<Shape> shapeList = new ArrayList<>();
     ArrayList<Point2D> pointList = new ArrayList<>();
 
@@ -113,6 +116,15 @@ public class workspaceController implements Initializable {
     String mode;
     ContextMenu contextMenu = new ContextMenu();
     Color color;
+
+    //sets
+    private ObservableList<String> FOUNDATIONS_POST_FOOTINGS = FXCollections.observableArrayList("17.5 Footing",
+            "17.5 Post", "17.5 Slab", "17.5 Con Footings D12 CHANGE", "17.5 Con Post D12 CHANGE","17.5 Con Slab D12 CHANGE");
+
+    private ObservableList<String> FOUNDATIONS_CONCRETE_BORES = FXCollections.observableArrayList("17.5 Mpa D12 rod CHANGE",
+            "20 Mpa D12 rod CHANGE");
+
+    private ObservableList<String> FOUNDATIONS_FOOTINGS = FXCollections.observableArrayList("2-D12 17.5mpa D10-600", "2-12 17.5mpa D12-600");
 
     //indicator
     private int i = 0;
@@ -774,7 +786,9 @@ public class workspaceController implements Initializable {
 
     public void selectAll() {
         if (selectAllBox.isSelected()) {
-            structureBox.getChildren().forEach(node -> ((JFXCheckBox) node).setSelected(true));
+            structureBox.getChildren().forEach(node -> {
+                ((JFXCheckBox) node).setSelected(true);
+            });
         } else {
             structureBox.getChildren().forEach(node -> ((JFXCheckBox) node).setSelected(false));
         }
@@ -1246,6 +1260,7 @@ public class workspaceController implements Initializable {
                         }
                         break;
                 }
+                buttonsAction();
             });
         }
     }
@@ -1258,9 +1273,10 @@ public class workspaceController implements Initializable {
         hideShortList();
         shortListPane.setVisible(false);
         sectionPane.setVisible(false);
+        setsComboBox.setItems(null);
     }
 
-    private void hideShortList(){
+    private void hideShortList() {
         preliminaryAndGeneralBox.setVisible(false);
         foundationsBox.setVisible(false);
         prestressedFloorsBox.setVisible(false);
@@ -1307,5 +1323,25 @@ public class workspaceController implements Initializable {
         landscapingBox.setVisible(false);
         fencingBox.setVisible(false);
     }
+
+    private void buttonsAction() {
+        foundBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+    }
+
+    private void showSets(String type) {
+        if (type.equals("Post Footings")) {
+            setsComboBox.setItems(FOUNDATIONS_POST_FOOTINGS);
+        }
+        if (type.equals("Concrete Bores")) {
+            setsComboBox.setItems(FOUNDATIONS_CONCRETE_BORES);
+        }
+        if (type.equals("Footings")) {
+            setsComboBox.setItems(FOUNDATIONS_FOOTINGS);
+        }
+    }
+
+
 
 }
