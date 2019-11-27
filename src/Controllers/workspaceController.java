@@ -1371,8 +1371,8 @@ public class workspaceController implements Initializable {
         if (type.equals("Raft Footings")) {
             setsComboBox.setItems(FOUNDATIONS_RAFT_FOOTINGS);
         }
-        if (type.equals("Patio Slab")) {
-            setsComboBox.setItems(FOUNDATIONS_PATIO_SLAB);
+        if (type.equals("Raft Slab")) {
+            setsComboBox.setItems(FOUNDATIONS_RAFT_SLAB);
         }
         if (type.equals("Patio Footings")) {
             setsComboBox.setItems(FOUNDATIONS_FOOTINGS);
