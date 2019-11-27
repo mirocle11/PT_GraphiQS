@@ -148,6 +148,44 @@ public class workspaceController implements Initializable {
     private ObservableList<String> FOUNDATIONS_PATIO_SLAB = FXCollections.observableArrayList("SE62 Mesh 17.5 Mpa & Polythene",
             "668 mesh 17.5 Mpa & Polythene", "17.5 Mpa concrete only", "No mesh 17.5 Mpa & Polythene, SE625-500 Mesh 17.5 Mpa & Polythene");
 
+    private ObservableList<String> FOUNDATIONS_CARPOT_FOOTINGS = FXCollections.observableArrayList("1-D12 17.5 Mpa D10-600",
+            "2-D12 17.5 Mpa D10-600", "2-D12 17.5 Mpa D12-600", "2-D12 17.5 Mpa R6-600");
+
+    private ObservableList<String> FOUNDATIONS_CARPOT_SLAB = FXCollections.observableArrayList("SE62 Mesh 17.5 Mpa & Polythene",
+            "17.5 Mpa concrete only", "668 mesh 17.5 Mpa & Polythene", "No mesh 17.5 Mpa & Polythene", "SE615-500 m",
+            "SE625-500 Mesh 17.5 Mpa & Polythene");
+
+    private ObservableList<String> FOUNDATIONS_DECK_FOOTING = FXCollections.observableArrayList("1-D12 17.5 Mpa D10-600",
+            "1-D12 17.5 Mpa D12-600", "2-D12 17.5 Mpa D10-600", "1-D12 17.5 Mpa D12-600");
+
+    private ObservableList<String> FOUNDATIONS_DECK_SLAB = FXCollections.observableArrayList("SE62 Mesh 17.5 Mpa & Polythene",
+            "688 Mesh 17.5 ", "17.5 Mpa Concrete Only", "No mesh 17.5 MPa & Polythene", "SE625-500 Mesh 17.5 Mpa & Polythene");
+
+    private ObservableList<String> FOUNDATIONS_WALL_PLATES = FXCollections.observableArrayList("90x45 120mm Coach Screw Galv",
+            "90x45 120mm Coach Screw SS", "90x45 120mm Trubolt Galv", "90x45 120mm Trubolt SS");
+
+    private ObservableList<String> FOUNDATIONS_WATER_PROOFING = FXCollections.observableArrayList("3 Coats Flinkote & 25 Poly",
+            "3 Coats Mulseal & 25 Poly", "Shelterbit Plain - Polystyrene - Bibim", "Shelterseal 3000 - Poly - Bidim");
+
+    private ObservableList<String> FOUNDATIONS_COLUMNS = FXCollections.observableArrayList("20 Mpa 4/D16 R10 CHANGE",
+            "20 Mpa Pump 4/D16 R10 CHANGE");
+
+    private ObservableList<String> FOUNDATIONS_BEAM = FXCollections.observableArrayList("20 Mpa 4/D20 R10 CHANGE",
+            "20 Mpa Pump 4/D20 R10 CHANGE");
+
+    private ObservableList<String> FOUNDATIONS_CONCRETE_WALL = FXCollections.observableArrayList("17.5-D12 vert D16 hor CHANGE");
+
+    private ObservableList<String> FOUNDATIONS_CONC_STEPS = FXCollections.observableArrayList("Std CHANGE");
+
+    private ObservableList<String> FOUNDATIONS_BLOCK_CNRS_ENDS = FXCollections.observableArrayList("200 Series",
+            "100 Series", "150 Series", "250 Series", "Half High 150 Series", "Half High 200 Series", "Header Block",
+            "Hotbloc 200mm", "StackBond 100", "StackBond 100 Honed", "Stackbond 150", "Stackbond 200");
+
+    private ObservableList<String> FOUNDATIONS_PROFILES = FXCollections.observableArrayList("Profiles Only",
+            "Profiles & Electrical Pipe", "Electrical Pipe");
+
+    private ObservableList<String> FOUNDATIONS_BOXING = FXCollections.observableArrayList("200 Boxing", "300 Boxing");
+
     //indicator
     private int i = 0;
 
@@ -1375,10 +1413,49 @@ public class workspaceController implements Initializable {
             setsComboBox.setItems(FOUNDATIONS_RAFT_SLAB);
         }
         if (type.equals("Patio Footings")) {
-            setsComboBox.setItems(FOUNDATIONS_FOOTINGS);
+            setsComboBox.setItems(FOUNDATIONS_PATIO_FOOTINGS);
         }
         if (type.equals("Patio Slab")) {
             setsComboBox.setItems(FOUNDATIONS_PATIO_SLAB);
+        }
+        if (type.equals("Carpot Footings")) {
+            setsComboBox.setItems(FOUNDATIONS_PATIO_SLAB);
+        }
+        if (type.equals("Carpot Slab")) {
+            setsComboBox.setItems(FOUNDATIONS_CARPOT_SLAB);
+        }
+        if (type.equals("Deck Footing")) {
+            setsComboBox.setItems(FOUNDATIONS_DECK_FOOTING);
+        }
+        if (type.equals("Deck Slab")) {
+            setsComboBox.setItems(FOUNDATIONS_DECK_SLAB);
+        }
+        if (type.equals("Wall Plates")) {
+            setsComboBox.setItems(FOUNDATIONS_WALL_PLATES);
+        }
+        if (type.equals("Water Proofing")) {
+            setsComboBox.setItems(FOUNDATIONS_WATER_PROOFING);
+        }
+        if (type.equals("Columns")) {
+            setsComboBox.setItems(FOUNDATIONS_COLUMNS);
+        }
+        if (type.equals("Beams")) {
+            setsComboBox.setItems(FOUNDATIONS_WALL_PLATES);
+        }
+        if (type.equals("Concrete Walls")) {
+            setsComboBox.setItems(FOUNDATIONS_CONCRETE_WALL);
+        }
+        if (type.equals("Conc Steps")) {
+            setsComboBox.setItems(FOUNDATIONS_CONC_STEPS);
+        }
+        if (type.equals("Block Cnrs & Ends")) {
+            setsComboBox.setItems(FOUNDATIONS_BLOCK_CNRS_ENDS);
+        }
+        if (type.equals("Profiles")) {
+            setsComboBox.setItems(FOUNDATIONS_PROFILES);
+        }
+        if (type.equals("Boxing")) {
+            setsComboBox.setItems(FOUNDATIONS_BOXING);
         }
 
     }

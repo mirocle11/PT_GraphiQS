@@ -7,6 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="#104 commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/PTGraphiQS_jar/PTGraphiQS.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/PTGraphiQS_jar/PTGraphiQS.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterDir="false" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
@@ -335,14 +339,7 @@
       <workItem from="1574642515020" duration="534000" />
       <workItem from="1574643485660" duration="11575000" />
       <workItem from="1574726502105" duration="22050000" />
-      <workItem from="1574814494192" duration="259000" />
-    </task>
-    <task id="LOCAL-00037" summary="#30 commit">
-      <created>1571107122279</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1571107122279</updated>
+      <workItem from="1574814494192" duration="6415000" />
     </task>
     <task id="LOCAL-00038" summary="#31 commit">
       <created>1571108203249</created>
@@ -680,7 +677,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574746104664</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="#104 commit">
+      <created>1574814761772</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1574814761773</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -744,7 +748,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="#39 commit" />
     <MESSAGE value="#40 commit" />
     <MESSAGE value="#41 commit" />
     <MESSAGE value="#42 commit" />
@@ -769,6 +772,7 @@
     <MESSAGE value="#96 commit" />
     <MESSAGE value="#97 commit" />
     <MESSAGE value="#103 commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="#103 commit" />
+    <MESSAGE value="#104 commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="#104 commit" />
   </component>
 </project>
