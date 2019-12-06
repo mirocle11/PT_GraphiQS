@@ -888,7 +888,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="foundBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="foundationsBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Post Footings" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -1021,7 +1021,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="prestressedBox" minHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedFloorsBox" minHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Concrete Floor" textFill="WHITE" textOverrun="CLIP">
                            <font>
