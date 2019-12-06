@@ -1693,9 +1693,12 @@ public class workspaceController implements Initializable {
 
     private void buttonsAction() {
 
-//        prestressedFloorsBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
-//            showSets(((JFXButton) node).getText());
-//        }));
+        foundationsBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        prestressedFloorsBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
 //        blockOpeningsBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
 //            showSets(((JFXButton) node).getText());
 //        }));
