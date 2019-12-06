@@ -31,9 +31,11 @@ public class ShapeObject {
     boolean remStart = true;
     boolean remEnd = true;
     boolean segmentRemoved = false;
-
+    double area = 0;
+    double length = 0;
 
     public ShapeObject() {
+        java.awt.Color c = new java.awt.Color(0, true);
     }
 
     public String getType() {
@@ -75,6 +77,22 @@ public class ShapeObject {
     public List<Point2D> getPointList() {
         System.out.println("GETTING POINTLIST OF WITH TYPE " + type);
         return this.pointList;
+    }
+
+    public double getArea() {
+        return area;
+    }
+
+    public void setArea(double area) {
+        this.area = area;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
     }
 
     public void setPointList(ArrayList<Point2D> pointList) {
@@ -133,7 +151,6 @@ public class ShapeObject {
         boxList.clear();
         double boxW = strokeWidth * 3;
         int ctr = point2DS.size();
-        System.out.println("ASA ANG BOX SA LINE "+ctr);
         for (int x = 0; x < ctr; x++) {
 
             boxList.add(new Rectangle(point2DS.get(x).getX() - boxW / 2, point2DS.get(x).getY() - boxW / 2, boxW, boxW));
