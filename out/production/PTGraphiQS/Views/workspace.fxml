@@ -10,6 +10,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
@@ -36,7 +37,7 @@
                         <Group fx:id="group">
                            <children>
                               <Canvas fx:id="canvas" height="660.0" nodeOrientation="INHERIT" width="885.0" />
-                              <Pane fx:id="pane" layoutY="-7.0" onMouseDragged="#updateLine" onMouseMoved="#updateLine" onMousePressed="#drawRect" onMouseReleased="#drawAction" prefHeight="660.0" prefWidth="885.0" />
+                              <Pane fx:id="pane" layoutY="-7.0" onMouseDragged="#updateLine" onMouseMoved="#updateLine" onMousePressed="#updateRect" onMouseReleased="#drawAction" prefHeight="660.0" prefWidth="885.0" />
                            </children>
                         </Group>
                      </children>
@@ -171,7 +172,7 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
-            <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#drawRectangle" prefHeight="50.0" prefWidth="50.0">
+            <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#drawRectAction" prefHeight="50.0" prefWidth="50.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -187,6 +188,12 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
+            <Button fx:id="nextPage" mnemonicParsing="false" onAction="#nextPageAction" prefHeight="25.0" prefWidth="62.0" text="Next">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="previousPage" mnemonicParsing="false" onAction="#previousPageAction" text="Previous" />
             <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#rotateAction" prefHeight="50.0" prefWidth="50.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
