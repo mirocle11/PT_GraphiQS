@@ -649,7 +649,7 @@ public class workspaceController implements Initializable {
                         });
 
                     }
-                    shapeObject.getLineList().forEach(line1 -> {
+                    shapeObject.getLineList().forEach(line1 -> { 
                         PdfPen pen = new PdfPen(pdfRGBColor, 2);
                         page.getCanvas().drawLine(pen, line1.getStartX() / subX, (line1.getStartY() / subY) - 1.8, line1.getEndX() / subX, (line1.getEndY() / subY) - 1.8);
                     });
