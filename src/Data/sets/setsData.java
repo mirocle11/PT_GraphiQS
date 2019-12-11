@@ -891,4 +891,77 @@ public class setsData {
 
     public static ObservableList<String> ROOF_VERGE = FXCollections.observableArrayList("Hardies 300 H1.2", "Hardies 450 H1.2",
             "Hardies 600 H1.2", "Hardies 750 H1.2", "Hardies 900 H1.2", "Verge Pack <300 H1.2", "Verge Pack 450 H1.2");
+
+    public static ObservableList<String> ROOF_STANDARD_SOFFIT = FXCollections.observableArrayList("Hardies 300 H1.2", "Hardies 450 H1.2",
+            "Hardies 600 H1.2", "Hardies 750 H1.2", "Hardies 900 H1.2", "Hardies 1200 H1.2", "Harwood (less than 750) H1 Mer");
+
+    public static ObservableList<String> ROOF_DIFFICULT_SOFFITS = FXCollections.observableArrayList("Hardies Standard H1.2");
+
+    public static ObservableList<String> ROOF_BARGE = FXCollections.observableArrayList("Cedar BS 150x25",
+            "Cedar BS 200x25", "Cedar DR 150x25", "Cedar DR 200x25", "FJ PP 150x25 H3.1", "FJ PP 150x25 H3.2",
+            "FJ PP 150x40 H3.1", "FJ PP 150x40 H3.2", "FJ PP 200x25 H3.1", "FJ PP 200x25 H3.2", "FJ PP 200x40 H3.1",
+            "FJ PP 200x40 H3.2", "FJ PP 250x25 H3.1", "FJ PP 250x25 H3.2", "FJ PP 250x40 H3.1", "FJ PP 250x40 H3.2",
+            "H3 Rad 150x25", "H3 Rad 150x40", "H3 Rad 200x25", "H3 Rad 200x40", "H3 Rad 250x25", "H3 Rad 250x40",
+            "Linea 180mm", "Linea 230mm", "Metal Fascia", "Rightdeck 130mm Plastic Fascia", "Rightdeck 80mm Plastic Fascia",
+            "Triclad 190", "Triclad 230");
+
+    public static ObservableList<String> ROOF_FASCIA = FXCollections.observableArrayList("Cedar 150x25 BS",
+            "Cedar 150x25 DR", "Cedar 200x25 BS", "Cedar 200x25 DR", "FJ PP 150x25 H3.1", "FJ PP 150x25 H3.2",
+            "FJ PP 150x40 H3.1", "FJ PP 150x40 H3.2", "FJ PP 200x25 H3.1", "FJ PP 200x25 H3.2", "FJ PP 200x40 H3.1",
+            "FJ PP 200x40 H3.2", "FJ PP 250x25 H3.1", "FJ PP 250x25 H3.2", "FJ PP 250x40 H3.1", "FJ PP 250x40 H3.2",
+            "H3 Rad 150x25", "H3 Rad 150x40", "H3 Rad 200x25", "H3 Rad 200x40", "H3 Rad 250x25", "H3 Rad 250x40",
+            "Linea 180mm", "Linea 230mm", "Metal Fascia", "Rightdeck 130mm Plastic Fascia", "Rightdeck 80mm Plastic Fascia",
+            "Triclad 190", "Triclad 230");
+
+    public static ObservableList<String> ROOF_SPOUTING_MEASURED = FXCollections.observableArrayList("Classic",
+            "Flowline", "Magnum", "Stormcloud", "Typhoon", "Steel Gutter Accessories", "Klass Accessories");
+
+    public static ObservableList<String> ROOF_APRONS = FXCollections.observableArrayList("140x45 Apron Nogs H1.2",
+            "90x45 Apron Nogs H1.2");
+
+    public static ObservableList<String> ROOF_CHANGE_OF_ROOF_PITCH = FXCollections.observableArrayList("70x45 H1.2 Purlins",
+            "90x45 H1.2 Purlins");
+
+    public static ObservableList<String> ROOF_PARAPETS = FXCollections.observableArrayList("Random H1.2 90x45",
+            "Random H1.2 140x45", "Prenailed 90x45 Sgl", "Prenailed 90x45 Gnd", "Prenailed 90x45 1st Floor", "Prenailed 90x45 2nd Floor",
+            "Prenailed 140x45 Sgl", "Prenailed 140x45 Gnd", "Prenailed 140x45 1st Floor", "Prenailed 140x45 2nd Floor");
+
+    public static ObservableList<String> ROOF_SKYLIGHT_WALLS = FXCollections.observableArrayList("Standard H1.2",
+            "Standard H3.2", "Truss H1.2", "Standard D/Fir", "Standard D/Fir H1.2");
+
+    public static ObservableList<String> EXT_LINING_GND_LEVEL = FXCollections.observableArrayList("10 Series Masonry Veneer",
+            "12mm AD H3 Ply", "A-Lign 142mm Bev Back", "A-Lign 187mm Bev Back", "Axon Panel", "B&Batten Cedar", "B&Batten H3 Rad",
+            "B&Batten H3 Rad", "Bevel Back Cedar", "Bevel Back FJ PP", "Bevel Back H3 Rad Clears", "Brick", "Building Paper Only",
+            "CSR 6.0mm Fibre Cement", "Cedar Wall Shingles on 9.0mm Ply", "Corrugated Iron 0.40g", "Eterpan Vent Clad Plaster",
+            "Eterside Cladding", "ExoTec", "Fast Block", "Feature Board", "Garisson Bevel Back H3.1 142x18mm", "HP120 150mm Cedar B&Battern",
+            "HP50 150mm Vert Cedar Shiplap", "HP61 150mm Cedar Bev Back", "HP67 150mm Cedar Rusticated", "RK Cedar Bevel Back",
+            "Hardi Shingleside Straight", "Hardibacker", "Hardiflex 6mm", "Hardiflex 7.5mm", "Hardiplank", "Linea", "Monotek",
+            "NuLine Plus W/B", "Palliside", "Rusticated Cedar", "Rusticated JF PP", "Rusticated H3 Rad Clears", "Scyon Stria W/B",
+            "Shadowclad", "Shiplap Cedar", "Shiplap FJ PP", "Shiplap H3 Rad Clears", "SmartClad 185mm BB Weatherboard",
+            "SmartClad 140mm BB Weatherboard", "Titan Board", "Triclad", "Weathertex Pnls Smth 2400(Overrides)",
+            "Weathertex Weatherboards(Overrides)");
+
+    public static ObservableList<String> EXT_LINING_EXT_CORNERS = FXCollections.observableArrayList("10 Series Blocks",
+            "A-Lign Bev Back", "Axon Panel", "Axon Panel with Cavity", "B&Batten Cedar", "B&Batten H3 Rad", "Bevel Back Cedar",
+            "Bevel Back FJ PP", "Bevel Back H3 Clears", "Eterpan Vent Clad Plaster", "ExoTec 90 & 135deg", "Garisson Bevel Back H3.1 142x18mm",
+            "HP120 Board & Batten Cedar", "HP61 Bev Back Cedar", "HP67 Rustic Cedar", "Hardi Shingleside", "HardiBacker 90 & 135deg",
+            "Hardiflex 6.0mm", "Hardiflex 7.5mm", "Hardiplank", "Linea", "Monotek 90 & 135deg", "NuLine Plus W/B", "Palliside",
+            "Rusticated Cedar", "Rusticated FJ PP", "Rusticated H3 Clears", "Sycon Stria W/B", "Shadowclad", "SmartClad",
+            "Titan Board 90 & 135deg", "Triclad", "Weathertex Panels", "Weathertex Weatherboards", "RK Bevel Back Int Corners");
+
+    public static ObservableList<String> EXT_ENCLOSED_BEAMS = FXCollections.observableArrayList("Eclipsa Both Sides",
+            "Hardiflex 4.5mm Both Sides", "Hardiflex 6.0mm Both Sides", "Villa Bd 6mm Both Sides");
+
+    public static ObservableList<String> EXT_LINING_UPPER_LEVEL = FXCollections.observableArrayList("10 Series Masonry Veneer",
+            "12mm AD H3 Ply", "A-Lign 142mm Bev Back", "A-Lign 187mm Bev Back", "Axon Panel", "B&Batten Cedar", "B&Batten Rad H3",
+            "Bevel Back Cedar", "Bevel Back FJ PP", "Bevel Back H3 Clears", "Brick", "Building Paper Only",
+            "Cedar Wall Shingles on 9.0mm Ply", "Corrugated Iron 0.40g", "Eterpan Vent Clad Plaster",
+            "Eterside Cladding", "ExoTec Board", "Fast Block", "Feature Board", "Garisson Bevel Back H3.1 142x18mm", "HP120 150mm Cedar B&Battern",
+            "HP50 150mm Vert Cedar Shiplap", "HP61 150mm Cedar Bev Back", "HP67 150mm Cedar Rusticated", "Hardibacker",
+            "Hardies Shingleside Straight","Hardiflex 6mm", "Hardiflex 7.5mm", "Hardiplank", "Linea", "Monotek",
+            "NuLine Plus W/B", "Palliside", "Rusticated Cedar", "Rusticated FJ PP", "Rusticated H3 Rad Clears", "Scyon Stria W/B",
+            "Shadowclad", "Shiplap Cedar", "Shiplap FJ PP", "Shiplap H3 Rad Clears", "SmartClad 140mm BB Weatherboard",
+            "SmartClad 185mm BB Weatherboard", "Titan Board", "Triclad", "Weathertex Pnls Smth 2400(Overrides)",
+            "Weathertex Weatherboards(Overrides)");
+
 }
