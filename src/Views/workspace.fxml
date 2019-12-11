@@ -10,6 +10,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
@@ -36,7 +37,7 @@
                         <Group fx:id="group">
                            <children>
                               <Canvas fx:id="canvas" height="660.0" nodeOrientation="INHERIT" width="885.0" />
-                              <Pane fx:id="pane" layoutY="-7.0" onMouseDragged="#updateLine" onMouseMoved="#updateLine" onMousePressed="#drawRect" onMouseReleased="#drawAction" prefHeight="660.0" prefWidth="885.0" />
+                              <Pane fx:id="pane" layoutY="-7.0" onMouseDragged="#updateLine" onMouseMoved="#updateLine" onMousePressed="#updateRect" onMouseReleased="#drawAction" prefHeight="660.0" prefWidth="885.0" />
                            </children>
                         </Group>
                      </children>
@@ -171,7 +172,7 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
-            <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#drawRectangle" prefHeight="50.0" prefWidth="50.0">
+            <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#drawRectAction" prefHeight="50.0" prefWidth="50.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -187,6 +188,12 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
+            <Button fx:id="nextPage" mnemonicParsing="false" onAction="#nextPageAction" prefHeight="25.0" prefWidth="62.0" text="Next">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="previousPage" mnemonicParsing="false" onAction="#previousPageAction" text="Previous" />
             <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#rotateAction" prefHeight="50.0" prefWidth="50.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
@@ -855,7 +862,7 @@
             <Separator layoutY="40.0" prefWidth="220.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="preliminaryAndGeneralPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="preliminaryAndGeneralBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Preliminary &amp; General" textFill="WHITE">
                <font>
@@ -865,7 +872,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="preliminaryAndGeneralBox" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prelimBox" prefHeight="188.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Insurance" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -878,7 +885,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="foundationsPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="356.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="145.0" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="foundationsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="356.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="145.0" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Foundations" textFill="WHITE">
                <font>
@@ -1011,7 +1018,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="prestressedFloorsPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="prestressedFloorsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Prestressed Floors" textFill="WHITE">
                <font>
@@ -1054,7 +1061,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="blockOpeningsPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="blockOpeningsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Block Openings" textFill="WHITE">
                <font>
@@ -1064,7 +1071,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="blockOpeningsBox" minHeight="192.0" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox1" minHeight="192.0" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Lintels" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -1092,7 +1099,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="blockWallsPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="blockWallsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Block Walls" textFill="WHITE">
                <font>
@@ -1102,7 +1109,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="blockWallsBox" minWidth="-Infinity" prefHeight="195.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox11" minWidth="-Infinity" prefHeight="195.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Walls" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -1155,7 +1162,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="floorPackingPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="floorPackingBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Floor Packing" textFill="WHITE">
                <font>
@@ -1165,7 +1172,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="floorPackingBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Conc Packing" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -1183,7 +1190,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="subfloorPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="subfloorBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Sub Floor" textFill="WHITE">
                <font>
@@ -1193,7 +1200,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="subfloorBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox1111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Pile Concrete Measured" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -1261,7 +1268,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="intFloorLev1Pane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="intFloorLev1Box" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Int Floor Lev 1" textFill="WHITE">
                <font>
@@ -1271,7 +1278,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="intFloorLev1Box" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox11111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Framing Measured" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -1334,7 +1341,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="intFloorLev2Pane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="intFloorLev2Box" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Int Floor Lev 2" textFill="WHITE">
                <font>
@@ -1344,7 +1351,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="intFloorLev2Box" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox1111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Framing Measured" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -1407,7 +1414,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="extOpeningsPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="extOpeningsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Ext Openings" textFill="WHITE">
                <font>
@@ -1417,7 +1424,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="extOpeningsBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox11111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Wind Hardware" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -1465,7 +1472,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="intOpeningsPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="intOpeningsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Int Openings" textFill="WHITE">
                <font>
@@ -1475,7 +1482,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="intOpeningsBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Door Openings" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -1538,7 +1545,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="braceHardwarePane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="braceHardwareBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Brace Hardware" textFill="WHITE">
                <font>
@@ -1548,7 +1555,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="braceHardwareBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox1111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Hardware" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -1561,7 +1568,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="braceSglLevPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="braceSglLevBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Brace Sgl Lev" textFill="WHITE">
                <font>
@@ -1571,7 +1578,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="braceSglLevBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox11111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Walls" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -1584,7 +1591,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="interTenancySectionPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="interTenancySectionBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Inter-Tenancy Section" textFill="WHITE">
                <font>
@@ -1594,7 +1601,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="interTenancySectionBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Walls" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -1617,7 +1624,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wetLiningsPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wetLiningsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Wet Linings" textFill="WHITE">
                <font>
@@ -1627,7 +1634,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="wetLiningsBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox1111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Walls" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -1645,7 +1652,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wallStrappingPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wallStrappingBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Wall Strapping" textFill="WHITE">
                <font>
@@ -1655,7 +1662,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="wallStrappingBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox11111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Linings" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -1668,7 +1675,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="miscManufPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="miscManufBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Misc Manuf" textFill="WHITE">
                <font>
@@ -1678,7 +1685,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="miscManufBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Manual" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -1691,7 +1698,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="postAndBeamHardwarePane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="postAndBeamHardwareBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Post &amp; Beam Hardware" textFill="WHITE">
                <font>
@@ -1701,7 +1708,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="postAndBeamHardwareBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox1111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Posts" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -1729,7 +1736,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wallsSglLevPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wallsSglLevBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Walls Sgl Lev" textFill="WHITE">
                <font>
@@ -1739,7 +1746,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="wallsSglLevBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox11111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Misc" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -1807,7 +1814,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wallsBasementPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wallsBasementBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Walls Basement" textFill="WHITE">
                <font>
@@ -1817,7 +1824,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="wallsBasementBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Misc" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -1885,7 +1892,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wallsGndLevPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wallsGndLevBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Walls Gnd Lev" textFill="WHITE">
                <font>
@@ -1895,7 +1902,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="wallsGndLevBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox1111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Misc" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -1963,7 +1970,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wallsLev1Pane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wallsLev1Box" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Walls Lev 1" textFill="WHITE">
                <font>
@@ -1973,7 +1980,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="wallsLev1Box" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="wallsLev1Box1" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Misc" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -2041,7 +2048,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wallsLev2Pane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wallsLev2Box" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Walls Lev 2" textFill="WHITE">
                <font>
@@ -2051,7 +2058,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="wallsLev2Box" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Misc" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -2119,7 +2126,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wallsLev3Pane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wallsLev3Box" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Walls Lev 3" textFill="WHITE">
                <font>
@@ -2129,7 +2136,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="wallsLev3Box" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox1111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Misc" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -2197,7 +2204,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wallsLev4Pane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wallsLev4Box" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Walls Lev 4" textFill="WHITE">
                <font>
@@ -2207,7 +2214,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="wallsLev4Box" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox11111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Misc" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -2275,7 +2282,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="bp_packersPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="bp_packersBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="BP Packers" textFill="WHITE">
                <font>
@@ -2285,7 +2292,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="bp_packersBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Packers Concrete" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -2313,7 +2320,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wallHardwarePane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wallHardwareBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Wall Hardware" textFill="WHITE">
                <font>
@@ -2323,7 +2330,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="wallHardwareBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox1111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Wall Hardware" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -2336,7 +2343,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="boltsManualPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="boltsManualBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Bolts Manual" textFill="WHITE">
                <font>
@@ -2346,7 +2353,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="boltsManualBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox11111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Subfloor" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -2364,7 +2371,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="chimneyPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="chimneyBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Chimney" textFill="WHITE">
                <font>
@@ -2374,7 +2381,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="chimneyBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox111111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Frame" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -2387,7 +2394,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="trussesPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="trussesBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Trusses" textFill="WHITE">
                <font>
@@ -2397,7 +2404,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="trussesBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox1111111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Timber" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -2420,7 +2427,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="roofPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="160.0" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="roofBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="160.0" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Roof" textFill="WHITE">
                <font>
@@ -2430,7 +2437,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="roofBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox11111111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Gables Above Brick" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -2588,7 +2595,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="extLiningPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="extLiningBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Ext Lining" textFill="WHITE">
                <font>
@@ -2598,7 +2605,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="extLiningBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox111111111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Gnd Level" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -2651,7 +2658,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="rainScreenPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="rainScreenBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Rain Screen" textFill="WHITE">
                <font>
@@ -2661,7 +2668,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="rainScreenBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox1111111111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Bottom Starter" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -2694,7 +2701,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="wetCeilingsPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="wetCeilingsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Wet Ceilings" textFill="WHITE">
                <font>
@@ -2704,7 +2711,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="wetCeilingsBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox11111111111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Ceiling" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -2737,7 +2744,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="ceilingsPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="ceilingsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Ceilings" textFill="WHITE">
                <font>
@@ -2747,7 +2754,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="ceilingsBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox111111111111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Ceiling" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -2775,7 +2782,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="cupboardsPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="cupboardsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Cupboards" textFill="WHITE">
                <font>
@@ -2785,7 +2792,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="cupboardsBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox1111111111111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Shelving Measured" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -2798,7 +2805,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="showersAndBathsPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="showersAndBathsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Showers &amp; Baths" textFill="WHITE">
                <font>
@@ -2808,7 +2815,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="showersAndBathsBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox11111111111111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Showers &amp; Baths Measured" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -2821,7 +2828,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="decksPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="230.0" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="decksBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.bottomAnchor="230.0" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Decks" textFill="WHITE">
                <font>
@@ -2831,7 +2838,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="decksBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox111111111111111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Post Pile Footings" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -2929,7 +2936,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="pergolaPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="pergolaBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Pergola" textFill="WHITE">
                <font>
@@ -2939,7 +2946,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="pergolaBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox1111111111111111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Post Footings" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -2967,7 +2974,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="miscellaniousPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="miscellaniousBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Miscellanious" textFill="WHITE">
                <font>
@@ -2977,7 +2984,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="miscellaniousBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox11111111111111111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Sundries" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -3010,7 +3017,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="plumbingPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="plumbingBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Plumbing" textFill="WHITE">
                <font>
@@ -3020,7 +3027,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="plumbingBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox111111111111111111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Plumbingware" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -3033,7 +3040,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="bulkHeadsPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="bulkHeadsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Bulk Heads" textFill="WHITE">
                <font>
@@ -3043,7 +3050,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="bulkHeadsBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox1111111111111111111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Slides" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -3061,7 +3068,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="windowSeatsPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="windowSeatsBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Window Seats" textFill="WHITE">
                <font>
@@ -3071,7 +3078,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="windowSeatsBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox11111111111111111111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Side" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -3089,7 +3096,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="landscapingPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="landscapingBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Landscaping" textFill="WHITE">
                <font>
@@ -3099,7 +3106,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="landscapingBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox111111111111111111111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Concrete to Posts" textFill="WHITE" textOverrun="CLIP">
                            <font>
@@ -3142,7 +3149,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="fencingPane" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
+      <AnchorPane fx:id="fencingBox" layoutX="294.0" layoutY="205.0" opacity="0.98" prefHeight="266.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D; -fx-background-radius: 20px;" visible="false" AnchorPane.topAnchor="205.0">
          <children>
             <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" text="Fencing" textFill="WHITE">
                <font>
@@ -3152,7 +3159,7 @@
             <Separator layoutY="40.0" prefHeight="3.0" prefWidth="200.0" />
             <ScrollPane hbarPolicy="NEVER" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="42.0">
                <content>
-                  <VBox fx:id="fencingBox" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
+                  <VBox fx:id="prestressedBox1111111111111111111111111111111111111111111" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #1A1C1D;">
                      <children>
                         <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Fence Post Footings" textFill="WHITE" textOverrun="CLIP">
                            <font>

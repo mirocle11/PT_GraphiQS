@@ -22,6 +22,7 @@ public class ShapeObject {
     double strokeWidth;
     List<Line> lineList = new ArrayList<>();
     private ArrayList<Point2D> pointList = new ArrayList<>();
+    ArrayList<Shape> stampList = new ArrayList<>();
     List<Rectangle> boxList = new ArrayList<>();
     String name;
     String type;
@@ -79,6 +80,17 @@ public class ShapeObject {
         return this.pointList;
     }
 
+    public ArrayList<Shape> getStampList() {
+        return stampList;
+    }
+
+    public void setStampList(ArrayList<Shape> stampLists) {
+        this.stampList.clear();
+        stampLists.forEach(shape1 -> {
+            this.stampList.add(shape1);
+        });
+    }
+
     public double getArea() {
         return area;
     }
@@ -95,8 +107,9 @@ public class ShapeObject {
         this.length = length;
     }
 
-    public void setPointList(ArrayList<Point2D> pointList) {
-        pointList.forEach(point2D -> {
+    public void setPointList(ArrayList<Point2D> pointLists) {
+        this.pointList.clear();
+        pointLists.forEach(point2D -> {
             this.pointList.add(point2D);
         });
         createLines(this.pointList);
