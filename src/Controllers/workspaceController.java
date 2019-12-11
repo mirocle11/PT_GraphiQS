@@ -1325,7 +1325,6 @@ public class workspaceController implements Initializable {
     }
 
     private void buttonsAction() {
-
         foundationsBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
             showSets(((JFXButton) node).getText());
         }));
