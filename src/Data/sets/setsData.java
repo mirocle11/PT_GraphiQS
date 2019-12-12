@@ -954,14 +954,179 @@ public class setsData {
 
     public static ObservableList<String> EXT_LINING_UPPER_LEVEL = FXCollections.observableArrayList("10 Series Masonry Veneer",
             "12mm AD H3 Ply", "A-Lign 142mm Bev Back", "A-Lign 187mm Bev Back", "Axon Panel", "B&Batten Cedar", "B&Batten Rad H3",
-            "Bevel Back Cedar", "Bevel Back FJ PP", "Bevel Back H3 Clears", "Brick", "Building Paper Only",
-            "Cedar Wall Shingles on 9.0mm Ply", "Corrugated Iron 0.40g", "Eterpan Vent Clad Plaster",
-            "Eterside Cladding", "ExoTec Board", "Fast Block", "Feature Board", "Garisson Bevel Back H3.1 142x18mm", "HP120 150mm Cedar B&Battern",
-            "HP50 150mm Vert Cedar Shiplap", "HP61 150mm Cedar Bev Back", "HP67 150mm Cedar Rusticated", "Hardibacker",
-            "Hardies Shingleside Straight","Hardiflex 6mm", "Hardiflex 7.5mm", "Hardiplank", "Linea", "Monotek",
-            "NuLine Plus W/B", "Palliside", "Rusticated Cedar", "Rusticated FJ PP", "Rusticated H3 Rad Clears", "Scyon Stria W/B",
-            "Shadowclad", "Shiplap Cedar", "Shiplap FJ PP", "Shiplap H3 Rad Clears", "SmartClad 140mm BB Weatherboard",
-            "SmartClad 185mm BB Weatherboard", "Titan Board", "Triclad", "Weathertex Pnls Smth 2400(Overrides)",
-            "Weathertex Weatherboards(Overrides)");
+            "Bevel Back Cedar", "Bevel Back FJ PP", "Bevel Back H3 Clears", "Brick", "Building Paper Only", "Cedar Wall Shingles on 9.0mm Ply",
+            "Corrugated Iron 0.40g", "Eterpan Vent Clad Plaster","Eterside Cladding", "ExoTec Board", "Fast Block", "Feature Board",
+            "Garisson Bevel Back H3.1 142x18mm", "HP120 150mm Cedar B&Batten", "HP50 150mm Vert Cedar Shiplap", "HP61 150mm Cedar Bev Back",
+            "HP67 150mm Cedar Rusticated", "Hardibacker", "Hardies Shingleside Straight","Hardiflex 6mm", "Hardiflex 7.5mm", "Hardiplank",
+            "Linea", "Monotek", "NuLine Plus W/B", "Palliside", "Rusticated Cedar", "Rusticated FJ PP", "Rusticated H3 Rad Clears",
+            "Scyon Stria W/B", "Shadowclad", "Shiplap Cedar", "Shiplap FJ PP", "Shiplap H3 Rad Clears", "SmartClad 140mm BB Weatherboard",
+            "SmartClad 185mm BB Weatherboard", "Titan Board", "Triclad", "Weathertex Pnls Smth 2400(Overrides)", "Weathertex Weatherboards(Overrides)",
+            "RK Cedar Bevel Back");
 
+    public static ObservableList<String> EXT_LINING_UPPER_EXT_CORNERS = FXCollections.observableArrayList("10 Series Masonry Veneer",
+            "12mm H3 AD Ply", "A-Lign Bev Back", "Axon Panel 2400", "Axon Panel 2400 with Cavity", "B&Batten Cedar", "B&Batten H3 Rad",
+            "Bev Back Cedar", "Bev Back FJ PP", "Bev Back H3 Clears", "Eterpan Vent Clad Plaster", "Eterside Cladding", "Hardi Shingleside",
+            "Hardibacker", "Hardiflex", "Hardiplank", "Linea", "Monotek", "NuLine Plus W/B", "Rusticated Cedar", "Rusticated FJ PP",
+            "Rusticated H3 Clears", "Scyon Stria W/B", "Shadowclad", "Shiplap Cedar", "Shiplap FJ PP", "Shiplap H3 Clears", "Smartclad 140mm",
+            "Smartclad 185mm", "Triclad B&Batten", "Triclad Bev Back", "Triclad Rusticated", "Weathertex Panels", "Weathertex Weatherboards");
+
+    public static ObservableList<String> EXT_LINING_UPPER_INT_CORNERS = FXCollections.observableArrayList("10 Series Blocks",
+            "A-Lign Bev Back", "Axon Panel", "Axon Panel with Cavity", "B&Batten Cedar", "B&Batten H3 Rad", "Bav Back H3 Cedar",
+            "Bev Back Cedar", "Bev Back FJ PP", "Eterpan Vent Clad Plaster", "Hardi Shingleside", "Hardibacker", "Hardiflex 6.0mm",
+            "Hardiflex 7.5mm", "Hardiplank", "Linea", "Monotek", "NuLine Plus W/B", "Rusticated Cedar", "Rusticated FJ PP",
+            "Rusticated H3 Rad", "Shadowclad", "Shiplap All", "Triclad", "Weathertex Panels", "Weathertex Weatherboards");
+
+    public static ObservableList<String> EXT_LINING_GND_MEASURED_ITEMS = FXCollections.observableArrayList("Axon Panel",
+            "Bev BAck W/Bd", "Eterpan Vent Clad Plaster", "ExoTec", "H/plank", "Hardi Shingleside", "Hardibacker",
+            "Hardiflex 6mm", "Hardiflex 7.5mm", "Linea Oblique W/B", "Palliside", "Shadowclad", "Titan Board",
+            "Weathertex Panels Smooth");
+
+    public static ObservableList<String> EXT_LINING_UPPER_MEASURED_ITEMS = FXCollections.observableArrayList("Axon Panel",
+            "B&Batten Cedar", "B&Batten H3 Rad", "Bev Back Cedar", "Bev BAck FJ PP", "Bev Back Rad H3 Clears", "Eterpan Vent Clad Plaster",
+            "ExoTec Board", "Hardibacker", "Hardiflex 6mm", "Hardiflex 7.5mm", "Hardiplank", "Linea 150", "Linea Midfloor Cavity Drainage Joint",
+            "Linea Oblique W/B", "Monotek", "Palliside", "Rusticated Cedar", "Rusticated FJ PP", "Rusticated Rad H3 Clears",
+            "Shadowclad", "Titan Board", "Triclad", "W/Tex Midfloor Cavity Drainage Joint");
+
+    public static ObservableList<String> RAIN_SCREEN_BOTTOM_STARTER = FXCollections.observableArrayList("Eterpan Vent Clad Express Joints",
+            "Eterpan Xpress Clad Express Joints", "Exo Tec Top Hat Battens", "Titan & ExoTec");
+
+    public static ObservableList<String> RAIN_SCREEN_CLADDING_AREA = FXCollections.observableArrayList("Eterpan Vent Clad Express Joints",
+            "Eterpan Xpress Clad Express Joints", "Exo Tec 2400 Top Hat Battens", "ExoTec 2400", "Titan 2400");
+
+    public static ObservableList<String> RAIN_SCREEN_VERTICAL_JOINTS = FXCollections.observableArrayList("Eterpan Vent Clad Express Joints",
+            "Eterpan Xpress Clad Express Joints", "Exo Tec Top Hat Battens", "Titan & ExoTec");
+
+    public static ObservableList<String> RAIN_SCREEN_HORIZONTAL_JOINTS = FXCollections.observableArrayList("Drained Flashing",
+            "Eterpan Vent Clad Express Joints", "Eterpan Xpress Clad Express Joints", "ExoTec Top Hat Battens", "Mid Floor Socket Joint",
+            "Socket Joint");
+
+    public static ObservableList<String> RAIN_SCREEN_CORNERS = FXCollections.observableArrayList("Eterpan Vent Clad Express Joints",
+            "Eterpan Xpress Clad Express Joints", "ExoTec Top Hat Battens", "Titan & ExoTec");
+
+    public static ObservableList<String> WET_CEILINGS = FXCollections.observableArrayList("Aqualine 10mm", "Aqualine 13mm",
+            "Noiseline 10mm", "Noiseline 13mm", "Toughline 10mm", "Toughline 13mm");
+
+    public static ObservableList<String> CEILINGS_CEILING = FXCollections.observableArrayList("70x35 Battens 400ctrs",
+            "70x35 Battens 450ctrs", "70x35 Battens 600ctrs", "Gib & Fixings Only", "Rondo 310 Clipped 400ctrs",
+            "Rondo 310 Clipped 450ctrs", "Rondo 310 Clipped 6000ctrs", "Rondo 310 Direct Fix 400ctrs", "Rondo 310 Direct Fix 450ctrs",
+            "Rondo 310 Direct Fix 600ctrs");
+
+    public static ObservableList<String> CEILINGS_CEILING_JOISTS = FXCollections.observableArrayList("C/Batten for coves",
+            "Ceiling Joists 140x45mm", "Ceiling Joists 90x45mm", "Rondo Perimeter Channel");
+
+    public static ObservableList<String> CEILINGS_INT_ENCLOSED_BEAMS = FXCollections.observableArrayList("Gib Both Sides",
+            "Gib One Side Only", "Scotia ONLY both sides");
+
+    public static ObservableList<String> CEILINGS_INT_MEASURED_SHEETS = FXCollections.observableArrayList("10mm Std Gibboard",
+            "10mm Ultraline", "13mm Std Gibboard", "13mm Ultraline");
+
+    public static ObservableList<String> CUPBOARDS_SHELVING_MEASURED = FXCollections.observableArrayList("Standard", "Harwood Homes");
+
+    public static ObservableList<String> SHOWERS_BATH_MEASURED = FXCollections.observableArrayList("1 Shower Corner 900 H/Glaze",
+            "2 Shower 900 H/Glaze", "1 Shower 3 sides 900 H/Glaze", "2 Showers 3 sides 900 H/Glaze", "1 Bath 3 shts 900 H/Glaze",
+            "1 Bath 4shts 900 H/Glaze", "1 Bath Frame Only", "2 Bath Frame Only", "Bath & Shower Frame Only", "H/Glaze 24x12x4.5mm",
+            "Hardtile 24x12 & 0.9x6mm", "Premium H/Glaze 24x12x6mm", "Villa Bd 2.4x12x6mm", "Villa Bd 2.4x12x9mm", "Villa Bd 2.7x1.2x6mm");
+
+    public static ObservableList<String> DECKS_POST_PILE_FOOTINGS = FXCollections.observableArrayList("17.5 Mpa POSTS", "ALL ITEMS (PILES)");
+    public static ObservableList<String> DECKS_POST_PILE_CONCRETE_ROUND = FXCollections.observableArrayList("17.5 Mpa 400mm Diameter");
+    public static ObservableList<String> DECKS_POSTS = FXCollections.observableArrayList("100x100 H5 Std");
+
+    public static ObservableList<String> DECKS_POST_HARDWARE = FXCollections.observableArrayList("120x12 Eng Bolts",
+            "140x12 Eng Bolts", "160x12 Eng Bolts", "180x12 Eng Bolts", "B 12 Bottom", "B 14 Bottom", "B 16 Bottom", "B18 Bottom",
+            "B 25 Bottom", "B 25 Bottom SS", "B 28 Bottom", "B 28 Bottom SS", "B 75 Bottom", "B 75 Bottom SS", "B 78 Bottom",
+            "B 78 Bottom SS", "B 79 Bottom", "B 79 Bottom SS", "B 134 Bottom", "B 135 Bottom", "B 135 Bottom SS", "B 138 Bottom",
+            "B 138 Bottom SS", "B 195 Bottom", "B 196 Bottom", "B 197 Bottom SS", "B 198 Bottom");
+
+    public static ObservableList<String> DECKS_STEEL_BEAMS = FXCollections.observableArrayList("H1.2 All Sizes", "H3.2 All Sizes");
+
+    public static ObservableList<String> DECKS_DECK_BEAMS = FXCollections.observableArrayList("150x100 H4", "150x50 H3.2 Wet",
+            "200x100 H4", "200x50 H3.2 Wet", "200x50 H3.2 Wet", "250x100 H4", "250x50 H3.2 Wet", "300x100 H4", "300x50 H3.2 Wet",
+            "HS300x45 Hyspan H1", "MSG8 H3.2");
+
+    public static ObservableList<String> DECKS_SUBFLOOR_MEASURED_ITEMS = FXCollections.observableArrayList("KD Timber H3.2 DRY Galv",
+            "Wet Timber H3.2 Galv");
+
+    public static ObservableList<String> DECKS_BRACING = FXCollections.observableArrayList("100x75 H4 Brace <3m",
+            "100x100 H4 Brace >3-5m", "100x100 H3.2 Brace >3-5m", "100x75 H3.2 Brace <3m");
+
+    public static ObservableList<String> DECKS_FRAMING_MEASURED_ITEMS = FXCollections.observableArrayList("MSG8 H3.2 Wet 90x45 Galv",
+            "MSG8 H3.2 Wet 90x45 SS", "MSG8 H3.2 Wet 145x45 Galv", "MSG8 H3.2 Wet 145x45 SS", "MSG8 H3.2 Wet 190x45 Galv",
+            "MSG8 H3.2 Wet 190x45 SS", "MSG8 H3.2 Wet 245x45 Galv", "MSG8 H3.2 Wet 245x45 SS", "MSG8 H3.2 Wet 290x45mm Galv",
+            "MSG8 H3.2 Wet 290x45mm SS", "MSG8 H3.2 Dry 90x45 Galv", "MSG8 H3.2 Dry 90x45 SS", "MSG8 H3.2 DRY 140x45 Galv",
+            "MSG8 H3.2 DRY 140x45 SS", "MSG8 H3.2 DRY 190x45mm Galv", "MSG8 H3.2 DRY 190x45 SS", "MSG8 H3.2 DRY 240x45 Galv",
+            "MSG8 H3.2 DRY 240x45 SS", "MSG8 H3.2 DRY 290x45 Galv", "MSG8 H3.2 DRY 290x45 SS", "H3.2 Wet 100x50 Galv",
+            "H3.2 Wet 100x50 SS", "H3.2 Wet 150x50 Galv", "H3.2 Wet 150x50 SS", "H3.2 Wet 200x50 Galv", "H3.2 Wet 200x50 SS",
+            "H3.2 Wet 250x50 Galv", "H3.2 Wet 250x50 SS", "H3.2 Wet 300x50 Galv", "H3.2 Wet 300x50 SS");
+
+    public static ObservableList<String> DECKS_DECKING = FXCollections.observableArrayList("140x32 Rad Std H3.2 Deck GT",
+            "H3 Rad Merch 100x40", "H3 Rad Merch GT 100x25", "H3 Rad Merch GT 100x40", "H3 Rad Premium 100x25",
+            "H3 Rad Premium 100x40", "H3 Rad Premium GT 100x40", "Hardies Compressed Sheet 18.0mm", "Kwila 14 Tread 100x25",
+            "Kwila 140x19mm", "Kwila 6 Tread 100x25", "Kwila Smooth 100x25", "Outdure 140mm Decking", "Ply 17.5mm H3.2",
+            "Rightdeck 125mm Plastic Decking");
+
+    public static ObservableList<String> DECKS_LAYERED_STEPS = FXCollections.observableArrayList("100x50 H3.2 - Change",
+            "90x45 H3.2 - Change");
+
+    public static ObservableList<String> DECKS_DECK_STAIRS_GUTTER_FRAME = FXCollections.observableArrayList("290x45 Stringer & 2x140 Tread",
+            "300x50 Stringer & 2x150 Tread", "Gutter Frame & Angle");
+
+    public static ObservableList<String> DECKS_BASE = FXCollections.observableArrayList("100x25 Baseboards",
+            "150x25 Baseboards", "75x25 Baseboards", "Hardiflex");
+
+    public static ObservableList<String> DECKS_BASE_MEASURED_ITEMS = FXCollections.observableArrayList("Hardiflex 2.4x6mm");
+
+    public static ObservableList<String> DECKS_HANDRAIL_MEASURED_ITEMS = FXCollections.observableArrayList("100x100 Galv Hardware",
+            "100x100 SS Hardware", "100x75 Galv Hardware", "100x75 SS Hardware");
+
+    public static ObservableList<String> DECKS_HANDRAILS = FXCollections.observableArrayList("45x45 @ 150 Centre Wet",
+            "50x50 @ 150 Centre Wet", "H3.2 KD 150x50 H/R Monotek", "H3.2 KD 150x50 H/R No Linings");
+
+    public static ObservableList<String> DECKS_SEAT_MEASURED_ITEMS = FXCollections.observableArrayList("Standard - Change");
+    public static ObservableList<String> DECKS_SEATS = FXCollections.observableArrayList("Standard - Change");
+
+    public static ObservableList<String> PERGOLA_POST_FOOTINGS = FXCollections.observableArrayList("17.5 Mpa Post");
+    public static ObservableList<String> PERGOLA_POST = FXCollections.observableArrayList("100x100 H5");
+    public static ObservableList<String> PERGOLA_MEASURED_ITEMS = FXCollections.observableArrayList("150x50 H3.2 Wet");
+
+    public static ObservableList<String> MISC_SUNDRIES = FXCollections.observableArrayList("Tga Std", "Auckland Smoke Alarm",
+            "Carters Tga Labour", "Christchurch", "Estimator Taupo", "Harwood Homes", "Harwood Homes 2", "Highmark Homes",
+            "Placemakers Waiheke");
+
+    public static ObservableList<String> MISC_ELECTRICAL_APPLIANCES = FXCollections.observableArrayList("Tga Std",
+            "Auckland Smoke Alarm", "Carters Tga Labour", "Christchurch", "Estimator Taupo", "Harwood Homes", "Harwood Homes 2",
+            "Highmark Homes", "Placemakers Waiheke");
+
+    public static ObservableList<String> MISC_GARAGE_DOOR = FXCollections.observableArrayList("Sectional C/Steel",
+            "Roller C/Steel", "Tilta C/Steel");
+
+    public static ObservableList<String> MISC_ENTRY_DOOR = FXCollections.observableArrayList("Kauri 810 & Endeavour SS");
+    public static ObservableList<String> PLUMBING_PLUMBINGWARE = FXCollections.observableArrayList("SAMPLE");
+    public static ObservableList<String> BULK_HEADS_SIDES = FXCollections.observableArrayList("1 Side H1.2", "2 Sides H1.2");
+    public static ObservableList<String> BULK_BOTTOM = FXCollections.observableArrayList("Std H1.2");
+    public static ObservableList<String> WINDOW_SEATS_SIDE = FXCollections.observableArrayList("Std - Change");
+    public static ObservableList<String> WINDOW_SEATS_TOP = FXCollections.observableArrayList("Std - Change");
+    public static ObservableList<String> LANDSCAPING_CONCRETE_TO_POSTS = FXCollections.observableArrayList("17.5 Mpa");
+    public static ObservableList<String> LANDSCAPING_CONCRETE_BORES = FXCollections.observableArrayList("17.5 Mpa D12 Rod Change");
+
+    public static ObservableList<String> LANDSCAPING_WATER_PROOFING = FXCollections.observableArrayList("3 Coats Flintkote & 25 Poly",
+            "3 Coats Mulseal & 25 Poly", "Shelterbit Plain - Polystyrene - Bibim", "Shelterseal 3000 - Poly - Bidim");
+
+    public static ObservableList<String> LANDSCAPING_BLOCK_RETAINING_WALLS_FOOTINGS = FXCollections.observableArrayList("All Items 17.5 Mpa");
+    public static ObservableList<String> LANDSCAPING_RETAINING_WALL = FXCollections.observableArrayList("150x50 & Draincoil");
+    public static ObservableList<String> FENCING_FENCE_POST_FOOTINGS = FXCollections.observableArrayList("17.5 Mpa");
+    public static ObservableList<String> FENCING_FENCE_POSTS = FXCollections.observableArrayList("Fence Post 100x100mm", "Fence Posts 100x75mm");
+    public static ObservableList<String> FENCING_RAILS_PAILINGS = FXCollections.observableArrayList("Fencing");
+    public static ObservableList<String> FENCING_FENCE_FOOTING = FXCollections.observableArrayList("17.5 Mpa 2 D12 R6 Links");
+
+    public static ObservableList<String> FENCING_FENCE_BLOCK_WALLS = FXCollections.observableArrayList("200 - D12@400 Vert - 4 D16 Hor CHANGE",
+            "200 - D12@600 Vert - 4 D12 Hor CHANGE", "200 - D16@400 Vert - 4 D12 Hor CHANGE");
+
+    public static ObservableList<String> FENCING_BLOCK_CNRS_ENDS = FXCollections.observableArrayList("100 Series",
+            "150 Series", "200 Series", "250 Series", "Half High 150 Series", "Half High 200 Series", "Header Block", "StackBond 100",
+            "Stackbond 100 Honed", "Stackbond 150", "Stackbond 200");
+
+    public static ObservableList<String> FENCING_COLS_PIERS = FXCollections.observableArrayList("390x390 Blk Column 4D16 vert",
+            "Pier 2 D16 Vert", "Pier 2 D12 Vert", "Pilister 4D12 Vert", "Pilister 4D16 Vert");
+
+    public static ObservableList<String> FENCING_FENCE_CP_MEASURED_ITEMS = FXCollections.observableArrayList("Bowmac B79");
 }
