@@ -1932,64 +1932,94 @@ public class workspaceController implements Initializable {
             setsComboBox.setItems(TRUSSES_NAIL_PLATES);
         }
         //roof
-        else if (type.equals("Gables Above Brick") && trussesBox.isVisible()) {
+        else if (type.equals("Gables Above Brick") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_GABLES_ABOVE_BRICK);
-        } else if (type.equals("Steel Beams") && trussesBox.isVisible()) {
+        } else if (type.equals("Steel Beams") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_STEEL_BEAMS);
-        } else if (type.equals("Ceilings") && trussesBox.isVisible()) {
+        } else if (type.equals("Ceilings") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_CEILING_BEAMS);
-        } else if (type.equals("Hardware") && trussesBox.isVisible()) {
+        } else if (type.equals("Hardware") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_ROOF_BEAMS);
-        } else if (type.equals("Soffit Beams") && trussesBox.isVisible()) {
+        } else if (type.equals("Soffit Beams") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_SOFFIT_BEAMS);
-        } else if (type.equals("Fascia Beams") && trussesBox.isVisible()) {
+        } else if (type.equals("Fascia Beams") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_FASCIA_BEAMS);
-        } else if (type.equals("Hip Beams") && trussesBox.isVisible()) {
+        } else if (type.equals("Hip Beams") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_HIP_BEAMS);
-        } else if (type.equals("Ridge Beams") && trussesBox.isVisible()) {
+        } else if (type.equals("Ridge Beams") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_RIDGE_BEAMS);
-        } else if (type.equals("Valley Beams") && trussesBox.isVisible()) {
+        } else if (type.equals("Valley Beams") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_VALLEY_BEAMS);
-        } else if (type.equals("Nail Plates") && trussesBox.isVisible()) {
+        } else if (type.equals("Nail Plates") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_TRUSSED_ROOF_MEASURED);
-        } else if (type.equals("Skillion Measured") && trussesBox.isVisible()) {
+        } else if (type.equals("Skillion Measured") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_SKILLION_MEASURED);
-        } else if (type.equals("Exposed Truss Member") && trussesBox.isVisible()) {
+        } else if (type.equals("Exposed Truss Member") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_EXPOSED_TRUSS_MEMBER);
-        } else if (type.equals("Roof Ply/Substrate") && trussesBox.isVisible()) {
+        } else if (type.equals("Roof Ply/Substrate") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_PLY_SUBSTRATE);
-        } else if (type.equals("Substrate Measured") && trussesBox.isVisible()) {
+        } else if (type.equals("Substrate Measured") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_SUBSTRATE_MEASURED);
-        } else if (type.equals("Common Roof") && trussesBox.isVisible()) {
+        } else if (type.equals("Common Roof") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_COMMON_ROOF);
-        } else if (type.equals("Gutters") && trussesBox.isVisible()) {
+        } else if (type.equals("Gutters") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_GUTTERS);
-        } else if (type.equals("Hips") && trussesBox.isVisible()) {
+        } else if (type.equals("Hips") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_HIPS);
-        } else if (type.equals("Ridges") && trussesBox.isVisible()) {
+        } else if (type.equals("Ridges") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_RIDGES);
-        } else if (type.equals("Valleys") && trussesBox.isVisible()) {
+        } else if (type.equals("Valleys") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_VALLEYS);
-        } else if (type.equals("Verge") && trussesBox.isVisible()) {
+        } else if (type.equals("Verge") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_VERGE);
-        } else if (type.equals("Standard Soffit") && trussesBox.isVisible()) {
+        } else if (type.equals("Standard Soffit") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_STANDARD_SOFFIT);
-        } else if (type.equals("Difficult Soffits") && trussesBox.isVisible()) {
+        } else if (type.equals("Difficult Soffits") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_DIFFICULT_SOFFITS);
-        } else if (type.equals("Barge") && trussesBox.isVisible()) {
+        } else if (type.equals("Barge") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_BARGE);
-        } else if (type.equals("Fascia") && trussesBox.isVisible()) {
+        } else if (type.equals("Fascia") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_FASCIA);
-        } else if (type.equals("Spouting Measured") && trussesBox.isVisible()) {
+        } else if (type.equals("Spouting Measured") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_SPOUTING_MEASURED);
-        } else if (type.equals("Aprons") && trussesBox.isVisible()) {
+        } else if (type.equals("Aprons") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_APRONS);
-        } else if (type.equals("Change of Roof Pitch") && trussesBox.isVisible()) {
+        } else if (type.equals("Change of Roof Pitch") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_CHANGE_OF_ROOF_PITCH);
-        } else if (type.equals("Parapets") && trussesBox.isVisible()) {
+        } else if (type.equals("Parapets") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_PARAPETS);
-        } else if (type.equals("Skylight Walls") && trussesBox.isVisible()) {
+        } else if (type.equals("Skylight Walls") && roofBox.isVisible()) {
             setsComboBox.setItems(ROOF_SKYLIGHT_WALLS);
+        }
+        //ext lining
+        else if (type.equals("Gnd Level") && extLiningBox.isVisible()) {
+            setsComboBox.setItems(EXT_LINING_GND_LEVEL);
+        } else if (type.equals("Gnd Ext Corners") && extLiningBox.isVisible()) {
+            setsComboBox.setItems(EXT_LINING_EXT_CORNERS);
+        } else if (type.equals("Gnd Enclosed Beams") && extLiningBox.isVisible()) {
+            setsComboBox.setItems(EXT_ENCLOSED_BEAMS);
+        } else if (type.equals("Upper Level") && extLiningBox.isVisible()) {
+            setsComboBox.setItems(EXT_LINING_UPPER_LEVEL);
+        } else if (type.equals("Upper Ext Corners") && extLiningBox.isVisible()) {
+            setsComboBox.setItems(EXT_LINING_UPPER_EXT_CORNERS);
+        } else if (type.equals("Upper Int Corners") && extLiningBox.isVisible()) {
+            setsComboBox.setItems(EXT_LINING_UPPER_INT_CORNERS);
+        } else if (type.equals("Gnd Measured Items") && extLiningBox.isVisible()) {
+            setsComboBox.setItems(EXT_LINING_GND_MEASURED_ITEMS);
+        } else if (type.equals("Upper Measured Items") && extLiningBox.isVisible()) {
+            setsComboBox.setItems(EXT_LINING_UPPER_MEASURED_ITEMS);
+        }
+        //rain screen
+        else if (type.equals("Bottom Starter") && rainScreenBox.isVisible()) {
+            setsComboBox.setItems(RAIN_SCREEN_BOTTOM_STARTER);
+        } else if (type.equals("Cladding Area") && rainScreenBox.isVisible()) {
+            setsComboBox.setItems(RAIN_SCREEN_CLADDING_AREA);
+        } else if (type.equals("Vertical Joints") && rainScreenBox.isVisible()) {
+            setsComboBox.setItems(RAIN_SCREEN_VERTICAL_JOINTS);
+        } else if (type.equals("Horizontal Joints") && rainScreenBox.isVisible()) {
+            setsComboBox.setItems(RAIN_SCREEN_HORIZONTAL_JOINTS);
+        } else if (type.equals("Corners") && rainScreenBox.isVisible()) {
+            setsComboBox.setItems(RAIN_SCREEN_CORNERS);
         }
 
         else {
