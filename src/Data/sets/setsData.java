@@ -412,7 +412,7 @@ public class setsData {
     public static ObservableList<String> WET_LININGS_MEASURED_ITEMS = FXCollections.observableArrayList("Hardiglaze 2.4x1.2x4.5mm",
             "Premium Hardiglaze 2.4x1.2x6mm");
 
-    public static ObservableList<String> WET_STRAPPING_LININGS = FXCollections.observableArrayList("50x25 H1.2 & Gib 1S ADJUST",
+    public static ObservableList<String> WALL_STRAPPING_LININGS = FXCollections.observableArrayList("50x25 H1.2 & Gib 1S ADJUST",
             "50x25 H1.2 & Gib 2S ADJUST", "Gib Direct Fix 1 Side", "Gib Direct Fix 2 Sides", "50x25 Floor Step 300mm", "50x25 Floor Step 600mm",
             "50x25 Floor Step 900mm", "Formaliner Insulated Lining Board");
 

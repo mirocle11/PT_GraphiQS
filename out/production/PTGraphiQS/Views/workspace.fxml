@@ -1524,7 +1524,7 @@
                               <Font name="Segoe UI" size="15.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Doors EXp BF Panel" textFill="WHITE" textOverrun="CLIP">
+                        <JFXButton ellipsisString="" prefHeight="30.0" prefWidth="200.0" text="Doors Exp BF Panel" textFill="WHITE" textOverrun="CLIP">
                            <font>
                               <Font name="Segoe UI" size="15.0" />
                            </font>
