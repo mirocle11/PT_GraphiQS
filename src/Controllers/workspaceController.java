@@ -2025,6 +2025,126 @@ public class workspaceController implements Initializable {
         else if (type.equals("Ceiling") && wetCeilingsBox.isVisible()) {
             setsComboBox.setItems(WET_CEILINGS);
         }
+        //ceilings
+        else if (type.equals("Ceiling") && ceilingsBox.isVisible()) {
+            setsComboBox.setItems(CEILINGS_CEILING);
+        } else if (type.equals("Ceiling Joists") && ceilingsBox.isVisible()) {
+            setsComboBox.setItems(CEILINGS_CEILING_JOISTS);
+        } else if (type.equals("Int Enclosed Beams") && ceilingsBox.isVisible()) {
+            setsComboBox.setItems(CEILINGS_INT_ENCLOSED_BEAMS);
+        } else if (type.equals("Int Measured Sheets") && ceilingsBox.isVisible()) {
+            setsComboBox.setItems(CEILINGS_INT_MEASURED_SHEETS);
+        }
+        //cupboards
+        else if (type.equals("Shelving Measured") && cupboardsBox.isVisible()) {
+            setsComboBox.setItems(CUPBOARDS_SHELVING_MEASURED);
+        }
+        //showers
+        else if (type.equals("Showers & Bath Measured") && showersAndBathsBox.isVisible()) {
+            setsComboBox.setItems(SHOWERS_BATH_MEASURED);
+        }
+        //decks
+        else if (type.equals("Post Pile Footings") && decksBox.isVisible()) {
+            setsComboBox.setItems(DECKS_POST_PILE_FOOTINGS);
+        } else if (type.equals("Post Concrete Round") && decksBox.isVisible()) {
+            setsComboBox.setItems(DECKS_POST_PILE_CONCRETE_ROUND);
+        } else if (type.equals("Posts") && decksBox.isVisible()) {
+            setsComboBox.setItems(DECKS_POSTS);
+        } else if (type.equals("Post Hardware") && decksBox.isVisible()) {
+            setsComboBox.setItems(DECKS_POST_HARDWARE);
+        } else if (type.equals("Steel Beams") && decksBox.isVisible()) {
+            setsComboBox.setItems(DECKS_STEEL_BEAMS);
+        } else if (type.equals("Deck Beams") && decksBox.isVisible()) {
+            setsComboBox.setItems(DECKS_DECK_BEAMS);
+        } else if (type.equals("Subfloor Measured Items") && decksBox.isVisible()) {
+            setsComboBox.setItems(DECKS_SUBFLOOR_MEASURED_ITEMS);
+        } else if (type.equals("Bracings") && decksBox.isVisible()) {
+            setsComboBox.setItems(DECKS_BRACING);
+        } else if (type.equals("Framings Measured Items") && decksBox.isVisible()) {
+            setsComboBox.setItems(DECKS_FRAMING_MEASURED_ITEMS);
+        } else if (type.equals("Decking") && decksBox.isVisible()) {
+            setsComboBox.setItems(DECKS_DECKING);
+        } else if (type.equals("Layered Steps") && decksBox.isVisible()) {
+            setsComboBox.setItems(DECKS_LAYERED_STEPS);
+        } else if (type.equals("Deck Stairs & Gutter Frame") && decksBox.isVisible()) {
+            setsComboBox.setItems(DECKS_DECK_STAIRS_GUTTER_FRAME);
+        } else if (type.equals("Base") && decksBox.isVisible()) {
+            setsComboBox.setItems(DECKS_BASE);
+        } else if (type.equals("Base Measured Items") && decksBox.isVisible()) {
+            setsComboBox.setItems(DECKS_BASE_MEASURED_ITEMS);
+        } else if (type.equals("Handrail Measured Items") && decksBox.isVisible()) {
+            setsComboBox.setItems(DECKS_HANDRAIL_MEASURED_ITEMS);
+        } else if (type.equals("Handrails") && decksBox.isVisible()) {
+            setsComboBox.setItems(DECKS_HANDRAILS);
+        } else if (type.equals("Seat Measured Items") && decksBox.isVisible()) {
+            setsComboBox.setItems(DECKS_SEAT_MEASURED_ITEMS);
+        } else if (type.equals("Seats") && decksBox.isVisible()) {
+            setsComboBox.setItems(DECKS_SEATS);
+        }
+        //pergola
+        else if (type.equals("Post Pile Footings") && pergolaBox.isVisible()) {
+            setsComboBox.setItems(PERGOLA_POST_FOOTINGS);
+        } else if (type.equals("Post Concrete Round") && pergolaBox.isVisible()) {
+            setsComboBox.setItems(PERGOLA_POST);
+        } else if (type.equals("Posts") && pergolaBox.isVisible()) {
+            setsComboBox.setItems(PERGOLA_MEASURED_ITEMS);
+        }
+        //misc
+        else if (type.equals("Post Pile Footings") && miscellaniousBox.isVisible()) {
+            setsComboBox.setItems(MISC_SUNDRIES);
+        } else if (type.equals("Post Concrete Round") && miscellaniousBox.isVisible()) {
+            setsComboBox.setItems(MISC_ELECTRICAL_APPLIANCES);
+        } else if (type.equals("Posts") && miscellaniousBox.isVisible()) {
+            setsComboBox.setItems(MISC_GARAGE_DOOR);
+        } else if (type.equals("Posts") && miscellaniousBox.isVisible()) {
+            setsComboBox.setItems(MISC_ENTRY_DOOR);
+        }
+        //plumbing
+        else if (type.equals("Plumbingware") && plumbingBox.isVisible()) {
+            setsComboBox.setItems(PLUMBING_PLUMBINGWARE);
+        }
+        //bulk heads
+        else if (type.equals("Sides") && bulkHeadsBox.isVisible()) {
+            setsComboBox.setItems(BULK_HEADS_SIDES);
+        } else if (type.equals("Bottom") && bulkHeadsBox.isVisible()) {
+            setsComboBox.setItems(BULK_BOTTOM);
+        }
+        //window seats
+        else if (type.equals("Side") && windowSeatsBox.isVisible()) {
+            setsComboBox.setItems(WINDOW_SEATS_SIDE);
+        } else if (type.equals("Top") && windowSeatsBox.isVisible()) {
+            setsComboBox.setItems(WINDOW_SEATS_TOP);
+        }
+        //landscaping
+        else if (type.equals("Concrete to Posts") && landscapingBox.isVisible()) {
+            setsComboBox.setItems(LANDSCAPING_CONCRETE_TO_POSTS);
+        } else if (type.equals("Concrete Bores") && landscapingBox.isVisible()) {
+            setsComboBox.setItems(LANDSCAPING_CONCRETE_BORES);
+        } else if (type.equals("Water Proofing") && landscapingBox.isVisible()) {
+            setsComboBox.setItems(LANDSCAPING_WATER_PROOFING);
+        } else if (type.equals("Block walls/Footings") && landscapingBox.isVisible()) {
+            setsComboBox.setItems(LANDSCAPING_BLOCK_RETAINING_WALLS_FOOTINGS);
+        } else if (type.equals("Timber Retaining Wall") && landscapingBox.isVisible()) {
+            setsComboBox.setItems(LANDSCAPING_RETAINING_WALL);
+        }
+        //fencing
+        else if (type.equals("Fence Post Footings") && fencingBox.isVisible()) {
+            setsComboBox.setItems(FENCING_FENCE_POST_FOOTINGS);
+        } else if (type.equals("Fence Posts") && fencingBox.isVisible()) {
+            setsComboBox.setItems(FENCING_FENCE_POSTS);
+        } else if (type.equals("Fence Rails Pailings") && fencingBox.isVisible()) {
+            setsComboBox.setItems(FENCING_RAILS_PAILINGS);
+        } else if (type.equals("Fence Footing") && fencingBox.isVisible()) {
+            setsComboBox.setItems(FENCING_FENCE_FOOTING);
+        } else if (type.equals("Fence Block Walls") && fencingBox.isVisible()) {
+            setsComboBox.setItems(FENCING_FENCE_BLOCK_WALLS);
+        } else if (type.equals("Fence Block Cnrs & Ends") && fencingBox.isVisible()) {
+            setsComboBox.setItems(FENCING_BLOCK_CNRS_ENDS);
+        } else if (type.equals("Fence Cols & Piers") && fencingBox.isVisible()) {
+            setsComboBox.setItems(FENCING_COLS_PIERS);
+        } else if (type.equals("Fence C&P Measured Items") && fencingBox.isVisible()) {
+            setsComboBox.setItems(FENCING_FENCE_CP_MEASURED_ITEMS);
+        }
 
         else {
             setsComboBox.setItems(null);
