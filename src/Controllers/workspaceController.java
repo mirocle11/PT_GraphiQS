@@ -2021,6 +2021,10 @@ public class workspaceController implements Initializable {
         } else if (type.equals("Corners") && rainScreenBox.isVisible()) {
             setsComboBox.setItems(RAIN_SCREEN_CORNERS);
         }
+        //wet ceilings
+        else if (type.equals("Ceiling") && wetCeilingsBox.isVisible()) {
+            setsComboBox.setItems(WET_CEILINGS);
+        }
 
         else {
             setsComboBox.setItems(null);
