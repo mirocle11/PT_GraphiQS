@@ -655,9 +655,9 @@ public class workspaceController implements Initializable {
                 lbl.setLayoutY(layY);
                 lbl.setOpacity(.5);
                 pane.getChildren().add(lbl);
-
             }
         }
+
         for (ShapeObject sp1 : shapeObjList) {
             if (sp1.getType() == "LENGTH") {
                 for (Line l : sp1.getLineList()) {
@@ -688,7 +688,6 @@ public class workspaceController implements Initializable {
             }
             pane.getChildren().addAll(sp1.getLineList());
             pane.getChildren().addAll(sp1.getBoxList());
-
         }
         pane.getChildren().addAll(stampList);
         pane.getChildren().add(line);
@@ -715,7 +714,6 @@ public class workspaceController implements Initializable {
             }
         });
     }
-
 
     //==PAGE FUNCTIONS
     public void zoom(ScrollEvent event) {
@@ -810,7 +808,6 @@ public class workspaceController implements Initializable {
             scroller.setPannable(true);
         }
     }
-
 
     //==PAGE SETUPS
     public void setupCanvas() {
@@ -1664,6 +1661,8 @@ public class workspaceController implements Initializable {
             setsComboBox.setItems(INT_OPENINGS_WINDOWS);
         } else if (type.equals("Doors Units") && intOpeningsBox.isVisible()) {
             setsComboBox.setItems(INT_OPENINGS_DOOR_UNITS);
+        } else if (type.equals("Door Unit-SI-Bf") && intOpeningsBox.isVisible()) {
+            setsComboBox.setItems(INT_OPENINGS_DOOR_UNIT_SL_BF);
         } else if (type.equals("Doors Unit Cav") && intOpeningsBox.isVisible()) {
             setsComboBox.setItems(INT_OPENINGS_DOORS_UNIT_CAV);
         } else if (type.equals("Doors Unit Gib") && intOpeningsBox.isVisible()) {

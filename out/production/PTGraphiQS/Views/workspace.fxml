@@ -60,7 +60,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton ellipsisString="" layoutX="95.0" layoutY="87.0" prefHeight="41.0" prefWidth="225.0" text=" Import PDF" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="87.0">
+            <JFXButton ellipsisString="" layoutX="95.0" layoutY="87.0" onAction="#openFile" prefHeight="41.0" prefWidth="225.0" text=" Import PDF" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="87.0">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
