@@ -1473,8 +1473,103 @@ public class workspaceController implements Initializable {
         intOpeningsBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
             showSets(((JFXButton) node).getText());
         }));
-//        skip to ext walls
+        braceHardwareBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        braceSglLevBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        interTenancySectionBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        wetLiningsBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        wallStrappingBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        miscManufBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        postAndBeamHardwareBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        wallsSglLevBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        wallsBasementBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
         wallsLev1Box.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        wallsLev2Box.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        wallsLev3Box.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        wallsLev4Box.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        bp_packersBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        wallHardwareBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        boltsManualBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        chimneyBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        trussesBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        roofBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        extLiningBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        rainScreenBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        wetCeilingsBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        ceilingsBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        cupboardsBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        showersAndBathsBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        decksBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        pergolaBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        miscellaniousBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        plumbingBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        bulkHeadsBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        windowSeatsBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        landscapingBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
+            showSets(((JFXButton) node).getText());
+        }));
+        fencingBox.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
             showSets(((JFXButton) node).getText());
         }));
     }
