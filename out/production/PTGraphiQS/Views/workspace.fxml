@@ -76,7 +76,7 @@
    </AnchorPane>
       <VBox fx:id="toolsMenu" layoutY="205.0" style="-fx-background-color: #263238; -fx-background-radius: 10px;" AnchorPane.leftAnchor="5.0">
          <children>
-            <JFXButton fx:id="IMPORT" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" onAction="#openFile" prefHeight="50.0" prefWidth="50.0" text="Button">
+            <JFXButton fx:id="IMPORT" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" onAction="#openFile" prefHeight="50.0" prefWidth="62.0" text="Button">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -92,7 +92,7 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
-            <JFXButton fx:id="SAVE" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#saveFile" prefHeight="50.0" prefWidth="50.0">
+            <JFXButton fx:id="SAVE" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#saveFile" prefHeight="50.0" prefWidth="62.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -108,7 +108,7 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
-            <JFXButton fx:id="SCALE" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#scaleAction" prefHeight="50.0" prefWidth="50.0">
+            <JFXButton fx:id="SCALE" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#scaleAction" prefHeight="50.0" prefWidth="62.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -124,7 +124,7 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
-            <JFXButton fx:id="LENGTH" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#lengthAction" prefHeight="50.0" prefWidth="50.0">
+            <JFXButton fx:id="LENGTH" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#lengthAction" prefHeight="50.0" prefWidth="62.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -140,7 +140,7 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
-            <JFXButton fx:id="AREA" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#areaAction" prefHeight="50.0" prefWidth="50.0">
+            <JFXButton fx:id="AREA" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#areaAction" prefHeight="50.0" prefWidth="62.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -156,7 +156,7 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
-            <JFXButton fx:id="STAMP" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#stampAction" prefHeight="50.0" prefWidth="50.0">
+            <JFXButton fx:id="STAMP" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#stampAction" prefHeight="50.0" prefWidth="62.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -172,7 +172,7 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
-            <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#drawRectAction" prefHeight="50.0" prefWidth="50.0">
+            <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#drawRectAction" prefHeight="50.0" prefWidth="62.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -194,7 +194,7 @@
                </VBox.margin>
             </Button>
             <Button fx:id="previousPage" mnemonicParsing="false" onAction="#previousPageAction" text="Previous" />
-            <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#rotateAction" prefHeight="50.0" prefWidth="50.0">
+            <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#rotateAction" prefHeight="50.0" prefWidth="62.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>

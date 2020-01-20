@@ -9,7 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
+//I commented this for   pushing
 public class Main extends Application {
 
     public static Stage stage, dashboard_stage;
