@@ -6,7 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="test">
+    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
@@ -817,14 +817,7 @@
       <workItem from="1576629194073" duration="13195000" />
       <workItem from="1576714640365" duration="17788000" />
       <workItem from="1578265894075" duration="9660000" />
-      <workItem from="1579497277610" duration="431000" />
-    </task>
-    <task id="LOCAL-00046" summary="#41 commit">
-      <created>1571302219538</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1571302219538</updated>
+      <workItem from="1579497277610" duration="441000" />
     </task>
     <task id="LOCAL-00047" summary="#41 commit">
       <created>1571630379222</created>
@@ -1162,15 +1155,21 @@
       <option name="project" value="LOCAL" />
       <updated>1579497550911</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="test">
+      <created>1579497712504</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1579497712504</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="459000" />
+    <option name="totallyTimeSpent" value="469000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
