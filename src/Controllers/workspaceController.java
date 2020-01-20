@@ -6,9 +6,12 @@ import Model.PageObject;
 import Model.ShapeObject;
 import com.jfoenix.controls.*;
 import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
+import com.spire.pdf.FileFormat;
 import com.spire.pdf.PdfDocument;
 import com.spire.pdf.PdfPageBase;
 import com.spire.pdf.graphics.*;
+import com.sun.javafx.tk.FontLoader;
+import com.sun.javafx.tk.Toolkit;
 import javafx.animation.TranslateTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -22,10 +25,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -35,17 +35,17 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
-import javafx.scene.shape.StrokeLineCap;
+import javafx.scene.shape.*;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.xml.stream.XMLStreamException;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -60,7 +60,9 @@ public class workspaceController implements Initializable {
 
     public static AnchorPane mainPane;
     //buttons
-    public JFXButton IMPORT, SAVE, SCALE, LENGTH, AREA, STAMP, structureToggle;
+    public JFXButton IMPORT, SAVE, SCALE, LENGTH, AREA, STAMP, RECTANGLE, ROTATE, structureToggle;
+    public Button NEXT_PAGE, PREVIOUS_PAGE;
+
     public JFXHamburger hamburger;
     //checkbox
     public JFXCheckBox selectAllBox;
@@ -74,7 +76,7 @@ public class workspaceController implements Initializable {
             roofPane, extLiningPane, rainScreenPane, wetCeilingsPane, ceilingsPane, cupboardsPane, showersAndBathsPane,
             decksPane, pergolaPane, miscellaniousPane, plumbingPane, bulkHeadsPane, windowSeatsPane, landscapingPane, fencingPane;
 
-    public VBox preliminaryAndGeneralBox, foundationsBox, prestressedFloorsBox, blockOpeningsBox, blockWallsBox,
+    public VBox foundationsBox, prestressedFloorsBox, blockOpeningsBox, blockWallsBox,
             floorPackingBox, subfloorBox, intFloorLev1Box, intFloorLev2Box, extOpeningsBox, intOpeningsBox,
             braceHardwareBox, braceSglLevBox, interTenancySectionBox, wetLiningsBox, wallStrappingBox, miscManufBox,
             postAndBeamHardwareBox, wallsSglLevBox, wallsBasementBox, wallsGndLevBox, wallsLev1Box, wallsLev2Box,
@@ -95,65 +97,86 @@ public class workspaceController implements Initializable {
     public JFXColorPicker colorPicker;
     public JFXComboBox<String> setsComboBox;
 
-    public Image image;
+
+    //collections
+    List<Shape> shapeList = new ArrayList<>();
+    ArrayList<Point2D> pointList = new ArrayList<>();
+    ArrayList<Shape> stampList = new ArrayList<>();
+    ArrayList<PageObject> pageObjects = new ArrayList<>();
+    ArrayList<double[][]> snapList = new ArrayList<>();
     public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
 
-    //temp shapes
+    //Files
+    File tempDirectory, imgDir, svgDir, pdfDir, file, pdfFile;
+    ;
+    File[] pdfArr, imgArr, svgArr;
+
+    //scale
+    double SCALE_DELTA = 1.1;
+    double m_Scale = 0;
+    double origScaleX;
+    double origScaleY;
+
+    //Snap Function 
+    Loader load;
+    BufferedImage bufferedImage;
+    double paneHegiht = 0;
+    public Image fxImage;
+    Color color;
+
+
+    //others 
+    String mode;
+    ContextMenu contextMenu = new ContextMenu();
+    int pageNumber = 0;
+    PdfDocument document;
+
+    //shapes
     Line line = new Line();
     Rectangle rect = new Rectangle();
+    Circle circle = new Circle();
+    Label noScaleLabel = new Label();
 
     //booleans
     private boolean isNew = true;
     private boolean canDraw = true;
 
-    //collections
-    Stack<Shape> undoHistory = new Stack<>();
-    Stack<Shape> redoHistory = new Stack<>();
-    List<Shape> shapeList = new ArrayList<>();
-    ArrayList<Point2D> pointList = new ArrayList<>();
-    ArrayList<Shape> stampList = new ArrayList<>();
-    ArrayList<String> shortList = new ArrayList<>();
-    ArrayList<PageObject> pageList = new ArrayList<>();
-
-    int pageNumber = 0;
-    int numberOfPages = 0;
-    File pdfFile;
-    PdfDocument doc;
-
-    //others
-    double SCALE_DELTA = 1.1;
-    double m_Scale = 0;
-    double origScaleX;
-    double origScaleY;
-    String mode;
-    ContextMenu contextMenu = new ContextMenu();
-    Color color;
-
     //indicator
-    private int i = 0;
+    private int bool = 0;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        SAVE.setDisable(true);
+        SCALE.setDisable(true);
+        LENGTH.setDisable(true);
+        AREA.setDisable(true);
+        STAMP.setDisable(true);
+        RECTANGLE.setDisable(true);
+        ROTATE.setDisable(true);
+        NEXT_PAGE.setDisable(true);
+        PREVIOUS_PAGE.setDisable(true);
+
         origScaleX = group.getScaleX();
         origScaleY = group.getScaleY();
 
         line.setVisible(false);
         line.setOpacity(.5);
         line.setStrokeLineCap(StrokeLineCap.BUTT);
-
+        pane.getChildren().add(circle);
+        circle.setFill(Color.RED);
+        circle.setRadius(5);
         pane.getChildren().add(line);
-        foundationsBox.getChildren().forEach(nodes -> {
-            nodes.setOnMouseReleased(event -> {
-                sectionPane.setVisible(true);
-            });
-        });
-        scroller.viewportBoundsProperty().addListener(new ChangeListener<Bounds>() {
-            @Override
-            public void changed(ObservableValue<? extends Bounds> observable,
-                                Bounds oldValue, Bounds newValue) {
-                zoomPane.setMinSize(newValue.getWidth(), newValue.getHeight());
-            }
-        });
+
+        noScaleLabel.setText("The page is not scaled. No measurements can be taken.");
+        noScaleLabel.setTextFill(Color.RED);
+
+
+        foundationsBox.getChildren().forEach(nodes -> nodes.setOnMouseReleased(event -> {
+            sectionPane.setVisible(true);
+        }));
+        scroller.viewportBoundsProperty().addListener((observable, oldValue, newValue) -> zoomPane.setMinSize(newValue.getWidth(), newValue.getHeight()));
 
         try {
             VBox box = FXMLLoader.load(getClass().getResource("/Views/workspaceSideNavigation.fxml"));
@@ -174,10 +197,51 @@ public class workspaceController implements Initializable {
         } catch (Exception e) {
             Logger.getLogger(workspaceController.class.getName()).log(Level.SEVERE, null, e);
         }
-    }
 
+        //initializing temp directories
+        tempDirectory = new File("temp/"); //temp directory address
+        if (!tempDirectory.exists()) {
+            try {
+                tempDirectory.mkdir();
+            } catch (SecurityException se) {
+//                System.out.println("Unable to create temp directory.");
+            }
+
+        }
+
+        imgDir = new File(tempDirectory, "images");
+        if (!imgDir.exists()) {
+            try {
+                imgDir.mkdir();
+            } catch (SecurityException se) {
+//                System.out.println("Unable to create temp/image directory.");
+            }
+        }
+
+        svgDir = new File(tempDirectory, "svg");
+        if (!svgDir.exists()) {
+            try {
+                svgDir.mkdir();
+            } catch (SecurityException se) {
+//                System.out.println("Unable to create temp/svg directory.");
+            }
+        }
+        pdfDir = new File(tempDirectory, "pdf");
+        if (!pdfDir.exists()) {
+            try {
+                pdfDir.mkdir();
+            } catch (SecurityException se) {
+//                System.out.println("Unable to create temp/svg directory.");
+            }
+        }
+        for (File file1 : pdfDir.listFiles()) file1.delete();
+        for (File file1 : imgDir.listFiles()) file1.delete();
+        for (File file1 : svgDir.listFiles()) file1.delete();
+    }
     //==FILE FUNCTIONS
+
     public void openFile(ActionEvent actionEvent) {
+
         FileChooser openFile = new FileChooser();
         openFile.setTitle("Open PDF");
 
@@ -185,67 +249,177 @@ public class workspaceController implements Initializable {
         if (pdfFile != null) {
             temp = pdfFile;
         }
+
         pdfFile = openFile.showOpenDialog(Main.dashboard_stage);
+
         if (pdfFile == null) {
             pdfFile = temp;
-            JOptionPane.showMessageDialog(null, "No File selected");
         } else {
-            if (doc != null) {
-                doc.close();
+
+            if (document != null) {
+                document.close();
             }
-            shapeObjList.clear();
-            pageList.clear();
-            stampList.clear();
-            shapeList.clear();
-            m_Scale = 0;
 
-            String inputFile = pdfFile.getAbsolutePath();
-            doc = new PdfDocument();
-            doc.loadFromFile(inputFile);
 
-            BufferedImage bImage = doc.saveAsImage(0, PdfImageType.Bitmap, 300, 300);
+            document = new PdfDocument();
+            document.loadFromFile(pdfFile.getAbsolutePath());//load from selectedPdf
+            document.split(pdfDir.getAbsolutePath() + "/pdf_.pdf");
+            document.close();
+            pdfArr = pdfDir.listFiles();
+
+            try {
+
+                document = new PdfDocument();
+                document.loadFromFile(pdfArr[0].getAbsolutePath());
+                bufferedImage = document.saveAsImage(0, PdfImageType.Bitmap, 300, 300);
+                file = new File(imgDir.getAbsolutePath() + "/img_0.png");
+                ImageIO.write(bufferedImage, "PNG", file);
+                document.saveToFile(svgDir.getAbsolutePath() + "/svg_0.svg", FileFormat.SVG);
+                document.close();
+            } catch (IOException ex) {
+//                System.out.println(ex.getMessage());
+            }
+
+            svgArr = svgDir.listFiles();
+            imgArr = imgDir.listFiles();
+            try {
+                load = new Loader(svgArr[0].getAbsolutePath());
+                load.getPaths();
+                String[] pntsA;
+                double[][] arr;
+                snapList = new ArrayList<>();
+                for (int i = 0; i < load.points.size(); i++) {
+                    try {
+                        if (!load.points.get(i).equals("") && !load.points.get(i).equals(null)) {
+                            pntsA = load.points.get(i).split(" ");
+
+                            double a = Double.parseDouble(pntsA[0]);
+                            double b = Double.parseDouble(pntsA[1]);
+                            arr = new double[1][2];
+                            arr[0][0] = (a / .23999);
+
+                            paneHegiht = pane.getHeight();
+                            arr[0][1] = 223 + (pane.getHeight() * 5) - (b / .23999) - 7.7;
+                            snapList.add(arr);
+                        }
+                    } catch (Exception e) {
+//                    System.out.println(e.getMessage());
+                    }
+                }
+
+                pageObjects.add(new PageObject(0));
+                PageObject pageObject = pageObjects.get(0);
+                pageObject.setSnapList(snapList);
+                pageObject.setShapeObjList(shapeObjList);
+                pageObject.setStampList(stampList);
+
+                snapList.clear();
+                snapList.clear();
+                stampList.clear();
+
+            } catch (XMLStreamException e) {
+//                System.out.println(e.getMessage());
+            }
+
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    BufferedImage imgs;
-                    for (int x = 1; x < doc.getPages().getCount(); x++) {
-                        imgs = doc.saveAsImage(x, PdfImageType.Bitmap, 300, 300);
-                        Image img = SwingFXUtils.toFXImage(imgs, null);
-                        pageList.add(new PageObject(x, img));
+//                    System.out.println("STARTING THREAD ");
+                    for (int i = 1; i < pdfArr.length; i++) {
+                        try {
+                            document = new PdfDocument();
+                            document.loadFromFile(pdfArr[i].getAbsolutePath());
+                            bufferedImage = document.saveAsImage(0, PdfImageType.Bitmap, 300, 300);
+                            file = new File(imgDir.getAbsolutePath() + "/img_" + i + ".png");
+                            ImageIO.write(bufferedImage, "PNG", file);
+                            document.saveToFile(svgDir.getAbsolutePath() + "/svg_" + i + ".svg", FileFormat.SVG);
+                            document.close();
+                        } catch (IOException e) {
+//                            System.out.println(e.getMessage());
+                        }
+                    }
+                    imgArr = imgDir.listFiles();
+                    svgArr = svgDir.listFiles();
+                    for (int j = 1; j < svgArr.length; j++) {
+                        try {
+                            load = new Loader(svgArr[j].getAbsolutePath());
+//                            System.out.println(svgArr[j].getAbsoluteFile() + " path " + j);
+                            load.getPaths();
+
+                            String[] pntsA;
+                            double[][] arr;
+                            snapList = new ArrayList<>();
+                            for (int k = 0; k < load.points.size(); k++) {
+                                try {
+                                    if (!load.points.get(k).equals("") && !load.points.get(k).equals(null)) {
+                                        pntsA = load.points.get(k).split(" ");
+
+                                        double a = Double.parseDouble(pntsA[0]);
+                                        double b = Double.parseDouble(pntsA[1]);
+                                        arr = new double[1][2];
+                                        arr[0][0] = (a / .23999);
+                                        arr[0][1] = 223 + (paneHegiht * 5) - (b / .23999) - 7.7;
+                                        snapList.add(arr);
+                                    }
+                                } catch (Exception e) {
+
+                                }
+                            }
+
+                            pageObjects.add(new PageObject(j));
+                            PageObject pageObject = pageObjects.get(j);
+                            pageObject.setSnapList(snapList);
+                            pageObject.setShapeObjList(shapeObjList);
+                            pageObject.setStampList(stampList);
+
+                        } catch (XMLStreamException e) {
+//                            System.out.println(e.getMessage());
+                        }
                     }
                 }
             }).start();
-            image = SwingFXUtils.toFXImage(bImage, null);
-            pageList.add(new PageObject(0, image));
-            pageList.get(0).setShapeObjList(shapeObjList);
-            pageList.get(0).setStampList(stampList);
-            numberOfPages = doc.getPages().getCount();
-            setupCanvas();
+
+            SCALE.setDisable(false);
+            NEXT_PAGE.setDisable(false);
+            PREVIOUS_PAGE.setDisable(false);
+            SAVE.setDisable(false);
+            ROTATE.setDisable(false);
+
+
+            setupPageElements();
             scroller.setOpacity(1.0);
             frontPane.setVisible(false);
         }
     }
 
     public void saveFile(ActionEvent actionEvent) {
-        pageList.get(pageNumber).setShapeObjList(shapeObjList);
-        group.setScaleX(1);
-        group.setScaleY(1);
+        pageObjects.get(pageNumber).setShapeObjList(shapeObjList);
 
         FileChooser savefile = new FileChooser();
         savefile.setTitle("Save PDF");
-        String pdfName = pdfFile.getName().replaceAll(".pdf", "");
+        document = new PdfDocument();
+        document.loadFromFile(pdfFile.getAbsolutePath());
+//        System.out.println("SAVING " + pdfFile.getAbsolutePath());
+
         File file = savefile.showSaveDialog(Main.stage);
         if (file != null) {
-            for (int ctr = 0; ctr < doc.getPages().getCount(); ctr++) {
-                PdfPageBase page = doc.getPages().get(ctr);
+            for (int ctr = 0; ctr < document.getPages().getCount(); ctr++) {
+//                System.out.println(ctr + " Count");
+                PdfPageBase page = document.getPages().get(ctr);
                 page.getCanvas().setTransparency(0.5f, 0.5f, PdfBlendMode.Normal);
                 PdfGraphicsState state = page.getCanvas().save();
                 page.getCanvas().translateTransform(0, 0);
 
-                double subX = pageList.get(ctr).getImage().getWidth() / page.getSize().getWidth();
-                double subY = pageList.get(ctr).getImage().getHeight() / page.getSize().getHeight();
+                try {
+                    bufferedImage = ImageIO.read(imgArr[ctr].getAbsoluteFile());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
-                shapeObjList = pageList.get(ctr).getShapeList();
+                double subX = bufferedImage.getWidth() / page.getSize().getWidth();
+                double subY = bufferedImage.getHeight() / page.getSize().getHeight();
+
+                shapeObjList = pageObjects.get(ctr).getShapeList();
                 shapeObjList.forEach(shapeObject -> {
                     PdfRGBColor pdfRGBColor = new PdfRGBColor(new java.awt.Color((float) shapeObject.getColor().getRed(), (float) shapeObject.getColor().getGreen(), (float) shapeObject.getColor().getBlue()));
                     PdfFont font = new PdfFont(PdfFontFamily.Helvetica, 8);
@@ -255,7 +429,7 @@ public class workspaceController implements Initializable {
                         PdfBrush brush = new PdfSolidBrush(new PdfRGBColor(pdfRGBColor));
                         java.awt.geom.Point2D[] points = new java.awt.geom.Point2D[shapeObject.getPointList().size()];
                         for (Point2D p2d : shapeObject.getPointList()) {
-                            System.out.println(p2d);
+//                            System.out.println(p2d);
                             points[ndx] = new java.awt.geom.Point2D.Double(p2d.getX() / subX, (p2d.getY() / subY) - 1.8);
                             ndx++;
                         }
@@ -280,20 +454,18 @@ public class workspaceController implements Initializable {
                         PdfPen pen = new PdfPen(pdfRGBColor, 2);
                         page.getCanvas().drawLine(pen, line1.getStartX() / subX, (line1.getStartY() / subY) - 1.8, line1.getEndX() / subX, (line1.getEndY() / subY) - 1.8);
                     });
-                    shapeObject.getPointList().forEach(point2D -> {
-                        PdfPen pen = new PdfPen(PdfPens.getLightGreen().getColor(), 2);
-                        page.getCanvas().drawRectangle(pen, (point2D.getX() / subX) - 5, (point2D.getY() / subY) - 6.8, 10, 10);
-                    });
+
                 });
+                if (!file.getName().contains(".")) {
+                    file = new File(file.getAbsolutePath() + ".pdf");
+                    document.saveToFile(file.getAbsolutePath());
+                }
                 page.getCanvas().restore(state);
-            }
-            if (!file.getName().contains(".")) {
-                file = new File(file.getAbsolutePath() + ".pdf");
-                doc.saveToFile(file.getAbsolutePath());
             }
         } else {
             JOptionPane.showMessageDialog(null, "No File selected");
         }
+
     }
 
     //==SIDE BUTTON ACTIONS
@@ -318,17 +490,19 @@ public class workspaceController implements Initializable {
     }
 
     public void nextPageAction(ActionEvent actionEvent) {
-        pageList.get(pageNumber).setShapeObjList(shapeObjList);
-        pageList.get(pageNumber).setStampList(stampList);
-        if (pageNumber < numberOfPages - 1) {
+        pageObjects.get(pageNumber).setShapeObjList(shapeObjList);
+        pageObjects.get(pageNumber).setStampList(stampList);
+        pageObjects.get(pageNumber).setScale(m_Scale);
+        if (pageNumber < pageObjects.size() - 1) {
             pageNumber++;
             setupPageElements();
         }
+
     }
 
     public void previousPageAction(ActionEvent actionEvent) {
-        pageList.get(pageNumber).setShapeObjList(shapeObjList);
-        pageList.get(pageNumber).setStampList(stampList);
+        pageObjects.get(pageNumber).setShapeObjList(shapeObjList);
+        pageObjects.get(pageNumber).setStampList(stampList);
         if (pageNumber > 0) {
             pageNumber--;
             setupPageElements();
@@ -406,6 +580,7 @@ public class workspaceController implements Initializable {
                 Point2D end = new Point2D(line.getEndX(), line.getEndY());
                 pointList.add(end);
 
+
                 ShapeObject shapeObj = new ShapeObject();
                 shapeObj.setPane(pane);
                 shapeObj.setColor(color);
@@ -421,7 +596,7 @@ public class workspaceController implements Initializable {
                 redrawShapes();
 
                 //==TODO add in History
-                //workspaceSideNavigatorController.historyList.addAll(new historyData(mode, lbl.getText()));
+                workspaceSideNavigatorController.historyList.addAll(new historyData(color.toString(), mode, "test"));
             }
         } else if (mode == "AREA") {
             if (isNew) {
@@ -466,6 +641,32 @@ public class workspaceController implements Initializable {
     }
 
     public void updateLine(MouseEvent event) {
+
+        try {
+
+            for (double[][] arr : snapList) {
+
+                int a = (int) arr[0][0] - (int) event.getX();
+                int b = (int) arr[0][1] - (int) event.getY();
+
+                if ((a >= -3 && a <= 3) && (b >= -3 && b <= 3)) {
+                    circle.setCenterX(arr[0][0]);
+                    circle.setCenterY(arr[0][1]);
+                    circle.setVisible(true);
+                    circle.setOnMouseExited(event1 -> {
+                        circle.setVisible(false);
+                    });
+                    pane.getChildren().add(circle);
+                    break;
+                } else {
+                    circle.setVisible(false);
+                }
+            }
+        } catch (Exception ex) {
+//            System.out.println("exception " + ex.getMessage());
+        }
+
+
         Point2D cP = clamp(event.getX(), event.getY());
         if (!isNew) {
             if (event.isShiftDown()) {
@@ -594,7 +795,8 @@ public class workspaceController implements Initializable {
             area = area / 1000;
 
             Label lbl = new Label(Math.round(area * 100.0) / 100.0 + " m²");
-            workspaceSideNavigatorController.historyList.addAll(new historyData(mode, lbl.getText()));
+
+            workspaceSideNavigatorController.historyList.addAll(new historyData(color.toString(),mode, lbl.getText()));
             redrawShapes();
             pointList.clear();
             LENGTH.setDisable(false);
@@ -624,7 +826,35 @@ public class workspaceController implements Initializable {
     }
 
     public void redrawShapes() {
+
+
         pane.getChildren().clear();
+        pane.getChildren().add(circle);
+        circle.setVisible(false);
+
+        if (m_Scale == 0) {
+            if (!pane.getChildren().contains(noScaleLabel)) {
+                FontLoader fontLoader = Toolkit.getToolkit().getFontLoader();
+
+                noScaleLabel.setLayoutX(15);
+                noScaleLabel.setLayoutY(15);
+                pane.getChildren().add(noScaleLabel);
+
+                LENGTH.setDisable(true);
+                AREA.setDisable(true);
+                STAMP.setDisable(true);
+
+            }
+        } else {
+            pane.getChildren().remove(noScaleLabel);
+            LENGTH.setDisable(false);
+            AREA.setDisable(false);
+            STAMP.setDisable(false);
+            RECTANGLE.setDisable(false);
+
+        }
+
+
         for (ShapeObject sp0 : shapeObjList) {
             if (sp0.getType() == "AREA") {
                 pane.getChildren().add(sp0.getPolygon());
@@ -655,6 +885,7 @@ public class workspaceController implements Initializable {
                 lbl.setLayoutY(layY);
                 lbl.setOpacity(.5);
                 pane.getChildren().add(lbl);
+
             }
         }
 
@@ -715,6 +946,7 @@ public class workspaceController implements Initializable {
         });
     }
 
+
     //==PAGE FUNCTIONS
     public void zoom(ScrollEvent event) {
         if (event.getDeltaY() == 0) {
@@ -754,7 +986,6 @@ public class workspaceController implements Initializable {
                     }
                 });
             }
-            System.out.println("Zoom " + group.getScaleY());
         }
     }
 
@@ -809,16 +1040,22 @@ public class workspaceController implements Initializable {
         }
     }
 
+
     //==PAGE SETUPS
     public void setupCanvas() {
         group.setScaleY(1);
         group.setScaleX(1);
-        canvas.setWidth(image.getWidth());
-        canvas.setHeight(image.getHeight());
+        try {
+            fxImage = SwingFXUtils.toFXImage(ImageIO.read(imgArr[pageNumber]), null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        canvas.setWidth(fxImage.getWidth());
+        canvas.setHeight(fxImage.getHeight());
         pane.setPrefSize(canvas.getWidth(), canvas.getHeight());
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-        gc.drawImage(image, 0, 0);
+        gc.drawImage(fxImage, 0, 0);
         origScaleX = group.getScaleX();
         origScaleY = group.getScaleY();
         double newScale = group.getScaleX();
@@ -833,17 +1070,12 @@ public class workspaceController implements Initializable {
     public void setupPageElements() {
         shapeObjList = new ArrayList<>();
         stampList = new ArrayList<>();
-        try {
-            shapeObjList.addAll(pageList.get(pageNumber).getShapeList());
-            stampList.addAll(pageList.get(pageNumber).getStampList());
-            image = pageList.get(pageNumber).getImage();
-        } catch (Exception e) {
-            BufferedImage bImage = doc.saveAsImage(pageNumber, PdfImageType.Bitmap, 300, 300);
-            image = SwingFXUtils.toFXImage(bImage, null);
-            pageList.add(new PageObject(pageNumber, image));
-        }
+        snapList = new ArrayList<>();
+        m_Scale = pageObjects.get(pageNumber).getScale();
+        shapeObjList.addAll(pageObjects.get(pageNumber).getShapeList());
+        stampList.addAll(pageObjects.get(pageNumber).getStampList());
+        snapList.addAll(pageObjects.get(pageNumber).getSnapList());
         setupCanvas();
-        redrawShapes();
     }
 
     //==MEASUREMENT POPUPS
@@ -858,7 +1090,7 @@ public class workspaceController implements Initializable {
     }
 
     public void structureListTransition() {
-        if (i == 0) {
+        if (bool == 0) {
             structurePane.setVisible(true);
             structurePane.setDisable(true);
             structureToggle.setDisable(true);
@@ -869,7 +1101,7 @@ public class workspaceController implements Initializable {
                 structurePane.setDisable(false);
                 structureToggle.setDisable(false);
             });
-            i++;
+            bool++;
         } else {
             structurePane.setDisable(true);
             structureToggle.setDisable(true);
@@ -881,7 +1113,7 @@ public class workspaceController implements Initializable {
                 structurePane.setVisible(false);
                 structureToggle.setDisable(false);
             });
-            i--;
+            bool--;
         }
     }
 
@@ -896,7 +1128,7 @@ public class workspaceController implements Initializable {
             structurePane.setVisible(false);
             structureToggle.setDisable(false);
         });
-        i--;
+        bool--;
     }
 
     public void selectAll() {
@@ -1574,6 +1806,7 @@ public class workspaceController implements Initializable {
         }));
     }
 
+
     private void showSets(String type) {
         //foundations
         if (type.equals("Post Footings") && foundationsBox.isVisible()) {
@@ -1834,7 +2067,7 @@ public class workspaceController implements Initializable {
             setsComboBox.setItems(WALLS_SGL_LEV_INTERIOR);
         } else if (type.equals("Lintels Non SLs") && wallsSglLevBox.isVisible()) {
             setsComboBox.setItems(WALLS_SGL_LEV_LINTELS_NON_SLS);
-        }  else if (type.equals("Studs Nogs Deduction") && wallsSglLevBox.isVisible()) {
+        } else if (type.equals("Studs Nogs Deduction") && wallsSglLevBox.isVisible()) {
             setsComboBox.setItems(WALLS_SGL_LEV_STUDS_NOGS_DEDUCTION);
         }
         //walls basement
@@ -1860,7 +2093,7 @@ public class workspaceController implements Initializable {
             setsComboBox.setItems(WALLS_BASEMENT_INTERIOR);
         } else if (type.equals("Lintels Non SLs") && wallsBasementBox.isVisible()) {
             setsComboBox.setItems(WALLS_BASEMENT_LINTELS_NON_SLS);
-        }  else if (type.equals("Studs Nogs Deduction") && wallsBasementBox.isVisible()) {
+        } else if (type.equals("Studs Nogs Deduction") && wallsBasementBox.isVisible()) {
             setsComboBox.setItems(WALLS_BASEMENT_STUDS_NOGS_DEDUCTION);
         }
         //walls gnd lev
@@ -1886,7 +2119,7 @@ public class workspaceController implements Initializable {
             setsComboBox.setItems(WALLS_GND_LEV_INTERIOR);
         } else if (type.equals("Lintels Non SLs") && wallsGndLevBox.isVisible()) {
             setsComboBox.setItems(WALLS_GND_LEV_LINTELS_NON_SLS);
-        }  else if (type.equals("Studs Nogs Deduction") && wallsGndLevBox.isVisible()) {
+        } else if (type.equals("Studs Nogs Deduction") && wallsGndLevBox.isVisible()) {
             setsComboBox.setItems(WALLS_GND_LEV_STUDS_NOGS_DEDUCTION);
         }
         //walls lev 1
@@ -2238,9 +2471,7 @@ public class workspaceController implements Initializable {
             setsComboBox.setItems(FENCING_COLS_PIERS);
         } else if (type.equals("Fence C&P Measured Items") && fencingBox.isVisible()) {
             setsComboBox.setItems(FENCING_FENCE_CP_MEASURED_ITEMS);
-        }
-
-        else {
+        } else {
             setsComboBox.setItems(null);
         }
     }

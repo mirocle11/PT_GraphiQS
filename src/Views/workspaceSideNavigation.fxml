@@ -22,8 +22,9 @@
             <Insets left="10.0" right="10.0" />
          </VBox.margin>
          <columns>
-            <TreeTableColumn fx:id="COL_Type" editable="false" prefWidth="65.0" resizable="false" sortable="false" text="Type" />
-            <TreeTableColumn fx:id="COL_Measurements" editable="false" prefWidth="168.0" resizable="false" sortable="false" text="Measurements" />
+            <TreeTableColumn fx:id="COL_Color" editable="false" prefWidth="78.0" resizable="false" sortable="false" text="Color" />
+            <TreeTableColumn fx:id="COL_Type" editable="false" prefWidth="83.0" resizable="false" sortable="false" text="Type" />
+            <TreeTableColumn fx:id="COL_Measurements" editable="false" prefWidth="137.0" resizable="false" sortable="false" text="Measurements" />
          </columns>
       </JFXTreeTableView>
    </children>

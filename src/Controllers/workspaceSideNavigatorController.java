@@ -15,6 +15,7 @@ package Controllers;
         import javafx.scene.control.TreeTableColumn;
         import javafx.util.Callback;
 
+        import java.awt.image.BufferedImage;
         import java.net.URL;
         import java.util.ResourceBundle;
 
@@ -24,6 +25,7 @@ public class workspaceSideNavigatorController implements Initializable {
 
     @FXML
     public JFXTreeTableView<historyData> historyTable;
+    public TreeTableColumn<historyData,String> COL_Color;
     public TreeTableColumn<historyData, String> COL_Type;
     public TreeTableColumn<historyData, String> COL_Measurements;
     static ObservableList<historyData> historyList;
@@ -31,20 +33,11 @@ public class workspaceSideNavigatorController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        COL_Type.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<historyData, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<historyData, String> param) {
-                return param.getValue().getValue().type;
-            }
-        });
-        COL_Measurements.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<historyData, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<historyData, String> param) {
-                return param.getValue().getValue().measurement;
-            }
-        });
+        COL_Color.setCellValueFactory(param -> param.getValue().getValue().color);
+        COL_Type.setCellValueFactory(param -> param.getValue().getValue().type);
+        COL_Measurements.setCellValueFactory(param -> param.getValue().getValue().measurement);
         historyList = FXCollections.observableArrayList();
-        TreeItem<historyData> root = new RecursiveTreeItem<historyData>(historyList, RecursiveTreeObject::getChildren);
+        TreeItem<historyData> root = new RecursiveTreeItem<>(historyList, RecursiveTreeObject::getChildren);
         historyTable.setRoot(root);
         historyTable.setShowRoot(false);
     }
