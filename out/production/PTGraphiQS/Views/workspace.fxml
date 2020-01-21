@@ -172,7 +172,7 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
-            <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#drawRectAction" prefHeight="50.0" prefWidth="62.0">
+            <JFXButton fx:id="RECTANGLE" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#drawRectAction" prefHeight="50.0" prefWidth="62.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -188,13 +188,13 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
-            <Button fx:id="nextPage" mnemonicParsing="false" onAction="#nextPageAction" prefHeight="25.0" prefWidth="62.0" text="Next">
+            <Button fx:id="NEXT_PAGE" mnemonicParsing="false" onAction="#nextPageAction" prefHeight="25.0" prefWidth="62.0" text="Next">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="previousPage" mnemonicParsing="false" onAction="#previousPageAction" text="Previous" />
-            <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#rotateAction" prefHeight="50.0" prefWidth="62.0">
+            <Button fx:id="PREVIOUS_PAGE" mnemonicParsing="false" onAction="#previousPageAction" text="Previous" ></Button>
+            <JFXButton fx:id="ROTATE" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#rotateAction" prefHeight="50.0" prefWidth="62.0" text="Button">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>

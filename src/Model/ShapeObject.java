@@ -140,7 +140,17 @@ public class ShapeObject {
                 if (event.getButton() == MouseButton.SECONDARY) {
                     contextMenu = new ContextMenu();
                     if (type == "LENGTH") {
+                        MenuItem continueLength = new MenuItem("REMOVE LENGTH");
+                        continueLength.setOnAction(event1 -> {
+                            controller.shapeObjList.remove(this);
+                            controller.redrawShapes();
+                        });
                         MenuItem removeLength = new MenuItem("REMOVE LENGTH");
+                        removeLength.setOnAction(event1 -> {
+                            controller.shapeObjList.remove(this);
+                            controller.redrawShapes();
+                        });
+                        MenuItem stop = new MenuItem("REMOVE LENGTH");
                         removeLength.setOnAction(event1 -> {
                             controller.shapeObjList.remove(this);
                             controller.redrawShapes();
@@ -152,7 +162,9 @@ public class ShapeObject {
                             controller.shapeObjList.remove(this);
                             controller.redrawShapes();
                         });
+
                         contextMenu.getItems().add(removeArea);
+
                     }
                     contextMenu.show(l, event.getScreenX(), event.getScreenY());
                 }

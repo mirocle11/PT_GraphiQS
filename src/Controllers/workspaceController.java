@@ -13,13 +13,14 @@ import com.spire.pdf.graphics.*;
 import com.sun.javafx.tk.FontLoader;
 import com.sun.javafx.tk.Toolkit;
 import javafx.animation.TranslateTransition;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -49,7 +50,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.Stack;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -108,7 +108,7 @@ public class workspaceController implements Initializable {
 
     //Files
     File tempDirectory, imgDir, svgDir, pdfDir, file, pdfFile;
-    ;
+
     File[] pdfArr, imgArr, svgArr;
 
     //scale
@@ -123,7 +123,8 @@ public class workspaceController implements Initializable {
     double paneHegiht = 0;
     public Image fxImage;
     Color color;
-
+    double snapX = -1;
+    double snapY = -1;
 
     //others 
     String mode;
@@ -238,7 +239,6 @@ public class workspaceController implements Initializable {
         for (File file1 : imgDir.listFiles()) file1.delete();
         for (File file1 : svgDir.listFiles()) file1.delete();
     }
-    //==FILE FUNCTIONS
 
     public void openFile(ActionEvent actionEvent) {
 
@@ -266,6 +266,7 @@ public class workspaceController implements Initializable {
             document.split(pdfDir.getAbsolutePath() + "/pdf_.pdf");
             document.close();
             pdfArr = pdfDir.listFiles();
+
 
             try {
 
@@ -384,13 +385,14 @@ public class workspaceController implements Initializable {
             PREVIOUS_PAGE.setDisable(false);
             SAVE.setDisable(false);
             ROTATE.setDisable(false);
-
-
             setupPageElements();
             scroller.setOpacity(1.0);
             frontPane.setVisible(false);
         }
     }
+
+
+
 
     public void saveFile(ActionEvent actionEvent) {
         pageObjects.get(pageNumber).setShapeObjList(shapeObjList);
@@ -534,29 +536,48 @@ public class workspaceController implements Initializable {
         if (mode == "SCALE") {
             if (isNew) {
                 line.setVisible(true);
-                line.setStartX(clamp.getX());
-                line.setStartY(clamp.getY());
-                line.setEndX(clamp.getX());
-                line.setEndY(clamp.getY());
+                System.out.println(snapX + " " + snapY);
+                if (snapX != -1 && snapY != -1) {
+                    line.setStartX(snapX);
+                    line.setStartY(snapY);
+                    line.setEndX(snapX);
+                    line.setEndY(snapY);
+                } else {
+                    line.setStartX(clamp.getX());
+                    line.setStartY(clamp.getY());
+                    line.setEndX(clamp.getX());
+                    line.setEndY(clamp.getY());
+                }
+
                 line.setStroke(Color.CHOCOLATE);
                 line.setStrokeWidth(8 / group.getScaleY());
                 line.setVisible(true);
                 pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
+
+                snapX = snapY = -1;
+
                 isNew = false;
             } else {
-                pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
+
+                if (snapX != -1 && snapY != -1) {
+                    line.setEndX(snapX);
+                    line.setEndY(snapY);
+                }
                 Point2D start = new Point2D(line.getStartX(), line.getStartY());
                 Point2D end = new Point2D(line.getEndX(), line.getEndY());
                 try {
-                    double m_input = Float.parseFloat(JOptionPane.showInputDialog("Enter Scale (mm)", 0.00 + " mm"));
-                    if (m_input <= 0) {
-                        throw new NumberFormatException();
+                    if (pane.getChildren().add(createBox(line.getEndX(), line.getEndY()))) {
+                        double m_input = Float.parseFloat(JOptionPane.showInputDialog("Enter Scale (mm)", 0.00 + " mm"));
+                        if (m_input <= 0) {
+                            throw new NumberFormatException();
+                        }
+                        double m_Length = start.distance(end);
+                        m_Scale = m_Length / m_input;
                     }
-                    double m_Length = start.distance(end);
-                    m_Scale = m_Length / m_input;
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, "Please enter a valid number.", "Invalid Scale", JOptionPane.ERROR_MESSAGE);
                 }
+                snapX = snapY = -1;
                 redrawShapes();
                 isNew = true;
                 canDraw = false;
@@ -566,17 +587,32 @@ public class workspaceController implements Initializable {
 
         } else if (mode == "LENGTH") {
             if (isNew) {
-                line.setStartX(clamp.getX());
-                line.setStartY(clamp.getY());
-                line.setEndX(clamp.getX());
-                line.setEndY(clamp.getY());
-                pointList.add(clamp);
+                if (snapX != -1 && snapY != -1) {
+                    line.setStartX(snapX);
+                    line.setStartY(snapY);
+                    line.setEndX(snapX);
+                    line.setEndY(snapY);
+                    Point2D snap = new Point2D(snapX, snapY);
+                    pointList.add(snap);
+                } else {
+                    line.setStartX(clamp.getX());
+                    line.setStartY(clamp.getY());
+                    line.setEndX(clamp.getX());
+                    line.setEndY(clamp.getY());
+                    pointList.add(clamp);
+                }
+
                 line.setStrokeWidth(8 / group.getScaleY());
                 line.setStroke(color);
                 pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
                 line.setVisible(true);
                 isNew = false;
+                snapX = snapY = -1;
             } else {
+                if (snapX != -1 && snapY != -1) {
+                    line.setEndX(snapX);
+                    line.setEndY(snapY);
+                }
                 Point2D end = new Point2D(line.getEndX(), line.getEndY());
                 pointList.add(end);
 
@@ -594,28 +630,43 @@ public class workspaceController implements Initializable {
                 canDraw = false;
                 pointList.clear();
                 redrawShapes();
+                snapX = snapY = -1;
 
                 //==TODO add in History
                 workspaceSideNavigatorController.historyList.addAll(new historyData(color.toString(), mode, "test"));
             }
         } else if (mode == "AREA") {
             if (isNew) {
-                line.setStartX(clamp.getX());
-                line.setStartY(clamp.getY());
-                line.setEndX(clamp.getX());
-                line.setEndY(clamp.getY());
-                pointList.add(clamp);
+                if (snapX != -1 && snapY != -1) {
+                    line.setStartX(snapX);
+                    line.setStartY(snapY);
+                    line.setEndX(snapX);
+                    line.setEndY(snapY);
+                    Point2D snap = new Point2D(snapX, snapY);
+                    pointList.add(snap);
+                } else {
+                    line.setStartX(clamp.getX());
+                    line.setStartY(clamp.getY());
+                    line.setEndX(clamp.getX());
+                    line.setEndY(clamp.getY());
+                    pointList.add(clamp);
+                }
                 line.setStrokeWidth(8 / group.getScaleY());
                 line.setStroke(color);
                 pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
                 line.setVisible(true);
                 isNew = false;
+                snapX = snapY = -1;
             } else {
+                if (snapX != -1 && snapY != -1) {
+                    line.setEndX(snapX);
+                    line.setEndY(snapY);
+                }
                 Point2D start = new Point2D(line.getStartX(), line.getStartY());
                 Point2D end = new Point2D(line.getEndX(), line.getEndY());
                 Point2D mid = start.midpoint(end);
                 pointList.add(end);
-
+                snapX = snapY = -1;
                 pane.getChildren().add(createLine(line));
                 pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
                 line.setStartX(line.getEndX());
@@ -655,6 +706,16 @@ public class workspaceController implements Initializable {
                     circle.setVisible(true);
                     circle.setOnMouseExited(event1 -> {
                         circle.setVisible(false);
+                    });
+                    circle.setOnMouseReleased(event1 -> {
+                        System.out.println("CLICK");
+                        if (canDraw) {
+                            if (snapX == -1 && snapY == -1) {
+                                snapX = circle.getCenterX();
+                                snapY = circle.getCenterY();
+                                System.out.println("snap X " + snapX + " " + snapY);
+                            }
+                        }
                     });
                     pane.getChildren().add(circle);
                     break;
@@ -796,7 +857,7 @@ public class workspaceController implements Initializable {
 
             Label lbl = new Label(Math.round(area * 100.0) / 100.0 + " m²");
 
-            workspaceSideNavigatorController.historyList.addAll(new historyData(color.toString(),mode, lbl.getText()));
+            workspaceSideNavigatorController.historyList.addAll(new historyData(color.toString(), mode, lbl.getText()));
             redrawShapes();
             pointList.clear();
             LENGTH.setDisable(false);
