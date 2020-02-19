@@ -19,9 +19,10 @@ public class Loader {
     String filename;
     XMLEventReader reader;
     XMLInputFactory factory;
-    ArrayList<String> points = new ArrayList<>();
-    StringBuffer sb;
+    static ArrayList<String> points = new ArrayList<>();
     String[] dPoints;
+    public double width = 0;
+    public double height;
 
     public Loader(String filename) {
         this.filename = filename;
@@ -60,6 +61,33 @@ public class Loader {
                 }
             }
         }
+    }
+
+    public ArrayList getSnap() {
+        try {
+            getPaths();
+        } catch (XMLStreamException e) {
+            e.printStackTrace();
+        }
+        String[] pntsA;
+        double[][] arr;
+        ArrayList snapList = new ArrayList<>();
+        for (int k = 0; k < points.size(); k++) {
+            try {
+                if (!points.get(k).equals("") && !points.get(k).equals(null)) {
+                    pntsA = points.get(k).split(" ");
+                    double a = Double.parseDouble(pntsA[0]);
+                    double b = Double.parseDouble(pntsA[1]);
+                    arr = new double[1][2];
+                    arr[0][0] = (a / .23999)-14;
+                    arr[0][1] = height+60 - (b / .23999);
+                    snapList.add(arr);
+                }
+            } catch (Exception e) {
+
+            }
+        }
+        return snapList;
     }
 
 //    public static void main(String[] args) {

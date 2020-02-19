@@ -1,58 +1,51 @@
 package service;
 
-
-import Controllers.workspaceController;
 import Main.Main;
-import javafx.concurrent.Service;
-import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
-import javafx.event.EventHandler;
+import Model.PageObject;
+import Model.ShapeObject;
+import com.spire.pdf.PdfDocument;
+import com.spire.pdf.PdfPageBase;
+import com.spire.pdf.graphics.*;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.geometry.Point2D;
 import javafx.stage.FileChooser;
-import java.io.File;
 
+import javax.swing.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.ArrayList;
 
 /**
- * Created by User on 20/01/2020.
+ * Created by User on 17/02/2020.
  */
-public class OpenFileService extends Service<File[]> {
-    workspaceController controller;
-    FileChooser openFile = new FileChooser();
-    public OpenFileService(workspaceController controller) {
-        this.controller = controller;
-        setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-            @Override
-            public void handle(WorkerStateEvent event) {
-                controller.SCALE.setDisable(false);
-            }
-        });
+public class FileService {
+
+    static FileChooser chooser = new FileChooser();
+    static File pdf, tempPdf;
+
+    public FileService() {
+
     }
 
-    @Override
-    protected Task<File[]> createTask() {
-        return new Task<File[]>() {
-            @Override
-            protected File[] call() throws Exception {
-                openFile.showOpenDialog(Main.dashboard_stage);
-                return new File[0];
-            }
-        };
-    }
-//    public void open(){
-//        FileChooser openFile = new FileChooser();
-//        openFile.setTitle("Open PDF");
-//        File temp = new File("");
-//        if (pdfFile != null) {
-//            temp = pdfFile;
-//        }
+    public static File open() {
+        chooser.setTitle("Select File");
+        if (pdf != null) {
+            tempPdf = pdf;
+        }
+        tempPdf = chooser.showOpenDialog(Main.dashboard_stage);
+        if (tempPdf != null) {
+            pdf = tempPdf;
+            return pdf;
+        } else {
+            JOptionPane.showMessageDialog(null, "No File selected", "Error", 0, UIManager.getIcon("OptionPane.errorIcon"));
+            return null;
+        }
+
+// else {
 //
-//        pdfFile = openFile.showOpenDialog(Main.dashboard_stage);
-//        if (pdfFile == null) {
-//            pdfFile = temp;
-//        } else {
 //            if (document != null) {
 //                document.close();
 //            }
-//
 //
 //
 //            document = new PdfDocument();
@@ -179,9 +172,82 @@ public class OpenFileService extends Service<File[]> {
 //            PREVIOUS_PAGE.setDisable(false);
 //            SAVE.setDisable(false);
 //            ROTATE.setDisable(false);
-//            setupPageElements();
+//            setPageElements();
 //            scroller.setOpacity(1.0);
 //            frontPane.setVisible(false);
 //        }
-//    }
+    }
+
+    public static void save(ArrayList<PageObject> pageObjects) {
+        PdfDocument document;
+
+        chooser.setTitle("Save PDF");
+
+        document = new PdfDocument();
+        document.loadFromFile(pdf.getAbsolutePath());
+
+        BufferedImage bufferedImage;
+        ArrayList<ShapeObject> shapeObjList;
+
+        File file = chooser.showSaveDialog(Main.stage);
+        if (file != null) {
+            for (int i = 0; i < pageObjects.size(); i++) {
+
+                PageObject pageObject = pageObjects.get(i);
+                PdfPageBase page = document.getPages().get(i);
+                page.getCanvas().setTransparency(0.5f, 0.5f, PdfBlendMode.Normal);
+                PdfGraphicsState state = page.getCanvas().save();
+                page.getCanvas().translateTransform(0, 0);
+
+                bufferedImage = SwingFXUtils.fromFXImage(pageObject.getImage(), null);
+
+                double subX = bufferedImage.getWidth() / page.getSize().getWidth();
+                double subY = bufferedImage.getHeight() / page.getSize().getHeight();
+
+                shapeObjList = pageObjects.get(i).getShapeList();
+                shapeObjList.forEach(shapeObject -> {
+                    PdfRGBColor pdfRGBColor = new PdfRGBColor(new java.awt.Color((float) shapeObject.getColor().getRed(), (float) shapeObject.getColor().getGreen(), (float) shapeObject.getColor().getBlue()));
+                    PdfFont font = new PdfFont(PdfFontFamily.Helvetica, 8);
+                    if (shapeObject.getType().equals("AREA")) {
+                        int ndx = 0;
+                        PdfBrush brush = new PdfSolidBrush(new PdfRGBColor(pdfRGBColor));
+                        java.awt.geom.Point2D[] points = new java.awt.geom.Point2D[shapeObject.getPointList().size()];
+                        for (Point2D p2d : shapeObject.getPointList()) {
+                            points[ndx] = new java.awt.geom.Point2D.Double(p2d.getX() / subX, (p2d.getY() / subY) - 1.8);
+                            ndx++;
+                        }
+                        page.getCanvas().drawPolygon(brush, points);
+
+                        PdfPen pens = new PdfPen(pdfRGBColor, 1);
+                        double layX = shapeObject.getPolygon().getBoundsInParent().getMinX() + (shapeObject.getPolygon().getBoundsInParent().getWidth()) / 2;
+                        double layY = shapeObject.getPolygon().getBoundsInParent().getMinY() + (shapeObject.getPolygon().getBoundsInParent().getHeight()) / 2;
+                        page.getCanvas().drawString(shapeObject.getArea() + " m²", font, pens, (float) layX / subX, (float) layY / subY);
+
+                    } else if (shapeObject.getType().equals("LENGTH")) {
+                        PdfPen pens = new PdfPen(pdfRGBColor, 1);
+                        shapeObject.getLineList().forEach(line1 -> {
+                            Point2D p1 = new Point2D(line1.getStartX(), line1.getStartY());
+                            Point2D p2 = new Point2D(line1.getEndX(), line1.getEndY());
+                            Point2D mid = p1.midpoint(p2);
+                            double length = (p1.distance(p2) / pageObject.getScale());
+                            page.getCanvas().drawString(Math.round(length * 100.0) / 100.0 + " mm", font, pens, (float) mid.getX() / subX, (float) mid.getY() / subY);
+                        });
+                    }
+                    shapeObject.getLineList().forEach(line1 -> {
+                        PdfPen pen = new PdfPen(pdfRGBColor, 2);
+                        page.getCanvas().drawLine(pen, line1.getStartX() / subX, (line1.getStartY() / subY) - 1.8, line1.getEndX() / subX, (line1.getEndY() / subY) - 1.8);
+                    });
+
+                });
+                if (!file.getName().contains(".")) {
+                    file = new File(file.getAbsolutePath() + ".pdf");
+                    document.saveToFile(file.getAbsolutePath());
+                }
+                page.getCanvas().restore(state);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No File selected");
+        }
+        document.close();
+    }
 }

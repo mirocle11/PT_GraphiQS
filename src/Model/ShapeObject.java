@@ -8,15 +8,13 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
+import service.Tools;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 
 public class ShapeObject {
-    Shape shape;
     Polygon polygon;
     Color color;
     double strokeWidth;
@@ -24,14 +22,10 @@ public class ShapeObject {
     private ArrayList<Point2D> pointList = new ArrayList<>();
     ArrayList<Shape> stampList = new ArrayList<>();
     List<Rectangle> boxList = new ArrayList<>();
-    String name;
     String type;
     Pane pane;
-    workspaceController controller;
-    static ContextMenu contextMenu;
-    boolean remStart = true;
-    boolean remEnd = true;
-    boolean segmentRemoved = false;
+    Tools tools;
+    ContextMenu contextMenu;
     double area = 0;
     double length = 0;
 
@@ -41,6 +35,10 @@ public class ShapeObject {
 
     public String getType() {
         return type;
+    }
+
+    public void setTools(Tools tools) {
+        this.tools = tools;
     }
 
     public void setType(String type) {
@@ -59,10 +57,6 @@ public class ShapeObject {
         this.pane = pane;
     }
 
-    public void setController(workspaceController controller) {
-        this.controller = controller;
-    }
-
     public Polygon getPolygon() {
         return polygon;
     }
@@ -76,7 +70,6 @@ public class ShapeObject {
     }
 
     public List<Point2D> getPointList() {
-        System.out.println("GETTING POINTLIST OF WITH TYPE " + type);
         return this.pointList;
     }
 
@@ -139,28 +132,31 @@ public class ShapeObject {
             l.setOnMousePressed(event -> {
                 if (event.getButton() == MouseButton.SECONDARY) {
                     contextMenu = new ContextMenu();
+                    contextMenu.hide();
                     if (type == "LENGTH") {
-                        MenuItem continueLength = new MenuItem("REMOVE LENGTH");
+                        MenuItem continueLength = new MenuItem("CONTINUE LENGTH");
                         continueLength.setOnAction(event1 -> {
-                            controller.shapeObjList.remove(this);
-                            controller.redrawShapes();
+                            tools.page.shapeObjList.remove(this);
+                            tools.updateWindow();
                         });
                         MenuItem removeLength = new MenuItem("REMOVE LENGTH");
                         removeLength.setOnAction(event1 -> {
-                            controller.shapeObjList.remove(this);
-                            controller.redrawShapes();
+                            tools.page.shapeObjList.remove(this);
+                            tools.updateWindow();
                         });
-                        MenuItem stop = new MenuItem("REMOVE LENGTH");
+                        MenuItem stop = new MenuItem("STOP LENGTH");
                         removeLength.setOnAction(event1 -> {
-                            controller.shapeObjList.remove(this);
-                            controller.redrawShapes();
+                            tools.page.shapeObjList.remove(this);
+                            tools.updateWindow();
                         });
+                        contextMenu.getItems().add(continueLength);
+                        contextMenu.getItems().add(stop);
                         contextMenu.getItems().add(removeLength);
                     } else {
                         MenuItem removeArea = new MenuItem("REMOVE AREA");
                         removeArea.setOnAction(event1 -> {
-                            controller.shapeObjList.remove(this);
-                            controller.redrawShapes();
+                            tools.page.shapeObjList.remove(this);
+                            tools.updateWindow();
                         });
 
                         contextMenu.getItems().add(removeArea);
@@ -197,15 +193,22 @@ public class ShapeObject {
                     if (type == "LENGTH") {
                         MenuItem removeLength = new MenuItem("REMOVE LENGTH");
                         removeLength.setOnAction(event1 -> {
-                            controller.shapeObjList.remove(this);
-                            controller.redrawShapes();
+                            tools.page.shapeObjList.remove(this);
+                            tools.updateWindow();
                         });
+                        MenuItem continueLength = new MenuItem("REMOVE LENGTH");
+                        continueLength.setOnAction(event1 -> {
+                            tools.page.shapeObjList.remove(this);
+                            tools.updateWindow();
+                        });
+
                         contextMenu.getItems().add(removeLength);
+                        contextMenu.getItems().add(continueLength);
                     } else {
                         MenuItem removeArea = new MenuItem("REMOVE AREA");
                         removeArea.setOnAction(event1 -> {
-                            controller.shapeObjList.remove(this);
-                            controller.redrawShapes();
+                            tools.page.shapeObjList.remove(this);
+                            tools.updateWindow();
                         });
                         contextMenu.getItems().add(removeArea);
                     }

@@ -1,13 +1,15 @@
 package Model;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 import javafx.scene.shape.Shape;
 
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class PageObject {
     int pageNumber;
-    ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
+   public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
     ArrayList<Shape> stampList = new ArrayList<>();
     ArrayList<double[][]> snapList = new ArrayList<>();
     Image image;
@@ -22,12 +24,18 @@ public class PageObject {
         this.image = image;
     }
 
+    public PageObject(int pageNumber, BufferedImage param) {
+        this.pageNumber = pageNumber;
+        this.image = SwingFXUtils.toFXImage(param,null);
+    }
+
+
+
     public PageObject(int pageNumber, Image image, ArrayList<double[][]> snapList) {
         this.pageNumber = pageNumber;
         this.image = image;
         this.shapeObjList.clear();
         snapList.forEach(snap -> {
-            System.out.println("ADDING OBJECT");
             this.snapList.add(snap);
         });
 
@@ -42,7 +50,6 @@ public class PageObject {
     }
 
     public ArrayList<ShapeObject> getShapeList() {
-        System.out.println("PAGE " + pageNumber + " size " + shapeObjList.size());
         return shapeObjList;
     }
 

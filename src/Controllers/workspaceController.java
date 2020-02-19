@@ -1,24 +1,15 @@
 package Controllers;
 
 import Data.historyData;
-import Main.Main;
 import Model.PageObject;
 import Model.ShapeObject;
 import com.jfoenix.controls.*;
 import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
-import com.spire.pdf.FileFormat;
 import com.spire.pdf.PdfDocument;
-import com.spire.pdf.PdfPageBase;
-import com.spire.pdf.graphics.*;
 import com.sun.javafx.tk.FontLoader;
 import com.sun.javafx.tk.Toolkit;
 import javafx.animation.TranslateTransition;
-import javafx.concurrent.Service;
-import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Point2D;
@@ -38,15 +29,13 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Font;
-import javafx.stage.FileChooser;
 import javafx.util.Duration;
+import service.*;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.xml.stream.XMLStreamException;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -93,6 +82,7 @@ public class workspaceController implements Initializable {
     public Pane pane;
     public JFXDrawer drawer;
     public VBox structureBox, shortListBox;
+    public VBox toolsMenu;
     public AnchorPane sectionPane;
     public JFXColorPicker colorPicker;
     public JFXComboBox<String> setsComboBox;
@@ -106,18 +96,11 @@ public class workspaceController implements Initializable {
     ArrayList<double[][]> snapList = new ArrayList<>();
     public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
 
-    //Files
-    File tempDirectory, imgDir, svgDir, pdfDir, file, pdfFile;
-
-    File[] pdfArr, imgArr, svgArr;
-
     //scale
     double SCALE_DELTA = 1.1;
     double m_Scale = 0;
-    double origScaleX;
-    double origScaleY;
 
-    //Snap Function 
+    //Snap Function
     Loader load;
     BufferedImage bufferedImage;
     double paneHegiht = 0;
@@ -144,23 +127,15 @@ public class workspaceController implements Initializable {
 
     //indicator
     private int bool = 0;
-
+    boolean issetCanvas = false;
+    Tools tools;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        tools = new Tools(this);
+        tools.setMode("FREE");
 
-        SAVE.setDisable(true);
-        SCALE.setDisable(true);
-        LENGTH.setDisable(true);
-        AREA.setDisable(true);
-        STAMP.setDisable(true);
-        RECTANGLE.setDisable(true);
-        ROTATE.setDisable(true);
-        NEXT_PAGE.setDisable(true);
-        PREVIOUS_PAGE.setDisable(true);
-
-        origScaleX = group.getScaleX();
-        origScaleY = group.getScaleY();
+        Tools.enableButtons(new String[]{"IMPORT"}, toolsMenu);
 
         line.setVisible(false);
         line.setOpacity(.5);
@@ -191,290 +166,261 @@ public class workspaceController implements Initializable {
 
                 if (drawer.isOpened()) {
                     drawer.close();
+                    drawer.toBack();
                 } else {
                     drawer.toggle();
+                    drawer.toFront();
                 }
             });
         } catch (Exception e) {
             Logger.getLogger(workspaceController.class.getName()).log(Level.SEVERE, null, e);
         }
-
-        //initializing temp directories
-        tempDirectory = new File("temp/"); //temp directory address
-        if (!tempDirectory.exists()) {
-            try {
-                tempDirectory.mkdir();
-            } catch (SecurityException se) {
-//                System.out.println("Unable to create temp directory.");
-            }
-
-        }
-
-        imgDir = new File(tempDirectory, "images");
-        if (!imgDir.exists()) {
-            try {
-                imgDir.mkdir();
-            } catch (SecurityException se) {
-//                System.out.println("Unable to create temp/image directory.");
-            }
-        }
-
-        svgDir = new File(tempDirectory, "svg");
-        if (!svgDir.exists()) {
-            try {
-                svgDir.mkdir();
-            } catch (SecurityException se) {
-//                System.out.println("Unable to create temp/svg directory.");
-            }
-        }
-        pdfDir = new File(tempDirectory, "pdf");
-        if (!pdfDir.exists()) {
-            try {
-                pdfDir.mkdir();
-            } catch (SecurityException se) {
-//                System.out.println("Unable to create temp/svg directory.");
-            }
-        }
-        for (File file1 : pdfDir.listFiles()) file1.delete();
-        for (File file1 : imgDir.listFiles()) file1.delete();
-        for (File file1 : svgDir.listFiles()) file1.delete();
     }
 
+
+    //Todo ->  Should be a separate class
     public void openFile(ActionEvent actionEvent) {
-
-        FileChooser openFile = new FileChooser();
-        openFile.setTitle("Open PDF");
-
-        File temp = new File("");
-        if (pdfFile != null) {
-            temp = pdfFile;
-        }
-
-        pdfFile = openFile.showOpenDialog(Main.dashboard_stage);
-
-        if (pdfFile == null) {
-            pdfFile = temp;
-        } else {
-
-            if (document != null) {
-                document.close();
-            }
-
-
-            document = new PdfDocument();
-            document.loadFromFile(pdfFile.getAbsolutePath());//load from selectedPdf
-            document.split(pdfDir.getAbsolutePath() + "/pdf_.pdf");
-            document.close();
-            pdfArr = pdfDir.listFiles();
-
-
-            try {
-
-                document = new PdfDocument();
-                document.loadFromFile(pdfArr[0].getAbsolutePath());
-                bufferedImage = document.saveAsImage(0, PdfImageType.Bitmap, 300, 300);
-                file = new File(imgDir.getAbsolutePath() + "/img_0.png");
-                ImageIO.write(bufferedImage, "PNG", file);
-                document.saveToFile(svgDir.getAbsolutePath() + "/svg_0.svg", FileFormat.SVG);
-                document.close();
-            } catch (IOException ex) {
-//                System.out.println(ex.getMessage());
-            }
-
-            svgArr = svgDir.listFiles();
-            imgArr = imgDir.listFiles();
-            try {
-                load = new Loader(svgArr[0].getAbsolutePath());
-                load.getPaths();
-                String[] pntsA;
-                double[][] arr;
-                snapList = new ArrayList<>();
-                for (int i = 0; i < load.points.size(); i++) {
-                    try {
-                        if (!load.points.get(i).equals("") && !load.points.get(i).equals(null)) {
-                            pntsA = load.points.get(i).split(" ");
-
-                            double a = Double.parseDouble(pntsA[0]);
-                            double b = Double.parseDouble(pntsA[1]);
-                            arr = new double[1][2];
-                            arr[0][0] = (a / .23999);
-
-                            paneHegiht = pane.getHeight();
-                            arr[0][1] = 223 + (pane.getHeight() * 5) - (b / .23999) - 7.7;
-                            snapList.add(arr);
-                        }
-                    } catch (Exception e) {
-//                    System.out.println(e.getMessage());
-                    }
-                }
-
-                pageObjects.add(new PageObject(0));
-                PageObject pageObject = pageObjects.get(0);
-                pageObject.setSnapList(snapList);
-                pageObject.setShapeObjList(shapeObjList);
-                pageObject.setStampList(stampList);
-
-                snapList.clear();
-                snapList.clear();
-                stampList.clear();
-
-            } catch (XMLStreamException e) {
-//                System.out.println(e.getMessage());
-            }
-
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-//                    System.out.println("STARTING THREAD ");
-                    for (int i = 1; i < pdfArr.length; i++) {
-                        try {
-                            document = new PdfDocument();
-                            document.loadFromFile(pdfArr[i].getAbsolutePath());
-                            bufferedImage = document.saveAsImage(0, PdfImageType.Bitmap, 300, 300);
-                            file = new File(imgDir.getAbsolutePath() + "/img_" + i + ".png");
-                            ImageIO.write(bufferedImage, "PNG", file);
-                            document.saveToFile(svgDir.getAbsolutePath() + "/svg_" + i + ".svg", FileFormat.SVG);
-                            document.close();
-                        } catch (IOException e) {
-//                            System.out.println(e.getMessage());
-                        }
-                    }
-                    imgArr = imgDir.listFiles();
-                    svgArr = svgDir.listFiles();
-                    for (int j = 1; j < svgArr.length; j++) {
-                        try {
-                            load = new Loader(svgArr[j].getAbsolutePath());
-//                            System.out.println(svgArr[j].getAbsoluteFile() + " path " + j);
-                            load.getPaths();
-
-                            String[] pntsA;
-                            double[][] arr;
-                            snapList = new ArrayList<>();
-                            for (int k = 0; k < load.points.size(); k++) {
-                                try {
-                                    if (!load.points.get(k).equals("") && !load.points.get(k).equals(null)) {
-                                        pntsA = load.points.get(k).split(" ");
-
-                                        double a = Double.parseDouble(pntsA[0]);
-                                        double b = Double.parseDouble(pntsA[1]);
-                                        arr = new double[1][2];
-                                        arr[0][0] = (a / .23999);
-                                        arr[0][1] = 223 + (paneHegiht * 5) - (b / .23999) - 7.7;
-                                        snapList.add(arr);
-                                    }
-                                } catch (Exception e) {
-
-                                }
-                            }
-
-                            pageObjects.add(new PageObject(j));
-                            PageObject pageObject = pageObjects.get(j);
-                            pageObject.setSnapList(snapList);
-                            pageObject.setShapeObjList(shapeObjList);
-                            pageObject.setStampList(stampList);
-
-                        } catch (XMLStreamException e) {
-//                            System.out.println(e.getMessage());
-                        }
-                    }
-                }
-            }).start();
-
-            SCALE.setDisable(false);
-            NEXT_PAGE.setDisable(false);
-            PREVIOUS_PAGE.setDisable(false);
-            SAVE.setDisable(false);
-            ROTATE.setDisable(false);
-            setupPageElements();
-            scroller.setOpacity(1.0);
-            frontPane.setVisible(false);
-        }
+        tools.open();
+//
+//        FileChooser openFile = new FileChooser();
+//        openFile.setTitle("Open PDF");
+//
+//        File temp = new File("");
+//        if (pdfFile != null) {
+//            temp = pdfFile;
+//        }
+//
+//        pdfFile = openFile.showOpenDialog(Main.dashboard_stage);
+//
+//        if (pdfFile == null) {
+//            pdfFile = temp;
+//        } else {
+//
+//            if (document != null) {
+//                document.close();
+//            }
+//
+//
+//            document = new PdfDocument();
+//            document.loadFromFile(pdfFile.getAbsolutePath());//load from selectedPdf
+//            document.split(pdfDir.getAbsolutePath() + "/pdf_.pdf");
+//            document.close();
+//            pdfArr = pdfDir.listFiles();
+//
+//
+//            try {
+//
+//                document = new PdfDocument();
+//                document.loadFromFile(pdfArr[0].getAbsolutePath());
+//                bufferedImage = document.saveAsImage(0, PdfImageType.Bitmap, 300, 300);
+//
+//                System.out.println(bufferedImage.getWidth()+" "+bufferedImage.getHeight());
+//                file = new File(imgDir.getAbsolutePath() + "/img_0.png");
+//                ImageIO.write(bufferedImage, "PNG", file);
+//                document.saveToFile(svgDir.getAbsolutePath() + "/svg_0.svg", FileFormat.SVG);
+//                document.close();
+//            } catch (IOException ex) {
+////                System.out.println(ex.getMessage());
+//            }
+//
+//            svgArr = svgDir.listFiles();
+//            imgArr = imgDir.listFiles();
+//            try {
+//                load = new Loader(svgArr[0].getAbsolutePath());
+//                load.getPaths();
+//                String[] pntsA;
+//                double[][] arr;
+//                snapList = new ArrayList<>();
+//                for (int i = 0; i < load.points.size(); i++) {
+//                    try {
+//                        if (!load.points.get(i).equals("") && !load.points.get(i).equals(null)) {
+//                            pntsA = load.points.get(i).split(" ");
+//
+//                            double a = Double.parseDouble(pntsA[0]);
+//                            double b = Double.parseDouble(pntsA[1]);
+//                            arr = new double[1][2];
+//                            arr[0][0] = (a / .23999);
+//
+//                            paneHegiht = pane.getHeight();
+//                            System.out.println(paneHegiht + " paneHeight");
+//
+//                            arr[0][1] = 223 + (pane.getHeight() * 5) - (b / .23999) - 7.7;
+//                            snapList.add(arr);
+//                        }
+//                    } catch (Exception e) {
+////                    System.out.println(e.getMessage());
+//                    }
+//                }
+//
+//                pageObjects.add(new PageObject(0));
+//                PageObject pageObject = pageObjects.get(0);
+//                pageObject.setSnapList(snapList);
+//                pageObject.setShapeObjList(shapeObjList);
+//                pageObject.setStampList(stampList);
+//
+//                snapList.clear();
+//                snapList.clear();
+//                stampList.clear();
+//
+//            } catch (XMLStreamException e) {
+////                System.out.println(e.getMessage());
+//            }
+//
+//            new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+////                    System.out.println("STARTING THREAD ");
+//                    for (int i = 1; i < pdfArr.length; i++) {
+//                        try {
+//                            document = new PdfDocument();
+//                            document.loadFromFile(pdfArr[i].getAbsolutePath());
+//                            bufferedImage = document.saveAsImage(0, PdfImageType.Bitmap, 300, 300);
+//                            file = new File(imgDir.getAbsolutePath() + "/img_" + i + ".png");
+//                            ImageIO.write(bufferedImage, "PNG", file);
+//                            document.saveToFile(svgDir.getAbsolutePath() + "/svg_" + i + ".svg", FileFormat.SVG);
+//                            document.close();
+//                        } catch (IOException e) {
+////                            System.out.println(e.getMessage());
+//                        }
+//                    }
+//                    imgArr = imgDir.listFiles();
+//                    svgArr = svgDir.listFiles();
+//                    for (int j = 1; j < svgArr.length; j++) {
+//                        try {
+//                            load = new Loader(svgArr[j].getAbsolutePath());
+////                            System.out.println(svgArr[j].getAbsoluteFile() + " path " + j);
+//                            load.getPaths();
+//
+//                            String[] pntsA;
+//                            double[][] arr;
+//                            snapList = new ArrayList<>();
+//                            for (int k = 0; k < load.points.size(); k++) {
+//                                try {
+//                                    if (!load.points.get(k).equals("") && !load.points.get(k).equals(null)) {
+//                                        pntsA = load.points.get(k).split(" ");
+//
+//                                        double a = Double.parseDouble(pntsA[0]);
+//                                        double b = Double.parseDouble(pntsA[1]);
+//                                        arr = new double[1][2];
+//                                        arr[0][0] = (a / .23999);
+//                                        arr[0][1] = 223 + (paneHegiht * 5) - (b / .23999) - 7.7;
+//                                        snapList.add(arr);
+//                                    }
+//                                } catch (Exception e) {
+//
+//                                }
+//                            }
+//
+//                            pageObjects.add(new PageObject(j));
+//                            PageObject pageObject = pageObjects.get(j);
+//                            pageObject.setSnapList(snapList);
+//                            pageObject.setShapeObjList(shapeObjList);
+//                            pageObject.setStampList(stampList);
+//
+//                        } catch (XMLStreamException e) {
+////                            System.out.println(e.getMessage());
+//                        }
+//                    }
+//                }
+//            }).start();
+//
+//            SCALE.setDisable(false);
+//            NEXT_PAGE.setDisable(false);
+//            PREVIOUS_PAGE.setDisable(false);
+//            SAVE.setDisable(false);
+//            ROTATE.setDisable(false);
+//            setPageElements();
+//            scroller.setOpacity(1.0);
+//            frontPane.setVisible(false);
+//        }
     }
-
-
-
 
     public void saveFile(ActionEvent actionEvent) {
-        pageObjects.get(pageNumber).setShapeObjList(shapeObjList);
-
-        FileChooser savefile = new FileChooser();
-        savefile.setTitle("Save PDF");
-        document = new PdfDocument();
-        document.loadFromFile(pdfFile.getAbsolutePath());
-//        System.out.println("SAVING " + pdfFile.getAbsolutePath());
-
-        File file = savefile.showSaveDialog(Main.stage);
-        if (file != null) {
-            for (int ctr = 0; ctr < document.getPages().getCount(); ctr++) {
-//                System.out.println(ctr + " Count");
-                PdfPageBase page = document.getPages().get(ctr);
-                page.getCanvas().setTransparency(0.5f, 0.5f, PdfBlendMode.Normal);
-                PdfGraphicsState state = page.getCanvas().save();
-                page.getCanvas().translateTransform(0, 0);
-
-                try {
-                    bufferedImage = ImageIO.read(imgArr[ctr].getAbsoluteFile());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                double subX = bufferedImage.getWidth() / page.getSize().getWidth();
-                double subY = bufferedImage.getHeight() / page.getSize().getHeight();
-
-                shapeObjList = pageObjects.get(ctr).getShapeList();
-                shapeObjList.forEach(shapeObject -> {
-                    PdfRGBColor pdfRGBColor = new PdfRGBColor(new java.awt.Color((float) shapeObject.getColor().getRed(), (float) shapeObject.getColor().getGreen(), (float) shapeObject.getColor().getBlue()));
-                    PdfFont font = new PdfFont(PdfFontFamily.Helvetica, 8);
-                    if (shapeObject.getType().equals("AREA")) {
-                        PdfPen pen = new PdfPen(pdfRGBColor, 3);
-                        int ndx = 0;
-                        PdfBrush brush = new PdfSolidBrush(new PdfRGBColor(pdfRGBColor));
-                        java.awt.geom.Point2D[] points = new java.awt.geom.Point2D[shapeObject.getPointList().size()];
-                        for (Point2D p2d : shapeObject.getPointList()) {
-//                            System.out.println(p2d);
-                            points[ndx] = new java.awt.geom.Point2D.Double(p2d.getX() / subX, (p2d.getY() / subY) - 1.8);
-                            ndx++;
-                        }
-                        page.getCanvas().drawPolygon(brush, points);
-
-                        PdfPen pens = new PdfPen(pdfRGBColor, 1);
-                        double layX = shapeObject.getPolygon().getBoundsInParent().getMinX() + (shapeObject.getPolygon().getBoundsInParent().getWidth()) / 2;
-                        double layY = shapeObject.getPolygon().getBoundsInParent().getMinY() + (shapeObject.getPolygon().getBoundsInParent().getHeight()) / 2;
-                        page.getCanvas().drawString(shapeObject.getArea() + " m²", font, pens, (float) layX / subX, (float) layY / subY);
-
-                    } else if (shapeObject.getType().equals("LENGTH")) {
-                        PdfPen pens = new PdfPen(pdfRGBColor, 1);
-                        shapeObject.getLineList().forEach(line1 -> {
-                            Point2D p1 = new Point2D(line1.getStartX(), line1.getStartY());
-                            Point2D p2 = new Point2D(line1.getEndX(), line1.getEndY());
-                            Point2D mid = p1.midpoint(p2);
-                            page.getCanvas().drawString(shapeObject.getLength() + " mm", font, pens, (float) mid.getX() / subX, (float) mid.getY() / subY);
-                        });
-
-                    }
-                    shapeObject.getLineList().forEach(line1 -> {
-                        PdfPen pen = new PdfPen(pdfRGBColor, 2);
-                        page.getCanvas().drawLine(pen, line1.getStartX() / subX, (line1.getStartY() / subY) - 1.8, line1.getEndX() / subX, (line1.getEndY() / subY) - 1.8);
-                    });
-
-                });
-                if (!file.getName().contains(".")) {
-                    file = new File(file.getAbsolutePath() + ".pdf");
-                    document.saveToFile(file.getAbsolutePath());
-                }
-                page.getCanvas().restore(state);
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "No File selected");
-        }
-
+        tools.save();
+//        FileChooser savefile = new FileChooser();
+//        savefile.setTitle("Save PDF");
+//        document = new PdfDocument();
+//        document.loadFromFile(pdfFile.getAbsolutePath());
+////        System.out.println("SAVING " + pdfFile.getAbsolutePath());
+//
+//        File file = savefile.showSaveDialog(Main.stage);
+//        if (file != null) {
+//            for (int ctr = 0; ctr < document.getPages().getCount(); ctr++) {
+////                System.out.println(ctr + " Count");
+//                PdfPageBase page = document.getPages().get(ctr);
+//                page.getCanvas().setTransparency(0.5f, 0.5f, PdfBlendMode.Normal);
+//                PdfGraphicsState state = page.getCanvas().save();
+//                page.getCanvas().translateTransform(0, 0);
+//
+//                try {
+//                    bufferedImage = ImageIO.read(imgArr[ctr].getAbsoluteFile());
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//
+//                double subX = bufferedImage.getWidth() / page.getSize().getWidth();
+//                double subY = bufferedImage.getHeight() / page.getSize().getHeight();
+//
+//                shapeObjList = pageObjects.get(ctr).getShapeList();
+//                shapeObjList.forEach(shapeObject -> {
+//                    PdfRGBColor pdfRGBColor = new PdfRGBColor(new java.awt.Color((float) shapeObject.getColor().getRed(), (float) shapeObject.getColor().getGreen(), (float) shapeObject.getColor().getBlue()));
+//                    PdfFont font = new PdfFont(PdfFontFamily.Helvetica, 8);
+//                    if (shapeObject.getType().equals("AREA")) {
+//                        PdfPen pen = new PdfPen(pdfRGBColor, 3);
+//                        int ndx = 0;
+//                        PdfBrush brush = new PdfSolidBrush(new PdfRGBColor(pdfRGBColor));
+//                        java.awt.geom.Point2D[] points = new java.awt.geom.Point2D[shapeObject.getPointList().size()];
+//                        for (Point2D p2d : shapeObject.getPointList()) {
+////                            System.out.println(p2d);
+//                            points[ndx] = new java.awt.geom.Point2D.Double(p2d.getX() / subX, (p2d.getY() / subY) - 1.8);
+//                            ndx++;
+//                        }
+//                        page.getCanvas().drawPolygon(brush, points);
+//
+//                        PdfPen pens = new PdfPen(pdfRGBColor, 1);
+//                        double layX = shapeObject.getPolygon().getBoundsInParent().getMinX() + (shapeObject.getPolygon().getBoundsInParent().getWidth()) / 2;
+//                        double layY = shapeObject.getPolygon().getBoundsInParent().getMinY() + (shapeObject.getPolygon().getBoundsInParent().getHeight()) / 2;
+//                        page.getCanvas().drawString(shapeObject.getArea() + " m²", font, pens, (float) layX / subX, (float) layY / subY);
+//
+//                    } else if (shapeObject.getType().equals("LENGTH")) {
+//                        PdfPen pens = new PdfPen(pdfRGBColor, 1);
+//                        shapeObject.getLineList().forEach(line1 -> {
+//                            Point2D p1 = new Point2D(line1.getStartX(), line1.getStartY());
+//                            Point2D p2 = new Point2D(line1.getEndX(), line1.getEndY());
+//                            Point2D mid = p1.midpoint(p2);
+//                            double length = (p1.distance(p2) / m_Scale);
+//                            page.getCanvas().drawString(Math.round(length * 100.0) / 100.0 + " mm", font, pens, (float) mid.getX() / subX, (float) mid.getY() / subY);
+//                        });
+//
+//                    }
+//                    shapeObject.getLineList().forEach(line1 -> {
+//                        PdfPen pen = new PdfPen(pdfRGBColor, 2);
+//                        page.getCanvas().drawLine(pen, line1.getStartX() / subX, (line1.getStartY() / subY) - 1.8, line1.getEndX() / subX, (line1.getEndY() / subY) - 1.8);
+//                    });
+//
+//                });
+//                if (!file.getName().contains(".")) {
+//                    file = new File(file.getAbsolutePath() + ".pdf");
+//                    document.saveToFile(file.getAbsolutePath());
+//                }
+//                page.getCanvas().restore(state);
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(null, "No File selected");
+//        }
     }
 
     //==SIDE BUTTON ACTIONS
+
     public void scaleAction(ActionEvent actionEvent) {
-        mode = "SCALE";
-        canDraw = true;
-        isNew = true;
+//        System.out.println("Scale");
+//        System.out.println(pane.getClass());
+        tools.setMode("SCALE");
+
+
+//        mode = "SCALE";
+//        canDraw = true;
+//        isNew = true;
     }
 
     public void areaAction(ActionEvent actionEvent) {
@@ -492,23 +438,32 @@ public class workspaceController implements Initializable {
     }
 
     public void nextPageAction(ActionEvent actionEvent) {
-        pageObjects.get(pageNumber).setShapeObjList(shapeObjList);
-        pageObjects.get(pageNumber).setStampList(stampList);
-        pageObjects.get(pageNumber).setScale(m_Scale);
-        if (pageNumber < pageObjects.size() - 1) {
-            pageNumber++;
-            setupPageElements();
-        }
+        tools.nextPage();
+
+//        pageObjects.get(pageNumber).setShapeObjList(shapeObjList);
+//        pageObjects.get(pageNumber).setStampList(stampList);
+//        pageObjects.get(pageNumber).setScale(m_Scale);
+//        if (pageNumber < pageObjects.size() - 1) {
+//            pageNumber++;
+//            setPageElements();
+//        }
+//        if (pageObjects.get(pageNumber).getScale() == 0) {
+//            canDraw = false;
+//        }
 
     }
 
     public void previousPageAction(ActionEvent actionEvent) {
-        pageObjects.get(pageNumber).setShapeObjList(shapeObjList);
-        pageObjects.get(pageNumber).setStampList(stampList);
-        if (pageNumber > 0) {
-            pageNumber--;
-            setupPageElements();
-        }
+        tools.previousPage();
+//        pageObjects.get(pageNumber).setShapeObjList(shapeObjList);
+//        pageObjects.get(pageNumber).setStampList(stampList);
+//        if (pageNumber > 0) {
+//            pageNumber--;
+//            setPageElements();
+//        }
+//        if (pageObjects.get(pageNumber).getScale() == 0) {
+//            canDraw = false;
+//        }
     }
 
     public void drawRectAction(ActionEvent actionEvent) {
@@ -523,20 +478,21 @@ public class workspaceController implements Initializable {
     }
 
 
-    //==DRAW FUNCTIONS
+    //Todo ->  Should be a service or in a thread safe environment
     public void drawAction(MouseEvent event) {
         if (event.getButton() == MouseButton.SECONDARY) {
             return;
         }
+
         if (!canDraw) {
             return;
         }
+
         Point2D clamp = clamp(event.getX(), event.getY());
 
         if (mode == "SCALE") {
             if (isNew) {
                 line.setVisible(true);
-                System.out.println(snapX + " " + snapY);
                 if (snapX != -1 && snapY != -1) {
                     line.setStartX(snapX);
                     line.setStartY(snapY);
@@ -550,7 +506,7 @@ public class workspaceController implements Initializable {
                 }
 
                 line.setStroke(Color.CHOCOLATE);
-                line.setStrokeWidth(8 / group.getScaleY());
+                line.setStrokeWidth(5 / group.getScaleY());
                 line.setVisible(true);
                 pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
 
@@ -587,27 +543,7 @@ public class workspaceController implements Initializable {
 
         } else if (mode == "LENGTH") {
             if (isNew) {
-                if (snapX != -1 && snapY != -1) {
-                    line.setStartX(snapX);
-                    line.setStartY(snapY);
-                    line.setEndX(snapX);
-                    line.setEndY(snapY);
-                    Point2D snap = new Point2D(snapX, snapY);
-                    pointList.add(snap);
-                } else {
-                    line.setStartX(clamp.getX());
-                    line.setStartY(clamp.getY());
-                    line.setEndX(clamp.getX());
-                    line.setEndY(clamp.getY());
-                    pointList.add(clamp);
-                }
-
-                line.setStrokeWidth(8 / group.getScaleY());
-                line.setStroke(color);
-                pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
-                line.setVisible(true);
-                isNew = false;
-                snapX = snapY = -1;
+                setLine(clamp);
             } else {
                 if (snapX != -1 && snapY != -1) {
                     line.setEndX(snapX);
@@ -615,48 +551,17 @@ public class workspaceController implements Initializable {
                 }
                 Point2D end = new Point2D(line.getEndX(), line.getEndY());
                 pointList.add(end);
-
-
-                ShapeObject shapeObj = new ShapeObject();
-                shapeObj.setPane(pane);
-                shapeObj.setColor(color);
-                shapeObj.setPointList(pointList);
-                shapeObj.setController(this);
-                shapeObj.setType(mode);
-
-                shapeObjList.add(shapeObj);
-                isNew = true;
-                line.setVisible(false);
-                canDraw = false;
-                pointList.clear();
-                redrawShapes();
+                pane.getChildren().add(createLine(line));
+                pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
+                pane.getChildren().add(createLabel(line));
+                line.setStartX(line.getEndX());
+                line.setStartY(line.getEndY());
                 snapX = snapY = -1;
 
-                //==TODO add in History
-                workspaceSideNavigatorController.historyList.addAll(new historyData(color.toString(), mode, "test"));
             }
         } else if (mode == "AREA") {
             if (isNew) {
-                if (snapX != -1 && snapY != -1) {
-                    line.setStartX(snapX);
-                    line.setStartY(snapY);
-                    line.setEndX(snapX);
-                    line.setEndY(snapY);
-                    Point2D snap = new Point2D(snapX, snapY);
-                    pointList.add(snap);
-                } else {
-                    line.setStartX(clamp.getX());
-                    line.setStartY(clamp.getY());
-                    line.setEndX(clamp.getX());
-                    line.setEndY(clamp.getY());
-                    pointList.add(clamp);
-                }
-                line.setStrokeWidth(8 / group.getScaleY());
-                line.setStroke(color);
-                pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
-                line.setVisible(true);
-                isNew = false;
-                snapX = snapY = -1;
+                setLine(clamp);
             } else {
                 if (snapX != -1 && snapY != -1) {
                     line.setEndX(snapX);
@@ -704,16 +609,15 @@ public class workspaceController implements Initializable {
                     circle.setCenterX(arr[0][0]);
                     circle.setCenterY(arr[0][1]);
                     circle.setVisible(true);
+                    circle.setRadius(3 / group.getScaleY());
                     circle.setOnMouseExited(event1 -> {
                         circle.setVisible(false);
                     });
                     circle.setOnMouseReleased(event1 -> {
-                        System.out.println("CLICK");
                         if (canDraw) {
                             if (snapX == -1 && snapY == -1) {
                                 snapX = circle.getCenterX();
                                 snapY = circle.getCenterY();
-                                System.out.println("snap X " + snapX + " " + snapY);
                             }
                         }
                     });
@@ -812,12 +716,12 @@ public class workspaceController implements Initializable {
 
     public Shape createBox(double x, double y) {
 
-        double boxW = 20;
-        shapeList.add(new Rectangle(x - (10) / group.getScaleY(), y - (10) / group.getScaleY(), boxW / group.getScaleY(), boxW / group.getScaleY()));
+        double boxW = 10;
+        shapeList.add(new Rectangle(x - (5) / group.getScaleY(), y - (5) / group.getScaleY(), boxW / group.getScaleY(), boxW / group.getScaleY()));
         Rectangle r = (Rectangle) shapeList.get(shapeList.size() - 1);
         r.setStroke(Color.GREEN);
         r.setOpacity(.5);
-        r.setStrokeWidth(6 / group.getScaleY());
+        r.setStrokeWidth(4 / group.getScaleY());
         r.setFill(Color.TRANSPARENT);
 
         r.setOnMouseEntered(event -> {
@@ -843,8 +747,9 @@ public class workspaceController implements Initializable {
             }
 
             shapeObj.setPointList(pointList);
-            shapeObj.setController(this);
+//            shapeObj.setController(this);
             shapeObj.setType(mode);
+
             shapeObjList.add(shapeObj);
             double area = 0;
             for (int xx = 0; xx < shapeObj.getPointList().size() - 1; xx++) {
@@ -874,7 +779,7 @@ public class workspaceController implements Initializable {
 
         l.setStroke(color);
         l.setStrokeLineCap(StrokeLineCap.BUTT);
-        l.setStrokeWidth(8 / group.getScaleY());
+        l.setStrokeWidth(5 / group.getScaleY());
         l.setOpacity(.5);
 
         l.setOnMouseEntered(event -> {
@@ -886,14 +791,99 @@ public class workspaceController implements Initializable {
         return shapeList.get(shapeList.size() - 1);
     }
 
-    public void redrawShapes() {
+    public Label createLabel(Line param) {
+        Point2D p1 = new Point2D(param.getStartX(), param.getStartY());
+        Point2D p2 = new Point2D(param.getEndX(), param.getEndY());
+        Point2D mid = p1.midpoint(p2);
+        param.getRotate();
+        if (p1.distance(p2) != 0) {
+            double length = (p1.distance(p2) / m_Scale);
+            Label lbl = new Label(Math.round(length * 100.0) / 100.0 + " mm");
 
+
+            double theta = Math.atan2(p2.getY() - p1.getY(), p2.getX() - p1.getX());
+            lbl.setFont(new Font("Arial", 36 / group.getScaleY()));
+            lbl.setRotate(theta * 180 / Math.PI);
+            lbl.setLayoutY(mid.getY());
+            lbl.setLayoutX(mid.getX() - (55 / group.getScaleY()));
+            lbl.setOnMouseEntered(event1 -> {
+                lbl.setStyle("-fx-background-color: white");
+                lbl.setOpacity(1);
+            });
+            lbl.setOnMouseExited(event1 -> {
+                lbl.setStyle("-fx-background-color: transparent");
+                lbl.setOpacity(.5);
+            });
+            lbl.setTextFill(color);
+            lbl.setOpacity(.5);
+            return lbl;
+        }
+        return new Label();
+    }
+
+    public void setLine(Point2D clamp) {
+        if (snapX != -1 && snapY != -1) {
+            line.setStartX(snapX);
+            line.setStartY(snapY);
+            line.setEndX(snapX);
+            line.setEndY(snapY);
+            Point2D snap = new Point2D(snapX, snapY);
+            pointList.add(snap);
+        } else {
+            line.setStartX(clamp.getX());
+            line.setStartY(clamp.getY());
+            line.setEndX(clamp.getX());
+            line.setEndY(clamp.getY());
+            pointList.add(clamp);
+        }
+        line.setStrokeWidth(5 / group.getScaleY());
+        line.setStroke(color);
+        pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
+        line.setVisible(true);
+        isNew = false;
+        snapX = snapY = -1;
+    }
+
+    public void setCanvas() {
+//        group.setScaleY(1);
+//        group.setScaleX(1);
+        fxImage = pageObjects.get(pageNumber).getImage();
+        canvas.setWidth(fxImage.getWidth());
+        canvas.setHeight(fxImage.getHeight());
+        pane.setPrefSize(canvas.getWidth(), canvas.getHeight());
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        gc.drawImage(fxImage, 0, 0);
+//        origScaleX = group.getScaleX();
+//        origScaleY = group.getScaleY();
+//        double newScale = group.getScaleX();
+//        for (int x = 0; x < 12; x++) {
+//            newScale *= (1 / 1.1);
+//        }
+//        group.setScaleX(newScale);
+//        group.setScaleY(newScale);
+//        redrawShapes();
+        tools.updateWindow();
+    }
+
+    public void setPageElements() {
+        shapeObjList = new ArrayList<>();
+        stampList = new ArrayList<>();
+        snapList = new ArrayList<>();
+        m_Scale = pageObjects.get(pageNumber).getScale();
+        shapeObjList.addAll(pageObjects.get(pageNumber).getShapeList());
+        stampList.addAll(pageObjects.get(pageNumber).getStampList());
+        snapList.addAll(pageObjects.get(pageNumber).getSnapList());
+        setCanvas();
+    }
+
+    public void redrawShapes() {
 
         pane.getChildren().clear();
         pane.getChildren().add(circle);
         circle.setVisible(false);
 
-        if (m_Scale == 0) {
+        if (pageObjects.get(pageNumber).getScale() == 0) {
             if (!pane.getChildren().contains(noScaleLabel)) {
                 FontLoader fontLoader = Toolkit.getToolkit().getFontLoader();
 
@@ -901,7 +891,7 @@ public class workspaceController implements Initializable {
                 noScaleLabel.setLayoutY(15);
                 pane.getChildren().add(noScaleLabel);
 
-                LENGTH.setDisable(true);
+//                LENGTH.setDisable(true);
                 AREA.setDisable(true);
                 STAMP.setDisable(true);
 
@@ -961,9 +951,11 @@ public class workspaceController implements Initializable {
                         double length = (p1.distance(p2) / m_Scale);
                         sp1.setLength(Math.round(length * 100.0) / 100.0);
                         Label lbl = new Label(sp1.getLength() + " mm");
+                        double theta = Math.atan2(p2.getY() - p1.getY(), p2.getX() - p1.getX());
                         lbl.setFont(new Font("Arial", 36));
+                        lbl.setRotate(theta * 180 / Math.PI);
                         lbl.setLayoutY(mid.getY());
-                        lbl.setLayoutX(mid.getX());
+                        lbl.setLayoutX(mid.getX() - (55 / group.getScaleY()));
                         lbl.setOnMouseEntered(event -> {
                             lbl.setStyle("-fx-background-color: white");
                             lbl.setOpacity(1);
@@ -991,13 +983,13 @@ public class workspaceController implements Initializable {
                     Rectangle rect = (Rectangle) sp;
                     double centerX = rect.getX() + rect.getWidth() / 2;
                     double centerY = rect.getY() + rect.getHeight() / 2;
-                    rect.setStrokeWidth(6 / group.getScaleY());
-                    rect.setX(centerX - 10 / group.getScaleY());
-                    rect.setY(centerY - 10 / group.getScaleY());
-                    rect.setWidth(20 / group.getScaleY());
-                    rect.setHeight(20 / group.getScaleY());
+                    rect.setStrokeWidth(4 / group.getScaleY());
+                    rect.setX(centerX - 5 / group.getScaleY());
+                    rect.setY(centerY - 5 / group.getScaleY());
+                    rect.setWidth(10 / group.getScaleY());
+                    rect.setHeight(10 / group.getScaleY());
                 } else {
-                    sp.setStrokeWidth(8 / group.getScaleY());
+                    sp.setStrokeWidth(5 / group.getScaleY());
                 }
             }
             if (node.getClass() == Label.class) {
@@ -1007,8 +999,6 @@ public class workspaceController implements Initializable {
         });
     }
 
-
-    //==PAGE FUNCTIONS
     public void zoom(ScrollEvent event) {
         if (event.getDeltaY() == 0) {
             return;
@@ -1032,13 +1022,13 @@ public class workspaceController implements Initializable {
                             Rectangle rect = (Rectangle) sp;
                             double centerX = rect.getX() + rect.getWidth() / 2;
                             double centerY = rect.getY() + rect.getHeight() / 2;
-                            rect.setStrokeWidth(6 / group.getScaleY());
-                            rect.setX(centerX - 10 / group.getScaleY());
-                            rect.setY(centerY - 10 / group.getScaleY());
-                            rect.setWidth(20 / group.getScaleY());
-                            rect.setHeight(20 / group.getScaleY());
+                            rect.setStrokeWidth(4 / group.getScaleY());
+                            rect.setX(centerX - 5 / group.getScaleY());
+                            rect.setY(centerY - 5 / group.getScaleY());
+                            rect.setWidth(10 / group.getScaleY());
+                            rect.setHeight(10 / group.getScaleY());
                         } else {
-                            sp.setStrokeWidth(8 / group.getScaleY());
+                            sp.setStrokeWidth(5 / group.getScaleY());
                         }
                     }
                     if (node.getClass() == Label.class) {
@@ -1102,45 +1092,9 @@ public class workspaceController implements Initializable {
     }
 
 
-    //==PAGE SETUPS
-    public void setupCanvas() {
-        group.setScaleY(1);
-        group.setScaleX(1);
-        try {
-            fxImage = SwingFXUtils.toFXImage(ImageIO.read(imgArr[pageNumber]), null);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        canvas.setWidth(fxImage.getWidth());
-        canvas.setHeight(fxImage.getHeight());
-        pane.setPrefSize(canvas.getWidth(), canvas.getHeight());
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-        gc.drawImage(fxImage, 0, 0);
-        origScaleX = group.getScaleX();
-        origScaleY = group.getScaleY();
-        double newScale = group.getScaleX();
-        for (int x = 0; x < 12; x++) {
-            newScale *= (1 / 1.1);
-        }
-        group.setScaleX(newScale);
-        group.setScaleY(newScale);
-        redrawShapes();
-    }
-
-    public void setupPageElements() {
-        shapeObjList = new ArrayList<>();
-        stampList = new ArrayList<>();
-        snapList = new ArrayList<>();
-        m_Scale = pageObjects.get(pageNumber).getScale();
-        shapeObjList.addAll(pageObjects.get(pageNumber).getShapeList());
-        stampList.addAll(pageObjects.get(pageNumber).getStampList());
-        snapList.addAll(pageObjects.get(pageNumber).getSnapList());
-        setupCanvas();
-    }
-
     //==MEASUREMENT POPUPS
-    private void viewMeasurementList() {
+    //Todo -> Stays here but minimize code and make it non blocking
+    public void viewMeasurementList() {
         if (shortListPane.isVisible()) {
             shortListPane.setVisible(false);
             hideShortList();
@@ -1214,7 +1168,6 @@ public class workspaceController implements Initializable {
             String box = ((JFXCheckBox) node).getText();
             JFXButton button = new JFXButton(box);
             shortListBox.getChildren().add(button);
-
             button.setOnMouseClicked(event -> {
                 switch (button.getText()) {
                     case "Preliminary & General":
@@ -1681,6 +1634,9 @@ public class workspaceController implements Initializable {
         canDraw = true;
         color = colorPicker.getValue();
 
+        tools.setColor(color);
+        tools.setMode(mode);
+
         hideShortList();
         shortListPane.setVisible(false);
         sectionPane.setVisible(false);
@@ -1866,7 +1822,6 @@ public class workspaceController implements Initializable {
             showSets(((JFXButton) node).getText());
         }));
     }
-
 
     private void showSets(String type) {
         //foundations
