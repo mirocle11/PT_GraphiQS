@@ -401,7 +401,7 @@ public class setsData {
             "Barrier Line GBT(L)AB 60b", "GBSA 60c", "GBSA 60r1", "GBT 120a", "GBT 120b", "GBT 15", "GBT 180", "GBT 30a", "GBT 30b",
             "GBT 60a", "GBT 90", "GBT(L)A 30a", "GBT(L)A 30b", "GBT(L)A 45r", "GBT(L)A 60", "GBT(L)A 60r", "GBT(L)A 90c", "GBT(L)A 90d",
             "GBT(L)A 90r", "GBT(L)IC 45", "GBT(L)IC 60", "GBT(L)IC 60a", "GBTL 120", "GBTL 60b", "GBUW 120", "GBUW 15", "GBUW 30a",
-            "GBUW 30b", "GBUW 60a", "GBUW 60a", "GBUW 60b", "GBUW 90", "GNT 102", "GNT 103", "GNT 104", "GNT 132", "GNT 133", "GNT 134",
+            "GBUW 30b", "GBUW 60a", "GBUW 60b", "GBUW 90", "GNT 102", "GNT 103", "GNT 104", "GNT 132", "GNT 133", "GNT 134",
             "GST 102", "GST 103", "GST 104", "GST 132", "GST 133", "GST 134");
 
     public static ObservableList<String> WET_LININGS_WALLS = FXCollections.observableArrayList("Aqualine 10mm",
@@ -955,7 +955,7 @@ public class setsData {
     public static ObservableList<String> EXT_LINING_UPPER_LEVEL = FXCollections.observableArrayList("10 Series Masonry Veneer",
             "12mm AD H3 Ply", "A-Lign 142mm Bev Back", "A-Lign 187mm Bev Back", "Axon Panel", "B&Batten Cedar", "B&Batten Rad H3",
             "Bevel Back Cedar", "Bevel Back FJ PP", "Bevel Back H3 Clears", "Brick", "Building Paper Only", "Cedar Wall Shingles on 9.0mm Ply",
-            "Corrugated Iron 0.40g", "Eterpan Vent Clad Plaster","Eterside Cladding", "ExoTec Board", "Fast Block", "Feature Board",
+            "Corrugated Iron 0.40g", "Eterpan Vent Clad Plaster", "Eterside Cladding", "ExoTec Board", "Fast Block", "Feature Board",
             "Garisson Bevel Back H3.1 142x18mm", "HP120 150mm Cedar B&Batten", "HP50 150mm Vert Cedar Shiplap", "HP61 150mm Cedar Bev Back",
             "HP67 150mm Cedar Rusticated", "Hardibacker", "Hardies Shingleside Straight","Hardiflex 6mm", "Hardiflex 7.5mm", "Hardiplank",
             "Linea", "Monotek", "NuLine Plus W/B", "Palliside", "Rusticated Cedar", "Rusticated FJ PP", "Rusticated H3 Rad Clears",

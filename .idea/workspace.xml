@@ -7,33 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="added snap function v 1.01">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/SpObj.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Views/FxConcurrencyExample3.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Views/WebView131Test.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Views/ZoomAndScrollApplication.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Views/hala.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Views/test.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/service/Area.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/service/DrawService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/service/FileService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/service/IMeasurement.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/service/Length.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/service/LongRunningTaskExample.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/service/PdfToImageService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/service/Scale.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/service/Tools.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController$1.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/service/OpenFileService.java" afterPath="$PROJECT_DIR$/src/Views/OpenFileService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/PageObject.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/PageObject.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/ShapeObject.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/ShapeObject.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/PTGraphiQS_jar/PTGraphiQS.jar" afterPath="$PROJECT_DIR$/out/artifacts/PTGraphiQS_jar/PTGraphiQS.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Data/sets/setsData.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Data/sets/setsData.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/Loader.java" afterPath="$PROJECT_DIR$/src/Controllers/Loader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/PageObject.java" afterPath="$PROJECT_DIR$/src/Model/PageObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ShapeObject.java" afterPath="$PROJECT_DIR$/src/Model/ShapeObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Views/workspace.fxml" afterPath="$PROJECT_DIR$/src/Views/workspace.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Data/sets/setsData.java" afterPath="$PROJECT_DIR$/src/Data/sets/setsData.java" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
     <list id="4dddbee8-77b6-41fd-be25-1624817806eb" name="Revert &quot;#60 commit&quot;" comment="Revert &quot;#60 commit&quot;&#10;&#10;This reverts commit 096c3c72" />
@@ -64,217 +41,64 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Length.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/service/Length.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="172" column="61" lean-forward="true" selection-start-line="172" selection-start-column="61" selection-end-line="172" selection-end-column="61" />
-              <folding>
-                <element signature="docComment;class#Length#0" expanded="false" />
-                <element signature="method#Length#0;class#Length#0" expanded="false" />
-                <element signature="e#1477#1529#0" expanded="false" />
-                <element signature="e#1573#1629#0" expanded="false" />
-                <element signature="method#handleMouseMove#0;class#Length#0" expanded="false" />
-                <element signature="e#6166#6201#0" expanded="false" />
-                <element signature="method#drawBox#0;class#Length#0" expanded="false" />
-                <element signature="e#7694#7750#0" expanded="false" />
-                <element signature="e#7780#7838#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Scale.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/service/Scale.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="42" column="31" lean-forward="true" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DrawService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/service/DrawService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="32" column="36" lean-forward="false" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
-              <folding>
-                <element signature="docComment;class#DrawService#0" expanded="false" />
-                <element signature="method#DrawService#0;class#DrawService#0" expanded="false" />
-                <element signature="method#drawBox#0;class#DrawService#0" expanded="false" />
-                <element signature="e#1607#1699#0" expanded="false" />
-                <element signature="method#drawLabel#0;class#DrawService#0" expanded="false" />
-                <element signature="e#2542#2663#0" expanded="false" />
-                <element signature="e#2699#2827#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Loader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/Loader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="76" column="79" lean-forward="true" selection-start-line="76" selection-start-column="79" selection-end-line="76" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IMeasurement.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/service/IMeasurement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="63" lean-forward="false" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShapeObject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/ShapeObject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1173">
-              <caret line="172" column="38" lean-forward="true" selection-start-line="172" selection-start-column="38" selection-end-line="172" selection-end-column="38" />
-              <folding>
-                <element signature="method#setStampList#0;class#ShapeObject#0" expanded="false" />
-                <element signature="e#1808#1869#0" expanded="false" />
-                <element signature="method#setPointList#0;class#ShapeObject#0" expanded="false" />
-                <element signature="e#2272#2335#0" expanded="false" />
-                <element signature="e#3051#3115#0" expanded="false" />
-                <element signature="e#3149#3209#0" expanded="false" />
-                <element signature="e#3876#4029#0" expanded="false" />
-                <element signature="e#4150#4303#0" expanded="false" />
-                <element signature="e#4649#4802#0" expanded="false" />
-                <element signature="e#5581#5645#0" expanded="false" />
-                <element signature="e#5679#5745#0" expanded="false" />
-                <element signature="e#6840#6993#0" expanded="false" />
-                <element signature="method#createPolygon#0;class#ShapeObject#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="historyData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Data/historyData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="workspaceController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/workspaceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="760">
-              <caret line="713" column="9" lean-forward="true" selection-start-line="713" selection-start-column="9" selection-end-line="713" selection-end-column="9" />
+            <state relative-caret-position="391">
+              <caret line="167" column="35" lean-forward="false" selection-start-line="167" selection-start-column="20" selection-end-line="167" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5618#5680#0" expanded="false" />
-                <element signature="e#6204#6557#0" expanded="false" />
                 <element signature="method#openFile#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#13632#13683#0" expanded="false" />
-                <element signature="method#scaleAction#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#18121#18159#0" expanded="false" />
-                <element signature="e#18241#18266#0" expanded="false" />
-                <element signature="method#nextPageAction#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#18755#18823#0" expanded="false" />
-                <element signature="method#previousPageAction#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#19274#19342#0" expanded="false" />
-                <element signature="method#drawRectAction#0;class#workspaceController#0" expanded="false" />
-                <element signature="method#stampAction#0;class#workspaceController#0" expanded="false" />
-                <element signature="method#updateLine#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#24997#25080#0" expanded="false" />
-                <element signature="e#25129#25441#0" expanded="false" />
-                <element signature="e#27698#27766#0" expanded="false" />
-                <element signature="e#27803#27867#0" expanded="false" />
-                <element signature="e#28155#28246#0" expanded="false" />
-                <element signature="e#29267#29323#0" expanded="false" />
-                <element signature="e#29353#29411#0" expanded="false" />
-                <element signature="method#createLabel#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#32358#32479#0" expanded="false" />
-                <element signature="e#32515#32643#0" expanded="false" />
-                <element signature="method#setCanvas#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#33591#33620#0" expanded="false" />
-                <element signature="e#34030#34071#0" expanded="false" />
-                <element signature="method#setPageElements#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#36874#37006#0" expanded="false" />
-                <element signature="e#37046#37185#0" expanded="false" />
-                <element signature="e#38411#38567#0" expanded="false" />
-                <element signature="e#38615#38778#0" expanded="false" />
-                <element signature="e#39265#40253#0" expanded="false" />
-                <element signature="e#40467#40535#0" expanded="false" />
-                <element signature="method#figureScrollOffset#0;class#workspaceController#0" expanded="false" />
-                <element signature="method#repositionScroller#0;class#workspaceController#0" expanded="false" />
-                <element signature="method#clamp#0;class#workspaceController#0" expanded="false" />
+                <element signature="method#saveFile#0;class#workspaceController#0" expanded="false" />
+                <element signature="e#18612#18613#0" expanded="true" />
+                <element signature="e#18667#18668#0" expanded="true" />
                 <element signature="method#handlePan#0;class#workspaceController#0" expanded="false" />
                 <element signature="method#viewMeasurementList#0;class#workspaceController#0" expanded="false" />
                 <element signature="method#structureListTransition#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#45779#45904#0" expanded="false" />
-                <element signature="e#46287#46461#0" expanded="false" />
                 <element signature="method#closeMeasurementList#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#46861#47019#0" expanded="false" />
                 <element signature="method#selectAll#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#47163#47242#0" expanded="false" />
                 <element signature="method#addStructure#0;class#workspaceController#0" expanded="false" />
                 <element signature="method#accept#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#47881#69669#0" expanded="false" />
-                <element signature="e#58477#58590#0" expanded="false" />
+                <element signature="method#sectionDoneAction#0;class#workspaceController#0" expanded="false" />
                 <element signature="method#hideShortList#0;class#workspaceController#0" expanded="false" />
                 <element signature="method#buttonsAction#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#72104#72176#0" expanded="false" />
-                <element signature="e#72262#72334#0" expanded="false" />
-                <element signature="e#72416#72488#0" expanded="false" />
-                <element signature="e#72567#72639#0" expanded="false" />
-                <element signature="e#72720#72792#0" expanded="false" />
-                <element signature="e#72869#72941#0" expanded="false" />
-                <element signature="e#73022#73094#0" expanded="false" />
-                <element signature="e#73175#73247#0" expanded="false" />
-                <element signature="e#73327#73399#0" expanded="false" />
-                <element signature="e#73479#73551#0" expanded="false" />
-                <element signature="e#73633#73705#0" expanded="false" />
-                <element signature="e#73785#73857#0" expanded="false" />
-                <element signature="e#73945#74017#0" expanded="false" />
-                <element signature="e#74096#74168#0" expanded="false" />
-                <element signature="e#74250#74322#0" expanded="false" />
-                <element signature="e#74400#74472#0" expanded="false" />
-                <element signature="e#74560#74632#0" expanded="false" />
-                <element signature="e#74712#74784#0" expanded="false" />
-                <element signature="e#74866#74938#0" expanded="false" />
-                <element signature="e#75016#75088#0" expanded="false" />
-                <element signature="e#75166#75238#0" expanded="false" />
-                <element signature="e#75316#75388#0" expanded="false" />
-                <element signature="e#75466#75538#0" expanded="false" />
-                <element signature="e#75617#75689#0" expanded="false" />
-                <element signature="e#75770#75842#0" expanded="false" />
-                <element signature="e#75922#75994#0" expanded="false" />
-                <element signature="e#76070#76142#0" expanded="false" />
-                <element signature="e#76218#76290#0" expanded="false" />
-                <element signature="e#76363#76435#0" expanded="false" />
-                <element signature="e#76513#76585#0" expanded="false" />
-                <element signature="e#76664#76736#0" expanded="false" />
-                <element signature="e#76816#76888#0" expanded="false" />
-                <element signature="e#76965#77037#0" expanded="false" />
-                <element signature="e#77115#77187#0" expanded="false" />
-                <element signature="e#77271#77343#0" expanded="false" />
-                <element signature="e#77417#77489#0" expanded="false" />
-                <element signature="e#77565#77637#0" expanded="false" />
-                <element signature="e#77719#77791#0" expanded="false" />
-                <element signature="e#77868#77940#0" expanded="false" />
-                <element signature="e#78018#78090#0" expanded="false" />
-                <element signature="e#78170#78242#0" expanded="false" />
-                <element signature="e#78322#78394#0" expanded="false" />
-                <element signature="e#78470#78542#0" expanded="false" />
-                <element signature="method#showSets#0;class#workspaceController#0" expanded="false" />
+                <marker date="1582093049856" expanded="false" signature="78592:119946" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Loader.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/Loader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="61" column="13" lean-forward="true" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sectionPopupController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/sectionPopupController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="62" lean-forward="true" selection-start-line="10" selection-start-column="62" selection-end-line="10" selection-end-column="62" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="36" column="25" lean-forward="false" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -409,7 +233,7 @@
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1096" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectId" id="1Q2xk7vGkU1u9iEO53La1s8iEqU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -431,6 +255,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -453,115 +278,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="temp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PT_GraphiQS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PT_GraphiQS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ZoomAndScrollApplication.java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PT_GraphiQS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PT_GraphiQS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PT_GraphiQS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PT_GraphiQS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PT_GraphiQS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PT_GraphiQS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PT_GraphiQS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PT_GraphiQS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PT_GraphiQS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PT_GraphiQS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -585,7 +302,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
@@ -626,6 +342,7 @@
     <property name="recentsLimit" value="5" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -641,6 +358,143 @@
       <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Floors" />
       <recent name="C:\Users\User\Documents\IdeaProjects\PTGraphiQS\src\Views" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/PTGraphiQS/Model/PageObject.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/PTGraphiQS/Model/ShapeObject.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Controllers/Loader.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Controllers/workspaceController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Model/PageObject.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Model/ShapeObject.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Views/workspace.fxml</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Model/SpObj.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Views/FxConcurrencyExample3.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Views/OpenFileService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Views/WebView131Test.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Views/ZoomAndScrollApplication.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Views/hala.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Views/test.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/service/Area.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/service/DrawService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/service/FileService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/service/IMeasurement.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/service/Length.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/service/LongRunningTaskExample.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/service/PdfToImageService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/service/Scale.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/service/Tools.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController$1.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/service/OpenFileService.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -1640,41 +1494,64 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193271000" />
+    <option name="totallyTimeSpent" value="199237000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875264" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16822916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3174442" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.165625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3995943" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3174442" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.165625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.336714" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3995943" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.336714" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1768,19 +1645,11 @@
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/Controllers/workspaceController.java</url>
-          <line>181</line>
-          <properties class="Controllers.workspaceController" method="openFile">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="31" />
+      <option name="time" value="33" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1789,13 +1658,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Loader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1860,13 +1722,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Paige.java" />
     <entry file="file://$PROJECT_DIR$/temp/svg/svg_0.svg" />
-    <entry file="file://$PROJECT_DIR$/temp/svg_0.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/temp/svg_0.svg" />
     <entry file="file://$PROJECT_DIR$/src/service/FileSave.java" />
     <entry file="file://$PROJECT_DIR$/src/Views/FxConcurrencyExample3.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1918,8 +1774,8 @@
           <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding>
             <element signature="e#0#1107#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#1042#1043#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1042#1043#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1947,8 +1803,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state relative-caret-position="612">
+          <caret line="36" column="25" lean-forward="false" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2078,7 +1937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2086,7 +1944,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="903">
           <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2094,7 +1951,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2102,7 +1958,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
           <caret line="23" column="50" lean-forward="true" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2118,15 +1973,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Loader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="76" column="79" lean-forward="true" selection-start-line="76" selection-start-column="79" selection-end-line="76" selection-end-column="79" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2134,9 +1980,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="63" lean-forward="false" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2162,119 +2005,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/workspaceController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="713" column="9" lean-forward="true" selection-start-line="713" selection-start-column="9" selection-end-line="713" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5618#5680#0" expanded="false" />
-            <element signature="e#6204#6557#0" expanded="false" />
-            <element signature="method#openFile#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#13632#13683#0" expanded="false" />
-            <element signature="method#scaleAction#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#18121#18159#0" expanded="false" />
-            <element signature="e#18241#18266#0" expanded="false" />
-            <element signature="method#nextPageAction#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#18755#18823#0" expanded="false" />
-            <element signature="method#previousPageAction#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#19274#19342#0" expanded="false" />
-            <element signature="method#drawRectAction#0;class#workspaceController#0" expanded="false" />
-            <element signature="method#stampAction#0;class#workspaceController#0" expanded="false" />
-            <element signature="method#updateLine#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#24997#25080#0" expanded="false" />
-            <element signature="e#25129#25441#0" expanded="false" />
-            <element signature="e#27698#27766#0" expanded="false" />
-            <element signature="e#27803#27867#0" expanded="false" />
-            <element signature="e#28155#28246#0" expanded="false" />
-            <element signature="e#29267#29323#0" expanded="false" />
-            <element signature="e#29353#29411#0" expanded="false" />
-            <element signature="method#createLabel#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#32358#32479#0" expanded="false" />
-            <element signature="e#32515#32643#0" expanded="false" />
-            <element signature="method#setCanvas#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#33591#33620#0" expanded="false" />
-            <element signature="e#34030#34071#0" expanded="false" />
-            <element signature="method#setPageElements#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#36874#37006#0" expanded="false" />
-            <element signature="e#37046#37185#0" expanded="false" />
-            <element signature="e#38411#38567#0" expanded="false" />
-            <element signature="e#38615#38778#0" expanded="false" />
-            <element signature="e#39265#40253#0" expanded="false" />
-            <element signature="e#40467#40535#0" expanded="false" />
-            <element signature="method#figureScrollOffset#0;class#workspaceController#0" expanded="false" />
-            <element signature="method#repositionScroller#0;class#workspaceController#0" expanded="false" />
-            <element signature="method#clamp#0;class#workspaceController#0" expanded="false" />
-            <element signature="method#handlePan#0;class#workspaceController#0" expanded="false" />
-            <element signature="method#viewMeasurementList#0;class#workspaceController#0" expanded="false" />
-            <element signature="method#structureListTransition#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#45779#45904#0" expanded="false" />
-            <element signature="e#46287#46461#0" expanded="false" />
-            <element signature="method#closeMeasurementList#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#46861#47019#0" expanded="false" />
-            <element signature="method#selectAll#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#47163#47242#0" expanded="false" />
-            <element signature="method#addStructure#0;class#workspaceController#0" expanded="false" />
-            <element signature="method#accept#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#47881#69669#0" expanded="false" />
-            <element signature="e#58477#58590#0" expanded="false" />
-            <element signature="method#hideShortList#0;class#workspaceController#0" expanded="false" />
-            <element signature="method#buttonsAction#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#72104#72176#0" expanded="false" />
-            <element signature="e#72262#72334#0" expanded="false" />
-            <element signature="e#72416#72488#0" expanded="false" />
-            <element signature="e#72567#72639#0" expanded="false" />
-            <element signature="e#72720#72792#0" expanded="false" />
-            <element signature="e#72869#72941#0" expanded="false" />
-            <element signature="e#73022#73094#0" expanded="false" />
-            <element signature="e#73175#73247#0" expanded="false" />
-            <element signature="e#73327#73399#0" expanded="false" />
-            <element signature="e#73479#73551#0" expanded="false" />
-            <element signature="e#73633#73705#0" expanded="false" />
-            <element signature="e#73785#73857#0" expanded="false" />
-            <element signature="e#73945#74017#0" expanded="false" />
-            <element signature="e#74096#74168#0" expanded="false" />
-            <element signature="e#74250#74322#0" expanded="false" />
-            <element signature="e#74400#74472#0" expanded="false" />
-            <element signature="e#74560#74632#0" expanded="false" />
-            <element signature="e#74712#74784#0" expanded="false" />
-            <element signature="e#74866#74938#0" expanded="false" />
-            <element signature="e#75016#75088#0" expanded="false" />
-            <element signature="e#75166#75238#0" expanded="false" />
-            <element signature="e#75316#75388#0" expanded="false" />
-            <element signature="e#75466#75538#0" expanded="false" />
-            <element signature="e#75617#75689#0" expanded="false" />
-            <element signature="e#75770#75842#0" expanded="false" />
-            <element signature="e#75922#75994#0" expanded="false" />
-            <element signature="e#76070#76142#0" expanded="false" />
-            <element signature="e#76218#76290#0" expanded="false" />
-            <element signature="e#76363#76435#0" expanded="false" />
-            <element signature="e#76513#76585#0" expanded="false" />
-            <element signature="e#76664#76736#0" expanded="false" />
-            <element signature="e#76816#76888#0" expanded="false" />
-            <element signature="e#76965#77037#0" expanded="false" />
-            <element signature="e#77115#77187#0" expanded="false" />
-            <element signature="e#77271#77343#0" expanded="false" />
-            <element signature="e#77417#77489#0" expanded="false" />
-            <element signature="e#77565#77637#0" expanded="false" />
-            <element signature="e#77719#77791#0" expanded="false" />
-            <element signature="e#77868#77940#0" expanded="false" />
-            <element signature="e#78018#78090#0" expanded="false" />
-            <element signature="e#78170#78242#0" expanded="false" />
-            <element signature="e#78322#78394#0" expanded="false" />
-            <element signature="e#78470#78542#0" expanded="false" />
-            <element signature="method#showSets#0;class#workspaceController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Data/historyData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2282,15 +2016,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="32" column="36" lean-forward="false" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
-          <folding>
-            <element signature="docComment;class#DrawService#0" expanded="false" />
-            <element signature="method#DrawService#0;class#DrawService#0" expanded="false" />
-            <element signature="method#drawBox#0;class#DrawService#0" expanded="false" />
-            <element signature="e#1607#1699#0" expanded="false" />
-            <element signature="method#drawLabel#0;class#DrawService#0" expanded="false" />
-            <element signature="e#2542#2663#0" expanded="false" />
-            <element signature="e#2699#2827#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2316,6 +2041,51 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="469">
           <caret line="42" column="31" lean-forward="true" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/sectionPopupController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="62" lean-forward="true" selection-start-line="10" selection-start-column="62" selection-end-line="10" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/workspaceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="167" column="35" lean-forward="false" selection-start-line="167" selection-start-column="20" selection-end-line="167" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#openFile#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#saveFile#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#18612#18613#0" expanded="true" />
+            <element signature="e#18667#18668#0" expanded="true" />
+            <element signature="method#handlePan#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#viewMeasurementList#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#structureListTransition#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#closeMeasurementList#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#selectAll#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#addStructure#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#accept#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#sectionDoneAction#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#hideShortList#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#buttonsAction#0;class#workspaceController#0" expanded="false" />
+            <marker date="1582093049856" expanded="false" signature="78592:119946" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Loader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="61" column="13" lean-forward="true" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
