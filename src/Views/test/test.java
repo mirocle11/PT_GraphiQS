@@ -1,4 +1,4 @@
-package Views;
+package Views.test;
 
 /**
  * Created by User on 22/01/2020.

@@ -1,4 +1,4 @@
-package Views;
+package Views.test;
 
 
 import Controllers.workspaceController;

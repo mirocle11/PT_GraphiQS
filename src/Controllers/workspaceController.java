@@ -1,6 +1,7 @@
 package Controllers;
 
 import Data.historyData;
+import Main.Main;
 import Model.PageObject;
 import Model.ShapeObject;
 import com.jfoenix.controls.*;
@@ -15,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
@@ -29,6 +31,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Font;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import service.*;
 
@@ -86,7 +91,7 @@ public class workspaceController implements Initializable {
     public AnchorPane sectionPane;
     public JFXColorPicker colorPicker;
     public JFXComboBox<String> setsComboBox;
-
+    public Label label_1, label_2;
 
     //collections
     List<Shape> shapeList = new ArrayList<>();
@@ -128,7 +133,12 @@ public class workspaceController implements Initializable {
     //indicator
     private int bool = 0;
     boolean issetCanvas = false;
-    Tools tools;
+    static Tools tools;
+
+    //create form
+    private static Stage createProjectStage;
+    private double xOffset = 0;
+    private double yOffset = 0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -177,162 +187,42 @@ public class workspaceController implements Initializable {
         }
     }
 
-
-    //Todo ->  Should be a separate class
     public void openFile(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/Views/createProject.fxml"));
+            AnchorPane pane = loader.load();
+
+            //draggable pop up
+            pane.setOnMousePressed(event -> {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            });
+
+            pane.setOnMouseDragged(event -> {
+                createProjectStage.setX(event.getScreenX() - xOffset);
+                createProjectStage.setY(event.getScreenY() - yOffset);
+            });
+
+            Scene scene = new Scene(pane);
+            scene.setFill(Color.TRANSPARENT);
+            scene.getStylesheets().addAll(Main.class.getResource("/Views/CSS/style.css").toExternalForm());
+            createProjectStage = new Stage();
+            createProjectStage.setScene(scene);
+            createProjectStage.initStyle(StageStyle.UNDECORATED);
+            createProjectStage.initModality(Modality.APPLICATION_MODAL);
+            createProjectStage.initStyle(StageStyle.TRANSPARENT);
+            createProjectStage.showAndWait();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    static void openPdfFile() {
         tools.open();
-//
-//        FileChooser openFile = new FileChooser();
-//        openFile.setTitle("Open PDF");
-//
-//        File temp = new File("");
-//        if (pdfFile != null) {
-//            temp = pdfFile;
-//        }
-//
-//        pdfFile = openFile.showOpenDialog(Main.dashboard_stage);
-//
-//        if (pdfFile == null) {
-//            pdfFile = temp;
-//        } else {
-//
-//            if (document != null) {
-//                document.close();
-//            }
-//
-//
-//            document = new PdfDocument();
-//            document.loadFromFile(pdfFile.getAbsolutePath());//load from selectedPdf
-//            document.split(pdfDir.getAbsolutePath() + "/pdf_.pdf");
-//            document.close();
-//            pdfArr = pdfDir.listFiles();
-//
-//
-//            try {
-//
-//                document = new PdfDocument();
-//                document.loadFromFile(pdfArr[0].getAbsolutePath());
-//                bufferedImage = document.saveAsImage(0, PdfImageType.Bitmap, 300, 300);
-//
-//                System.out.println(bufferedImage.getWidth()+" "+bufferedImage.getHeight());
-//                file = new File(imgDir.getAbsolutePath() + "/img_0.png");
-//                ImageIO.write(bufferedImage, "PNG", file);
-//                document.saveToFile(svgDir.getAbsolutePath() + "/svg_0.svg", FileFormat.SVG);
-//                document.close();
-//            } catch (IOException ex) {
-////                System.out.println(ex.getMessage());
-//            }
-//
-//            svgArr = svgDir.listFiles();
-//            imgArr = imgDir.listFiles();
-//            try {
-//                load = new Loader(svgArr[0].getAbsolutePath());
-//                load.getPaths();
-//                String[] pntsA;
-//                double[][] arr;
-//                snapList = new ArrayList<>();
-//                for (int i = 0; i < load.points.size(); i++) {
-//                    try {
-//                        if (!load.points.get(i).equals("") && !load.points.get(i).equals(null)) {
-//                            pntsA = load.points.get(i).split(" ");
-//
-//                            double a = Double.parseDouble(pntsA[0]);
-//                            double b = Double.parseDouble(pntsA[1]);
-//                            arr = new double[1][2];
-//                            arr[0][0] = (a / .23999);
-//
-//                            paneHegiht = pane.getHeight();
-//                            System.out.println(paneHegiht + " paneHeight");
-//
-//                            arr[0][1] = 223 + (pane.getHeight() * 5) - (b / .23999) - 7.7;
-//                            snapList.add(arr);
-//                        }
-//                    } catch (Exception e) {
-////                    System.out.println(e.getMessage());
-//                    }
-//                }
-//
-//                pageObjects.add(new PageObject(0));
-//                PageObject pageObject = pageObjects.get(0);
-//                pageObject.setSnapList(snapList);
-//                pageObject.setShapeObjList(shapeObjList);
-//                pageObject.setStampList(stampList);
-//
-//                snapList.clear();
-//                snapList.clear();
-//                stampList.clear();
-//
-//            } catch (XMLStreamException e) {
-////                System.out.println(e.getMessage());
-//            }
-//
-//            new Thread(new Runnable() {
-//                @Override
-//                public void run() {
-////                    System.out.println("STARTING THREAD ");
-//                    for (int i = 1; i < pdfArr.length; i++) {
-//                        try {
-//                            document = new PdfDocument();
-//                            document.loadFromFile(pdfArr[i].getAbsolutePath());
-//                            bufferedImage = document.saveAsImage(0, PdfImageType.Bitmap, 300, 300);
-//                            file = new File(imgDir.getAbsolutePath() + "/img_" + i + ".png");
-//                            ImageIO.write(bufferedImage, "PNG", file);
-//                            document.saveToFile(svgDir.getAbsolutePath() + "/svg_" + i + ".svg", FileFormat.SVG);
-//                            document.close();
-//                        } catch (IOException e) {
-////                            System.out.println(e.getMessage());
-//                        }
-//                    }
-//                    imgArr = imgDir.listFiles();
-//                    svgArr = svgDir.listFiles();
-//                    for (int j = 1; j < svgArr.length; j++) {
-//                        try {
-//                            load = new Loader(svgArr[j].getAbsolutePath());
-////                            System.out.println(svgArr[j].getAbsoluteFile() + " path " + j);
-//                            load.getPaths();
-//
-//                            String[] pntsA;
-//                            double[][] arr;
-//                            snapList = new ArrayList<>();
-//                            for (int k = 0; k < load.points.size(); k++) {
-//                                try {
-//                                    if (!load.points.get(k).equals("") && !load.points.get(k).equals(null)) {
-//                                        pntsA = load.points.get(k).split(" ");
-//
-//                                        double a = Double.parseDouble(pntsA[0]);
-//                                        double b = Double.parseDouble(pntsA[1]);
-//                                        arr = new double[1][2];
-//                                        arr[0][0] = (a / .23999);
-//                                        arr[0][1] = 223 + (paneHegiht * 5) - (b / .23999) - 7.7;
-//                                        snapList.add(arr);
-//                                    }
-//                                } catch (Exception e) {
-//
-//                                }
-//                            }
-//
-//                            pageObjects.add(new PageObject(j));
-//                            PageObject pageObject = pageObjects.get(j);
-//                            pageObject.setSnapList(snapList);
-//                            pageObject.setShapeObjList(shapeObjList);
-//                            pageObject.setStampList(stampList);
-//
-//                        } catch (XMLStreamException e) {
-////                            System.out.println(e.getMessage());
-//                        }
-//                    }
-//                }
-//            }).start();
-//
-//            SCALE.setDisable(false);
-//            NEXT_PAGE.setDisable(false);
-//            PREVIOUS_PAGE.setDisable(false);
-//            SAVE.setDisable(false);
-//            ROTATE.setDisable(false);
-//            setPageElements();
-//            scroller.setOpacity(1.0);
-//            frontPane.setVisible(false);
-//        }
+    }
+
+    static void closeCreateProject() {
+        createProjectStage.close();
     }
 
     public void saveFile(ActionEvent actionEvent) {
@@ -439,31 +329,10 @@ public class workspaceController implements Initializable {
 
     public void nextPageAction(ActionEvent actionEvent) {
         tools.nextPage();
-
-//        pageObjects.get(pageNumber).setShapeObjList(shapeObjList);
-//        pageObjects.get(pageNumber).setStampList(stampList);
-//        pageObjects.get(pageNumber).setScale(m_Scale);
-//        if (pageNumber < pageObjects.size() - 1) {
-//            pageNumber++;
-//            setPageElements();
-//        }
-//        if (pageObjects.get(pageNumber).getScale() == 0) {
-//            canDraw = false;
-//        }
-
     }
 
     public void previousPageAction(ActionEvent actionEvent) {
         tools.previousPage();
-//        pageObjects.get(pageNumber).setShapeObjList(shapeObjList);
-//        pageObjects.get(pageNumber).setStampList(stampList);
-//        if (pageNumber > 0) {
-//            pageNumber--;
-//            setPageElements();
-//        }
-//        if (pageObjects.get(pageNumber).getScale() == 0) {
-//            canDraw = false;
-//        }
     }
 
     public void drawRectAction(ActionEvent actionEvent) {

@@ -129,7 +129,7 @@
     -fx-font-family: "Segoe UI";
     -fx-font-size: 16;
     -fx-content-display: left;
-    -fx-background-image: url("../images/more_than_25px.png");
+    -fx-background-image: url("../images/more_than_20px.png");
     -fx-background-size: 20px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: 190;
@@ -153,4 +153,18 @@
 
 .jfx-combo-box > .cell {
     -fx-text-fill: gray;
+}
+
+#next {
+    -fx-background-image: url("../images/more_than_20px.png");
+    -fx-background-size: 25px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right;
+}
+
+#mainPane .label {
+    -fx-background-image: url("../images/more_than_25px.png");
+    -fx-background-position: right;
+    -fx-background-size: 25px;
+    -fx-background-repeat: no-repeat;
 }

@@ -28,7 +28,7 @@
 <AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1015.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.workspaceController">
    <children>
       <JFXDrawer fx:id="drawer" defaultDrawerSize="240.0" direction="RIGHT" layoutX="700.0" layoutY="82.0" miniDrawerSize="0.0" prefHeight="515.0" prefWidth="240.0" AnchorPane.bottomAnchor="123.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="82.0" />
-      <ScrollPane fx:id="scroller" centerShape="false" layoutX="78.0" layoutY="16.0" opacity="0.0" pannable="true" prefHeight="660.0" prefWidth="885.0" scaleShape="false" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="30.0">
+      <ScrollPane fx:id="scroller" centerShape="false" layoutX="78.0" layoutY="66.0" opacity="0.0" pannable="true" prefHeight="624.0" prefWidth="885.0" scaleShape="false" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="66.0">
          <content>
             <Group fx:id="scrollContent" onMouseDragged="#handlePan">
                <children>
@@ -3237,5 +3237,15 @@
             </ScrollPane>
          </children>
       </AnchorPane>
+      <Label fx:id="label_1" layoutX="122.0" layoutY="17.0" prefHeight="32.0" prefWidth="140.0" stylesheets="@CSS/style.css" text="Example" textFill="#bcbcbc">
+         <font>
+            <Font name="Segoe UI Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_2" layoutX="300.0" layoutY="17.0" prefHeight="32.0" prefWidth="140.0" stylesheets="@CSS/style.css" text="Example" textFill="#bcbcbc">
+         <font>
+            <Font name="Segoe UI Bold" size="18.0" />
+         </font>
+      </Label>
 </children>
 </AnchorPane>

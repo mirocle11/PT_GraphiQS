@@ -1,4 +1,4 @@
-package Views;//import com.mohamnag.fxwebview_debugger.DevToolsDebuggerServer;
+package Views.test;//import com.mohamnag.fxwebview_debugger.DevToolsDebuggerServer;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;

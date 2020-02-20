@@ -1,4 +1,4 @@
-package Views;
+package Views.test;
 
 import javafx.application.Application;
 import javafx.beans.property.DoubleProperty;
