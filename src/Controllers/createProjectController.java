@@ -1,15 +1,16 @@
 package Controllers;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import service.Tools;
 
 public class createProjectController {
 
     public AnchorPane createBox, firstpane, secondpane;
     public JFXButton next, back, proceed;
-    public Label page;
+    public Label page, second_label;
+    public JFXCheckBox selectAllBox;
 
     public void cancel() {
         workspaceController.closeCreateProject();
@@ -22,15 +23,20 @@ public class createProjectController {
         back.setDisable(false);
         next.setVisible(false);
         proceed.setVisible(true);
+        selectAllBox.setVisible(true);
+        second_label.setVisible(true);
+
         page.setText("2 out of 2");
     }
 
     public void back() {
-       firstpane.setVisible(true);
+        firstpane.setVisible(true);
         secondpane.setVisible(false);
 
         back.setDisable(true);
         next.setVisible(true);
+        selectAllBox.setVisible(false);
+        second_label.setVisible(false);
         proceed.setVisible(false);
         page.setText("1 out of 2");
     }
@@ -38,6 +44,16 @@ public class createProjectController {
     public void proceed() {
         workspaceController.openPdfFile();
         cancel();
+    }
+
+    public void selectAll() {
+        if (selectAllBox.isSelected()) {
+            secondpane.getChildren().forEach(node -> {
+                ((JFXCheckBox) node).setSelected(true);
+            });
+        } else {
+            secondpane.getChildren().forEach(node -> ((JFXCheckBox) node).setSelected(false));
+        }
     }
 
 }

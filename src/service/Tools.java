@@ -10,10 +10,9 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -22,7 +21,6 @@ import javafx.scene.text.Font;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -39,7 +37,8 @@ public class Tools {
     Label noScale;
     VBox box;
     ScrollPane scroller;
-    AnchorPane frontPane;
+    AnchorPane frontPane, loadingPane;
+    GridPane gridPane, innerGridPane;
     List shape = new ArrayList();
     Color color;
     ContextMenu contextMenu;
@@ -102,6 +101,9 @@ public class Tools {
         this.pane = window.pane;
         this.scroller = window.scroller;
         this.frontPane = window.frontPane;
+        this.loadingPane = window.loadingPane;
+        this.gridPane = window.gridPane;
+        this.innerGridPane = window.innerGridPane;
         this.box = window.toolsMenu;
         this.group = window.group;
         this.contextMenu = new ContextMenu();
@@ -128,6 +130,9 @@ public class Tools {
     //File Controlls
     public void open() {
         File pdf = FileService.open();
+        frontPane.setVisible(false);
+        innerGridPane.setVisible(false);
+        loadingPane.setVisible(true);
         PdfToImageService service = new PdfToImageService(pdf);
         service.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
@@ -137,8 +142,9 @@ public class Tools {
                     setPageElements();
                     Tools.disableButtons(new String[]{"LENGTH", "AREA", "STAMP", "RECTANGLE"}, box);
                     scroller.setOpacity(1.0);
-                    frontPane.setVisible(false);
                     issetCanvas = true;
+                    loadingPane.setVisible(false);
+                    gridPane.setVisible(false);
                 }
             }
         });
@@ -379,7 +385,6 @@ public class Tools {
             setMode("FREE");
         }
     }
-
 
     //Utils
     public Point2D clamp(double x, double y) {

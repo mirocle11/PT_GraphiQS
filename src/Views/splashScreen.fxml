@@ -45,7 +45,7 @@
             <JFXSpinner fx:id="spinner" layoutX="191.0" layoutY="116.0" prefHeight="110.0" prefWidth="130.0" radius="65.0" startingAngle="0.0" visible="false" />
          </children>
          <effect>
-            <DropShadow color="#514f4f" height="34.48" radius="17.0175" spread="0.15" width="35.59" />
+            <DropShadow color="#121212" height="35.03" radius="17.155" spread="0.15" width="35.59" />
          </effect>
       </AnchorPane>
    </children>

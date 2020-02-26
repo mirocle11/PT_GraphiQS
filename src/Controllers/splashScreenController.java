@@ -47,7 +47,7 @@ public class splashScreenController implements Initializable {
 
         TranslateTransition titlePaneTransition = new TranslateTransition(Duration.seconds(0.5), titlePane);
         titlePaneTransition.setByY(700);
-        titlePaneTransition.play();
+        titlePaneTransition.play    ();
 
         TranslateTransition waitLabelTransition = new TranslateTransition(Duration.seconds(0.5), waitLabel);
         waitLabelTransition.setByY(700);
