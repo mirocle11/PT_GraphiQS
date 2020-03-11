@@ -22,6 +22,10 @@ public class createProjectController {
     }
 
     public void next() {
+        secondpane.getChildren().forEach(node -> {
+            ((JFXCheckBox)node).setSelected(false);
+        });
+
         firstpane.setVisible(false);
         secondpane.setVisible(true);
 
@@ -40,6 +44,7 @@ public class createProjectController {
 
         back.setDisable(true);
         next.setVisible(true);
+        proceed.setVisible(false);
         selectAllBox.setVisible(false);
         second_label.setVisible(false);
 
