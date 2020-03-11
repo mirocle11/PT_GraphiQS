@@ -1,15 +1,15 @@
 package Controllers;
 
 import Data.historyData;
-import Data.sets.wallData;
+import Data.sets.WallData;
 import Main.Main;
 import Model.PageObject;
 import Model.ShapeObject;
 import com.jfoenix.controls.*;
 import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
-import com.sun.javafx.tk.FontLoader;
-import com.sun.javafx.tk.Toolkit;
 import javafx.animation.TranslateTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Point2D;
@@ -17,7 +17,6 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
@@ -33,7 +32,6 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import service.*;
 
-import javax.swing.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -50,8 +48,9 @@ public class workspaceController implements Initializable {
     public Button NEXT_PAGE, PREVIOUS_PAGE;
     public JFXHamburger hamburger;
 
-    //combo box
-    public JFXComboBox structureComboBox, wallsComboBox, typeComboBox, choicesComboBox;
+    //combo box (for selection)
+    public JFXComboBox wallsComboBox, typeComboBox, choicesComboBox, structureComboBox;
+    public JFXColorPicker colorPicker;
 
     //checkbox
     public JFXCheckBox selectAllBox;
@@ -106,18 +105,25 @@ public class workspaceController implements Initializable {
 
     //static classes
     static Tools tools;
-    static  wallData wallData;
+    static WallData wallData;
 
     //create form
     private static Stage createProjectStage;
     private double xOffset = 0;
     private double yOffset = 0;
 
+    private static ObservableList<String> selectedBoxes = FXCollections.observableArrayList();
+    private ObservableList<String> newItemsList = FXCollections.observableArrayList();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        wallData = new wallData(this);
+        wallData = new WallData(this);
+        wallData.structureAction();
         wallData.wallsAction();
         wallData.typeAction();
+        wallData.choicesAction();
+
+        unselectAllAction();
 
         tools = new Tools(this);
         tools.setMode("FREE");
@@ -191,8 +197,28 @@ public class workspaceController implements Initializable {
         }
     }
 
-    public static void openPdfFile() {
+    static void openPdfFile() {
         tools.open();
+    }
+
+    static void getSelectedStructures(ObservableList<String> selectedStructure) {
+        selectedBoxes = selectedStructure;
+    }
+
+    public void setStructures() {
+        structureComboBox.getItems().clear();
+        structureComboBox.setItems(selectedBoxes);
+        System.out.println(selectedBoxes);
+    }
+
+    public void connectStructures() {
+        structureBox.getChildren().forEach((Node node) -> {
+            createProjectController.list.forEach((String s) -> {
+                if (((JFXCheckBox) node).getText().equals(s)) {
+                    ((JFXCheckBox) node).setSelected(true);
+                }
+            });
+        });
     }
 
     public static void closeCreateProject() {
@@ -240,127 +266,8 @@ public class workspaceController implements Initializable {
     }
 
     //Todo ->  Should be a service or in a thread safe environment
-    public void drawAction(MouseEvent event) {
-        if (event.getButton() == MouseButton.SECONDARY) {
-            return;
-        }
-
-        if (!canDraw) {
-            return;
-        }
-
-        Point2D clamp = clamp(event.getX(), event.getY());
-
-        if (mode == "SCALE") {
-            if (isNew) {
-                line.setVisible(true);
-                if (snapX != -1 && snapY != -1) {
-                    line.setStartX(snapX);
-                    line.setStartY(snapY);
-                    line.setEndX(snapX);
-                    line.setEndY(snapY);
-                } else {
-                    line.setStartX(clamp.getX());
-                    line.setStartY(clamp.getY());
-                    line.setEndX(clamp.getX());
-                    line.setEndY(clamp.getY());
-                }
-
-                line.setStroke(Color.CHOCOLATE);
-                line.setStrokeWidth(5 / group.getScaleY());
-                line.setVisible(true);
-                pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
-
-                snapX = snapY = -1;
-
-                isNew = false;
-            } else {
-
-                if (snapX != -1 && snapY != -1) {
-                    line.setEndX(snapX);
-                    line.setEndY(snapY);
-                }
-                Point2D start = new Point2D(line.getStartX(), line.getStartY());
-                Point2D end = new Point2D(line.getEndX(), line.getEndY());
-                try {
-                    if (pane.getChildren().add(createBox(line.getEndX(), line.getEndY()))) {
-                        double m_input = Float.parseFloat(JOptionPane.showInputDialog("Enter Scale (mm)", 0.00 + " mm"));
-                        if (m_input <= 0) {
-                            throw new NumberFormatException();
-                        }
-                        double m_Length = start.distance(end);
-                        m_Scale = m_Length / m_input;
-                    }
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "Please enter a valid number.", "Invalid Scale", JOptionPane.ERROR_MESSAGE);
-                }
-                snapX = snapY = -1;
-                redrawShapes();
-                isNew = true;
-                canDraw = false;
-                scroller.setPannable(true);
-                mode = "FREE_HAND";
-            }
-
-        } else if (mode == "LENGTH") {
-            if (isNew) {
-                setLine(clamp);
-            } else {
-                if (snapX != -1 && snapY != -1) {
-                    line.setEndX(snapX);
-                    line.setEndY(snapY);
-                }
-                Point2D end = new Point2D(line.getEndX(), line.getEndY());
-                pointList.add(end);
-                pane.getChildren().add(createLine(line));
-                pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
-                pane.getChildren().add(createLabel(line));
-                line.setStartX(line.getEndX());
-                line.setStartY(line.getEndY());
-                snapX = snapY = -1;
-
-            }
-        } else if (mode == "AREA") {
-            if (isNew) {
-                setLine(clamp);
-            } else {
-                if (snapX != -1 && snapY != -1) {
-                    line.setEndX(snapX);
-                    line.setEndY(snapY);
-                }
-                Point2D start = new Point2D(line.getStartX(), line.getStartY());
-                Point2D end = new Point2D(line.getEndX(), line.getEndY());
-                Point2D mid = start.midpoint(end);
-                pointList.add(end);
-                snapX = snapY = -1;
-                pane.getChildren().add(createLine(line));
-                pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
-                line.setStartX(line.getEndX());
-                line.setStartY(line.getEndY());
-                line.setEndX(clamp.getX());
-                line.setEndY(clamp.getY());
-            }
-        } else if (mode == "DRAW_RECT") {
-            isNew = true;
-            canDraw = false;
-            ShapeObject sp = new ShapeObject();
-        } else if (mode == "STAMP") {
-            isNew = true;
-            canDraw = false;
-            Rectangle r = new Rectangle(clamp.getX(), clamp.getY(), 20 / group.getScaleY(), 20 / group.getScaleY());
-            r.setFill(color);
-            r.setOpacity(.5);
-            stampList.add(r);
-            pane.getChildren().addAll(r);
-            redrawShapes();
-            mode = "FREE_HAND";
-        }
-    }
-
     public void updateLine(MouseEvent event) {
-
         try {
-
             for (double[][] arr : snapList) {
 
                 int a = (int) arr[0][0] - (int) event.getX();
@@ -389,9 +296,7 @@ public class workspaceController implements Initializable {
                 }
             }
         } catch (Exception ex) {
-//            System.out.println("exception " + ex.getMessage());
         }
-
 
         Point2D cP = clamp(event.getX(), event.getY());
         if (!isNew) {
@@ -478,7 +383,8 @@ public class workspaceController implements Initializable {
     public Shape createBox(double x, double y) {
 
         double boxW = 10;
-        shapeList.add(new Rectangle(x - (5) / group.getScaleY(), y - (5) / group.getScaleY(), boxW / group.getScaleY(), boxW / group.getScaleY()));
+        shapeList.add(new Rectangle(x - (5) / group.getScaleY(), y - (5) / group.getScaleY(),
+                boxW / group.getScaleY(), boxW / group.getScaleY()));
         Rectangle r = (Rectangle) shapeList.get(shapeList.size() - 1);
         r.setStroke(Color.GREEN);
         r.setOpacity(.5);
@@ -508,7 +414,6 @@ public class workspaceController implements Initializable {
             }
 
             shapeObj.setPointList(pointList);
-//            shapeObj.setController(this);
             shapeObj.setType(mode);
 
             shapeObjList.add(shapeObj);
@@ -534,54 +439,6 @@ public class workspaceController implements Initializable {
         return shapeList.get(shapeList.size() - 1);
     }
 
-    public Shape createLine(Line param) {
-        shapeList.add(new Line(line.getStartX(), line.getStartY(), line.getEndX(), line.getEndY()));
-        Line l = (Line) shapeList.get(shapeList.size() - 1);
-
-        l.setStroke(color);
-        l.setStrokeLineCap(StrokeLineCap.BUTT);
-        l.setStrokeWidth(5 / group.getScaleY());
-        l.setOpacity(.5);
-
-        l.setOnMouseEntered(event -> {
-            l.setStroke(Color.RED);
-        });
-        l.setOnMouseExited(event -> {
-            l.setStroke(color);
-        });
-        return shapeList.get(shapeList.size() - 1);
-    }
-
-    public Label createLabel(Line param) {
-        Point2D p1 = new Point2D(param.getStartX(), param.getStartY());
-        Point2D p2 = new Point2D(param.getEndX(), param.getEndY());
-        Point2D mid = p1.midpoint(p2);
-        param.getRotate();
-        if (p1.distance(p2) != 0) {
-            double length = (p1.distance(p2) / m_Scale);
-            Label lbl = new Label(Math.round(length * 100.0) / 100.0 + " mm");
-
-
-            double theta = Math.atan2(p2.getY() - p1.getY(), p2.getX() - p1.getX());
-            lbl.setFont(new Font("Arial", 36 / group.getScaleY()));
-            lbl.setRotate(theta * 180 / Math.PI);
-            lbl.setLayoutY(mid.getY());
-            lbl.setLayoutX(mid.getX() - (55 / group.getScaleY()));
-            lbl.setOnMouseEntered(event1 -> {
-                lbl.setStyle("-fx-background-color: white");
-                lbl.setOpacity(1);
-            });
-            lbl.setOnMouseExited(event1 -> {
-                lbl.setStyle("-fx-background-color: transparent");
-                lbl.setOpacity(.5);
-            });
-            lbl.setTextFill(color);
-            lbl.setOpacity(.5);
-            return lbl;
-        }
-        return new Label();
-    }
-
     public void setLine(Point2D clamp) {
         if (snapX != -1 && snapY != -1) {
             line.setStartX(snapX);
@@ -605,39 +462,6 @@ public class workspaceController implements Initializable {
         snapX = snapY = -1;
     }
 
-    public void setCanvas() {
-//        group.setScaleY(1);
-//        group.setScaleX(1);
-        fxImage = pageObjects.get(pageNumber).getImage();
-        canvas.setWidth(fxImage.getWidth());
-        canvas.setHeight(fxImage.getHeight());
-        pane.setPrefSize(canvas.getWidth(), canvas.getHeight());
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-        gc.drawImage(fxImage, 0, 0);
-//        origScaleX = group.getScaleX();
-//        origScaleY = group.getScaleY();
-//        double newScale = group.getScaleX();
-//        for (int x = 0; x < 12; x++) {
-//            newScale *= (1 / 1.1);
-//        }
-//        group.setScaleX(newScale);
-//        group.setScaleY(newScale);
-//        redrawShapes();
-        tools.updateWindow();
-    }
-
-    public void setPageElements() {
-        shapeObjList = new ArrayList<>();
-        stampList = new ArrayList<>();
-        snapList = new ArrayList<>();
-        m_Scale = pageObjects.get(pageNumber).getScale();
-        shapeObjList.addAll(pageObjects.get(pageNumber).getShapeList());
-        stampList.addAll(pageObjects.get(pageNumber).getStampList());
-        snapList.addAll(pageObjects.get(pageNumber).getSnapList());
-        setCanvas();
-    }
-
     public void redrawShapes() {
 
         pane.getChildren().clear();
@@ -646,13 +470,11 @@ public class workspaceController implements Initializable {
 
         if (pageObjects.get(pageNumber).getScale() == 0) {
             if (!pane.getChildren().contains(noScaleLabel)) {
-                FontLoader fontLoader = Toolkit.getToolkit().getFontLoader();
 
                 noScaleLabel.setLayoutX(15);
                 noScaleLabel.setLayoutY(15);
                 pane.getChildren().add(noScaleLabel);
 
-//                LENGTH.setDisable(true);
                 AREA.setDisable(true);
                 STAMP.setDisable(true);
 
@@ -683,8 +505,10 @@ public class workspaceController implements Initializable {
                 Label lbl = new Label(sp0.getArea() + " m²");
                 lbl.setFont(new Font("Arial", 36));
                 lbl.setTextFill(sp0.getColor());
-                double layX = sp0.getPolygon().getBoundsInParent().getMinX() + (sp0.getPolygon().getBoundsInParent().getWidth() - lbl.getWidth()) / 2;
-                double layY = sp0.getPolygon().getBoundsInParent().getMinY() + (sp0.getPolygon().getBoundsInParent().getHeight() - lbl.getHeight()) / 2;
+                double layX = sp0.getPolygon().getBoundsInParent().getMinX() + (sp0.getPolygon().getBoundsInParent()
+                        .getWidth() - lbl.getWidth()) / 2;
+                double layY = sp0.getPolygon().getBoundsInParent().getMinY() + (sp0.getPolygon().getBoundsInParent()
+                        .getHeight() - lbl.getHeight()) / 2;
                 lbl.setOnMouseEntered(event -> {
                     lbl.setStyle("-fx-background-color: white");
                     lbl.setOpacity(1);
@@ -851,9 +675,14 @@ public class workspaceController implements Initializable {
         }
     }
 
-    //==MEASUREMENT POPUPS
-    //Todo -> Stays here but minimize code and make it non blocking
+    //Measurement popups
     public void structureListTransition() {
+        structureBox.getChildren().forEach(node -> {
+            if (!((JFXCheckBox)node).isSelected()) {
+                selectAllBox.setSelected(false);
+            }
+        });
+
         if (bool == 0) {
             structurePane.setVisible(true);
             structurePane.setDisable(true);
@@ -867,17 +696,7 @@ public class workspaceController implements Initializable {
             });
             bool++;
         } else {
-            structurePane.setDisable(true);
-            structureToggle.setDisable(true);
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.2), structurePane);
-            translateTransition1.setByX(-313);
-            translateTransition1.play();
-            translateTransition1.setOnFinished(event1 -> {
-                structurePane.setDisable(false);
-                structurePane.setVisible(false);
-                structureToggle.setDisable(false);
-            });
-            bool--;
+            closeMeasurementList();
         }
     }
 
@@ -893,6 +712,20 @@ public class workspaceController implements Initializable {
             structureToggle.setDisable(false);
         });
         bool--;
+
+        //clears the structure list
+        structureBox.getChildren().forEach((Node node) -> {
+            ((JFXCheckBox) node).setSelected(false);
+        });
+
+        //updates the selected structures on top list
+        structureBox.getChildren().forEach((Node node) -> {
+           structureComboBox.getItems().forEach(o -> {
+               if (((JFXCheckBox) node).getText().equals(o)) {
+                    ((JFXCheckBox) node).setSelected(true);
+               }
+           });
+        });
     }
 
     public void selectAll() {
@@ -903,6 +736,40 @@ public class workspaceController implements Initializable {
         } else {
             structureBox.getChildren().forEach(node -> ((JFXCheckBox) node).setSelected(false));
         }
+    }
+
+    private void unselectAllAction() {
+        structureBox.getChildren().forEach(node -> {
+            ((JFXCheckBox) node).setOnAction(event -> {
+                if (!((JFXCheckBox) node).isSelected()) {
+                    selectAllBox.setSelected(false);
+                }
+            });
+        });
+    }
+
+    public void saveStructures() {
+        //updates the selected structures on top list
+        newItemsList.clear();
+        structureBox.getChildren().forEach(node -> {
+            if (((JFXCheckBox) node).isSelected()) {
+                String newItems = ((JFXCheckBox) node).getText();
+                newItemsList.add(newItems);
+                structureComboBox.setItems(newItemsList);
+            }
+        });
+
+        structurePane.setDisable(true);
+        structureToggle.setDisable(true);
+        TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.2), structurePane);
+        translateTransition1.setByX(-313);
+        translateTransition1.play();
+        translateTransition1.setOnFinished(event1 -> {
+            structurePane.setDisable(false);
+            structurePane.setVisible(false);
+            structureToggle.setDisable(false);
+        });
+        bool--;
     }
 
 }

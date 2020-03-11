@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="346.0" prefWidth="537.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.splashScreenController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="368.0" prefWidth="537.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.splashScreenController">
    <children>
-      <AnchorPane layoutX="16.0" layoutY="1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="344.0" prefWidth="507.0" style="-fx-background-radius: 20px; -fx-background-color: #0F1E25;">
+      <AnchorPane layoutX="15.0" layoutY="14.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="344.0" prefWidth="507.0" style="-fx-background-radius: 20px; -fx-background-color: #0F1E25;">
          <children>
-            <ImageView fitHeight="346.0" fitWidth="507.0" layoutY="-16.0" opacity="0.27" pickOnBounds="true" style="-fx-background-radius: 30px;">
+            <ImageView fitHeight="346.0" fitWidth="507.0" layoutY="-7.0" opacity="0.27" pickOnBounds="true" style="-fx-background-radius: 30px;">
                <image>
                   <Image url="@images/background2.png" />
                </image>
@@ -33,13 +33,13 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <Pane fx:id="titlePane" layoutY="254.0" prefHeight="85.0" prefWidth="375.0" visible="false">
+            <Pane fx:id="titlePane" layoutY="254.0" prefHeight="85.0" prefWidth="375.0">
                <Label alignment="CENTER" layoutY="14.0" prefHeight="54.0" prefWidth="205.0" text="GRAPHIQS" textFill="#dcedff">
                   <font>
                      <Font name="Segoe UI Semilight" size="40.0" />
                   </font>
                </Label>
-               <Label alignment="CENTER" layoutY="57.0" prefHeight="23.0" prefWidth="284.0" text="\@Premium Tech Building Construction Systems Inc." textFill="#dbedff" />
+               <Label alignment="CENTER" layoutY="57.0" prefHeight="23.0" prefWidth="237.0" text="\@Ultimate Builders Support Systems Inc." textFill="#dbedff" />
                <Separator layoutX="3.0" layoutY="74.0" prefHeight="13.0" prefWidth="357.0" />
             </Pane>
             <JFXSpinner fx:id="spinner" layoutX="191.0" layoutY="116.0" prefHeight="110.0" prefWidth="130.0" radius="65.0" startingAngle="0.0" visible="false" />

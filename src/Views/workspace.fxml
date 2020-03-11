@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXColorPicker?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDrawer?>
 <?import com.jfoenix.controls.JFXHamburger?>
@@ -24,9 +25,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1036.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.workspaceController">
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1013.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.workspaceController">
    <children>
-      <ScrollPane fx:id="scroller" centerShape="false" layoutX="78.0" layoutY="66.0" opacity="0.0" pannable="true" prefHeight="624.0" prefWidth="885.0" scaleShape="false" style="-fx-background-radius: 30px;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="66.0">
+      <ScrollPane fx:id="scroller" centerShape="false" layoutX="78.0" layoutY="70.0" opacity="0.0" pannable="true" prefHeight="620.0" prefWidth="906.0" scaleShape="false" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="70.0">
          <content>
             <Group fx:id="scrollContent" onMouseDragged="#handlePan">
                <children>
@@ -35,7 +36,7 @@
                         <Group fx:id="group">
                            <children>
                               <Canvas fx:id="canvas" height="660.0" nodeOrientation="INHERIT" width="885.0" />
-                              <Pane fx:id="pane" onMouseDragged="#updateLine" onMouseMoved="#updateLine" onMousePressed="#updateRect" prefHeight="660.0" prefWidth="885.0" />
+                              <Pane fx:id="pane" layoutX="14.0" layoutY="-60.0" onMouseDragged="#updateLine" onMouseMoved="#updateLine" onMousePressed="#updateRect" prefHeight="660.0" prefWidth="885.0" />
                            </children>
                         </Group>
                      </children>
@@ -56,13 +57,13 @@
           <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <AnchorPane fx:id="frontPane" prefHeight="100.0" prefWidth="255.0" style="-fx-background-color: #0F1E25; -fx-background-radius: 30px;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <AnchorPane fx:id="frontPane" prefHeight="100.0" prefWidth="255.0" style="-fx-background-color: #102027; -fx-background-radius: 30px;" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <children>
                   <GridPane fx:id="innerGridPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="125.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="220.0" />
-                      <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="125.0" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" percentWidth="0.0" prefWidth="245.0" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -70,7 +71,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <JFXButton ellipsisString="" onAction="#openFile" prefHeight="40.0" prefWidth="220.0" text="New Project" textFill="#bcbcbc" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <JFXButton ellipsisString="" focusTraversable="false" onAction="#openFile" prefHeight="40.0" prefWidth="245.0" text="New Project" textFill="#bcbcbc" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font name="Segoe UI" size="15.0" />
                            </font>
@@ -85,7 +86,7 @@
                               <Insets bottom="38.0" />
                            </GridPane.margin>
                         </JFXButton>
-                        <JFXButton ellipsisString="" prefHeight="41.0" prefWidth="220.0" text="Recent Files" textFill="#bcbcbc" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <JFXButton ellipsisString="" focusTraversable="false" prefHeight="41.0" prefWidth="245.0" text="Recent Files" textFill="#bcbcbc" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font name="Segoe UI" size="15.0" />
                            </font>
@@ -141,10 +142,11 @@
             </AnchorPane>
          </children>
       </GridPane>
-      <JFXDrawer fx:id="drawer" defaultDrawerSize="240.0" direction="RIGHT" layoutX="700.0" layoutY="82.0" miniDrawerSize="0.0" prefHeight="515.0" prefWidth="240.0" style="-fx-background-radius: 20px;" AnchorPane.bottomAnchor="123.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="82.0">
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="240.0" direction="RIGHT" layoutX="700.0" layoutY="73.0" miniDrawerSize="0.0" prefHeight="515.0" prefWidth="240.0" style="-fx-background-radius: 20px;" AnchorPane.bottomAnchor="120.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="115.0">
          <effect>
             <DropShadow color="#121212" />
-         </effect></JFXDrawer>
+         </effect>
+      </JFXDrawer>
       <VBox fx:id="toolsMenu" layoutY="205.0" style="-fx-background-color: #263238; -fx-background-radius: 10px;" AnchorPane.leftAnchor="5.0">
          <children>
             <JFXButton fx:id="IMPORT" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" onAction="#openFile" prefHeight="50.0" prefWidth="62.0" text="Button">
@@ -309,7 +311,7 @@
             </JFXButton>
          </children>
       </VBox>
-      <JFXHamburger fx:id="hamburger" layoutX="989.0" layoutY="53.0" opacity="0.6" prefHeight="30.0" prefWidth="38.0" stylesheets="@CSS/style.css" AnchorPane.rightAnchor="9.0" />
+      <JFXHamburger fx:id="hamburger" layoutX="988.0" layoutY="64.0" opacity="0.6" prefHeight="30.0" prefWidth="38.0" stylesheets="@CSS/style.css" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="64.0" />
       <JFXButton fx:id="structureToggle" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" layoutX="5.0" layoutY="155.0" onAction="#structureListTransition" prefHeight="50.0" prefWidth="50.0" text="Button">
          <graphic>
             <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
@@ -844,7 +846,7 @@
                   </VBox>
                </content>
             </ScrollPane>
-            <JFXButton ellipsisString="" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #102027; -fx-background-radius: 20px;" text="Select" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.bottomAnchor="0.0">
+            <JFXButton ellipsisString="" onAction="#saveStructures" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #102027; -fx-background-radius: 20px;" text="Save" textFill="#bcbcbc" textOverrun="CLIP" AnchorPane.bottomAnchor="0.0">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
@@ -873,21 +875,22 @@
             <DropShadow color="#121212" spread="0.1" />
          </effect>
       </AnchorPane>
-      <JFXComboBox fx:id="structureComboBox" focusColor="#0f9d58" focusTraversable="false" layoutX="83.0" layoutY="21.0" prefHeight="32.0" prefWidth="164.0" promptText="Structures" />
-      <JFXComboBox fx:id="wallsComboBox" focusColor="#0f9d58" focusTraversable="false" layoutX="293.0" layoutY="21.0" prefHeight="32.0" prefWidth="164.0" promptText="Walls" />
-      <JFXComboBox fx:id="typeComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="504.0" layoutY="21.0" prefHeight="32.0" prefWidth="164.0" promptText="Type" />
-      <JFXComboBox fx:id="choicesComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="714.0" layoutY="21.0" prefHeight="32.0" prefWidth="240.0" promptText="Choices" />
-      <ImageView fx:id="next_1" fitHeight="25.0" fitWidth="38.0" layoutX="258.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <JFXComboBox fx:id="structureComboBox" focusColor="#0f9d58" focusTraversable="false" layoutX="13.0" layoutY="21.0" prefHeight="32.0" prefWidth="164.0" promptText="Structures" />
+      <JFXComboBox fx:id="wallsComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="223.0" layoutY="21.0" prefHeight="32.0" prefWidth="156.0" promptText="Walls" />
+      <JFXComboBox fx:id="typeComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="425.0" layoutY="21.0" prefHeight="32.0" prefWidth="164.0" promptText="Type" />
+      <JFXComboBox fx:id="choicesComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="636.0" layoutY="21.0" prefHeight="32.0" prefWidth="240.0" promptText="Choices" />
+      <JFXColorPicker fx:id="colorPicker" disable="true" layoutX="893.0" layoutY="24.0" prefHeight="34.0" prefWidth="108.0" />
+      <ImageView fx:id="next_1" fitHeight="25.0" fitWidth="38.0" layoutX="188.0" layoutY="25.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/more_than_25px.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="next_2" fitHeight="25.0" fitWidth="38.0" layoutX="469.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="next_2" fitHeight="25.0" fitWidth="38.0" layoutX="389.0" layoutY="25.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/more_than_25px.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="next_3" fitHeight="25.0" fitWidth="38.0" layoutX="679.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="next_3" fitHeight="25.0" fitWidth="38.0" layoutX="600.0" layoutY="26.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/more_than_25px.png" />
          </image>

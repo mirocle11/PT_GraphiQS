@@ -20,10 +20,6 @@ import java.util.*;
 public class DrawService {
     static List box = new ArrayList();
 
-    public DrawService() {
-
-    }
-
     public static void drawLine(Line line, Pane pane, double scale) {
         box.add(new Line(line.getStartX(), line.getStartY(), line.getEndX(), line.getEndY()));
         Line l = (Line) box.get(0);

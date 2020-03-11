@@ -55,8 +55,9 @@ public class Main extends Application {
             dashboard_stage.setScene(scene);
             dashboard_stage.show();
             dashboard_stage.setTitle("GraphiQS");
-            dashboard_stage.setMinWidth(900);
-            dashboard_stage.setMinHeight(600);
+            dashboard_stage.setMinWidth(1275);
+            dashboard_stage.setMinHeight(700);
+            dashboard_stage.setMaximized(true);
 
         } catch (Exception e) {
             e.printStackTrace();

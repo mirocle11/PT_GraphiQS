@@ -12,10 +12,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootpane" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="400.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.dashboardController">
+<AnchorPane fx:id="rootpane" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="400.0" prefHeight="720.0" prefWidth="1275.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.dashboardController">
    <AnchorPane fx:id="dashboard_max" blendMode="SRC_ATOP" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="265.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.topAnchor="0.0">
       <children>
-         <Pane opacity="0.54" prefHeight="776.0" prefWidth="265.0" style="-fx-background-color: #263238;" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <Pane opacity="0.54" prefHeight="776.0" prefWidth="265.0" style="-fx-background-color: #263238; -fx-background-radius: 30px;" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <padding>
                <Insets bottom="1.0" />
             </padding>
@@ -40,11 +40,21 @@
                      </ImageView>
                   </graphic>
                </JFXButton>
+               <Pane layoutX="-6.0" layoutY="-5.0" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: #263238;">
+                  <padding>
+                     <Insets bottom="1.0" />
+                  </padding>
+               </Pane>
             </children>
          </Pane>
-         <AnchorPane layoutY="205.0" prefHeight="594.0" prefWidth="265.0" style="-fx-background-color: #263238; -fx-background-radius: 10px;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="206.0">
+         <AnchorPane layoutY="205.0" prefHeight="594.0" prefWidth="265.0" style="-fx-background-color: #263238; -fx-background-radius: 30px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="206.0">
             <children>
-               <Label alignment="CENTER" layoutY="552.0" prefHeight="30.0" prefWidth="264.0" text="\@Premium Tech Building Constructions Inc." textFill="#bcbcbc" AnchorPane.bottomAnchor="14.0" />
+               <Pane prefHeight="516.0" prefWidth="40.0" style="-fx-background-color: #263238;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <padding>
+                     <Insets bottom="1.0" />
+                  </padding>
+               </Pane>
+               <Label alignment="CENTER" layoutY="552.0" prefHeight="30.0" prefWidth="264.0" text="\@Ultimate Builders Support Systems Inc." textFill="#bcbcbc" AnchorPane.bottomAnchor="14.0" />
                <Separator layoutX="129.0" layoutY="522.0" opacity="0.17" orientation="VERTICAL" prefHeight="30.0" prefWidth="0.0" AnchorPane.bottomAnchor="44.0" />
                <Label fx:id="time" alignment="CENTER" layoutX="135.0" layoutY="522.0" prefHeight="30.0" prefWidth="118.0" text="Time" textFill="#bcbcbc" AnchorPane.bottomAnchor="44.0">
                   <font>
@@ -164,7 +174,7 @@
             <children>
                <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="65.0">
                   <children>
-                     <JFXButton alignment="BASELINE_LEFT" ellipsisString="" graphicTextGap="50.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#workspaceAction" prefHeight="55.0" prefWidth="65.0" text="Workspace" textAlignment="CENTER" textFill="#b5b5b5">
+                     <JFXButton alignment="BASELINE_LEFT" ellipsisString="" focusTraversable="false" graphicTextGap="50.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#workspaceAction" prefHeight="55.0" prefWidth="65.0" text="Workspace" textAlignment="CENTER" textFill="#b5b5b5">
                         <font>
                            <Font name="Segoe UI Semilight" size="19.0" />
                         </font>
@@ -179,7 +189,7 @@
                            </ImageView>
                         </graphic>
                      </JFXButton>
-                     <JFXButton alignment="BASELINE_LEFT" ellipsisString="" graphicTextGap="50.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#layoutsAction" prefHeight="55.0" prefWidth="65.0" text="Layouts" textAlignment="CENTER" textFill="#b5b5b5">
+                     <JFXButton alignment="BASELINE_LEFT" ellipsisString="" focusTraversable="false" graphicTextGap="50.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#layoutsAction" prefHeight="55.0" prefWidth="65.0" text="Layouts" textAlignment="CENTER" textFill="#b5b5b5">
                         <font>
                            <Font name="Segoe UI Semilight" size="19.0" />
                         </font>
@@ -194,7 +204,7 @@
                            </ImageView>
                         </graphic>
                      </JFXButton>
-                     <JFXButton alignment="BASELINE_LEFT" ellipsisString="" graphicTextGap="50.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="65.0" text="Comments" textAlignment="CENTER" textFill="#b5b5b5">
+                     <JFXButton alignment="BASELINE_LEFT" ellipsisString="" focusTraversable="false" graphicTextGap="50.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="65.0" text="Comments" textAlignment="CENTER" textFill="#b5b5b5">
                         <font>
                            <Font name="Segoe UI Semilight" size="19.0" />
                         </font>
@@ -209,7 +219,7 @@
                            </ImageView>
                         </graphic>
                      </JFXButton>
-                     <JFXButton alignment="BASELINE_LEFT" ellipsisString="" graphicTextGap="50.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="65.0" text="Plans" textAlignment="CENTER" textFill="#b5b5b5">
+                     <JFXButton alignment="BASELINE_LEFT" ellipsisString="" focusTraversable="false" graphicTextGap="50.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="65.0" text="Plans" textAlignment="CENTER" textFill="#b5b5b5">
                         <font>
                            <Font name="Segoe UI Semilight" size="19.0" />
                         </font>
@@ -224,7 +234,7 @@
                            </ImageView>
                         </graphic>
                      </JFXButton>
-                     <JFXButton alignment="BASELINE_LEFT" ellipsisString="" graphicTextGap="50.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="64.0" text="Settings" textAlignment="CENTER" textFill="#b5b5b5">
+                     <JFXButton alignment="BASELINE_LEFT" ellipsisString="" focusTraversable="false" graphicTextGap="50.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="64.0" text="Settings" textAlignment="CENTER" textFill="#b5b5b5">
                         <font>
                            <Font name="Segoe UI Semilight" size="19.0" />
                         </font>

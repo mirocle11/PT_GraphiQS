@@ -162,13 +162,6 @@
     -fx-background-position: right;
 }
 
-/*#mainPane .label {*/
-    /*-fx-background-image: url("../images/more_than_25px.png");*/
-    /*-fx-background-position: right;*/
-    /*-fx-background-size: 25px;*/
-    /*-fx-background-repeat: no-repeat;*/
-/*}*/
-
 #loadingPane .label {
     -fx-background-image: none;
 }
@@ -204,4 +197,5 @@
 #mainPane .combo-box-popup .list-view .list-cell:filled:selected {
     -fx-background-color: darkslategray;
 }
+
 

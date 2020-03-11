@@ -2,6 +2,9 @@ package Controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
@@ -11,6 +14,8 @@ public class createProjectController {
     public JFXButton next, back, proceed;
     public Label page, second_label;
     public JFXCheckBox selectAllBox;
+
+    static ObservableList<String> list = FXCollections.observableArrayList();
 
     public void cancel() {
         workspaceController.closeCreateProject();
@@ -37,22 +42,35 @@ public class createProjectController {
         next.setVisible(true);
         selectAllBox.setVisible(false);
         second_label.setVisible(false);
-        proceed.setVisible(false);
+
         page.setText("1 out of 2");
     }
 
     public void proceed() {
         workspaceController.openPdfFile();
         cancel();
+        selectStructures();
     }
 
     public void selectAll() {
         if (selectAllBox.isSelected()) {
-            secondpane.getChildren().forEach(node -> {
+            secondpane.getChildren().forEach((Node node) -> {
                 ((JFXCheckBox) node).setSelected(true);
             });
         } else {
             secondpane.getChildren().forEach(node -> ((JFXCheckBox) node).setSelected(false));
+        }
+    }
+
+    private void selectStructures() {
+        secondpane.getChildren().forEach(this::accept);
+    }
+
+    private void accept(Node node) {
+        if (((JFXCheckBox) node).isSelected()) {
+            String boxes = ((JFXCheckBox) node).getText();
+            list.add(boxes);
+            workspaceController.getSelectedStructures(list);
         }
     }
 

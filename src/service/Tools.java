@@ -127,7 +127,7 @@ public class Tools {
 
     }
 
-    //File Controlls
+    //File Controls
     public void open() {
         File pdf = FileService.open();
         frontPane.setVisible(false);
@@ -145,6 +145,8 @@ public class Tools {
                     issetCanvas = true;
                     loadingPane.setVisible(false);
                     gridPane.setVisible(false);
+                    window.setStructures();
+                    window.connectStructures();
                 }
             }
         });
