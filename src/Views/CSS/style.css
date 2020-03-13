@@ -148,9 +148,15 @@
 .jfx-combo-box {
     -fx-font-size: 14px;
     -fx-font-family: "Segoe UI";
-    -fx-prompt-text-fill: gray;
+    -fx-prompt-text-fill: WHITE;
 }
 
+#mainPane .jfx-combo-box {
+    -fx-font-size: 15px;
+    -fx-font-family: "Segoe UI";
+    -fx-prompt-text-fill: WHITE;
+
+}
 .jfx-combo-box > .cell {
     -fx-text-fill: gray;
 }
@@ -168,12 +174,9 @@
 
 #mainPane .jfx-combo-box {
     -fx-background-color: inherit;
-}
-
-#mainPane .jfx-combo-box .label {
-    -fx-background-color:  WHITE;
     -fx-text-fill: LIGHTGRAY;
     -fx-font-size: 15px;
+    -fx-font-weight: BOLD;
 }
 
 #mainPane .combo-box-popup .list-view {

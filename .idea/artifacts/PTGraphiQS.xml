@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PTGraphiQS">
+    <output-path>$PROJECT_DIR$/out/artifacts/PTGraphiQS</output-path>
+    <root id="archive" name="PTGraphiQS.jar" />
+  </artifact>
+</component>

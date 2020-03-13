@@ -188,7 +188,7 @@
                         <Font name="Segoe UI" size="15.0" />
                      </font>
                   </JFXCheckBox>
-                  <JFXCheckBox focusTraversable="false" layoutX="178.0" layoutY="162.0" prefHeight="30.0" prefWidth="170.0" text="Post&amp;Beam Hardware" textFill="#b8b8b8">
+                  <JFXCheckBox focusTraversable="false" layoutX="178.0" layoutY="162.0" prefHeight="30.0" prefWidth="170.0" text="Post &amp; Beam Hardware" textFill="#b8b8b8">
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font>
@@ -198,7 +198,7 @@
                         <Font name="Segoe UI" size="15.0" />
                      </font>
                   </JFXCheckBox>
-                  <JFXCheckBox focusTraversable="false" layoutX="178.0" layoutY="222.0" prefHeight="30.0" prefWidth="170.0" text="Walls Bsmnt" textFill="#b8b8b8">
+                  <JFXCheckBox focusTraversable="false" layoutX="178.0" layoutY="222.0" prefHeight="30.0" prefWidth="170.0" text="Walls Basement" textFill="#b8b8b8">
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font>

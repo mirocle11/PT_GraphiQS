@@ -1,7 +1,5 @@
 package service;
 
-import Controllers.workspaceSideNavigatorController;
-import Data.historyData;
 import Model.PageObject;
 import Model.ShapeObject;
 import javafx.geometry.Point2D;

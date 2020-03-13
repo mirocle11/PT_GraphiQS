@@ -19,6 +19,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
@@ -27,6 +28,11 @@
 
 <AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1013.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.workspaceController">
    <children>
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="240.0" direction="RIGHT" layoutX="700.0" layoutY="73.0" miniDrawerSize="0.0" prefHeight="515.0" prefWidth="240.0" style="-fx-background-radius: 20px;" AnchorPane.bottomAnchor="120.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="115.0">
+         <effect>
+            <DropShadow color="#121212" />
+         </effect>
+      </JFXDrawer>
       <ScrollPane fx:id="scroller" centerShape="false" layoutX="78.0" layoutY="70.0" opacity="0.0" pannable="true" prefHeight="620.0" prefWidth="906.0" scaleShape="false" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="70.0">
          <content>
             <Group fx:id="scrollContent" onMouseDragged="#handlePan">
@@ -142,11 +148,11 @@
             </AnchorPane>
          </children>
       </GridPane>
-      <JFXDrawer fx:id="drawer" defaultDrawerSize="240.0" direction="RIGHT" layoutX="700.0" layoutY="73.0" miniDrawerSize="0.0" prefHeight="515.0" prefWidth="240.0" style="-fx-background-radius: 20px;" AnchorPane.bottomAnchor="120.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="115.0">
-         <effect>
-            <DropShadow color="#121212" />
-         </effect>
-      </JFXDrawer>
+      <Label fx:id="toastLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" style="-fx-background-color: #0F9D58; -fx-background-radius: 30px;" textFill="WHITE" visible="false" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </Label>
       <VBox fx:id="toolsMenu" layoutY="205.0" style="-fx-background-color: #263238; -fx-background-radius: 10px;" AnchorPane.leftAnchor="5.0">
          <children>
             <JFXButton fx:id="IMPORT" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" onAction="#openFile" prefHeight="50.0" prefWidth="62.0" text="Button">
@@ -261,38 +267,6 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
-            <JFXButton fx:id="PREVIOUS_PAGE" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#previousPageAction" prefHeight="50.0" prefWidth="62.0" text="Button">
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/circled_left_2_30px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <tooltip>
-                  <Tooltip text="Rotate">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Tooltip>
-               </tooltip>
-            </JFXButton>
-            <JFXButton fx:id="NEXT_PAGE" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#nextPageAction" prefHeight="50.0" prefWidth="62.0">
-               <tooltip>
-                  <Tooltip text="Rotate">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Tooltip>
-               </tooltip>
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/circled_right_2_30px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
             <JFXButton fx:id="ROTATE" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#rotateAction" prefHeight="50.0" prefWidth="62.0" text="Button">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
@@ -311,8 +285,44 @@
             </JFXButton>
          </children>
       </VBox>
+      <HBox layoutX="10.0" layoutY="610.0" prefHeight="30.0" prefWidth="56.0" AnchorPane.leftAnchor="5.0">
+         <children>
+            <JFXButton fx:id="PREVIOUS_PAGE" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" disable="true" ellipsisString="" minHeight="-Infinity" minWidth="-Infinity" onAction="#previousPageAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 50px;">
+               <tooltip>
+                  <Tooltip text="Previous Page">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/back_arrow_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="NEXT_PAGE" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" disable="true" ellipsisString="" layoutX="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#nextPageAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 50px;">
+               <tooltip>
+                  <Tooltip text="Next Page">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/forward_button_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </HBox>
       <JFXHamburger fx:id="hamburger" layoutX="988.0" layoutY="64.0" opacity="0.6" prefHeight="30.0" prefWidth="38.0" stylesheets="@CSS/style.css" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="64.0" />
-      <JFXButton fx:id="structureToggle" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" layoutX="5.0" layoutY="155.0" onAction="#structureListTransition" prefHeight="50.0" prefWidth="50.0" text="Button">
+      <JFXButton fx:id="structureToggle" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" disable="true" ellipsisString="" layoutX="5.0" layoutY="155.0" onAction="#structureListTransition" prefHeight="50.0" prefWidth="50.0" text="Button">
          <graphic>
             <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -875,11 +885,11 @@
             <DropShadow color="#121212" spread="0.1" />
          </effect>
       </AnchorPane>
-      <JFXComboBox fx:id="structureComboBox" focusColor="#0f9d58" focusTraversable="false" layoutX="13.0" layoutY="21.0" prefHeight="32.0" prefWidth="164.0" promptText="Structures" />
+      <JFXComboBox fx:id="structureComboBox" focusColor="#b5b5b5" focusTraversable="false" layoutX="13.0" layoutY="21.0" prefHeight="32.0" prefWidth="164.0" promptText="Structures" />
       <JFXComboBox fx:id="wallsComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="223.0" layoutY="21.0" prefHeight="32.0" prefWidth="156.0" promptText="Walls" />
       <JFXComboBox fx:id="typeComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="425.0" layoutY="21.0" prefHeight="32.0" prefWidth="164.0" promptText="Type" />
       <JFXComboBox fx:id="choicesComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="636.0" layoutY="21.0" prefHeight="32.0" prefWidth="240.0" promptText="Choices" />
-      <JFXColorPicker fx:id="colorPicker" disable="true" layoutX="893.0" layoutY="24.0" prefHeight="34.0" prefWidth="108.0" />
+      <JFXColorPicker fx:id="colorPicker" disable="true" layoutX="893.0" layoutY="24.0" onAction="#colorPickerAction" prefHeight="34.0" prefWidth="108.0" />
       <ImageView fx:id="next_1" fitHeight="25.0" fitWidth="38.0" layoutX="188.0" layoutY="25.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/more_than_25px.png" />

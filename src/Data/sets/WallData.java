@@ -1,5 +1,6 @@
 package Data.sets;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXColorPicker;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
@@ -12,6 +13,7 @@ import java.util.Objects;
 public class WallData {
 
     private JFXComboBox wallsComboBox, typeComboBox, choicesComboBox, structureComboBox;
+    private JFXButton LENGTH, AREA;
     private JFXColorPicker colorPicker;
 
     private ObservableList<String> WALLS = FXCollections.observableArrayList( "Exterior", "Interior");
@@ -43,6 +45,10 @@ public class WallData {
         this.choicesComboBox = workspace.choicesComboBox;
         this.structureComboBox = workspace.structureComboBox;
         this.colorPicker = workspace.colorPicker;
+        this.LENGTH = workspace.LENGTH;
+        this.AREA = workspace.AREA;
+//        this.NEXT_PAGE = workspace.NEXT_PAGE;
+
     }
 
     public void structureAction() {
@@ -55,6 +61,7 @@ public class WallData {
                 wallsComboBox.setDisable(true);
             }
             wallsComboBox.getSelectionModel().clearSelection();
+            colorPickerAction();
         });
     }
 
@@ -71,6 +78,7 @@ public class WallData {
                 typeComboBox.setDisable(true);
             }
             typeComboBox.getSelectionModel().clearSelection();
+            colorPickerAction();
         });
     }
 
@@ -90,6 +98,7 @@ public class WallData {
             } else {
                 choicesComboBox.setDisable(false);
                 showChoices();
+                colorPickerAction();
             }
         });
     }
@@ -116,7 +125,19 @@ public class WallData {
             } else {
                 colorPicker.setDisable(false);
             }
+            colorPickerAction();
         });
     }
+
+    public void colorPickerAction() {
+        if (colorPicker.isDisabled()) {
+            LENGTH.setDisable(true);
+            AREA.setDisable(true);
+        } else {
+            LENGTH.setDisable(false);
+            AREA.setDisable(false);
+        }
+    }
+
 
 }

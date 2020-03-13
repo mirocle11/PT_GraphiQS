@@ -6,11 +6,14 @@ import Model.ShapeObject;
 import com.jfoenix.controls.JFXButton;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -21,6 +24,7 @@ import javafx.scene.text.Font;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -37,7 +41,7 @@ public class Tools {
     Label noScale;
     VBox box;
     ScrollPane scroller;
-    AnchorPane frontPane, loadingPane;
+    AnchorPane mainPane, frontPane, loadingPane;
     GridPane gridPane, innerGridPane;
     List shape = new ArrayList();
     Color color;
@@ -45,6 +49,8 @@ public class Tools {
     int pageNumber = 0;
     static boolean canDraw = false;
     boolean issetCanvas = false;
+
+    JFXButton LENGTH, AREA;
 
     workspaceController window;
     List<Shape> shapeList = new ArrayList<>();
@@ -56,7 +62,6 @@ public class Tools {
 
 
     public Tools(PageObject page, Group group, String mode, Line line, Circle circle, VBox box) {
-
         this.page = page;
         this.group = group;
         this.mode = mode;
@@ -100,12 +105,15 @@ public class Tools {
         this.canvas = window.canvas;
         this.pane = window.pane;
         this.scroller = window.scroller;
+        this.mainPane = window.mainPane;
         this.frontPane = window.frontPane;
         this.loadingPane = window.loadingPane;
         this.gridPane = window.gridPane;
         this.innerGridPane = window.innerGridPane;
         this.box = window.toolsMenu;
         this.group = window.group;
+        this.LENGTH = window.LENGTH;
+        this.AREA = window.AREA;
         this.contextMenu = new ContextMenu();
 
         this.circle = new Circle();
@@ -124,7 +132,6 @@ public class Tools {
         this.circle.setFill(Color.RED);
         this.circle.setRadius(5);
         this.pane.getChildren().add(circle);
-
     }
 
     //File Controls
@@ -147,6 +154,10 @@ public class Tools {
                     gridPane.setVisible(false);
                     window.setStructures();
                     window.connectStructures();
+                    window.structureToggle.setDisable(false);
+                    window.NEXT_PAGE.setDisable(false);
+                    window.PREVIOUS_PAGE.setDisable(false);
+                    window.showToast("PDF Successfully Loaded!");
                 }
             }
         });
@@ -197,7 +208,7 @@ public class Tools {
                     }
                 });
                 pane.setOnMouseClicked(event -> {
-
+                    //do not remove
                 });
                 break;
         }
@@ -219,10 +230,14 @@ public class Tools {
                 noScale.setLayoutY(15);
                 pane.getChildren().add(noScale);
                 disableButtons(new String[]{"LENGTH", "AREA", "STAMP", "RECTANGLE"}, box);
+                window.scaledIndicator(0);
             }
         } else {
             pane.getChildren().remove(noScale);
-            disableButtons(new String[]{}, box);
+            if (window.colorPicker.isDisabled()) {
+                disableButtons(new String[]{"LENGTH", "AREA"}, box);
+            }
+            window.scaledIndicator(1);
         }
 
         for (ShapeObject sp0 : page.getShapeList()) {
@@ -280,42 +295,6 @@ public class Tools {
                             lbl.setStyle("-fx-background-color: transparent");
                             lbl.setOpacity(.5);
                         });
-//                        lbl.setOnMousePressed(event -> {
-//                            if (event.getButton() == MouseButton.SECONDARY) {
-//                                contextMenu = new ContextMenu();
-//                                contextMenu.hide();
-//                                if (type == "LENGTH") {
-//                                    MenuItem continueLength = new MenuItem("CONTINUE LENGTH");
-//                                    continueLength.setOnAction(event1 -> {
-//                                        controller.shapeObjList.remove(this);
-//                                        controller.redrawShapes();
-//                                    });
-//                                    MenuItem removeLength = new MenuItem("REMOVE LENGTH");
-//                                    removeLength.setOnAction(event1 -> {
-//                                        controller.shapeObjList.remove(this);
-//                                        controller.redrawShapes();
-//                                    });
-//                                    MenuItem stop = new MenuItem("STOP LENGTH");
-//                                    removeLength.setOnAction(event1 -> {
-//                                        controller.shapeObjList.remove(this);
-//                                        controller.redrawShapes();
-//                                    });
-//                                    contextMenu.getItems().add(continueLength);
-//                                    contextMenu.getItems().add(stop);
-//                                    contextMenu.getItems().add(removeLength);
-//                                } else {
-//                                    MenuItem removeArea = new MenuItem("REMOVE AREA");
-//                                    removeArea.setOnAction(event1 -> {
-//                                        controller.shapeObjList.remove(this);
-//                                        controller.redrawShapes();
-//                                    });
-//
-//                                    contextMenu.getItems().add(removeArea);
-//
-//                                }
-//                                contextMenu.show(l, event.getScreenX(), event.getScreenY());
-//                            }
-//                        });
                         lbl.setTextFill(sp1.getColor());
                         lbl.setOpacity(.5);
                         pane.getChildren().add(lbl);
@@ -378,6 +357,12 @@ public class Tools {
             setPageElements();
             setMode("FREE");
         }
+        //scale indicator
+        if (pane.getChildren().contains(noScale)) {
+            window.scaledIndicator(0);
+        } else {
+            window.scaledIndicator(1);
+        }
     }
 
     public void previousPage() {
@@ -385,6 +370,12 @@ public class Tools {
             pageNumber--;
             setPageElements();
             setMode("FREE");
+        }
+        //scale indicator
+        if (pane.getChildren().contains(noScale)) {
+            window.scaledIndicator(0);
+        } else {
+            window.scaledIndicator(1);
         }
     }
 
@@ -400,9 +391,9 @@ public class Tools {
         return p;
     }
 
-    //button controlls
+    //button controls
     public static void disableButtons(String[] btns, VBox param) {
-        param.getChildren().forEach(node -> {
+        param.getChildren().forEach((Node node) -> {
             JFXButton btn = (JFXButton) node;
             btn.setDisable(false);
             for (String s : btns) {

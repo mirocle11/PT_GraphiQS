@@ -7,6 +7,7 @@ import Model.PageObject;
 import Model.ShapeObject;
 import com.jfoenix.controls.*;
 import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
+import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
@@ -41,11 +43,9 @@ import java.util.logging.Logger;
 
 public class workspaceController implements Initializable {
 
-    public static AnchorPane mainPane;
-
     //buttons
     public JFXButton IMPORT, SAVE, SCALE, LENGTH, AREA, STAMP, RECTANGLE, ROTATE, structureToggle;
-    public Button NEXT_PAGE, PREVIOUS_PAGE;
+//    public JFXButton NEXT_PAGE, PREVIOUS_PAGE;
     public JFXHamburger hamburger;
 
     //combo box (for selection)
@@ -57,7 +57,7 @@ public class workspaceController implements Initializable {
 
     //containers
     public GridPane gridPane, innerGridPane;
-    public AnchorPane frontPane, structurePane, loadingPane;
+    public AnchorPane mainPane, frontPane, structurePane, loadingPane;
     public ScrollPane scroller, structureScrollPane;
     public Group scrollContent, group;
     public StackPane zoomPane;
@@ -66,6 +66,8 @@ public class workspaceController implements Initializable {
     public JFXDrawer drawer;
     public VBox structureBox;
     public VBox toolsMenu;
+    public Label toastLabel;
+    public JFXButton PREVIOUS_PAGE, NEXT_PAGE;
 
     //collections
     List<Shape> shapeList = new ArrayList<>();
@@ -141,7 +143,8 @@ public class workspaceController implements Initializable {
         noScaleLabel.setText("The page is not scaled. No measurements can be taken.");
         noScaleLabel.setTextFill(Color.RED);
 
-        scroller.viewportBoundsProperty().addListener((observable, oldValue, newValue) -> zoomPane.setMinSize(newValue.getWidth(), newValue.getHeight()));
+        scroller.viewportBoundsProperty().addListener((observable, oldValue, newValue) -> zoomPane.setMinSize(
+                newValue.getWidth(), newValue.getHeight()));
 
         try {
             VBox box = FXMLLoader.load(getClass().getResource("/Views/workspaceSideNavigation.fxml"));
@@ -165,6 +168,24 @@ public class workspaceController implements Initializable {
             Logger.getLogger(workspaceController.class.getName()).log(Level.SEVERE, null, e);
         }
     }
+
+    public void showToast(String message) {
+        toastLabel.setVisible(true);
+        toastLabel.setText(message);
+
+        FadeTransition toastTransition = new FadeTransition(Duration.seconds(2), toastLabel);
+        toastTransition.setToValue(2);
+        toastTransition.setFromValue(0);
+        toastTransition.play();
+
+        toastTransition.setOnFinished(event -> {
+            FadeTransition toastTransition1 = new FadeTransition(Duration.seconds(4), toastLabel);
+            toastTransition1.setToValue(0);
+            toastTransition1.setFromValue(1);
+            toastTransition1.play();
+        });
+    }
+
 
     public void openFile() {
         try {
@@ -234,12 +255,31 @@ public class workspaceController implements Initializable {
         tools.setMode("SCALE");
     }
 
+    public void scaledIndicator(int indicator) {
+        Image i = new Image(getClass().getResourceAsStream("../Views/images/ruler_40px.png"));
+        Image ii = new Image(getClass().getResourceAsStream("../Views/images/scaled_40px.png"));
+
+        if (indicator == 0) {
+            SCALE.setGraphic(new ImageView(i));
+        } else {
+            SCALE.setGraphic(new ImageView(ii));
+        }
+    }
+
     public void areaAction() {
-        mode = "AREA";
+        isNew = true;
+        canDraw = true;
+
+        tools.setColor(colorPicker.getValue());
+        tools.setMode("AREA");
     }
 
     public void lengthAction() {
-        mode = "LENGTH";
+        isNew = true;
+        canDraw = true;
+
+        tools.setColor(colorPicker.getValue());
+        tools.setMode("LENGTH");
     }
 
     public void rotateAction() {
@@ -322,14 +362,12 @@ public class workspaceController implements Initializable {
                 line.setEndY(cP.getY());
             }
         }
-//===========CHANGES=======================================================
         if (mode == "DRAW_RECT") {
             if (!isNew) {
                 rect.setWidth(cP.getX() - rect.getX());
                 rect.setHeight(cP.getY() - rect.getY());
             }
         }
-//===========CHANGES=======================================================
     }
 
     public void updateRect(MouseEvent event) {
@@ -463,21 +501,18 @@ public class workspaceController implements Initializable {
     }
 
     public void redrawShapes() {
-
         pane.getChildren().clear();
         pane.getChildren().add(circle);
         circle.setVisible(false);
 
         if (pageObjects.get(pageNumber).getScale() == 0) {
             if (!pane.getChildren().contains(noScaleLabel)) {
-
                 noScaleLabel.setLayoutX(15);
                 noScaleLabel.setLayoutY(15);
                 pane.getChildren().add(noScaleLabel);
 
                 AREA.setDisable(true);
                 STAMP.setDisable(true);
-
             }
         } else {
             pane.getChildren().remove(noScaleLabel);
@@ -485,9 +520,7 @@ public class workspaceController implements Initializable {
             AREA.setDisable(false);
             STAMP.setDisable(false);
             RECTANGLE.setDisable(false);
-
         }
-
 
         for (ShapeObject sp0 : shapeObjList) {
             if (sp0.getType() == "AREA") {
@@ -521,7 +554,6 @@ public class workspaceController implements Initializable {
                 lbl.setLayoutY(layY);
                 lbl.setOpacity(.5);
                 pane.getChildren().add(lbl);
-
             }
         }
 
@@ -714,7 +746,7 @@ public class workspaceController implements Initializable {
         bool--;
 
         //clears the structure list
-        structureBox.getChildren().forEach((Node node) -> {
+        structureBox.getChildren().forEach( node -> {
             ((JFXCheckBox) node).setSelected(false);
         });
 
@@ -770,6 +802,10 @@ public class workspaceController implements Initializable {
             structureToggle.setDisable(false);
         });
         bool--;
+    }
+
+    public void colorPickerAction() {
+        wallData.colorPickerAction();
     }
 
 }

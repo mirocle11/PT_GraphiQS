@@ -1,6 +1,5 @@
 package Model;
 
-import Controllers.workspaceController;
 import javafx.geometry.Point2D;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;

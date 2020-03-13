@@ -1,6 +1,7 @@
 package service;
 
 import Model.PageObject;
+import Controllers.workspaceController;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.input.MouseButton;
@@ -12,7 +13,6 @@ import javafx.scene.layout.Pane;
 
 import javax.swing.*;
 import java.util.*;
-
 
 /**
  * Created by User on 17/02/2020.
@@ -46,7 +46,6 @@ public class Scale implements IMeasurement {
         this.tools.pane.setOnMouseMoved(event -> {
             handleMouseMove(event);
         });
-
     }
 
     @Override
@@ -83,15 +82,17 @@ public class Scale implements IMeasurement {
                 double m_input = Float.parseFloat(JOptionPane.showInputDialog("Enter Scale (mm)", 0.00 + " mm"));
                 if (m_input <= 0) {
                     throw new NumberFormatException();
+                } else {
+                    double m_Length = start.distance(end);
+                    page.setScale(m_Length / m_input);
+                    tools.window.showToast("Scaling is saved, you can now continue measuring!");
+                    tools.window.scaledIndicator(1);
                 }
-                double m_Length = start.distance(end);
-                page.setScale(m_Length / m_input);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Please enter a valid number.", "Invalid Scale", JOptionPane.ERROR_MESSAGE);
             }
             snapX = snapY = -1;
             tools.updateWindow();
-//            scroller.setPannable(true);
             tools.setMode("FREE");
         }
     }

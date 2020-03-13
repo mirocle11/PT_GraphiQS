@@ -18,13 +18,14 @@ import java.util.ResourceBundle;
 public class dashboardController implements Initializable {
 
     @FXML
-    private AnchorPane rootpane,dashboard_max,dashboard_min;
+    public AnchorPane rootpane,dashboard_max,dashboard_min;
     private AnchorPane workspace,layouts;
 
     @FXML
     private Label time,date;
 
-    private int i = 0; //dashboard indicator
+    //dashboard indicator
+    private int i = 0;
 
     private Main main;
     private Stage stage;

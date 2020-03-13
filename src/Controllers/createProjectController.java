@@ -63,7 +63,9 @@ public class createProjectController {
                 ((JFXCheckBox) node).setSelected(true);
             });
         } else {
-            secondpane.getChildren().forEach(node -> ((JFXCheckBox) node).setSelected(false));
+            secondpane.getChildren().forEach(node -> {
+                ((JFXCheckBox) node).setSelected(false);
+            });
         }
     }
 

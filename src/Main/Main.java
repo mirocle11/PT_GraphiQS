@@ -13,6 +13,7 @@ import javafx.stage.StageStyle;
 public class Main extends Application {
 
     public static Stage stage, dashboard_stage;
+    public Scene dashboardScene;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -21,7 +22,6 @@ public class Main extends Application {
     }
 
     private void splashScreenWindow() {
-
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/splashScreen.fxml"));
             AnchorPane pane = loader.load();
@@ -42,17 +42,16 @@ public class Main extends Application {
     }
 
     public void mainWindow() {
-
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("/Views/dashboard.fxml"));
             AnchorPane pane = loader.load();
 
-            Scene scene = new Scene(pane);
+            dashboardScene = new Scene(pane);
             dashboardController controller = loader.getController();
             controller.setMain(dashboard_stage,this);
-            scene.getStylesheets().addAll(Main.class.getResource("/Views/CSS/style.css").toExternalForm());
+            dashboardScene.getStylesheets().addAll(Main.class.getResource("/Views/CSS/style.css").toExternalForm());
             dashboard_stage = new Stage();
-            dashboard_stage.setScene(scene);
+            dashboard_stage.setScene(dashboardScene);
             dashboard_stage.show();
             dashboard_stage.setTitle("GraphiQS");
             dashboard_stage.setMinWidth(1275);
