@@ -7,86 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/floorsController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/framingAddBeamRowController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/framingAddRowController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/framingController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/framing_2Controller.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Floors/fifth_floor.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Floors/first_floor.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Floors/fourth_floor.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Floors/ground_floor.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Floors/second_floor.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Floors/seventh_floor.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Floors/sixth_floor.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Floors/third_floor.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Framing/addBeamRow.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Framing/framingAddRow.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Framing/framing_2.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/cladding.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/deck.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/doors.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/floors.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/framing.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/misc.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/roof.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/slabAndFooting.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/wallsAndInsulation.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/wallsAndInsulation_2.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controllers/floorsController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controllers/framingAddBeamRowController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controllers/framingAddRowController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controllers/framingController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controllers/framing_2Controller.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Data/framing/beamsData.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Data/framing/framingData.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Data/wallsAndInsulation/wallsAndInsulationData.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/Floors/fifth_floor.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/Floors/first_floor.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/Floors/fourth_floor.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/Floors/ground_floor.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/Floors/second_floor.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/Floors/seventh_floor.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/Floors/sixth_floor.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/Floors/third_floor.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/Framing/addBeamRow.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/Framing/framingAddRow.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/Framing/framing_2.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/cladding.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/deck.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/doors.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/misc.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/roof.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/test/CollectionsDemo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/test/FrostyTech.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/test/FxConcurrencyExample3.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/test/OpenFileService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/test/WebView131Test.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/test/ZoomAndScrollApplication.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/test/hala.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/test/test.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/wallsAndInsulation.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Views/wallsAndInsulation_2.fxml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Data/historyData.java" afterPath="$PROJECT_DIR$/src/Data/HistoryData.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Data/sets/WallData.java" afterPath="$PROJECT_DIR$/src/Data/WallData.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Views/floors.fxml" afterPath="$PROJECT_DIR$/src/Views/areaTab.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Views/framing.fxml" afterPath="$PROJECT_DIR$/src/Views/stampsTab.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Views/slabAndFooting.fxml" afterPath="$PROJECT_DIR$/src/Views/lengthTab.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/dashboardController.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/dashboardController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Views/images/scaled_40px.png" afterPath="$PROJECT_DIR$/src/Views/images/scaled_40px.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/CSS/style.css" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/CSS/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/dashboardController.java" afterPath="$PROJECT_DIR$/src/Controllers/dashboardController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/layoutsController.java" afterPath="$PROJECT_DIR$/src/Controllers/layoutsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/workspaceSideNavigatorController.java" afterPath="$PROJECT_DIR$/src/Controllers/workspaceSideNavigatorController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Views/CSS/style.css" afterPath="$PROJECT_DIR$/src/Views/CSS/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Views/layouts.fxml" afterPath="$PROJECT_DIR$/src/Views/layouts.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Views/workspace.fxml" afterPath="$PROJECT_DIR$/src/Views/workspace.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/service/DrawService.java" afterPath="$PROJECT_DIR$/src/service/DrawService.java" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
     <list id="4dddbee8-77b6-41fd-be25-1624817806eb" name="Revert &quot;#60 commit&quot;" comment="Revert &quot;#60 commit&quot;&#10;&#10;This reverts commit 096c3c72" />
@@ -117,11 +39,23 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ShapeObject.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ShapeObject.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/ShapeObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+            <state relative-caret-position="119">
+              <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workspaceSideNavigatorController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/workspaceSideNavigatorController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="54" lean-forward="true" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -224,7 +158,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/service/st.java" />
         <option value="$PROJECT_DIR$/src/service/FileSave.java" />
         <option value="$PROJECT_DIR$/src/service/FileLoad.java" />
         <option value="$PROJECT_DIR$/src/Views/ZoomAndScrollApplication.java" />
@@ -275,6 +208,7 @@
         <option value="$PROJECT_DIR$/src/Data/historyData.java" />
         <option value="$PROJECT_DIR$/src/Data/WallData.java" />
         <option value="$PROJECT_DIR$/src/Controllers/layoutsController.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/workspaceSideNavigatorController.java" />
       </list>
     </option>
   </component>
@@ -1159,14 +1093,7 @@
       <workItem from="1582860815863" duration="1694000" />
       <workItem from="1583721467461" duration="70615000" />
       <workItem from="1583972617288" duration="12357000" />
-      <workItem from="1583997084495" duration="46831000" />
-    </task>
-    <task id="LOCAL-00058" summary="#49 commit">
-      <created>1573519020674</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1573519020674</updated>
+      <workItem from="1583997084495" duration="46962000" />
     </task>
     <task id="LOCAL-00059" summary="#49 commit">
       <created>1573519141221</created>
@@ -1504,14 +1431,22 @@
       <option name="project" value="LOCAL" />
       <updated>1584079068742</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="updated layout">
+      <created>1584346467190</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1584346467190</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="460376000" />
+    <option name="totallyTimeSpent" value="460507000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1532,9 +1467,9 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22621565" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22621565" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16145833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16145833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33509514" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -1618,7 +1553,8 @@
     <MESSAGE value="updated new layout and fixed ui" />
     <MESSAGE value="updated new layout and fixed top list" />
     <MESSAGE value="fixed bugs and updated workspace" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs and updated workspace" />
+    <MESSAGE value="updated layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated layout" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1634,14 +1570,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/service/FileService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/service/IMeasurement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -2087,8 +2015,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/ShapeObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+        <state relative-caret-position="119">
+          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/workspaceSideNavigatorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="54" lean-forward="true" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

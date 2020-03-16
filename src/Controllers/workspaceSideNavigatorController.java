@@ -1,20 +1,19 @@
 package Controllers;
 
-        import Data.framing.framingData;
-        import Data.HistoryData;
-        import com.jfoenix.controls.JFXSlider;
-        import com.jfoenix.controls.JFXTreeTableView;
-        import com.jfoenix.controls.RecursiveTreeItem;
-        import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-        import javafx.collections.FXCollections;
-        import javafx.collections.ObservableList;
-        import javafx.fxml.FXML;
-        import javafx.fxml.Initializable;
-        import javafx.scene.control.TreeItem;
-        import javafx.scene.control.TreeTableColumn;
+    import Data.HistoryData;
+    import com.jfoenix.controls.JFXSlider;
+    import com.jfoenix.controls.JFXTreeTableView;
+    import com.jfoenix.controls.RecursiveTreeItem;
+    import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+    import javafx.collections.FXCollections;
+    import javafx.collections.ObservableList;
+    import javafx.fxml.FXML;
+    import javafx.fxml.Initializable;
+    import javafx.scene.control.TreeItem;
+    import javafx.scene.control.TreeTableColumn;
 
-        import java.net.URL;
-        import java.util.ResourceBundle;
+    import java.net.URL;
+    import java.util.ResourceBundle;
 
 public class workspaceSideNavigatorController implements Initializable {
 
