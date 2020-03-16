@@ -1,57 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXTabPane?>
-<?import javafx.scene.control.Tab?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1015.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.layoutsController">
-<children>
-   <JFXTabPane prefHeight="720.0" prefWidth="1015.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <Tab fx:id="slabAndFootingTab" text="Slab &amp; Footing">
-         <content>
-            <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
-         </content>
-      </Tab>
-      <Tab fx:id="floorsTab" text="Floors">
-         <content>
-            <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
-         </content>
-      </Tab>
-      <Tab fx:id="framingTab" text="Framing">
-         <content>
-            <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
-         </content>
-      </Tab>
-      <Tab fx:id="wallsAndInsulationTab" text="Walls &amp; Insulation">
-         <content>
-            <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
-         </content>
-      </Tab>
-      <Tab fx:id="claddingTab" text="Cladding">
-         <content>
-            <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
-         </content>
-      </Tab>
-      <Tab fx:id="doorsTab" text="Doors">
-         <content>
-            <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
-         </content>
-      </Tab>
-      <Tab fx:id="roofTab" text="Roof">
-         <content>
-            <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
-         </content>
-      </Tab>
-      <Tab fx:id="deckTab" text="Deck">
-         <content>
-            <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
-         </content>
-      </Tab>
-      <Tab fx:id="miscTab" text="Misc">
-         <content>
-            <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
-         </content>
-      </Tab>
-   </JFXTabPane>
-</children>
-        </AnchorPane>
+<BorderPane fx:id="layoutsPane" prefHeight="720.0" prefWidth="1015.0" style="-fx-background-color: #102027;" stylesheets="@CSS/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.layoutsController">
+   <right>
+      <AnchorPane fx:id="sidePane" prefHeight="720.0" prefWidth="327.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="97.0" layoutY="82.0" prefHeight="30.0" prefWidth="134.0" text="Summary Details" textFill="#bcbcbc" AnchorPane.leftAnchor="97.0" AnchorPane.topAnchor="82.0">
+               <font>
+                  <Font name="Segoe UI" size="17.0" />
+               </font>
+            </Label>
+            <JFXTextField alignment="CENTER" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="30.0" layoutY="142.0" prefHeight="30.0" prefWidth="188.0" promptText="No" style="-fx-text-inner-color: WHITE;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField alignment="CENTER" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="30.0" layoutY="197.0" prefHeight="30.0" prefWidth="252.0" promptText="Measurement" style="-fx-text-inner-color: WHITE;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField alignment="CENTER" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="30.0" layoutY="307.0" prefHeight="30.0" prefWidth="252.0" promptText="Structure Type" style="-fx-text-inner-color: WHITE;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField alignment="CENTER" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="30.0" layoutY="252.0" prefHeight="30.0" prefWidth="315.0" promptText="Structure" style="-fx-text-inner-color: WHITE;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField alignment="CENTER" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="30.0" layoutY="362.0" prefHeight="30.0" prefWidth="295.0" promptText="Wall" style="-fx-text-inner-color: WHITE;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField alignment="CENTER" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="30.0" layoutY="417.0" prefHeight="30.0" prefWidth="295.0" promptText="Wall Type" style="-fx-text-inner-color: WHITE;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField alignment="CENTER" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="30.0" layoutY="472.0" prefHeight="30.0" prefWidth="295.0" promptText="Material" style="-fx-text-inner-color: WHITE;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </JFXTextField>
+            <Separator layoutX="-3.0" layoutY="65.0" orientation="VERTICAL" prefHeight="614.0" prefWidth="6.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="65.0" />
+            <JFXButton layoutX="56.0" layoutY="550.0" prefHeight="37.0" prefWidth="267.0" style="-fx-background-radius: 30px; -fx-background-color: #0f9d58;" text="Edit" textFill="WHITE" AnchorPane.leftAnchor="56.0" AnchorPane.rightAnchor="54.0">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </right>
+   <center>
+      <AnchorPane fx:id="lengthScrollPane" prefHeight="720.0" prefWidth="739.0" BorderPane.alignment="CENTER">
+         <children>
+            <JFXTextField focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="64.0" layoutY="29.0" prefHeight="30.0" prefWidth="251.0" promptText="Search" style="-fx-text-inner-color: #b9b9b9;" AnchorPane.leftAnchor="64.0" AnchorPane.topAnchor="30.0">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </JFXTextField>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="27.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
+               <image>
+                  <Image url="@images/search_25px.png" />
+               </image>
+            </ImageView>
+            <ScrollPane fx:id="scrollPane" layoutX="27.0" layoutY="70.0" maxWidth="1360.0" prefHeight="610.0" prefWidth="634.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="75.0">
+               <content>
+                  <Group>
+                     <children>
+                        <JFXTreeTableView fx:id="layoutsTable" fixedCellSize="0.0" prefHeight="900.0" sortMode="ONLY_FIRST_LEVEL">
+                           <columns>
+                              <TreeTableColumn prefWidth="100.0" text="No." />
+                              <TreeTableColumn prefWidth="210.0" text="Measurement" />
+                              <TreeTableColumn prefWidth="210.0" text="Structure" />
+                              <TreeTableColumn prefWidth="210.0" text="Structure Type" />
+                              <TreeTableColumn prefWidth="210.0" text="Wall Type" />
+                              <TreeTableColumn prefWidth="210.0" text="Wall" />
+                              <TreeTableColumn maxWidth="210.0" prefWidth="210.0" text="Material" />
+                           </columns>
+                        </JFXTreeTableView>
+                     </children>
+                  </Group>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <bottom>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="1015.0" BorderPane.alignment="CENTER_LEFT">
+         <children>
+            <Label contentDisplay="RIGHT" layoutX="23.0" layoutY="4.0" prefHeight="30.0" prefWidth="85.0" text="Sort by " textFill="#bcbcbc">
+               <font>
+                  <Font name="Segoe UI" size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+                     <image>
+                        <Image url="@images/sort_down_20px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <JFXButton layoutX="126.0" prefHeight="37.0" prefWidth="140.0" style="-fx-background-radius: 30px; -fx-background-color: orange;" text="All (0)" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="276.0" prefHeight="37.0" prefWidth="140.0" style="-fx-background-radius: 30px; -fx-background-color: green;" text="Length (0)" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="574.0" layoutY="1.0" prefHeight="37.0" prefWidth="140.0" style="-fx-background-radius: 30px; -fx-background-color: purple;" text="Area (0)" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="425.0" layoutY="1.0" prefHeight="37.0" prefWidth="140.0" style="-fx-background-radius: 30px; -fx-background-color: indigo;" text="Stamps (0)" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

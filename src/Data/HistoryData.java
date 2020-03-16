@@ -1,16 +1,14 @@
 package Data;
 
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.scene.paint.Color;
 
-public class historyData extends RecursiveTreeObject<historyData> {
+public class HistoryData extends RecursiveTreeObject<HistoryData> {
 
     public SimpleStringProperty type, measurement,color;
 
 
-    public historyData(String  colors, String type, String measurement) {
+    public HistoryData(String  colors, String type, String measurement) {
         this.type = new SimpleStringProperty(type);
         this.measurement = new SimpleStringProperty(measurement);
         this.color = new SimpleStringProperty(colors);

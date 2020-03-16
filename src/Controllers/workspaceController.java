@@ -1,7 +1,7 @@
 package Controllers;
 
-import Data.historyData;
-import Data.sets.WallData;
+import Data.HistoryData;
+import Data.WallData;
 import Main.Main;
 import Model.PageObject;
 import Model.ShapeObject;
@@ -466,7 +466,7 @@ public class workspaceController implements Initializable {
 
             Label lbl = new Label(Math.round(area * 100.0) / 100.0 + " m²");
 
-            workspaceSideNavigatorController.historyList.addAll(new historyData(color.toString(), mode, lbl.getText()));
+            workspaceSideNavigatorController.historyList.addAll(new HistoryData(color.toString(), mode, lbl.getText()));
             redrawShapes();
             pointList.clear();
             LENGTH.setDisable(false);

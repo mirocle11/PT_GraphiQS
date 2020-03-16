@@ -6,7 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -19,7 +21,8 @@ public class dashboardController implements Initializable {
 
     @FXML
     public AnchorPane rootpane,dashboard_max,dashboard_min;
-    private AnchorPane workspace,layouts;
+    private AnchorPane workspace;
+    private BorderPane layouts;
 
     @FXML
     private Label time,date;
@@ -81,11 +84,13 @@ public class dashboardController implements Initializable {
                 translateTransition2.play();
                 translateTransition2.setOnFinished(event1 -> dashboard_max.setDisable(false));
             });
-            i--;
+
+                i--;
         }
     }
 
     private void setWorkspace() {
+
         AnchorPane.setRightAnchor(workspace,0.0);
         AnchorPane.setTopAnchor(workspace,0.0);
         AnchorPane.setBottomAnchor(workspace,0.0);
