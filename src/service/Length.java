@@ -113,7 +113,7 @@ public class Length implements IMeasurement {
                     circle.setCenterX(arr[0][0]);
                     circle.setCenterY(arr[0][1]);
                     circle.setVisible(true);
-                    circle.setRadius(3 / group.getScaleY());
+                    circle.setRadius(5);
                     circle.setOnMouseExited(event1 -> {
                         circle.setVisible(false);
                     });
@@ -178,11 +178,18 @@ public class Length implements IMeasurement {
         shapeObj.setPointList(pointList);
         shapeObj.setType("LENGTH");
         shapeObj.setTools(tools);
-        page.getShapeList().add(shapeObj);
+        shapeObj.setStructure(tools.window.structureComboBox.getSelectionModel().getSelectedItem().toString());
+        shapeObj.setWall(tools.window.wallsComboBox.getSelectionModel().getSelectedItem().toString());
+        shapeObj.setWallType(tools.window.typeComboBox.getSelectionModel().getSelectedItem().toString());
+        shapeObj.setChoices(tools.window.choicesComboBox.getSelectionModel().getSelectedItem().toString());
 
+
+
+        page.getShapeList().add(shapeObj);
         tools.setMode("FREE");
         tools.updateWindow();
         pointList.clear();
+
 //        LENGTH.setDisable(false);
 //        AREA.setDisable(false);
 //        scroller.setPannable(true);
@@ -195,13 +202,13 @@ public class Length implements IMeasurement {
             contextMenu = new ContextMenu();
             contextMenu.hide();
 
-            MenuItem removeLength = new MenuItem("REMOVE LENGTH");
+            MenuItem removeLength = new MenuItem("Remove Length");
             removeLength.setOnAction(event1 -> {
                 tools.page.shapeObjList.remove(this);
                 tools.updateWindow();
             });
 
-            MenuItem finish = new MenuItem("FINISH LENGTH");
+            MenuItem finish = new MenuItem("Complete Length");
             finish.setOnAction(event1 -> {
                 if (pointList.size() >= 2) {
                     handleFinish();
@@ -212,7 +219,9 @@ public class Length implements IMeasurement {
             if (pointList.size() >= 2) {
                 contextMenu.getItems().add(finish);
             }
-            contextMenu.getItems().add(removeLength);
+            if (pointList.size() >= 1) {
+                contextMenu.getItems().add(removeLength);
+            }
             contextMenu.show(line, event.getScreenX(), event.getScreenY());
         }
     }

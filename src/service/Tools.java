@@ -193,7 +193,7 @@ public class Tools {
                                 circle.setCenterX(arr[0][0]);
                                 circle.setCenterY(arr[0][1]);
                                 circle.setVisible(true);
-                                circle.setRadius(3 / group.getScaleY());
+                                circle.setRadius(5);
                                 circle.setOnMouseExited(event1 -> {
                                     circle.setVisible(false);
                                 });
@@ -223,6 +223,8 @@ public class Tools {
         pane.getChildren().clear();
         pane.getChildren().add(circle);
         circle.setVisible(false);
+
+
 
         if (page.getScale() == 0) {
             if (!pane.getChildren().contains(noScale)) {
@@ -304,6 +306,15 @@ public class Tools {
             pane.getChildren().addAll(sp1.getLineList());
             pane.getChildren().addAll(sp1.getBoxList());
         }
+
+        for(ShapeObject sp2 : page.getShapeList()){
+            System.out.println("Eleents");
+            System.out.println(sp2.getStructure());
+            System.out.println(sp2.getWall());
+            System.out.println(sp2.getWallType());
+            System.out.println(sp2.getChoices());
+        }
+
         pane.getChildren().add(line);
         line.setVisible(false);
         pane.getChildren().forEach(node -> {

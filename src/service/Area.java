@@ -110,7 +110,7 @@ public class Area implements IMeasurement {
                     circle.setCenterX(arr[0][0]);
                     circle.setCenterY(arr[0][1]);
                     circle.setVisible(true);
-                    circle.setRadius(3 / group.getScaleY());
+                    circle.setRadius(5);
                     circle.setOnMouseExited(event1 -> {
                         circle.setVisible(false);
                     });

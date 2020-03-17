@@ -27,6 +27,10 @@ public class ShapeObject {
     ContextMenu contextMenu;
     double area = 0;
     double length = 0;
+    String structure;
+    String wall;
+    String wallType;
+    String choices;
 
     public ShapeObject() {
         java.awt.Color c = new java.awt.Color(0, true);
@@ -133,26 +137,14 @@ public class ShapeObject {
                     contextMenu = new ContextMenu();
                     contextMenu.hide();
                     if (type == "LENGTH") {
-                        MenuItem continueLength = new MenuItem("CONTINUE LENGTH");
-                        continueLength.setOnAction(event1 -> {
-                            tools.page.shapeObjList.remove(this);
-                            tools.updateWindow();
-                        });
-                        MenuItem removeLength = new MenuItem("REMOVE LENGTH");
+                        MenuItem removeLength = new MenuItem("Remove Length");
                         removeLength.setOnAction(event1 -> {
                             tools.page.shapeObjList.remove(this);
                             tools.updateWindow();
                         });
-                        MenuItem stop = new MenuItem("STOP LENGTH");
-                        removeLength.setOnAction(event1 -> {
-                            tools.page.shapeObjList.remove(this);
-                            tools.updateWindow();
-                        });
-                        contextMenu.getItems().add(continueLength);
-                        contextMenu.getItems().add(stop);
                         contextMenu.getItems().add(removeLength);
                     } else {
-                        MenuItem removeArea = new MenuItem("REMOVE AREA");
+                        MenuItem removeArea = new MenuItem("Remove Area");
                         removeArea.setOnAction(event1 -> {
                             tools.page.shapeObjList.remove(this);
                             tools.updateWindow();
@@ -190,12 +182,12 @@ public class ShapeObject {
                 if (event.getButton() == MouseButton.SECONDARY) {
                     contextMenu = new ContextMenu();
                     if (type == "LENGTH") {
-                        MenuItem removeLength = new MenuItem("REMOVE LENGTH");
+                        MenuItem removeLength = new MenuItem("Remove Length");
                         removeLength.setOnAction(event1 -> {
                             tools.page.shapeObjList.remove(this);
                             tools.updateWindow();
                         });
-                        MenuItem continueLength = new MenuItem("REMOVE LENGTH");
+                        MenuItem continueLength = new MenuItem("Continue Length");
                         continueLength.setOnAction(event1 -> {
                             tools.page.shapeObjList.remove(this);
                             tools.updateWindow();
@@ -204,7 +196,7 @@ public class ShapeObject {
                         contextMenu.getItems().add(removeLength);
                         contextMenu.getItems().add(continueLength);
                     } else {
-                        MenuItem removeArea = new MenuItem("REMOVE AREA");
+                        MenuItem removeArea = new MenuItem("Remove Area");
                         removeArea.setOnAction(event1 -> {
                             tools.page.shapeObjList.remove(this);
                             tools.updateWindow();
@@ -229,6 +221,38 @@ public class ShapeObject {
         }
         polygon.setFill(color);
         polygon.setOpacity(.3);
+    }
+
+    public String getStructure() {
+        return structure;
+    }
+
+    public void setStructure(String structure) {
+        this.structure = structure;
+    }
+
+    public String getWall() {
+        return wall;
+    }
+
+    public void setWall(String wall) {
+        this.wall = wall;
+    }
+
+    public String getWallType() {
+        return wallType;
+    }
+
+    public void setWallType(String wallType) {
+        this.wallType = wallType;
+    }
+
+    public String getChoices() {
+        return choices;
+    }
+
+    public void setChoices(String choices) {
+        this.choices = choices;
     }
 }
 
