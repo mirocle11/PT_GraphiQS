@@ -179,21 +179,15 @@ public class Length implements IMeasurement {
         shapeObj.setType("LENGTH");
         shapeObj.setTools(tools);
         shapeObj.setStructure(tools.window.structureComboBox.getSelectionModel().getSelectedItem().toString());
-        shapeObj.setWall(tools.window.wallsComboBox.getSelectionModel().getSelectedItem().toString());
-        shapeObj.setWallType(tools.window.typeComboBox.getSelectionModel().getSelectedItem().toString());
-        shapeObj.setChoices(tools.window.choicesComboBox.getSelectionModel().getSelectedItem().toString());
-
-
+        shapeObj.setWallType(tools.window.wallTypeComboBox.getSelectionModel().getSelectedItem().toString());
+        shapeObj.setWall(tools.window.wallComboBox.getSelectionModel().getSelectedItem().toString());
+        shapeObj.setMaterial(tools.window.materialComboBox.getSelectionModel().getSelectedItem().toString());
 
         page.getShapeList().add(shapeObj);
         tools.setMode("FREE");
         tools.updateWindow();
         pointList.clear();
 
-//        LENGTH.setDisable(false);
-//        AREA.setDisable(false);
-//        scroller.setPannable(true);
-//        canDraw = false;
     }
 
     @Override

@@ -1,6 +1,6 @@
 package Controllers;
 
-import Data.HistoryData;
+//import Data.HistoryData;
 import Data.WallData;
 import Main.Main;
 import Model.PageObject;
@@ -49,7 +49,7 @@ public class workspaceController implements Initializable {
     public JFXHamburger hamburger;
 
     //combo box (for selection)
-    public JFXComboBox wallsComboBox, typeComboBox, choicesComboBox, structureComboBox;
+    public JFXComboBox structureComboBox, wallTypeComboBox, wallComboBox, materialComboBox;
     public JFXColorPicker colorPicker;
 
     //checkbox
@@ -466,7 +466,7 @@ public class workspaceController implements Initializable {
 
             Label lbl = new Label(Math.round(area * 100.0) / 100.0 + " m²");
 
-            workspaceSideNavigatorController.historyList.addAll(new HistoryData(color.toString(), mode, lbl.getText()));
+//            workspaceSideNavigatorController.historyList.addAll(new HistoryData(color.toString(), mode, lbl.getText()));
             redrawShapes();
             pointList.clear();
             LENGTH.setDisable(false);

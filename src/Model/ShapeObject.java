@@ -28,12 +28,14 @@ public class ShapeObject {
     double area = 0;
     double length = 0;
     String structure;
-    String wall;
     String wallType;
-    String choices;
+    String wall;
+    String material;
+    String line_color;
 
     public ShapeObject() {
         java.awt.Color c = new java.awt.Color(0, true);
+//        color.
     }
 
     public String getType() {
@@ -231,14 +233,6 @@ public class ShapeObject {
         this.structure = structure;
     }
 
-    public String getWall() {
-        return wall;
-    }
-
-    public void setWall(String wall) {
-        this.wall = wall;
-    }
-
     public String getWallType() {
         return wallType;
     }
@@ -247,12 +241,20 @@ public class ShapeObject {
         this.wallType = wallType;
     }
 
-    public String getChoices() {
-        return choices;
+    public String getWall() {
+        return wall;
     }
 
-    public void setChoices(String choices) {
-        this.choices = choices;
+    public void setWall(String wall) {
+        this.wall = wall;
+    }
+
+    public String getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(String material) {
+        this.material = material;
     }
 }
 

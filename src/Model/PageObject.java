@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class PageObject {
     int pageNumber;
-   public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
+    public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
     ArrayList<Shape> stampList = new ArrayList<>();
     ArrayList<double[][]> snapList = new ArrayList<>();
     Image image;

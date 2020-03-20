@@ -172,6 +172,12 @@ public class Area implements IMeasurement {
         shapeObj.setType("AREA");
         page.getShapeList().add(shapeObj);
 
+        shapeObj.setTools(tools);
+        shapeObj.setStructure(tools.window.structureComboBox.getSelectionModel().getSelectedItem().toString());
+        shapeObj.setWallType(tools.window.wallTypeComboBox.getSelectionModel().getSelectedItem().toString());
+        shapeObj.setWall(tools.window.wallComboBox.getSelectionModel().getSelectedItem().toString());
+        shapeObj.setMaterial(tools.window.materialComboBox.getSelectionModel().getSelectedItem().toString());
+
         tools.setMode("FREE");
         tools.updateWindow();
         pointList.clear();

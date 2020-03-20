@@ -886,9 +886,9 @@
          </effect>
       </AnchorPane>
       <JFXComboBox fx:id="structureComboBox" focusColor="#0f9d58" focusTraversable="false" layoutX="13.0" layoutY="21.0" prefHeight="32.0" prefWidth="164.0" promptText="Structures" />
-      <JFXComboBox fx:id="wallsComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="223.0" layoutY="21.0" prefHeight="32.0" prefWidth="156.0" promptText="Walls" />
-      <JFXComboBox fx:id="typeComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="425.0" layoutY="21.0" prefHeight="32.0" prefWidth="164.0" promptText="Type" />
-      <JFXComboBox fx:id="choicesComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="636.0" layoutY="21.0" prefHeight="32.0" prefWidth="240.0" promptText="Choices" />
+      <JFXComboBox fx:id="wallTypeComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="223.0" layoutY="21.0" prefHeight="32.0" prefWidth="156.0" promptText="Walls" />
+      <JFXComboBox fx:id="wallComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="425.0" layoutY="21.0" prefHeight="32.0" prefWidth="164.0" promptText="Type" />
+      <JFXComboBox fx:id="materialComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="636.0" layoutY="21.0" prefHeight="32.0" prefWidth="240.0" promptText="Choices" />
       <JFXColorPicker fx:id="colorPicker" disable="true" layoutX="893.0" layoutY="24.0" onAction="#colorPickerAction" prefHeight="34.0" prefWidth="108.0" />
       <ImageView fx:id="next_1" fitHeight="25.0" fitWidth="38.0" layoutX="188.0" layoutY="25.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
          <image>

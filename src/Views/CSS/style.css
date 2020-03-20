@@ -220,4 +220,8 @@
     -fx-prompt-text-fill: #b8b8b8;
 }
 
+#layoutsTableView .table-column {
+    -fx-alignment: CENTER;
+}
+
 

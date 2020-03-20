@@ -12,7 +12,7 @@ import java.util.Objects;
 
 public class WallData {
 
-    private JFXComboBox wallsComboBox, typeComboBox, choicesComboBox, structureComboBox;
+    private JFXComboBox structureComboBox, wallTypeComboBox, wallComboBox, materialComboBox;
     private JFXButton LENGTH, AREA;
     private JFXColorPicker colorPicker;
 
@@ -40,9 +40,9 @@ public class WallData {
             "13mm Gib", "Villaboard");
 
     public WallData(workspaceController workspace) {
-        this.wallsComboBox = workspace.wallsComboBox;
-        this.typeComboBox = workspace.typeComboBox;
-        this.choicesComboBox = workspace.choicesComboBox;
+        this.wallTypeComboBox = workspace.wallTypeComboBox;
+        this.wallComboBox = workspace.wallComboBox;
+        this.materialComboBox = workspace.materialComboBox;
         this.structureComboBox = workspace.structureComboBox;
         this.colorPicker = workspace.colorPicker;
         this.LENGTH = workspace.LENGTH;
@@ -54,49 +54,49 @@ public class WallData {
     public void structureAction() {
         structureComboBox.setOnAction(event -> {
             if (!structureComboBox.getSelectionModel().isEmpty()) {
-                wallsComboBox.setDisable(false);
-                typeComboBox.getSelectionModel().clearSelection();
-                typeComboBox.setDisable(true);
+                wallTypeComboBox.setDisable(false);
+                wallComboBox.getSelectionModel().clearSelection();
+                wallComboBox.setDisable(true);
             } else {
-                wallsComboBox.setDisable(true);
+                wallTypeComboBox.setDisable(true);
             }
-            wallsComboBox.getSelectionModel().clearSelection();
+            wallTypeComboBox.getSelectionModel().clearSelection();
             colorPickerAction();
         });
     }
 
     public void wallsAction() {
-        wallsComboBox.setItems(WALLS);
+        wallTypeComboBox.setItems(WALLS);
 
-        wallsComboBox.setOnAction(event -> {
-            if (!wallsComboBox.getSelectionModel().isEmpty()) {
-                typeComboBox.setDisable(false);
-                choicesComboBox.getSelectionModel().clearSelection();
-                choicesComboBox.setDisable(true);
+        wallTypeComboBox.setOnAction(event -> {
+            if (!wallTypeComboBox.getSelectionModel().isEmpty()) {
+                wallComboBox.setDisable(false);
+                materialComboBox.getSelectionModel().clearSelection();
+                materialComboBox.setDisable(true);
                 showType();
             } else {
-                typeComboBox.setDisable(true);
+                wallComboBox.setDisable(true);
             }
-            typeComboBox.getSelectionModel().clearSelection();
+            wallComboBox.getSelectionModel().clearSelection();
             colorPickerAction();
         });
     }
 
     private void showType() {
-        if (Objects.equals(wallsComboBox.getSelectionModel().getSelectedItem().toString(), "Exterior")) {
-            typeComboBox.setItems(EXTERIOR);
-        } else if (Objects.equals(wallsComboBox.getSelectionModel().getSelectedItem().toString(), "Interior")) {
-            typeComboBox.setItems(INTERIOR);
+        if (Objects.equals(wallTypeComboBox.getSelectionModel().getSelectedItem().toString(), "Exterior")) {
+            wallComboBox.setItems(EXTERIOR);
+        } else if (Objects.equals(wallTypeComboBox.getSelectionModel().getSelectedItem().toString(), "Interior")) {
+            wallComboBox.setItems(INTERIOR);
         }
     }
 
     public void typeAction() {
-        typeComboBox.setOnAction(event -> {
-            if (typeComboBox.getSelectionModel().isEmpty()) {
-                choicesComboBox.getSelectionModel().clearSelection();
-                choicesComboBox.setDisable(true);
+        wallComboBox.setOnAction(event -> {
+            if (wallComboBox.getSelectionModel().isEmpty()) {
+                materialComboBox.getSelectionModel().clearSelection();
+                materialComboBox.setDisable(true);
             } else {
-                choicesComboBox.setDisable(false);
+                materialComboBox.setDisable(false);
                 showChoices();
                 colorPickerAction();
             }
@@ -104,22 +104,22 @@ public class WallData {
     }
 
     private void showChoices() {
-        if (Objects.equals(typeComboBox.getSelectionModel().getSelectedItem().toString(), "Cladding")) {
-            choicesComboBox.setItems(CLADDING);
-        } else if (Objects.equals(typeComboBox.getSelectionModel().getSelectedItem().toString(), "Wall Underlay")) {
-            choicesComboBox.setItems(WALL_UNDERLAY);
-        } else if (Objects.equals(typeComboBox.getSelectionModel().getSelectedItem().toString(), "Framing")) {
-            choicesComboBox.setItems(FRAMING);
-        } else if (Objects.equals(typeComboBox.getSelectionModel().getSelectedItem().toString(), "Insulation")) {
-            choicesComboBox.setItems(INSULATION);
-        } else if (Objects.equals(typeComboBox.getSelectionModel().getSelectedItem().toString(), "Internal Lining")) {
-            choicesComboBox.setItems(INTERNAL_LINING);
+        if (Objects.equals(wallComboBox.getSelectionModel().getSelectedItem().toString(), "Cladding")) {
+            materialComboBox.setItems(CLADDING);
+        } else if (Objects.equals(wallComboBox.getSelectionModel().getSelectedItem().toString(), "Wall Underlay")) {
+            materialComboBox.setItems(WALL_UNDERLAY);
+        } else if (Objects.equals(wallComboBox.getSelectionModel().getSelectedItem().toString(), "Framing")) {
+            materialComboBox.setItems(FRAMING);
+        } else if (Objects.equals(wallComboBox.getSelectionModel().getSelectedItem().toString(), "Insulation")) {
+            materialComboBox.setItems(INSULATION);
+        } else if (Objects.equals(wallComboBox.getSelectionModel().getSelectedItem().toString(), "Internal Lining")) {
+            materialComboBox.setItems(INTERNAL_LINING);
         }
     }
 
     public void choicesAction() {
-        choicesComboBox.setOnAction(event -> {
-            if (choicesComboBox.getSelectionModel().isEmpty()) {
+        materialComboBox.setOnAction(event -> {
+            if (materialComboBox.getSelectionModel().isEmpty()) {
                 colorPicker.setValue(Color.WHITE);
                 colorPicker.setDisable(true);
             } else {

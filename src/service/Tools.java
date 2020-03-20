@@ -1,6 +1,8 @@
 package service;
 
 import Controllers.workspaceController;
+import Controllers.layoutsController;
+import Data.layoutsData;
 import Model.PageObject;
 import Model.ShapeObject;
 import com.jfoenix.controls.JFXButton;
@@ -11,9 +13,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -24,7 +24,6 @@ import javafx.scene.text.Font;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -53,6 +52,7 @@ public class Tools {
     JFXButton LENGTH, AREA;
 
     workspaceController window;
+    layoutsController layouts;
     List<Shape> shapeList = new ArrayList<>();
     ArrayList<Point2D> pointList = new ArrayList<>();
     ArrayList<Shape> stampList = new ArrayList<>();
@@ -224,8 +224,6 @@ public class Tools {
         pane.getChildren().add(circle);
         circle.setVisible(false);
 
-
-
         if (page.getScale() == 0) {
             if (!pane.getChildren().contains(noScale)) {
                 noScale.setLayoutX(15);
@@ -306,13 +304,30 @@ public class Tools {
             pane.getChildren().addAll(sp1.getLineList());
             pane.getChildren().addAll(sp1.getBoxList());
         }
+        //data to layout table
+        int count = 0;
+        layouts.data.clear();
+        for (int i = 0; i < pageObjects.size(); i++) {
+            PageObject p = pageObjects.get(i);
+            for (ShapeObject sp2 : p.getShapeList()) {
+                System.out.println("Elements");
+                System.out.println(sp2.getStructure());
+                System.out.println(sp2.getWallType());
+                System.out.println(sp2.getWall());
+                System.out.println(sp2.getChoices());
+                System.out.println("Page : "+ i + 1);
+                System.out.println(String.valueOf(count++));
 
-        for(ShapeObject sp2 : page.getShapeList()){
-            System.out.println("Eleents");
-            System.out.println(sp2.getStructure());
-            System.out.println(sp2.getWall());
-            System.out.println(sp2.getWallType());
-            System.out.println(sp2.getChoices());
+                double value;
+                if (sp2.getType().equals("LENGTH")) {
+                    value = sp2.getLength();
+                } else {
+                    value = sp2.getArea();
+                }
+                layouts.data.addAll(new layoutsData(String.valueOf(count), String.valueOf(i + 1), sp2.getType(),
+                        sp2.getStructure(), sp2.getWallType(), sp2.getWall(), sp2.getChoices(),"",
+                        String.valueOf(value)));
+            }
         }
 
         pane.getChildren().add(line);
