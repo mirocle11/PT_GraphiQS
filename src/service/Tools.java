@@ -6,6 +6,7 @@ import Data.layoutsData;
 import Model.PageObject;
 import Model.ShapeObject;
 import com.jfoenix.controls.JFXButton;
+import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -14,10 +15,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Font;
@@ -314,7 +312,7 @@ public class Tools {
                 System.out.println(sp2.getStructure());
                 System.out.println(sp2.getWallType());
                 System.out.println(sp2.getWall());
-                System.out.println(sp2.getChoices());
+                System.out.println(sp2.getMaterial());
                 System.out.println("Page : "+ i + 1);
                 System.out.println(String.valueOf(count++));
 
@@ -324,8 +322,14 @@ public class Tools {
                 } else {
                     value = sp2.getArea();
                 }
+
+                Label colorLabel = new Label();
+                colorLabel.setMinWidth(60);
+                colorLabel.setMinHeight(20);
+                colorLabel.setBackground(new Background(new BackgroundFill(sp2.getColor(), CornerRadii.EMPTY, Insets.EMPTY)));
+
                 layouts.data.addAll(new layoutsData(String.valueOf(count), String.valueOf(i + 1), sp2.getType(),
-                        sp2.getStructure(), sp2.getWallType(), sp2.getWall(), sp2.getChoices(),"",
+                        sp2.getStructure(), sp2.getWallType(), sp2.getWall(), sp2.getMaterial(), colorLabel,
                         String.valueOf(value)));
             }
         }

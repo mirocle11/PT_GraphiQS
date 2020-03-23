@@ -31,11 +31,9 @@ public class ShapeObject {
     String wallType;
     String wall;
     String material;
-    String line_color;
 
     public ShapeObject() {
         java.awt.Color c = new java.awt.Color(0, true);
-//        color.
     }
 
     public String getType() {

@@ -5,7 +5,6 @@ import Model.ShapeObject;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.control.ContextMenu;
-import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -161,18 +160,18 @@ public class Length implements IMeasurement {
 
     @Override
     public void handleFinish() {
-
         ShapeObject shapeObj = new ShapeObject();
         shapeObj.setPane(pane);
         shapeObj.setStrokeWidth(6 / group.getScaleY());
         shapeObj.setColor(tools.color);
+
         try {
             Point2D p2d = new Point2D(rect.getX() + rect.getHeight() / 2, rect.getY() + rect.getHeight() / 2);
             if (p2d != pointList.get(pointList.size() - 1)) {
                 pointList.add(p2d);
             }
         } catch (Exception ex) {
-
+            ex.getSuppressed();
         }
 
         shapeObj.setPointList(pointList);
@@ -187,7 +186,6 @@ public class Length implements IMeasurement {
         tools.setMode("FREE");
         tools.updateWindow();
         pointList.clear();
-
     }
 
     @Override

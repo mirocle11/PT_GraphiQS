@@ -32,7 +32,9 @@ public class layoutsController implements Initializable {
     public BorderPane layoutsPane;
     public ScrollPane scrollPane;
 
-    public JFXTextField ROW_NO, PAGE, MEASUREMENT, STRUCTURE, WALL_TYPE, WALL, MATERIAL, COLOR, VALUE, SEARCH;
+    public JFXTextField ROW_NO, PAGE, MEASUREMENT, STRUCTURE, WALL_TYPE, WALL, MATERIAL, COLOR_TXT, VALUE, SEARCH;
+
+    public Label COLOR;
 
     public JFXTreeTableView<layoutsData> layoutsTableView;
     public TreeTableColumn<layoutsData, String> COL_NO;
@@ -42,7 +44,7 @@ public class layoutsController implements Initializable {
     public TreeTableColumn<layoutsData, String> COL_WALL_TYPE;
     public TreeTableColumn<layoutsData, String> COL_WALL;
     public TreeTableColumn<layoutsData, String> COL_MATERIAL;
-    public TreeTableColumn<layoutsData, String> COL_COLOR;
+    public TreeTableColumn<layoutsData, Label> COL_COLOR;
     public TreeTableColumn<layoutsData, String> COL_VALUE;
 
     public static ObservableList<layoutsData> data;
@@ -103,13 +105,10 @@ public class layoutsController implements Initializable {
             showDetails(newValue);
         });
 
-        Label l = new Label();
-        l.setBackground(new Background(new BackgroundFill(Color.BLUE, CornerRadii.EMPTY, Insets.EMPTY)));
-        Color c = (Color)l.getBackground().getFills().get(0).getFill();
-
-        String color = "";
-        testColor(c, color);
-
+//        Label l = new Label();
+//        l.setBackground(new Background(new BackgroundFill(Color.BLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+//        Color c = (Color)l.getBackground().getFills().get(0).getFill();
+//        testColor(c);
     }
 
     private void showDetails(TreeItem<layoutsData> treeItem) {
@@ -123,28 +122,11 @@ public class layoutsController implements Initializable {
             WALL.setText(treeItem.getValue().getWall());
             MATERIAL.setText(treeItem.getValue().getMaterial());
 
-            COLOR.setText(treeItem.getValue().getColor());
+            COLOR_TXT.setText(treeItem.getValue().getColor().getBackground().getFills().get(0).getFill().toString());
             VALUE.setText(treeItem.getValue().getValue());
         } catch (Exception e) {
             e.getSuppressed();
         }
-    }
-
-    public void testColor(Color c, String s) {
-//        Color c = Color.ALICEBLUE;
-
-        int green = (int) (c.getGreen()*255);
-        String greenString = Integer.toHexString(green);
-
-        int red = (int) (c.getRed()*255);
-        String redString = Integer.toHexString(red);
-
-        int blue = (int) (c.getBlue()*255);
-        String blueString = Integer.toHexString(blue);
-
-        s = "#"+redString+greenString+blueString;
-        System.out.println(s);
-        System.out.println(c.toString());
     }
 
 }

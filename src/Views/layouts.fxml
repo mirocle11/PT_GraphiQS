@@ -60,7 +60,7 @@
                   <Font name="Segoe UI" size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="COLOR" alignment="CENTER" disable="true" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="25.0" layoutY="513.0" prefHeight="30.0" prefWidth="272.0" promptText="Color" style="-fx-text-inner-color: WHITE;">
+            <JFXTextField fx:id="COLOR_TXT" alignment="CENTER" disable="true" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="25.0" layoutY="513.0" prefHeight="30.0" prefWidth="272.0" promptText="Color" style="-fx-text-inner-color: WHITE;">
                <font>
                   <Font name="Segoe UI" size="16.0" />
                </font>
