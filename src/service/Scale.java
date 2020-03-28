@@ -81,7 +81,7 @@ public class Scale implements IMeasurement {
                 DrawService.drawBox(line.getEndX(), line.getEndY(), pane, group.getScaleX());
                 double m_input = Float.parseFloat(JOptionPane.showInputDialog("Enter Scale (mm)", 0.00 + " mm"));
                 if (m_input <= 0) {
-                    throw new NumberFormatException();
+//                    throw new NumberFormatException();
                 } else {
                     double m_Length = start.distance(end);
                     page.setScale(m_Length / m_input);

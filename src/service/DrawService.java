@@ -23,8 +23,8 @@ public class DrawService {
 
         l.setStroke(line.getStroke());
         l.setStrokeLineCap(StrokeLineCap.BUTT);
-        l.setStrokeWidth(5 / scale);
-        l.setOpacity(.5);
+        l.setStrokeWidth(8 / scale);
+        l.setOpacity(.7);
 
         l.setOnMouseEntered(event -> {
             l.setStroke(Color.RED);
@@ -44,7 +44,7 @@ public class DrawService {
         r.setWidth(10 / scale);
         r.setHeight(10 / scale);
         r.setStroke(Color.GREEN);
-        r.setOpacity(.5);
+        r.setOpacity(.7);
         r.setStrokeWidth(4 / scale);
         r.setFill(Color.TRANSPARENT);
         r.setOnMouseReleased(event -> {
@@ -75,10 +75,10 @@ public class DrawService {
             });
             lbl.setOnMouseExited(event1 -> {
                 lbl.setStyle("-fx-background-color: transparent");
-                lbl.setOpacity(.5);
+                lbl.setOpacity(.7);
             });
             lbl.setTextFill(line.getStroke());
-            lbl.setOpacity(.5);
+            lbl.setOpacity(.7);
             pane.getChildren().add(lbl);
         }
     }

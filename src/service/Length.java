@@ -14,6 +14,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class Length implements IMeasurement {
         this.tools = tools;
         this.line = tools.line;
         this.line.setStroke(tools.color);
-        this.line.setStrokeWidth(5 / tools.group.getScaleY());
+        this.line.setStrokeWidth(8 / tools.group.getScaleY());
         this.circle = tools.circle;
         this.pane = tools.pane;
         this.group = tools.group;
@@ -56,7 +57,6 @@ public class Length implements IMeasurement {
         });
 
     }
-
 
     @Override
     public void handleClick(MouseEvent event) {
@@ -77,7 +77,7 @@ public class Length implements IMeasurement {
                 line.setEndX(snapX);
                 line.setEndY(snapY);
             }
-            line.setStrokeWidth(5 / group.getScaleY());
+            line.setStrokeWidth(8 / group.getScaleY());
             Point2D end = new Point2D(line.getEndX(), line.getEndY());
             pointList.add(end);
             drawBox(line.getEndX(), line.getEndY(), pane, group.getScaleX());
@@ -162,7 +162,7 @@ public class Length implements IMeasurement {
     public void handleFinish() {
         ShapeObject shapeObj = new ShapeObject();
         shapeObj.setPane(pane);
-        shapeObj.setStrokeWidth(6 / group.getScaleY());
+        shapeObj.setStrokeWidth(8 / group.getScaleY());
         shapeObj.setColor(tools.color);
 
         try {
@@ -177,14 +177,12 @@ public class Length implements IMeasurement {
         shapeObj.setPointList(pointList);
         shapeObj.setType("LENGTH");
         shapeObj.setTools(tools);
-        shapeObj.setStructure(tools.window.structureComboBox.getSelectionModel().getSelectedItem().toString());
-        shapeObj.setWallType(tools.window.wallTypeComboBox.getSelectionModel().getSelectedItem().toString());
-        shapeObj.setWall(tools.window.wallComboBox.getSelectionModel().getSelectedItem().toString());
-        shapeObj.setMaterial(tools.window.materialComboBox.getSelectionModel().getSelectedItem().toString());
 
         page.getShapeList().add(shapeObj);
         tools.setMode("FREE");
+        tools.studPopup();
         tools.updateWindow();
+
         pointList.clear();
     }
 
@@ -226,7 +224,7 @@ public class Length implements IMeasurement {
         r.setWidth(10 / scale);
         r.setHeight(10 / scale);
         r.setStroke(Color.GREEN);
-        r.setOpacity(.5);
+        r.setOpacity(.7);
         r.setStrokeWidth(4 / scale);
         r.setFill(Color.TRANSPARENT);
         r.setOnMouseEntered(event -> {

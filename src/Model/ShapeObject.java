@@ -31,6 +31,9 @@ public class ShapeObject {
     String wallType;
     String wall;
     String material;
+    String stud_height;
+    String volume;
+    String lobour;
 
     public ShapeObject() {
         java.awt.Color c = new java.awt.Color(0, true);
@@ -125,7 +128,7 @@ public class ShapeObject {
             l.setStrokeLineCap(StrokeLineCap.BUTT);
             l.setStroke(color);
             l.setStrokeWidth(strokeWidth);
-            l.setOpacity(.5);
+            l.setOpacity(.8);
             l.setOnMouseEntered(event -> {
                 l.setStroke(Color.RED);
             });
@@ -253,6 +256,30 @@ public class ShapeObject {
 
     public void setMaterial(String material) {
         this.material = material;
+    }
+
+    public String getStud_height() {
+        return stud_height;
+    }
+
+    public void setStud_height(String stud_height) {
+        this.stud_height = stud_height;
+    }
+
+    public String getVolume() {
+        return volume;
+    }
+
+    public void setVolume(String volume) {
+        this.volume = volume;
+    }
+
+    public String getLobour() {
+        return lobour;
+    }
+
+    public void setLobour(String lobour) {
+        this.lobour = lobour;
     }
 }
 

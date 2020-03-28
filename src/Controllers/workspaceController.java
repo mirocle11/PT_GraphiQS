@@ -1,6 +1,5 @@
 package Controllers;
 
-//import Data.HistoryData;
 import Data.WallData;
 import Main.Main;
 import Model.PageObject;
@@ -34,6 +33,7 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import service.*;
 
+import java.math.BigDecimal;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -133,7 +133,7 @@ public class workspaceController implements Initializable {
         Tools.enableButtons(new String[]{"IMPORT"}, toolsMenu);
 
         line.setVisible(false);
-        line.setOpacity(.5);
+        line.setOpacity(.7);
         line.setStrokeLineCap(StrokeLineCap.BUTT);
         pane.getChildren().add(circle);
         circle.setFill(Color.RED);
@@ -492,7 +492,7 @@ public class workspaceController implements Initializable {
             line.setEndY(clamp.getY());
             pointList.add(clamp);
         }
-        line.setStrokeWidth(5 / group.getScaleY());
+        line.setStrokeWidth(8 / group.getScaleY());
         line.setStroke(color);
         pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
         line.setVisible(true);
@@ -548,11 +548,11 @@ public class workspaceController implements Initializable {
                 });
                 lbl.setOnMouseExited(event -> {
                     lbl.setStyle("-fx-background-color: transparent");
-                    lbl.setOpacity(.5);
+                    lbl.setOpacity(.7);
                 });
                 lbl.setLayoutX(layX);
                 lbl.setLayoutY(layY);
-                lbl.setOpacity(.5);
+                lbl.setOpacity(.7);
                 pane.getChildren().add(lbl);
             }
         }
@@ -579,10 +579,10 @@ public class workspaceController implements Initializable {
                         });
                         lbl.setOnMouseExited(event -> {
                             lbl.setStyle("-fx-background-color: transparent");
-                            lbl.setOpacity(.5);
+                            lbl.setOpacity(.6);
                         });
                         lbl.setTextFill(sp1.getColor());
-                        lbl.setOpacity(.5);
+                        lbl.setOpacity(.7);
                         pane.getChildren().add(lbl);
                     }
                 }
@@ -606,7 +606,7 @@ public class workspaceController implements Initializable {
                     rect.setWidth(10 / group.getScaleY());
                     rect.setHeight(10 / group.getScaleY());
                 } else {
-                    sp.setStrokeWidth(5 / group.getScaleY());
+                    sp.setStrokeWidth(8 / group.getScaleY());
                 }
             }
             if (node.getClass() == Label.class) {
@@ -645,7 +645,7 @@ public class workspaceController implements Initializable {
                             rect.setWidth(10 / group.getScaleY());
                             rect.setHeight(10 / group.getScaleY());
                         } else {
-                            sp.setStrokeWidth(5 / group.getScaleY());
+                            sp.setStrokeWidth(8 / group.getScaleY());
                         }
                     }
                     if (node.getClass() == Label.class) {

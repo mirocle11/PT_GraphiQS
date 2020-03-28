@@ -37,7 +37,7 @@ public class Area implements IMeasurement {
         this.tools = tools;
         this.line = tools.line;
         this.line.setStroke(tools.color);
-        this.line.setStrokeWidth(5 / tools.group.getScaleY());
+        this.line.setStrokeWidth(8 / tools.group.getScaleY());
         this.circle = tools.circle;
         this.pane = tools.pane;
         this.group = tools.group;
@@ -76,7 +76,7 @@ public class Area implements IMeasurement {
                 pointList.add(clamp);
             }
             line.setVisible(true);
-            line.setStrokeWidth(5 / group.getScaleY());
+            line.setStrokeWidth(8 / group.getScaleY());
             line.setStroke(tools.color);
             drawBox(line.getEndX(), line.getEndY(), pane, group.getScaleX());
             isNew = false;
@@ -160,7 +160,7 @@ public class Area implements IMeasurement {
     public void handleFinish() {
         ShapeObject shapeObj = new ShapeObject();
         shapeObj.setPane(pane);
-        shapeObj.setStrokeWidth(6 / group.getScaleY());
+        shapeObj.setStrokeWidth(8 / group.getScaleY());
         shapeObj.setColor(tools.color);
 
         Point2D p2d = new Point2D(rect.getX() + rect.getHeight() / 2, rect.getY() + rect.getHeight() / 2);
@@ -196,8 +196,8 @@ public class Area implements IMeasurement {
         r.setWidth(10 / scale);
         r.setHeight(10 / scale);
         r.setStroke(Color.GREEN);
-        r.setOpacity(.5);
-        r.setStrokeWidth(4 / scale);
+        r.setOpacity(.7);
+        r.setStrokeWidth(8 / scale);
         r.setFill(Color.TRANSPARENT);
         r.setOnMouseEntered(event -> {
             r.setStroke(Color.RED);

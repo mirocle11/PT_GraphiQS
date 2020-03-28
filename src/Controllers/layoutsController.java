@@ -1,27 +1,18 @@
 package Controllers;
-import com.jfoenix.controls.JFXColorPicker;
-import com.jfoenix.controls.JFXTextField;
-import com.jfoenix.controls.JFXTreeTableView;
-import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import Data.layoutsData;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -32,9 +23,10 @@ public class layoutsController implements Initializable {
     public BorderPane layoutsPane;
     public ScrollPane scrollPane;
 
-    public JFXTextField ROW_NO, PAGE, MEASUREMENT, STRUCTURE, WALL_TYPE, WALL, MATERIAL, COLOR_TXT, VALUE, SEARCH;
+    public JFXTextField SEARCH, ROW_NO, PAGE, MEASUREMENT, STRUCTURE, WALL_TYPE, WALL, MATERIAL, COLOR_TXT, VALUE,
+            STUD_HEIGHT, VOLUME, LOBOUR;
 
-    public Label COLOR;
+    public JFXButton ALL, LENGTH, AREA, STAMPS;
 
     public JFXTreeTableView<layoutsData> layoutsTableView;
     public TreeTableColumn<layoutsData, String> COL_NO;
@@ -46,6 +38,9 @@ public class layoutsController implements Initializable {
     public TreeTableColumn<layoutsData, String> COL_MATERIAL;
     public TreeTableColumn<layoutsData, Label> COL_COLOR;
     public TreeTableColumn<layoutsData, String> COL_VALUE;
+    public TreeTableColumn<layoutsData, String> COL_STUD_HEIGHT;
+    public TreeTableColumn<layoutsData, String> COL_VOLUME;
+    public TreeTableColumn<layoutsData, String> COL_LOBOUR;
 
     public static ObservableList<layoutsData> data;
 
@@ -84,6 +79,15 @@ public class layoutsController implements Initializable {
         COL_VALUE.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("value")
         );
+        COL_STUD_HEIGHT.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("stud_height")
+        );
+        COL_VOLUME.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("volume")
+        );
+        COL_LOBOUR.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("lobour")
+        );
 
         TreeItem<layoutsData> root = new RecursiveTreeItem<>(data, RecursiveTreeObject::getChildren);
         layoutsTableView.setRoot(root);
@@ -95,7 +99,8 @@ public class layoutsController implements Initializable {
                 layoutsTableView.setPredicate(new Predicate<TreeItem<layoutsData>>() {
                     @Override
                     public boolean test(TreeItem<layoutsData> modelTreeItem) {
-                        return modelTreeItem.getValue().getMeasurement().contains(newValue) |modelTreeItem.getValue().getMaterial().contains(newValue) ;
+                        return modelTreeItem.getValue().getMeasurement().contains(newValue) |modelTreeItem.getValue()
+                                .getMaterial().contains(newValue) ;
                     }
                 });
             }
@@ -104,11 +109,6 @@ public class layoutsController implements Initializable {
         layoutsTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             showDetails(newValue);
         });
-
-//        Label l = new Label();
-//        l.setBackground(new Background(new BackgroundFill(Color.BLUE, CornerRadii.EMPTY, Insets.EMPTY)));
-//        Color c = (Color)l.getBackground().getFills().get(0).getFill();
-//        testColor(c);
     }
 
     private void showDetails(TreeItem<layoutsData> treeItem) {
@@ -124,6 +124,9 @@ public class layoutsController implements Initializable {
 
             COLOR_TXT.setText(treeItem.getValue().getColor().getBackground().getFills().get(0).getFill().toString());
             VALUE.setText(treeItem.getValue().getValue());
+
+            STUD_HEIGHT.setText(treeItem.getValue().getColor().getBackground().getFills().get(0).getFill().toString());
+            VOLUME.setText(treeItem.getValue().getColor().getBackground().getFills().get(0).getFill().toString());
         } catch (Exception e) {
             e.getSuppressed();
         }

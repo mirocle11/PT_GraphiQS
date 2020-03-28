@@ -6,12 +6,13 @@ import javafx.scene.control.Label;
 
 public class layoutsData extends RecursiveTreeObject<layoutsData> {
 
-    private SimpleStringProperty no, page, measurement, structure, wall_type, wall, material, value;
+    private SimpleStringProperty no, page, measurement, structure, wall_type, wall, material, value, stud_height,
+            volume, lobour;
 
     private Label color;
 
     public layoutsData(String no, String page, String measurement, String structure, String wall_type, String wall,
-                       String material, Label color, String value) {
+                       String material, Label color, String value, String stud_height, String volume, String lobour) {
 
         this.no = new SimpleStringProperty(no);
         this.page = new SimpleStringProperty(page);
@@ -22,7 +23,9 @@ public class layoutsData extends RecursiveTreeObject<layoutsData> {
         this.material = new SimpleStringProperty(material);
         this.color = color;
         this.value = new SimpleStringProperty(value);
-
+        this.stud_height = new SimpleStringProperty(stud_height);
+        this.volume = new SimpleStringProperty(volume);
+        this.lobour = new SimpleStringProperty(lobour);
     }
 
     public String getNo() {
@@ -109,17 +112,13 @@ public class layoutsData extends RecursiveTreeObject<layoutsData> {
         this.material.set(material);
     }
 
-//    public String getColor() {
-//        return color.get();
-//    }
-//
-//    public SimpleStringProperty colorProperty() {
-//        return color;
-//    }
-//
-//    public void setColor(String color) {
-//        this.color.set(color);
-//    }
+    public Label getColor() {
+        return color;
+}
+
+    public void setColor(Label color) {
+        this.color = color;
+    }
 
     public String getValue() {
         return value.get();
@@ -133,11 +132,40 @@ public class layoutsData extends RecursiveTreeObject<layoutsData> {
         this.value.set(value);
     }
 
-    public Label getColor() {
-        return color;
+
+    public String getStud_height() {
+        return stud_height.get();
     }
 
-    public void setColor(Label color) {
-        this.color = color;
+    public SimpleStringProperty stud_heightProperty() {
+        return stud_height;
+    }
+
+    public void setStud_height(String stud_height) {
+        this.stud_height.set(stud_height);
+    }
+
+    public String getVolume() {
+        return volume.get();
+    }
+
+    public SimpleStringProperty volumeProperty() {
+        return volume;
+    }
+
+    public void setVolume(String volume) {
+        this.volume.set(volume);
+    }
+
+    public String getLobour() {
+        return lobour.get();
+    }
+
+    public SimpleStringProperty lobourProperty() {
+        return lobour;
+    }
+
+    public void setLobour(String lobour) {
+        this.lobour.set(lobour);
     }
 }

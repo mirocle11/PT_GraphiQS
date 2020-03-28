@@ -20,9 +20,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Font;
 
+import javax.swing.*;
 import java.io.File;
+import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by User on 17/02/2020.
@@ -58,6 +62,8 @@ public class Tools {
     ArrayList<double[][]> snapList = new ArrayList<>();
     public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
 
+    double total;
+    double stud_height;
 
     public Tools(PageObject page, Group group, String mode, Line line, Circle circle, VBox box) {
         this.page = page;
@@ -120,7 +126,7 @@ public class Tools {
 
         this.line = new Line();
         this.line.setVisible(false);
-        this.line.setOpacity(.5);
+        this.line.setOpacity(.7);
         this.line.setStrokeLineCap(StrokeLineCap.BUTT);
 
         this.noScale = new Label();
@@ -261,11 +267,11 @@ public class Tools {
                 });
                 lbl.setOnMouseExited(event -> {
                     lbl.setStyle("-fx-background-color: transparent");
-                    lbl.setOpacity(.5);
+                    lbl.setOpacity(.7);
                 });
                 lbl.setLayoutX(layX);
                 lbl.setLayoutY(layY);
-                lbl.setOpacity(.5);
+                lbl.setOpacity(.7);
                 pane.getChildren().add(lbl);
             }
         }
@@ -291,18 +297,31 @@ public class Tools {
                         });
                         lbl.setOnMouseExited(event -> {
                             lbl.setStyle("-fx-background-color: transparent");
-                            lbl.setOpacity(.5);
+                            lbl.setOpacity(.7);
                         });
                         lbl.setTextFill(sp1.getColor());
-                        lbl.setOpacity(.5);
+                        lbl.setOpacity(.7);
                         pane.getChildren().add(lbl);
+                        total = total + sp1.getLength();
                     }
                 }
+                sp1.setLength(Math.round(total * 100.0) / 100.0);
+                total = 0.0;
             }
             pane.getChildren().addAll(sp1.getLineList());
             pane.getChildren().addAll(sp1.getBoxList());
+
+            //set shapeObject data
+            sp1.setStructure(window.structureComboBox.getSelectionModel().getSelectedItem().toString());
+            sp1.setWallType(window.wallTypeComboBox.getSelectionModel().getSelectedItem().toString());
+            sp1.setWall(window.wallComboBox.getSelectionModel().getSelectedItem().toString());
+            sp1.setMaterial(window.materialComboBox.getSelectionModel().getSelectedItem().toString());
+            sp1.setStud_height(String.valueOf(stud_height));
+            BigDecimal bigDecimal = new BigDecimal(Math.round(sp1.getLength() * stud_height));
+            sp1.setVolume(String.valueOf(bigDecimal));
         }
-        //data to layout table
+
+        //get shapeObject data to layout table
         int count = 0;
         layouts.data.clear();
         for (int i = 0; i < pageObjects.size(); i++) {
@@ -330,7 +349,9 @@ public class Tools {
 
                 layouts.data.addAll(new layoutsData(String.valueOf(count), String.valueOf(i + 1), sp2.getType(),
                         sp2.getStructure(), sp2.getWallType(), sp2.getWall(), sp2.getMaterial(), colorLabel,
-                        String.valueOf(value)));
+                        NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(value)),
+                        NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(sp2.getStud_height())),
+                        NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(sp2.getVolume())), ""));
             }
         }
 
@@ -357,6 +378,15 @@ public class Tools {
                 lbl.setFont(new Font("Arial", 18 / group.getScaleY()));
             }
         });
+    }
+
+    public void studPopup() {
+        try {
+            stud_height = Float.parseFloat(JOptionPane.showInputDialog("Enter Stud height", 0.00 + " mm"));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Please enter a valid number.",
+                    "Invalid Stud height value", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public void setPageElements() {
