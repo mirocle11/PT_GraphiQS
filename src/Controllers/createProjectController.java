@@ -77,6 +77,7 @@ public class createProjectController {
         if (((JFXCheckBox) node).isSelected()) {
             String boxes = ((JFXCheckBox) node).getText();
             list.add(boxes);
+            System.out.println(list);
             workspaceController.getSelectedStructures(list);
         }
     }

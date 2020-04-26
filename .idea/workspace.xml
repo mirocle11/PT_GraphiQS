@@ -6,23 +6,58 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="">
+    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="updated layouts form and fixed bugs">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/mysql-connector-java-8.0.19.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/jfoenix_8_0_8.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_19.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controllers/builderController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controllers/loginController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controllers/registerClientController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controllers/registerSubtradeController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controllers/viewClientController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controllers/viewSubtradeController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/DataBase/DataBase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/data/clientsData.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/data/subtradesData.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Test/TwoDArrayInput.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Views/builder.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Views/loginForm.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Views/priceCards.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Views/registerClient.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Views/registerSubtrade.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Views/viewClient.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Views/viewSubtrade.fxml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Data/historyData.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Data/HistoryData.java" afterPath="$PROJECT_DIR$/src/Model/data/HistoryData.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Data/WallData.java" afterPath="$PROJECT_DIR$/src/Model/data/WallData.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Data/layoutsData.java" afterPath="$PROJECT_DIR$/src/Model/data/layoutsData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/dashboardController.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/dashboardController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/splashScreenController.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/splashScreenController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/ShapeObject.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/ShapeObject.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceSideNavigatorController.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceSideNavigatorController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Main/Main.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Main/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PTGraphiQS.iml" afterPath="$PROJECT_DIR$/PTGraphiQS.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/CSS/style.css" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/CSS/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/dashboard.fxml" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/dashboard.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspaceSideNavigation.fxml" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspaceSideNavigation.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/createProjectController.java" afterPath="$PROJECT_DIR$/src/Controllers/createProjectController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/dashboardController.java" afterPath="$PROJECT_DIR$/src/Controllers/dashboardController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/layoutsController.java" afterPath="$PROJECT_DIR$/src/Controllers/layoutsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/splashScreenController.java" afterPath="$PROJECT_DIR$/src/Controllers/splashScreenController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Data/layoutsData.java" afterPath="$PROJECT_DIR$/src/Data/layoutsData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ShapeObject.java" afterPath="$PROJECT_DIR$/src/Model/ShapeObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/workspaceSideNavigatorController.java" afterPath="$PROJECT_DIR$/src/Controllers/workspaceSideNavigatorController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/Main.java" afterPath="$PROJECT_DIR$/src/Main/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Views/CSS/style.css" afterPath="$PROJECT_DIR$/src/Views/CSS/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Views/createProject.fxml" afterPath="$PROJECT_DIR$/src/Views/createProject.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Views/dashboard.fxml" afterPath="$PROJECT_DIR$/src/Views/dashboard.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Views/layouts.fxml" afterPath="$PROJECT_DIR$/src/Views/layouts.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/service/Area.java" afterPath="$PROJECT_DIR$/src/service/Area.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/service/DrawService.java" afterPath="$PROJECT_DIR$/src/service/DrawService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/service/Length.java" afterPath="$PROJECT_DIR$/src/service/Length.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/service/Scale.java" afterPath="$PROJECT_DIR$/src/service/Scale.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Views/workspaceSideNavigation.fxml" afterPath="$PROJECT_DIR$/src/Views/workspaceSideNavigation.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/service/Tools.java" afterPath="$PROJECT_DIR$/src/service/Tools.java" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
@@ -39,26 +74,145 @@
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
     <option name="GROUP_SCHEMA" value="true" />
     <option name="GROUP_CONTENTS" value="false" />
     <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="pt_graphiqs_db" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="pt_graphiqs_db" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="subtrades_tbl" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+  </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="DataBase.java" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/DataBase/DataBase.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="432">
+                    <caret line="347" column="41" lean-forward="true" selection-start-line="347" selection-start-column="41" selection-end-line="347" selection-end-column="41" />
+                    <folding>
+                      <marker date="1587913881957" expanded="true" signature="1105:1203" ph="INSERT INTO USERS_TBL... " />
+                      <marker date="1587913881957" expanded="true" signature="1849:2015" ph="INSERT INTO CLIENTS_TBL... " />
+                      <marker date="1587913881957" expanded="true" signature="2822:3013" ph="INSERT INTO SUBTRADES_TBL... " />
+                      <marker date="1587913881957" expanded="true" signature="3840:3937" ph="INSERT INTO PRICE_CARD_TBL... " />
+                      <marker date="1587913881957" expanded="true" signature="4491:4516" ph="SELECT * FRO... CLIENTS_TBL" />
+                      <marker date="1587913881957" expanded="true" signature="5217:5250" ph="SELECT * FRO... SUBTRADES_TBL" />
+                      <marker date="1587913881957" expanded="true" signature="5217:5262" ph="SELECT * FRO... SUBTRADES_TBL" />
+                      <marker date="1587913881957" expanded="true" signature="5217:5263" ph="SELECT * FRO... SUBTRADES_TBL" />
+                      <marker date="1587913881957" expanded="true" signature="6570:6606" ph="SELECT * FRO... CLIENTS_TBL" />
+                      <marker date="1587913881957" expanded="true" signature="6570:6607" ph="SELECT * FRO... CLIENTS_TBL" />
+                      <marker date="1587913881957" expanded="true" signature="7458:7605" ph="UPDATE CLIEN... " />
+                      <marker date="1587913881957" expanded="true" signature="8380:8423" ph="SELECT * FRO... CLIENTS_TBL" />
+                      <marker date="1587913881957" expanded="true" signature="8771:8803" ph="DELETE FROM " />
+                      <marker date="1587913881957" expanded="true" signature="8771:8805" ph="DELETE FROM " />
+                      <marker date="1587913881957" expanded="true" signature="9459:9498" ph="SELECT * FRO... CLIENTS_TBL" />
+                      <marker date="1587913881957" expanded="true" signature="10351:10400" ph="SELECT * FRO... PRICE_CARD_TBL" />
+                      <marker date="1587913881957" expanded="true" signature="11046:11184" ph="UPDATE SUBTR... " />
+                      <marker date="1587913881957" expanded="true" signature="11046:11233" ph="UPDATE SUBTR... " />
+                      <marker date="1587913881957" expanded="true" signature="12042:12112" ph="UPDATE PRICE... " />
+                      <marker date="1587913881957" expanded="true" signature="12555:12593" ph="DELETE FROM " />
+                      <marker date="1587913881957" expanded="true" signature="12983:13042" ph="SELECT * FRO... USERS" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="77" column="30" lean-forward="true" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3849#3850#0" expanded="true" />
+                <element signature="e#3878#3879#0" expanded="true" />
+                <element signature="e#3915#3916#0" expanded="true" />
+                <element signature="e#3949#3950#0" expanded="true" />
+                <element signature="e#3995#3996#0" expanded="true" />
+                <element signature="e#4023#4024#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="splashScreenController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/splashScreenController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="634">
+              <caret line="94" column="51" lean-forward="false" selection-start-line="94" selection-start-column="51" selection-end-line="94" selection-end-column="51" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboardController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/dashboardController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2398">
+              <caret line="167" column="5" lean-forward="true" selection-start-line="167" selection-start-column="5" selection-end-line="167" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="workspaceController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/workspaceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-654">
-              <caret line="312" column="61" lean-forward="true" selection-start-line="312" selection-start-column="61" selection-end-line="312" selection-end-column="61" />
+            <state relative-caret-position="-143">
+              <caret line="119" column="29" lean-forward="false" selection-start-line="119" selection-start-column="22" selection-end-line="119" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,11 +220,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Length.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/service/Length.java">
+      <file leaf-file-name="builderController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/builderController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="183" column="0" lean-forward="false" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="246" column="0" lean-forward="true" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,11 +232,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tools.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/service/Tools.java">
+      <file leaf-file-name="workspaceSideNavigatorController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/workspaceSideNavigatorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="357" column="37" lean-forward="true" selection-start-line="357" selection-start-column="37" selection-end-line="357" selection-end-column="37" />
+            <state relative-caret-position="272">
+              <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,11 +244,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShapeObject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/ShapeObject.java">
+      <file leaf-file-name="loginController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/loginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="263" column="0" lean-forward="true" selection-start-line="263" selection-start-column="0" selection-end-line="263" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="23" column="49" lean-forward="true" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -117,13 +271,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>combobox</find>
-      <find>clear</find>
-      <find>frontPane</find>
-      <find>setStructures</find>
-      <find>wallsComboBox</find>
-      <find>structureC</find>
-      <find>isnew</find>
       <find>colorPicker</find>
       <find>handleFinish</find>
       <find>scale</find>
@@ -135,7 +282,6 @@
       <find>structureComboBox</find>
       <find>page</find>
       <find>walltype</find>
-      <find>history</find>
       <find>update</find>
       <find>color</find>
       <find>pointList</find>
@@ -147,6 +293,14 @@
       <find>material</find>
       <find>setOpacity</find>
       <find>strokewidth</find>
+      <find>closecreate</find>
+      <find>LENGTH</find>
+      <find>setMode</find>
+      <find>setDisable</find>
+      <find>setEnabled</find>
+      <find>foreach</find>
+      <find>history</find>
+      <find>combo</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -175,30 +329,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Views/ZoomAndScrollApplication.java" />
-        <option value="$PROJECT_DIR$/src/service/DrawInterface.java" />
-        <option value="$PROJECT_DIR$/libraries/Spire.Pdf.jar!/com/spire/ms/System/Collections/ArrayList.class" />
-        <option value="$PROJECT_DIR$/src/service/Measure.java" />
-        <option value="$PROJECT_DIR$/libraries/jfoenix-8.0.8.jar!/com/jfoenix/controls/JFXColorPicker.class" />
-        <option value="$PROJECT_DIR$/src/Controllers/Loader.java" />
-        <option value="$PROJECT_DIR$/src/service/FileService.java" />
-        <option value="$PROJECT_DIR$/src/service/PdfToImageService.java" />
-        <option value="$PROJECT_DIR$/src/service/IMeasurement.java" />
-        <option value="$PROJECT_DIR$/src/Views/test/hala.java" />
-        <option value="$PROJECT_DIR$/src/Views/splashScreen.fxml" />
-        <option value="$PROJECT_DIR$/src/Views/CSS/label.css" />
-        <option value="$PROJECT_DIR$/src/Views/test/frostytech.java" />
-        <option value="$PROJECT_DIR$/src/Views/test/FrostyTech.java" />
-        <option value="$PROJECT_DIR$/src/Views/loadingScreen.fxml" />
-        <option value="$PROJECT_DIR$/src/Controllers/splashScreenController.java" />
-        <option value="$PROJECT_DIR$/out/production/PTGraphiQS/Views/createProject.fxml" />
-        <option value="$PROJECT_DIR$/src/Views/test/CollectionsDemo.java" />
-        <option value="$PROJECT_DIR$/src/Data/sets/wallData.java" />
-        <option value="$PROJECT_DIR$/src/Views/colorChooser.fxml" />
-        <option value="$PROJECT_DIR$/src/Controllers/createProjectController.java" />
-        <option value="$USER_HOME$/AppData/Local/Temp/View more comments.url" />
-        <option value="$PROJECT_DIR$/src/Main/Main.java" />
-        <option value="$PROJECT_DIR$/src/Views/createProject.fxml" />
         <option value="$PROJECT_DIR$/src/Data/sets/WallData.java" />
         <option value="$PROJECT_DIR$/src/Views/workspace.fxml" />
         <option value="$PROJECT_DIR$/src/Views/cladding.fxml" />
@@ -208,24 +338,48 @@
         <option value="$PROJECT_DIR$/src/Views/areaTab.fxml" />
         <option value="$PROJECT_DIR$/src/Views/lengthScrollPane.fxml" />
         <option value="$PROJECT_DIR$/src/Views/lengthTab.fxml" />
-        <option value="$PROJECT_DIR$/src/Controllers/dashboardController.java" />
         <option value="$PROJECT_DIR$/src/Data/historyData.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/workspaceSideNavigatorController.java" />
         <option value="$PROJECT_DIR$/src/Model/PageObject.java" />
         <option value="$PROJECT_DIR$/src/Data/LayoutsData.java" />
-        <option value="$PROJECT_DIR$/src/Data/WallData.java" />
         <option value="$PROJECT_DIR$/src/Views/layouts.fxml" />
         <option value="$PROJECT_DIR$/src/Views/dashboard.fxml" />
         <option value="$PROJECT_DIR$/src/service/Area.java" />
         <option value="$PROJECT_DIR$/src/service/DrawService.java" />
-        <option value="$PROJECT_DIR$/src/service/Scale.java" />
         <option value="$PROJECT_DIR$/src/Data/layoutsData.java" />
         <option value="$PROJECT_DIR$/src/service/Length.java" />
         <option value="$PROJECT_DIR$/src/Model/ShapeObject.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/layoutsController.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/workspaceController.java" />
-        <option value="$PROJECT_DIR$/src/Views/CSS/style.css" />
+        <option value="$PROJECT_DIR$/src/service/FileService.java" />
+        <option value="$PROJECT_DIR$/src/Views/builder.fxml" />
+        <option value="$PROJECT_DIR$/src/service/Scale.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/dashboardController.java" />
+        <option value="$PROJECT_DIR$/src/Views/priceCards.fxml" />
+        <option value="$PROJECT_DIR$/src/Controllers/priceCards.java" />
+        <option value="$PROJECT_DIR$/src/Views/registerClient.fxml" />
+        <option value="/CSS Fragment (registerClientController.java:1178).css" />
         <option value="$PROJECT_DIR$/src/service/Tools.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/createProjectController.java" />
+        <option value="$PROJECT_DIR$/src/Test/TwoDArrayInput.java" />
+        <option value="$PROJECT_DIR$/src/Views/registerSubtrade.fxml" />
+        <option value="$PROJECT_DIR$/src/Data/clientsData.java" />
+        <option value="$PROJECT_DIR$/src/Data/WallData.java" />
+        <option value="$PROJECT_DIR$/src/Data/subtradesData.java" />
+        <option value="$PROJECT_DIR$/src/Model/data/subtradesData.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/layoutsController.java" />
+        <option value="$PROJECT_DIR$/src/Views/viewClient.fxml" />
+        <option value="$PROJECT_DIR$/src/Controllers/registerClientController.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/viewClientController.java" />
+        <option value="$PROJECT_DIR$/src/Views/viewSubtrade.fxml" />
+        <option value="$PROJECT_DIR$/src/Controllers/registerSubtradeController.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/viewSubtradeController.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/workspaceSideNavigatorController.java" />
+        <option value="$PROJECT_DIR$/src/Views/CSS/style.css" />
+        <option value="$PROJECT_DIR$/src/Views/loginForm.fxml" />
+        <option value="$PROJECT_DIR$/src/Controllers/workspaceController.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/splashScreenController.java" />
+        <option value="$PROJECT_DIR$/src/Main/Main.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/loginController.java" />
+        <option value="$PROJECT_DIR$/src/DataBase/DataBase.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/builderController.java" />
       </list>
     </option>
   </component>
@@ -245,6 +399,9 @@
     <layout place="tools.popupGrunt">
       <scroll-view-position x="0" y="0" />
     </layout>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
@@ -371,7 +528,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -437,6 +593,20 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PT_GraphiQS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PT_GraphiQS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -473,20 +643,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PT_GraphiQS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PT_GraphiQS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -506,7 +662,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Data" />
+              <option name="myItemId" value="DataBase" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -530,6 +686,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -554,7 +711,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LBP_Trades" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../JFoenix-master" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -563,21 +720,18 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="background.image.plus" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/User/Documents/IdeaProjects/PT_GraphiQS/src/Controllers/layoutsController.java" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
-      <recent name="Controllers" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="service" />
-      <recent name="Model" />
       <recent name="Controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -585,6 +739,14 @@
       <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Framing" />
       <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Floors" />
       <recent name="C:\Users\User\Documents\IdeaProjects\PTGraphiQS\src\Views" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="service" />
+      <recent name="Model" />
+      <recent name="Controllers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\libraries" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -608,26 +770,6 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="Main.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="PTGraphiQS" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="WebView131Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="Views.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="Views.test.WebView131Test" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -683,6 +825,26 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="Views.test.CollectionsDemo" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="PTGraphiQS" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="TwoDArrayInput" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="Test.TwoDArrayInput" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -1084,18 +1246,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="1" class="java.lang.String" itemvalue="Application.WebView131Test" />
-      <item index="2" class="java.lang.String" itemvalue="Application.ZoomAndScrollApplication" />
-      <item index="3" class="java.lang.String" itemvalue="Application.FrostyTech" />
-      <item index="4" class="java.lang.String" itemvalue="Application.CollectionsDemo" />
+      <item index="1" class="java.lang.String" itemvalue="Application.ZoomAndScrollApplication" />
+      <item index="2" class="java.lang.String" itemvalue="Application.FrostyTech" />
+      <item index="3" class="java.lang.String" itemvalue="Application.CollectionsDemo" />
+      <item index="4" class="java.lang.String" itemvalue="Application.TwoDArrayInput" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="1" class="java.lang.String" itemvalue="Application.CollectionsDemo" />
-        <item index="2" class="java.lang.String" itemvalue="Application.FrostyTech" />
-        <item index="3" class="java.lang.String" itemvalue="Application.ZoomAndScrollApplication" />
-        <item index="4" class="java.lang.String" itemvalue="Application.WebView131Test" />
+        <item index="1" class="java.lang.String" itemvalue="Application.TwoDArrayInput" />
+        <item index="2" class="java.lang.String" itemvalue="Application.CollectionsDemo" />
+        <item index="3" class="java.lang.String" itemvalue="Application.FrostyTech" />
+        <item index="4" class="java.lang.String" itemvalue="Application.ZoomAndScrollApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -1244,14 +1406,16 @@
       <workItem from="1584423545399" duration="2199000" />
       <workItem from="1584846440206" duration="1405000" />
       <workItem from="1584874268942" duration="93650000" />
-      <workItem from="1585300048379" duration="5782000" />
-    </task>
-    <task id="LOCAL-00061" summary="#50 commit">
-      <created>1573632924231</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1573632924231</updated>
+      <workItem from="1585300048379" duration="147882000" />
+      <workItem from="1586911002812" duration="19885000" />
+      <workItem from="1586995036230" duration="29330000" />
+      <workItem from="1587084082096" duration="14778000" />
+      <workItem from="1587296221901" duration="3055000" />
+      <workItem from="1587346324441" duration="20673000" />
+      <workItem from="1587429205048" duration="26342000" />
+      <workItem from="1587515788600" duration="23761000" />
+      <workItem from="1587602564777" duration="19948000" />
+      <workItem from="1587688324426" duration="26967000" />
     </task>
     <task id="LOCAL-00062" summary="#60 commit">
       <created>1573634156801</created>
@@ -1589,46 +1753,54 @@
       <option name="project" value="LOCAL" />
       <updated>1584931495215</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="updated layouts form and fixed bugs">
+      <created>1585360314911</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1585360314916</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="620633000" />
+    <option name="totallyTimeSpent" value="947472000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32346722" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Codota" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32286024" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22621565" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22643554" sideWeight="0.5063966" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22515856" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22643554" sideWeight="0.4936034" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16302083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18656716" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16257995" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26321355" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26218852" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Codota" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="61" y="417" width="1736" height="856" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33509514" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3347779" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1714,7 +1886,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="70" />
+      <option name="time" value="80" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1723,182 +1895,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/javafx-src.zip!/com/sun/glass/ui/win/WinApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="176" column="0" lean-forward="false" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data backup/picturemessage_uccii4qg.gav.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data backup/picturemessage_o0qmn31k.0uw.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/SpObj.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="686">
-          <caret line="2627" column="18" lean-forward="false" selection-start-line="2627" selection-start-column="8" selection-end-line="2627" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/createProjectController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="60" column="40" lean-forward="true" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Loader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/cladding.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/Views/wallsAndInsulation_2.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/Views/Framing/framingAddRow.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/Views/stamp.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/createProject.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="167" column="60" lean-forward="true" selection-start-line="167" selection-start-column="60" selection-end-line="167" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/framingAddBeamRowController.java" />
-    <entry file="file://$PROJECT_DIR$/src/Controllers/framingAddRowController.java" />
-    <entry file="file://$PROJECT_DIR$/src/Controllers/framing_2Controller.java" />
-    <entry file="file://$PROJECT_DIR$/src/Controllers/framingController.java" />
-    <entry file="file://$PROJECT_DIR$/src/Controllers/floorsController.java" />
-    <entry file="file://$PROJECT_DIR$/src/Controllers/stampController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Data/framing/beamsData.java" />
-    <entry file="file://$PROJECT_DIR$/src/Views/areaTab.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/Views/stampsTab.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="183" lean-forward="false" selection-start-line="4" selection-start-column="183" selection-end-line="4" selection-end-column="183" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/lengthScrollPane.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/Views/lengthTab.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/Data/framing/framingData.java" />
-    <entry file="file://$PROJECT_DIR$/src/Controllers/workspaceSideNavigatorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="82" lean-forward="true" selection-start-line="31" selection-start-column="82" selection-end-line="31" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/wallsAndInsulationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="31" column="31" lean-forward="true" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Data/HistoryData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="65" lean-forward="true" selection-start-line="12" selection-start-column="65" selection-end-line="12" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#630#631#0" expanded="false" />
-            <element signature="e#657#658#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Data/WallData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="47" column="39" lean-forward="true" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/workspaceSideNavigation.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/dashboardController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="9" column="38" lean-forward="true" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="17" column="13" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/workspace.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="338" column="19" lean-forward="true" selection-start-line="332" selection-start-column="9" selection-end-line="338" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/libraries/jfoenix-8.0.8.jar!/com/jfoenix/controls/datamodels/treetable/RecursiveTreeObject.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -1921,7 +1917,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-323">
           <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1929,25 +1924,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/FileService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-372">
-          <caret line="197" column="82" lean-forward="true" selection-start-line="197" selection-start-column="82" selection-end-line="197" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/PageObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="58" column="47" lean-forward="true" selection-start-line="58" selection-start-column="47" selection-end-line="58" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1955,9 +1931,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="94" lean-forward="true" selection-start-line="20" selection-start-column="94" selection-end-line="20" selection-end-column="94" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1966,7 +1939,7 @@
         <state relative-caret-position="418">
           <caret line="139" column="117" lean-forward="true" selection-start-line="139" selection-start-column="117" selection-end-line="139" selection-end-column="117" />
           <folding>
-            <marker date="1585188900326" expanded="true" signature="14021:14035" ph="..." />
+            <marker date="1587882936282" expanded="true" signature="14055:14069" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1978,69 +1951,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="623">
           <caret line="39" column="34" lean-forward="false" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1252#1304#0" expanded="false" />
-            <element signature="method#handleMouseMove#0;class#Area#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/Scale.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="91" column="128" lean-forward="false" selection-start-line="91" selection-start-column="128" selection-end-line="91" selection-end-column="128" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Data/layoutsData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="65" column="0" lean-forward="false" selection-start-line="63" selection-start-column="13" selection-end-line="65" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2933#2934#0" expanded="true" />
-            <element signature="e#2976#2977#0" expanded="true" />
-            <element signature="e#3007#3008#0" expanded="true" />
-            <element signature="e#3031#3032#0" expanded="true" />
-            <element signature="e#3072#3073#0" expanded="true" />
-            <element signature="e#3106#3107#0" expanded="true" />
-            <element signature="e#3138#3139#0" expanded="true" />
-            <element signature="e#3172#3173#0" expanded="true" />
-            <element signature="e#3223#3224#0" expanded="true" />
-            <element signature="e#3251#3252#0" expanded="true" />
-            <element signature="e#3293#3294#0" expanded="true" />
-            <element signature="e#3330#3331#0" expanded="true" />
-            <element signature="e#3369#3370#0" expanded="true" />
-            <element signature="e#3409#3410#0" expanded="true" />
-            <element signature="e#3466#3467#0" expanded="true" />
-            <element signature="e#3500#3501#0" expanded="true" />
-            <element signature="e#3554#3555#0" expanded="true" />
-            <element signature="e#3603#3604#0" expanded="true" />
-            <element signature="e#3636#3637#0" expanded="true" />
-            <element signature="e#3671#3672#0" expanded="true" />
-            <element signature="e#3723#3724#0" expanded="true" />
-            <element signature="e#3752#3753#0" expanded="true" />
-            <element signature="e#3796#3797#0" expanded="true" />
-            <element signature="e#3835#3836#0" expanded="true" />
-            <element signature="e#3868#3869#0" expanded="true" />
-            <element signature="e#3903#3904#0" expanded="true" />
-            <element signature="e#3955#3956#0" expanded="true" />
-            <element signature="e#3984#3985#0" expanded="true" />
-            <element signature="e#4028#4029#0" expanded="true" />
-            <element signature="e#4067#4068#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/layoutsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="98" column="81" lean-forward="false" selection-start-line="98" selection-start-column="81" selection-end-line="98" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2055,38 +1965,312 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/CSS/style.css">
+    <entry file="file://$PROJECT_DIR$/src/Model/PageObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="81" column="1" lean-forward="false" selection-start-line="81" selection-start-column="1" selection-end-line="81" selection-end-column="1" />
+        <state relative-caret-position="765">
+          <caret line="58" column="47" lean-forward="true" selection-start-line="58" selection-start-column="47" selection-end-line="58" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/data/layoutsData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/Length.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="142" column="51" lean-forward="true" selection-start-line="142" selection-start-column="51" selection-end-line="142" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/ShapeObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1025">
+          <caret line="209" column="17" lean-forward="true" selection-start-line="209" selection-start-column="17" selection-end-line="209" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/FileService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/Scale.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="131" column="38" lean-forward="true" selection-start-line="131" selection-start-column="38" selection-end-line="131" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/registerClient.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="81" lean-forward="true" selection-start-line="25" selection-start-column="81" selection-end-line="25" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/builder.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="79" column="54" lean-forward="true" selection-start-line="79" selection-start-column="54" selection-end-line="79" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/registerClient.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="151" column="66" lean-forward="true" selection-start-line="151" selection-start-column="66" selection-end-line="151" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/priceCards.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="14" lean-forward="true" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/Tools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-46">
+          <caret line="386" column="8" lean-forward="true" selection-start-line="386" selection-start-column="8" selection-end-line="386" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test/TwoDArrayInput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/javafx-src.zip!/javafx/event/EventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="44" column="9" lean-forward="false" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/fb3766c5-ce24-40cd-bbff-e14a8f7376bd/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/e3201f29/fb3766c5-ce24-40cd-bbff-e14a8f7376bd/pt_graphiqs_db.clients_tbl">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/e3201f29/fb3766c5-ce24-40cd-bbff-e14a8f7376bd/pt_graphiqs_db.users_tbl">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/data/WallData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="120" column="65" lean-forward="true" selection-start-line="120" selection-start-column="65" selection-end-line="120" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/splashScreenController.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/data/subtradesData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="82" column="53" lean-forward="false" selection-start-line="82" selection-start-column="53" selection-end-line="82" selection-end-column="53" />
+        <state relative-caret-position="323">
+          <caret line="19" column="81" lean-forward="true" selection-start-line="19" selection-start-column="81" selection-end-line="19" selection-end-column="81" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/ShapeObject.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/data/clientsData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="263" column="0" lean-forward="true" selection-start-line="263" selection-start-column="0" selection-end-line="263" selection-end-column="0" />
+        <state relative-caret-position="459">
+          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/viewClient.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="216" lean-forward="false" selection-start-line="14" selection-start-column="216" selection-end-line="14" selection-end-column="216" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/registerSubtrade.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/e3201f29/fb3766c5-ce24-40cd-bbff-e14a8f7376bd/pt_graphiqs_db.subtrades_tbl">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libraries/mysql-connector-java-8.0.19.jar!/com/mysql/cj/jdbc/exceptions/SQLError.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/viewSubtradeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="88" column="42" lean-forward="true" selection-start-line="88" selection-start-column="42" selection-end-line="88" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/Length.java">
+    <entry file="file://$PROJECT_DIR$/src/Views/viewSubtrade.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="183" column="0" lean-forward="false" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
+        <state relative-caret-position="-527">
+          <caret line="35" column="34" lean-forward="true" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/viewClientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="31" column="53" lean-forward="true" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/CSS/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="228" column="33" lean-forward="true" selection-start-line="228" selection-start-column="33" selection-end-line="228" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/layoutsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="47" column="68" lean-forward="true" selection-start-line="46" selection-start-column="4" selection-end-line="47" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/createProject.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="167" column="60" lean-forward="true" selection-start-line="167" selection-start-column="60" selection-end-line="167" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/loginForm.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/priceCards.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Loader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-782">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/registerClientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="87" column="70" lean-forward="false" selection-start-line="87" selection-start-column="12" selection-end-line="87" selection-end-column="70" />
+          <folding>
+            <marker date="1587484302052" expanded="true" signature="3491:3548" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/registerSubtradeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="626">
+          <caret line="38" column="44" lean-forward="false" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2095,18 +2279,112 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/workspaceController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-654">
-          <caret line="312" column="61" lean-forward="true" selection-start-line="312" selection-start-column="61" selection-end-line="312" selection-end-column="61" />
+        <state relative-caret-position="-143">
+          <caret line="119" column="29" lean-forward="false" selection-start-line="119" selection-start-column="22" selection-end-line="119" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/Tools.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/createProjectController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="357" column="37" lean-forward="true" selection-start-line="357" selection-start-column="37" selection-end-line="357" selection-end-column="37" />
+        <state relative-caret-position="272">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="77" column="30" lean-forward="true" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3849#3850#0" expanded="true" />
+            <element signature="e#3878#3879#0" expanded="true" />
+            <element signature="e#3915#3916#0" expanded="true" />
+            <element signature="e#3949#3950#0" expanded="true" />
+            <element signature="e#3995#3996#0" expanded="true" />
+            <element signature="e#4023#4024#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/splashScreenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="634">
+          <caret line="94" column="51" lean-forward="false" selection-start-line="94" selection-start-column="51" selection-end-line="94" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/dashboardController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2398">
+          <caret line="167" column="5" lean-forward="true" selection-start-line="167" selection-start-column="5" selection-end-line="167" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataBase/DataBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="347" column="41" lean-forward="true" selection-start-line="347" selection-start-column="41" selection-end-line="347" selection-end-column="41" />
+          <folding>
+            <marker date="1587913881957" expanded="true" signature="1105:1203" ph="INSERT INTO USERS_TBL... " />
+            <marker date="1587913881957" expanded="true" signature="1849:2015" ph="INSERT INTO CLIENTS_TBL... " />
+            <marker date="1587913881957" expanded="true" signature="2822:3013" ph="INSERT INTO SUBTRADES_TBL... " />
+            <marker date="1587913881957" expanded="true" signature="3840:3937" ph="INSERT INTO PRICE_CARD_TBL... " />
+            <marker date="1587913881957" expanded="true" signature="4491:4516" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1587913881957" expanded="true" signature="5217:5250" ph="SELECT * FRO... SUBTRADES_TBL" />
+            <marker date="1587913881957" expanded="true" signature="5217:5262" ph="SELECT * FRO... SUBTRADES_TBL" />
+            <marker date="1587913881957" expanded="true" signature="5217:5263" ph="SELECT * FRO... SUBTRADES_TBL" />
+            <marker date="1587913881957" expanded="true" signature="6570:6606" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1587913881957" expanded="true" signature="6570:6607" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1587913881957" expanded="true" signature="7458:7605" ph="UPDATE CLIEN... " />
+            <marker date="1587913881957" expanded="true" signature="8380:8423" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1587913881957" expanded="true" signature="8771:8803" ph="DELETE FROM " />
+            <marker date="1587913881957" expanded="true" signature="8771:8805" ph="DELETE FROM " />
+            <marker date="1587913881957" expanded="true" signature="9459:9498" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1587913881957" expanded="true" signature="10351:10400" ph="SELECT * FRO... PRICE_CARD_TBL" />
+            <marker date="1587913881957" expanded="true" signature="11046:11184" ph="UPDATE SUBTR... " />
+            <marker date="1587913881957" expanded="true" signature="11046:11233" ph="UPDATE SUBTR... " />
+            <marker date="1587913881957" expanded="true" signature="12042:12112" ph="UPDATE PRICE... " />
+            <marker date="1587913881957" expanded="true" signature="12555:12593" ph="DELETE FROM " />
+            <marker date="1587913881957" expanded="true" signature="12983:13042" ph="SELECT * FRO... USERS" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/builderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="246" column="0" lean-forward="true" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/workspaceSideNavigatorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/loginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="23" column="49" lean-forward="true" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2180,6 +2458,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>mysql-connector-java-8.0.19</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

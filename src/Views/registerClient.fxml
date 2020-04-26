@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1000.0" style="-fx-background-color: TRANSPARENT;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.registerClientController">
+   <children>
+      <BorderPane fx:id="layoutsPane" layoutX="14.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="972.0" style="-fx-background-color: #102027; -fx-background-radius: 30px;" stylesheets="@CSS/style.css">
+         <top>
+            <AnchorPane prefHeight="50.0" prefWidth="785.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" layoutY="1.0" prefHeight="49.0" prefWidth="289.0" text="Client Registration Builder" textFill="#bcbcbc" AnchorPane.topAnchor="1.0">
+                     <font>
+                        <Font name="Segoe UI Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="page" layoutX="461.0" layoutY="10.0" prefHeight="30.0" prefWidth="75.0" text="1 out of 2" textFill="#bcbcbc" visible="false">
+                     <font>
+                        <Font name="Segoe UI" size="17.0" />
+                     </font>
+                  </Label>
+                  <JFXButton fx:id="SAVE" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="10.0" layoutX="846.0" layoutY="13.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="96.0" style="-fx-background-radius: 30px; -fx-background-color: #102027;" text="SAVE" textAlignment="CENTER" textFill="#bcbcbc">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/ok_35px.png" />
+                           </image>
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </top>
+         <effect>
+            <DropShadow />
+         </effect>
+         <right>
+            <AnchorPane fx:id="FIRST_PANE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="675.0" style="-fx-background-color: #102027; -fx-background-radius: 30px;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" layoutY="20.0" prefHeight="35.0" prefWidth="206.0" text="In addition for pricing" textFill="#bcbcbc" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="20.0">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutY="55.0" prefHeight="35.0" prefWidth="347.0" text="We need to know who your subtrades are:" textFill="#bcbcbc" AnchorPane.leftAnchor="0.0">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </Label>
+                  <JFXButton fx:id="ADD" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="581.0" layoutY="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 120px;" textFill="#e4e4e4" AnchorPane.rightAnchor="54.0">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/add_30px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="MIN" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="621.0" layoutY="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 120px;" textFill="#e4e4e4" AnchorPane.rightAnchor="14.0">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/minus_30px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <ScrollPane layoutX="22.0" layoutY="100.0" maxWidth="630.0" minHeight="-Infinity" prefHeight="491.0" style="-fx-background-color: #102027;" vbarPolicy="NEVER">
+                     <content>
+                        <AnchorPane prefHeight="500.0" style="-fx-background-color: #102027;">
+                           <children>
+                              <HBox fx:id="hBox" fillHeight="false" maxHeight="-Infinity" prefHeight="462.0" spacing="20.0" style="-fx-background-color: #102027;" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" />
+               </BorderPane.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+         </right>
+         <center>
+            <AnchorPane prefHeight="618.0" prefWidth="289.0" style="-fx-background-color: #102027; -fx-background-radius: 30px;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="CLIENT_DETAILS_LBL" alignment="CENTER" layoutX="26.0" layoutY="23.0" prefHeight="35.0" prefWidth="254.0" text="Client Details" textFill="#bcbcbc" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="35.0">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </Label>
+                  <VBox fx:id="CLIENT_CREDENTIALS_BOX" layoutX="32.0" layoutY="120.0" prefWidth="242.0" spacing="25.0" visible="false" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="31.0">
+                     <children>
+                        <JFXTextField fx:id="USERNAME" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="Username" style="-fx-text-inner-color: #b9b9b9;">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXPasswordField fx:id="PASSWORD" focusColor="#0f9d58" focusTraversable="false" promptText="Password">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXPasswordField>
+                        <JFXPasswordField fx:id="RETYPE_PASSWORD" focusColor="#0f9d58" focusTraversable="false" promptText="Retype Password">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXPasswordField>
+                        <JFXComboBox fx:id="SECURITY_QUESTION" focusTraversable="false" prefHeight="28.0" prefWidth="205.0" promptText="Security Question" />
+                        <JFXTextField fx:id="SECURITY_ANSWER" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="Security Answer" style="-fx-text-inner-color: #b9b9b9;">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </VBox>
+                  <JFXButton fx:id="CANCEL" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="5.0" layoutX="26.0" layoutY="553.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" style="-fx-background-radius: 30px;" text="Cancel" textAlignment="CENTER" textFill="#bcbcbc" AnchorPane.bottomAnchor="25.0">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/cancel_30px.png" />
+                           </image>
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <VBox fx:id="CLIENT_DETAILS_BOX" layoutX="32.0" layoutY="91.0" prefWidth="242.0" spacing="25.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="120.0">
+                     <children>
+                        <JFXTextField fx:id="FIRST_NAME" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="First Name" style="-fx-text-inner-color: #b9b9b9;">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="LAST_NAME" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="Last Name" style="-fx-text-inner-color: #b9b9b9;">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="CONTACT_PERSON" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="Contact Person" style="-fx-text-inner-color: #b9b9b9;">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="EMAIL" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="Email" style="-fx-text-inner-color: #b9b9b9;">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="MOBILE" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="Mobile" style="-fx-text-inner-color: #b9b9b9;">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="LANDLINE" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="Landline" style="-fx-text-inner-color: #b9b9b9;">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </VBox>
+                  <JFXButton fx:id="NEXT" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="5.0" layoutX="137.0" layoutY="553.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="90.0" style="-fx-background-radius: 30px;" text="Next" textAlignment="CENTER" textFill="#bcbcbc">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/circled_right_2_30px.png" />
+                           </image>
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="BACK" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="5.0" layoutX="137.0" layoutY="553.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="90.0" style="-fx-background-radius: 30px;" text="Back" textAlignment="CENTER" textFill="#bcbcbc" visible="false">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                           <image>
+                              <Image url="@images/circled_right_2_30px.png" />
+                           </image>
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Label fx:id="CLIENT_CREDENTIALS_LBL" alignment="CENTER" layoutX="7.0" layoutY="35.0" prefHeight="35.0" prefWidth="254.0" text="Create Client Account" textFill="#bcbcbc" visible="false">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" />
+               </BorderPane.margin>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

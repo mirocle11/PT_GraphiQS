@@ -2,14 +2,13 @@ package service;
 
 import Controllers.workspaceController;
 import Controllers.layoutsController;
-import Data.layoutsData;
+import Model.data.layoutsData;
 import Model.PageObject;
 import Model.ShapeObject;
 import com.jfoenix.controls.JFXButton;
 import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ContextMenu;
@@ -140,32 +139,36 @@ public class Tools {
 
     //File Controls
     public void open() {
-        File pdf = FileService.open();
-        frontPane.setVisible(false);
-        innerGridPane.setVisible(false);
-        loadingPane.setVisible(true);
-        PdfToImageService service = new PdfToImageService(pdf);
-        service.valueProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-                pageObjects.add(newValue);
-                if (!issetCanvas) {
-                    page = newValue;
-                    setPageElements();
-                    Tools.disableButtons(new String[]{"LENGTH", "AREA", "STAMP", "RECTANGLE"}, box);
-                    scroller.setOpacity(1.0);
-                    issetCanvas = true;
-                    loadingPane.setVisible(false);
-                    gridPane.setVisible(false);
-                    window.setStructures();
-                    window.connectStructures();
-                    window.structureToggle.setDisable(false);
-                    window.NEXT_PAGE.setDisable(false);
-                    window.PREVIOUS_PAGE.setDisable(false);
-                    window.showToast("PDF Successfully Loaded!");
+        try {
+            File pdf = FileService.open();
+            frontPane.setVisible(false);
+            innerGridPane.setVisible(false);
+            loadingPane.setVisible(true);
+            PdfToImageService service = new PdfToImageService(pdf);
+            service.valueProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue != null) {
+                    pageObjects.add(newValue);
+                    if (!issetCanvas) {
+                        page = newValue;
+                        setPageElements();
+//                        Tools.disableButtons(new String[]{"LENGTH", "AREA", "STAMP", "RECTANGLE"}, box);
+                        scroller.setOpacity(1.0);
+                        issetCanvas = true;
+                        loadingPane.setVisible(false);
+                        gridPane.setVisible(false);
+                        window.setStructures();
+                        window.connectStructures();
+                        window.structureToggle.setDisable(false);
+                        window.NEXT_PAGE.setDisable(false);
+                        window.PREVIOUS_PAGE.setDisable(false);
+                        window.showToast("PDF Successfully Loaded!");
+                    }
                 }
-            }
-        });
-        service.start();
+            });
+            service.start();
+        } catch(Exception ignored){
+
+        }
     }
 
     public void save() {
@@ -233,13 +236,13 @@ public class Tools {
                 noScale.setLayoutX(15);
                 noScale.setLayoutY(15);
                 pane.getChildren().add(noScale);
-                disableButtons(new String[]{"LENGTH", "AREA", "STAMP", "RECTANGLE"}, box);
+//                disableButtons(new String[]{"LENGTH", "AREA", "STAMP", "RECTANGLE"}, box);
                 window.scaledIndicator(0);
             }
         } else {
             pane.getChildren().remove(noScale);
             if (window.colorPicker.isDisabled()) {
-                disableButtons(new String[]{"LENGTH", "AREA"}, box);
+//                disableButtons(new String[]{"LENGTH", "AREA"}, box);
             }
             window.scaledIndicator(1);
         }
@@ -452,27 +455,27 @@ public class Tools {
     }
 
     //button controls
-    public static void disableButtons(String[] btns, VBox param) {
-        param.getChildren().forEach((Node node) -> {
-            JFXButton btn = (JFXButton) node;
-            btn.setDisable(false);
-            for (String s : btns) {
-                if (btn.getId().equals(s)) {
-                    btn.setDisable(true);
-                }
-            }
-        });
-    }
-
-    public static void enableButtons(String[] btns, VBox param) {
-        param.getChildren().forEach(node -> {
-            JFXButton btn = (JFXButton) node;
-            btn.setDisable(true);
-            for (String s : btns) {
-                if (btn.getId().equals(s)) {
-                    btn.setDisable(false);
-                }
-            }
-        });
-    }
+//    public static void disableButtons(String[] btns, VBox param) {
+//        param.getChildren().forEach((Node node) -> {
+//            JFXButton btn = (JFXButton) node;
+//            btn.setDisable(false);
+//            for (String s : btns) {
+//                if (btn.getId().equals(s)) {
+//                    btn.setDisable(true);
+//                }
+//            }
+//        });
+//    }
+//
+//    public static void enableButtons(String[] btns, VBox param) {
+//        param.getChildren().forEach(node -> {
+//            JFXButton btn = (JFXButton) node;
+//            btn.setDisable(true);
+//            for (String s : btns) {
+//                if (btn.getId().equals(s)) {
+//                    btn.setDisable(false);
+//                }
+//            }
+//        });
+//    }
 }

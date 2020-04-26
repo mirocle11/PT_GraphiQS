@@ -1,5 +1,9 @@
 package Main;
 
+import Controllers.builderController;
+import Controllers.loginController;
+import DataBase.DataBase;
+
 import Controllers.dashboardController;
 import Controllers.splashScreenController;
 import javafx.application.Application;
@@ -9,11 +13,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-//I commented this for   pushing
+
 public class Main extends Application {
 
-    public static Stage stage, dashboard_stage;
-    public Scene dashboardScene;
+    public static Stage stage, dashboard_stage, loginStage;
+    public Scene dashboardScene, loginScene;
+
+    private double xOffset = 0;
+    private double yOffset = 0;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -41,7 +48,47 @@ public class Main extends Application {
         }
     }
 
+    public void loginWindow() {
+        try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/Views/loginForm.fxml"));
+            AnchorPane pane = loader.load();
+
+            loginScene = new Scene(pane);
+            loginController controller = loader.getController();
+            controller.setMain(loginStage,this);
+            loginScene.getStylesheets().addAll(Main.class.getResource("/Views/CSS/style.css").toExternalForm());
+            loginStage = new Stage();
+            loginStage.setScene(loginScene);
+
+            loginScene.setFill(Color.TRANSPARENT);
+            loginStage.initStyle(StageStyle.UNDECORATED);
+            loginStage.initStyle(StageStyle.TRANSPARENT);
+
+            //draggable pop up
+            pane.setOnMousePressed(event1 -> {
+                xOffset = event1.getSceneX();
+                yOffset = event1.getSceneY();
+            });
+
+            pane.setOnMouseDragged(event1 -> {
+                loginStage.setX(event1.getScreenX() - xOffset);
+                loginStage.setY(event1.getScreenY() - yOffset);
+            });
+
+            loginStage.show();
+            loginStage.setTitle("GraphiQS");
+            loginStage.setMinWidth(726);
+            loginStage.setMinHeight(519);
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void mainWindow() {
+        DataBase db = DataBase.getInstance();
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("/Views/dashboard.fxml"));
             AnchorPane pane = loader.load();
@@ -58,6 +105,7 @@ public class Main extends Application {
             dashboard_stage.setMinHeight(700);
             dashboard_stage.setMaximized(true);
 
+            db.displayClients(builderController.clientsData);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -65,6 +113,10 @@ public class Main extends Application {
 
     public void closeStage() {
         stage.close();
+    }
+
+    public void closeLoginStage() {
+        loginStage.close();
     }
 
     public static void main(String[] args) {

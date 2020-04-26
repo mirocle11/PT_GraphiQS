@@ -12,7 +12,7 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.scene.layout.BorderPane;
-import Data.layoutsData;
+import Model.data.layoutsData;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -86,7 +86,7 @@ public class layoutsController implements Initializable {
                 new TreeItemPropertyValueFactory<>("volume")
         );
         COL_LOBOUR.setCellValueFactory(
-                new TreeItemPropertyValueFactory<>("lobour")
+                new TreeItemPropertyValueFactory<>("labour")
         );
 
         TreeItem<layoutsData> root = new RecursiveTreeItem<>(data, RecursiveTreeObject::getChildren);

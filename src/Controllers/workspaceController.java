@@ -1,6 +1,6 @@
 package Controllers;
 
-import Data.WallData;
+import Model.data.WallData;
 import Main.Main;
 import Model.PageObject;
 import Model.ShapeObject;
@@ -33,7 +33,6 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import service.*;
 
-import java.math.BigDecimal;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -117,6 +116,9 @@ public class workspaceController implements Initializable {
     private static ObservableList<String> selectedBoxes = FXCollections.observableArrayList();
     private ObservableList<String> newItemsList = FXCollections.observableArrayList();
 
+    //user_id
+    public static int user_id = 0;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         wallData = new WallData(this);
@@ -130,7 +132,7 @@ public class workspaceController implements Initializable {
         tools = new Tools(this);
         tools.setMode("FREE");
 
-        Tools.enableButtons(new String[]{"IMPORT"}, toolsMenu);
+//        Tools.enableButtons(new String[]{"IMPORT"}, toolsMenu);
 
         line.setVisible(false);
         line.setOpacity(.7);
@@ -185,7 +187,6 @@ public class workspaceController implements Initializable {
             toastTransition1.play();
         });
     }
-
 
     public void openFile() {
         try {

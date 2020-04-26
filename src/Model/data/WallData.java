@@ -1,4 +1,4 @@
-package Data;
+package Model.data;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXColorPicker;
@@ -47,7 +47,6 @@ public class WallData {
         this.colorPicker = workspace.colorPicker;
         this.LENGTH = workspace.LENGTH;
         this.AREA = workspace.AREA;
-//        this.NEXT_PAGE = workspace.NEXT_PAGE;
 
     }
 

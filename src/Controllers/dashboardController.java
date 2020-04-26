@@ -23,6 +23,7 @@ public class dashboardController implements Initializable {
     public AnchorPane rootpane,dashboard_max,dashboard_min;
     private AnchorPane workspace;
     private BorderPane layouts;
+    private BorderPane builder;
 
     @FXML
     private Label time,date;
@@ -56,6 +57,15 @@ public class dashboardController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/builder.fxml"));
+            builder = loader.load();
+            rootpane.getChildren().addAll(builder);
+            builder.setVisible(false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         setWorkspace();
         initClock();
     }
@@ -84,8 +94,7 @@ public class dashboardController implements Initializable {
                 translateTransition2.play();
                 translateTransition2.setOnFinished(event1 -> dashboard_max.setDisable(false));
             });
-
-                i--;
+            i--;
         }
     }
 
@@ -102,6 +111,7 @@ public class dashboardController implements Initializable {
         }
         workspace.setVisible(true);
         layouts.setVisible(false);
+        builder.setVisible(false);
     }
 
     private void setLayouts() {
@@ -116,6 +126,22 @@ public class dashboardController implements Initializable {
         }
         workspace.setVisible(false);
         layouts.setVisible(true);
+        builder.setVisible(false);
+    }
+
+    private void setBuilder() {
+        AnchorPane.setRightAnchor(builder,0.0);
+        AnchorPane.setTopAnchor(builder,0.0);
+        AnchorPane.setBottomAnchor(builder,0.0);
+
+        if (i == 0) {
+            AnchorPane.setLeftAnchor(builder,265.0);
+        } else {
+            AnchorPane.setLeftAnchor(builder,65.0);
+        }
+        workspace.setVisible(false);
+        layouts.setVisible(false);
+        builder.setVisible(true);
     }
 
     private void initClock() {
@@ -137,6 +163,10 @@ public class dashboardController implements Initializable {
         setLayouts();
     }
 
+    public void builderAction() {
+        setBuilder();
+    }
+
     public void toggle() {
         toggleDashBoard();
         if (workspace.isVisible()) {
@@ -145,5 +175,9 @@ public class dashboardController implements Initializable {
         if (layouts.isVisible()) {
             setLayouts();
         }
+        if (builder.isVisible()) {
+            setBuilder();
+        }
+
     }
 }

@@ -124,7 +124,7 @@
                <content>
                   <Group>
                      <children>
-                        <JFXTreeTableView fx:id="layoutsTableView" fixedCellSize="0.0" prefHeight="900.0" sortMode="ONLY_FIRST_LEVEL">
+                        <JFXTreeTableView fx:id="layoutsTableView" fixedCellSize="0.0" prefHeight="900.0" prefWidth="1500.0" sortMode="ONLY_FIRST_LEVEL">
                            <columns>
                               <TreeTableColumn fx:id="COL_NO" prefWidth="50.0" text="No." />
                               <TreeTableColumn fx:id="COL_PAGE" prefWidth="50.0" text="Page" />
@@ -136,8 +136,8 @@
                               <TreeTableColumn fx:id="COL_COLOR" maxWidth="100.0" text="Colour" />
                               <TreeTableColumn fx:id="COL_VALUE" maxWidth="210.0" prefWidth="130.0" text="Value" />
                               <TreeTableColumn fx:id="COL_STUD_HEIGHT" maxWidth="210.0" prefWidth="130.0" text="Stud Height" />
-                              <TreeTableColumn fx:id="COL_VOLUME" maxWidth="210.0" prefWidth="130.0" text="Volume" />
-                              <TreeTableColumn fx:id="COL_LOBOUR" maxWidth="210.0" prefWidth="130.0" text="Lobour" />
+                              <TreeTableColumn fx:id="COL_VOLUME" maxWidth="210.0" prefWidth="130.0" text="Unit" />
+                              <TreeTableColumn fx:id="COL_LOBOUR" maxWidth="1.7976931348623157E308" prefWidth="130.0" text="Labour" />
                            </columns>
                         </JFXTreeTableView>
                      </children>

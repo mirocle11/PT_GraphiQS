@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="519.0" prefWidth="726.0" style="-fx-background-color: TRANSPARENT;" stylesheets="@CSS/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.loginController">
+   <children>
+      <AnchorPane layoutX="19.0" layoutY="13.0" prefHeight="493.0" prefWidth="689.0" style="-fx-background-color: #102027; -fx-background-radius: 30px;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Separator layoutX="445.0" layoutY="57.0" orientation="VERTICAL" prefHeight="380.0" prefWidth="0.0" style="-fx-background-color: WHITE;" />
+            <Label alignment="CENTER" layoutX="487.0" layoutY="57.0" prefHeight="30.0" prefWidth="165.0" text="Login Form" textFill="#bcbcbc">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="USERNAME" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="470.0" layoutY="137.0" prefHeight="30.0" prefWidth="200.0" promptText="Username" style="-fx-text-inner-color: #b9b9b9;">
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXPasswordField fx:id="PASSWORD" focusColor="#0f9d58" focusTraversable="false" layoutX="470.0" layoutY="190.0" prefHeight="30.0" prefWidth="200.0" promptText="Password">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXPasswordField>
+            <JFXButton fx:id="FORGOT_PASSWORD" layoutX="511.0" layoutY="242.0" prefHeight="25.0" prefWidth="119.0" text="Forgot Password?" textFill="#bcbcbc" />
+            <JFXButton fx:id="LOGIN" alignment="CENTER" focusTraversable="false" graphicTextGap="10.0" layoutX="498.0" layoutY="315.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="145.0" style="-fx-background-radius: 30px; -fx-background-color: #263238;" text="Login" textAlignment="CENTER" textFill="#bcbcbc">
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/login_30px.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="CLOSE" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="14.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 120px;" textFill="#e4e4e4">
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/cancel_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Label layoutX="145.0" layoutY="72.0" prefHeight="66.0" prefWidth="154.0" text="Welcome" textFill="#bcbcbc">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

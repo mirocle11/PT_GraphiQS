@@ -1,13 +1,10 @@
 package Controllers;
 
-    import Data.HistoryData;
-    import com.jfoenix.controls.JFXSlider;
-    import com.jfoenix.controls.JFXTreeTableView;
-    import com.jfoenix.controls.RecursiveTreeItem;
+    import Model.data.HistoryData;
+    import com.jfoenix.controls.*;
     import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
     import javafx.collections.FXCollections;
     import javafx.collections.ObservableList;
-    import javafx.fxml.FXML;
     import javafx.fxml.Initializable;
     import javafx.scene.control.TreeItem;
     import javafx.scene.control.TreeTableColumn;
@@ -19,7 +16,6 @@ public class workspaceSideNavigatorController implements Initializable {
 
     public static JFXSlider slider;
 
-    @FXML
     public JFXTreeTableView<HistoryData> historyTable;
     public TreeTableColumn<HistoryData,String> COL_Color;
     public TreeTableColumn<HistoryData, String> COL_Type;

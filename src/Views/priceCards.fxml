@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="620.0" prefWidth="675.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" layoutY="15.0" prefHeight="35.0" prefWidth="172.0" text="Subtrade Rate" textFill="#bcbcbc" AnchorPane.topAnchor="15.0">
+         <font>
+            <Font name="Segoe UI Bold" size="18.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="14.0" layoutY="87.0" prefHeight="304.0" prefWidth="196.0" style="-fx-background-radius: 30px; -fx-background-color: #102027;" AnchorPane.topAnchor="90.0">
+         <effect>
+            <InnerShadow />
+         </effect>
+         <children>
+            <VBox layoutX="15.0" layoutY="14.0" prefHeight="388.0" prefWidth="183.0" spacing="25.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="186.0" text="Subtrade" textFill="#bcbcbc">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="186.0" text="Name" textFill="#bcbcbc">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="186.0" text="Address" textFill="#bcbcbc">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="186.0" text="Email" textFill="#bcbcbc">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="186.0" text="Mobile" textFill="#bcbcbc">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="223.0" layoutY="87.0" prefHeight="509.0" prefWidth="437.0" style="-fx-background-color: #102027; -fx-background-radius: 30px;" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="90.0">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </AnchorPane>
+   </children>
+</AnchorPane>

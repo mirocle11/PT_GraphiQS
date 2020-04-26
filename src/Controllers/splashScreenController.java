@@ -92,7 +92,7 @@ public class splashScreenController implements Initializable {
 
                             fadeTransition1.setOnFinished(event5 -> {
                                 main.closeStage();
-                                main.mainWindow();
+                                main.loginWindow();
                             });
                         });
                     });

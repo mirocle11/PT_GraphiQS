@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Rectangle2D?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="800.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.createProjectController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="800.0" style="-fx-background-color: transparent;" stylesheets="@CSS/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.createProjectController">
    <children>
       <AnchorPane fx:id="createBox" layoutX="7.0" layoutY="6.0" prefHeight="570.0" prefWidth="785.0" style="-fx-background-color: #102027; -fx-background-radius: 30px;">
          <effect>
@@ -53,57 +54,43 @@
                         <Font name="Segoe UI" size="17.0" />
                      </font>
                   </Label>
-                  <JFXTextField focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutY="50.0" prefHeight="30.0" prefWidth="335.0" promptText="Job Number" style="-fx-text-inner-color: #b9b9b9;">
-                     <font>
-                        <Font name="Segoe UI" size="15.0" />
-                     </font>
-                  </JFXTextField>
                   <JFXTextField focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutY="95.0" prefHeight="30.0" prefWidth="335.0" promptText="Job Name" style="-fx-text-inner-color: #b9b9b9;">
                      <font>
-                        <Font name="Segoe UI" size="15.0" />
+                        <Font name="Segoe UI" size="14.0" />
                      </font>
                   </JFXTextField>
                   <JFXTextField focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="117.0" layoutY="140.0" prefHeight="30.0" prefWidth="218.0" promptText="Street Name" style="-fx-text-inner-color: #b9b9b9;">
                      <font>
-                        <Font name="Segoe UI" size="15.0" />
+                        <Font name="Segoe UI" size="14.0" />
                      </font>
                   </JFXTextField>
                   <JFXTextField focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutY="140.0" prefHeight="30.0" prefWidth="105.0" promptText="Street No" style="-fx-text-inner-color: #b9b9b9;">
                      <font>
-                        <Font name="Segoe UI" size="15.0" />
+                        <Font name="Segoe UI" size="14.0" />
                      </font>
                   </JFXTextField>
                   <JFXTextField focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutY="185.0" prefHeight="30.0" prefWidth="335.0" promptText="Suburb" style="-fx-text-inner-color: #b9b9b9;">
                      <font>
-                        <Font name="Segoe UI" size="15.0" />
+                        <Font name="Segoe UI" size="14.0" />
                      </font>
                   </JFXTextField>
                   <JFXTextField focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutY="230.0" prefHeight="30.0" prefWidth="335.0" promptText="City" style="-fx-text-inner-color: #b9b9b9;">
                      <font>
-                        <Font name="Segoe UI" size="15.0" />
+                        <Font name="Segoe UI" size="14.0" />
                      </font>
                   </JFXTextField>
-                  <JFXTextField focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="402.0" layoutY="50.0" prefHeight="30.0" prefWidth="305.0" promptText="Merchant" style="-fx-text-inner-color: #b9b9b9;">
+                  <JFXTextField focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="399.0" layoutY="57.0" prefHeight="30.0" prefWidth="305.0" promptText="Branch" style="-fx-text-inner-color: #b9b9b9;">
                      <font>
-                        <Font name="Segoe UI" size="15.0" />
+                        <Font name="Segoe UI" size="14.0" />
                      </font>
                   </JFXTextField>
-                  <JFXTextField focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="402.0" layoutY="95.0" prefHeight="30.0" prefWidth="305.0" promptText="Branch" style="-fx-text-inner-color: #b9b9b9;">
-                     <font>
-                        <Font name="Segoe UI" size="15.0" />
-                     </font>
-                  </JFXTextField>
-                  <JFXTextField focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="402.0" layoutY="140.0" prefHeight="30.0" prefWidth="305.0" promptText="Operator (QS)" style="-fx-text-inner-color: #b9b9b9;">
-                     <font>
-                        <Font name="Segoe UI" size="15.0" />
-                     </font>
-                  </JFXTextField>
-                  <JFXDatePicker focusTraversable="false" layoutX="489.0" layoutY="185.0" prefHeight="30.0" prefWidth="218.0" />
-                  <Label focusTraversable="false" layoutX="402.0" layoutY="184.0" prefHeight="32.0" prefWidth="82.0" text="Started" textFill="#868686">
+                  <JFXDatePicker focusTraversable="false" layoutX="486.0" layoutY="102.0" prefHeight="30.0" prefWidth="218.0" />
+                  <Label focusTraversable="false" layoutX="399.0" layoutY="101.0" prefHeight="32.0" prefWidth="82.0" text="Started" textFill="#868686">
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font>
                   </Label>
+                  <JFXComboBox focusColor="#0f9d58" layoutY="50.0" prefHeight="30.0" prefWidth="335.0" promptText="Client" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="secondpane" layoutX="32.0" layoutY="80.0" prefHeight="405.0" prefWidth="718.0" visible="false">
@@ -335,7 +322,7 @@
                   </JFXCheckBox>
                </children>
             </AnchorPane>
-            <Label fx:id="page" layoutX="367.0" layoutY="27.0" prefHeight="30.0" prefWidth="82.0" text="1 out of 2" textFill="#bcbcbc">
+            <Label fx:id="page" layoutX="367.0" layoutY="27.0" prefHeight="30.0" prefWidth="75.0" text="1 out of 2" textFill="#bcbcbc">
                <font>
                   <Font name="Segoe UI" size="17.0" />
                </font>
