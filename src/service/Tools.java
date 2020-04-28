@@ -29,9 +29,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Created by User on 17/02/2020.
- */
 public class Tools {
     public PageObject page;
     Group group;

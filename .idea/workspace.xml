@@ -7,28 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceSideNavigatorController.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Controllers/workspaceSideNavigatorController.java" afterPath="$PROJECT_DIR$/src/Controllers/workspaceSideNavController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Main/Main.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Main/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/ShapeObject.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/ShapeObject.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspaceSideNavigation.fxml" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspaceSideNavigation.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/createProjectController.java" afterPath="$PROJECT_DIR$/src/Controllers/createProjectController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/layoutsController.java" afterPath="$PROJECT_DIR$/src/Controllers/layoutsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/loginController.java" afterPath="$PROJECT_DIR$/src/Controllers/loginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataBase/DataBase.java" afterPath="$PROJECT_DIR$/src/DataBase/DataBase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/Main.java" afterPath="$PROJECT_DIR$/src/Main/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ShapeObject.java" afterPath="$PROJECT_DIR$/src/Model/ShapeObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/data/WallData.java" afterPath="$PROJECT_DIR$/src/Model/data/WallData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/data/layoutsData.java" afterPath="$PROJECT_DIR$/src/Model/data/layoutsData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Views/createProject.fxml" afterPath="$PROJECT_DIR$/src/Views/createProject.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Views/layouts.fxml" afterPath="$PROJECT_DIR$/src/Views/layouts.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Views/loginForm.fxml" afterPath="$PROJECT_DIR$/src/Views/loginForm.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Views/workspaceSideNavigation.fxml" afterPath="$PROJECT_DIR$/src/Views/workspaceSideNavigation.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/service/Tools.java" afterPath="$PROJECT_DIR$/src/service/Tools.java" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
@@ -100,8 +79,8 @@
       <file leaf-file-name="Tools.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/service/Tools.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="292" column="74" lean-forward="true" selection-start-line="292" selection-start-column="74" selection-end-line="292" selection-end-column="74" />
+            <state relative-caret-position="1059">
+              <caret line="381" column="63" lean-forward="true" selection-start-line="381" selection-start-column="63" selection-end-line="381" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -112,8 +91,8 @@
       <file leaf-file-name="ShapeObject.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/ShapeObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="35" column="18" lean-forward="false" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+            <state relative-caret-position="510">
+              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -132,8 +111,8 @@
       <file leaf-file-name="createProjectController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/createProjectController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="838">
-              <caret line="75" column="80" lean-forward="false" selection-start-line="75" selection-start-column="80" selection-end-line="75" selection-end-column="80" />
+            <state relative-caret-position="311">
+              <caret line="44" column="11" lean-forward="true" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -142,7 +121,7 @@
       <file leaf-file-name="layoutsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/layoutsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="838">
+            <state relative-caret-position="1348">
               <caret line="97" column="24" lean-forward="false" selection-start-line="97" selection-start-column="24" selection-end-line="97" selection-end-column="24" />
               <folding />
             </state>
@@ -1332,14 +1311,7 @@
       <workItem from="1587602564777" duration="19948000" />
       <workItem from="1587688324426" duration="48010000" />
       <workItem from="1587957571750" duration="2534000" />
-      <workItem from="1588040683370" duration="1287000" />
-    </task>
-    <task id="LOCAL-00063" summary="#60 commit">
-      <created>1573700331355</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1573700331355</updated>
+      <workItem from="1588040683370" duration="1463000" />
     </task>
     <task id="LOCAL-00064" summary="#60 commit">
       <created>1573719415885</created>
@@ -1677,11 +1649,18 @@
       <option name="project" value="LOCAL" />
       <updated>1587914028726</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators">
+      <created>1588049478212</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1588049478213</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="972336000" />
+    <option name="totallyTimeSpent" value="972512000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -2273,18 +2252,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/createProjectController.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/ShapeObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="838">
-          <caret line="75" column="80" lean-forward="false" selection-start-line="75" selection-start-column="80" selection-end-line="75" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/layoutsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="838">
-          <caret line="97" column="24" lean-forward="false" selection-start-line="97" selection-start-column="24" selection-end-line="97" selection-end-column="24" />
+        <state relative-caret-position="510">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2297,18 +2268,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/ShapeObject.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/createProjectController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="35" column="18" lean-forward="false" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+        <state relative-caret-position="311">
+          <caret line="44" column="11" lean-forward="true" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/layoutsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1348">
+          <caret line="97" column="24" lean-forward="false" selection-start-line="97" selection-start-column="24" selection-end-line="97" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/service/Tools.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="292" column="74" lean-forward="true" selection-start-line="292" selection-start-column="74" selection-end-line="292" selection-end-column="74" />
+        <state relative-caret-position="1059">
+          <caret line="381" column="63" lean-forward="true" selection-start-line="381" selection-start-column="63" selection-end-line="381" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
