@@ -7,12 +7,12 @@ import javafx.scene.control.Label;
 public class layoutsData extends RecursiveTreeObject<layoutsData> {
 
     private SimpleStringProperty no, page, measurement, structure, wall_type, wall, material, value, stud_height,
-            volume, lobour;
+            unit, labour;
 
     private Label color;
 
     public layoutsData(String no, String page, String measurement, String structure, String wall_type, String wall,
-                       String material, Label color, String value, String stud_height, String volume, String lobour) {
+                       String material, Label color, String value, String stud_height, String unit, String labour) {
 
         this.no = new SimpleStringProperty(no);
         this.page = new SimpleStringProperty(page);
@@ -24,8 +24,8 @@ public class layoutsData extends RecursiveTreeObject<layoutsData> {
         this.color = color;
         this.value = new SimpleStringProperty(value);
         this.stud_height = new SimpleStringProperty(stud_height);
-        this.volume = new SimpleStringProperty(volume);
-        this.lobour = new SimpleStringProperty(lobour);
+        this.unit = new SimpleStringProperty(unit);
+        this.labour = new SimpleStringProperty(labour);
     }
 
     public String getNo() {
@@ -145,27 +145,27 @@ public class layoutsData extends RecursiveTreeObject<layoutsData> {
         this.stud_height.set(stud_height);
     }
 
-    public String getVolume() {
-        return volume.get();
+    public String getUnit() {
+        return unit.get();
     }
 
-    public SimpleStringProperty volumeProperty() {
-        return volume;
+    public SimpleStringProperty unitProperty() {
+        return unit;
     }
 
-    public void setVolume(String volume) {
-        this.volume.set(volume);
+    public void setUnit(String unit) {
+        this.unit.set(unit);
     }
 
-    public String getLobour() {
-        return lobour.get();
+    public String getLabour() {
+        return labour.get();
     }
 
-    public SimpleStringProperty lobourProperty() {
-        return lobour;
+    public SimpleStringProperty labourProperty() {
+        return labour;
     }
 
-    public void setLobour(String lobour) {
-        this.lobour.set(lobour);
+    public void setLabour(String labour) {
+        this.labour.set(labour);
     }
 }

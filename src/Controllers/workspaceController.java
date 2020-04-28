@@ -118,6 +118,7 @@ public class workspaceController implements Initializable {
 
     //user_id
     public static int user_id = 0;
+    public static int client_id = 0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -467,7 +468,7 @@ public class workspaceController implements Initializable {
 
             Label lbl = new Label(Math.round(area * 100.0) / 100.0 + " m²");
 
-//            workspaceSideNavigatorController.historyList.addAll(new HistoryData(color.toString(), mode, lbl.getText()));
+//            workspaceSideNavController.historyList.addAll(new HistoryData(color.toString(), mode, lbl.getText()));
             redrawShapes();
             pointList.clear();
             LENGTH.setDisable(false);

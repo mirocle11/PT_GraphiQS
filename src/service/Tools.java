@@ -1,5 +1,7 @@
 package service;
 
+import Controllers.createProjectController;
+import DataBase.DataBase;
 import Controllers.workspaceController;
 import Controllers.layoutsController;
 import Model.data.layoutsData;
@@ -63,6 +65,7 @@ public class Tools {
 
     double total;
     double stud_height;
+    public Label rate = new Label();
 
     public Tools(PageObject page, Group group, String mode, Line line, Circle circle, VBox box) {
         this.page = page;
@@ -320,8 +323,17 @@ public class Tools {
             sp1.setWall(window.wallComboBox.getSelectionModel().getSelectedItem().toString());
             sp1.setMaterial(window.materialComboBox.getSelectionModel().getSelectedItem().toString());
             sp1.setStud_height(String.valueOf(stud_height));
-            BigDecimal bigDecimal = new BigDecimal(Math.round(sp1.getLength() * stud_height));
-            sp1.setVolume(String.valueOf(bigDecimal));
+            BigDecimal bigDecimal = new BigDecimal(Math.round(sp1.getLength() * stud_height / 1000));
+            sp1.setUnit(String.valueOf(bigDecimal));
+
+
+            if (window.materialComboBox.getSelectionModel().getSelectedItem().equals("10mm Gib") ||
+                    window.materialComboBox.getSelectionModel().getSelectedItem().equals("13mm Gib")) {
+                DataBase db = DataBase.getInstance();
+                db.setSubtrades(createProjectController.selectedClient, "Gib Stopper", rate);
+                sp1.setLabour(String.valueOf(Math.round(sp1.getLength() * stud_height / 1000) * Integer.valueOf(rate.getText())));
+            }
+//            System.out.println(bigDecimal + "m2");
         }
 
         //get shapeObject data to layout table
@@ -354,7 +366,8 @@ public class Tools {
                         sp2.getStructure(), sp2.getWallType(), sp2.getWall(), sp2.getMaterial(), colorLabel,
                         NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(value)),
                         NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(sp2.getStud_height())),
-                        NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(sp2.getVolume())), ""));
+                        NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(sp2.getUnit())),
+                        NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(sp2.getLabour()))));
             }
         }
 

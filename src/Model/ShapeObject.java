@@ -32,8 +32,8 @@ public class ShapeObject {
     String wall;
     String material;
     String stud_height;
-    String volume;
-    String lobour;
+    String unit;
+    String labour;
 
     public ShapeObject() {
         java.awt.Color c = new java.awt.Color(0, true);
@@ -266,20 +266,20 @@ public class ShapeObject {
         this.stud_height = stud_height;
     }
 
-    public String getVolume() {
-        return volume;
+    public String getUnit() {
+        return unit;
     }
 
-    public void setVolume(String volume) {
-        this.volume = volume;
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
-    public String getLobour() {
-        return lobour;
+    public String getLabour() {
+        return labour;
     }
 
-    public void setLobour(String lobour) {
-        this.lobour = lobour;
+    public void setLabour(String labour) {
+        this.labour = labour;
     }
 }
 

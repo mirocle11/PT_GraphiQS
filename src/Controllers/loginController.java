@@ -31,14 +31,12 @@ public class loginController implements Initializable {
         LOGIN.setOnAction((ActionEvent event) -> {
             DataBase db = DataBase.getInstance();
             if (db.setAccountIndex(workspaceController.user_id, USERNAME.getText(), PASSWORD.getText())) {
-                main.mainWindow();
                 main.closeLoginStage();
+                main.mainWindow();
             }
         });
 
-        CLOSE.setOnAction(event -> {
-            main.closeLoginStage();
-        });
+        CLOSE.setOnAction(event -> main.closeLoginStage());
     }
 
 }

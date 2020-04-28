@@ -83,7 +83,7 @@ public class layoutsController implements Initializable {
                 new TreeItemPropertyValueFactory<>("stud_height")
         );
         COL_VOLUME.setCellValueFactory(
-                new TreeItemPropertyValueFactory<>("volume")
+                new TreeItemPropertyValueFactory<>("unit")
         );
         COL_LOBOUR.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("labour")

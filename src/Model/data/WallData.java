@@ -47,7 +47,6 @@ public class WallData {
         this.colorPicker = workspace.colorPicker;
         this.LENGTH = workspace.LENGTH;
         this.AREA = workspace.AREA;
-
     }
 
     public void structureAction() {

@@ -130,14 +130,14 @@
                               <TreeTableColumn fx:id="COL_PAGE" prefWidth="50.0" text="Page" />
                               <TreeTableColumn fx:id="COL_MEASUREMENT" prefWidth="115.0" text="Measurement" />
                               <TreeTableColumn fx:id="COL_STRUCTURE" prefWidth="130.0" text="Structure" />
-                              <TreeTableColumn fx:id="COL_WALL_TYPE" prefWidth="130.0" text="Wall Type" />
-                              <TreeTableColumn fx:id="COL_WALL" prefWidth="130.0" text="Wall" />
-                              <TreeTableColumn fx:id="COL_MATERIAL" maxWidth="210.0" prefWidth="130.0" text="Material" />
+                              <TreeTableColumn fx:id="COL_WALL_TYPE" prefWidth="140.0" text="Wall Type" />
+                              <TreeTableColumn fx:id="COL_WALL" prefWidth="140.0" text="Wall" />
+                              <TreeTableColumn fx:id="COL_MATERIAL" maxWidth="210.0" prefWidth="140.0" text="Material" />
                               <TreeTableColumn fx:id="COL_COLOR" maxWidth="100.0" text="Colour" />
-                              <TreeTableColumn fx:id="COL_VALUE" maxWidth="210.0" prefWidth="130.0" text="Value" />
-                              <TreeTableColumn fx:id="COL_STUD_HEIGHT" maxWidth="210.0" prefWidth="130.0" text="Stud Height" />
-                              <TreeTableColumn fx:id="COL_VOLUME" maxWidth="210.0" prefWidth="130.0" text="Unit" />
-                              <TreeTableColumn fx:id="COL_LOBOUR" maxWidth="1.7976931348623157E308" prefWidth="130.0" text="Labour" />
+                              <TreeTableColumn fx:id="COL_VALUE" maxWidth="210.0" prefWidth="140.0" text="Value (mm)" />
+                              <TreeTableColumn fx:id="COL_STUD_HEIGHT" maxWidth="210.0" prefWidth="140.0" text="Stud Height (mm)" />
+                              <TreeTableColumn fx:id="COL_VOLUME" maxWidth="210.0" prefWidth="140.0" text="Unit (m²)" />
+                              <TreeTableColumn fx:id="COL_LOBOUR" maxWidth="1.7976931348623157E308" prefWidth="150.0" text="Labour" />
                            </columns>
                         </JFXTreeTableView>
                      </children>

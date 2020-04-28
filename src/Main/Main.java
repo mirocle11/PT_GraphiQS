@@ -1,11 +1,8 @@
 package Main;
 
-import Controllers.builderController;
-import Controllers.loginController;
+import Controllers.*;
 import DataBase.DataBase;
 
-import Controllers.dashboardController;
-import Controllers.splashScreenController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

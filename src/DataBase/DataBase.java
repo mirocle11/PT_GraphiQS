@@ -2,6 +2,7 @@ package DataBase;
 
 import Model.data.clientsData;
 import Model.data.subtradesData;
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 
@@ -14,9 +15,16 @@ public class DataBase {
     private static Connection con;
 
     private int user_id = 0;
+    private int _rate = 0;
 
     //declare instance
     private static DataBase instance = null;
+    private String username;
+    private String position;
+    private String full_name;
+    private String subtrade;
+    private int rate;
+
     public static DataBase getInstance() {
         if(instance == null) {
             instance = new DataBase();
@@ -56,16 +64,17 @@ public class DataBase {
     public void addClient(String first_name, String last_name, String contact_person, String email,String mobile,
                           String landline) {
         try {
-            String sql = "INSERT INTO CLIENTS_TBL (USER_ID, FIRST_NAME, LAST_NAME, CONTACT_PERSON, EMAIL," +
-                    " MOBILE, LANDLINE) VALUES (LAST_INSERT_ID(), ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO CLIENTS_TBL (USER_ID, FIRST_NAME, LAST_NAME, FULL_NAME, CONTACT_PERSON, EMAIL," +
+                    " MOBILE, LANDLINE) VALUES (LAST_INSERT_ID(), ?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             preparedStatement.setString(1, first_name);
             preparedStatement.setString(2, last_name);
-            preparedStatement.setString(3, contact_person);
-            preparedStatement.setString(4, email);
-            preparedStatement.setString(5, mobile);
-            preparedStatement.setString(6, landline);
+            preparedStatement.setString(3, first_name + " " +last_name);
+            preparedStatement.setString(4, contact_person);
+            preparedStatement.setString(5, email);
+            preparedStatement.setString(6, mobile);
+            preparedStatement.setString(7, landline);
 
             preparedStatement.executeUpdate();
 
@@ -127,10 +136,9 @@ public class DataBase {
             while (resultSet.next()) {
 
                 String ID = resultSet.getString("ID");
-                String FIRST_NAME = resultSet.getString("FIRST_NAME");
-                String LAST_NAME = resultSet.getString("LAST_NAME");
+                String FULL_NAME = resultSet.getString("FULL_NAME");
 
-                clientsData.addAll(new clientsData(ID, FIRST_NAME+" "+LAST_NAME));
+                clientsData.addAll(new clientsData(ID, FULL_NAME));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -345,7 +353,7 @@ public class DataBase {
             if (resultSet.next()) {
                 id = resultSet.getInt("ID");
                 user_id = id;
-//                System.out.println(id);
+                System.out.println(user_id);
                 JOptionPane.showMessageDialog(null, "Welcome");
                 return true;
             }
@@ -364,6 +372,84 @@ public class DataBase {
         return false;
     }
 
+    public void displayOperator(Label USERNAME, Label POSITION) {
+        try {
+            Statement statement = con.createStatement();
+            String sql = "SELECT * FROM USERS_TBL WHERE ID = " + user_id;
+            ResultSet resultSet = statement.executeQuery(sql);
 
+            while (resultSet.next()) {
+                USERNAME.setText(resultSet.getString("USERNAME"));
+                POSITION.setText(resultSet.getString("POSITION"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void clientComboBox(ObservableList<String> CLIENTS) {
+        try {
+            Statement statement = con.createStatement();
+            String sql = "SELECT * FROM CLIENTS_TBL";
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                String FULL_NAME = resultSet.getString("FULL_NAME");
+                CLIENTS.addAll(FULL_NAME);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setSubtrades(String full_name, String subtrade, Label rate) {
+        int client_id = 0;
+        int subtrade_id = 0;
+
+        try {
+            String sql = "SELECT * FROM CLIENTS_TBL WHERE FULL_NAME = ?";
+
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, full_name);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                client_id = resultSet.getInt("ID");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            String sql = "SELECT * FROM SUBTRADES_TBL WHERE CLIENT_ID = ? AND SUBTRADE = ?";
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setInt(1, client_id);
+            preparedStatement.setString(2, subtrade);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                subtrade_id = resultSet.getInt("ID");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            String sql = "SELECT * FROM PRICE_CARD_TBL WHERE SUBTRADE_ID = ?";
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setInt(1, subtrade_id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                rate.setText(resultSet.getString("RATE"));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }
