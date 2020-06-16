@@ -28,6 +28,7 @@ public class loginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        LOGIN.setDefaultButton(true);
         LOGIN.setOnAction((ActionEvent event) -> {
             DataBase db = DataBase.getInstance();
             if (db.setAccountIndex(workspaceController.user_id, USERNAME.getText(), PASSWORD.getText())) {

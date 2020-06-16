@@ -179,8 +179,16 @@ public class Length implements IMeasurement {
         shapeObj.setTools(tools);
 
         page.getShapeList().add(shapeObj);
-        tools.setMode("FREE");
-        tools.studPopup();
+//        tools.studPopup();
+
+        System.out.println("workspace stud stud height is: " + tools.window.stud_height);
+
+        if (tools.window.stud_height == 0.0) {
+            tools.studPopup();
+        } else {
+            tools.stud_height = tools.window.stud_height;
+        }
+
         tools.updateWindow();
 
         pointList.clear();
@@ -188,6 +196,7 @@ public class Length implements IMeasurement {
 
     @Override
     public void handleShowContextMenu(MouseEvent event) {
+        tools.setMode("FREE");
         if (event.getButton() == MouseButton.SECONDARY) {
             contextMenu = new ContextMenu();
             contextMenu.hide();

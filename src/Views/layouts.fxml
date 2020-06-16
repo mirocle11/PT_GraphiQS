@@ -23,7 +23,7 @@
       <AnchorPane fx:id="sidePane" prefHeight="689.0" prefWidth="327.0" BorderPane.alignment="CENTER">
          <children>
             <Separator layoutX="-3.0" layoutY="65.0" orientation="VERTICAL" prefHeight="614.0" prefWidth="6.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="30.0" />
-            <GridPane prefHeight="630.0" prefWidth="305.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <GridPane fx:id="SIDE_GRID" prefHeight="630.0" prefWidth="305.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -108,7 +108,7 @@
       </AnchorPane>
    </right>
    <center>
-      <AnchorPane fx:id="lengthScrollPane" prefHeight="720.0" prefWidth="739.0" stylesheets="@CSS/style.css" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="720.0" prefWidth="739.0" stylesheets="@CSS/style.css" BorderPane.alignment="CENTER">
          <children>
             <JFXTextField fx:id="SEARCH" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="64.0" layoutY="29.0" prefHeight="30.0" prefWidth="251.0" promptText="Search" style="-fx-text-inner-color: #b9b9b9;" AnchorPane.leftAnchor="64.0" AnchorPane.topAnchor="40.0">
                <font>
@@ -120,7 +120,7 @@
                   <Image url="@images/search_25px.png" />
                </image>
             </ImageView>
-            <ScrollPane fx:id="scrollPane" layoutX="27.0" layoutY="70.0" maxWidth="1360.0" prefHeight="610.0" prefWidth="634.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="75.0">
+            <ScrollPane fx:id="lengthScrollPane" layoutX="27.0" layoutY="70.0" maxWidth="1360.0" prefHeight="610.0" prefWidth="634.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="75.0">
                <content>
                   <Group>
                      <children>
@@ -134,16 +134,26 @@
                               <TreeTableColumn fx:id="COL_WALL" prefWidth="140.0" text="Wall" />
                               <TreeTableColumn fx:id="COL_MATERIAL" maxWidth="210.0" prefWidth="140.0" text="Material" />
                               <TreeTableColumn fx:id="COL_COLOR" maxWidth="100.0" text="Colour" />
-                              <TreeTableColumn fx:id="COL_VALUE" maxWidth="210.0" prefWidth="140.0" text="Value (mm)" />
-                              <TreeTableColumn fx:id="COL_STUD_HEIGHT" maxWidth="210.0" prefWidth="140.0" text="Stud Height (mm)" />
-                              <TreeTableColumn fx:id="COL_VOLUME" maxWidth="210.0" prefWidth="140.0" text="Unit (m²)" />
-                              <TreeTableColumn fx:id="COL_LOBOUR" maxWidth="1.7976931348623157E308" prefWidth="150.0" text="Labour" />
+                              <TreeTableColumn fx:id="COL_VALUE" maxWidth="210.0" prefWidth="150.0" text="Value (mm)" />
+                              <TreeTableColumn fx:id="COL_STUD_HEIGHT" maxWidth="210.0" prefWidth="150.0" text="Stud Height (mm)" />
+                              <TreeTableColumn fx:id="COL_VOLUME" maxWidth="210.0" prefWidth="150.0" text="Unit (m²)" />
+                              <TreeTableColumn fx:id="COL_LOBOUR" maxWidth="1.7976931348623157E308" prefWidth="160.0" text="Labour" />
                            </columns>
                         </JFXTreeTableView>
                      </children>
                   </Group>
                </content>
             </ScrollPane>
+            <JFXTreeTableView fx:id="STAMP_TBL" fixedCellSize="0.0" layoutX="30.0" layoutY="75.0" prefHeight="600.0" prefWidth="690.0" sortMode="ONLY_FIRST_LEVEL" visible="false">
+               <columns>
+                  <TreeTableColumn fx:id="STAMP_NO" prefWidth="59.0" text="No." />
+                  <TreeTableColumn fx:id="STAMP" prefWidth="119.0" text="Stamp" />
+                  <TreeTableColumn fx:id="TYPE" prefWidth="171.0" text="Type" />
+                  <TreeTableColumn fx:id="WIDTH" prefWidth="101.0" text="Width" />
+                  <TreeTableColumn fx:id="HEIGHT" prefWidth="98.0" text="Height" />
+                  <TreeTableColumn fx:id="IMAGE" prefWidth="139.0" text="Image" />
+               </columns>
+            </JFXTreeTableView>
          </children>
       </AnchorPane>
    </center>

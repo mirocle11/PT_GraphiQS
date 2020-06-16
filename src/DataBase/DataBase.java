@@ -83,12 +83,12 @@ public class DataBase {
         }
     }
 
-    public void addSubtrade(int client_id, String subtrade, String first_name, String last_name, String contact_person, String address,
-                            String email, String mobile, String best_way_to_contact) {
+    public void addSubtrade(int client_id, String subtrade, String first_name, String last_name, String contact_person,
+                            String address, String email, String mobile, String best_way_to_contact) {
 
         try {
-            String sql = "INSERT INTO SUBTRADES_TBL (CLIENT_ID, SUBTRADE, FIRST_NAME, LAST_NAME, CONTACT_PERSON, ADDRESS, EMAIL," +
-                    " MOBILE, BEST_WAY_TO_CONTACT) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO SUBTRADES_TBL (CLIENT_ID, SUBTRADE, FIRST_NAME, LAST_NAME, CONTACT_PERSON," +
+                    " ADDRESS, EMAIL, MOBILE, BEST_WAY_TO_CONTACT) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             preparedStatement.setInt(1, client_id);
@@ -230,7 +230,6 @@ public class DataBase {
             while (resultSet.next()) {
                 user_id = resultSet.getInt("USER_ID");
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -354,14 +353,8 @@ public class DataBase {
                 id = resultSet.getInt("ID");
                 user_id = id;
                 System.out.println(user_id);
-                JOptionPane.showMessageDialog(null, "Welcome");
                 return true;
-            }
-            //default account
-//            else if (username == "admin11" || password == "admin11"){
-//                JOptionPane.showMessageDialog(null,"Welcome");
-//            }
-            else {
+            } else {
                 JOptionPane.showMessageDialog(null,"Incorrect username or password");
                 return false;
             }

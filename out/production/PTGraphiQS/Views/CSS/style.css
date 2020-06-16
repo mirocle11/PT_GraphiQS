@@ -176,8 +176,8 @@
     -fx-font-size: 15px;
     -fx-font-family: "Segoe UI";
     -fx-prompt-text-fill: WHITE;
-
 }
+
 .jfx-combo-box > .cell {
     -fx-text-fill: gray;
 }
@@ -243,4 +243,13 @@
     -fx-text-fill: #b8b8b8;
 }
 
+#stampPicker .jfx-combo-box {
+    -fx-font-size: 14px;
+    -fx-font-family: "Segoe UI";
+    -fx-text-inner-color: #bcbcbc;
+}
+
+#stampPicker .jfx-combo-box .cell {
+    -fx-text-fill: #bcbcbc;
+}
 

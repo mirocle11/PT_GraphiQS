@@ -34,7 +34,7 @@ public class Tools {
     Group group;
     String mode;
     Pane pane;
-    Canvas canvas;
+    Canvas canvas, stamp_canvas;
     Line line;
     Circle circle;
     Label noScale;
@@ -51,7 +51,7 @@ public class Tools {
 
     JFXButton LENGTH, AREA;
 
-    workspaceController window;
+    public workspaceController window;
     layoutsController layouts;
     List<Shape> shapeList = new ArrayList<>();
     ArrayList<Point2D> pointList = new ArrayList<>();
@@ -63,6 +63,8 @@ public class Tools {
     double total;
     double stud_height;
     public Label rate = new Label();
+
+    double workspace_stud_height;
 
     public Tools(PageObject page, Group group, String mode, Line line, Circle circle, VBox box) {
         this.page = page;
@@ -106,6 +108,7 @@ public class Tools {
     public Tools(workspaceController window) {
         this.window = window;
         this.canvas = window.canvas;
+        this.stamp_canvas = window.stamp_canvas;
         this.pane = window.pane;
         this.scroller = window.scroller;
         this.mainPane = window.mainPane;
@@ -135,6 +138,9 @@ public class Tools {
         this.circle.setFill(Color.RED);
         this.circle.setRadius(5);
         this.pane.getChildren().add(circle);
+
+        //stud
+//        this.workspace_stud_height = window.stud_height;
     }
 
     //File Controls
@@ -323,14 +329,14 @@ public class Tools {
             BigDecimal bigDecimal = new BigDecimal(Math.round(sp1.getLength() * stud_height / 1000));
             sp1.setUnit(String.valueOf(bigDecimal));
 
-
             if (window.materialComboBox.getSelectionModel().getSelectedItem().equals("10mm Gib") ||
                     window.materialComboBox.getSelectionModel().getSelectedItem().equals("13mm Gib")) {
                 DataBase db = DataBase.getInstance();
                 db.setSubtrades(createProjectController.selectedClient, "Gib Stopper", rate);
                 sp1.setLabour(String.valueOf(Math.round(sp1.getLength() * stud_height / 1000) * Integer.valueOf(rate.getText())));
+            } else {
+                sp1.setLabour(String.valueOf(""));
             }
-//            System.out.println(bigDecimal + "m2");
         }
 
         //get shapeObject data to layout table
@@ -411,6 +417,7 @@ public class Tools {
         stampList.addAll(page.getStampList());
         snapList.addAll(page.getSnapList());
         setCanvas();
+        setStampCanvas();
     }
 
     public void setCanvas() {
@@ -421,6 +428,13 @@ public class Tools {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
         gc.drawImage(page.getImage(), 0, 0);
         updateWindow();
+    }
+
+    public void setStampCanvas() {
+        stamp_canvas.setWidth(page.getImage().getWidth());
+        stamp_canvas.setHeight(page.getImage().getHeight());
+        GraphicsContext gc = stamp_canvas.getGraphicsContext2D();
+        gc.clearRect(0, 0, stamp_canvas.getWidth(), stamp_canvas.getHeight());
     }
 
     //Pagination

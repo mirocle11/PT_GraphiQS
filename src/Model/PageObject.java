@@ -29,8 +29,6 @@ public class PageObject {
         this.image = SwingFXUtils.toFXImage(param,null);
     }
 
-
-
     public PageObject(int pageNumber, Image image, ArrayList<double[][]> snapList) {
         this.pageNumber = pageNumber;
         this.image = image;
@@ -38,7 +36,6 @@ public class PageObject {
         snapList.forEach(snap -> {
             this.snapList.add(snap);
         });
-
     }
 
     public double getScale() {

@@ -20,7 +20,7 @@ public class workspaceSideNavController implements Initializable {
     public JFXSlider slider;
 
     public JFXTreeTableView<HistoryData> historyTable;
-    public TreeTableColumn<HistoryData,String> COL_Color;
+    public TreeTableColumn<HistoryData, String> COL_Color;
     public TreeTableColumn<HistoryData, String> COL_Type;
     public TreeTableColumn<HistoryData, String> COL_Measurements;
     static ObservableList<HistoryData> historyList;

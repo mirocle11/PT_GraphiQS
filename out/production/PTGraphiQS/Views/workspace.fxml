@@ -8,6 +8,7 @@
 <?import com.jfoenix.controls.JFXHamburger?>
 <?import com.jfoenix.controls.JFXSpinner?>
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Label?>
@@ -43,6 +44,7 @@
                            <children>
                               <Canvas fx:id="canvas" height="660.0" nodeOrientation="INHERIT" width="885.0" />
                               <Pane fx:id="pane" layoutX="14.0" layoutY="-60.0" onMouseDragged="#updateLine" onMouseMoved="#updateLine" onMousePressed="#updateRect" prefHeight="660.0" prefWidth="885.0" />
+                              <Canvas fx:id="stamp_canvas" blendMode="SRC_ATOP" height="660.0" nodeOrientation="INHERIT" width="885.0" />
                            </children>
                         </Group>
                      </children>
@@ -283,9 +285,25 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
+            <JFXButton fx:id="STUD_HEIGHT" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#setStudHeight" prefHeight="50.0" prefWidth="62.0" text="Button">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/resize_vertical_40px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Rotate">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </JFXButton>
          </children>
       </VBox>
-      <HBox layoutX="10.0" layoutY="610.0" prefHeight="30.0" prefWidth="56.0" AnchorPane.leftAnchor="5.0">
+      <HBox layoutX="10.0" layoutY="657.0" prefHeight="30.0" prefWidth="56.0" AnchorPane.leftAnchor="5.0">
          <children>
             <JFXButton fx:id="PREVIOUS_PAGE" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" disable="true" ellipsisString="" minHeight="-Infinity" minWidth="-Infinity" onAction="#previousPageAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 50px;">
                <tooltip>
@@ -321,6 +339,7 @@
             </JFXButton>
          </children>
       </HBox>
+      <JFXCheckBox fx:id="STAMP_OVERLAY" layoutX="5.0" layoutY="690.0" onAction="#stampOverlay" selected="true" text="Overlay" textFill="#bcbcbc" />
       <JFXHamburger fx:id="hamburger" layoutX="988.0" layoutY="64.0" opacity="0.6" prefHeight="30.0" prefWidth="38.0" stylesheets="@CSS/style.css" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="64.0" />
       <JFXButton fx:id="structureToggle" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" disable="true" ellipsisString="" layoutX="5.0" layoutY="155.0" onAction="#structureListTransition" prefHeight="50.0" prefWidth="50.0" text="Button">
          <graphic>
@@ -905,5 +924,58 @@
             <Image url="@images/more_than_25px.png" />
          </image>
       </ImageView>
+      <AnchorPane fx:id="stampPicker" prefHeight="414.0" prefWidth="325.0" style="-fx-background-color: TRANSPARENT;" stylesheets="@CSS/style.css" visible="false">
+         <children>
+            <AnchorPane fx:id="stampPickerPane" layoutX="14.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="295.0" style="-fx-background-radius: 20px; -fx-background-color: #0F1E25;" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+               <effect>
+                  <DropShadow color="#121212" height="35.03" radius="17.155" spread="0.15" width="35.59" />
+               </effect>
+               <children>
+                  <Label alignment="CENTER" layoutX="13.0" layoutY="7.0" prefHeight="37.0" prefWidth="114.0" text="Stamp Picker" textFill="#bcbcbc">
+                     <font>
+                        <Font name="Segoe UI Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="13.0" layoutY="50.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="322.0" prefWidth="203.0" style="-fx-background-color: #0F1E25; -fx-background-radius: 15px;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <children>
+                        <JFXComboBox fx:id="STAMP_TYPE" focusTraversable="false" layoutX="13.0" layoutY="14.0" prefHeight="28.0" prefWidth="175.0" promptText="Stamp Type" unFocusColor="#bcbcbc" />
+                        <JFXComboBox fx:id="DOOR_TYPE" focusTraversable="false" layoutX="14.0" layoutY="67.0" prefHeight="28.0" prefWidth="175.0" promptText="Door Type" unFocusColor="#bcbcbc" />
+                        <JFXComboBox fx:id="DOOR_WIDTH" editable="true" focusTraversable="false" layoutX="14.0" layoutY="120.0" prefHeight="28.0" prefWidth="175.0" promptText="Door Width" unFocusColor="#bcbcbc" />
+                        <JFXComboBox fx:id="COLOR" focusTraversable="false" layoutX="14.0" layoutY="230.0" prefHeight="28.0" prefWidth="175.0" promptText="Color" unFocusColor="#bcbcbc" />
+                        <JFXButton fx:id="UNDO" alignment="CENTER" focusTraversable="false" graphicTextGap="5.0" layoutX="14.0" layoutY="278.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="81.0" style="-fx-background-radius: 30px; -fx-background-color: #263238;" text="Undo" textAlignment="CENTER" textFill="#bcbcbc">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="REDO" alignment="CENTER" focusTraversable="false" graphicTextGap="5.0" layoutX="108.0" layoutY="278.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="81.0" style="-fx-background-radius: 30px; -fx-background-color: #263238;" text="Redo" textAlignment="CENTER" textFill="#bcbcbc">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXComboBox fx:id="DOOR_HEIGHT" editable="true" focusTraversable="false" layoutX="14.0" layoutY="175.0" prefHeight="28.0" prefWidth="175.0" promptText="Door Height" unFocusColor="#bcbcbc" />
+                     </children>
+                  </AnchorPane>
+                  <JFXButton fx:id="DONE" alignment="CENTER" focusTraversable="false" graphicTextGap="5.0" layoutX="193.0" layoutY="11.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="91.0" style="-fx-background-radius: 30px;" text="Done" textAlignment="CENTER" textFill="#bcbcbc">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/ok_35px.png" />
+                           </image>
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
 </children>
 </AnchorPane>

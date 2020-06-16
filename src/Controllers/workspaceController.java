@@ -4,6 +4,8 @@ import Model.data.WallData;
 import Main.Main;
 import Model.PageObject;
 import Model.ShapeObject;
+import Model.data.stampData;
+import Test.SillyStamper;
 import com.jfoenix.controls.*;
 import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
 import javafx.animation.FadeTransition;
@@ -17,6 +19,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -33,8 +36,10 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import service.*;
 
+import javax.swing.*;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.List;
 import java.util.logging.Level;
@@ -44,7 +49,7 @@ public class workspaceController implements Initializable {
 
     //buttons
     public JFXButton IMPORT, SAVE, SCALE, LENGTH, AREA, STAMP, RECTANGLE, ROTATE, structureToggle;
-//    public JFXButton NEXT_PAGE, PREVIOUS_PAGE;
+    //    public JFXButton NEXT_PAGE, PREVIOUS_PAGE;
     public JFXHamburger hamburger;
 
     //combo box (for selection)
@@ -86,7 +91,7 @@ public class workspaceController implements Initializable {
     double snapX = -1;
     double snapY = -1;
 
-    //others 
+    //others
     String mode;
     ContextMenu contextMenu = new ContextMenu();
     int pageNumber = 0;
@@ -96,8 +101,8 @@ public class workspaceController implements Initializable {
     Rectangle rect = new Rectangle();
     Circle circle = new Circle();
     Label noScaleLabel = new Label();
-
     //booleans
+
     private boolean isNew = true;
     private boolean canDraw = true;
 
@@ -120,8 +125,88 @@ public class workspaceController implements Initializable {
     public static int user_id = 0;
     public static int client_id = 0;
 
+    //stamp
+    public AnchorPane stampPicker;
+    private static class IconInfo {
+        int iconNumber;  // an index into the iconImages array
+        int x, y;        // coords of the upper left corner of the image
+    }
+    private ArrayList<IconInfo> icons = new ArrayList<IconInfo>();
+    private int iconsShown;
+    private int iconsPlaced;
+
+    private ListView<ImageView> iconList;
+
+    private static int stampIndicator = 0;
+    public Canvas stamp_canvas;
+
+    public JFXButton DONE;
+    public JFXComboBox<String> STAMP_TYPE, DOOR_TYPE, DOOR_HEIGHT, DOOR_WIDTH, COLOR;
+
+    public JFXButton UNDO, REDO;
+
+    public Image[] iconImages;  // The little images that can be "stamped".
+
+    private ObservableList<String> stamp_type = FXCollections.observableArrayList("Doors", "Windows", "Showers", "Toilets");
+
+    private ObservableList<String> door_type = FXCollections.observableArrayList( "Sgl Cav", "Dbl Cav",
+            "Priv Cav", "Sgl B-fold to 900", "Sgl B-fold to 901-1200", "Dbl B-fold to 1200", "Dbl B-fold to 1201-1600",
+            "Dbl B-fold to 1601-1800", "Dbl B-fold to 1801-2400");
+    private ObservableList<String> door_width = FXCollections.observableArrayList( "510", "560", "610", "660",
+            "710", "760", "810", "860", "1200", "1600", "1800");
+    private ObservableList<String> door_height = FXCollections.observableArrayList("1980", "2000", "2100",
+            "2200", "2400");
+    private ObservableList<String> colors = FXCollections.observableArrayList( "Red", "Green", "Blue");
+
+
+    private int stamp_count = 0;
+    public JFXCheckBox STAMP_OVERLAY;
+
+    //set stud height
+    public double stud_height;
+    private int sh_indicator = 0;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        STAMP_TYPE.setItems(stamp_type);
+        DOOR_TYPE.setItems(door_type);
+        DOOR_WIDTH.setItems(door_width);
+        DOOR_HEIGHT.setItems(door_height);
+        COLOR.setItems(colors);
+
+        COLOR.setOnAction(event -> {
+            iconList = createIconList();
+            stampPicker.getChildren().add(iconList);
+        });
+
+        UNDO.setOnAction( e -> {
+            if (iconsShown > 0) {
+                // Decrement iconsShown, so one less icon will be drawn;
+                // the icon is still in the array, for the Redo command.
+                iconsShown--;
+                REDO.setDisable(false);
+                redraw();
+            }
+        });
+        UNDO.setDisable(true);
+
+        REDO.setOnAction( e -> {
+            if (iconsShown < iconsPlaced) {
+                // Increment iconsShown, so one more icon will be shown.
+                iconsShown++;
+                if (iconsShown == iconsPlaced)
+                    REDO.setDisable(true);
+                UNDO.setDisable(false);
+                redraw();
+            }
+        });
+        REDO.setDisable(true);
+
+        DONE.setOnAction(event -> {
+            stampPicker.setVisible(false);
+            setStampMode(0);
+        });
+
         wallData = new WallData(this);
         wallData.structureAction();
         wallData.wallsAction();
@@ -146,8 +231,8 @@ public class workspaceController implements Initializable {
         noScaleLabel.setText("The page is not scaled. No measurements can be taken.");
         noScaleLabel.setTextFill(Color.RED);
 
-        scroller.viewportBoundsProperty().addListener((observable, oldValue, newValue) -> zoomPane.setMinSize(
-                newValue.getWidth(), newValue.getHeight()));
+        scroller.viewportBoundsProperty().addListener((observable, oldValue, newValue) ->
+                zoomPane.setMinSize(newValue.getWidth(), newValue.getHeight()));
 
         try {
             VBox box = FXMLLoader.load(getClass().getResource("/Views/workspaceSideNavigation.fxml"));
@@ -170,6 +255,10 @@ public class workspaceController implements Initializable {
         } catch (Exception e) {
             Logger.getLogger(workspaceController.class.getName()).log(Level.SEVERE, null, e);
         }
+
+        stamp_canvas.setOnMouseClicked(this::setStamp);
+        redraw();
+
     }
 
     public void showToast(String message) {
@@ -244,7 +333,7 @@ public class workspaceController implements Initializable {
         });
     }
 
-    public static void closeCreateProject() {
+    static void closeCreateProject() {
         createProjectStage.close();
     }
 
@@ -282,6 +371,7 @@ public class workspaceController implements Initializable {
 
         tools.setColor(colorPicker.getValue());
         tools.setMode("LENGTH");
+        stamp_canvas.setVisible(false);
     }
 
     public void rotateAction() {
@@ -303,8 +393,113 @@ public class workspaceController implements Initializable {
     }
 
     public void stampAction() {
-        mode = "STAMP";
-        canDraw = true;
+        stampPicker.setVisible(true);
+        setStampMode(1);
+    }
+
+    public void redraw() {
+        GraphicsContext g = stamp_canvas.getGraphicsContext2D();
+        g.clearRect(0, 0, stamp_canvas.getWidth(), stamp_canvas.getHeight());
+        g.setFill(Color.TRANSPARENT);
+        g.fillRect(0,0,stamp_canvas.getWidth(),stamp_canvas.getHeight());
+        for (int i = 0; i < iconsShown; i++) {
+            IconInfo info = icons.get(i);
+            g.drawImage(iconImages[info.iconNumber], info.x, info.y, 64, 64);
+        }
+    }
+
+    public void setStamp(MouseEvent e) {
+        if (e.getButton() == MouseButton.PRIMARY) {
+            if (stampIndicator == 1) {
+                stamp_count++;
+                IconInfo info  = new IconInfo();
+                info.iconNumber = iconList.getSelectionModel().getSelectedIndex();
+                info.x = (int)(e.getX() - 32);  // Offset coords, so center of icon is at
+                info.y = (int)(e.getY() - 32);  // the point that was clicked.
+                if (iconsShown == icons.size())
+                    icons.add(info);
+                else
+                    icons.set(iconsShown, info);
+                    iconsShown++;
+                    iconsPlaced = iconsShown;
+                    REDO.setDisable(true);
+                    UNDO.setDisable(false);
+                    redraw();
+
+                layoutsController.stamp_data.addAll(new stampData(String.valueOf(stamp_count),
+                    STAMP_TYPE.getSelectionModel().getSelectedItem().toString(),
+                    DOOR_TYPE.getSelectionModel().getSelectedItem().toString(),
+                    DOOR_WIDTH.getEditor().getText(),
+                    DOOR_HEIGHT.getEditor().getText(),""));
+            }
+        }
+    }
+
+    private void setStampMode(int mode) {
+        stampIndicator = mode;
+    }
+
+    private ListView<ImageView> createIconList() {
+        String[] iconNames = new String[] { // names of image resource file, in directory stamper_icons
+                "icon1.png", "icon2.png", "icon3.png", "icon4.png", "icon5.png", "icon6.png"
+        };
+
+        iconImages = new Image[iconNames.length];
+
+        ListView<ImageView> list = new ListView<>();
+
+        list.setPrefWidth(50);
+        list.setPrefHeight(246);
+        list.setLayoutX(240);
+        list.setLayoutY(65);
+
+        String icon_url = "";
+        if (!COLOR.getSelectionModel().isEmpty()) {
+            String color = COLOR.getSelectionModel().getSelectedItem();
+            switch (color) {
+                case "Green":
+                    icon_url = "../Views/stamper_icons/green/";
+                    break;
+                case "Red":
+                    icon_url = "../Views/stamper_icons/red/";
+                    break;
+                case "Blue":
+                    icon_url = "../Views/stamper_icons/blue/";
+                    break;
+            }
+        }
+
+        for (int i = 0; i < iconNames.length; i++) {
+            Image icon = new Image(getClass().getResourceAsStream(icon_url + iconNames[i]));
+            iconImages[i] = icon;
+            list.getItems().add( new ImageView(icon) );
+        }
+
+        list.getSelectionModel().select(0);  //The first item in the list is currently selected.
+
+        return list;
+    }
+
+    public void stampOverlay() {
+        if (STAMP_OVERLAY.isSelected()) {
+            stamp_canvas.setVisible(true);
+        } else {
+            stamp_canvas.setVisible(false);
+        }
+    }
+
+    //stud_height
+    public void setStudHeight() {
+        try {
+            stud_height = Float.parseFloat(JOptionPane.showInputDialog("Enter whole Stud Height",
+                    0.00 + " mm"));
+            System.out.println("whole stud height is: " + stud_height);
+            sh_indicator++;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Please enter a valid number.",
+                    "Invalid Stud height value", JOptionPane.ERROR_MESSAGE);
+            sh_indicator--;
+        }
     }
 
     //Todo ->  Should be a service or in a thread safe environment
@@ -418,204 +613,6 @@ public class workspaceController implements Initializable {
             r.setWidth(5 / group.getScaleY());
             pane.getChildren().add(r);
         }
-    }
-
-    public Shape createBox(double x, double y) {
-
-        double boxW = 10;
-        shapeList.add(new Rectangle(x - (5) / group.getScaleY(), y - (5) / group.getScaleY(),
-                boxW / group.getScaleY(), boxW / group.getScaleY()));
-        Rectangle r = (Rectangle) shapeList.get(shapeList.size() - 1);
-        r.setStroke(Color.GREEN);
-        r.setOpacity(.5);
-        r.setStrokeWidth(4 / group.getScaleY());
-        r.setFill(Color.TRANSPARENT);
-
-        r.setOnMouseEntered(event -> {
-            r.setStroke(Color.RED);
-        });
-        r.setOnMouseExited(event -> {
-            r.setStroke(Color.GREEN);
-        });
-
-        r.setOnMouseReleased(event -> {
-            if (!canDraw) {
-                return;
-            }
-
-            ShapeObject shapeObj = new ShapeObject();
-            shapeObj.setPane(pane);
-            shapeObj.setStrokeWidth(6 / group.getScaleY());
-            shapeObj.setColor(color);
-            Point2D p2d = new Point2D(r.getX() + r.getHeight() / 2, r.getY() + r.getHeight() / 2);
-
-            if (p2d != pointList.get(pointList.size() - 1)) {
-                pointList.add(p2d);
-            }
-
-            shapeObj.setPointList(pointList);
-            shapeObj.setType(mode);
-
-            shapeObjList.add(shapeObj);
-            double area = 0;
-            for (int xx = 0; xx < shapeObj.getPointList().size() - 1; xx++) {
-                Point2D p1 = shapeObj.getPointList().get(xx);
-                Point2D p2 = shapeObj.getPointList().get(xx + 1);
-                area += ((p1.getX() / m_Scale) * (p2.getY() / m_Scale)) - ((p1.getY() / m_Scale) * (p2.getX() / m_Scale));
-            }
-            area = Math.abs(area / 2);
-            area = area / 1000;
-
-            Label lbl = new Label(Math.round(area * 100.0) / 100.0 + " m²");
-
-//            workspaceSideNavController.historyList.addAll(new HistoryData(color.toString(), mode, lbl.getText()));
-            redrawShapes();
-            pointList.clear();
-            LENGTH.setDisable(false);
-            AREA.setDisable(false);
-            scroller.setPannable(true);
-            canDraw = false;
-        });
-        return shapeList.get(shapeList.size() - 1);
-    }
-
-    public void setLine(Point2D clamp) {
-        if (snapX != -1 && snapY != -1) {
-            line.setStartX(snapX);
-            line.setStartY(snapY);
-            line.setEndX(snapX);
-            line.setEndY(snapY);
-            Point2D snap = new Point2D(snapX, snapY);
-            pointList.add(snap);
-        } else {
-            line.setStartX(clamp.getX());
-            line.setStartY(clamp.getY());
-            line.setEndX(clamp.getX());
-            line.setEndY(clamp.getY());
-            pointList.add(clamp);
-        }
-        line.setStrokeWidth(8 / group.getScaleY());
-        line.setStroke(color);
-        pane.getChildren().add(createBox(line.getEndX(), line.getEndY()));
-        line.setVisible(true);
-        isNew = false;
-        snapX = snapY = -1;
-    }
-
-    public void redrawShapes() {
-        pane.getChildren().clear();
-        pane.getChildren().add(circle);
-        circle.setVisible(false);
-
-        if (pageObjects.get(pageNumber).getScale() == 0) {
-            if (!pane.getChildren().contains(noScaleLabel)) {
-                noScaleLabel.setLayoutX(15);
-                noScaleLabel.setLayoutY(15);
-                pane.getChildren().add(noScaleLabel);
-
-                AREA.setDisable(true);
-                STAMP.setDisable(true);
-            }
-        } else {
-            pane.getChildren().remove(noScaleLabel);
-            LENGTH.setDisable(false);
-            AREA.setDisable(false);
-            STAMP.setDisable(false);
-            RECTANGLE.setDisable(false);
-        }
-
-        for (ShapeObject sp0 : shapeObjList) {
-            if (sp0.getType() == "AREA") {
-                pane.getChildren().add(sp0.getPolygon());
-                double area = 0;
-
-                for (int x = 0; x < sp0.getPointList().size() - 1; x++) {
-                    Point2D p1 = sp0.getPointList().get(x);
-                    Point2D p2 = sp0.getPointList().get(x + 1);
-                    area += ((p1.getX() / m_Scale) * (p2.getY() / m_Scale)) - ((p1.getY() / m_Scale) * (p2.getX() / m_Scale));
-                }
-                area = Math.abs(area / 2);
-                area = area / 1000;
-                sp0.setArea(Math.round(area * 100.0) / 100.0);
-                Label lbl = new Label(sp0.getArea() + " m²");
-                lbl.setFont(new Font("Arial", 36));
-                lbl.setTextFill(sp0.getColor());
-                double layX = sp0.getPolygon().getBoundsInParent().getMinX() + (sp0.getPolygon().getBoundsInParent()
-                        .getWidth() - lbl.getWidth()) / 2;
-                double layY = sp0.getPolygon().getBoundsInParent().getMinY() + (sp0.getPolygon().getBoundsInParent()
-                        .getHeight() - lbl.getHeight()) / 2;
-                lbl.setOnMouseEntered(event -> {
-                    lbl.setStyle("-fx-background-color: white");
-                    lbl.setOpacity(1);
-                });
-                lbl.setOnMouseExited(event -> {
-                    lbl.setStyle("-fx-background-color: transparent");
-                    lbl.setOpacity(.7);
-                });
-                lbl.setLayoutX(layX);
-                lbl.setLayoutY(layY);
-                lbl.setOpacity(.7);
-                pane.getChildren().add(lbl);
-            }
-        }
-
-        for (ShapeObject sp1 : shapeObjList) {
-            if (sp1.getType() == "LENGTH") {
-                for (Line l : sp1.getLineList()) {
-                    Point2D p1 = new Point2D(l.getStartX(), l.getStartY());
-                    Point2D p2 = new Point2D(l.getEndX(), l.getEndY());
-                    Point2D mid = p1.midpoint(p2);
-                    line.getRotate();
-                    if (p1.distance(p2) != 0) {
-                        double length = (p1.distance(p2) / m_Scale);
-                        sp1.setLength(Math.round(length * 100.0) / 100.0);
-                        Label lbl = new Label(sp1.getLength() + " mm");
-                        double theta = Math.atan2(p2.getY() - p1.getY(), p2.getX() - p1.getX());
-                        lbl.setFont(new Font("Arial", 36));
-                        lbl.setRotate(theta * 180 / Math.PI);
-                        lbl.setLayoutY(mid.getY());
-                        lbl.setLayoutX(mid.getX() - (55 / group.getScaleY()));
-                        lbl.setOnMouseEntered(event -> {
-                            lbl.setStyle("-fx-background-color: white");
-                            lbl.setOpacity(1);
-                        });
-                        lbl.setOnMouseExited(event -> {
-                            lbl.setStyle("-fx-background-color: transparent");
-                            lbl.setOpacity(.6);
-                        });
-                        lbl.setTextFill(sp1.getColor());
-                        lbl.setOpacity(.7);
-                        pane.getChildren().add(lbl);
-                    }
-                }
-            }
-            pane.getChildren().addAll(sp1.getLineList());
-            pane.getChildren().addAll(sp1.getBoxList());
-        }
-        pane.getChildren().addAll(stampList);
-        pane.getChildren().add(line);
-        line.setVisible(false);
-        pane.getChildren().forEach(node -> {
-            if (node.getClass().getSuperclass() == Shape.class) {
-                Shape sp = (Shape) node;
-                if (sp.getClass() == Rectangle.class) {
-                    Rectangle rect = (Rectangle) sp;
-                    double centerX = rect.getX() + rect.getWidth() / 2;
-                    double centerY = rect.getY() + rect.getHeight() / 2;
-                    rect.setStrokeWidth(4 / group.getScaleY());
-                    rect.setX(centerX - 5 / group.getScaleY());
-                    rect.setY(centerY - 5 / group.getScaleY());
-                    rect.setWidth(10 / group.getScaleY());
-                    rect.setHeight(10 / group.getScaleY());
-                } else {
-                    sp.setStrokeWidth(8 / group.getScaleY());
-                }
-            }
-            if (node.getClass() == Label.class) {
-                Label lbl = (Label) node;
-                lbl.setFont(new Font("Arial", 18 / group.getScaleY()));
-            }
-        });
     }
 
     public void zoom(ScrollEvent event) {
@@ -754,11 +751,11 @@ public class workspaceController implements Initializable {
 
         //updates the selected structures on top list
         structureBox.getChildren().forEach((Node node) -> {
-           structureComboBox.getItems().forEach(o -> {
-               if (((JFXCheckBox) node).getText().equals(o)) {
+            structureComboBox.getItems().forEach(o -> {
+                if (((JFXCheckBox) node).getText().equals(o)) {
                     ((JFXCheckBox) node).setSelected(true);
-               }
-           });
+                }
+            });
         });
     }
 
