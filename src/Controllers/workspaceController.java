@@ -137,7 +137,7 @@ public class workspaceController implements Initializable {
 
     private ListView<ImageView> iconList;
 
-    private static int stampIndicator = 0;
+    private int ds_indicator = 0;
     public Canvas stamp_canvas;
 
     public JFXButton DONE;
@@ -162,9 +162,17 @@ public class workspaceController implements Initializable {
     private int stamp_count = 0;
     public JFXCheckBox STAMP_OVERLAY;
 
+    public Pane DOOR_PANE, WINDOW_PANE;
+
+    private int ws_indicator = 0;
+    public Label WINDOW_COUNT;
+    public JFXTextField CLADDING, WIDTH, HEIGHT;
+    public JFXColorPicker WINDOW_COLOR_PICKER;
+
+
     //set stud height
     public double stud_height;
-    private int sh_indicator = 0;
+    public int sh_indicator = 0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -204,7 +212,7 @@ public class workspaceController implements Initializable {
 
         DONE.setOnAction(event -> {
             stampPicker.setVisible(false);
-            setStampMode(0);
+            ds_indicator = 0;
         });
 
         wallData = new WallData(this);
@@ -212,6 +220,24 @@ public class workspaceController implements Initializable {
         wallData.wallsAction();
         wallData.typeAction();
         wallData.choicesAction();
+
+        STAMP_TYPE.setOnAction(event -> {
+            if (STAMP_TYPE.getSelectionModel().getSelectedItem().equals("Doors")) {
+                DOOR_PANE.setVisible(true);
+                WINDOW_PANE.setVisible(false);
+                ws_indicator = 0;
+            } else if (STAMP_TYPE.getSelectionModel().getSelectedItem().equals("Windows")) {
+                DOOR_PANE.setVisible(false);
+                WINDOW_PANE.setVisible(true);
+                ws_indicator = 1;
+            }
+        });
+
+        pane.setOnMouseClicked(event -> {
+            if (!(ws_indicator == 0)) {
+                windowStamp();
+            }
+        });
 
         unselectAllAction();
 
@@ -258,7 +284,6 @@ public class workspaceController implements Initializable {
 
         stamp_canvas.setOnMouseClicked(this::setStamp);
         redraw();
-
     }
 
     public void showToast(String message) {
@@ -394,7 +419,7 @@ public class workspaceController implements Initializable {
 
     public void stampAction() {
         stampPicker.setVisible(true);
-        setStampMode(1);
+        ds_indicator = 1;
     }
 
     public void redraw() {
@@ -410,7 +435,7 @@ public class workspaceController implements Initializable {
 
     public void setStamp(MouseEvent e) {
         if (e.getButton() == MouseButton.PRIMARY) {
-            if (stampIndicator == 1) {
+            if (ds_indicator == 1) {
                 stamp_count++;
                 IconInfo info  = new IconInfo();
                 info.iconNumber = iconList.getSelectionModel().getSelectedIndex();
@@ -433,10 +458,6 @@ public class workspaceController implements Initializable {
                     DOOR_HEIGHT.getEditor().getText(),""));
             }
         }
-    }
-
-    private void setStampMode(int mode) {
-        stampIndicator = mode;
     }
 
     private ListView<ImageView> createIconList() {
@@ -500,6 +521,12 @@ public class workspaceController implements Initializable {
                     "Invalid Stud height value", JOptionPane.ERROR_MESSAGE);
             sh_indicator--;
         }
+    }
+
+    public void windowStamp() {
+//        Label window_no = new Label();
+//        Label width = new Label();
+//        Label window_no = new Label();
     }
 
     //Todo ->  Should be a service or in a thread safe environment

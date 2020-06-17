@@ -187,7 +187,7 @@ public class Length implements IMeasurement {
         }
 
         tools.updateWindow();
-        System.out.println("workspace stud stud height is: " + tools.window.stud_height);
+        System.out.println("Workspace stud height is: " + tools.window.stud_height);
 
         pointList.clear();
     }

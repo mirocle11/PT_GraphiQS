@@ -7,6 +7,7 @@
 <?import com.jfoenix.controls.JFXDrawer?>
 <?import com.jfoenix.controls.JFXHamburger?>
 <?import com.jfoenix.controls.JFXSpinner?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.Group?>
@@ -44,7 +45,7 @@
                            <children>
                               <Canvas fx:id="canvas" height="660.0" nodeOrientation="INHERIT" width="885.0" />
                               <Pane fx:id="pane" layoutX="14.0" layoutY="-60.0" onMouseDragged="#updateLine" onMouseMoved="#updateLine" onMousePressed="#updateRect" prefHeight="660.0" prefWidth="885.0" />
-                              <Canvas fx:id="stamp_canvas" blendMode="SRC_ATOP" height="660.0" nodeOrientation="INHERIT" width="885.0" />
+                              <Canvas fx:id="stamp_canvas" blendMode="SRC_ATOP" height="660.0" nodeOrientation="INHERIT" visible="false" width="885.0" />
                            </children>
                         </Group>
                      </children>
@@ -339,7 +340,7 @@
             </JFXButton>
          </children>
       </HBox>
-      <JFXCheckBox fx:id="STAMP_OVERLAY" layoutX="5.0" layoutY="690.0" onAction="#stampOverlay" selected="true" text="Overlay" textFill="#bcbcbc" />
+      <JFXCheckBox fx:id="STAMP_OVERLAY" layoutX="5.0" layoutY="690.0" onAction="#stampOverlay" text="Overlay" textFill="#bcbcbc" />
       <JFXHamburger fx:id="hamburger" layoutX="988.0" layoutY="64.0" opacity="0.6" prefHeight="30.0" prefWidth="38.0" stylesheets="@CSS/style.css" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="64.0" />
       <JFXButton fx:id="structureToggle" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" disable="true" ellipsisString="" layoutX="5.0" layoutY="155.0" onAction="#structureListTransition" prefHeight="50.0" prefWidth="50.0" text="Button">
          <graphic>
@@ -924,7 +925,7 @@
             <Image url="@images/more_than_25px.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="stampPicker" prefHeight="414.0" prefWidth="325.0" style="-fx-background-color: TRANSPARENT;" stylesheets="@CSS/style.css" visible="false">
+      <AnchorPane fx:id="stampPicker" prefHeight="414.0" prefWidth="325.0" style="-fx-background-color: TRANSPARENT;" stylesheets="@CSS/style.css">
          <children>
             <AnchorPane fx:id="stampPickerPane" layoutX="14.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="295.0" style="-fx-background-radius: 20px; -fx-background-color: #0F1E25;" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                <effect>
@@ -942,9 +943,54 @@
                      </effect>
                      <children>
                         <JFXComboBox fx:id="STAMP_TYPE" focusTraversable="false" layoutX="13.0" layoutY="14.0" prefHeight="28.0" prefWidth="175.0" promptText="Stamp Type" unFocusColor="#bcbcbc" />
-                        <JFXComboBox fx:id="DOOR_TYPE" focusTraversable="false" layoutX="14.0" layoutY="67.0" prefHeight="28.0" prefWidth="175.0" promptText="Door Type" unFocusColor="#bcbcbc" />
-                        <JFXComboBox fx:id="DOOR_WIDTH" editable="true" focusTraversable="false" layoutX="14.0" layoutY="120.0" prefHeight="28.0" prefWidth="175.0" promptText="Door Width" unFocusColor="#bcbcbc" />
-                        <JFXComboBox fx:id="COLOR" focusTraversable="false" layoutX="14.0" layoutY="230.0" prefHeight="28.0" prefWidth="175.0" promptText="Color" unFocusColor="#bcbcbc" />
+                        <Pane fx:id="DOOR_PANE" layoutX="2.0" layoutY="52.0" prefHeight="216.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <JFXComboBox fx:id="DOOR_TYPE" focusTraversable="false" layoutX="12.0" layoutY="14.0" prefHeight="28.0" prefWidth="175.0" promptText="Door Type" unFocusColor="#bcbcbc" />
+                              <JFXComboBox fx:id="DOOR_WIDTH" editable="true" focusTraversable="false" layoutX="12.0" layoutY="68.0" prefHeight="28.0" prefWidth="175.0" promptText="Door Width" unFocusColor="#bcbcbc" />
+                              <JFXComboBox fx:id="DOOR_HEIGHT" editable="true" focusTraversable="false" layoutX="13.0" layoutY="122.0" prefHeight="28.0" prefWidth="175.0" promptText="Door Height" unFocusColor="#bcbcbc" />
+                              <JFXComboBox fx:id="COLOR" focusTraversable="false" layoutX="12.0" layoutY="173.0" prefHeight="28.0" prefWidth="175.0" promptText="Door Color" unFocusColor="#bcbcbc" />
+                           </children>
+                        </Pane>
+                        <Pane fx:id="WINDOW_PANE" layoutX="1.0" layoutY="53.0" prefHeight="216.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="15.0" prefHeight="28.0" prefWidth="114.0" text="No. of Windows :" textFill="#bcbcbc">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" layoutX="128.0" layoutY="15.0" prefHeight="28.0" prefWidth="56.0" text="0" textFill="#bcbcbc">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField layoutX="13.0" layoutY="116.0" prefHeight="30.0" prefWidth="70.0" promptText="Width">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField layoutX="118.0" layoutY="116.0" prefHeight="30.0" prefWidth="70.0" promptText="Height">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXTextField>
+                              <Label alignment="CENTER" layoutX="88.0" layoutY="122.0" prefHeight="25.0" prefWidth="25.0" text="X" textFill="#bcbcbc">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="12.0" layoutY="173.0" prefHeight="28.0" prefWidth="62.0" text="Color :" textFill="#bcbcbc">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField layoutX="13.0" layoutY="60.0" prefHeight="30.0" prefWidth="175.0" promptText="Cladding">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXColorPicker layoutX="88.0" layoutY="172.0" />
+                           </children>
+                        </Pane>
                         <JFXButton fx:id="UNDO" alignment="CENTER" focusTraversable="false" graphicTextGap="5.0" layoutX="14.0" layoutY="278.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="81.0" style="-fx-background-radius: 30px; -fx-background-color: #263238;" text="Undo" textAlignment="CENTER" textFill="#bcbcbc">
                            <font>
                               <Font name="Segoe UI" size="14.0" />
@@ -955,7 +1001,6 @@
                               <Font name="Segoe UI" size="14.0" />
                            </font>
                         </JFXButton>
-                        <JFXComboBox fx:id="DOOR_HEIGHT" editable="true" focusTraversable="false" layoutX="14.0" layoutY="175.0" prefHeight="28.0" prefWidth="175.0" promptText="Door Height" unFocusColor="#bcbcbc" />
                      </children>
                   </AnchorPane>
                   <JFXButton fx:id="DONE" alignment="CENTER" focusTraversable="false" graphicTextGap="5.0" layoutX="193.0" layoutY="11.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="91.0" style="-fx-background-radius: 30px;" text="Done" textAlignment="CENTER" textFill="#bcbcbc">

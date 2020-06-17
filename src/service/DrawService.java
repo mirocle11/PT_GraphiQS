@@ -56,7 +56,7 @@ public class DrawService {
         box.clear();
     }
 
-    public static void drawLabel(Line line,Pane pane,double m_Scale,double scale){
+    public static void drawLabel(Line line,Pane pane,double m_Scale,double scale) {
         Point2D p1 = new Point2D(line.getStartX(), line.getStartY());
         Point2D p2 = new Point2D(line.getEndX(), line.getEndY());
         Point2D mid = p1.midpoint(p2);
