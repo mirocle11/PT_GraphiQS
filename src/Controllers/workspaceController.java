@@ -164,11 +164,10 @@ public class workspaceController implements Initializable {
 
     public Pane DOOR_PANE, WINDOW_PANE;
 
-    private int ws_indicator = 0;
-    public Label WINDOW_COUNT;
-    public JFXTextField CLADDING, WIDTH, HEIGHT;
+    public int ws_indicator = 0;
+//    public int window_count = 0;
+    public JFXTextField WINDOW_NO, CLADDING, WIDTH, HEIGHT;
     public JFXColorPicker WINDOW_COLOR_PICKER;
-
 
     //set stud height
     public double stud_height;
@@ -233,11 +232,7 @@ public class workspaceController implements Initializable {
             }
         });
 
-        pane.setOnMouseClicked(event -> {
-            if (!(ws_indicator == 0)) {
-                windowStamp();
-            }
-        });
+//        WINDOW_COUNT.setText(window_count + "");
 
         unselectAllAction();
 
@@ -521,12 +516,6 @@ public class workspaceController implements Initializable {
                     "Invalid Stud height value", JOptionPane.ERROR_MESSAGE);
             sh_indicator--;
         }
-    }
-
-    public void windowStamp() {
-//        Label window_no = new Label();
-//        Label width = new Label();
-//        Label window_no = new Label();
     }
 
     //Todo ->  Should be a service or in a thread safe environment

@@ -7,6 +7,7 @@ import Controllers.layoutsController;
 import Model.data.layoutsData;
 import Model.PageObject;
 import Model.ShapeObject;
+import Model.data.windowData;
 import com.jfoenix.controls.JFXButton;
 import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
@@ -16,6 +17,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
@@ -64,7 +66,7 @@ public class Tools {
     double stud_height;
     public Label rate = new Label();
 
-    double workspace_stud_height;
+    int window_no = 1;
 
     public Tools(PageObject page, Group group, String mode, Line line, Circle circle, VBox box) {
         this.page = page;
@@ -222,6 +224,50 @@ public class Tools {
                 });
                 pane.setOnMouseClicked(event -> {
                     //do not remove
+                    if (event.getButton() == MouseButton.SECONDARY) {
+                        return;
+                    }
+                    if (!(window.ws_indicator == 0)) {
+                        Label window_count = new Label("W" + window.WINDOW_NO.getText());
+                        window_count.setFont(new Font("Arial",36));
+                        window_count.setTextFill(Color.RED);
+                        window_count.setLayoutX(event.getX());
+                        window_count.setLayoutY(event.getY());
+
+                        Label cladding = new Label(window.CLADDING.getText());
+                        cladding.setFont(new Font("Arial",36));
+                        cladding.setTextFill(Color.RED);
+                        cladding.setLayoutX(event.getX());
+                        cladding.setLayoutY(event.getY() + 38);
+
+                        Label width = new Label(window.WIDTH.getText());
+                        width.setFont(new Font("Arial",36));
+                        width.setTextFill(Color.RED);
+                        width.setLayoutX(event.getX() - 70);
+                        width.setLayoutY(event.getY() + 75);
+
+                        Label x = new Label("x");
+                        x.setFont(new Font("Arial",36));
+                        x.setTextFill(Color.RED);
+                        x.setLayoutX(event.getX() + 20);
+                        x.setLayoutY(event.getY() + 75);
+
+                        Label height = new Label(window.HEIGHT.getText());
+                        height.setFont(new Font("Arial",36));
+                        height.setTextFill(Color.RED);
+                        height.setLayoutX(event.getX() + 50);
+                        height.setLayoutY(event.getY() + 75);
+
+                        pane.getChildren().add(window_count);
+                        pane.getChildren().add(cladding);
+                        pane.getChildren().add(width);
+                        pane.getChildren().add(x);
+                        pane.getChildren().add(height);
+
+                        layouts.windowData.addAll(new windowData(String.valueOf(window_no++),
+                                "W" + window.WINDOW_NO.getText(), window.CLADDING.getText(),
+                                window.WIDTH.getText(), window.HEIGHT.getText()));
+                    }
                 });
                 break;
         }

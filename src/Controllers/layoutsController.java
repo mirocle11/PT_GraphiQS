@@ -6,14 +6,12 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import Model.data.layoutsData;
 import Model.data.stampData;
+import Model.data.windowData;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,7 +25,7 @@ public class layoutsController implements Initializable {
     public JFXTextField SEARCH, ROW_NO, PAGE, MEASUREMENT, STRUCTURE, WALL_TYPE, WALL, MATERIAL, COLOR_TXT, VALUE,
             STUD_HEIGHT, VOLUME, LOBOUR;
 
-    public JFXButton ALL, LENGTH, AREA, STAMPS;
+    public JFXButton ALL, LENGTH, AREA, STAMPS, WINDOWS;
 
     public JFXTreeTableView<layoutsData> layoutsTableView;
     public TreeTableColumn<layoutsData, String> COL_NO;
@@ -52,8 +50,17 @@ public class layoutsController implements Initializable {
     public TreeTableColumn<stampData, String> HEIGHT;
     public TreeTableColumn<stampData, String> IMAGE;
 
+    //window table
+    public JFXTreeTableView<windowData> WINDOW_TBL;
+    public TreeTableColumn<windowData, String> WINDOW_COL_NO;
+    public TreeTableColumn<windowData, String> WINDOW_NO;
+    public TreeTableColumn<windowData, String> WINDOW_CLADDING;
+    public TreeTableColumn<windowData, String> WINDOW_WIDTH;
+    public TreeTableColumn<windowData, String> WINDOW_HEIGHT;
+
     public static ObservableList<layoutsData> data;
     public static ObservableList<stampData> stamp_data;
+    public static ObservableList<windowData> windowData;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -100,7 +107,7 @@ public class layoutsController implements Initializable {
                 new TreeItemPropertyValueFactory<>("labour")
         );
 
-        //stamp
+        //stamp doors
         stamp_data = FXCollections.observableArrayList();
 
         STAMP_NO.setCellValueFactory(
@@ -122,6 +129,25 @@ public class layoutsController implements Initializable {
                 new TreeItemPropertyValueFactory<>("wall")
         );
 
+        //stamp windows
+        windowData = FXCollections.observableArrayList();
+
+        WINDOW_COL_NO.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("no")
+        );
+        WINDOW_NO.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("window_no")
+        );
+        WINDOW_CLADDING.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("cladding")
+        );
+        WINDOW_WIDTH.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("width")
+        );
+        WINDOW_HEIGHT.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("height")
+        );
+
         TreeItem<layoutsData> root = new RecursiveTreeItem<>(data, RecursiveTreeObject::getChildren);
         layoutsTableView.setRoot(root);
         layoutsTableView.setShowRoot(false);
@@ -129,6 +155,10 @@ public class layoutsController implements Initializable {
         TreeItem<stampData> stamp_root = new RecursiveTreeItem<>(stamp_data, RecursiveTreeObject::getChildren);
         STAMP_TBL.setRoot(stamp_root);
         STAMP_TBL.setShowRoot(false);
+
+        TreeItem<windowData> window_root = new RecursiveTreeItem<>(windowData, RecursiveTreeObject::getChildren);
+        WINDOW_TBL.setRoot(window_root);
+        WINDOW_TBL.setShowRoot(false);
 
         SEARCH.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -150,11 +180,19 @@ public class layoutsController implements Initializable {
         STAMPS.setOnAction(event -> {
             lengthScrollPane.setVisible(false);
             STAMP_TBL.setVisible(true);
+            WINDOW_TBL.setVisible(false);
         });
 
         LENGTH.setOnAction(event -> {
             lengthScrollPane.setVisible(true);
             STAMP_TBL.setVisible(false);
+            WINDOW_TBL.setVisible(false);
+        });
+
+        WINDOWS.setOnAction(event -> {
+            lengthScrollPane.setVisible(false);
+            STAMP_TBL.setVisible(false);
+            WINDOW_TBL.setVisible(true);
         });
 
     }
