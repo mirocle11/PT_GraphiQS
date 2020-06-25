@@ -7,27 +7,29 @@ import Controllers.layoutsController;
 import Model.data.layoutsData;
 import Model.PageObject;
 import Model.ShapeObject;
+import Model.WindowObject;
 import Model.data.windowData;
 import com.jfoenix.controls.JFXButton;
 import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Font;
+import javafx.scene.control.ContextMenu;
 
 import javax.swing.*;
 import java.io.File;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
@@ -46,7 +48,7 @@ public class Tools {
     GridPane gridPane, innerGridPane;
     List shape = new ArrayList();
     Color color;
-    ContextMenu contextMenu;
+    ContextMenu contextMenu, stampMenu;
     int pageNumber = 0;
     static boolean canDraw = false;
     boolean issetCanvas = false;
@@ -123,6 +125,7 @@ public class Tools {
         this.LENGTH = window.LENGTH;
         this.AREA = window.AREA;
         this.contextMenu = new ContextMenu();
+        this.stampMenu = new ContextMenu();
 
         this.circle = new Circle();
         this.circle.setFill(Color.RED);
@@ -224,52 +227,104 @@ public class Tools {
                 });
                 pane.setOnMouseClicked(event -> {
                     //do not remove
-                    if (event.getButton() == MouseButton.SECONDARY) {
-                        return;
-                    }
-                    if (!(window.ws_indicator == 0)) {
-                        Label window_count = new Label("W" + window.WINDOW_NO.getText());
-                        window_count.setFont(new Font("Arial",36));
-                        window_count.setTextFill(Color.RED);
-                        window_count.setLayoutX(event.getX());
-                        window_count.setLayoutY(event.getY());
+                    System.out.println(window.ws_indicator);
+                    if (event.getButton() == MouseButton.PRIMARY) {
+                        if (!(window.ws_indicator == 0)) {
+                            Label window_stamp = new Label();
+                            window_stamp.setText("       W" + window.WINDOW_NO.getText() + "\n        " +
+                                    window.CLADDING.getText() + "\n" + window.WIDTH.getText() + "  x  " +
+                                    window.HEIGHT.getText());
+                            window_stamp.setFont(new Font("Arial", 36));
+                            window_stamp.setTextFill(Color.RED);
+                            window_stamp.setLayoutX(event.getX() - 50);
+                            window_stamp.setLayoutY(event.getY() - 40);
+                            window_stamp.setStyle("-fx-border-color: red;");
+                            window_stamp.setAlignment(Pos.CENTER);
 
-                        Label cladding = new Label(window.CLADDING.getText());
-                        cladding.setFont(new Font("Arial",36));
-                        cladding.setTextFill(Color.RED);
-                        cladding.setLayoutX(event.getX());
-                        cladding.setLayoutY(event.getY() + 38);
+                            pane.getChildren().add(window_stamp);
 
-                        Label width = new Label(window.WIDTH.getText());
-                        width.setFont(new Font("Arial",36));
-                        width.setTextFill(Color.RED);
-                        width.setLayoutX(event.getX() - 70);
-                        width.setLayoutY(event.getY() + 75);
+                            WindowObject windowObject = new WindowObject();
+                            windowObject.setWindowStamp(window_stamp);
+                            windowObject.setWindowNo("W" + window.WINDOW_NO.getText());
+                            windowObject.setCladding(window.CLADDING.getText());
+                            windowObject.setType(window.WINDOW_TYPE.getSelectionModel().getSelectedItem());
+                            windowObject.setWidth(window.WIDTH.getText());
+                            windowObject.setHeight(window.HEIGHT.getText());
 
-                        Label x = new Label("x");
-                        x.setFont(new Font("Arial",36));
-                        x.setTextFill(Color.RED);
-                        x.setLayoutX(event.getX() + 20);
-                        x.setLayoutY(event.getY() + 75);
+                            window_stamp.setOnMouseClicked(event1 -> {
+                                if (event1.getButton() == MouseButton.SECONDARY) {
+                                    stampMenu = new ContextMenu();
+                                    stampMenu.hide();
 
-                        Label height = new Label(window.HEIGHT.getText());
-                        height.setFont(new Font("Arial",36));
-                        height.setTextFill(Color.RED);
-                        height.setLayoutX(event.getX() + 50);
-                        height.setLayoutY(event.getY() + 75);
+                                    MenuItem removeStamp = new MenuItem("Remove Stamp");
+                                    removeStamp.setOnAction(event2 -> {
+                                        window_stamp.setVisible(false);
 
-                        pane.getChildren().add(window_count);
-                        pane.getChildren().add(cladding);
-                        pane.getChildren().add(width);
-                        pane.getChildren().add(x);
-                        pane.getChildren().add(height);
+                                        windowData w = new windowData(String.valueOf(window_no++), windowObject.getWindowNo(),
+                                                windowObject.getCladding(), windowObject.getType(), windowObject.getWidth(), windowObject.getHeight());
 
-                        layouts.windowData.addAll(new windowData(String.valueOf(window_no++),
-                                "W" + window.WINDOW_NO.getText(), window.CLADDING.getText(),
-                                window.WIDTH.getText(), window.HEIGHT.getText()));
+                                        Iterator itr =  layouts.windowData.iterator();
+                                        while (itr.hasNext()) {
+                                            windowData element = (windowData) itr.next();
+                                            if (element.getWindow_no().equals(w.getWindow_no())) {
+                                                System.out.print(element.getWindow_no());
+                                                itr.remove();
+                                                break;
+                                            }
+                                        }
+
+                                        System.out.println("contains remove"+   layouts.windowData.remove(w));
+                                    });
+                                    stampMenu.getItems().add(removeStamp);
+                                    stampMenu.show(window_stamp, event1.getScreenX(), event1.getScreenY());
+                                }
+                            });
+
+                            layouts.windowData.addAll(new windowData(String.valueOf(window_no++), windowObject.getWindowNo(),
+                                    windowObject.getCladding(), windowObject.getType(), windowObject.getWidth(), windowObject.getHeight()));
+                        }
                     }
                 });
                 break;
+
+//            case "WINDOW_STAMP":
+//                this.canDraw = false;
+//                pane.setOnMouseClicked(event -> {
+//                    if (event.getButton() == MouseButton.PRIMARY) {
+//                        if (!(window.ws_indicator == 0)) {
+//                        Label window_stamp = new Label("       W" + window.WINDOW_NO.getText() + "\n        "
+//                                    + window.CLADDING.getText() + "\n" + window.WIDTH.getText() + "  x  " +
+//                                    window.HEIGHT.getText());
+//                            window_stamp.setFont(new Font("Arial", 36));
+//                            window_stamp.setTextFill(Color.RED);
+//                            window_stamp.setLayoutX(event.getX() - 25);
+//                            window_stamp.setLayoutY(event.getY() - 25);
+//                            window_stamp.setAlignment(Pos.CENTER);
+//
+//                            pane.getChildren().add(window_stamp);
+//
+//                            window_stamp.setOnMouseClicked(event1 -> {
+//                                if (event1.getButton() == MouseButton.SECONDARY) {
+//                                    stampMenu = new ContextMenu();
+//                                    stampMenu.hide();
+//
+//                                    MenuItem removeStamp = new MenuItem("Remove Stamp");
+//                                    removeStamp.setOnAction(event2 -> {
+//                                        window_stamp.setVisible(false);
+//                                    });
+//
+//                                    stampMenu.getItems().add(removeStamp);
+//                                    stampMenu.show(window_stamp, event1.getScreenX(), event1.getScreenY());
+//                                }
+//                            });
+//
+//                            layouts.windowData.addAll(new windowData(String.valueOf(window_no++),
+//                                    "W" + window.WINDOW_NO.getText(), window.CLADDING.getText(),
+//                                    window.WIDTH.getText(), window.HEIGHT.getText()));
+//                        }
+//                    }
+//                });
+//                break;
         }
     }
 
@@ -300,7 +355,7 @@ public class Tools {
         }
 
         for (ShapeObject sp0 : page.getShapeList()) {
-            if (sp0.getType() == "AREA") {
+            if (sp0.getType().equals("AREA")) {
                 pane.getChildren().add(sp0.getPolygon());
                 double area = 0;
                 for (int x = 0; x < sp0.getPointList().size() - 1; x++) {
@@ -331,7 +386,7 @@ public class Tools {
             }
         }
         for (ShapeObject sp1 : page.getShapeList()) {
-            if (sp1.getType() == "LENGTH") {
+            if (sp1.getType().equals("LENGTH")) {
                 for (Line l : sp1.getLineList()) {
                     Point2D p1 = new Point2D(l.getStartX(), l.getStartY());
                     Point2D p2 = new Point2D(l.getEndX(), l.getEndY());
@@ -379,9 +434,9 @@ public class Tools {
                     window.materialComboBox.getSelectionModel().getSelectedItem().equals("13mm Gib")) {
                 DataBase db = DataBase.getInstance();
                 db.setSubtrades(createProjectController.selectedClient, "Gib Stopper", rate);
-                sp1.setLabour(String.valueOf(Math.round(sp1.getLength() * stud_height / 1000) * Integer.valueOf(rate.getText())));
+                sp1.setLabour(String.valueOf(Math.round(sp1.getLength() * stud_height / 1000) * Integer.parseInt(rate.getText())));
             } else {
-                sp1.setLabour(String.valueOf(""));
+                sp1.setLabour("");
             }
         }
 

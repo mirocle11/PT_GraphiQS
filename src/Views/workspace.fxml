@@ -958,33 +958,27 @@
                                     <Font name="Segoe UI Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <JFXTextField fx:id="WIDTH" layoutX="13.0" layoutY="116.0" prefHeight="30.0" prefWidth="70.0" promptText="Width">
+                              <JFXTextField fx:id="WIDTH" layoutX="11.0" layoutY="158.0" prefHeight="30.0" prefWidth="70.0" promptText="Width">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="HEIGHT" layoutX="118.0" layoutY="116.0" prefHeight="30.0" prefWidth="70.0" promptText="Height">
+                              <JFXTextField fx:id="HEIGHT" layoutX="116.0" layoutY="158.0" prefHeight="30.0" prefWidth="70.0" promptText="Height">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </JFXTextField>
-                              <Label alignment="CENTER" layoutX="88.0" layoutY="122.0" prefHeight="25.0" prefWidth="25.0" text="X" textFill="#bcbcbc">
+                              <Label alignment="CENTER" layoutX="86.0" layoutY="164.0" prefHeight="25.0" prefWidth="25.0" text="X" textFill="#bcbcbc">
                                  <font>
                                     <Font name="Segoe UI Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="12.0" layoutY="173.0" prefHeight="28.0" prefWidth="62.0" text="Color :" textFill="#bcbcbc">
-                                 <font>
-                                    <Font name="Segoe UI Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <JFXTextField fx:id="CLADDING" layoutX="126.0" layoutY="59.0" prefHeight="30.0" prefWidth="62.0">
+                              <JFXTextField fx:id="CLADDING" layoutX="122.0" layoutY="60.0" prefHeight="30.0" prefWidth="62.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXColorPicker layoutX="88.0" layoutY="172.0" />
-                              <JFXTextField fx:id="WINDOW_NO" layoutX="126.0" layoutY="14.0" prefHeight="30.0" prefWidth="62.0">
+                              <JFXTextField fx:id="WINDOW_NO" layoutX="122.0" layoutY="14.0" prefHeight="30.0" prefWidth="62.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -994,6 +988,7 @@
                                     <Font name="Segoe UI Bold" size="14.0" />
                                  </font>
                               </Label>
+                              <JFXComboBox fx:id="WINDOW_TYPE" focusTraversable="false" layoutX="11.0" layoutY="110.0" prefHeight="28.0" prefWidth="175.0" promptText="Window Type" unFocusColor="#bcbcbc" />
                            </children>
                         </Pane>
                         <JFXButton fx:id="UNDO" alignment="CENTER" focusTraversable="false" graphicTextGap="5.0" layoutX="14.0" layoutY="278.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="81.0" style="-fx-background-radius: 30px; -fx-background-color: #263238;" text="Undo" textAlignment="CENTER" textFill="#bcbcbc">

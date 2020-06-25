@@ -5,13 +5,14 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class windowData extends RecursiveTreeObject<windowData> {
 
-    private SimpleStringProperty no, window_no, cladding, width, height;
+    private SimpleStringProperty no, window_no, cladding, type, width, height;
 
-    public windowData(String no, String window_no, String cladding, String width, String height) {
+    public windowData(String no, String window_no, String cladding, String type, String width, String height) {
 
         this.no = new SimpleStringProperty(no);
         this.window_no = new SimpleStringProperty(window_no);
         this.cladding = new SimpleStringProperty(cladding);
+        this.type = new SimpleStringProperty(type);
         this.width = new SimpleStringProperty(width);
         this.height = new SimpleStringProperty(height);
     }
@@ -74,5 +75,17 @@ public class windowData extends RecursiveTreeObject<windowData> {
 
     public void setHeight(String height) {
         this.height.set(height);
+    }
+
+    public String getType() {
+        return type.get();
+    }
+
+    public SimpleStringProperty typeProperty() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type.set(type);
     }
 }

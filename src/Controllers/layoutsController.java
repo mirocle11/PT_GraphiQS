@@ -55,6 +55,7 @@ public class layoutsController implements Initializable {
     public TreeTableColumn<windowData, String> WINDOW_COL_NO;
     public TreeTableColumn<windowData, String> WINDOW_NO;
     public TreeTableColumn<windowData, String> WINDOW_CLADDING;
+    public TreeTableColumn<windowData, String> WINDOW_TYPE;
     public TreeTableColumn<windowData, String> WINDOW_WIDTH;
     public TreeTableColumn<windowData, String> WINDOW_HEIGHT;
 
@@ -141,6 +142,9 @@ public class layoutsController implements Initializable {
         WINDOW_CLADDING.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("cladding")
         );
+        WINDOW_TYPE.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("type")
+        );
         WINDOW_WIDTH.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("width")
         );
@@ -194,7 +198,6 @@ public class layoutsController implements Initializable {
             STAMP_TBL.setVisible(false);
             WINDOW_TBL.setVisible(true);
         });
-
     }
 
     private void showDetails(TreeItem<layoutsData> treeItem) {

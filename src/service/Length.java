@@ -14,10 +14,8 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-
 
 /**
  * Created by User on 17/02/2020.
@@ -55,7 +53,6 @@ public class Length implements IMeasurement {
         this.tools.pane.setOnMouseMoved(event -> {
             handleMouseMove(event);
         });
-
     }
 
     @Override

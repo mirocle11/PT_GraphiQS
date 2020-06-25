@@ -12,7 +12,6 @@ import service.Tools;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class ShapeObject {
     Polygon polygon;
     Color color;
@@ -180,11 +179,10 @@ public class ShapeObject {
             r.setOnMouseExited(event -> {
                 r.setStroke(Color.GREEN);
             });
-            int finalX = x;
             r.setOnMousePressed(event -> {
                 if (event.getButton() == MouseButton.SECONDARY) {
                     contextMenu = new ContextMenu();
-                    if (type == "LENGTH") {
+                    if (type.equals("LENGTH")) {
                         MenuItem removeLength = new MenuItem("Remove Length");
                         removeLength.setOnAction(event1 -> {
                             tools.page.shapeObjList.remove(this);
@@ -208,9 +206,7 @@ public class ShapeObject {
                     }
                     contextMenu.show(r, event.getScreenX(), event.getScreenY());
                 }
-
             });
-
         }
     }
 

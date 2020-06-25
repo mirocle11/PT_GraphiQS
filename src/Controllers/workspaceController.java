@@ -94,6 +94,7 @@ public class workspaceController implements Initializable {
     //others
     String mode;
     ContextMenu contextMenu = new ContextMenu();
+    ContextMenu stampMenu = new ContextMenu();
     int pageNumber = 0;
 
     //shapes
@@ -158,16 +159,15 @@ public class workspaceController implements Initializable {
             "2200", "2400");
     private ObservableList<String> colors = FXCollections.observableArrayList( "Red", "Green", "Blue");
 
-
     private int stamp_count = 0;
     public JFXCheckBox STAMP_OVERLAY;
 
     public Pane DOOR_PANE, WINDOW_PANE;
 
     public int ws_indicator = 0;
-//    public int window_count = 0;
     public JFXTextField WINDOW_NO, CLADDING, WIDTH, HEIGHT;
-    public JFXColorPicker WINDOW_COLOR_PICKER;
+    public JFXComboBox<String> WINDOW_TYPE;
+    private ObservableList<String> window_type = FXCollections.observableArrayList( "Exterior", "Interior");
 
     //set stud height
     public double stud_height;
@@ -179,6 +179,7 @@ public class workspaceController implements Initializable {
         DOOR_TYPE.setItems(door_type);
         DOOR_WIDTH.setItems(door_width);
         DOOR_HEIGHT.setItems(door_height);
+        WINDOW_TYPE.setItems(window_type);
         COLOR.setItems(colors);
 
         COLOR.setOnAction(event -> {
@@ -211,7 +212,13 @@ public class workspaceController implements Initializable {
 
         DONE.setOnAction(event -> {
             stampPicker.setVisible(false);
+            DOOR_PANE.setVisible(false);
+            WINDOW_PANE.setVisible(false);
+
+            ws_indicator = 0;
             ds_indicator = 0;
+
+            STAMP_TYPE.getSelectionModel().clearSelection();
         });
 
         wallData = new WallData(this);
@@ -224,22 +231,24 @@ public class workspaceController implements Initializable {
             if (STAMP_TYPE.getSelectionModel().getSelectedItem().equals("Doors")) {
                 DOOR_PANE.setVisible(true);
                 WINDOW_PANE.setVisible(false);
+                ds_indicator = 1;
                 ws_indicator = 0;
+                UNDO.setVisible(true);
+                REDO.setVisible(true);
             } else if (STAMP_TYPE.getSelectionModel().getSelectedItem().equals("Windows")) {
                 DOOR_PANE.setVisible(false);
                 WINDOW_PANE.setVisible(true);
+                ds_indicator = 0;
                 ws_indicator = 1;
+                UNDO.setVisible(false);
+                REDO.setVisible(false);
             }
         });
-
-//        WINDOW_COUNT.setText(window_count + "");
 
         unselectAllAction();
 
         tools = new Tools(this);
         tools.setMode("FREE");
-
-//        Tools.enableButtons(new String[]{"IMPORT"}, toolsMenu);
 
         line.setVisible(false);
         line.setOpacity(.7);
@@ -414,7 +423,7 @@ public class workspaceController implements Initializable {
 
     public void stampAction() {
         stampPicker.setVisible(true);
-        ds_indicator = 1;
+//        ds_indicator = 1;
     }
 
     public void redraw() {

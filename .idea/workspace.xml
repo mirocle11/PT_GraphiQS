@@ -5,18 +5,40 @@
       <artifact name="PTGraphiQS:jar" />
     </artifacts-to-build>
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Model/data/windowData.java" afterDir="false" />
+    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators&#10;-window stamping updated w/ layout list">
+      <change afterPath="$PROJECT_DIR$/src/Model/WindowObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/ShapeObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/ShapeObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/layoutsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/layoutsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/ShapeObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ShapeObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/data/windowData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/data/windowData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Views/layouts.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/layouts.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/workspace.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/Length.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Length.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Tools.java" afterDir="false" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
@@ -91,43 +113,6 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>strokewidth</find>
-      <find>closecreate</find>
-      <find>LENGTH</find>
-      <find>setMode</find>
-      <find>setDisable</find>
-      <find>setEnabled</find>
-      <find>foreach</find>
-      <find>history</find>
-      <find>getInt(&quot;ID&quot;)</find>
-      <find>iconList</find>
-      <find>start</find>
-      <find>createIcon</find>
-      <find>iconsShown</find>
-      <find>first_pane</find>
-      <find>combo</find>
-      <find>stampp</find>
-      <find>zoom</find>
-      <find>canvas</find>
-      <find>service</find>
-      <find>issetCanvas</find>
-      <find>setCanvas</find>
-      <find>stamp</find>
-      <find>setstamp</find>
-      <find>Tools</find>
-      <find>redo</find>
-      <find>redraw</find>
-      <find>SETsta</find>
-      <find>structureCombo</find>
-      <find>setsta</find>
-      <find>selectAll</find>
-    </findStrings>
-    <replaceStrings>
-      <replace />
-    </replaceStrings>
-  </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
@@ -191,7 +176,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LBP_Trades" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -806,13 +791,6 @@
       <workItem from="1592484367085" duration="6017000" />
       <workItem from="1592544186144" duration="7228000" />
     </task>
-    <task id="LOCAL-00068" summary="#64 commit sections progress">
-      <created>1574151585124</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1574151585124</updated>
-    </task>
     <task id="LOCAL-00069" summary="#64 commit sections progress">
       <created>1574152244119</created>
       <option name="number" value="00069" />
@@ -1149,7 +1127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592370652950</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators&#10;-window stamping updated w/ layout list">
+      <created>1592638332471</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1592638332471</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1157,6 +1142,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -1217,24 +1205,69 @@
     <MESSAGE value="updated layouts form and fixed bugs" />
     <MESSAGE value="-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators" />
     <MESSAGE value="-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators&#10;-working stamps" />
-    <option name="LAST_COMMIT_MESSAGE" value="-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators&#10;-working stamps" />
+    <MESSAGE value="-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators&#10;-window stamping updated w/ layout list" />
+    <option name="LAST_COMMIT_MESSAGE" value="-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators&#10;-window stamping updated w/ layout list" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="3035" y="318" key="FileChooserDialogImpl" timestamp="1592637622209">
+    <state x="2685" y="223" key="#com.intellij.ide.util.MemberChooser" timestamp="1592742318842">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="3035" y="318" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592637622209" />
-    <state x="2432" y="209" width="998" height="708" key="SettingsEditor" timestamp="1592638123839">
+    <state x="2685" y="223" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592742318842" />
+    <state x="3035" y="318" key="FileChooserDialogImpl" timestamp="1592985641541">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2432" y="209" width="998" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592638123839" />
+    <state x="3035" y="318" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592985641541" />
+    <state width="1877" height="179" key="GridCell.Tab.0.bottom" timestamp="1593078520530">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="179" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593078520530" />
+    <state width="1877" height="179" key="GridCell.Tab.0.center" timestamp="1593078520530">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="179" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593078520530" />
+    <state width="1877" height="179" key="GridCell.Tab.0.left" timestamp="1593078520530">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="179" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593078520530" />
+    <state width="1877" height="179" key="GridCell.Tab.0.right" timestamp="1593078520530">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="179" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593078520530" />
+    <state width="1877" height="213" key="GridCell.Tab.1.bottom" timestamp="1592742376316">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="213" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592742376316" />
+    <state width="1877" height="213" key="GridCell.Tab.1.center" timestamp="1592742376316">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="213" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592742376316" />
+    <state width="1877" height="213" key="GridCell.Tab.1.left" timestamp="1592742376316">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="213" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592742376316" />
+    <state width="1877" height="213" key="GridCell.Tab.1.right" timestamp="1592742376316">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="213" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592742376316" />
+    <state x="2352" y="163" width="1054" height="708" key="SettingsEditor" timestamp="1593077728678">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2352" y="163" width="1054" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593077728678" />
+    <state x="2472" y="248" key="Vcs.Push.Dialog.v2" timestamp="1592638334749">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592638334749" />
     <state x="2978" y="422" width="555" height="283" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1592637624759">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2978" y="422" width="555" height="283" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592637624759" />
-  </component>
-  <component name="antWorkspaceConfiguration">
-    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
-    <option name="FILTER_TARGETS" value="false" />
+    <state x="2536" y="240" width="672" height="677" key="run.anything.popup" timestamp="1592981864880">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2536" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592981864880" />
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1592742352964">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592742352964" />
   </component>
 </project>
