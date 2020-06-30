@@ -24,21 +24,25 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators&#10;-window stamping updated w/ layout list">
-      <change afterPath="$PROJECT_DIR$/src/Model/WindowObject.java" afterDir="false" />
+    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-window stamping updated w/ layout list&#10;-updated delete stamp w/ list">
+      <change afterPath="$PROJECT_DIR$/src/Model/CladdingObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/data/claddingData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/Cladding.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/PageObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/PageObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/ShapeObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/ShapeObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/CSS/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/layoutsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/layoutsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/PageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/PageObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/ShapeObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ShapeObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/data/windowData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/data/windowData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/CSS/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Views/layouts.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/layouts.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/workspace.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/Length.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Length.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Tools.java" afterDir="false" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
@@ -791,13 +795,6 @@
       <workItem from="1592484367085" duration="6017000" />
       <workItem from="1592544186144" duration="7228000" />
     </task>
-    <task id="LOCAL-00069" summary="#64 commit sections progress">
-      <created>1574152244119</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1574152244119</updated>
-    </task>
     <task id="LOCAL-00070" summary="#64 commit sections progress">
       <created>1574152351188</created>
       <option name="number" value="00070" />
@@ -1134,7 +1131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592638332471</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="-window stamping updated w/ layout list&#10;-updated delete stamp w/ list">
+      <created>1593079046016</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1593079046017</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1206,33 +1210,38 @@
     <MESSAGE value="-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators" />
     <MESSAGE value="-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators&#10;-working stamps" />
     <MESSAGE value="-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators&#10;-window stamping updated w/ layout list" />
-    <option name="LAST_COMMIT_MESSAGE" value="-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators&#10;-window stamping updated w/ layout list" />
+    <MESSAGE value="-window stamping updated w/ layout list&#10;-updated delete stamp w/ list" />
+    <option name="LAST_COMMIT_MESSAGE" value="-window stamping updated w/ layout list&#10;-updated delete stamp w/ list" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2685" y="223" key="#com.intellij.ide.util.MemberChooser" timestamp="1592742318842">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2685" y="223" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592742318842" />
+    <state x="2645" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1593494752756">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2645" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593494752756" />
     <state x="3035" y="318" key="FileChooserDialogImpl" timestamp="1592985641541">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="3035" y="318" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592985641541" />
-    <state width="1877" height="179" key="GridCell.Tab.0.bottom" timestamp="1593078520530">
+    <state width="1877" height="179" key="GridCell.Tab.0.bottom" timestamp="1593500339023">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="179" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593078520530" />
-    <state width="1877" height="179" key="GridCell.Tab.0.center" timestamp="1593078520530">
+    <state width="1877" height="179" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593500339023" />
+    <state width="1877" height="179" key="GridCell.Tab.0.center" timestamp="1593500339023">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="179" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593078520530" />
-    <state width="1877" height="179" key="GridCell.Tab.0.left" timestamp="1593078520530">
+    <state width="1877" height="179" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593500339023" />
+    <state width="1877" height="179" key="GridCell.Tab.0.left" timestamp="1593500339023">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="179" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593078520530" />
-    <state width="1877" height="179" key="GridCell.Tab.0.right" timestamp="1593078520530">
+    <state width="1877" height="179" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593500339023" />
+    <state width="1877" height="179" key="GridCell.Tab.0.right" timestamp="1593500339023">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="179" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593078520530" />
+    <state width="1877" height="179" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593500339023" />
     <state width="1877" height="213" key="GridCell.Tab.1.bottom" timestamp="1592742376316">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -1249,25 +1258,29 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="213" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592742376316" />
-    <state x="2352" y="163" width="1054" height="708" key="SettingsEditor" timestamp="1593077728678">
+    <state x="2352" y="163" width="1054" height="708" key="SettingsEditor" timestamp="1593363291652">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2352" y="163" width="1054" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593077728678" />
-    <state x="2472" y="248" key="Vcs.Push.Dialog.v2" timestamp="1592638334749">
+    <state x="2352" y="163" width="1054" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593363291652" />
+    <state x="2472" y="248" key="Vcs.Push.Dialog.v2" timestamp="1593079047665">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592638334749" />
+    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593079047665" />
+    <state x="2012" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1593438791457">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2012" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593438791457" />
     <state x="2978" y="422" width="555" height="283" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1592637624759">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2978" y="422" width="555" height="283" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592637624759" />
-    <state x="2536" y="240" width="672" height="677" key="run.anything.popup" timestamp="1592981864880">
+    <state x="2536" y="240" width="672" height="677" key="run.anything.popup" timestamp="1593438605352">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2536" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592981864880" />
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1592742352964">
+    <state x="2536" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593438605352" />
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1593488734558">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592742352964" />
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593488734558" />
   </component>
 </project>

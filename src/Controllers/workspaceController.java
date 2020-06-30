@@ -5,7 +5,6 @@ import Main.Main;
 import Model.PageObject;
 import Model.ShapeObject;
 import Model.data.stampData;
-import Test.SillyStamper;
 import com.jfoenix.controls.*;
 import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
 import javafx.animation.FadeTransition;
@@ -21,6 +20,8 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -29,6 +30,8 @@ import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -37,9 +40,9 @@ import javafx.util.Duration;
 import service.*;
 
 import javax.swing.*;
+import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.List;
 import java.util.logging.Level;
@@ -48,11 +51,11 @@ import java.util.logging.Logger;
 public class workspaceController implements Initializable {
 
     //buttons
-    public JFXButton IMPORT, SAVE, SCALE, LENGTH, AREA, STAMP, RECTANGLE, ROTATE, structureToggle;
+    public JFXButton IMPORT, SAVE, SCALE, LENGTH, AREA, CLADDING_BTN, STAMP, ROTATE, structureToggle;
     //    public JFXButton NEXT_PAGE, PREVIOUS_PAGE;
     public JFXHamburger hamburger;
-
     //combo box (for selection)
+
     public JFXComboBox structureComboBox, wallTypeComboBox, wallComboBox, materialComboBox;
     public JFXColorPicker colorPicker;
 
@@ -173,6 +176,14 @@ public class workspaceController implements Initializable {
     public double stud_height;
     public int sh_indicator = 0;
 
+    //cladding
+    public VBox CLADDING_BOX;
+    public JFXButton CLD_PROCEED, CLD_CANCEL;
+    public AnchorPane CLADDING_LIST;
+    public JFXColorPicker CLD_COLOR_PICKER;
+    public String selectedCladding;
+    int cld_indicator = 0;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         STAMP_TYPE.setItems(stamp_type);
@@ -245,7 +256,27 @@ public class workspaceController implements Initializable {
             }
         });
 
+        //cladding
+        CLADDING_BTN.setOnAction(event -> {
+            CLADDING_LIST.setVisible(true);
+        });
+
+        CLD_PROCEED.setOnAction(event -> {
+            if (cld_indicator == 1) {
+                setSelectedCladding();
+                claddingAction();
+                CLADDING_LIST.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "Please select cladding type");
+            }
+        });
+
+        CLD_CANCEL.setOnAction(event -> {
+            CLADDING_LIST.setVisible(false);
+        });
+
         unselectAllAction();
+        setCladdingIndicator();
 
         tools = new Tools(this);
         tools.setMode("FREE");
@@ -403,6 +434,15 @@ public class workspaceController implements Initializable {
         stamp_canvas.setVisible(false);
     }
 
+    public void claddingAction() {
+        isNew = true;
+        canDraw = true;
+
+        tools.setColor(colorPicker.getValue());
+        tools.setMode("CLADDING");
+        stamp_canvas.setVisible(false);
+    }
+
     public void rotateAction() {
         group.setRotate(group.getRotate() + 90);
     }
@@ -413,12 +453,6 @@ public class workspaceController implements Initializable {
 
     public void previousPageAction() {
         tools.previousPage();
-    }
-
-    public void drawRectAction() {
-        mode = "DRAW_RECT";
-        canDraw = true;
-        isNew = true;
     }
 
     public void stampAction() {
@@ -456,10 +490,8 @@ public class workspaceController implements Initializable {
                     redraw();
 
                 layoutsController.stamp_data.addAll(new stampData(String.valueOf(stamp_count),
-                    STAMP_TYPE.getSelectionModel().getSelectedItem().toString(),
-                    DOOR_TYPE.getSelectionModel().getSelectedItem().toString(),
-                    DOOR_WIDTH.getEditor().getText(),
-                    DOOR_HEIGHT.getEditor().getText(),""));
+                    STAMP_TYPE.getSelectionModel().getSelectedItem(), DOOR_TYPE.getSelectionModel().getSelectedItem(),
+                        DOOR_WIDTH.getEditor().getText(), DOOR_HEIGHT.getEditor().getText(),""));
             }
         }
     }
@@ -584,60 +616,6 @@ public class workspaceController implements Initializable {
                 line.setEndY(cP.getY());
             }
         }
-        if (mode == "DRAW_RECT") {
-            if (!isNew) {
-                rect.setWidth(cP.getX() - rect.getX());
-                rect.setHeight(cP.getY() - rect.getY());
-            }
-        }
-    }
-
-    public void updateRect(MouseEvent event) {
-        Point2D clamp = clamp(event.getX(), event.getY());
-        if (mode == "DRAW_RECT") {
-            if (!canDraw) {
-                return;
-            }
-            if (event.getButton() == MouseButton.SECONDARY) {
-                return;
-            }
-            line.setVisible(false);
-            rect = new Rectangle();
-            rect.setX(clamp.getX());
-            rect.setY(clamp.getY());
-            rect.setWidth(10);
-            rect.setHeight(10);
-            rect.setOpacity(.5);
-            rect.setStroke(color);
-            rect.setStrokeWidth(15);
-            rect.setOnMouseEntered(event1 -> {
-                rect.setStroke(Color.RED);
-            });
-            rect.setOnMouseExited(event1 -> {
-                rect.setStroke(color);
-            });
-            rect.setOnMousePressed(event1 -> {
-                if (event1.getButton() == MouseButton.SECONDARY) {
-                    contextMenu = new ContextMenu();
-                    MenuItem removeLength = new MenuItem("REMOVE FILL");
-                    removeLength.setOnAction(event12 -> {
-                        pane.getChildren().remove(rect);
-                    });
-                    contextMenu.getItems().add(removeLength);
-                }
-                contextMenu.show(rect, event1.getScreenX(), event1.getScreenY());
-            });
-
-            pane.getChildren().add(rect);
-            isNew = false;
-        } else if (mode == "STAMP") {
-            Rectangle r = new Rectangle();
-            r.setX(clamp.getX());
-            r.setY(clamp.getY());
-            r.setWidth(5 / group.getScaleY());
-            r.setWidth(5 / group.getScaleY());
-            pane.getChildren().add(r);
-        }
     }
 
     public void zoom(ScrollEvent event) {
@@ -655,7 +633,6 @@ public class workspaceController implements Initializable {
                 Point2D scrollOffset = figureScrollOffset(scrollContent, scroller);
                 repositionScroller(scrollContent, scroller, scaleFactor, scrollOffset);
 
-                //===========CHANGES=======================================================
                 pane.getChildren().forEach(node -> {
                     if (node.getClass().getSuperclass() == Shape.class) {
                         Shape sp = (Shape) node;
@@ -830,6 +807,27 @@ public class workspaceController implements Initializable {
 
     public void colorPickerAction() {
         wallData.colorPickerAction();
+    }
+
+    //cladding list picker
+    public void setSelectedCladding() {
+        CLADDING_BOX.getChildren().forEach(node -> {
+            if (((JFXCheckBox) node).isSelected()) {
+                selectedCladding = ((JFXCheckBox) node).getText();
+            }
+        });
+    }
+
+    public void setCladdingIndicator() {
+        CLADDING_BOX.getChildren().forEach(node -> {
+            ((JFXCheckBox) node).setOnAction(event -> {
+                if (((JFXCheckBox) node).isSelected()) {
+                    cld_indicator = 1;
+                } else {
+                    cld_indicator = 0;
+                }
+            });
+        });
     }
 
 }

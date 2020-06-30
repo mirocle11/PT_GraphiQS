@@ -5,11 +5,13 @@ import javafx.scene.image.Image;
 import javafx.scene.shape.Shape;
 
 import java.awt.image.BufferedImage;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class PageObject {
     int pageNumber;
     public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
+    public ArrayList<CladdingObject> claddingObjectList = new ArrayList<>();
     ArrayList<Shape> stampList = new ArrayList<>();
     ArrayList<double[][]> snapList = new ArrayList<>();
     Image image;
@@ -55,7 +57,18 @@ public class PageObject {
         sp.forEach(shapeObject -> {
             this.shapeObjList.add(shapeObject);
         });
-}
+    }
+
+    public ArrayList<CladdingObject> getCladdingObjectList() {
+        return claddingObjectList;
+    }
+
+    public void setCladdingObjectList(ArrayList<CladdingObject> cl) {
+        this.claddingObjectList.clear();
+        cl.forEach(claddingObject -> {
+            this.claddingObjectList.add(claddingObject);
+        });
+    }
 
     public ArrayList<Shape> getStampList() {
         return stampList;

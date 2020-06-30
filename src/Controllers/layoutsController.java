@@ -1,4 +1,5 @@
 package Controllers;
+import Model.data.claddingData;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.beans.value.ChangeListener;
@@ -25,7 +26,7 @@ public class layoutsController implements Initializable {
     public JFXTextField SEARCH, ROW_NO, PAGE, MEASUREMENT, STRUCTURE, WALL_TYPE, WALL, MATERIAL, COLOR_TXT, VALUE,
             STUD_HEIGHT, VOLUME, LOBOUR;
 
-    public JFXButton ALL, LENGTH, AREA, STAMPS, WINDOWS;
+    public JFXButton ALL, LENGTH, AREA, STAMPS, WINDOWS, CLADDING;
 
     public JFXTreeTableView<layoutsData> layoutsTableView;
     public TreeTableColumn<layoutsData, String> COL_NO;
@@ -39,7 +40,7 @@ public class layoutsController implements Initializable {
     public TreeTableColumn<layoutsData, String> COL_VALUE;
     public TreeTableColumn<layoutsData, String> COL_STUD_HEIGHT;
     public TreeTableColumn<layoutsData, String> COL_VOLUME;
-    public TreeTableColumn<layoutsData, String> COL_LOBOUR;
+    public TreeTableColumn<layoutsData, String> COL_LABOUR;
 
     //stamp table
     public JFXTreeTableView<stampData> STAMP_TBL;
@@ -59,9 +60,15 @@ public class layoutsController implements Initializable {
     public TreeTableColumn<windowData, String> WINDOW_WIDTH;
     public TreeTableColumn<windowData, String> WINDOW_HEIGHT;
 
+    public JFXTreeTableView<claddingData> CLADDING_TBL;
+    public TreeTableColumn<claddingData, String> CLADDING_NO;
+    public TreeTableColumn<claddingData, String> CLADDING_NAME;
+    public TreeTableColumn<claddingData, String> CLADDING_LENGTH;
+
     public static ObservableList<layoutsData> data;
     public static ObservableList<stampData> stamp_data;
     public static ObservableList<windowData> windowData;
+    public static ObservableList<claddingData> claddingData;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -104,7 +111,7 @@ public class layoutsController implements Initializable {
         COL_VOLUME.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("unit")
         );
-        COL_LOBOUR.setCellValueFactory(
+        COL_LABOUR.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("labour")
         );
 
@@ -152,6 +159,19 @@ public class layoutsController implements Initializable {
                 new TreeItemPropertyValueFactory<>("height")
         );
 
+        //cladding
+        claddingData = FXCollections.observableArrayList();
+
+        CLADDING_NO.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("no")
+        );
+        CLADDING_NAME.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("cladding_name")
+        );
+        CLADDING_LENGTH.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("length")
+        );
+
         TreeItem<layoutsData> root = new RecursiveTreeItem<>(data, RecursiveTreeObject::getChildren);
         layoutsTableView.setRoot(root);
         layoutsTableView.setShowRoot(false);
@@ -163,6 +183,10 @@ public class layoutsController implements Initializable {
         TreeItem<windowData> window_root = new RecursiveTreeItem<>(windowData, RecursiveTreeObject::getChildren);
         WINDOW_TBL.setRoot(window_root);
         WINDOW_TBL.setShowRoot(false);
+
+        TreeItem<claddingData> cladding_root = new RecursiveTreeItem<>(claddingData, RecursiveTreeObject::getChildren);
+        CLADDING_TBL.setRoot(cladding_root);
+        CLADDING_TBL.setShowRoot(false);
 
         SEARCH.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -185,18 +209,28 @@ public class layoutsController implements Initializable {
             lengthScrollPane.setVisible(false);
             STAMP_TBL.setVisible(true);
             WINDOW_TBL.setVisible(false);
+            CLADDING_TBL.setVisible(false);
         });
 
         LENGTH.setOnAction(event -> {
             lengthScrollPane.setVisible(true);
             STAMP_TBL.setVisible(false);
             WINDOW_TBL.setVisible(false);
+            CLADDING_TBL.setVisible(false);
         });
 
         WINDOWS.setOnAction(event -> {
             lengthScrollPane.setVisible(false);
             STAMP_TBL.setVisible(false);
+            CLADDING_TBL.setVisible(false);
             WINDOW_TBL.setVisible(true);
+        });
+
+        CLADDING.setOnAction(event -> {
+            lengthScrollPane.setVisible(false);
+            STAMP_TBL.setVisible(false);
+            WINDOW_TBL.setVisible(false);
+            CLADDING_TBL.setVisible(true);
         });
     }
 

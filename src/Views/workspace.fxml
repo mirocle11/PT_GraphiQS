@@ -14,6 +14,7 @@
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -44,7 +45,7 @@
                         <Group fx:id="group">
                            <children>
                               <Canvas fx:id="canvas" height="660.0" nodeOrientation="INHERIT" width="885.0" />
-                              <Pane fx:id="pane" layoutX="14.0" layoutY="-60.0" onMouseDragged="#updateLine" onMouseMoved="#updateLine" onMousePressed="#updateRect" prefHeight="660.0" prefWidth="885.0" />
+                              <Pane fx:id="pane" layoutX="14.0" layoutY="-60.0" onMouseDragged="#updateLine" onMouseMoved="#updateLine" prefHeight="660.0" prefWidth="885.0" />
                               <Canvas fx:id="stamp_canvas" blendMode="SRC_ATOP" height="660.0" nodeOrientation="INHERIT" visible="false" width="885.0" />
                            </children>
                         </Group>
@@ -238,6 +239,22 @@
                   </Tooltip>
                </tooltip>
             </JFXButton>
+            <JFXButton fx:id="CLADDING_BTN" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#claddingAction" prefHeight="50.0" prefWidth="62.0">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/layers_40px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Area">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </JFXButton>
             <JFXButton fx:id="STAMP" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#stampAction" prefHeight="50.0" prefWidth="62.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
@@ -248,22 +265,6 @@
                </graphic>
                <tooltip>
                   <Tooltip text="Stamp">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Tooltip>
-               </tooltip>
-            </JFXButton>
-            <JFXButton fx:id="RECTANGLE" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="" onAction="#drawRectAction" prefHeight="50.0" prefWidth="62.0">
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/surface_40px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <tooltip>
-                  <Tooltip text="Rotate">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -1018,6 +1019,122 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="CLADDING_LIST" layoutX="69.0" layoutY="20.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="240.0" style="-fx-background-color: TRANSPARENT;" stylesheets="@CSS/style.css" visible="false" AnchorPane.leftAnchor="69.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <AnchorPane fx:id="stampPickerPane1" layoutX="7.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="387.0" prefWidth="214.0" style="-fx-background-radius: 20px; -fx-background-color: #0F1E25;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+               <effect>
+                  <DropShadow color="#121212" height="35.03" radius="17.155" spread="0.15" width="35.59" />
+               </effect>
+               <children>
+                  <Label fx:id="CLIENT_DETAILS_LBL" alignment="CENTER" layoutY="5.0" prefHeight="35.0" prefWidth="210.0" text="Cladding List" textFill="#bcbcbc">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="5.0" layoutY="41.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1.0" prefWidth="200.0" style="-fx-background-color: WHITE;" />
+                  <VBox fx:id="CLADDING_BOX" layoutX="5.0" layoutY="42.0" maxHeight="-Infinity" prefHeight="260.0" prefWidth="206.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="45.0">
+                     <children>
+                        <JFXCheckBox prefHeight="35.0" prefWidth="240.0" style="-fx-background-color: #0F1E25;" text="Brick Veneer" textFill="#b8b8b8">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </JFXCheckBox>
+                        <JFXCheckBox prefHeight="35.0" prefWidth="240.0" style="-fx-background-color: #0F1E25;" text="James Hardie Linea" textFill="#b8b8b8">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" />
+                           </padding>
+                        </JFXCheckBox>
+                        <JFXCheckBox prefHeight="35.0" prefWidth="240.0" style="-fx-background-color: #0F1E25;" text="James Hardie Axon Panel" textFill="#b8b8b8">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" />
+                           </padding>
+                        </JFXCheckBox>
+                        <JFXCheckBox prefHeight="35.0" prefWidth="240.0" style="-fx-background-color: #0F1E25;" text="Rockcote" textFill="#b8b8b8">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" />
+                           </padding>
+                        </JFXCheckBox>
+                        <JFXCheckBox prefHeight="35.0" prefWidth="240.0" style="-fx-background-color: #0F1E25;" text="Example" textFill="#b8b8b8">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" />
+                           </padding>
+                        </JFXCheckBox>
+                        <JFXCheckBox prefHeight="35.0" prefWidth="240.0" style="-fx-background-color: #0F1E25;" text="Example" textFill="#b8b8b8">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" />
+                           </padding>
+                        </JFXCheckBox>
+                        <JFXCheckBox prefHeight="35.0" prefWidth="240.0" style="-fx-background-color: #0F1E25;" text="Example" textFill="#b8b8b8">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" />
+                           </padding>
+                        </JFXCheckBox>
+                     </children>
+                  </VBox>
+                  <JFXButton fx:id="CLD_CANCEL" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="5.0" layoutX="108.0" layoutY="350.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="97.0" style="-fx-background-radius: 30px;" text="Cancel" textAlignment="CENTER" textFill="#bcbcbc">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/cancel_30px.png" />
+                           </image>
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="CLD_PROCEED" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="5.0" layoutY="350.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="108.0" style="-fx-background-radius: 30px;" text="Proceed" textAlignment="CENTER" textFill="#bcbcbc">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/ok_35px.png" />
+                           </image>
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXColorPicker fx:id="CLD_COLOR_PICKER" layoutX="84.0" layoutY="312.0" prefHeight="30.0" prefWidth="97.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="29.0" />
+                  <Label fx:id="CLIENT_DETAILS_LBL1" alignment="CENTER" layoutX="14.0" layoutY="313.0" prefHeight="28.0" prefWidth="56.0" text="Color :" textFill="#bcbcbc">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </children>

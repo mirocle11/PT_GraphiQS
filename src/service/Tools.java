@@ -4,6 +4,8 @@ import Controllers.createProjectController;
 import DataBase.DataBase;
 import Controllers.workspaceController;
 import Controllers.layoutsController;
+import Model.CladdingObject;
+import Model.data.claddingData;
 import Model.data.layoutsData;
 import Model.PageObject;
 import Model.ShapeObject;
@@ -63,6 +65,7 @@ public class Tools {
     ArrayList<PageObject> pageObjects = new ArrayList<>();
     ArrayList<double[][]> snapList = new ArrayList<>();
     public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
+    public ArrayList<CladdingObject> claddingObjectList = new ArrayList<>();
 
     double total;
     double stud_height;
@@ -200,6 +203,10 @@ public class Tools {
                 this.canDraw = true;
                 Area area = new Area(this);
                 break;
+            case "CLADDING":
+                this.canDraw = true;
+                Cladding cladding = new Cladding(this);
+                break;
             case "FREE":
                 this.canDraw = false;
                 pane.setOnMouseMoved(event -> {
@@ -227,7 +234,6 @@ public class Tools {
                 });
                 pane.setOnMouseClicked(event -> {
                     //do not remove
-                    System.out.println(window.ws_indicator);
                     if (event.getButton() == MouseButton.PRIMARY) {
                         if (!(window.ws_indicator == 0)) {
                             Label window_stamp = new Label();
@@ -273,7 +279,7 @@ public class Tools {
                                             }
                                         }
 
-                                        System.out.println("contains remove"+   layouts.windowData.remove(w));
+                                        System.out.println("contains remove"+ layouts.windowData.remove(w));
                                     });
                                     stampMenu.getItems().add(removeStamp);
                                     stampMenu.show(window_stamp, event1.getScreenX(), event1.getScreenY());
@@ -286,45 +292,6 @@ public class Tools {
                     }
                 });
                 break;
-
-//            case "WINDOW_STAMP":
-//                this.canDraw = false;
-//                pane.setOnMouseClicked(event -> {
-//                    if (event.getButton() == MouseButton.PRIMARY) {
-//                        if (!(window.ws_indicator == 0)) {
-//                        Label window_stamp = new Label("       W" + window.WINDOW_NO.getText() + "\n        "
-//                                    + window.CLADDING.getText() + "\n" + window.WIDTH.getText() + "  x  " +
-//                                    window.HEIGHT.getText());
-//                            window_stamp.setFont(new Font("Arial", 36));
-//                            window_stamp.setTextFill(Color.RED);
-//                            window_stamp.setLayoutX(event.getX() - 25);
-//                            window_stamp.setLayoutY(event.getY() - 25);
-//                            window_stamp.setAlignment(Pos.CENTER);
-//
-//                            pane.getChildren().add(window_stamp);
-//
-//                            window_stamp.setOnMouseClicked(event1 -> {
-//                                if (event1.getButton() == MouseButton.SECONDARY) {
-//                                    stampMenu = new ContextMenu();
-//                                    stampMenu.hide();
-//
-//                                    MenuItem removeStamp = new MenuItem("Remove Stamp");
-//                                    removeStamp.setOnAction(event2 -> {
-//                                        window_stamp.setVisible(false);
-//                                    });
-//
-//                                    stampMenu.getItems().add(removeStamp);
-//                                    stampMenu.show(window_stamp, event1.getScreenX(), event1.getScreenY());
-//                                }
-//                            });
-//
-//                            layouts.windowData.addAll(new windowData(String.valueOf(window_no++),
-//                                    "W" + window.WINDOW_NO.getText(), window.CLADDING.getText(),
-//                                    window.WIDTH.getText(), window.HEIGHT.getText()));
-//                        }
-//                    }
-//                });
-//                break;
         }
     }
 
@@ -440,6 +407,45 @@ public class Tools {
             }
         }
 
+        System.out.println("cladding object " + page.claddingObjectList.size());
+        for (CladdingObject cl0 : page.getCladdingObjectList()) {
+            for (Line l : cl0.getLineList()) {
+                Point2D p1 = new Point2D(l.getStartX(), l.getStartY());
+                Point2D p2 = new Point2D(l.getEndX(), l.getEndY());
+                Point2D mid = p1.midpoint(p2);
+                line.getRotate();
+                if (p1.distance(p2) != 0) {
+                    double length = (p1.distance(p2) / page.getScale());
+                    cl0.setLength(Math.round(length * 100.0) / 100.0);
+                    Label lbl = new Label(cl0.getLength() + " mm");
+                    double theta = Math.atan2(p2.getY() - p1.getY(), p2.getX() - p1.getX());
+                    lbl.setFont(new Font("Arial", 36));
+                    lbl.setRotate(theta * 180 / Math.PI);
+                    lbl.setLayoutY(mid.getY());
+                    lbl.setLayoutX(mid.getX() - (55 / group.getScaleY()));
+                    lbl.setOnMouseEntered(event -> {
+                        lbl.setStyle("-fx-background-color: white");
+                        lbl.setOpacity(1);
+                    });
+                    lbl.setOnMouseExited(event -> {
+                        lbl.setStyle("-fx-background-color: transparent");
+                        lbl.setOpacity(.7);
+                    });
+                    lbl.setTextFill(cl0.getColor());
+                    lbl.setOpacity(.7);
+                    pane.getChildren().add(lbl);
+                    total = total + cl0.getLength();
+                }
+            }
+            cl0.setLength(Math.round(total * 100.0) / 100.0);
+            total = 0.0;
+
+            pane.getChildren().addAll(cl0.getLineList());
+            pane.getChildren().addAll(cl0.getBoxList());
+
+//            cl0.setCladding_name(window.selectedCladding);
+        }
+
         //get shapeObject data to layout table
         int count = 0;
         layouts.data.clear();
@@ -452,7 +458,7 @@ public class Tools {
                 System.out.println(sp2.getWall());
                 System.out.println(sp2.getMaterial());
                 System.out.println("Page : "+ i + 1);
-                System.out.println(String.valueOf(count++));
+                System.out.println(count++);
 
                 double value;
                 if (sp2.getType().equals("LENGTH")) {
@@ -466,12 +472,33 @@ public class Tools {
                 colorLabel.setMinHeight(20);
                 colorLabel.setBackground(new Background(new BackgroundFill(sp2.getColor(), CornerRadii.EMPTY, Insets.EMPTY)));
 
-                layouts.data.addAll(new layoutsData(String.valueOf(count), String.valueOf(i + 1), sp2.getType(),
-                        sp2.getStructure(), sp2.getWallType(), sp2.getWall(), sp2.getMaterial(), colorLabel,
-                        NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(value)),
-                        NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(sp2.getStud_height())),
-                        NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(sp2.getUnit())),
-                        NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(sp2.getLabour()))));
+                if (!sp2.getLabour().equals("")) {
+                    layouts.data.addAll(new layoutsData(String.valueOf(count), String.valueOf(i + 1), sp2.getType(),
+                            sp2.getStructure(), sp2.getWallType(), sp2.getWall(), sp2.getMaterial(), colorLabel,
+                            NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(value)),
+                            NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(sp2.getStud_height())),
+                            NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(sp2.getUnit())),
+                            NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(sp2.getLabour()))));
+                } else {
+                    layouts.data.addAll(new layoutsData(String.valueOf(count), String.valueOf(i + 1), sp2.getType(),
+                            sp2.getStructure(), sp2.getWallType(), sp2.getWall(), sp2.getMaterial(), colorLabel,
+                            NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(value)),
+                            NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(sp2.getStud_height())),
+                            NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(sp2.getUnit())), (sp2.getLabour())));
+                }
+            }
+        }
+
+        //cladding layout
+        int cld_count = 0;
+        layouts.claddingData.clear();
+        for (int j = 0; j < pageObjects.size(); j++) {
+            PageObject p1 = pageObjects.get(j);
+            for (CladdingObject cl1 : p1.getCladdingObjectList()) {
+                cld_count++;
+                layouts.claddingData.addAll(new claddingData("C" + cld_count, cl1.getCladding_name(),
+                        String.valueOf(cl1.getLength())));
+                System.out.println(cl1.getCladding_name());
             }
         }
 

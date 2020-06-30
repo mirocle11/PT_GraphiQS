@@ -33,6 +33,7 @@ public class ShapeObject {
     String stud_height;
     String unit;
     String labour;
+    String cladding_name;
 
     public ShapeObject() {
         java.awt.Color c = new java.awt.Color(0, true);

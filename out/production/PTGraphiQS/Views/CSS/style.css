@@ -253,3 +253,6 @@
     -fx-text-fill: #bcbcbc;
 }
 
+#WINDOW_TBL .table-column {
+    -fx-alignment: CENTER;
+}
