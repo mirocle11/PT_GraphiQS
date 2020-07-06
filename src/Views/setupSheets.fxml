@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="720.0" prefWidth="1015.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.setupSheetsController">
+   <children>
+      <JFXTabPane prefHeight="720.0" prefWidth="1015.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab fx:id="slabAndFootingTab" text="Slab &amp; Footing">
+               <content>
+                  <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="floorsTab" text="Floors">
+               <content>
+                  <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="framingTab" text="Framing">
+               <content>
+                  <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="wallsAndInsulationTab" text="Walls &amp; Insulation">
+               <content>
+                  <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="claddingTab" text="Cladding">
+               <content>
+                  <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="doorsTab" text="Doors">
+               <content>
+                  <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="roofTab" text="Roof">
+               <content>
+                  <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="deckTab" text="Deck">
+               <content>
+                  <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="miscTab" text="Misc">
+               <content>
+                  <AnchorPane prefHeight="720.0" prefWidth="1015.0" />
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</AnchorPane>

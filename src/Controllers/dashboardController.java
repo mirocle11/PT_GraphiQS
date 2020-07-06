@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -23,6 +22,7 @@ public class dashboardController implements Initializable {
     public AnchorPane rootpane,dashboard_max,dashboard_min;
     private AnchorPane workspace;
     private BorderPane layouts;
+    private AnchorPane sheets;
     private BorderPane builder;
 
     @FXML
@@ -54,6 +54,15 @@ public class dashboardController implements Initializable {
             layouts = loader.load();
             rootpane.getChildren().addAll(layouts);
             layouts.setVisible(false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/setupSheets.fxml"));
+            sheets = loader.load();
+            rootpane.getChildren().addAll(sheets);
+            sheets.setVisible(false);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -99,7 +108,6 @@ public class dashboardController implements Initializable {
     }
 
     private void setWorkspace() {
-
         AnchorPane.setRightAnchor(workspace,0.0);
         AnchorPane.setTopAnchor(workspace,0.0);
         AnchorPane.setBottomAnchor(workspace,0.0);
@@ -111,6 +119,7 @@ public class dashboardController implements Initializable {
         }
         workspace.setVisible(true);
         layouts.setVisible(false);
+        sheets.setVisible(false);
         builder.setVisible(false);
     }
 
@@ -126,6 +135,23 @@ public class dashboardController implements Initializable {
         }
         workspace.setVisible(false);
         layouts.setVisible(true);
+        sheets.setVisible(false);
+        builder.setVisible(false);
+    }
+
+    private void setSetupSheets() {
+        AnchorPane.setRightAnchor(sheets,0.0);
+        AnchorPane.setTopAnchor(sheets,0.0);
+        AnchorPane.setBottomAnchor(sheets,0.0);
+
+        if (i == 0) {
+            AnchorPane.setLeftAnchor(sheets,265.0);
+        } else {
+            AnchorPane.setLeftAnchor(sheets,65.0);
+        }
+        workspace.setVisible(false);
+        layouts.setVisible(false);
+        sheets.setVisible(true);
         builder.setVisible(false);
     }
 
@@ -141,6 +167,7 @@ public class dashboardController implements Initializable {
         }
         workspace.setVisible(false);
         layouts.setVisible(false);
+        sheets.setVisible(false);
         builder.setVisible(true);
     }
 
@@ -163,6 +190,10 @@ public class dashboardController implements Initializable {
         setLayouts();
     }
 
+    public void sheetsAction() {
+        setSetupSheets();
+    }
+
     public void builderAction() {
         setBuilder();
     }
@@ -175,9 +206,12 @@ public class dashboardController implements Initializable {
         if (layouts.isVisible()) {
             setLayouts();
         }
+        if (sheets.isVisible()) {
+            setSetupSheets();
+        }
         if (builder.isVisible()) {
             setBuilder();
         }
-
     }
+
 }

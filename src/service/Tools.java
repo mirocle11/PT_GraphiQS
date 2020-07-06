@@ -407,7 +407,6 @@ public class Tools {
             }
         }
 
-        System.out.println("cladding object " + page.claddingObjectList.size());
         for (CladdingObject cl0 : page.getCladdingObjectList()) {
             for (Line l : cl0.getLineList()) {
                 Point2D p1 = new Point2D(l.getStartX(), l.getStartY());
@@ -442,8 +441,6 @@ public class Tools {
 
             pane.getChildren().addAll(cl0.getLineList());
             pane.getChildren().addAll(cl0.getBoxList());
-
-//            cl0.setCladding_name(window.selectedCladding);
         }
 
         //get shapeObject data to layout table

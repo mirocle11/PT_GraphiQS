@@ -26,7 +26,7 @@ public class layoutsController implements Initializable {
     public JFXTextField SEARCH, ROW_NO, PAGE, MEASUREMENT, STRUCTURE, WALL_TYPE, WALL, MATERIAL, COLOR_TXT, VALUE,
             STUD_HEIGHT, VOLUME, LOBOUR;
 
-    public JFXButton ALL, LENGTH, AREA, STAMPS, WINDOWS, CLADDING;
+    public JFXButton LENGTH, AREA, STAMPS, WINDOWS, CLADDING;
 
     public JFXTreeTableView<layoutsData> layoutsTableView;
     public TreeTableColumn<layoutsData, String> COL_NO;

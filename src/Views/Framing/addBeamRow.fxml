@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootpane" prefHeight="326.0" focusTraversable="true" prefWidth="567.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.framingAddBeamRowController">
+   <children>
+      <Label layoutX="34.0" layoutY="32.0" prefHeight="36.0" prefWidth="125.0" text="Add Beam Row" textFill="#b8b8b8">
+         <font>
+            <Font name="Segoe UI" size="17.0" />
+         </font>
+      </Label>
+      <JFXButton alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="323.0" layoutY="276.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#save" prefHeight="36.0" prefWidth="103.0" style="-fx-background-radius: 30px;" text="Save" textAlignment="CENTER" textFill="#b5b5b5">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/ok_35px.png" />
+               </image>
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="426.0" layoutY="276.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#cancel" prefHeight="36.0" prefWidth="112.0" style="-fx-background-radius: 30px;" text="Cancel" textAlignment="CENTER" textFill="#b5b5b5">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/cancel_30px.png" />
+               </image>
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXTextField fx:id="BEAM" focusColor="#0f9d58" labelFloat="true" layoutX="46.0" layoutY="102.0" prefHeight="35.0" prefWidth="177.0" promptText="Beam" style="-fx-text-inner-color: #b9b9b9;">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="TYPE" focusColor="#0f9d58" labelFloat="true" layoutX="46.0" layoutY="171.0" prefHeight="35.0" prefWidth="177.0" promptText="Type" style="-fx-text-inner-color: #b9b9b9;">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="LENGTH" focusColor="#0f9d58" labelFloat="true" layoutX="338.0" layoutY="102.0" prefHeight="35.0" prefWidth="177.0" promptText="Length" style="-fx-text-inner-color: #b9b9b9;">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="SIZE" focusColor="#0f9d58" labelFloat="true" layoutX="338.0" layoutY="171.0" prefHeight="35.0" prefWidth="177.0" promptText="Size" style="-fx-text-inner-color: #b9b9b9;">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </JFXTextField>
+   </children>
+   <effect>
+      <InnerShadow choke="0.03" color="#4a4a4a" />
+   </effect>
+</AnchorPane>

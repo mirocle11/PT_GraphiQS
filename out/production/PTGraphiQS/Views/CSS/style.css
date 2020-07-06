@@ -4,25 +4,10 @@
 /*tabpane*/
 .tab {
     -fx-background-color: #102027;
-    -fx-pref-width: 350;
-    -fx-pref-height: 60;
 }
 
 .tab-header-background {
     -fx-background-color: #102027;
-}
-
-.tab-label{
-    /*-fx-text-fill: -fx-secondary;*/
-    -fx-font-size: 10pt;
-}
-
-
-.tab-main{
-    -fx-pref-height : 60;
-    -fx-max-height : 60;
-    -fx-pref-width: 100;
-    -fx-max-width : 100;
 }
 
 .jfx-tab-pane .tab-header-area .tab-down-button {
