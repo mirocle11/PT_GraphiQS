@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class createProjectController implements Initializable {
 
-    public AnchorPane createBox, firstpane, secondpane;
+    public AnchorPane firstpane, secondpane;
     public JFXButton next, back, proceed;
     public Label page, second_label;
     public JFXCheckBox selectAllBox;
@@ -35,15 +35,11 @@ public class createProjectController implements Initializable {
         CLIENT_COMBO_BOX.setItems(CLIENTS);
     }
 
-    public void cancel() {
-        workspaceController.closeCreateProject();
-    }
+//    public void cancel() {
+//        workspaceController.closeCreateProject();
+//    }
 
     public void next() {
-        secondpane.getChildren().forEach(node -> {
-            ((JFXCheckBox)node).setSelected(false);
-        });
-
         firstpane.setVisible(false);
         secondpane.setVisible(true);
 
@@ -70,10 +66,14 @@ public class createProjectController implements Initializable {
     }
 
     public void proceed() {
-        workspaceController.openPdfFile();
-        cancel();
+//        workspaceController.openPdfFile();
+//        cancel();
         selectStructures();
         selectedClient = CLIENT_COMBO_BOX.getSelectionModel().getSelectedItem();
+
+        secondpane.getChildren().forEach(node -> {
+            ((JFXCheckBox)node).setSelected(false);
+        });
     }
 
     public void selectAll() {

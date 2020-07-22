@@ -174,6 +174,13 @@
     -fx-background-position: right;
 }
 
+#NEXT {
+    -fx-background-image: url("../images/more_than_25px.png");
+    -fx-background-size: 25px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right;
+}
+
 #loadingPane .label {
     -fx-background-image: none;
 }
@@ -214,11 +221,12 @@
 #layoutsTableView .table-column {
     -fx-alignment: CENTER;
 }
-
+/*
 .separator .line {
     -fx-border-style: solid;
-    -fx-border-width: 0 0 1 0; /* its make really one-pixel-border */
+    -fx-border-width: 0 0 1 0;
 }
+*/
 
 .jfx-text-field {
     -jfx-focus-color: #0f9d58
@@ -240,4 +248,16 @@
 
 #WINDOW_TBL .table-column {
     -fx-alignment: CENTER;
+}
+
+/*jfx colorpicker*/
+.jfx-tree-table-view .column-header .label {
+    -fx-text-fill: -jfx-header-color;
+    -fx-padding: 9 0 9 0;
+}
+
+.jfx-tree-table-view .tree-table-cell {
+    -fx-border-width: 0 0 0 0;
+    -fx-pref-height: 38px;
+    -fx-alignment: center-left;
 }

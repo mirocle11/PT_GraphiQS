@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="PTGraphiQS:jar" />
+      <artifact name="PTGraphiQS" />
     </artifacts-to-build>
   </component>
   <component name="BranchesTreeState">
@@ -24,47 +24,74 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-cladding length updated&#10;-window stamping reference for cladding">
-      <change afterPath="$PROJECT_DIR$/src/Controllers/floorsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controllers/framingAddBeamRowController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controllers/framingAddRowController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controllers/framingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controllers/framing_2Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controllers/setupSheetsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/data/framing/beamsData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/data/framing/framingData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/data/wallsAndInsulation/wallsAndInsulationData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Floors/fifth_floor.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Floors/first_floor.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Floors/fourth_floor.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Floors/ground_floor.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Floors/second_floor.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Floors/seventh_floor.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Floors/sixth_floor.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Floors/third_floor.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Framing/addBeamRow.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Framing/framingAddRow.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Framing/framing_2.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/cladding.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/deck.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/doors.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/floors.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/framing.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/misc.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/roof.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/setupSheets.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/slabAndFooting.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/wallsAndInsulation.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/wallsAndInsulation_2.fxml" afterDir="false" />
+    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-cladding length updated&#10;-window stamping reference for cladding&#10;-setup sheets dashboard function added&#10;-7/6/20 update">
+      <change afterPath="$PROJECT_DIR$/out/artifacts/PTGraphiQS/PTGraphiQS.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controllers/jobInfoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/DoorObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/extOpenings.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/foundations.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/intFloorLev1.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/jobInfo.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/blue-icon1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/blue-icon2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/blue-icon3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/blue-icon4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/blue-icon5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/blue-icon6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/green-icon1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/green-icon2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/green-icon3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/green-icon4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/green-icon5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/green-icon6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/red-icon1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/red-icon2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/red-icon3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/red-icon4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/red-icon5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/red-icon6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/PTGraphiQS.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/PTGraphiQS.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/PTGraphiQS_jar/PTGraphiQS.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/dashboardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/dashboardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/CSS/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/dashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/createProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/createProjectController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/dashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/dashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/layoutsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/layoutsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/setupSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/setupSheetsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/CladdingObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/CladdingObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/data/claddingData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/data/claddingData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Views/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/CSS/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Views/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/layouts.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/layouts.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/setupSheets.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/setupSheets.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/blue/icon1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/blue/icon2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/blue/icon3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/blue/icon4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/blue/icon5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/blue/icon6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/green/icon1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/green/icon2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/green/icon3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/green/icon4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/green/icon5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/green/icon6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/red/icon1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/red/icon2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/red/icon3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/red/icon4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/red/icon5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/red/icon6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/wallsAndInsulation_2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/wallsAndInsulation_2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/workspace.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/Cladding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Cladding.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Tools.java" afterDir="false" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
@@ -202,7 +229,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LBP_Trades" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -211,7 +238,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -222,22 +249,22 @@
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="Controllers" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Model\data" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Controllers" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\libraries" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\data backup" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Framing" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Floors" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PTGraphiQS\src\Views" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="service" />
       <recent name="Model" />
       <recent name="Controllers" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\data backup" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Framing" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Floors" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PTGraphiQS\src\Views" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Model\data" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Controllers" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\libraries" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -820,13 +847,6 @@
       <workItem from="1592484367085" duration="6017000" />
       <workItem from="1592544186144" duration="7228000" />
     </task>
-    <task id="LOCAL-00071" summary="#64 commit sections progress">
-      <created>1574152399416</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1574152399416</updated>
-    </task>
     <task id="LOCAL-00072" summary="#64 commit sections progress">
       <created>1574152563916</created>
       <option name="number" value="00072" />
@@ -1163,7 +1183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593500778317</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="-cladding length updated&#10;-window stamping reference for cladding&#10;-setup sheets dashboard function added&#10;-7/6/20 update">
+      <created>1594035874577</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1594035874578</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1237,9 +1264,18 @@
     <MESSAGE value="-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators&#10;-window stamping updated w/ layout list" />
     <MESSAGE value="-window stamping updated w/ layout list&#10;-updated delete stamp w/ list" />
     <MESSAGE value="-cladding length updated&#10;-window stamping reference for cladding" />
-    <option name="LAST_COMMIT_MESSAGE" value="-cladding length updated&#10;-window stamping reference for cladding" />
+    <MESSAGE value="-cladding length updated&#10;-window stamping reference for cladding&#10;-setup sheets dashboard function added&#10;-7/6/20 update" />
+    <option name="LAST_COMMIT_MESSAGE" value="-cladding length updated&#10;-window stamping reference for cladding&#10;-setup sheets dashboard function added&#10;-7/6/20 update" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="847" y="356" key="#Notifications" timestamp="1594923005484">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="847" y="356" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1594923005484" />
+    <state x="2360" y="94" key="#Project_Structure" timestamp="1594276071822">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2360" y="94" key="#Project_Structure/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1594276071822" />
     <state x="2334" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593977513654">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -1248,30 +1284,38 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2685" y="223" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592742318842" />
+    <state x="2560" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1594289472086">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2560" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1594289472086" />
     <state x="2645" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1593494752756">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2645" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593494752756" />
-    <state x="3035" y="318" key="FileChooserDialogImpl" timestamp="1593974372842">
+    <state x="3035" y="318" key="FileChooserDialogImpl" timestamp="1594622627699">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="3035" y="318" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593974372842" />
-    <state width="1877" height="179" key="GridCell.Tab.0.bottom" timestamp="1593977753191">
+    <state x="3035" y="318" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1594622627699" />
+    <state width="1921" height="179" key="GridCell.Tab.0.bottom" timestamp="1595260478101">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="179" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593977753191" />
-    <state width="1877" height="179" key="GridCell.Tab.0.center" timestamp="1593977753191">
+    <state width="1921" height="179" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595256196657" />
+    <state width="1921" height="179" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595260478101" />
+    <state width="1921" height="179" key="GridCell.Tab.0.center" timestamp="1595260478101">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="179" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593977753191" />
-    <state width="1877" height="179" key="GridCell.Tab.0.left" timestamp="1593977753191">
+    <state width="1921" height="179" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595256196657" />
+    <state width="1921" height="179" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595260478101" />
+    <state width="1921" height="179" key="GridCell.Tab.0.left" timestamp="1595260478101">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="179" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593977753191" />
-    <state width="1877" height="179" key="GridCell.Tab.0.right" timestamp="1593977753191">
+    <state width="1921" height="179" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595256196657" />
+    <state width="1921" height="179" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595260478101" />
+    <state width="1921" height="179" key="GridCell.Tab.0.right" timestamp="1595260478101">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="179" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593977753191" />
+    <state width="1921" height="179" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595256196657" />
+    <state width="1921" height="179" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595260478101" />
     <state width="1877" height="213" key="GridCell.Tab.1.bottom" timestamp="1592742376316">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -1292,25 +1336,39 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2352" y="163" width="1054" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593363291652" />
-    <state x="2472" y="248" key="Vcs.Push.Dialog.v2" timestamp="1593500780211">
+    <state x="2472" y="248" key="Vcs.Push.Dialog.v2" timestamp="1594035890795">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593500780211" />
-    <state x="2012" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1593438791457">
+    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1594035890795" />
+    <state x="107" y="77" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1595259214180">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1636" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595255429073" />
+    <state x="107" y="77" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595259214180" />
+    <state x="2550" y="-8" width="980" height="1045" maximized="true" key="dock-window-1" timestamp="1595228266863">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2012" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593438791457" />
+    <state x="2550" y="-8" width="980" height="1045" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595228266863" />
+    <state x="953" y="0" width="974" height="1049" key="dock-window-2" timestamp="1595231143729">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="953" y="0" width="974" height="1049" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595231143729" />
+    <state x="847" y="0" width="1089" height="1045" key="dock-window-3" timestamp="1595232343515">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="847" y="0" width="1089" height="1045" key="dock-window-3/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595232343515" />
     <state x="2978" y="422" width="555" height="283" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1592637624759">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2978" y="422" width="555" height="283" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592637624759" />
-    <state x="2536" y="240" width="672" height="677" key="run.anything.popup" timestamp="1593438605352">
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1595256125834">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595256125834" />
+    <state x="2536" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1594036853346" />
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594966427695">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2536" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593438605352" />
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1593488734558">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593488734558" />
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1594966427695" />
   </component>
 </project>

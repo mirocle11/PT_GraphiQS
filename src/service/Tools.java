@@ -19,6 +19,8 @@ import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -40,7 +42,7 @@ public class Tools {
     Group group;
     String mode;
     Pane pane;
-    Canvas canvas, stamp_canvas;
+    Canvas canvas;
     Line line;
     Circle circle;
     Label noScale;
@@ -115,7 +117,6 @@ public class Tools {
     public Tools(workspaceController window) {
         this.window = window;
         this.canvas = window.canvas;
-        this.stamp_canvas = window.stamp_canvas;
         this.pane = window.pane;
         this.scroller = window.scroller;
         this.mainPane = window.mainPane;
@@ -180,7 +181,7 @@ public class Tools {
                 }
             });
             service.start();
-        } catch(Exception ignored){
+        } catch(Exception ignored) {
 
         }
     }
@@ -233,7 +234,7 @@ public class Tools {
                     }
                 });
                 pane.setOnMouseClicked(event -> {
-                    //do not remove
+                    //stamping
                     if (event.getButton() == MouseButton.PRIMARY) {
                         if (!(window.ws_indicator == 0)) {
                             Label window_stamp = new Label();
@@ -288,6 +289,82 @@ public class Tools {
 
                             layouts.windowData.addAll(new windowData(String.valueOf(window_no++), windowObject.getWindowNo(),
                                     windowObject.getCladding(), windowObject.getType(), windowObject.getWidth(), windowObject.getHeight()));
+                        }
+                        if (!(window.ds_indicator == 0)) {
+                            ImageView door_img = new ImageView();
+                            Label door_stamp = new Label();
+
+                            int selected_icon = window.iconList.getSelectionModel().getSelectedIndex();
+
+                            switch (selected_icon) {
+                                case 0:
+                                    door_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon1.png")));
+                                    break;
+                                case 1:
+                                    door_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon2.png")));
+                                    break;
+                                case 2:
+                                    door_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon3.png")));
+                                    break;
+                                case 3:
+                                    door_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon4.png")));
+                                    break;
+                                case 4:
+                                    door_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon5.png")));
+                                    break;
+                                case 5:
+                                    door_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon6.png")));
+                                    break;
+                                case 6:
+                                    door_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon1.png")));
+                                    break;
+                                case 7:
+                                    door_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon2.png")));
+                                    break;
+                                case 8:
+                                    door_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon3.png")));
+                                    break;
+                                case 9:
+                                    door_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon4.png")));
+                                    break;
+                                case 10:
+                                    door_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon5.png")));
+                                    break;
+                                case 11:
+                                    door_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon6.png")));
+                                    break;
+                                case 12:
+                                    door_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon1.png")));
+                                    break;
+                                case 13:
+                                    door_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon2.png")));
+                                    break;
+                                case 14:
+                                    door_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon3.png")));
+                                    break;
+                                case 15:
+                                    door_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon4.png")));
+                                    break;
+                                case 16:
+                                    door_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon5.png")));
+                                    break;
+                                case 17:
+                                    door_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon6.png")));
+                                    break;
+                            }
+
+                            door_stamp.setGraphic(door_img);
+                            door_stamp.setLayoutX(event.getX());
+                            door_stamp.setLayoutY(event.getY());
+                            door_stamp.setAlignment(Pos.CENTER);
+
+                            pane.getChildren().add(door_stamp);
+
+                            door_stamp.setOnMouseClicked(event1 -> {
+                                if (event1.getButton() == MouseButton.SECONDARY) {
+
+                                }
+                            });
                         }
                     }
                 });
@@ -494,7 +571,7 @@ public class Tools {
             for (CladdingObject cl1 : p1.getCladdingObjectList()) {
                 cld_count++;
                 layouts.claddingData.addAll(new claddingData("C" + cld_count, cl1.getCladding_name(),
-                        String.valueOf(cl1.getLength())));
+                        String.valueOf(cl1.getLength()), String.valueOf(cl1.getCladding_height())));
                 System.out.println(cl1.getCladding_name());
             }
         }
@@ -542,7 +619,6 @@ public class Tools {
         stampList.addAll(page.getStampList());
         snapList.addAll(page.getSnapList());
         setCanvas();
-        setStampCanvas();
     }
 
     public void setCanvas() {
@@ -553,13 +629,6 @@ public class Tools {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
         gc.drawImage(page.getImage(), 0, 0);
         updateWindow();
-    }
-
-    public void setStampCanvas() {
-        stamp_canvas.setWidth(page.getImage().getWidth());
-        stamp_canvas.setHeight(page.getImage().getHeight());
-        GraphicsContext gc = stamp_canvas.getGraphicsContext2D();
-        gc.clearRect(0, 0, stamp_canvas.getWidth(), stamp_canvas.getHeight());
     }
 
     //Pagination

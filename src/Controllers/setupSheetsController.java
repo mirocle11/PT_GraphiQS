@@ -11,81 +11,35 @@ import java.util.ResourceBundle;
 public class setupSheetsController implements Initializable {
 
     @FXML
-    private Tab slabAndFootingTab, floorsTab, framingTab, wallsAndInsulationTab, claddingTab, doorsTab, roofTab, deckTab, miscTab;
+    private Tab FOUNDATIONS, INT_FLOOR_LEV_1, EXT_OPENINGS;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/slabAndFooting.fxml"));
-            AnchorPane slabAndFootingPane = loader.load();
-            slabAndFootingTab.setContent(slabAndFootingPane);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/foundations.fxml"));
+            AnchorPane foundations = loader.load();
+            FOUNDATIONS.setContent(foundations);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/floors.fxml"));
-            AnchorPane floors = loader.load();
-            floorsTab.setContent(floors);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/intFloorLev1.fxml"));
+            AnchorPane intFloorLev1 = loader.load();
+            INT_FLOOR_LEV_1.setContent(intFloorLev1);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/framing.fxml"));
-            AnchorPane framing = loader.load();
-            framingTab.setContent(framing);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/wallsAndInsulation.fxml"));
-            AnchorPane wallsAndInsulation = loader.load();
-            wallsAndInsulationTab.setContent(wallsAndInsulation);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/cladding.fxml"));
-            AnchorPane cladding = loader.load();
-            claddingTab.setContent(cladding);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/doors.fxml"));
-            AnchorPane doors = loader.load();
-            doorsTab.setContent(doors);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/roof.fxml"));
-            AnchorPane roof = loader.load();
-            roofTab.setContent(roof);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/deck.fxml"));
-            AnchorPane deck = loader.load();
-            deckTab.setContent(deck);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/misc.fxml"));
-            AnchorPane misc = loader.load();
-            miscTab.setContent(misc);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/extOpenings.fxml"));
+            AnchorPane extOpenings = loader.load();
+            EXT_OPENINGS.setContent(extOpenings);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
+
 }

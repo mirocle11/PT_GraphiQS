@@ -28,6 +28,7 @@ public class layoutsController implements Initializable {
 
     public JFXButton LENGTH, AREA, STAMPS, WINDOWS, CLADDING;
 
+    //length table
     public JFXTreeTableView<layoutsData> layoutsTableView;
     public TreeTableColumn<layoutsData, String> COL_NO;
     public TreeTableColumn<layoutsData, String> COL_PAGE;
@@ -60,11 +61,14 @@ public class layoutsController implements Initializable {
     public TreeTableColumn<windowData, String> WINDOW_WIDTH;
     public TreeTableColumn<windowData, String> WINDOW_HEIGHT;
 
+    //cladding table
     public JFXTreeTableView<claddingData> CLADDING_TBL;
     public TreeTableColumn<claddingData, String> CLADDING_NO;
     public TreeTableColumn<claddingData, String> CLADDING_NAME;
     public TreeTableColumn<claddingData, String> CLADDING_LENGTH;
+    public TreeTableColumn<claddingData, String> CLADDING_HEIGHT;
 
+    //data lists
     public static ObservableList<layoutsData> data;
     public static ObservableList<stampData> stamp_data;
     public static ObservableList<windowData> windowData;
@@ -170,6 +174,9 @@ public class layoutsController implements Initializable {
         );
         CLADDING_LENGTH.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("length")
+        );
+        CLADDING_HEIGHT.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("height")
         );
 
         TreeItem<layoutsData> root = new RecursiveTreeItem<>(data, RecursiveTreeObject::getChildren);

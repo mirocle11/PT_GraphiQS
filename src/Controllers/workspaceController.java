@@ -40,7 +40,6 @@ import javafx.util.Duration;
 import service.*;
 
 import javax.swing.*;
-import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -51,11 +50,11 @@ import java.util.logging.Logger;
 public class workspaceController implements Initializable {
 
     //buttons
-    public JFXButton IMPORT, SAVE, SCALE, LENGTH, AREA, CLADDING_BTN, STAMP, ROTATE, structureToggle;
+    public JFXButton IMPORT_PDF, IMPORT_PDF_1, SAVE, SCALE, LENGTH, AREA, CLADDING_BTN, STAMP, ROTATE, structureToggle;
     //    public JFXButton NEXT_PAGE, PREVIOUS_PAGE;
     public JFXHamburger hamburger;
-    //combo box (for selection)
 
+    //combo box (for length selection)
     public JFXComboBox structureComboBox, wallTypeComboBox, wallComboBox, materialComboBox;
     public JFXColorPicker colorPicker;
 
@@ -117,11 +116,7 @@ public class workspaceController implements Initializable {
     static Tools tools;
     static WallData wallData;
 
-    //create form
-    private static Stage createProjectStage;
-    private double xOffset = 0;
-    private double yOffset = 0;
-
+    //sheets list
     private static ObservableList<String> selectedBoxes = FXCollections.observableArrayList();
     private ObservableList<String> newItemsList = FXCollections.observableArrayList();
 
@@ -129,7 +124,7 @@ public class workspaceController implements Initializable {
     public static int user_id = 0;
     public static int client_id = 0;
 
-    //stamp
+    //stamp (doors)
     public AnchorPane stampPicker;
     private static class IconInfo {
         int iconNumber;  // an index into the iconImages array
@@ -139,9 +134,9 @@ public class workspaceController implements Initializable {
     private int iconsShown;
     private int iconsPlaced;
 
-    private ListView<ImageView> iconList;
+    public ListView<ImageView> iconList;
 
-    private int ds_indicator = 0;
+    public int ds_indicator = 0;
     public Canvas stamp_canvas;
 
     public JFXButton DONE;
@@ -160,7 +155,6 @@ public class workspaceController implements Initializable {
             "710", "760", "810", "860", "1200", "1600", "1800");
     private ObservableList<String> door_height = FXCollections.observableArrayList("1980", "2000", "2100",
             "2200", "2400");
-    private ObservableList<String> colors = FXCollections.observableArrayList( "Red", "Green", "Blue");
 
     private int stamp_count = 0;
     public JFXCheckBox STAMP_OVERLAY;
@@ -182,6 +176,7 @@ public class workspaceController implements Initializable {
     public AnchorPane CLADDING_LIST;
     public JFXColorPicker CLD_COLOR_PICKER;
     public String selectedCladding;
+
     int cld_indicator = 0;
 
     @Override
@@ -191,35 +186,6 @@ public class workspaceController implements Initializable {
         DOOR_WIDTH.setItems(door_width);
         DOOR_HEIGHT.setItems(door_height);
         WINDOW_TYPE.setItems(window_type);
-        COLOR.setItems(colors);
-
-        COLOR.setOnAction(event -> {
-            iconList = createIconList();
-            stampPicker.getChildren().add(iconList);
-        });
-
-        UNDO.setOnAction( e -> {
-            if (iconsShown > 0) {
-                // Decrement iconsShown, so one less icon will be drawn;
-                // the icon is still in the array, for the Redo command.
-                iconsShown--;
-                REDO.setDisable(false);
-                redraw();
-            }
-        });
-        UNDO.setDisable(true);
-
-        REDO.setOnAction( e -> {
-            if (iconsShown < iconsPlaced) {
-                // Increment iconsShown, so one more icon will be shown.
-                iconsShown++;
-                if (iconsShown == iconsPlaced)
-                    REDO.setDisable(true);
-                UNDO.setDisable(false);
-                redraw();
-            }
-        });
-        REDO.setDisable(true);
 
         DONE.setOnAction(event -> {
             stampPicker.setVisible(false);
@@ -242,15 +208,19 @@ public class workspaceController implements Initializable {
             if (STAMP_TYPE.getSelectionModel().getSelectedItem().equals("Doors")) {
                 DOOR_PANE.setVisible(true);
                 WINDOW_PANE.setVisible(false);
+
                 ds_indicator = 1;
                 ws_indicator = 0;
-                UNDO.setVisible(true);
-                REDO.setVisible(true);
+
+                iconList = createIconList();
+                stampPicker.getChildren().add(iconList);
             } else if (STAMP_TYPE.getSelectionModel().getSelectedItem().equals("Windows")) {
                 DOOR_PANE.setVisible(false);
                 WINDOW_PANE.setVisible(true);
+
                 ds_indicator = 0;
                 ws_indicator = 1;
+
                 UNDO.setVisible(false);
                 REDO.setVisible(false);
             }
@@ -262,13 +232,9 @@ public class workspaceController implements Initializable {
         });
 
         CLD_PROCEED.setOnAction(event -> {
-            if (cld_indicator == 1) {
                 setSelectedCladding();
                 claddingAction();
                 CLADDING_LIST.setVisible(false);
-            } else {
-                JOptionPane.showMessageDialog(null, "Please select cladding type");
-            }
         });
 
         CLD_CANCEL.setOnAction(event -> {
@@ -339,37 +305,6 @@ public class workspaceController implements Initializable {
     }
 
     public void openFile() {
-        try {
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/Views/createProject.fxml"));
-            AnchorPane pane = loader.load();
-
-            //draggable pop up
-            pane.setOnMousePressed(event -> {
-                xOffset = event.getSceneX();
-                yOffset = event.getSceneY();
-            });
-
-            pane.setOnMouseDragged(event -> {
-                createProjectStage.setX(event.getScreenX() - xOffset);
-                createProjectStage.setY(event.getScreenY() - yOffset);
-            });
-
-            Scene scene = new Scene(pane);
-            scene.setFill(Color.TRANSPARENT);
-            scene.getStylesheets().addAll(Main.class.getResource("/Views/CSS/style.css").toExternalForm());
-            createProjectStage = new Stage();
-            createProjectStage.setScene(scene);
-            createProjectStage.initStyle(StageStyle.UNDECORATED);
-            createProjectStage.initModality(Modality.APPLICATION_MODAL);
-            createProjectStage.initStyle(StageStyle.TRANSPARENT);
-            createProjectStage.showAndWait();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    static void openPdfFile() {
         tools.open();
     }
 
@@ -391,10 +326,6 @@ public class workspaceController implements Initializable {
                 }
             });
         });
-    }
-
-    static void closeCreateProject() {
-        createProjectStage.close();
     }
 
     public void saveFile() {
@@ -471,6 +402,7 @@ public class workspaceController implements Initializable {
         }
     }
 
+    //door stamp
     public void setStamp(MouseEvent e) {
         if (e.getButton() == MouseButton.PRIMARY) {
             if (ds_indicator == 1) {
@@ -498,42 +430,29 @@ public class workspaceController implements Initializable {
 
     private ListView<ImageView> createIconList() {
         String[] iconNames = new String[] { // names of image resource file, in directory stamper_icons
-                "icon1.png", "icon2.png", "icon3.png", "icon4.png", "icon5.png", "icon6.png"
+                "blue-icon1.png", "blue-icon2.png", "blue-icon3.png", "blue-icon4.png", "blue-icon5.png", "blue-icon6.png",
+                "green-icon1.png", "green-icon2.png", "green-icon3.png", "green-icon4.png", "green-icon5.png", "green-icon6.png",
+                "red-icon1.png", "red-icon2.png", "red-icon3.png", "red-icon4.png", "red-icon5.png", "red-icon6.png"
         };
 
         iconImages = new Image[iconNames.length];
 
         ListView<ImageView> list = new ListView<>();
 
-        list.setPrefWidth(50);
+        list.setPrefWidth(57);
         list.setPrefHeight(246);
         list.setLayoutX(240);
         list.setLayoutY(65);
 
-        String icon_url = "";
-        if (!COLOR.getSelectionModel().isEmpty()) {
-            String color = COLOR.getSelectionModel().getSelectedItem();
-            switch (color) {
-                case "Green":
-                    icon_url = "../Views/stamper_icons/green/";
-                    break;
-                case "Red":
-                    icon_url = "../Views/stamper_icons/red/";
-                    break;
-                case "Blue":
-                    icon_url = "../Views/stamper_icons/blue/";
-                    break;
-            }
-        }
+        String icon_url = "../Views/stamper_icons/";
 
         for (int i = 0; i < iconNames.length; i++) {
             Image icon = new Image(getClass().getResourceAsStream(icon_url + iconNames[i]));
             iconImages[i] = icon;
-            list.getItems().add( new ImageView(icon) );
+            list.getItems().add(new ImageView(icon));
         }
 
         list.getSelectionModel().select(0);  //The first item in the list is currently selected.
-
         return list;
     }
 

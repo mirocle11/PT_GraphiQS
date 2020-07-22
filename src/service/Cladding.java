@@ -14,6 +14,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +35,7 @@ public class Cladding implements IMeasurement {
     Rectangle rect;
     double snapX = -1, snapY = -1;
     ContextMenu contextMenu;
+    double cladding_height;
 
     public Cladding(Tools tools) {
         this.tools = tools;
@@ -173,12 +175,16 @@ public class Cladding implements IMeasurement {
 
         claddingObject.setPointList(pointList);
         claddingObject.setTools(tools);
-        claddingObject.setCladding_name(tools.window.selectedCladding);
+
+        setCladdingHeight();
+
+        claddingObject.setCladding_height(cladding_height);
 
         page.getCladdingObjectList().add(claddingObject);
         System.out.println("cladding object " + page.claddingObjectList.size());
-        System.out.println("lines " +claddingObject.getLineList().size());
-        System.out.println("points "+claddingObject.getPointList().size());
+        System.out.println("lines " + claddingObject.getLineList().size());
+        System.out.println("points " + claddingObject.getPointList().size());
+        System.out.println("cladding height " + cladding_height);
 
         tools.updateWindow();
 
@@ -243,4 +249,14 @@ public class Cladding implements IMeasurement {
         pane.getChildren().add(r);
         box.clear();
     }
+
+    public void setCladdingHeight() {
+        try {
+            cladding_height = Float.parseFloat(JOptionPane.showInputDialog("Enter Cladding Height", 0.00 + " mm"));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Please enter a valid number.",
+                    "Invalid Stud height value", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
 }

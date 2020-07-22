@@ -96,9 +96,9 @@
             <Font name="Segoe UI Semibold" size="19.0" />
          </font>
       </Label>
-      <Separator layoutX="458.0" layoutY="116.0" orientation="VERTICAL" prefHeight="240.0" prefWidth="6.0" />
-      <Separator layoutX="458.0" layoutY="396.0" orientation="VERTICAL" prefHeight="139.0" prefWidth="6.0" AnchorPane.bottomAnchor="65.0" AnchorPane.topAnchor="396.0" />
-      <Separator layoutX="477.0" layoutY="372.0" prefHeight="11.0" prefWidth="501.0" />
+      <Separator layoutX="458.0" layoutY="116.0" orientation="VERTICAL" prefHeight="240.0" prefWidth="1.0" />
+      <Separator layoutX="458.0" layoutY="396.0" orientation="VERTICAL" prefHeight="139.0" prefWidth="1.0" AnchorPane.bottomAnchor="65.0" AnchorPane.topAnchor="396.0" />
+      <Separator layoutX="477.0" layoutY="372.0" prefHeight="1.0" prefWidth="501.0" />
       <JFXComboBox focusColor="#0f9d58" layoutX="479.0" layoutY="406.0" prefHeight="35.0" prefWidth="229.0" promptText="Ceiling Batterns" />
       <JFXComboBox focusColor="#0f9d58" layoutX="750.0" layoutY="406.0" prefHeight="35.0" prefWidth="229.0" promptText="Spacing" />
       <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="477.0" layoutY="475.0" prefHeight="35.0" prefWidth="229.0" promptText="Wet Ceiling" style="-fx-text-inner-color: #b9b9b9;">

@@ -27,6 +27,7 @@ public class CladdingObject {
     private List<Line> lineList = new ArrayList<>();
     private List<Rectangle> boxList = new ArrayList<>();
     private String cladding_name;
+    private double cladding_height;
     ContextMenu contextMenu;
 
     public void createLines(List<Point2D> point2DS) {
@@ -190,5 +191,14 @@ public class CladdingObject {
     public void setCladding_name(String cladding_name) {
         this.cladding_name = cladding_name;
         System.out.println("setting cladding name : "+cladding_name);
+    }
+
+
+    public double getCladding_height() {
+        return cladding_height;
+    }
+
+    public void setCladding_height(double cladding_height) {
+        this.cladding_height = cladding_height;
     }
 }

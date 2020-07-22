@@ -20,6 +20,7 @@ public class dashboardController implements Initializable {
 
     @FXML
     public AnchorPane rootpane,dashboard_max,dashboard_min;
+    private AnchorPane jobInfo;
     private AnchorPane workspace;
     private BorderPane layouts;
     private AnchorPane sheets;
@@ -41,10 +42,21 @@ public class dashboardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/jobInfo.fxml"));
+            jobInfo = loader.load();
+            rootpane.getChildren().addAll(jobInfo);
+            jobInfo.setVisible(false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/workspace.fxml"));
             workspace = loader.load();
             rootpane.getChildren().addAll(workspace);
+            workspace.setVisible(false);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -75,7 +87,7 @@ public class dashboardController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        setWorkspace();
+
         initClock();
     }
 
@@ -107,6 +119,23 @@ public class dashboardController implements Initializable {
         }
     }
 
+    private void setJobInfo() {
+        AnchorPane.setRightAnchor(jobInfo,0.0);
+        AnchorPane.setTopAnchor(jobInfo,0.0);
+        AnchorPane.setBottomAnchor(jobInfo,0.0);
+
+        if (i == 0) {
+            AnchorPane.setLeftAnchor(jobInfo,265.0);
+        } else {
+            AnchorPane.setLeftAnchor(jobInfo,65.0);
+        }
+        jobInfo.setVisible(true);
+        workspace.setVisible(false);
+        layouts.setVisible(false);
+        sheets.setVisible(false);
+        builder.setVisible(false);
+    }
+
     private void setWorkspace() {
         AnchorPane.setRightAnchor(workspace,0.0);
         AnchorPane.setTopAnchor(workspace,0.0);
@@ -117,6 +146,7 @@ public class dashboardController implements Initializable {
         } else {
             AnchorPane.setLeftAnchor(workspace,65.0);
         }
+        jobInfo.setVisible(false);
         workspace.setVisible(true);
         layouts.setVisible(false);
         sheets.setVisible(false);
@@ -133,6 +163,7 @@ public class dashboardController implements Initializable {
         } else {
             AnchorPane.setLeftAnchor(layouts,65.0);
         }
+        jobInfo.setVisible(false);
         workspace.setVisible(false);
         layouts.setVisible(true);
         sheets.setVisible(false);
@@ -149,6 +180,7 @@ public class dashboardController implements Initializable {
         } else {
             AnchorPane.setLeftAnchor(sheets,65.0);
         }
+        jobInfo.setVisible(false);
         workspace.setVisible(false);
         layouts.setVisible(false);
         sheets.setVisible(true);
@@ -165,6 +197,7 @@ public class dashboardController implements Initializable {
         } else {
             AnchorPane.setLeftAnchor(builder,65.0);
         }
+        jobInfo.setVisible(false);
         workspace.setVisible(false);
         layouts.setVisible(false);
         sheets.setVisible(false);
@@ -180,6 +213,10 @@ public class dashboardController implements Initializable {
         }), new KeyFrame(Duration.seconds(1)));
         clock.setCycleCount(Animation.INDEFINITE);
         clock.play();
+    }
+
+    public void jobInfoAction() {
+        setJobInfo();
     }
 
     public void workspaceAction() {
@@ -200,6 +237,9 @@ public class dashboardController implements Initializable {
 
     public void toggle() {
         toggleDashBoard();
+        if (jobInfo.isVisible()) {
+            setJobInfo();
+        }
         if (workspace.isVisible()) {
             setWorkspace();
         }
