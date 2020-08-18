@@ -1,45 +1,73 @@
 package Controllers;
-import javafx.fxml.FXML;
+
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTabPane;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class setupSheetsController implements Initializable {
 
-    @FXML
-    private Tab FOUNDATIONS, INT_FLOOR_LEV_1, EXT_OPENINGS;
+    public JFXTabPane TAB_PANE;
+    public JFXButton REFRESH;
+    public static ObservableList<String> selectedBoxes = FXCollections.observableArrayList();
+
+    //sheets content
+    public AnchorPane FOUNDATIONS, EXT_OPENINGS, INT_OPENINGS, POST_BEAM_HARDWARE, WALLS_SGL_LEV, ROOF, EXT_LINING;
+
+    public ArrayList<AnchorPane> contentList = new ArrayList();
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resource) {
+        loadTabs();
 
+        REFRESH.setOnAction(event -> {
+            TAB_PANE.getTabs().clear();
+            selectedBoxes.forEach((String s) -> {
+                Tab tab = new Tab();
+                tab.setText(s);
+                contentList.forEach(anchorPane -> {
+                    if (anchorPane.getId().equals(s)) {
+                        tab.setContent(anchorPane);
+                    }
+                });
+                TAB_PANE.getTabs().add(tab);
+            });
+        });
+    }
+
+    public void loadTabs() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/foundations.fxml"));
-            AnchorPane foundations = loader.load();
-            FOUNDATIONS.setContent(foundations);
+            FOUNDATIONS = loader.load();
+            FOUNDATIONS.setId("Foundations");
+            contentList.add(FOUNDATIONS);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/intFloorLev1.fxml"));
-            AnchorPane intFloorLev1 = loader.load();
-            INT_FLOOR_LEV_1.setContent(intFloorLev1);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/extOpenings.fxml"));
-            AnchorPane extOpenings = loader.load();
-            EXT_OPENINGS.setContent(extOpenings);
+            EXT_OPENINGS = loader.load();
+            EXT_OPENINGS.setId("Ext Openings");
+            contentList.add(EXT_OPENINGS);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/intOpenings.fxml"));
+            INT_OPENINGS = loader.load();
+            INT_OPENINGS.setId("Int Openings");
+            contentList.add(INT_OPENINGS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

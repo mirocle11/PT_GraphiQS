@@ -1,44 +1,113 @@
 package DataBase;
 
+import Controllers.Sheets.foundationsController;
 import Model.data.clientsData;
 import Model.data.subtradesData;
-import com.jfoenix.controls.JFXTextField;
+import Model.data.setupSheetsData;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 
 import javax.swing.*;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DataBase {
 
-    private static final String URL = "jdbc:mysql://localhost:3307/pt_graphiqs_db";
-    private static Connection con;
+    private static final String URL = "jdbc:mysql://localhost:3306/";
+    private static Connection connection;
+    private static String dbName = "pt_graphiqs_db";
 
     private int user_id = 0;
-    private int _rate = 0;
 
     //declare instance
     private static DataBase instance = null;
-    private String username;
-    private String position;
-    private String full_name;
-    private String subtrade;
-    private int rate;
-
     public static DataBase getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new DataBase();
         }
         return instance;
     }
 
-    //connect to db
+    //create & connect to db
     private DataBase() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection(URL, "root", "password");
-            System.out.println("Successfully connected to mysql database!");
-        } catch (Exception e){
+            connection = DriverManager.getConnection(URL + dbName, "root", "password");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("No database detected proceeding to create");
+            createDatabase();
+        }
+    }
+
+    public void createDatabase() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(URL, "root","password");
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("CREATE DATABASE IF NOT EXISTS " + dbName);
+            setTables();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setTables() {
+        try {
+            connection = DriverManager.getConnection(URL + dbName, "root", "password");
+
+            String CREATE_USERS_TBL = "CREATE TABLE IF NOT EXISTS USERS_TBL(ID INTEGER NOT NULL AUTO_INCREMENT, " +
+                    "USERNAME VARCHAR(20), PASSWORD VARCHAR(20), POSITION VARCHAR(20), SECURITY_QUESTION VARCHAR(45), " +
+                    "SECURITY_ANSWER VARCHAR(20), PRIMARY KEY (ID))";
+
+            String CREATE_CLIENTS_TBL = "CREATE TABLE IF NOT EXISTS CLIENTS_TBL(ID INTEGER NOT NULL AUTO_INCREMENT, " +
+                    "USER_ID INT, FIRST_NAME VARCHAR(20), LAST_NAME VARCHAR(20), FULL_NAME VARCHAR(20), " +
+                    "CONTACT_PERSON VARCHAR(30), EMAIL VARCHAR(30), MOBILE VARCHAR(20), LANDLINE VARCHAR(20), " +
+                    "PRIMARY KEY (ID), FOREIGN KEY (USER_ID) REFERENCES USERS_TBL(ID))";
+
+            String CREATE_SUBTRADES_TBL = "CREATE TABLE IF NOT EXISTS SUBTRADES_TBL(ID INTEGER NOT NULL AUTO_INCREMENT, " +
+                    "CLIENT_ID INT, SUBTRADE VARCHAR(20), FIRST_NAME VARCHAR(20), LAST_NAME VARCHAR(20), " +
+                    "CONTACT_PERSON VARCHAR(30), ADDRESS VARCHAR(20), EMAIL VARCHAR(30), MOBILE VARCHAR(20), " +
+                    "BEST_WAY_TO_CONTACT VARCHAR(20), PRIMARY KEY (ID), FOREIGN KEY (CLIENT_ID) REFERENCES CLIENTS_TBL(ID))";
+
+            String CREATE_PRICE_CARDS_TBL = "CREATE TABLE IF NOT EXISTS PRICE_CARDS_TBL(ID INTEGER NOT NULL AUTO_INCREMENT, " +
+                    "SUBTRADE_ID INT, MATERIAL VARCHAR(20), UNIT VARCHAR(20), RATE VARCHAR(20), PRIMARY KEY (ID), " +
+                    "FOREIGN KEY (SUBTRADE_ID) REFERENCES SUBTRADES_TBL(ID))";
+
+            String CREATE_STRUCTURE_TBL = "CREATE TABLE IF NOT EXISTS STRUCTURES_TBL(ID INTEGER NOT NULL AUTO_INCREMENT, " +
+                    "STRUCTURE VARCHAR(45) UNIQUE , PRIMARY KEY (ID))";
+
+            String CREATE_PARTS_TBL = "CREATE TABLE IF NOT EXISTS STRUCTURES_PARTS_TBL(ID INTEGER NOT NULL AUTO_INCREMENT, " +
+                    "STRUCTURE_ID INT, PARTS VARCHAR(45) UNIQUE , PRIMARY KEY (ID), FOREIGN KEY (STRUCTURE_ID) REFERENCES " +
+                    "STRUCTURES_TBL(ID))";
+
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(CREATE_USERS_TBL);
+            statement.executeUpdate(CREATE_CLIENTS_TBL);
+            statement.executeUpdate(CREATE_SUBTRADES_TBL);
+            statement.executeUpdate(CREATE_PRICE_CARDS_TBL);
+            statement.executeUpdate(CREATE_STRUCTURE_TBL);
+            statement.executeUpdate(CREATE_PARTS_TBL);
+
+            //creates the default user
+            addUser("estimator21", "password", "What is your Mother's maiden name?",
+                    "secret");
+
+            //inserting structures
+            setupSheetsData.structures.forEach(this::insertStructures);
+
+            //inserting parts
+            setupSheetsData.foundations.forEach(part -> insertStructureParts(1, part));
+            setupSheetsData.extOpenings.forEach(part -> insertStructureParts(9, part));
+            setupSheetsData.intOpenings.forEach(part -> insertStructureParts(10, part));
+            setupSheetsData.postBeamHardware.forEach(part -> insertStructureParts(17, part));
+            setupSheetsData.wallsSglLev.forEach(part -> insertStructureParts(18, part));
+            setupSheetsData.roof.forEach(part -> insertStructureParts(30, part));
+            setupSheetsData.extLining.forEach(part -> insertStructureParts(31, part));
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -48,7 +117,7 @@ public class DataBase {
         try {
             String sql = "INSERT INTO USERS_TBL (USERNAME, PASSWORD, SECURITY_QUESTION, SECURITY_ANSWER) VALUES (?, ?, ?, ?)";
 
-            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
             preparedStatement.setString(3, security_question);
@@ -67,7 +136,7 @@ public class DataBase {
             String sql = "INSERT INTO CLIENTS_TBL (USER_ID, FIRST_NAME, LAST_NAME, FULL_NAME, CONTACT_PERSON, EMAIL," +
                     " MOBILE, LANDLINE) VALUES (LAST_INSERT_ID(), ?, ?, ?, ?, ?, ?, ?)";
 
-            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, first_name);
             preparedStatement.setString(2, last_name);
             preparedStatement.setString(3, first_name + " " +last_name);
@@ -90,7 +159,7 @@ public class DataBase {
             String sql = "INSERT INTO SUBTRADES_TBL (CLIENT_ID, SUBTRADE, FIRST_NAME, LAST_NAME, CONTACT_PERSON," +
                     " ADDRESS, EMAIL, MOBILE, BEST_WAY_TO_CONTACT) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, client_id);
             preparedStatement.setString(2, subtrade);
             preparedStatement.setString(3, first_name);
@@ -112,7 +181,7 @@ public class DataBase {
         try {
             String sql = "INSERT INTO PRICE_CARD_TBL (SUBTRADE_ID, MATERIAL, UNIT, RATE) VALUES (LAST_INSERT_ID(), ?, ?, ?)";
 
-            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, material);
             preparedStatement.setString(2, unit);
             preparedStatement.setString(3, rate);
@@ -127,14 +196,13 @@ public class DataBase {
     //display
     public void displayClients(ObservableList<clientsData> clientsData) {
         try {
-            Statement statement = con.createStatement();
+            Statement statement = connection.createStatement();
             String sql = "SELECT * FROM CLIENTS_TBL";
             ResultSet resultSet = statement.executeQuery(sql);
 
             clientsData.clear();
 
             while (resultSet.next()) {
-
                 String ID = resultSet.getString("ID");
                 String FULL_NAME = resultSet.getString("FULL_NAME");
 
@@ -147,14 +215,13 @@ public class DataBase {
 
     public void displaySubtrades(int id, ObservableList<subtradesData> subtradesData) {
         try {
-            Statement statement = con.createStatement();
+            Statement statement = connection.createStatement();
             String sql = "SELECT * FROM SUBTRADES_TBL WHERE CLIENT_ID = " + id;
             ResultSet resultSet = statement.executeQuery(sql);
 
             subtradesData.clear();
 
             while (resultSet.next()) {
-
                 String ID = resultSet.getString("ID");
                 String SUBTRADE = resultSet.getString("SUBTRADE");
                 String FIRST_NAME = resultSet.getString("FIRST_NAME");
@@ -176,12 +243,11 @@ public class DataBase {
     public void viewClientDetails(int id, Label FIRST_NAME, Label LAST_NAME, Label CONTACT_PERSON, Label EMAIL,
                                   Label MOBILE, Label LANDLINE) {
         try {
-            Statement statement = con.createStatement();
-            String sql = "SELECT * FROM CLIENTS_TBL WHERE ID = "+id;
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM CLIENTS_TBL WHERE ID = " + id;
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
-
                 FIRST_NAME.setText(resultSet.getString("FIRST_NAME"));
                 LAST_NAME.setText(resultSet.getString("LAST_NAME"));
                 CONTACT_PERSON.setText(resultSet.getString("CONTACT_PERSON"));
@@ -197,12 +263,11 @@ public class DataBase {
     //update
     public void updateClient(int client_id, String first_name, String last_name, String contact_person, String email,
                              String mobile, String landline) {
-
         try {
             String sql = "UPDATE CLIENTS_TBL SET FIRST_NAME = ?, LAST_NAME = ?, CONTACT_PERSON = ?, EMAIL = ?, " +
                     "MOBILE = ?, LANDLINE = ? WHERE ID = ? ";
 
-            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, first_name);
             preparedStatement.setString(2, last_name);
             preparedStatement.setString(3, contact_person);
@@ -223,7 +288,7 @@ public class DataBase {
         int user_id = 0;
 
         try {
-            Statement statement = con.createStatement();
+            Statement statement = connection.createStatement();
             String sql = "SELECT USER_ID FROM CLIENTS_TBL WHERE ID = " + client_id;
             ResultSet resultSet = statement.executeQuery(sql);
 
@@ -238,7 +303,7 @@ public class DataBase {
             System.out.println(user_id);
             String sql = "DELETE FROM USERS_TBL WHERE ID = ?";
 
-            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.executeUpdate();
             preparedStatement.setInt(1, user_id);
 
@@ -251,7 +316,7 @@ public class DataBase {
                                     Label CONTACT_PERSON, Label EMAIL, Label MOBILE, Label BEST_CONTACT,
                                     Label MATERIAL, Label RATE, Label UNIT) {
         try {
-            Statement statement = con.createStatement();
+            Statement statement = connection.createStatement();
             String sql = "SELECT * FROM SUBTRADES_TBL WHERE ID = "+id;
             ResultSet resultSet = statement.executeQuery(sql);
 
@@ -270,8 +335,8 @@ public class DataBase {
         }
 
         try {
-            Statement statement = con.createStatement();
-            String sql = "SELECT * FROM PRICE_CARD_TBL WHERE SUBTRADE_ID = "+id;
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM PRICE_CARD_TBL WHERE SUBTRADE_ID = " + id;
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
@@ -291,7 +356,7 @@ public class DataBase {
             String sql = "UPDATE SUBTRADES_TBL SET SUBTRADE = ?, FIRST_NAME = ?, LAST_NAME = ?, ADDRESS = ?, " +
                     "CONTACT_PERSON = ?, EMAIL = ?, MOBILE = ?, BEST_WAY_TO_CONTACT = ? WHERE ID = ? ";
 
-            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, subtrade);
             preparedStatement.setString(2, first_name);
             preparedStatement.setString(3, last_name);
@@ -313,7 +378,7 @@ public class DataBase {
         try {
             String sql = "UPDATE PRICE_CARD_TBL SET MATERIAL = ?, RATE = ? WHERE SUBTRADE_ID = ? ";
 
-            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, material);
             preparedStatement.setString(2, rate);
             preparedStatement.setInt(3, id);
@@ -329,7 +394,7 @@ public class DataBase {
         try {
             String sql = "DELETE FROM SUBTRADES_TBL WHERE ID = ?";
 
-            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
 
@@ -343,7 +408,7 @@ public class DataBase {
         try {
             String sql = "SELECT * FROM USERS_TBL WHERE USERNAME = ? AND PASSWORD = ?";
 
-            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
 
@@ -367,7 +432,7 @@ public class DataBase {
 
     public void displayOperator(Label USERNAME, Label POSITION) {
         try {
-            Statement statement = con.createStatement();
+            Statement statement = connection.createStatement();
             String sql = "SELECT * FROM USERS_TBL WHERE ID = " + user_id;
             ResultSet resultSet = statement.executeQuery(sql);
 
@@ -382,7 +447,7 @@ public class DataBase {
 
     public void clientComboBox(ObservableList<String> CLIENTS) {
         try {
-            Statement statement = con.createStatement();
+            Statement statement = connection.createStatement();
             String sql = "SELECT * FROM CLIENTS_TBL";
             ResultSet resultSet = statement.executeQuery(sql);
 
@@ -402,7 +467,7 @@ public class DataBase {
         try {
             String sql = "SELECT * FROM CLIENTS_TBL WHERE FULL_NAME = ?";
 
-            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, full_name);
 
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -416,7 +481,7 @@ public class DataBase {
 
         try {
             String sql = "SELECT * FROM SUBTRADES_TBL WHERE CLIENT_ID = ? AND SUBTRADE = ?";
-            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, client_id);
             preparedStatement.setString(2, subtrade);
 
@@ -431,7 +496,7 @@ public class DataBase {
 
         try {
             String sql = "SELECT * FROM PRICE_CARD_TBL WHERE SUBTRADE_ID = ?";
-            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, subtrade_id);
 
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -440,6 +505,53 @@ public class DataBase {
                 rate.setText(resultSet.getString("RATE"));
             }
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //structures db
+    public void insertStructures(String structureName) {
+        try {
+            String sql = "INSERT IGNORE INTO STRUCTURES_TBL (STRUCTURE) VALUES (?)";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, structureName);
+
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void insertStructureParts(int structureID, String partName) {
+        try {
+            String sql = "INSERT IGNORE INTO STRUCTURES_PARTS_TBL (STRUCTURE_ID, PARTS) VALUES (?, ?)";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, structureID);
+            preparedStatement.setString(2, partName);
+
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void displayParts(int structure_id, ObservableList<String> parts) {
+        try {
+            String sql = "SELECT PARTS FROM STRUCTURES_PARTS_TBL WHERE STRUCTURE_ID = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, structure_id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                //create container for data
+                parts.add(resultSet.getString("PARTS"));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PTGraphiQS:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/PTGraphiQS_jar</output-path>
+    <root id="archive" name="PTGraphiQS.jar">
+      <element id="module-output" name="PTGraphiQS" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libraries/mysql-connector-java-8.0.19.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libraries/jfoenix-8.0.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libraries/Spire.Pdf.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

@@ -1,10 +1,9 @@
 package Controllers;
 
 import Model.data.WallData;
-import Main.Main;
 import Model.PageObject;
 import Model.ShapeObject;
-import Model.data.stampData;
+import Model.data.doorData;
 import com.jfoenix.controls.*;
 import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
 import javafx.animation.FadeTransition;
@@ -16,9 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -33,9 +30,6 @@ import javafx.scene.shape.*;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.text.Font;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import service.*;
 
@@ -117,8 +111,8 @@ public class workspaceController implements Initializable {
     static WallData wallData;
 
     //sheets list
-    private static ObservableList<String> selectedBoxes = FXCollections.observableArrayList();
-    private ObservableList<String> newItemsList = FXCollections.observableArrayList();
+    public static ObservableList<String> selectedBoxes = FXCollections.observableArrayList();
+    public ObservableList<String> newItemsList = FXCollections.observableArrayList();
 
     //user_id
     public static int user_id = 0;
@@ -204,27 +198,31 @@ public class workspaceController implements Initializable {
         wallData.typeAction();
         wallData.choicesAction();
 
-        STAMP_TYPE.setOnAction(event -> {
-            if (STAMP_TYPE.getSelectionModel().getSelectedItem().equals("Doors")) {
-                DOOR_PANE.setVisible(true);
-                WINDOW_PANE.setVisible(false);
+        try {
+            STAMP_TYPE.setOnAction(event -> {
+                if (STAMP_TYPE.getSelectionModel().getSelectedItem().equals("Doors")) {
+                    DOOR_PANE.setVisible(true);
+                    WINDOW_PANE.setVisible(false);
 
-                ds_indicator = 1;
-                ws_indicator = 0;
+                    ds_indicator = 1;
+                    ws_indicator = 0;
 
-                iconList = createIconList();
-                stampPicker.getChildren().add(iconList);
-            } else if (STAMP_TYPE.getSelectionModel().getSelectedItem().equals("Windows")) {
-                DOOR_PANE.setVisible(false);
-                WINDOW_PANE.setVisible(true);
+                    iconList = createIconList();
+                    stampPicker.getChildren().add(iconList);
+                } else if (STAMP_TYPE.getSelectionModel().getSelectedItem().equals("Windows")) {
+                    DOOR_PANE.setVisible(false);
+                    WINDOW_PANE.setVisible(true);
 
-                ds_indicator = 0;
-                ws_indicator = 1;
+                    ds_indicator = 0;
+                    ws_indicator = 1;
 
-                UNDO.setVisible(false);
-                REDO.setVisible(false);
-            }
-        });
+                    UNDO.setVisible(false);
+                    REDO.setVisible(false);
+                }
+            });
+        } catch (Exception e) {
+            e.getSuppressed();
+        }
 
         //cladding
         CLADDING_BTN.setOnAction(event -> {
@@ -283,8 +281,6 @@ public class workspaceController implements Initializable {
             Logger.getLogger(workspaceController.class.getName()).log(Level.SEVERE, null, e);
         }
 
-        stamp_canvas.setOnMouseClicked(this::setStamp);
-        redraw();
     }
 
     public void showToast(String message) {
@@ -388,44 +384,6 @@ public class workspaceController implements Initializable {
 
     public void stampAction() {
         stampPicker.setVisible(true);
-//        ds_indicator = 1;
-    }
-
-    public void redraw() {
-        GraphicsContext g = stamp_canvas.getGraphicsContext2D();
-        g.clearRect(0, 0, stamp_canvas.getWidth(), stamp_canvas.getHeight());
-        g.setFill(Color.TRANSPARENT);
-        g.fillRect(0,0,stamp_canvas.getWidth(),stamp_canvas.getHeight());
-        for (int i = 0; i < iconsShown; i++) {
-            IconInfo info = icons.get(i);
-            g.drawImage(iconImages[info.iconNumber], info.x, info.y, 64, 64);
-        }
-    }
-
-    //door stamp
-    public void setStamp(MouseEvent e) {
-        if (e.getButton() == MouseButton.PRIMARY) {
-            if (ds_indicator == 1) {
-                stamp_count++;
-                IconInfo info  = new IconInfo();
-                info.iconNumber = iconList.getSelectionModel().getSelectedIndex();
-                info.x = (int)(e.getX() - 32);  // Offset coords, so center of icon is at
-                info.y = (int)(e.getY() - 32);  // the point that was clicked.
-                if (iconsShown == icons.size())
-                    icons.add(info);
-                else
-                    icons.set(iconsShown, info);
-                    iconsShown++;
-                    iconsPlaced = iconsShown;
-                    REDO.setDisable(true);
-                    UNDO.setDisable(false);
-                    redraw();
-
-                layoutsController.stamp_data.addAll(new stampData(String.valueOf(stamp_count),
-                    STAMP_TYPE.getSelectionModel().getSelectedItem(), DOOR_TYPE.getSelectionModel().getSelectedItem(),
-                        DOOR_WIDTH.getEditor().getText(), DOOR_HEIGHT.getEditor().getText(),""));
-            }
-        }
     }
 
     private ListView<ImageView> createIconList() {
@@ -454,14 +412,6 @@ public class workspaceController implements Initializable {
 
         list.getSelectionModel().select(0);  //The first item in the list is currently selected.
         return list;
-    }
-
-    public void stampOverlay() {
-        if (STAMP_OVERLAY.isSelected()) {
-            stamp_canvas.setVisible(true);
-        } else {
-            stamp_canvas.setVisible(false);
-        }
     }
 
     //stud_height

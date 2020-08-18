@@ -46,7 +46,6 @@
                            <children>
                               <Canvas fx:id="canvas" height="660.0" nodeOrientation="INHERIT" width="885.0" />
                               <Pane fx:id="pane" layoutX="14.0" layoutY="-60.0" onMouseDragged="#updateLine" onMouseMoved="#updateLine" prefHeight="660.0" prefWidth="885.0" />
-                              <Canvas fx:id="stamp_canvas" blendMode="SRC_ATOP" height="660.0" nodeOrientation="INHERIT" visible="false" width="885.0" />
                            </children>
                         </Group>
                      </children>
@@ -341,7 +340,6 @@
             </JFXButton>
          </children>
       </HBox>
-      <JFXCheckBox fx:id="STAMP_OVERLAY" layoutX="5.0" layoutY="690.0" onAction="#stampOverlay" text="Overlay" textFill="#bcbcbc" />
       <JFXHamburger fx:id="hamburger" layoutX="988.0" layoutY="64.0" opacity="0.6" prefHeight="30.0" prefWidth="38.0" stylesheets="@CSS/style.css" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="64.0" />
       <JFXButton fx:id="structureToggle" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" disable="true" ellipsisString="" layoutX="5.0" layoutY="155.0" onAction="#structureListTransition" prefHeight="50.0" prefWidth="50.0" text="Button">
          <graphic>
@@ -906,22 +904,22 @@
             <DropShadow color="#121212" spread="0.1" />
          </effect>
       </AnchorPane>
-      <JFXComboBox fx:id="structureComboBox" focusColor="#0f9d58" focusTraversable="false" layoutX="13.0" layoutY="21.0" prefHeight="32.0" prefWidth="164.0" promptText="Structures" />
-      <JFXComboBox fx:id="wallTypeComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="223.0" layoutY="21.0" prefHeight="32.0" prefWidth="156.0" promptText="Walls" />
-      <JFXComboBox fx:id="wallComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="425.0" layoutY="21.0" prefHeight="32.0" prefWidth="164.0" promptText="Type" />
-      <JFXComboBox fx:id="materialComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="636.0" layoutY="21.0" prefHeight="32.0" prefWidth="240.0" promptText="Choices" />
-      <JFXColorPicker fx:id="colorPicker" disable="true" layoutX="893.0" layoutY="24.0" onAction="#colorPickerAction" prefHeight="34.0" prefWidth="108.0" />
-      <ImageView fx:id="next_1" fitHeight="25.0" fitWidth="38.0" layoutX="188.0" layoutY="25.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
+      <JFXComboBox fx:id="structureComboBox" focusColor="#0f9d58" focusTraversable="false" layoutX="13.0" layoutY="21.0" prefHeight="32.0" prefWidth="164.0" promptText="Structures" visible="false" />
+      <JFXComboBox fx:id="wallTypeComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="223.0" layoutY="21.0" prefHeight="32.0" prefWidth="156.0" promptText="Walls" visible="false" />
+      <JFXComboBox fx:id="wallComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="425.0" layoutY="21.0" prefHeight="32.0" prefWidth="164.0" promptText="Type" visible="false" />
+      <JFXComboBox fx:id="materialComboBox" disable="true" focusColor="#0f9d58" focusTraversable="false" layoutX="636.0" layoutY="21.0" prefHeight="32.0" prefWidth="240.0" promptText="Choices" visible="false" />
+      <JFXColorPicker fx:id="colorPicker" disable="true" layoutX="893.0" layoutY="24.0" onAction="#colorPickerAction" prefHeight="34.0" prefWidth="108.0" visible="false" />
+      <ImageView fx:id="next_1" fitHeight="25.0" fitWidth="38.0" layoutX="188.0" layoutY="25.0" opacity="0.55" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@images/more_than_25px.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="next_2" fitHeight="25.0" fitWidth="38.0" layoutX="389.0" layoutY="25.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="next_2" fitHeight="25.0" fitWidth="38.0" layoutX="389.0" layoutY="25.0" opacity="0.55" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@images/more_than_25px.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="next_3" fitHeight="25.0" fitWidth="38.0" layoutX="600.0" layoutY="26.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="next_3" fitHeight="25.0" fitWidth="38.0" layoutX="600.0" layoutY="26.0" opacity="0.55" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@images/more_than_25px.png" />
          </image>

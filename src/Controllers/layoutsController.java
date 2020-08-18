@@ -11,7 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import Model.data.layoutsData;
-import Model.data.stampData;
+import Model.data.doorData;
 import Model.data.windowData;
 
 import java.net.URL;
@@ -44,13 +44,13 @@ public class layoutsController implements Initializable {
     public TreeTableColumn<layoutsData, String> COL_LABOUR;
 
     //stamp table
-    public JFXTreeTableView<stampData> STAMP_TBL;
-    public TreeTableColumn<stampData, String> STAMP_NO;
-    public TreeTableColumn<stampData, String> STAMP;
-    public TreeTableColumn<stampData, String> TYPE;
-    public TreeTableColumn<stampData, String> WIDTH;
-    public TreeTableColumn<stampData, String> HEIGHT;
-    public TreeTableColumn<stampData, String> IMAGE;
+    public JFXTreeTableView<doorData> STAMP_TBL;
+    public TreeTableColumn<doorData, String> STAMP_NO;
+    public TreeTableColumn<doorData, String> STAMP;
+    public TreeTableColumn<doorData, String> TYPE;
+    public TreeTableColumn<doorData, String> WIDTH;
+    public TreeTableColumn<doorData, String> HEIGHT;
+    public TreeTableColumn<doorData, String> IMAGE;
 
     //window table
     public JFXTreeTableView<windowData> WINDOW_TBL;
@@ -70,7 +70,7 @@ public class layoutsController implements Initializable {
 
     //data lists
     public static ObservableList<layoutsData> data;
-    public static ObservableList<stampData> stamp_data;
+    public static ObservableList<doorData> doorData;
     public static ObservableList<windowData> windowData;
     public static ObservableList<claddingData> claddingData;
 
@@ -120,7 +120,7 @@ public class layoutsController implements Initializable {
         );
 
         //stamp doors
-        stamp_data = FXCollections.observableArrayList();
+        doorData = FXCollections.observableArrayList();
 
         STAMP_NO.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("no")
@@ -183,7 +183,7 @@ public class layoutsController implements Initializable {
         layoutsTableView.setRoot(root);
         layoutsTableView.setShowRoot(false);
 
-        TreeItem<stampData> stamp_root = new RecursiveTreeItem<>(stamp_data, RecursiveTreeObject::getChildren);
+        TreeItem<doorData> stamp_root = new RecursiveTreeItem<>(doorData, RecursiveTreeObject::getChildren);
         STAMP_TBL.setRoot(stamp_root);
         STAMP_TBL.setShowRoot(false);
 
@@ -195,18 +195,9 @@ public class layoutsController implements Initializable {
         CLADDING_TBL.setRoot(cladding_root);
         CLADDING_TBL.setShowRoot(false);
 
-        SEARCH.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                layoutsTableView.setPredicate(new Predicate<TreeItem<layoutsData>>() {
-                    @Override
-                    public boolean test(TreeItem<layoutsData> modelTreeItem) {
-                        return modelTreeItem.getValue().getMeasurement().contains(newValue) |modelTreeItem.getValue()
-                                .getMaterial().contains(newValue) ;
-                    }
-                });
-            }
-        });
+        SEARCH.textProperty().addListener((observable, oldValue, newValue) -> layoutsTableView.setPredicate(
+                modelTreeItem -> modelTreeItem.getValue().getMeasurement().contains(newValue) |
+                        modelTreeItem.getValue().getMaterial().contains(newValue)));
 
         layoutsTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             showDetails(newValue);

@@ -20,8 +20,7 @@ public class dashboardController implements Initializable {
 
     @FXML
     public AnchorPane rootpane,dashboard_max,dashboard_min;
-    private AnchorPane jobInfo;
-    private AnchorPane workspace;
+    private AnchorPane jobInfo, workspace;
     private BorderPane layouts;
     private AnchorPane sheets;
     private BorderPane builder;
@@ -42,7 +41,6 @@ public class dashboardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/jobInfo.fxml"));
             jobInfo = loader.load();

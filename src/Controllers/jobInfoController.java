@@ -1,6 +1,7 @@
 package Controllers;
 
 import DataBase.DataBase;
+import Model.StructureModel;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
@@ -29,9 +30,11 @@ public class jobInfoController implements Initializable {
     private ObservableList<String> CLIENTS = FXCollections.observableArrayList();
 
     public static String selectedClient;
+    static StructureModel structureModel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        structureModel = new StructureModel(this);
 
         DataBase db = DataBase.getInstance();
         db.clientComboBox(CLIENTS);
@@ -76,17 +79,32 @@ public class jobInfoController implements Initializable {
     }
 
     private void selectStructures() {
+        list.clear();
         LIST_PANE.getChildren().forEach(node -> {
-//          --
             if (((JFXCheckBox) node).isSelected()) {
                 String boxes = ((JFXCheckBox) node).getText();
                 list.add(boxes);
-                System.out.println(list);
-                workspaceController.getSelectedStructures(list);
+//                System.out.println(list);
+                workspaceController.selectedBoxes = list;
+                setupSheetsController.selectedBoxes = list;
             }
-//          --
         });
     }
+
+//    private void setTabs() {
+//        LIST_PANE.getChildren().forEach(node -> {
+//            if (((JFXCheckBox) node).isSelected()) {
+//                String boxes = ((JFXCheckBox) node).getText();
+//
+//                //setup sheets tabs
+//                String[] splitArray = boxes.split(",");
+//                for (int i = 0; i < splitArray.length; i++) {
+//                    setupSheets.createSelectedTabs(splitArray[i]);
+//                    structureModel.setupSheets.createSelectedTabs(splitArray[i]);
+//                }
+//            }
+//        });
+//    }
 
 //    private void accept(Node node) {
 //        if (((JFXCheckBox) node).isSelected()) {

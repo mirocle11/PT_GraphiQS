@@ -4,7 +4,7 @@ import javafx.scene.control.Label;
 
 public class DoorObject {
 
-    public String door_type, door_width, door_height;
+    public String no, door_type, door_width, door_height;
     public Label door_stamp;
 
     public String getDoor_type() {
@@ -37,5 +37,13 @@ public class DoorObject {
 
     public void setDoor_stamp(Label door_stamp) {
         this.door_stamp = door_stamp;
+    }
+
+    public String getNo() {
+        return no;
+    }
+
+    public void setNo(String no) {
+        this.no = no;
     }
 }

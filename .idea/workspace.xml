@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="PTGraphiQS" />
+      <artifact name="PTGraphiQS:jar" />
     </artifacts-to-build>
   </component>
   <component name="BranchesTreeState">
@@ -24,74 +24,76 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-cladding length updated&#10;-window stamping reference for cladding&#10;-setup sheets dashboard function added&#10;-7/6/20 update">
-      <change afterPath="$PROJECT_DIR$/out/artifacts/PTGraphiQS/PTGraphiQS.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controllers/jobInfoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/DoorObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/extOpenings.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/foundations.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/intFloorLev1.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/jobInfo.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/blue-icon1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/blue-icon2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/blue-icon3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/blue-icon4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/blue-icon5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/blue-icon6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/green-icon1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/green-icon2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/green-icon3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/green-icon4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/green-icon5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/green-icon6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/red-icon1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/red-icon2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/red-icon3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/red-icon4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/red-icon5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/stamper_icons/red-icon6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/PTGraphiQS.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/PTGraphiQS.xml" afterDir="false" />
+    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-setup sheets updated &#10;-dashboard new lineup&#10;-fixed door stamping / ongoing progress for delete function&#10;-7/22/20 update">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/PTGraphiQS_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/fb3766c5-ce24-40cd-bbff-e14a8f7376bd.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/User.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/ico.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/libraries/Spire.Pdf.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/libraries/jfoenix-8.0.8.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/libraries/mysql-connector-java-8.0.19.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controllers/Sheets/extOpeningsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controllers/Sheets/foundationsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controllers/Sheets/intOpeningsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/StructureModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/data/setupSheetsData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Test/TabTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/intOpenings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/PTGraphiQS.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/PTGraphiQS_jar/PTGraphiQS.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/PTGraphiQS/PTGraphiQS.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/dashboardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/dashboardController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Main/resources/META-INF/MANIFEST.MF" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/CSS/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/createProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/createProjectController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/dashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/dashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/floorsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/framingAddBeamRowController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/framingAddRowController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/framingController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/framing_2Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/jobInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/jobInfoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/layoutsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/layoutsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/setupSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/setupSheetsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/CladdingObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/CladdingObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/data/claddingData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/data/claddingData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataBase/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataBase/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/resources/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/DoorObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/DoorObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/data/framing/beamsData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/data/framing/framingData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/data/stampData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/data/doorData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/data/wallsAndInsulation/wallsAndInsulationData.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Views/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/CSS/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/layouts.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/layouts.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/Floors/fifth_floor.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/Floors/first_floor.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/Floors/fourth_floor.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/Floors/ground_floor.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/Floors/second_floor.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/Floors/seventh_floor.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/Floors/sixth_floor.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/Floors/third_floor.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/extOpenings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Sheets/extOpenings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/foundations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Sheets/foundations.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/intFloorLev1.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/cladding.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/deck.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/doors.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/floors.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/framing.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/jobInfo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/jobInfo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/misc.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/roof.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Views/setupSheets.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/setupSheets.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/blue/icon1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/blue/icon2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/blue/icon3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/blue/icon4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/blue/icon5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/blue/icon6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/green/icon1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/green/icon2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/green/icon3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/green/icon4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/green/icon5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/green/icon6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/red/icon1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/red/icon2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/red/icon3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/red/icon4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/red/icon5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/stamper_icons/red/icon6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/wallsAndInsulation_2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/wallsAndInsulation_2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/slabAndFooting.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/wallsAndInsulation.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/wallsAndInsulation_2.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/workspace.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/Cladding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Cladding.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Tools.java" afterDir="false" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
@@ -104,65 +106,14 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_TABLE_DETAILS" value="true" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="pt_graphiqs_db" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="pt_graphiqs_db" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="subtrades_tbl" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Gradle Kotlin DSL Build Script" />
         <option value="package-info" />
         <option value="CSS File" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -181,17 +132,11 @@
     </option>
     <option name="RESET_MODE" value="MIXED" />
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsFlowSettings">
     <service-enabled>false</service-enabled>
     <exe-path />
     <annotation-enable>false</annotation-enable>
     <other-services-enabled>false</other-services-enabled>
-  </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="JsbtTreeLayoutManager">
     <layout place="tools.popupGrunt">
@@ -229,7 +174,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LBP_Trades" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Views/Sheets" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -238,7 +183,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -249,22 +194,25 @@
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="Controllers" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Model\data" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Controllers" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\libraries" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Controllers.Sheets" />
+      <recent name="Test" />
+      <recent name="service" />
+      <recent name="Model" />
+      <recent name="Controllers" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\data backup" />
       <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Framing" />
       <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Floors" />
       <recent name="C:\Users\User\Documents\IdeaProjects\PTGraphiQS\src\Views" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="service" />
-      <recent name="Model" />
-      <recent name="Controllers" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Model\data" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Controllers" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\libraries" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -303,205 +251,8 @@
       <module />
       <method />
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
-      <method />
-    </configuration>
-    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="myFilePath" />
-      <option name="GLUE" />
-      <option name="myNameFilter" />
-      <option name="myGeneratedName" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
-      <option name="BCName" value="" />
-      <option name="IOSSimulatorSdkPath" value="" />
-      <option name="adlOptions" value="" />
-      <option name="airProgramParameters" value="" />
-      <option name="appDescriptorForEmulator" value="Android" />
-      <option name="debugTransport" value="USB" />
-      <option name="debuggerSdkRaw" value="BC SDK" />
-      <option name="emulator" value="NexusOne" />
-      <option name="emulatorAdlOptions" value="" />
-      <option name="fastPackaging" value="true" />
-      <option name="fullScreenHeight" value="0" />
-      <option name="fullScreenWidth" value="0" />
-      <option name="launchUrl" value="false" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="FlashPlayerDebugger.exe" />
-        </LauncherParameters>
-      </option>
-      <option name="mobileRunTarget" value="Emulator" />
-      <option name="moduleName" value="" />
-      <option name="overriddenMainClass" value="" />
-      <option name="overriddenOutputFileName" value="" />
-      <option name="overrideMainClass" value="false" />
-      <option name="runTrusted" value="true" />
-      <option name="screenDpi" value="0" />
-      <option name="screenHeight" value="0" />
-      <option name="screenWidth" value="0" />
-      <option name="url" value="http://" />
-      <option name="usbDebugPort" value="7936" />
-      <method />
-    </configuration>
-    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
-      <option name="BCName" value="" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="FlashPlayerDebugger.exe" />
-        </LauncherParameters>
-      </option>
-      <option name="moduleName" value="" />
-      <option name="trusted" value="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="run-app" />
-      <setting name="passParentEnv" value="true" />
-      <setting name="launchBrowser" value="true" />
-      <setting name="launchBrowserUrl" value="" />
-      <setting name="depsClasspath" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
-      <node-interpreter value="project" />
-      <working-dir value="" />
-      <envs />
-      <scope-kind value="ALL" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
-      <config-file value="" />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run" />
-      <scripts />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
-      <method />
-    </configuration>
-    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
-      <method />
-    </configuration>
     <configuration name="CollectionsDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Views.test.CollectionsDemo" />
-      <module name="PTGraphiQS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Views.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FrostyTech" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Views.test.FrostyTech" />
       <module name="PTGraphiQS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -542,6 +293,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TabTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test.TabTest" />
+      <module name="PTGraphiQS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TwoDArrayInput" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Test.TwoDArrayInput" />
       <module name="PTGraphiQS" />
@@ -561,6 +326,49 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="grailsApplicationRoot" value="" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
+      <method v="2" />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
@@ -621,20 +429,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.CollectionsDemo" />
-      <item itemvalue="Application.FrostyTech" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.SillyStamper" />
+      <item itemvalue="Application.TabTest" />
       <item itemvalue="Application.TwoDArrayInput" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.TabTest" />
         <item itemvalue="Application.SillyStamper" />
         <item itemvalue="Application.TwoDArrayInput" />
         <item itemvalue="Application.CollectionsDemo" />
-        <item itemvalue="Application.FrostyTech" />
       </list>
     </recent_temporary>
   </component>
@@ -846,13 +663,18 @@
       <workItem from="1592460016130" duration="3506000" />
       <workItem from="1592484367085" duration="6017000" />
       <workItem from="1592544186144" duration="7228000" />
-    </task>
-    <task id="LOCAL-00072" summary="#64 commit sections progress">
-      <created>1574152563916</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1574152563916</updated>
+      <workItem from="1597125017856" duration="119000" />
+      <workItem from="1597125163780" duration="6000" />
+      <workItem from="1597125180351" duration="20000" />
+      <workItem from="1597125209747" duration="105000" />
+      <workItem from="1597125324323" duration="18464000" />
+      <workItem from="1597204640795" duration="20946000" />
+      <workItem from="1597287790832" duration="11201000" />
+      <workItem from="1597332057141" duration="18474000" />
+      <workItem from="1597577101269" duration="23267000" />
+      <workItem from="1597659940143" duration="29000" />
+      <workItem from="1597659979711" duration="3101000" />
+      <workItem from="1597663549220" duration="13712000" />
     </task>
     <task id="LOCAL-00073" summary="#65 commit fix path">
       <created>1574219958069</created>
@@ -1190,14 +1012,18 @@
       <option name="project" value="LOCAL" />
       <updated>1594035874578</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="-setup sheets updated &#10;-dashboard new lineup&#10;-fixed door stamping / ongoing progress for delete function&#10;-7/22/20 update">
+      <created>1595406257963</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1595406257963</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1299750000" />
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
+    <option name="version" value="2" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
@@ -1265,57 +1091,68 @@
     <MESSAGE value="-window stamping updated w/ layout list&#10;-updated delete stamp w/ list" />
     <MESSAGE value="-cladding length updated&#10;-window stamping reference for cladding" />
     <MESSAGE value="-cladding length updated&#10;-window stamping reference for cladding&#10;-setup sheets dashboard function added&#10;-7/6/20 update" />
-    <option name="LAST_COMMIT_MESSAGE" value="-cladding length updated&#10;-window stamping reference for cladding&#10;-setup sheets dashboard function added&#10;-7/6/20 update" />
+    <MESSAGE value="-setup sheets updated &#10;-dashboard new lineup&#10;-fixed door stamping / ongoing progress for delete function&#10;-7/22/20 update" />
+    <option name="LAST_COMMIT_MESSAGE" value="-setup sheets updated &#10;-dashboard new lineup&#10;-fixed door stamping / ongoing progress for delete function&#10;-7/22/20 update" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="847" y="356" key="#Notifications" timestamp="1594923005484">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="847" y="356" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1594923005484" />
-    <state x="2360" y="94" key="#Project_Structure" timestamp="1594276071822">
+    <state x="2767" y="356" key="#Notifications" timestamp="1596706299116">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2360" y="94" key="#Project_Structure/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1594276071822" />
+    <state x="847" y="356" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1594923005484" />
+    <state x="2767" y="356" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596706299116" />
+    <state x="2360" y="94" key="#Project_Structure" timestamp="1595774085443">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2360" y="94" key="#Project_Structure/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595774085443" />
     <state x="2334" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593977513654">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2334" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593977513654" />
-    <state x="2685" y="223" key="#com.intellij.ide.util.MemberChooser" timestamp="1592742318842">
+    <state x="2685" y="223" key="#com.intellij.ide.util.MemberChooser" timestamp="1597660685438">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2685" y="223" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592742318842" />
+    <state x="2685" y="223" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597660685438" />
+    <state x="2608" y="306" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1595789322123">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2608" y="306" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595789322123" />
     <state x="2560" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1594289472086">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2560" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1594289472086" />
-    <state x="2645" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1593494752756">
+    <state x="2645" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1597128037285">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2645" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593494752756" />
-    <state x="3035" y="318" key="FileChooserDialogImpl" timestamp="1594622627699">
+    <state x="2645" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597128037285" />
+    <state x="2610" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596527145075">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="3035" y="318" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1594622627699" />
-    <state width="1921" height="179" key="GridCell.Tab.0.bottom" timestamp="1595260478101">
+    <state x="2610" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596527145075" />
+    <state x="3035" y="318" key="FileChooserDialogImpl" timestamp="1597387793086">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="179" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595256196657" />
-    <state width="1921" height="179" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595260478101" />
-    <state width="1921" height="179" key="GridCell.Tab.0.center" timestamp="1595260478101">
+    <state x="674" y="288" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595788545082" />
+    <state x="3035" y="318" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597387793086" />
+    <state width="1877" height="188" key="GridCell.Tab.0.bottom" timestamp="1597664016820">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="179" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595256196657" />
-    <state width="1921" height="179" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595260478101" />
-    <state width="1921" height="179" key="GridCell.Tab.0.left" timestamp="1595260478101">
+    <state width="1877" height="188" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597658539999" />
+    <state width="1877" height="188" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597664016820" />
+    <state width="1877" height="188" key="GridCell.Tab.0.center" timestamp="1597664016820">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="179" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595256196657" />
-    <state width="1921" height="179" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595260478101" />
-    <state width="1921" height="179" key="GridCell.Tab.0.right" timestamp="1595260478101">
+    <state width="1877" height="188" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597658539999" />
+    <state width="1877" height="188" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597664016820" />
+    <state width="1877" height="188" key="GridCell.Tab.0.left" timestamp="1597664016820">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="179" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595256196657" />
-    <state width="1921" height="179" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595260478101" />
+    <state width="1877" height="188" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597658539999" />
+    <state width="1877" height="188" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597664016820" />
+    <state width="1877" height="188" key="GridCell.Tab.0.right" timestamp="1597664016820">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="188" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597658539999" />
+    <state width="1877" height="188" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597664016820" />
     <state width="1877" height="213" key="GridCell.Tab.1.bottom" timestamp="1592742376316">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -1332,43 +1169,60 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="213" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592742376316" />
-    <state x="2352" y="163" width="1054" height="708" key="SettingsEditor" timestamp="1593363291652">
+    <state x="2460" y="254" key="IDE.errors.dialog" timestamp="1597402566873">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2352" y="163" width="1054" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593363291652" />
-    <state x="2472" y="248" key="Vcs.Push.Dialog.v2" timestamp="1594035890795">
+    <state x="2460" y="254" key="IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597402566873" />
+    <state x="2266" y="158" width="1054" height="708" key="SettingsEditor" timestamp="1597225235892">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1594035890795" />
+    <state x="432" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595788561514" />
+    <state x="2266" y="158" width="1054" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597225235892" />
+    <state x="2472" y="248" key="Vcs.Push.Dialog.v2" timestamp="1595406259521">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595406259521" />
+    <state x="753" y="454" key="classpath-attribute-editor" timestamp="1595788555192">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="753" y="454" key="classpath-attribute-editor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595788555192" />
     <state x="107" y="77" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1595259214180">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1636" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595255429073" />
     <state x="107" y="77" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595259214180" />
-    <state x="2550" y="-8" width="980" height="1045" maximized="true" key="dock-window-1" timestamp="1595228266863">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2550" y="-8" width="980" height="1045" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595228266863" />
-    <state x="953" y="0" width="974" height="1049" key="dock-window-2" timestamp="1595231143729">
+    <state x="906" y="0" width="1030" height="1045" key="dock-window-1" timestamp="1596699305938">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="953" y="0" width="974" height="1049" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595231143729" />
+    <state x="906" y="0" width="1030" height="1045" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596699305938" />
+    <state x="953" y="0" width="974" height="1047" key="dock-window-2" timestamp="1596700006940">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="953" y="0" width="974" height="1047" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596700006940" />
     <state x="847" y="0" width="1089" height="1045" key="dock-window-3" timestamp="1595232343515">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="847" y="0" width="1089" height="1045" key="dock-window-3/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595232343515" />
+    <state x="2588" y="95" width="583" height="849" key="find.popup" timestamp="1597212288765">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2588" y="95" width="583" height="849" key="find.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597212288765" />
+    <state x="2262" y="94" key="new project wizard" timestamp="1595755205601">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2262" y="94" key="new project wizard/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595755205601" />
     <state x="2978" y="422" width="555" height="283" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1592637624759">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2978" y="422" width="555" height="283" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592637624759" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1595256125834">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595256125834" />
-    <state x="2536" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1594036853346" />
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594966427695">
+    <state x="2536" y="240" width="672" height="677" key="run.anything.popup" timestamp="1597225415838">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1594966427695" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595256125834" />
+    <state x="2536" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597225415838" />
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597226902755">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597226902755" />
   </component>
 </project>

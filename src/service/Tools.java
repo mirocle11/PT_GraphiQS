@@ -4,12 +4,10 @@ import Controllers.createProjectController;
 import DataBase.DataBase;
 import Controllers.workspaceController;
 import Controllers.layoutsController;
-import Model.CladdingObject;
+import Model.*;
 import Model.data.claddingData;
+import Model.data.doorData;
 import Model.data.layoutsData;
-import Model.PageObject;
-import Model.ShapeObject;
-import Model.WindowObject;
 import Model.data.windowData;
 import com.jfoenix.controls.JFXButton;
 import javafx.geometry.Insets;
@@ -74,6 +72,7 @@ public class Tools {
     public Label rate = new Label();
 
     int window_no = 1;
+    int door_no = 1;
 
     public Tools(PageObject page, Group group, String mode, Line line, Circle circle, VBox box) {
         this.page = page;
@@ -360,11 +359,44 @@ public class Tools {
 
                             pane.getChildren().add(door_stamp);
 
+                            DoorObject doorObject = new DoorObject();
+                            doorObject.setNo(String.valueOf(door_no++));
+                            doorObject.setDoor_type(window.DOOR_TYPE.getSelectionModel().getSelectedItem());
+                            doorObject.setDoor_width(window.DOOR_WIDTH.getSelectionModel().getSelectedItem());
+                            doorObject.setDoor_height(window.DOOR_HEIGHT.getSelectionModel().getSelectedItem());
+                            doorObject.setDoor_stamp(door_stamp);
+
                             door_stamp.setOnMouseClicked(event1 -> {
                                 if (event1.getButton() == MouseButton.SECONDARY) {
+                                    stampMenu = new ContextMenu();
+                                    stampMenu.hide();
 
+                                    MenuItem removeStamp = new MenuItem("Remove Stamp");
+                                    removeStamp.setOnAction(event2 -> {
+                                        door_stamp.setVisible(false);
+
+                                        doorData d = new doorData(doorObject.getNo(), doorObject.getDoor_type(),
+                                                doorObject.getDoor_width(), doorObject.getDoor_height());
+
+                                        Iterator itr =  layouts.doorData.iterator();
+                                        while (itr.hasNext()) {
+                                            doorData element = (doorData) itr.next();
+                                            if (element.getNo().equals(d.getNo())) {
+                                                System.out.print(element.getNo());
+                                                itr.remove();
+                                                break;
+                                            }
+                                        }
+
+                                        System.out.println("contains remove"+ layouts.doorData.remove(d));
+                                    });
+                                    stampMenu.getItems().add(removeStamp);
+                                    stampMenu.show(door_stamp, event1.getScreenX(), event1.getScreenY());
                                 }
                             });
+
+                            layouts.doorData.addAll(new doorData(doorObject.getNo(), doorObject.getDoor_type(),
+                                    doorObject.getDoor_width(), doorObject.getDoor_height()));
                         }
                     }
                 });

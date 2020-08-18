@@ -67,18 +67,18 @@
             <JFXDatePicker focusTraversable="false" layoutX="488.0" layoutY="110.0" prefHeight="30.0" prefWidth="218.0" />
             <Label focusTraversable="false" layoutX="398.0" layoutY="110.0" prefHeight="30.0" prefWidth="94.0" text="Date Started:" textFill="#868686">
                <font>
-                  <Font name="Segoe UI" size="15.0" />
+                  <Font name="Segoe UI" size="14.0" />
                </font>
             </Label>
             <JFXComboBox fx:id="CLIENT_COMBO_BOX" focusColor="#0f9d58" layoutX="14.0" layoutY="50.0" prefHeight="30.0" prefWidth="335.0" promptText="Client" />
             <JFXCheckBox focusTraversable="false" layoutX="399.0" layoutY="170.0" prefHeight="30.0" prefWidth="156.0" selected="true" text="With Labour" textFill="#b8b8b8">
                <font>
-                  <Font name="Segoe UI" size="15.0" />
+                  <Font name="Segoe UI" size="14.0" />
                </font>
             </JFXCheckBox>
             <Pane fx:id="LIST_PANE" layoutY="278.0" prefHeight="375.0" prefWidth="935.0">
                <children>
-                  <JFXCheckBox focusTraversable="false" layoutX="14.0" prefHeight="30.0" prefWidth="156.0" text="Foundations" textFill="#b8b8b8">
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" prefHeight="30.0" prefWidth="156.0" selected="true" text="Foundations" textFill="#b8b8b8">
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font>
@@ -118,12 +118,12 @@
                         <Font name="Segoe UI" size="15.0" />
                      </font>
                   </JFXCheckBox>
-                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="240.0" prefHeight="30.0" prefWidth="156.0" text="Ext Openings" textFill="#b8b8b8">
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="240.0" prefHeight="30.0" prefWidth="156.0" selected="true" text="Ext Openings" textFill="#b8b8b8">
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font>
                   </JFXCheckBox>
-                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="270.0" prefHeight="30.0" prefWidth="156.0" text="Int Openings" textFill="#b8b8b8">
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="270.0" prefHeight="30.0" prefWidth="156.0" selected="true" text="Int Openings" textFill="#b8b8b8">
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font>
@@ -158,12 +158,12 @@
                         <Font name="Segoe UI" size="15.0" />
                      </font>
                   </JFXCheckBox>
-                  <JFXCheckBox focusTraversable="false" layoutX="203.0" layoutY="120.0" prefHeight="30.0" prefWidth="186.0" text="Post &amp; Beam Hardware" textFill="#b8b8b8">
+                  <JFXCheckBox focusTraversable="false" layoutX="203.0" layoutY="120.0" prefHeight="30.0" prefWidth="186.0" selected="true" text="Post &amp; Beam Hardware" textFill="#b8b8b8">
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font>
                   </JFXCheckBox>
-                  <JFXCheckBox focusTraversable="false" layoutX="203.0" layoutY="150.0" prefHeight="30.0" prefWidth="170.0" text="Walls Sgl Lev" textFill="#b8b8b8">
+                  <JFXCheckBox focusTraversable="false" layoutX="203.0" layoutY="150.0" prefHeight="30.0" prefWidth="170.0" selected="true" text="Walls Sgl Lev" textFill="#b8b8b8">
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font>
@@ -223,12 +223,12 @@
                         <Font name="Segoe UI" size="15.0" />
                      </font>
                   </JFXCheckBox>
-                  <JFXCheckBox focusTraversable="false" layoutX="408.0" layoutY="150.0" prefHeight="30.0" prefWidth="156.0" text="Roof" textFill="#b8b8b8">
+                  <JFXCheckBox focusTraversable="false" layoutX="408.0" layoutY="150.0" prefHeight="30.0" prefWidth="156.0" selected="true" text="Roof" textFill="#b8b8b8">
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font>
                   </JFXCheckBox>
-                  <JFXCheckBox focusTraversable="false" layoutX="408.0" layoutY="180.0" prefHeight="30.0" prefWidth="156.0" text="Ext Lining" textFill="#b8b8b8">
+                  <JFXCheckBox focusTraversable="false" layoutX="408.0" layoutY="180.0" prefHeight="30.0" prefWidth="156.0" selected="true" text="Ext Lining" textFill="#b8b8b8">
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font>
@@ -305,7 +305,7 @@
                   </JFXCheckBox>
                </children>
             </Pane>
-            <JFXCheckBox fx:id="SELECT_ALL" focusTraversable="false" layoutX="838.0" layoutY="241.0" prefHeight="30.0" prefWidth="94.0" text="Select All" textFill="#b8b8b8" visible="false">
+            <JFXCheckBox fx:id="SELECT_ALL" focusTraversable="false" layoutX="398.0" layoutY="230.0" prefHeight="30.0" prefWidth="170.0" text="Select all structures" textFill="#b8b8b8">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>

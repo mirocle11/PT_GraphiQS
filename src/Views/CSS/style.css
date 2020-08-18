@@ -261,3 +261,8 @@
     -fx-pref-height: 38px;
     -fx-alignment: center-left;
 }
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+}
+

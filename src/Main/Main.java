@@ -20,7 +20,9 @@ public class Main extends Application {
     private double yOffset = 0;
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
+        DataBase db = DataBase.getInstance();
+        db.createDatabase();
         stage = primaryStage;
         splashScreenWindow();
     }
@@ -77,15 +79,12 @@ public class Main extends Application {
             loginStage.setMinWidth(726);
             loginStage.setMinHeight(519);
 
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void mainWindow() {
-        DataBase db = DataBase.getInstance();
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("/Views/dashboard.fxml"));
             AnchorPane pane = loader.load();
@@ -102,6 +101,7 @@ public class Main extends Application {
             dashboard_stage.setMinHeight(700);
             dashboard_stage.setMaximized(true);
 
+            DataBase db = DataBase.getInstance();
             db.displayClients(builderController.clientsData);
         } catch (Exception e) {
             e.printStackTrace();
