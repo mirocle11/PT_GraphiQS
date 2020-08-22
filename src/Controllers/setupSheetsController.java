@@ -68,6 +68,38 @@ public class setupSheetsController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/postAndBeams.fxml"));
+            POST_BEAM_HARDWARE = loader.load();
+            POST_BEAM_HARDWARE.setId("Post & Beam Hardware");
+            contentList.add(POST_BEAM_HARDWARE);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/wallsSglLev.fxml"));
+            WALLS_SGL_LEV = loader.load();
+            WALLS_SGL_LEV.setId("Walls Sgl Lev");
+            contentList.add(WALLS_SGL_LEV);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/roof.fxml"));
+            ROOF = loader.load();
+            ROOF.setId("Roof");
+            contentList.add(ROOF);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/extLining.fxml"));
+            EXT_LINING = loader.load();
+            EXT_LINING.setId("Ext Lining");
+            contentList.add(EXT_LINING);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
