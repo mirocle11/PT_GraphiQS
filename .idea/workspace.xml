@@ -25,17 +25,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-setup sheets updated &#10;-dashboard new lineup&#10;-fixed door stamping / ongoing progress for delete function&#10;-shed order applied (in progress)&#10;-8/18/20 update">
-      <change afterPath="$PROJECT_DIR$/src/Controllers/Sheets/extLiningController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controllers/Sheets/postAndBeamsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controllers/Sheets/roofController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controllers/Sheets/wallsSglLevController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/extLining.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/postAndBeams.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/roof.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/wallsSglLev.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/setupSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/setupSheetsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/intOpenings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Sheets/intOpenings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/foundationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Sheets/foundationsController.java" afterDir="false" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
     <list id="4dddbee8-77b6-41fd-be25-1624817806eb" name="Revert &quot;#60 commit&quot;" comment="Revert &quot;#60 commit&quot;&#10;&#10;This reverts commit 096c3c72" />
@@ -621,14 +612,7 @@
       <workItem from="1597760313096" duration="13181000" />
       <workItem from="1597915296658" duration="9513000" />
       <workItem from="1597988188167" duration="8816000" />
-      <workItem from="1598113162917" duration="1829000" />
-    </task>
-    <task id="LOCAL-00074" summary="#91 commit sections progress">
-      <created>1574235574360</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1574235574360</updated>
+      <workItem from="1598113162917" duration="3274000" />
     </task>
     <task id="LOCAL-00075" summary="#91 commit sections progress">
       <created>1574235612657</created>
@@ -966,7 +950,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597721461697</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="-setup sheets updated &#10;-dashboard new lineup&#10;-fixed door stamping / ongoing progress for delete function&#10;-shed order applied (in progress)&#10;-8/18/20 update">
+      <created>1598123092377</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1598123092377</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1076,10 +1067,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2610" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596527145075" />
-    <state x="2475" y="0" key="CommitChangelistDialog2" timestamp="1597721460240">
+    <state x="2475" y="0" key="CommitChangelistDialog2" timestamp="1598123091521">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2475" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597721460240" />
+    <state x="2475" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1598123091521" />
     <state x="3035" y="318" key="FileChooserDialogImpl" timestamp="1597387793086">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -1130,10 +1121,10 @@
     </state>
     <state x="432" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595788561514" />
     <state x="2266" y="158" width="1054" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597225235892" />
-    <state x="2472" y="248" key="Vcs.Push.Dialog.v2" timestamp="1597721465825">
+    <state x="2472" y="248" key="Vcs.Push.Dialog.v2" timestamp="1598123094427">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597721465825" />
+    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1598123094427" />
     <state x="753" y="454" key="classpath-attribute-editor" timestamp="1595788555192">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
