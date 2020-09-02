@@ -1,4 +1,4 @@
-package Controllers.Sheets;
+package Controllers.Sheets.Residential;
 
 import DataBase.DataBase;
 import com.jfoenix.controls.JFXButton;
@@ -14,13 +14,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class extOpeningsController implements Initializable {
+public class wallsSglLevController implements Initializable {
 
     public ObservableList<String> parts = FXCollections.observableArrayList();
     public VBox PARTS_VBOX;
 
-    public GridPane WIND_HARDWARE, GARAGE_DOOR, DOORS, WINDOWS, WINDOW_HEADS_STANDARD, WINDOW_HEADS_RAKING,
-            CANTILEVER_LINTELS, DOORS_MEASURED_ITEMS;
+    public GridPane MISC, COLUMNS, GABLES_JACK_FRAMES, HANDRAILS, STEEL_BEAMS, FLITCHED_LINTELS, MEASURED_LINTELS,
+            SPECIAL_MANUFACTURING, EXTERIOR, INTERIOR, LINTELS_NON_SLS, STUDS_NOGS_DEDUCTION;
 
     public ArrayList<GridPane> gridPaneList = new ArrayList<>();
 
@@ -30,7 +30,7 @@ public class extOpeningsController implements Initializable {
 
         DataBase db = DataBase.getInstance();
         parts.clear();
-        db.displayParts(9, parts);
+        db.displayParts(18, parts);
 
         parts.forEach(s -> {
             JFXButton button = new JFXButton(s);
@@ -52,23 +52,31 @@ public class extOpeningsController implements Initializable {
     }
 
     public void loadPanes() {
-        WIND_HARDWARE.setId("Wind Hardware");
-        GARAGE_DOOR.setId("Garage Door");
-        DOORS.setId("Doors");
-        WINDOWS.setId("Windows");
-        WINDOW_HEADS_STANDARD.setId("Window Heads Standard");
-        WINDOW_HEADS_RAKING.setId("Window Heads Raking");
-        CANTILEVER_LINTELS.setId("Cantilever Lintels");
-        DOORS_MEASURED_ITEMS.setId("Doors Measured Items");
+        MISC.setId("Misc");
+        COLUMNS.setId("Columns");
+        GABLES_JACK_FRAMES.setId("Gables&Jack Frames");
+        HANDRAILS.setId("Handrails");
+        STEEL_BEAMS.setId("Steel Beams");
+        FLITCHED_LINTELS.setId("Flitched Lintels");
+        MEASURED_LINTELS.setId("Measured Lintels");
+        SPECIAL_MANUFACTURING.setId("Special Manufacturing");
+        EXTERIOR.setId("Exterior");
+        INTERIOR.setId("Interior");
+        LINTELS_NON_SLS.setId("Lintels Non SLs");
+        STUDS_NOGS_DEDUCTION.setId("Studs Nogs Deduction");
 
-        gridPaneList.add(WIND_HARDWARE);
-        gridPaneList.add(GARAGE_DOOR);
-        gridPaneList.add(DOORS);
-        gridPaneList.add(WINDOWS);
-        gridPaneList.add(WINDOW_HEADS_STANDARD);
-        gridPaneList.add(WINDOW_HEADS_RAKING);
-        gridPaneList.add(CANTILEVER_LINTELS);
-        gridPaneList.add(DOORS_MEASURED_ITEMS);
+        gridPaneList.add(MISC);
+        gridPaneList.add(COLUMNS);
+        gridPaneList.add(GABLES_JACK_FRAMES);
+        gridPaneList.add(HANDRAILS);
+        gridPaneList.add(STEEL_BEAMS);
+        gridPaneList.add(FLITCHED_LINTELS);
+        gridPaneList.add(MEASURED_LINTELS);
+        gridPaneList.add(SPECIAL_MANUFACTURING);
+        gridPaneList.add(EXTERIOR);
+        gridPaneList.add(INTERIOR);
+        gridPaneList.add(LINTELS_NON_SLS);
+        gridPaneList.add(STUDS_NOGS_DEDUCTION);
     }
 
 }

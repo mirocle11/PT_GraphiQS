@@ -3,7 +3,6 @@ package Controllers;
 import Model.data.WallData;
 import Model.PageObject;
 import Model.ShapeObject;
-import Model.data.doorData;
 import com.jfoenix.controls.*;
 import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
 import javafx.animation.FadeTransition;

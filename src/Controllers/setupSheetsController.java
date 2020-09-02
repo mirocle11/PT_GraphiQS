@@ -1,5 +1,8 @@
 package Controllers;
 
+import Controllers.Sheets.Shed.*;
+import DataBase.DataBase;
+import Model.data.shed.externalFramingData;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTabPane;
 import javafx.collections.FXCollections;
@@ -19,10 +22,15 @@ public class setupSheetsController implements Initializable {
     public JFXButton REFRESH;
     public static ObservableList<String> selectedBoxes = FXCollections.observableArrayList();
 
-    //sheets content
+    //sheets content (residential)
     public AnchorPane FOUNDATIONS, EXT_OPENINGS, INT_OPENINGS, POST_BEAM_HARDWARE, WALLS_SGL_LEV, ROOF, EXT_LINING;
 
+    //sheets content (shed)
+    public AnchorPane SHED_EXTERNAL_FRAMING, SHED_FRAMING_HARDWARE, SHED_CLADDING, SHED_FOUNDATION, SHED_CLADDING_OPT;
+
+    //contentList = residential
     public ArrayList<AnchorPane> contentList = new ArrayList();
+    public ArrayList<AnchorPane> shedList = new ArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {
@@ -30,22 +38,39 @@ public class setupSheetsController implements Initializable {
 
         REFRESH.setOnAction(event -> {
             TAB_PANE.getTabs().clear();
-            selectedBoxes.forEach((String s) -> {
-                Tab tab = new Tab();
-                tab.setText(s);
-                contentList.forEach(anchorPane -> {
-                    if (anchorPane.getId().equals(s)) {
-                        tab.setContent(anchorPane);
-                    }
+            if (jobInfoController.selectedProjectType.equals("Residential")) {
+                selectedBoxes.forEach((String s) -> {
+                    Tab tab = new Tab();
+                    tab.setText(s);
+                    contentList.forEach(anchorPane -> {
+                        if (anchorPane.getId().equals(s)) {
+                            tab.setContent(anchorPane);
+                        }
+                    });
+                    TAB_PANE.getTabs().add(tab);
                 });
-                TAB_PANE.getTabs().add(tab);
-            });
+            } else {
+                selectedBoxes.forEach((String s) -> {
+                    Tab tab = new Tab();
+                    tab.setText(s);
+                    shedList.forEach(anchorPane -> {
+                        if (anchorPane.getId().equals(s)) {
+                            tab.setContent(anchorPane);
+                        }
+                    });
+                    TAB_PANE.getTabs().add(tab);
+                });
+                //set tables data
+                DataBase db = DataBase.getInstance();
+                db.displayShedParts(externalFramingController.data, framingHardwareController.data,
+                        claddingController.data, foundationController.data, claddingOptController.data);
+            }
         });
     }
 
     public void loadTabs() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/foundations.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Residential/foundations.fxml"));
             FOUNDATIONS = loader.load();
             FOUNDATIONS.setId("Foundations");
             contentList.add(FOUNDATIONS);
@@ -53,7 +78,7 @@ public class setupSheetsController implements Initializable {
             e.printStackTrace();
         }
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/extOpenings.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Residential/extOpenings.fxml"));
             EXT_OPENINGS = loader.load();
             EXT_OPENINGS.setId("Ext Openings");
             contentList.add(EXT_OPENINGS);
@@ -61,7 +86,7 @@ public class setupSheetsController implements Initializable {
             e.printStackTrace();
         }
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/intOpenings.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Residential/intOpenings.fxml"));
             INT_OPENINGS = loader.load();
             INT_OPENINGS.setId("Int Openings");
             contentList.add(INT_OPENINGS);
@@ -69,7 +94,7 @@ public class setupSheetsController implements Initializable {
             e.printStackTrace();
         }
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/postAndBeams.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Residential/postAndBeams.fxml"));
             POST_BEAM_HARDWARE = loader.load();
             POST_BEAM_HARDWARE.setId("Post & Beam Hardware");
             contentList.add(POST_BEAM_HARDWARE);
@@ -77,7 +102,7 @@ public class setupSheetsController implements Initializable {
             e.printStackTrace();
         }
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/wallsSglLev.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Residential/wallsSglLev.fxml"));
             WALLS_SGL_LEV = loader.load();
             WALLS_SGL_LEV.setId("Walls Sgl Lev");
             contentList.add(WALLS_SGL_LEV);
@@ -85,7 +110,7 @@ public class setupSheetsController implements Initializable {
             e.printStackTrace();
         }
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/roof.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Residential/roof.fxml"));
             ROOF = loader.load();
             ROOF.setId("Roof");
             contentList.add(ROOF);
@@ -93,10 +118,56 @@ public class setupSheetsController implements Initializable {
             e.printStackTrace();
         }
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/extLining.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Residential/extLining.fxml"));
             EXT_LINING = loader.load();
             EXT_LINING.setId("Ext Lining");
             contentList.add(EXT_LINING);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //shed loaders
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/externalFraming.fxml"));
+            SHED_EXTERNAL_FRAMING = loader.load();
+            SHED_EXTERNAL_FRAMING.setId("Poleshed External Framing");
+            shedList.add(SHED_EXTERNAL_FRAMING);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/framingHardware.fxml"));
+            SHED_FRAMING_HARDWARE = loader.load();
+            SHED_FRAMING_HARDWARE.setId("Poleshed Framing Hardware");
+            shedList.add(SHED_FRAMING_HARDWARE);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/cladding.fxml"));
+            SHED_CLADDING = loader.load();
+            SHED_CLADDING.setId("Poleshed Cladding");
+            shedList.add(SHED_CLADDING);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/foundation.fxml"));
+            SHED_FOUNDATION = loader.load();
+            SHED_FOUNDATION.setId("Poleshed Foundation");
+            shedList.add(SHED_FOUNDATION);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/claddingOpt.fxml"));
+            SHED_CLADDING_OPT = loader.load();
+            SHED_CLADDING_OPT.setId("Poleshed Cladding Opt");
+            shedList.add(SHED_CLADDING_OPT);
         } catch (Exception e) {
             e.printStackTrace();
         }

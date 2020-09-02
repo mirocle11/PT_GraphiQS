@@ -266,3 +266,10 @@
     -fx-opacity: 0;
 }
 
+.jfx-combo-box {
+    -fx-text-inner-color: #bcbcbc;
+}
+
+.list-cell{
+    -fx-font-size: 15.0;
+}

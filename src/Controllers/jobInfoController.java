@@ -1,7 +1,6 @@
 package Controllers;
 
 import DataBase.DataBase;
-import Model.StructureModel;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
@@ -18,24 +17,22 @@ import java.util.ResourceBundle;
 
 public class jobInfoController implements Initializable {
 
-    public JFXButton NEXT, BACK, SUBMIT;
+    public JFXButton NEXT, BACK, SUBMIT, RESIDENTIAL, SHED;
     public AnchorPane FIRST_PANE;
     public ScrollPane SECOND_PANE;
-    public Pane LIST_PANE;
+    public Pane RESIDENTIAL_PANE, SHED_PANE;
 
     public JFXCheckBox SELECT_ALL;
     public JFXComboBox<String> CLIENT_COMBO_BOX;
 
-    static ObservableList<String> list = FXCollections.observableArrayList();
-    private ObservableList<String> CLIENTS = FXCollections.observableArrayList();
+    public static ObservableList<String> list = FXCollections.observableArrayList();
+    public ObservableList<String> CLIENTS = FXCollections.observableArrayList();
 
     public static String selectedClient;
-    static StructureModel structureModel;
+    public static String selectedProjectType;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        structureModel = new StructureModel(this);
-
         DataBase db = DataBase.getInstance();
         db.clientComboBox(CLIENTS);
         CLIENT_COMBO_BOX.setItems(CLIENTS);
@@ -47,6 +44,9 @@ public class jobInfoController implements Initializable {
             NEXT.setVisible(false);
             BACK.setDisable(false);
             SUBMIT.setVisible(true);
+
+            RESIDENTIAL.setVisible(false);
+            SHED.setVisible(false);
         });
 
         BACK.setOnAction(event -> {
@@ -57,15 +57,18 @@ public class jobInfoController implements Initializable {
             NEXT.setDisable(false);
             BACK.setDisable(true);
             SUBMIT.setVisible(false);
+
+            RESIDENTIAL.setVisible(true);
+            SHED.setVisible(true);
         });
 
         SELECT_ALL.setOnAction(event -> {
             if (SELECT_ALL.isSelected()) {
-                LIST_PANE.getChildren().forEach((Node node) -> {
+                RESIDENTIAL_PANE.getChildren().forEach((Node node) -> {
                     ((JFXCheckBox) node).setSelected(true);
                 });
             } else {
-                LIST_PANE.getChildren().forEach(node -> {
+                RESIDENTIAL_PANE.getChildren().forEach(node -> {
                     ((JFXCheckBox) node).setSelected(false);
                 });
             }
@@ -76,43 +79,42 @@ public class jobInfoController implements Initializable {
             selectedClient = CLIENT_COMBO_BOX.getSelectionModel().getSelectedItem();
         });
 
+        RESIDENTIAL.setOnAction(event -> {
+            SHED_PANE.setVisible(false);
+            RESIDENTIAL_PANE.setVisible(true);
+            SELECT_ALL.setVisible(true);
+            selectedProjectType = "Residential";
+        });
+
+        SHED.setOnAction(event -> {
+            RESIDENTIAL_PANE.setVisible(false);
+            SHED_PANE.setVisible(true);
+            SELECT_ALL.setVisible(false);
+            selectedProjectType = "Shed";
+        });
     }
 
     private void selectStructures() {
         list.clear();
-        LIST_PANE.getChildren().forEach(node -> {
-            if (((JFXCheckBox) node).isSelected()) {
-                String boxes = ((JFXCheckBox) node).getText();
-                list.add(boxes);
-//                System.out.println(list);
-                workspaceController.selectedBoxes = list;
-                setupSheetsController.selectedBoxes = list;
-            }
-        });
+        if (selectedProjectType.equals("Residential")) {
+            RESIDENTIAL_PANE.getChildren().forEach(node -> {
+                if (((JFXCheckBox) node).isSelected()) {
+                    String boxes = ((JFXCheckBox) node).getText();
+                    list.add(boxes);
+                    workspaceController.selectedBoxes = list;
+                    setupSheetsController.selectedBoxes = list;
+                }
+            });
+        } else {
+            SHED_PANE.getChildren().forEach(node -> {
+                if (((JFXCheckBox) node).isSelected()) {
+                    String boxes = ((JFXCheckBox) node).getText();
+                    list.add(boxes);
+                    setupSheetsController.selectedBoxes = list;
+                }
+            });
+        }
+
     }
-
-//    private void setTabs() {
-//        LIST_PANE.getChildren().forEach(node -> {
-//            if (((JFXCheckBox) node).isSelected()) {
-//                String boxes = ((JFXCheckBox) node).getText();
-//
-//                //setup sheets tabs
-//                String[] splitArray = boxes.split(",");
-//                for (int i = 0; i < splitArray.length; i++) {
-//                    setupSheets.createSelectedTabs(splitArray[i]);
-//                    structureModel.setupSheets.createSelectedTabs(splitArray[i]);
-//                }
-//            }
-//        });
-//    }
-
-//    private void accept(Node node) {
-//        if (((JFXCheckBox) node).isSelected()) {
-//            String boxes = ((JFXCheckBox) node).getText();
-//            list.add(boxes);
-//            System.out.println(list);
-//            workspaceController.getSelectedStructures(list);
-//        }
-//    }
 
 }

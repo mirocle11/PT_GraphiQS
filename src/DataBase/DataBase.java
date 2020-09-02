@@ -1,16 +1,14 @@
 package DataBase;
 
-import Controllers.Sheets.foundationsController;
 import Model.data.clientsData;
+import Model.data.shed.*;
 import Model.data.subtradesData;
 import Model.data.setupSheetsData;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 
 import javax.swing.*;
 import java.sql.*;
-import java.util.ArrayList;
 
 public class DataBase {
 
@@ -83,6 +81,13 @@ public class DataBase {
                     "STRUCTURE_ID INT, PARTS VARCHAR(45) UNIQUE , PRIMARY KEY (ID), FOREIGN KEY (STRUCTURE_ID) REFERENCES " +
                     "STRUCTURES_TBL(ID))";
 
+            String CREATE_SHEDS_TBL = "CREATE TABLE IF NOT EXISTS SHEDS_TBL(ID INTEGER NOT NULL AUTO_INCREMENT, " +
+                    "PARTS VARCHAR(45), PRIMARY KEY (ID))";
+
+            String CREATE_SHED_PARTS_TBL = "CREATE TABLE IF NOT EXISTS SHED_PARTS_TBL(ID INTEGER NOT NULL AUTO_INCREMENT, " +
+                    "SHED_ID INT, SKU_NUMBER VARCHAR(45), DESCRIPTION VARCHAR(100), UNIT VARCHAR(10), PRIMARY KEY (ID), " +
+                    "FOREIGN KEY (SHED_ID) REFERENCES SHEDS_TBL(ID))";
+
             Statement statement = connection.createStatement();
             statement.executeUpdate(CREATE_USERS_TBL);
             statement.executeUpdate(CREATE_CLIENTS_TBL);
@@ -90,6 +95,8 @@ public class DataBase {
             statement.executeUpdate(CREATE_PRICE_CARDS_TBL);
             statement.executeUpdate(CREATE_STRUCTURE_TBL);
             statement.executeUpdate(CREATE_PARTS_TBL);
+            statement.executeUpdate(CREATE_SHEDS_TBL);
+            statement.executeUpdate(CREATE_SHED_PARTS_TBL);
 
             //creates the default user
             addUser("estimator21", "password", "What is your Mother's maiden name?",
@@ -551,6 +558,107 @@ public class DataBase {
             while (resultSet.next()) {
                 //create container for data
                 parts.add(resultSet.getString("PARTS"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void displayShedParts(ObservableList<externalFramingData> externalFramingData,
+                                 ObservableList<framingHardwareData> framingHardwareData,
+                                 ObservableList<claddingData> claddingData,
+                                 ObservableList<foundationData> foundationData,
+                                 ObservableList<claddingOptData> claddingOptData) {
+        try {
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM SHED_PARTS_TBL WHERE SHED_ID = " + 1;
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            externalFramingData.clear();
+
+            while (resultSet.next()) {
+                String ID = resultSet.getString("ID");
+                String SKU_NUMBER = resultSet.getString("SKU_NUMBER");
+                String DESCRIPTION = resultSet.getString("DESCRIPTION");
+                String UNIT = resultSet.getString("UNIT");
+
+                externalFramingData.addAll(new externalFramingData(ID, SKU_NUMBER, DESCRIPTION, UNIT));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM SHED_PARTS_TBL WHERE SHED_ID = " + 2;
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            framingHardwareData.clear();
+
+            while (resultSet.next()) {
+                String ID = resultSet.getString("ID");
+                String SKU_NUMBER = resultSet.getString("SKU_NUMBER");
+                String DESCRIPTION = resultSet.getString("DESCRIPTION");
+                String UNIT = resultSet.getString("UNIT");
+
+                framingHardwareData.addAll(new framingHardwareData(ID, SKU_NUMBER, DESCRIPTION, UNIT));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM SHED_PARTS_TBL WHERE SHED_ID = " + 3;
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            claddingData.clear();
+
+            while (resultSet.next()) {
+                String ID = resultSet.getString("ID");
+                String SKU_NUMBER = resultSet.getString("SKU_NUMBER");
+                String DESCRIPTION = resultSet.getString("DESCRIPTION");
+                String UNIT = resultSet.getString("UNIT");
+
+                claddingData.addAll(new claddingData(ID, SKU_NUMBER, DESCRIPTION, UNIT));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM SHED_PARTS_TBL WHERE SHED_ID = " + 4;
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            foundationData.clear();
+
+            while (resultSet.next()) {
+                String ID = resultSet.getString("ID");
+                String SKU_NUMBER = resultSet.getString("SKU_NUMBER");
+                String DESCRIPTION = resultSet.getString("DESCRIPTION");
+                String UNIT = resultSet.getString("UNIT");
+
+                foundationData.addAll(new foundationData(ID, SKU_NUMBER, DESCRIPTION, UNIT));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM SHED_PARTS_TBL WHERE SHED_ID = " + 5;
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            claddingOptData.clear();
+
+            while (resultSet.next()) {
+                String ID = resultSet.getString("ID");
+                String SKU_NUMBER = resultSet.getString("SKU_NUMBER");
+                String DESCRIPTION = resultSet.getString("DESCRIPTION");
+                String UNIT = resultSet.getString("UNIT");
+
+                claddingOptData.addAll(new claddingOptData(ID, SKU_NUMBER, DESCRIPTION, UNIT));
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1015.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.jobInfoController">
+<AnchorPane prefHeight="720.0" prefWidth="1015.0" style="-fx-background-color: #102027;" stylesheets="@CSS/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.jobInfoController">
    <children>
       <Label layoutX="13.0" layoutY="13.0" prefHeight="32.0" prefWidth="186.0" text="GQS  |  Create Project" textFill="#bcbcbc">
          <font>
@@ -71,12 +71,12 @@
                </font>
             </Label>
             <JFXComboBox fx:id="CLIENT_COMBO_BOX" focusColor="#0f9d58" layoutX="14.0" layoutY="50.0" prefHeight="30.0" prefWidth="335.0" promptText="Client" />
-            <JFXCheckBox focusTraversable="false" layoutX="399.0" layoutY="170.0" prefHeight="30.0" prefWidth="156.0" selected="true" text="With Labour" textFill="#b8b8b8">
+            <JFXCheckBox fx:id="SELECT_ALL" focusTraversable="false" layoutX="583.0" layoutY="215.0" prefHeight="30.0" prefWidth="156.0" text="Select all structures" textFill="#b8b8b8" visible="false">
                <font>
                   <Font name="Segoe UI" size="14.0" />
                </font>
             </JFXCheckBox>
-            <Pane fx:id="LIST_PANE" layoutY="278.0" prefHeight="375.0" prefWidth="935.0">
+            <Pane fx:id="RESIDENTIAL_PANE" layoutY="278.0" prefHeight="375.0" prefWidth="935.0" visible="false">
                <children>
                   <JFXCheckBox focusTraversable="false" layoutX="14.0" prefHeight="30.0" prefWidth="156.0" selected="true" text="Foundations" textFill="#b8b8b8">
                      <font>
@@ -305,11 +305,35 @@
                   </JFXCheckBox>
                </children>
             </Pane>
-            <JFXCheckBox fx:id="SELECT_ALL" focusTraversable="false" layoutX="398.0" layoutY="230.0" prefHeight="30.0" prefWidth="170.0" text="Select all structures" textFill="#b8b8b8">
-               <font>
-                  <Font name="Segoe UI" size="15.0" />
-               </font>
-            </JFXCheckBox>
+            <Pane fx:id="SHED_PANE" layoutY="278.0" prefHeight="375.0" prefWidth="935.0" visible="false">
+               <children>
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="15.0" prefHeight="30.0" prefWidth="218.0" selected="true" text="Poleshed External Framing" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="45.0" prefHeight="30.0" prefWidth="218.0" selected="true" text="Poleshed Framing Hardware" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="75.0" prefHeight="30.0" prefWidth="218.0" selected="true" text="Poleshed Cladding" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="105.0" prefHeight="30.0" prefWidth="218.0" selected="true" text="Poleshed Foundation" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="135.0" prefHeight="30.0" prefWidth="218.0" selected="true" text="Poleshed Cladding Opt" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
       <JFXButton fx:id="NEXT" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="10.0" layoutX="772.0" layoutY="13.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="94.0" style="-fx-background-radius: 30px;" stylesheets="@CSS/style.css" text="Next" textAlignment="CENTER" textFill="#b5b5b5" AnchorPane.rightAnchor="149.0">
@@ -977,6 +1001,16 @@
                </image>
             </ImageView>
          </graphic>
+      </JFXButton>
+      <JFXButton fx:id="SHED" alignment="CENTER" focusTraversable="false" graphicTextGap="10.0" layoutX="454.0" layoutY="13.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="112.0" style="-fx-background-radius: 30px; -fx-background-color: #263238;" stylesheets="@CSS/style.css" text="Shed" textAlignment="CENTER" textFill="#b5b5b5">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="RESIDENTIAL" alignment="CENTER" focusTraversable="false" graphicTextGap="10.0" layoutX="330.0" layoutY="13.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="112.0" style="-fx-background-radius: 30px; -fx-background-color: #263238;" text="Residential" textAlignment="CENTER" textFill="#b5b5b5">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
       </JFXButton>
    </children>
 </AnchorPane>

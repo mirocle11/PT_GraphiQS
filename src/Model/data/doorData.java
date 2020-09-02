@@ -2,19 +2,16 @@ package Model.data;
 
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.scene.control.Label;
 
 public class doorData extends RecursiveTreeObject<doorData> {
 
     private SimpleStringProperty no, type, width, height;
 
     public doorData(String no, String type, String width, String height) {
-
         this.no = new SimpleStringProperty(no);
         this.type = new SimpleStringProperty(type);
         this.width = new SimpleStringProperty(width);
         this.height = new SimpleStringProperty(height);
-
     }
 
     public String getNo() {
