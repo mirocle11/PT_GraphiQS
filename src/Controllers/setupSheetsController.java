@@ -1,8 +1,5 @@
 package Controllers;
 
-import Controllers.Sheets.Shed.*;
-import DataBase.DataBase;
-import Model.data.shed.externalFramingData;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTabPane;
 import javafx.collections.FXCollections;
@@ -26,7 +23,7 @@ public class setupSheetsController implements Initializable {
     public AnchorPane FOUNDATIONS, EXT_OPENINGS, INT_OPENINGS, POST_BEAM_HARDWARE, WALLS_SGL_LEV, ROOF, EXT_LINING;
 
     //sheets content (shed)
-    public AnchorPane SHED_EXTERNAL_FRAMING, SHED_FRAMING_HARDWARE, SHED_CLADDING, SHED_FOUNDATION, SHED_CLADDING_OPT;
+    public AnchorPane SHED_FOUNDATION;
 
     //contentList = residential
     public ArrayList<AnchorPane> contentList = new ArrayList();
@@ -60,10 +57,6 @@ public class setupSheetsController implements Initializable {
                     });
                     TAB_PANE.getTabs().add(tab);
                 });
-                //set tables data
-                DataBase db = DataBase.getInstance();
-                db.displayShedParts(externalFramingController.data, framingHardwareController.data,
-                        claddingController.data, foundationController.data, claddingOptController.data);
             }
         });
     }
@@ -128,49 +121,49 @@ public class setupSheetsController implements Initializable {
 
         //shed loaders
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/externalFraming.fxml"));
-            SHED_EXTERNAL_FRAMING = loader.load();
-            SHED_EXTERNAL_FRAMING.setId("Poleshed External Framing");
-            shedList.add(SHED_EXTERNAL_FRAMING);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/framingHardware.fxml"));
-            SHED_FRAMING_HARDWARE = loader.load();
-            SHED_FRAMING_HARDWARE.setId("Poleshed Framing Hardware");
-            shedList.add(SHED_FRAMING_HARDWARE);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/cladding.fxml"));
-            SHED_CLADDING = loader.load();
-            SHED_CLADDING.setId("Poleshed Cladding");
-            shedList.add(SHED_CLADDING);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/foundation.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/foundations.fxml"));
             SHED_FOUNDATION = loader.load();
-            SHED_FOUNDATION.setId("Poleshed Foundation");
+            SHED_FOUNDATION.setId("Foundations");
             shedList.add(SHED_FOUNDATION);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/claddingOpt.fxml"));
-            SHED_CLADDING_OPT = loader.load();
-            SHED_CLADDING_OPT.setId("Poleshed Cladding Opt");
-            shedList.add(SHED_CLADDING_OPT);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/externalFraming.fxml"));
+//            SHED_EXTERNAL_FRAMING = loader.load();
+//            SHED_EXTERNAL_FRAMING.setId("Pole Shed External Framing");
+//            shedList.add(SHED_EXTERNAL_FRAMING);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/framingHardware.fxml"));
+//            SHED_FRAMING_HARDWARE = loader.load();
+//            SHED_FRAMING_HARDWARE.setId("Poleshed Framing Hardware");
+//            shedList.add(SHED_FRAMING_HARDWARE);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/cladding.fxml"));
+//            SHED_CLADDING = loader.load();
+//            SHED_CLADDING.setId("Poleshed Cladding");
+//            shedList.add(SHED_CLADDING);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/claddingOpt.fxml"));
+//            SHED_CLADDING_OPT = loader.load();
+//            SHED_CLADDING_OPT.setId("Poleshed Cladding Opt");
+//            shedList.add(SHED_CLADDING_OPT);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
 }

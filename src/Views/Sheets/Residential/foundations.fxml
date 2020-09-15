@@ -42,7 +42,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <GridPane fx:id="POST_FOOTINGS" layoutX="10.0" layoutY="10.0" prefHeight="286.0" prefWidth="785.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+      <GridPane fx:id="POST_FOOTINGS" layoutX="10.0" layoutY="10.0" prefHeight="286.0" prefWidth="785.0" visible="false" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
          <columnConstraints>
             <ColumnConstraints hgrow="ALWAYS" maxWidth="668.0" minWidth="10.0" prefWidth="498.0" />
             <ColumnConstraints hgrow="ALWAYS" maxWidth="459.0" minWidth="10.0" prefWidth="287.0" />

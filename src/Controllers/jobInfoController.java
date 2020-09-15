@@ -114,7 +114,6 @@ public class jobInfoController implements Initializable {
                 }
             });
         }
-
     }
 
 }

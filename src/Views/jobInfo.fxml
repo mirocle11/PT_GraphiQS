@@ -307,27 +307,42 @@
             </Pane>
             <Pane fx:id="SHED_PANE" layoutY="278.0" prefHeight="375.0" prefWidth="935.0" visible="false">
                <children>
-                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="15.0" prefHeight="30.0" prefWidth="218.0" selected="true" text="Poleshed External Framing" textFill="#b8b8b8">
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="15.0" prefHeight="30.0" prefWidth="218.0" selected="true" text="Foundations" textFill="#b8b8b8">
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font>
                   </JFXCheckBox>
-                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="45.0" prefHeight="30.0" prefWidth="218.0" selected="true" text="Poleshed Framing Hardware" textFill="#b8b8b8">
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="45.0" prefHeight="30.0" prefWidth="218.0" selected="true" text="Ext Openings" textFill="#b8b8b8">
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font>
                   </JFXCheckBox>
-                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="75.0" prefHeight="30.0" prefWidth="218.0" selected="true" text="Poleshed Cladding" textFill="#b8b8b8">
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="75.0" prefHeight="30.0" prefWidth="218.0" selected="true" text="Int Openings" textFill="#b8b8b8">
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font>
                   </JFXCheckBox>
-                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="105.0" prefHeight="30.0" prefWidth="218.0" selected="true" text="Poleshed Foundation" textFill="#b8b8b8">
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="105.0" prefHeight="30.0" prefWidth="258.0" selected="true" text="Post&amp;Beam Hardware" textFill="#b8b8b8">
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font>
                   </JFXCheckBox>
-                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="135.0" prefHeight="30.0" prefWidth="218.0" selected="true" text="Poleshed Cladding Opt" textFill="#b8b8b8">
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="135.0" prefHeight="30.0" prefWidth="218.0" selected="true" text="Walls Sgl Lev" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="13.0" layoutY="165.0" prefHeight="30.0" prefWidth="218.0" selected="true" text="Roof" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="13.0" layoutY="195.0" prefHeight="30.0" prefWidth="218.0" selected="true" text="Ext Lining" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="225.0" prefHeight="30.0" prefWidth="218.0" selected="true" text="Miscellanious" textFill="#b8b8b8">
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font>

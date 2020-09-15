@@ -1,8 +1,10 @@
 package Main;
 
-import Controllers.*;
+import Controllers.builderController;
+import Controllers.dashboardController;
+import Controllers.loginController;
+import Controllers.splashScreenController;
 import DataBase.DataBase;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,6 +12,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import javax.swing.*;
 
 public class Main extends Application {
 
@@ -100,6 +104,19 @@ public class Main extends Application {
             dashboard_stage.setMinWidth(1275);
             dashboard_stage.setMinHeight(700);
             dashboard_stage.setMaximized(true);
+            dashboard_stage.setOnCloseRequest(event -> {
+                int n = JOptionPane.showConfirmDialog(null, "You have unsaved progress, " +
+                        "do you want to exit?", "Info", JOptionPane.YES_NO_OPTION);
+                if (n == 0) {
+                    DataBase db = DataBase.getInstance();
+                    db.clearComponents();
+                    dashboard_stage.close();
+                }
+                else {
+                    event.consume();
+                }
+                System.out.println(n);
+            });
 
             DataBase db = DataBase.getInstance();
             db.displayClients(builderController.clientsData);

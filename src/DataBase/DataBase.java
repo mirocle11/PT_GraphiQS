@@ -1,14 +1,16 @@
 package DataBase;
 
 import Model.data.clientsData;
-import Model.data.shed.*;
-import Model.data.subtradesData;
 import Model.data.setupSheetsData;
+import Model.data.shed.foundationsData;
+import Model.data.subtradesData;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 
 import javax.swing.*;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class DataBase {
 
@@ -80,13 +82,17 @@ public class DataBase {
             String CREATE_PARTS_TBL = "CREATE TABLE IF NOT EXISTS STRUCTURES_PARTS_TBL(ID INTEGER NOT NULL AUTO_INCREMENT, " +
                     "STRUCTURE_ID INT, PARTS VARCHAR(45) UNIQUE , PRIMARY KEY (ID), FOREIGN KEY (STRUCTURE_ID) REFERENCES " +
                     "STRUCTURES_TBL(ID))";
-
-            String CREATE_SHEDS_TBL = "CREATE TABLE IF NOT EXISTS SHEDS_TBL(ID INTEGER NOT NULL AUTO_INCREMENT, " +
-                    "PARTS VARCHAR(45), PRIMARY KEY (ID))";
-
-            String CREATE_SHED_PARTS_TBL = "CREATE TABLE IF NOT EXISTS SHED_PARTS_TBL(ID INTEGER NOT NULL AUTO_INCREMENT, " +
-                    "SHED_ID INT, SKU_NUMBER VARCHAR(45), DESCRIPTION VARCHAR(100), UNIT VARCHAR(10), PRIMARY KEY (ID), " +
-                    "FOREIGN KEY (SHED_ID) REFERENCES SHEDS_TBL(ID))";
+//
+//            String CREATE_SHEDS_TBL = "CREATE TABLE IF NOT EXISTS SHED_STRUCTURE_TBL(ID INTEGER NOT NULL AUTO_INCREMENT, " +
+//                    "STRUCTURES VARCHAR(45), PRIMARY KEY (ID))";
+//
+//            String CREATE_SHED_PARTS_TBL = "CREATE TABLE IF NOT EXISTS SHED_PARTS_TBL(ID INTEGER NOT NULL AUTO_INCREMENT, " +
+//                    "SHED_STRUCTURE_ID INT, PARTS VARCHAR(45), PRIMARY KEY (ID), FOREIGN KEY (SHED_STRUCTURE_ID) " +
+//                    "REFERENCES SHEDS_TBL(ID))";
+//
+//            String CREATE_SHED_COMPONENTS_TBL = "CREATE TABLE IF NOT EXISTS SHED_COMPONENTS_TBL(ID INTEGER NOT NULL AUTO_INCREMENT, " +
+//                    "SHED_STRUCTURE_ID INT, PARTS VARCHAR(45), PRIMARY KEY (ID), FOREIGN KEY (SHED_STRUCTURE_ID) " +
+//                    "REFERENCES SHEDS_TBL(ID))";
 
             Statement statement = connection.createStatement();
             statement.executeUpdate(CREATE_USERS_TBL);
@@ -95,8 +101,9 @@ public class DataBase {
             statement.executeUpdate(CREATE_PRICE_CARDS_TBL);
             statement.executeUpdate(CREATE_STRUCTURE_TBL);
             statement.executeUpdate(CREATE_PARTS_TBL);
-            statement.executeUpdate(CREATE_SHEDS_TBL);
-            statement.executeUpdate(CREATE_SHED_PARTS_TBL);
+//            statement.executeUpdate(CREATE_SHEDS_TBL);
+//            statement.executeUpdate(CREATE_SHED_PARTS_TBL);
+//            statement.executeUpdate(CREATE_SHED_COMPONENTS_TBL);
 
             //creates the default user
             addUser("estimator21", "password", "What is your Mother's maiden name?",
@@ -459,8 +466,7 @@ public class DataBase {
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
-                String FULL_NAME = resultSet.getString("FULL_NAME");
-                CLIENTS.addAll(FULL_NAME);
+                CLIENTS.addAll(resultSet.getString("FULL_NAME"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -564,102 +570,106 @@ public class DataBase {
         }
     }
 
-    public void displayShedParts(ObservableList<externalFramingData> externalFramingData,
-                                 ObservableList<framingHardwareData> framingHardwareData,
-                                 ObservableList<claddingData> claddingData,
-                                 ObservableList<foundationData> foundationData,
-                                 ObservableList<claddingOptData> claddingOptData) {
+    public void displayShedParts(int structure_id, ObservableList<String> parts) {
         try {
-            Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM SHED_PARTS_TBL WHERE SHED_ID = " + 1;
-            ResultSet resultSet = statement.executeQuery(sql);
+            String sql = "SELECT PARTS FROM SHED_PARTS_TBL WHERE STRUCTURE_ID = ?";
 
-            externalFramingData.clear();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, structure_id);
 
+            ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                String ID = resultSet.getString("ID");
-                String SKU_NUMBER = resultSet.getString("SKU_NUMBER");
-                String DESCRIPTION = resultSet.getString("DESCRIPTION");
-                String UNIT = resultSet.getString("UNIT");
+                //create container for data
+                parts.add(resultSet.getString("PARTS"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-                externalFramingData.addAll(new externalFramingData(ID, SKU_NUMBER, DESCRIPTION, UNIT));
+    //this is for getting ID for every part before going into sheets
+    public void getPartID(int structure_id, String part, Label id) {
+        try {
+            String sql = "SELECT ID FROM SHED_PARTS_TBL WHERE STRUCTURE_ID = ? AND PARTS = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, structure_id);
+            preparedStatement.setString(2, part);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                //create container for data
+                id.setText(String.valueOf(resultSet.getInt("ID")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //should be called in condition when adding section
+    public void setShedComponents(int parts_id, int section) {
+        ArrayList<String> components = new ArrayList<>();
+        try {
+            String sql = "SELECT COMPONENTS FROM SHED_COMPONENTS_CONTENT_TBL WHERE PARTS_ID = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, parts_id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                components.addAll(Collections.singleton(resultSet.getString("COMPONENTS")));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        components.forEach(component -> {
+            try {
+                String sql = "INSERT INTO SHED_COMPONENTS_TBL (PARTS_ID, SECTION, COMPONENT) VALUES (?, ?, ?)";
+
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setInt(1, parts_id);
+                preparedStatement.setInt(2, section);
+                preparedStatement.setString(3, component);
+
+                preparedStatement.executeUpdate();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    public void displayFoundationComponents(int parts_id, int section, ObservableList<foundationsData> content) {
         try {
-            Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM SHED_PARTS_TBL WHERE SHED_ID = " + 2;
-            ResultSet resultSet = statement.executeQuery(sql);
+            String sql = "SELECT * FROM SHED_COMPONENTS_TBL WHERE PARTS_ID = ? AND SECTION = ?";
 
-            framingHardwareData.clear();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, parts_id);
+            preparedStatement.setInt(2, section);
 
+            System.out.println(parts_id + " " + section);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                String ID = resultSet.getString("ID");
-                String SKU_NUMBER = resultSet.getString("SKU_NUMBER");
-                String DESCRIPTION = resultSet.getString("DESCRIPTION");
-                String UNIT = resultSet.getString("UNIT");
-
-                framingHardwareData.addAll(new framingHardwareData(ID, SKU_NUMBER, DESCRIPTION, UNIT));
+                //create container for data
+                content.addAll(new foundationsData(resultSet.getString("COMPONENT"),
+                        resultSet.getString("CODE"), resultSet.getString("DESCRIPTION"),
+                        resultSet.getString("EXTRA1"), resultSet.getString("EXTRA2"),
+                        resultSet.getString("QUANTITY"), resultSet.getString("USAGE"),
+                        resultSet.getString("WASTE"), resultSet.getString("SUBHEADING"),
+                        resultSet.getString("USAGE2")) {
+                });
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    public void clearComponents() {
         try {
-            Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM SHED_PARTS_TBL WHERE SHED_ID = " + 3;
-            ResultSet resultSet = statement.executeQuery(sql);
-
-            claddingData.clear();
-
-            while (resultSet.next()) {
-                String ID = resultSet.getString("ID");
-                String SKU_NUMBER = resultSet.getString("SKU_NUMBER");
-                String DESCRIPTION = resultSet.getString("DESCRIPTION");
-                String UNIT = resultSet.getString("UNIT");
-
-                claddingData.addAll(new claddingData(ID, SKU_NUMBER, DESCRIPTION, UNIT));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        try {
-            Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM SHED_PARTS_TBL WHERE SHED_ID = " + 4;
-            ResultSet resultSet = statement.executeQuery(sql);
-
-            foundationData.clear();
-
-            while (resultSet.next()) {
-                String ID = resultSet.getString("ID");
-                String SKU_NUMBER = resultSet.getString("SKU_NUMBER");
-                String DESCRIPTION = resultSet.getString("DESCRIPTION");
-                String UNIT = resultSet.getString("UNIT");
-
-                foundationData.addAll(new foundationData(ID, SKU_NUMBER, DESCRIPTION, UNIT));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        try {
-            Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM SHED_PARTS_TBL WHERE SHED_ID = " + 5;
-            ResultSet resultSet = statement.executeQuery(sql);
-
-            claddingOptData.clear();
-
-            while (resultSet.next()) {
-                String ID = resultSet.getString("ID");
-                String SKU_NUMBER = resultSet.getString("SKU_NUMBER");
-                String DESCRIPTION = resultSet.getString("DESCRIPTION");
-                String UNIT = resultSet.getString("UNIT");
-
-                claddingOptData.addAll(new claddingOptData(ID, SKU_NUMBER, DESCRIPTION, UNIT));
-            }
+            String sql = "TRUNCATE TABLE SHED_COMPONENTS_TBL";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
