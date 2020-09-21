@@ -24,35 +24,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-setup sheets updated &#10;-dashboard new lineup&#10;-fixed door stamping / ongoing progress for delete function&#10;-shed order applied (in progress)&#10;-8/18/20 update">
-      <change afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/data/shed/foundationsData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/extOpenings.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/foundations.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/intOpenings.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/postAndBeams.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/wallsSglLev.fxml" afterDir="false" />
+    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-setup sheets update (sheds)&#10;-added initial functions for foundations tab&#10;-new closing option for unsaved work&#10;-9/16/20">
+      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/editComponent.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/claddingController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/claddingOptController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/externalFramingController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/framingHardwareController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/jobInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/jobInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/setupSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/setupSheetsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataBase/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataBase/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/data/shed/claddingData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/data/shed/claddingOptData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/data/shed/externalFramingData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/data/shed/foundations/postFootingsSec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/data/shed/foundationData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Residential/foundations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Sheets/Residential/foundations.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/cladding.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/claddingOpt.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/externalFraming.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/foundation.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/framingHardware.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/jobInfo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/jobInfo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/CSS/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/foundations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/foundations.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/workspace.fxml" afterDir="false" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
     <list id="4dddbee8-77b6-41fd-be25-1624817806eb" name="Revert &quot;#60 commit&quot;" comment="Revert &quot;#60 commit&quot;&#10;&#10;This reverts commit 096c3c72" />
@@ -73,8 +54,8 @@
         <option value="Gradle Kotlin DSL Build Script" />
         <option value="package-info" />
         <option value="CSS File" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -136,7 +117,7 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="dynamic.classpath" value="false" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Views/Sheets/Shed" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LBP_Trades" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -157,12 +138,12 @@
       <recent name="Controllers.Sheets" />
       <recent name="Controllers" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets\Shed" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Model\data" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Controllers" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets\Residential" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\data backup" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Framing" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Floors" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PTGraphiQS\src\Views" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Controllers.Sheets.Shed" />
@@ -171,12 +152,12 @@
       <recent name="Test" />
       <recent name="service" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets\Residential" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\data backup" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Framing" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Floors" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PTGraphiQS\src\Views" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets\Shed" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Model\data" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Controllers" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -667,14 +648,11 @@
       <workItem from="1599902115222" duration="17442000" />
       <workItem from="1600060370327" duration="17000" />
       <workItem from="1600060400395" duration="24871000" />
-      <workItem from="1600145752314" duration="16350000" />
-    </task>
-    <task id="LOCAL-00076" summary="#92 commit sections progress">
-      <created>1574235970419</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1574235970420</updated>
+      <workItem from="1600145752314" duration="37851000" />
+      <workItem from="1600401315285" duration="91000" />
+      <workItem from="1600401416380" duration="8655000" />
+      <workItem from="1600428281029" duration="1456000" />
+      <workItem from="1600505246025" duration="19950000" />
     </task>
     <task id="LOCAL-00077" summary="#93 commit sections progress">
       <created>1574239289343</created>
@@ -1012,7 +990,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599030885561</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="-setup sheets update (sheds)&#10;-added initial functions for foundations tab&#10;-new closing option for unsaved work&#10;-9/16/20">
+      <created>1600186402596</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1600186402596</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1086,7 +1071,8 @@
     <MESSAGE value="-cladding length updated&#10;-window stamping reference for cladding&#10;-setup sheets dashboard function added&#10;-7/6/20 update" />
     <MESSAGE value="-setup sheets updated &#10;-dashboard new lineup&#10;-fixed door stamping / ongoing progress for delete function&#10;-7/22/20 update" />
     <MESSAGE value="-setup sheets updated &#10;-dashboard new lineup&#10;-fixed door stamping / ongoing progress for delete function&#10;-shed order applied (in progress)&#10;-8/18/20 update" />
-    <option name="LAST_COMMIT_MESSAGE" value="-setup sheets updated &#10;-dashboard new lineup&#10;-fixed door stamping / ongoing progress for delete function&#10;-shed order applied (in progress)&#10;-8/18/20 update" />
+    <MESSAGE value="-setup sheets update (sheds)&#10;-added initial functions for foundations tab&#10;-new closing option for unsaved work&#10;-9/16/20" />
+    <option name="LAST_COMMIT_MESSAGE" value="-setup sheets update (sheds)&#10;-added initial functions for foundations tab&#10;-new closing option for unsaved work&#10;-9/16/20" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2646" y="40" key="#Auto_Import" timestamp="1600154860834">
@@ -1134,35 +1120,35 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2610" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600108949047" />
-    <state x="2475" y="0" key="CommitChangelistDialog2" timestamp="1599030884311">
+    <state x="2475" y="0" key="CommitChangelistDialog2" timestamp="1600186401309">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2475" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599030884311" />
-    <state x="3035" y="318" key="FileChooserDialogImpl" timestamp="1597387793086">
+    <state x="2475" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600186401309" />
+    <state x="3035" y="318" key="FileChooserDialogImpl" timestamp="1600327738960">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="674" y="288" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595788545082" />
-    <state x="3035" y="318" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597387793086" />
-    <state width="1877" height="190" key="GridCell.Tab.0.bottom" timestamp="1600185924055">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="3035" y="318" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600327738960" />
+    <state width="1877" height="190" key="GridCell.Tab.0.bottom" timestamp="1600669635347">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="188" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597744243414" />
-    <state width="1877" height="190" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600185924055" />
-    <state width="1877" height="190" key="GridCell.Tab.0.center" timestamp="1600185924055">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1877" height="190" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600669635347" />
+    <state width="1877" height="190" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600621961805" />
+    <state width="1877" height="190" key="GridCell.Tab.0.center" timestamp="1600669635347">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="188" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597744243413" />
-    <state width="1877" height="190" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600185924055" />
-    <state width="1877" height="190" key="GridCell.Tab.0.left" timestamp="1600185924055">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1877" height="190" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600669635347" />
+    <state width="1877" height="190" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600621961804" />
+    <state width="1877" height="190" key="GridCell.Tab.0.left" timestamp="1600669635347">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="188" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597744243413" />
-    <state width="1877" height="190" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600185924055" />
-    <state width="1877" height="190" key="GridCell.Tab.0.right" timestamp="1600185924055">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1877" height="190" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600669635347" />
+    <state width="1877" height="190" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600621961804" />
+    <state width="1877" height="190" key="GridCell.Tab.0.right" timestamp="1600669635347">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="188" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597744243414" />
-    <state width="1877" height="190" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600185924055" />
+    <state width="1877" height="190" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600669635347" />
+    <state width="1877" height="190" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600621961805" />
     <state width="1877" height="213" key="GridCell.Tab.1.bottom" timestamp="1592742376316">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -1179,11 +1165,11 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="213" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592742376316" />
-    <state x="540" y="254" key="IDE.errors.dialog" timestamp="1599826939423">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2460" y="254" key="IDE.errors.dialog" timestamp="1600414709694">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="540" y="254" key="IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599826939423" />
-    <state x="2460" y="254" key="IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599636894023" />
+    <state x="2460" y="254" key="IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600414709694" />
     <state x="2695" y="453" key="ReplaceDuplicatesPrompt" timestamp="1600107583729">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -1193,10 +1179,10 @@
     </state>
     <state x="432" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595788561514" />
     <state x="2266" y="158" width="1054" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599636925383" />
-    <state x="2472" y="248" key="Vcs.Push.Dialog.v2" timestamp="1599030901263">
+    <state x="2472" y="248" key="Vcs.Push.Dialog.v2" timestamp="1600186404989">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599030901263" />
+    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600186404989" />
     <state x="753" y="454" key="classpath-attribute-editor" timestamp="1595788555192">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -1251,10 +1237,10 @@
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595256125834" />
     <state x="2536" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600106610224" />
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598858161344">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1600667467948">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597744062571" />
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1598858161344" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600667467948" />
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600428344161" />
   </component>
 </project>

@@ -169,8 +169,8 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <ListView layoutX="15.0" layoutY="41.0" prefHeight="200.0" prefWidth="88.0" AnchorPane.topAnchor="40.0" />
-                  <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="41.0" prefHeight="30.0" prefWidth="30.0">
+                  <ListView fx:id="CB_SECTIONS" layoutX="15.0" layoutY="41.0" prefHeight="200.0" prefWidth="88.0" AnchorPane.topAnchor="40.0" />
+                  <JFXButton fx:id="CB_ADD_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="41.0" prefHeight="30.0" prefWidth="30.0">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -179,7 +179,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="83.0" prefHeight="30.0" prefWidth="30.0">
+                  <JFXButton fx:id="CB_REMOVE_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="83.0" prefHeight="30.0" prefWidth="30.0">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -265,8 +265,8 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <ListView layoutX="15.0" layoutY="41.0" prefHeight="200.0" prefWidth="88.0" AnchorPane.topAnchor="40.0" />
-                  <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="41.0" prefHeight="30.0" prefWidth="30.0">
+                  <ListView fx:id="CF_SECTIONS" layoutX="15.0" layoutY="41.0" prefHeight="200.0" prefWidth="88.0" AnchorPane.topAnchor="40.0" />
+                  <JFXButton fx:id="CF_ADD_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="41.0" prefHeight="30.0" prefWidth="30.0">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -275,7 +275,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="83.0" prefHeight="30.0" prefWidth="30.0">
+                  <JFXButton fx:id="CF_REMOVE_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="83.0" prefHeight="30.0" prefWidth="30.0">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>

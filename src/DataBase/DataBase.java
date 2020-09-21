@@ -4,6 +4,7 @@ import Model.data.clientsData;
 import Model.data.setupSheetsData;
 import Model.data.shed.foundationsData;
 import Model.data.subtradesData;
+import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 
@@ -669,6 +670,55 @@ public class DataBase {
         try {
             String sql = "TRUNCATE TABLE SHED_COMPONENTS_TBL";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getSelectedSets(int part_id, int section_id, JFXComboBox set, JFXComboBox set_override) {
+        //should set the comboboxes identified by the id's
+        try {
+            String sql = "SELECT * FROM SHED_SECTION_TBL WHERE PARTS_ID = ? AND SECTION = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, part_id);
+            preparedStatement.setInt(2, section_id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                set.getSelectionModel().select(resultSet.getString("SETS"));
+                set_override.getSelectionModel().select(resultSet.getString("SET_OVERRIDE"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setSelectedSets(int part_id, int section_id, String set, String set_override) {
+        try {
+            String sql = "UPDATE SHED_SECTION_TBL SET SETS = ?, SET_OVERRIDE = ? WHERE PARTS_ID = ? AND SECTION = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, set);
+            preparedStatement.setString(2, set_override);
+            preparedStatement.setInt(3, part_id);
+            preparedStatement.setInt(4, section_id);
+
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setSections(int part_id, int section) {
+        try {
+            String sql = "INSERT INTO SHED_SECTION_TBL (PARTS_ID, SECTION) VALUES (?, ?)";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, part_id);
+            preparedStatement.setInt(2, section);
+
             preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

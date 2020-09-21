@@ -221,12 +221,6 @@
 #layoutsTableView .table-column {
     -fx-alignment: CENTER;
 }
-/*
-.separator .line {
-    -fx-border-style: solid;
-    -fx-border-width: 0 0 1 0;
-}
-*/
 
 .jfx-text-field {
     -jfx-focus-color: #0f9d58
@@ -272,4 +266,8 @@
 
 .list-cell{
     -fx-font-size: 15.0;
+}
+
+#PARTS_VBOX .button:focused {
+    -fx-background-color: darkslategray;
 }
