@@ -221,12 +221,6 @@
 #layoutsTableView .table-column {
     -fx-alignment: CENTER;
 }
-/*
-.separator .line {
-    -fx-border-style: solid;
-    -fx-border-width: 0 0 1 0;
-}
-*/
 
 .jfx-text-field {
     -jfx-focus-color: #0f9d58
@@ -259,7 +253,7 @@
 .jfx-tree-table-view .tree-table-cell {
     -fx-border-width: 0 0 0 0;
     -fx-pref-height: 38px;
-    -fx-alignment: center-left;
+    -fx-alignment: center;
 }
 
 .tab-pane .tab-header-area .tab-header-background {
@@ -272,4 +266,8 @@
 
 .list-cell{
     -fx-font-size: 15.0;
+}
+
+#PARTS_VBOX .button:focused {
+    -fx-background-color: darkslategray;
 }

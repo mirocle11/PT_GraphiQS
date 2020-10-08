@@ -232,7 +232,7 @@
 
 #stampPicker .jfx-combo-box {
     -fx-font-size: 14px;
-    -fx-font-family: "Segoe UI";
+    -fx-font-family: "Segoe UI";K
     -fx-text-inner-color: #bcbcbc;
 }
 
@@ -253,7 +253,7 @@
 .jfx-tree-table-view .tree-table-cell {
     -fx-border-width: 0 0 0 0;
     -fx-pref-height: 38px;
-    -fx-alignment: center-left;
+    -fx-alignment: center;
 }
 
 .tab-pane .tab-header-area .tab-header-background {

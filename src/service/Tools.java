@@ -1,14 +1,18 @@
 package service;
 
 import Controllers.createProjectController;
-import DataBase.DataBase;
-import Controllers.workspaceController;
 import Controllers.layoutsController;
-import Model.*;
-import Model.data.claddingData;
-import Model.data.doorData;
-import Model.data.layoutsData;
-import Model.data.windowData;
+import Controllers.workspaceController;
+import DataBase.DataBase;
+import Model.CladdingObject;
+import Model.PageObject;
+import Model.ShapeObject;
+import Model.data.layouts.claddingData;
+import Model.data.layouts.doorData;
+import Model.data.layouts.layoutsData;
+import Model.data.layouts.windowData;
+import Model.stamps.DoorObject;
+import Model.stamps.WindowObject;
 import com.jfoenix.controls.JFXButton;
 import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
@@ -16,7 +20,10 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.*;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -24,7 +31,6 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Font;
-import javafx.scene.control.ContextMenu;
 
 import javax.swing.*;
 import java.io.File;
@@ -58,7 +64,7 @@ public class Tools {
     JFXButton LENGTH, AREA;
 
     public workspaceController window;
-    layoutsController layouts;
+    public layoutsController layouts;
     List<Shape> shapeList = new ArrayList<>();
     ArrayList<Point2D> pointList = new ArrayList<>();
     ArrayList<Shape> stampList = new ArrayList<>();
@@ -73,6 +79,14 @@ public class Tools {
 
     int window_no = 1;
     int door_no = 1;
+
+    //layouts foundations
+    public Label foundations_section = new Label();
+    public Label foundations_volume = new Label("");
+    public Label foundations_quantity = new Label("");
+    public Label lastRowSection = new Label();
+
+    int foundations_no = 1; //quantity
 
     public Tools(PageObject page, Group group, String mode, Line line, Circle circle, VBox box) {
         this.page = page;
@@ -244,7 +258,7 @@ public class Tools {
                             window_stamp.setTextFill(Color.RED);
                             window_stamp.setLayoutX(event.getX() - 50);
                             window_stamp.setLayoutY(event.getY() - 40);
-                            window_stamp.setStyle("-fx-border-color: red;");
+                            window_stamp.setStyle("-fx-border-color: #ff0000;");
                             window_stamp.setAlignment(Pos.CENTER);
 
                             pane.getChildren().add(window_stamp);
@@ -267,7 +281,8 @@ public class Tools {
                                         window_stamp.setVisible(false);
 
                                         windowData w = new windowData(String.valueOf(window_no++), windowObject.getWindowNo(),
-                                                windowObject.getCladding(), windowObject.getType(), windowObject.getWidth(), windowObject.getHeight());
+                                                windowObject.getCladding(), windowObject.getType(), windowObject.getWidth(),
+                                                windowObject.getHeight());
 
                                         Iterator itr =  layouts.windowData.iterator();
                                         while (itr.hasNext()) {
@@ -287,8 +302,10 @@ public class Tools {
                             });
 
                             layouts.windowData.addAll(new windowData(String.valueOf(window_no++), windowObject.getWindowNo(),
-                                    windowObject.getCladding(), windowObject.getType(), windowObject.getWidth(), windowObject.getHeight()));
+                                    windowObject.getCladding(), windowObject.getType(), windowObject.getWidth(),
+                                    windowObject.getHeight()));
                         }
+                        //doors
                         if (!(window.ds_indicator == 0)) {
                             ImageView door_img = new ImageView();
                             Label door_stamp = new Label();
@@ -398,6 +415,160 @@ public class Tools {
                             layouts.doorData.addAll(new doorData(doorObject.getNo(), doorObject.getDoor_type(),
                                     doorObject.getDoor_width(), doorObject.getDoor_height()));
                         }
+                        if (!(window.fs_indicator == 0)) {
+                            ImageView foundations_img = new ImageView();
+                            Label foundations_stamp = new Label();
+
+                            int selected_icon = window.iconList.getSelectionModel().getSelectedIndex();
+
+                            switch (selected_icon) {
+                                case 0:
+                                    foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon1.png")));
+                                    break;
+                                case 1:
+                                    foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon2.png")));
+                                    break;
+                                case 2:
+                                    foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon3.png")));
+                                    break;
+                                case 3:
+                                    foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon4.png")));
+                                    break;
+                                case 4:
+                                    foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon5.png")));
+                                    break;
+                                case 5:
+                                    foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon6.png")));
+                                    break;
+                                case 6:
+                                    foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon1.png")));
+                                    break;
+                                case 7:
+                                    foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon2.png")));
+                                    break;
+                                case 8:
+                                    foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon3.png")));
+                                    break;
+                                case 9:
+                                    foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon4.png")));
+                                    break;
+                                case 10:
+                                    foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon5.png")));
+                                    break;
+                                case 11:
+                                    foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon6.png")));
+                                    break;
+                                case 12:
+                                    foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon1.png")));
+                                    break;
+                                case 13:
+                                    foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon2.png")));
+                                    break;
+                                case 14:
+                                    foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon3.png")));
+                                    break;
+                                case 15:
+                                    foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon4.png")));
+                                    break;
+                                case 16:
+                                    foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon5.png")));
+                                    break;
+                                case 17:
+                                    foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon6.png")));
+                                    break;
+                            }
+                            foundations_stamp.setGraphic(foundations_img);
+                            foundations_stamp.setLayoutX(event.getX());
+                            foundations_stamp.setLayoutY(event.getY());
+                            foundations_stamp.setAlignment(Pos.CENTER);
+
+                            pane.getChildren().add(foundations_stamp);
+
+                            //before.. object for updating table
+//                            FoundationsObject foundationsObject = new FoundationsObject();
+//                            foundationsObject.setNo(String.valueOf(foundations_no++));
+//                            foundationsObject.setPart(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem());
+//                            foundationsObject.setQuantity(window.FOUNDATIONS_SHAPE.getSelectionModel().getSelectedItem());
+//                            foundationsObject.setDepth(window.FOUNDATIONS_DEPTH.getText());
+//                            foundationsObject.setWidth(window.FOUNDATIONS_WIDTH.getText());
+//                            foundationsObject.setLength(window.FOUNDATIONS_LENGTH.getText());
+//                            foundationsObject.setDoor_stamp(foundations_stamp);
+
+                            //after.. db for managing table sections w/ identifier
+                            DataBase db = DataBase.getInstance();
+                            db.identifyEqualValues(window.FOUNDATIONS_DEPTH.getText(), window.FOUNDATIONS_WIDTH.getText(),
+                                    window.FOUNDATIONS_LENGTH.getText(), window.FOUNDATIONS_DIAMETER.getText(),
+                                    window.FOUNDATIONS_HEIGHT.getText(), foundations_section, foundations_volume,
+                                    foundations_quantity); //identifies whether to update or insert row by section
+
+                            //if null means there is no existing section with set params
+                            if (foundations_section.getText().equals("")) {
+                                db.getLayoutsFoundationsLastRow(lastRowSection); //gets last row (last section added)
+                                if (lastRowSection.getText().equals("")) {
+                                    lastRowSection.setText("1");
+                                }
+                                System.out.println("Section id = " + lastRowSection.getText());
+                                if (window.FOUNDATIONS_SHAPE.getSelectionModel().getSelectedItem().equals("Square")) {
+                                    db.insertFoundationsLayouts(Integer.parseInt(lastRowSection.getText()),
+                                            window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(), 1,
+                                            window.FOUNDATIONS_DEPTH.getText(), window.FOUNDATIONS_WIDTH.getText(),
+                                            window.FOUNDATIONS_LENGTH.getText(), window.FOUNDATIONS_DIAMETER.getText(),
+                                            window.FOUNDATIONS_HEIGHT.getText(), window.FOUNDATIONS_VOLUME1.getText());
+                                } else if (window.FOUNDATIONS_SHAPE.getSelectionModel().getSelectedItem().equals("Cylinder")) {
+                                    db.insertFoundationsLayouts(Integer.parseInt(lastRowSection.getText()),
+                                            window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(), 1,
+                                            window.FOUNDATIONS_DEPTH.getText(), window.FOUNDATIONS_WIDTH.getText(),
+                                            window.FOUNDATIONS_LENGTH.getText(), window.FOUNDATIONS_DIAMETER.getText(),
+                                            window.FOUNDATIONS_HEIGHT.getText(), window.FOUNDATIONS_VOLUME2.getText());
+                                }
+                            } else {
+                                //update section selected by identifier along with quantity and volume (total)
+                                int quantity = Integer.parseInt(foundations_quantity.getText()) + 1;
+                                double volume = quantity * Double.parseDouble(foundations_volume.getText());
+
+                                System.out.println("Volume total is:" + volume);
+                                db.updateFoundationsLayoutCount(quantity, String.valueOf(volume),
+                                        Integer.parseInt(foundations_section.getText()));
+                            }
+
+                            //show foundations table
+                            layoutsController.foundationsStampData.clear();
+                            foundations_section.setText("");
+                            db.showFoundationsLayout(layoutsController.foundationsStampData);
+
+//                            foundations_stamp.setOnMouseClicked(event1 -> {
+//                                if (event1.getButton() == MouseButton.SECONDARY) {
+//                                    stampMenu = new ContextMenu();
+//                                    stampMenu.hide();
+//
+//                                    MenuItem removeStamp = new MenuItem("Remove Stamp");
+//                                    removeStamp.setOnAction(event2 -> {
+//                                        foundations_stamp.setVisible(false);
+//
+//                                        foundationsStampData fs = new foundationsStampData(foundationsObject.getNo(),
+//                                                foundationsObject.getPart(), foundationsObject.getQuantity(),
+//                                                foundationsObject.getDepth(), foundationsObject.getWidth(),
+//                                                foundationsObject.getLength(), foundationsObject.getDiameter(),
+//                                                foundationsObject.getHeight(), foundationsObject.getVolume());
+//
+//                                        Iterator itr =  layouts.foundationsStampData.iterator();
+//                                        while (itr.hasNext()) {
+//                                            foundationsStampData element = (foundationsStampData) itr.next();
+//                                            if (element.getNo().equals(fs.getNo())) {
+//                                                System.out.print(element.getNo());
+//                                                itr.remove();
+//                                                break;
+//                                            }
+//                                        }
+//                                    });
+//                                    stampMenu.getItems().add(removeStamp);
+//                                    stampMenu.show(foundations_stamp, event1.getScreenX(), event1.getScreenY());
+//                                }
+//                            });
+//                            layouts.foundationsStampData.addAll(new foundationsStampData(foundationsObject.getNo(),
+//                                    foundationsObject.getPart(), foundationsObject.getQuantity(), foundationsObject.getDepth(),
+//                                    foundationsObject.getWidth(), foundationsObject.getLength()));
+                        }
                     }
                 });
                 break;
@@ -437,7 +608,8 @@ public class Tools {
                 for (int x = 0; x < sp0.getPointList().size() - 1; x++) {
                     Point2D p1 = sp0.getPointList().get(x);
                     Point2D p2 = sp0.getPointList().get(x + 1);
-                    area += ((p1.getX() / page.getScale()) * (p2.getY() / page.getScale())) - ((p1.getY() / page.getScale()) * (p2.getX() / page.getScale()));
+                    area += ((p1.getX() / page.getScale()) * (p2.getY() / page.getScale())) - ((p1.getY() /
+                            page.getScale()) * (p2.getX() / page.getScale()));
                 }
                 area = Math.abs(area / 2);
                 area = area / 1000;
@@ -445,8 +617,10 @@ public class Tools {
                 Label lbl = new Label(sp0.getArea() + " m²");
                 lbl.setFont(new Font("Arial", 36));
                 lbl.setTextFill(sp0.getColor());
-                double layX = sp0.getPolygon().getBoundsInParent().getMinX() + (sp0.getPolygon().getBoundsInParent().getWidth() - lbl.getWidth()) / 2;
-                double layY = sp0.getPolygon().getBoundsInParent().getMinY() + (sp0.getPolygon().getBoundsInParent().getHeight() - lbl.getHeight()) / 2;
+                double layX = sp0.getPolygon().getBoundsInParent().getMinX() + (sp0.getPolygon().getBoundsInParent()
+                        .getWidth() - lbl.getWidth()) / 2;
+                double layY = sp0.getPolygon().getBoundsInParent().getMinY() + (sp0.getPolygon().getBoundsInParent()
+                        .getHeight() - lbl.getHeight()) / 2;
                 lbl.setOnMouseEntered(event -> {
                     lbl.setStyle("-fx-background-color: white");
                     lbl.setOpacity(1);
@@ -504,13 +678,14 @@ public class Tools {
             sp1.setMaterial(window.materialComboBox.getSelectionModel().getSelectedItem().toString());
             sp1.setStud_height(String.valueOf(stud_height));
             BigDecimal bigDecimal = new BigDecimal(Math.round(sp1.getLength() * stud_height / 1000));
-            sp1.setUnit(String.valueOf(bigDecimal));
+            sp1.setUnit(String.valueOf(new BigDecimal(Math.round(sp1.getLength() * stud_height / 1000))));
 
             if (window.materialComboBox.getSelectionModel().getSelectedItem().equals("10mm Gib") ||
                     window.materialComboBox.getSelectionModel().getSelectedItem().equals("13mm Gib")) {
                 DataBase db = DataBase.getInstance();
                 db.setSubtrades(createProjectController.selectedClient, "Gib Stopper", rate);
-                sp1.setLabour(String.valueOf(Math.round(sp1.getLength() * stud_height / 1000) * Integer.parseInt(rate.getText())));
+                sp1.setLabour(String.valueOf(Math.round(sp1.getLength() * stud_height / 1000) *
+                        Integer.parseInt(rate.getText())));
             } else {
                 sp1.setLabour("");
             }
@@ -590,7 +765,8 @@ public class Tools {
                             sp2.getStructure(), sp2.getWallType(), sp2.getWall(), sp2.getMaterial(), colorLabel,
                             NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(value)),
                             NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(sp2.getStud_height())),
-                            NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(sp2.getUnit())), (sp2.getLabour())));
+                            NumberFormat.getNumberInstance(Locale.US).format(Double.valueOf(sp2.getUnit())),
+                            sp2.getLabour()));
                 }
             }
         }
@@ -635,10 +811,11 @@ public class Tools {
 
     public void studPopup() {
         try {
-            stud_height = Float.parseFloat(JOptionPane.showInputDialog("Enter Stud height", 0.00 + " mm"));
+            stud_height = Float.parseFloat(JOptionPane.showInputDialog("Enter Stud height",
+                    0.00 + " mm"));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Please enter a valid number.",
-                    "Invalid Stud height value", JOptionPane.ERROR_MESSAGE);
+                    "Invalid Stu    `d height value", JOptionPane.ERROR_MESSAGE);
         }
     }
 

@@ -1,7 +1,6 @@
 package Model.data.shed.foundations;
 
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class postFootingsSec extends RecursiveTreeObject<postFootingsSec> {

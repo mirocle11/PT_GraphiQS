@@ -1,22 +1,23 @@
 package Controllers;
-import Model.data.claddingData;
-import com.jfoenix.controls.*;
+
+import Model.data.layouts.*;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.scene.layout.BorderPane;
-import Model.data.layoutsData;
-import Model.data.doorData;
-import Model.data.windowData;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.function.Predicate;
 
 public class layoutsController implements Initializable {
 
@@ -26,7 +27,7 @@ public class layoutsController implements Initializable {
     public JFXTextField SEARCH, ROW_NO, PAGE, MEASUREMENT, STRUCTURE, WALL_TYPE, WALL, MATERIAL, COLOR_TXT, VALUE,
             STUD_HEIGHT, VOLUME, LOBOUR;
 
-    public JFXButton LENGTH, AREA, STAMPS, WINDOWS, CLADDING;
+    public JFXButton LENGTH, AREA, STAMPS, WINDOWS, CLADDING, FOUNDATIONS;
 
     //length table
     public JFXTreeTableView<layoutsData> layoutsTableView;
@@ -68,11 +69,25 @@ public class layoutsController implements Initializable {
     public TreeTableColumn<claddingData, String> CLADDING_LENGTH;
     public TreeTableColumn<claddingData, String> CLADDING_HEIGHT;
 
+    //foundations table (setup sheets)
+    public JFXTreeTableView<foundationsStampData> FOUNDATIONS_TBL;
+    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_NO;
+    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_PART;
+    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_QTY;
+    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_DEPTH;
+    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_WIDTH;
+    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_LENGTH;
+    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_DIAMETER;
+    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_HEIGHT;
+    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_VOLUME;
+
+
     //data lists
     public static ObservableList<layoutsData> data;
     public static ObservableList<doorData> doorData;
     public static ObservableList<windowData> windowData;
     public static ObservableList<claddingData> claddingData;
+    public static ObservableList<foundationsStampData> foundationsStampData;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -179,6 +194,37 @@ public class layoutsController implements Initializable {
                 new TreeItemPropertyValueFactory<>("height")
         );
 
+        //foundations
+        foundationsStampData = FXCollections.observableArrayList();
+
+        FOUNDATIONS_NO.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("no")
+        );
+        FOUNDATIONS_PART.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("part")
+        );
+        FOUNDATIONS_QTY.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("quantity")
+        );
+        FOUNDATIONS_DEPTH.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("depth")
+        );
+        FOUNDATIONS_WIDTH.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("width")
+        );
+        FOUNDATIONS_LENGTH.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("length")
+        );
+        FOUNDATIONS_DIAMETER.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("diameter")
+        );
+        FOUNDATIONS_HEIGHT.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("height")
+        );
+        FOUNDATIONS_VOLUME.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("volume")
+        );
+
         TreeItem<layoutsData> root = new RecursiveTreeItem<>(data, RecursiveTreeObject::getChildren);
         layoutsTableView.setRoot(root);
         layoutsTableView.setShowRoot(false);
@@ -195,6 +241,10 @@ public class layoutsController implements Initializable {
         CLADDING_TBL.setRoot(cladding_root);
         CLADDING_TBL.setShowRoot(false);
 
+        TreeItem<foundationsStampData> foundations_root = new RecursiveTreeItem<>(foundationsStampData, RecursiveTreeObject::getChildren);
+        FOUNDATIONS_TBL.setRoot(foundations_root);
+        FOUNDATIONS_TBL.setShowRoot(false);
+
         SEARCH.textProperty().addListener((observable, oldValue, newValue) -> layoutsTableView.setPredicate(
                 modelTreeItem -> modelTreeItem.getValue().getMeasurement().contains(newValue) |
                         modelTreeItem.getValue().getMaterial().contains(newValue)));
@@ -208,6 +258,7 @@ public class layoutsController implements Initializable {
             STAMP_TBL.setVisible(true);
             WINDOW_TBL.setVisible(false);
             CLADDING_TBL.setVisible(false);
+            FOUNDATIONS_TBL.setVisible(false);
         });
 
         LENGTH.setOnAction(event -> {
@@ -215,6 +266,7 @@ public class layoutsController implements Initializable {
             STAMP_TBL.setVisible(false);
             WINDOW_TBL.setVisible(false);
             CLADDING_TBL.setVisible(false);
+            FOUNDATIONS_TBL.setVisible(false);
         });
 
         WINDOWS.setOnAction(event -> {
@@ -222,6 +274,7 @@ public class layoutsController implements Initializable {
             STAMP_TBL.setVisible(false);
             CLADDING_TBL.setVisible(false);
             WINDOW_TBL.setVisible(true);
+            FOUNDATIONS_TBL.setVisible(false);
         });
 
         CLADDING.setOnAction(event -> {
@@ -229,6 +282,15 @@ public class layoutsController implements Initializable {
             STAMP_TBL.setVisible(false);
             WINDOW_TBL.setVisible(false);
             CLADDING_TBL.setVisible(true);
+            FOUNDATIONS_TBL.setVisible(false);
+        });
+
+        FOUNDATIONS.setOnAction(event -> {
+            lengthScrollPane.setVisible(false);
+            STAMP_TBL.setVisible(false);
+            WINDOW_TBL.setVisible(false);
+            CLADDING_TBL.setVisible(false);
+            FOUNDATIONS_TBL.setVisible(true);
         });
     }
 

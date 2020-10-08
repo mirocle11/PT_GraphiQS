@@ -172,6 +172,20 @@
                   <TreeTableColumn fx:id="CLADDING_HEIGHT" prefWidth="177.0" text="Height" />
                </columns>
             </JFXTreeTableView>
+            <JFXTreeTableView fx:id="FOUNDATIONS_TBL" fixedCellSize="0.0" layoutX="40.0" layoutY="85.0" prefHeight="600.0" prefWidth="1160.0" sortMode="ONLY_FIRST_LEVEL" visible="false" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="75.0">
+               <columns>
+                  <TreeTableColumn fx:id="FOUNDATIONS_NO" prefWidth="59.0" text="No." />
+                  <TreeTableColumn fx:id="FOUNDATIONS_PART" prefWidth="144.0" text="Part" />
+                  <TreeTableColumn fx:id="FOUNDATIONS_VOLUME1" prefWidth="120.0" text="Image" />
+                  <TreeTableColumn fx:id="FOUNDATIONS_QTY" prefWidth="122.0" text="Quantity" />
+                  <TreeTableColumn fx:id="FOUNDATIONS_DEPTH" prefWidth="135.0" text="Depth" />
+                  <TreeTableColumn fx:id="FOUNDATIONS_WIDTH" prefWidth="115.0" text="Width" />
+                  <TreeTableColumn fx:id="FOUNDATIONS_LENGTH" prefWidth="112.0" text="Length" />
+                  <TreeTableColumn fx:id="FOUNDATIONS_DIAMETER" prefWidth="112.0" text="Diameter" />
+                  <TreeTableColumn fx:id="FOUNDATIONS_HEIGHT" prefWidth="112.0" text="Height" />
+                  <TreeTableColumn fx:id="FOUNDATIONS_VOLUME" prefWidth="128.0" text="Volume" />
+               </columns>
+            </JFXTreeTableView>
          </children>
       </AnchorPane>
    </center>
@@ -211,6 +225,11 @@
                </font>
             </JFXButton>
             <JFXButton fx:id="CLADDING" layoutX="711.0" layoutY="1.0" prefHeight="37.0" prefWidth="140.0" style="-fx-background-radius: 30px; -fx-background-color: #616161;" text="Cladding (0)" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="FOUNDATIONS" layoutX="861.0" layoutY="1.0" prefHeight="37.0" prefWidth="140.0" style="-fx-background-radius: 30px; -fx-background-color: #3e2723;" text="Foundations" textFill="WHITE">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>

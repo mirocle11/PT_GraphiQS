@@ -1,4 +1,4 @@
-package Model;
+package Model.stamps;
 
 import javafx.scene.control.Label;
 

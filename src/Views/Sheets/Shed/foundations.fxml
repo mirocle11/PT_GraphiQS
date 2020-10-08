@@ -37,7 +37,7 @@
             <Separator layoutX="15.0" layoutY="50.0" prefHeight="3.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
             <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="11.0" layoutY="66.0" prefHeight="558.0" prefWidth="246.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="65.0">
                <content>
-                  <VBox fx:id="PARTS_VBOX" style="-fx-background-color: #102027;" />
+                  <VBox fx:id="PARTS_VBOX" style="-fx-background-color: #102027;" stylesheets="@../../CSS/style.css" />
                </content>
             </ScrollPane>
          </children>
@@ -349,7 +349,7 @@
             </AnchorPane>
          </children>
       </GridPane>
-      <TreeTableView fx:id="TREE_TABLE_VIEW" layoutX="230.0" layoutY="331.0" prefHeight="455.0" prefWidth="1290.0" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="330.0">
+      <TreeTableView fx:id="TREE_TABLE_VIEW" layoutX="230.0" layoutY="331.0" prefHeight="455.0" prefWidth="1300.0" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="330.0">
         <columns>
           <TreeTableColumn fx:id="COMPONENT" prefWidth="160.0" text="Component" />
             <TreeTableColumn fx:id="CODE" prefWidth="90.0" text="Code" />

@@ -7,6 +7,7 @@ import com.jfoenix.controls.*;
 import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -139,25 +140,34 @@ public class workspaceController implements Initializable {
 
     public Image[] iconImages;  // The little images that can be "stamped".
 
-    private ObservableList<String> stamp_type = FXCollections.observableArrayList("Doors", "Windows", "Showers", "Toilets");
-
-    private ObservableList<String> door_type = FXCollections.observableArrayList( "Sgl Cav", "Dbl Cav",
+    private final ObservableList<String> stamp_type = FXCollections.observableArrayList("Doors", "Windows", "Showers",
+            "Toilets", "Foundations");
+    private final ObservableList<String> door_type = FXCollections.observableArrayList( "Sgl Cav", "Dbl Cav",
             "Priv Cav", "Sgl B-fold to 900", "Sgl B-fold to 901-1200", "Dbl B-fold to 1200", "Dbl B-fold to 1201-1600",
             "Dbl B-fold to 1601-1800", "Dbl B-fold to 1801-2400");
-    private ObservableList<String> door_width = FXCollections.observableArrayList( "510", "560", "610", "660",
+    private final ObservableList<String> door_width = FXCollections.observableArrayList( "510", "560", "610", "660",
             "710", "760", "810", "860", "1200", "1600", "1800");
-    private ObservableList<String> door_height = FXCollections.observableArrayList("1980", "2000", "2100",
+    private final ObservableList<String> door_height = FXCollections.observableArrayList("1980", "2000", "2100",
             "2200", "2400");
 
-    private int stamp_count = 0;
-    public JFXCheckBox STAMP_OVERLAY;
+    public Pane DOOR_PANE, WINDOW_PANE, FOUNDATIONS_PANE;
 
-    public Pane DOOR_PANE, WINDOW_PANE;
-
+    //stamp (windows)
     public int ws_indicator = 0;
     public JFXTextField WINDOW_NO, CLADDING, WIDTH, HEIGHT;
     public JFXComboBox<String> WINDOW_TYPE;
-    private ObservableList<String> window_type = FXCollections.observableArrayList( "Exterior", "Interior");
+    private final ObservableList<String> window_type = FXCollections.observableArrayList( "Exterior", "Interior");
+
+    //stamp (foundations)
+    public int fs_indicator = 0;
+    public JFXComboBox<String> FOUNDATIONS_PART, FOUNDATIONS_SHAPE;
+    public JFXTextField FOUNDATIONS_DEPTH, FOUNDATIONS_WIDTH, FOUNDATIONS_LENGTH, FOUNDATIONS_DIAMETER,
+            FOUNDATIONS_HEIGHT, FOUNDATIONS_VOLUME1, FOUNDATIONS_VOLUME2;
+
+    private final ObservableList<String> foundations_parts = FXCollections.observableArrayList("Post Footings",
+            "Concrete Bores");
+    private final ObservableList<String> foundations_shapes = FXCollections.observableArrayList("Square",
+            "Cylinder");
 
     //set stud height
     public double stud_height;
@@ -179,6 +189,55 @@ public class workspaceController implements Initializable {
         DOOR_WIDTH.setItems(door_width);
         DOOR_HEIGHT.setItems(door_height);
         WINDOW_TYPE.setItems(window_type);
+        FOUNDATIONS_PART.setItems(foundations_parts);
+        FOUNDATIONS_SHAPE.setItems(foundations_shapes);
+
+        FOUNDATIONS_SHAPE.setOnAction(event -> {
+            if (FOUNDATIONS_SHAPE.getSelectionModel().getSelectedItem().equals("Square")) {
+                FOUNDATIONS_DEPTH.setVisible(true);
+                FOUNDATIONS_WIDTH.setVisible(true);
+                FOUNDATIONS_LENGTH.setVisible(true);
+                FOUNDATIONS_VOLUME1.setVisible(true);
+
+                FOUNDATIONS_DIAMETER.setVisible(false);
+                FOUNDATIONS_HEIGHT.setVisible(false);
+                FOUNDATIONS_VOLUME2.setVisible(false);
+            } else {
+                FOUNDATIONS_DEPTH.setVisible(false);
+                FOUNDATIONS_WIDTH.setVisible(false);
+                FOUNDATIONS_LENGTH.setVisible(false);
+                FOUNDATIONS_VOLUME1.setVisible(false);
+
+                FOUNDATIONS_DIAMETER.setVisible(true);
+                FOUNDATIONS_HEIGHT.setVisible(true);
+                FOUNDATIONS_VOLUME2.setVisible(true);
+            }
+        });
+
+        FOUNDATIONS_VOLUME1.textProperty().bind(Bindings.createStringBinding(()->{
+            //Do your calculation
+            double volume = 0;
+
+            if (!FOUNDATIONS_WIDTH.getText().isEmpty() && !FOUNDATIONS_DEPTH.getText().isEmpty() &&
+                    !FOUNDATIONS_LENGTH.getText().isEmpty()) {
+                volume = Double.parseDouble(FOUNDATIONS_WIDTH.getText()) * Double.parseDouble(FOUNDATIONS_DEPTH.getText())
+                                        * Double.parseDouble(FOUNDATIONS_LENGTH.getText());
+            }
+            //Return result as String
+            return String.valueOf(volume);
+        }, FOUNDATIONS_WIDTH.textProperty(), FOUNDATIONS_DEPTH.textProperty(), FOUNDATIONS_LENGTH.textProperty()));
+
+        FOUNDATIONS_VOLUME2.textProperty().bind(Bindings.createStringBinding(()->{
+            //Do your calculation
+            double volume = 0;
+
+            if (!FOUNDATIONS_DIAMETER.getText().isEmpty() && !FOUNDATIONS_HEIGHT.getText().isEmpty()) {
+                double radius = Double.parseDouble(FOUNDATIONS_DIAMETER.getText()) * 0.001 / 2;
+                volume = radius * radius * 3.14 * Double.parseDouble(FOUNDATIONS_HEIGHT.getText());
+            }
+            //Return result as String
+            return String.valueOf(volume);
+        }, FOUNDATIONS_DIAMETER.textProperty(), FOUNDATIONS_HEIGHT.textProperty()));
 
         DONE.setOnAction(event -> {
             stampPicker.setVisible(false);
@@ -187,6 +246,7 @@ public class workspaceController implements Initializable {
 
             ws_indicator = 0;
             ds_indicator = 0;
+            fs_indicator = 0;
 
             STAMP_TYPE.getSelectionModel().clearSelection();
         });
@@ -205,18 +265,32 @@ public class workspaceController implements Initializable {
 
                     ds_indicator = 1;
                     ws_indicator = 0;
+                    fs_indicator = 0;
 
                     iconList = createIconList();
                     stampPicker.getChildren().add(iconList);
                 } else if (STAMP_TYPE.getSelectionModel().getSelectedItem().equals("Windows")) {
                     DOOR_PANE.setVisible(false);
                     WINDOW_PANE.setVisible(true);
+                    iconList.setVisible(false);
 
                     ds_indicator = 0;
                     ws_indicator = 1;
+                    fs_indicator = 0;
 
                     UNDO.setVisible(false);
                     REDO.setVisible(false);
+                } else if (STAMP_TYPE.getSelectionModel().getSelectedItem().equals("Foundations")) {
+                    DOOR_PANE.setVisible(false);
+                    WINDOW_PANE.setVisible(false);
+                    FOUNDATIONS_PANE.setVisible(true);
+
+                    ds_indicator = 0;
+                    ws_indicator = 0;
+                    fs_indicator = 1;
+
+                    iconList = createIconList();
+                    stampPicker.getChildren().add(iconList);
                 }
             });
         } catch (Exception e) {
@@ -279,7 +353,6 @@ public class workspaceController implements Initializable {
         } catch (Exception e) {
             Logger.getLogger(workspaceController.class.getName()).log(Level.SEVERE, null, e);
         }
-
     }
 
     public void showToast(String message) {
@@ -357,7 +430,6 @@ public class workspaceController implements Initializable {
 
         tools.setColor(colorPicker.getValue());
         tools.setMode("LENGTH");
-        stamp_canvas.setVisible(false);
     }
 
     public void claddingAction() {
