@@ -2,6 +2,7 @@ package Controllers.Sheets.Residential;
 
 import DataBase.DataBase;
 import Model.Sheets.foundationsData;
+import Model.data.shed.foundationsMaterials;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.collections.FXCollections;
@@ -62,6 +63,7 @@ public class foundationsController implements Initializable {
 
     //data lists
     public static ObservableList<foundationsData> postFootingsData;
+    public static ObservableList<foundationsMaterials> foundationsMaterials;
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {

@@ -2,7 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
@@ -91,11 +91,6 @@
                   </JFXButton>
                   <JFXComboBox fx:id="PF_SET" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
                   <JFXComboBox fx:id="PF_SET_OVERRIDE" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
-                  <JFXTextField fx:id="PF_QTY" focusColor="#0f9d58" labelFloat="true" layoutX="392.0" layoutY="87.0" prefHeight="30.0" prefWidth="80.0" promptText="Qty" style="-fx-text-inner-color: #b9b9b9;">
-                     <font>
-                        <Font name="Segoe UI" size="14.0" />
-                     </font>
-                  </JFXTextField>
                </children>
                <GridPane.margin>
                   <Insets right="10.0" />
@@ -179,11 +174,6 @@
                   </JFXButton>
                   <JFXComboBox editable="true" focusTraversable="false" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
                   <JFXComboBox editable="true" focusTraversable="false" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
-                  <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="392.0" layoutY="87.0" prefHeight="30.0" prefWidth="80.0" promptText="Qty" style="-fx-text-inner-color: #b9b9b9;">
-                     <font>
-                        <Font name="Segoe UI" size="14.0" />
-                     </font>
-                  </JFXTextField>
                </children>
                <GridPane.margin>
                   <Insets right="10.0" />
@@ -265,26 +255,6 @@
                   </JFXButton>
                   <JFXComboBox editable="true" focusTraversable="false" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
                   <JFXComboBox editable="true" focusTraversable="false" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
-                  <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="168.0" layoutY="141.0" prefHeight="30.0" prefWidth="80.0" promptText="Thickness" style="-fx-text-inner-color: #b9b9b9;">
-                     <font>
-                        <Font name="Segoe UI" size="14.0" />
-                     </font>
-                  </JFXTextField>
-                  <JFXTextField editable="false" focusColor="#0f9d58" labelFloat="true" layoutX="168.0" layoutY="196.0" prefHeight="30.0" prefWidth="80.0" promptText="Total" style="-fx-text-inner-color: #b9b9b9;">
-                     <font>
-                        <Font name="Segoe UI" size="14.0" />
-                     </font>
-                  </JFXTextField>
-                  <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="280.0" layoutY="141.0" prefHeight="30.0" prefWidth="80.0" promptText="Width" style="-fx-text-inner-color: #b9b9b9;">
-                     <font>
-                        <Font name="Segoe UI" size="14.0" />
-                     </font>
-                  </JFXTextField>
-                  <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="392.0" layoutY="141.0" prefHeight="30.0" prefWidth="80.0" promptText="Length" style="-fx-text-inner-color: #b9b9b9;">
-                     <font>
-                        <Font name="Segoe UI" size="14.0" />
-                     </font>
-                  </JFXTextField>
                </children>
                <GridPane.margin>
                   <Insets right="10.0" />
@@ -319,7 +289,7 @@
             </AnchorPane>
          </children>
       </GridPane>
-      <TreeTableView fx:id="TREE_TABLE_VIEW" layoutX="230.0" layoutY="331.0" prefHeight="455.0" prefWidth="1300.0" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="330.0">
+      <TreeTableView fx:id="TREE_TABLE_VIEW" layoutX="230.0" layoutY="331.0" prefHeight="455.0" prefWidth="1300.0" visible="false" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="330.0">
         <columns>
           <TreeTableColumn fx:id="COMPONENT" prefWidth="160.0" text="Component" />
             <TreeTableColumn fx:id="CODE" prefWidth="90.0" text="Code" />
@@ -333,5 +303,13 @@
             <TreeTableColumn fx:id="USAGE2" prefWidth="100.0" text="Usage 2" />
         </columns>
       </TreeTableView>
+      <JFXTreeTableView fx:id="MATERIALS_TBL" fixedCellSize="0.0" layoutX="230.0" layoutY="331.0" prefHeight="440.0" prefWidth="962.0" sortMode="ONLY_FIRST_LEVEL" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="330.0">
+         <columns>
+            <TreeTableColumn fx:id="SKU_NUMBER_COL" prefWidth="253.0" text="SKU Number" />
+            <TreeTableColumn fx:id="DESCRIPTION_COL" minWidth="0.0" prefWidth="450.0" text="Description" />
+            <TreeTableColumn fx:id="UNIT_COL" minWidth="0.0" prefWidth="130.0" text="Unit" />
+            <TreeTableColumn fx:id="QUANTITY_COL" minWidth="0.0" prefWidth="130.0" text="Qty" />
+         </columns>
+      </JFXTreeTableView>
    </children>
 </AnchorPane>

@@ -4,10 +4,8 @@ import DataBase.DataBase;
 import Main.Main;
 import Model.data.shed.foundations.postFootingsSec;
 import Model.data.shed.foundationsData;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextField;
-import com.jfoenix.controls.RecursiveTreeItem;
+import Model.data.shed.foundationsMaterials;
+import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -95,9 +93,16 @@ public class foundationsController implements Initializable {
     public TreeTableColumn<postFootingsSec, String> PF_COL_LENGTH;
     public TreeTableColumn<postFootingsSec, String> PF_COL_QTY;
 
+    public JFXTreeTableView<foundationsMaterials> MATERIALS_TBL;
+    public TreeTableColumn<foundationsMaterials, String> SKU_NUMBER_COL;
+    public TreeTableColumn<foundationsMaterials, String> DESCRIPTION_COL;
+    public TreeTableColumn<foundationsMaterials, String> UNIT_COL;
+    public TreeTableColumn<foundationsMaterials, String> QUANTITY_COL;
+
     //data lists
     public static ObservableList<foundationsData> foundationsData; //components
     public static ObservableList<postFootingsSec> postFootingsData; //section dimensions
+    public static ObservableList<foundationsMaterials> foundationsMaterials;
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {
@@ -190,6 +195,22 @@ public class foundationsController implements Initializable {
                 new TreeItemPropertyValueFactory<>("qty")
         );
 
+        //foundations materials
+        foundationsMaterials = FXCollections.observableArrayList();
+
+        SKU_NUMBER_COL.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("sku_number")
+        );
+        DESCRIPTION_COL.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("description")
+        );
+        UNIT_COL.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("unit")
+        );
+        QUANTITY_COL.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("quantity")
+        );
+
         TreeItem<foundationsData> component_root = new RecursiveTreeItem<>(foundationsData, RecursiveTreeObject::getChildren);
         TREE_TABLE_VIEW.setRoot(component_root);
         TREE_TABLE_VIEW.setShowRoot(false);
@@ -197,6 +218,22 @@ public class foundationsController implements Initializable {
         TreeItem<postFootingsSec> post_footings_root = new RecursiveTreeItem<>(postFootingsData, RecursiveTreeObject::getChildren);
         PF_TABLE.setRoot(post_footings_root);
         PF_TABLE.setShowRoot(false);
+
+        TreeItem<foundationsMaterials> foundationsMaterialsDataTreeItem = new RecursiveTreeItem<>
+                (foundationsMaterials, RecursiveTreeObject::getChildren);
+        MATERIALS_TBL.setRoot(foundationsMaterialsDataTreeItem);
+        MATERIALS_TBL.setShowRoot(false);
+
+        foundationsMaterials.addAll(new foundationsMaterials("STMESE620500SM",
+                "STEEL REINFORCING MESH SE620-500SMALL 4.68X2.05 7.612M2", "SHT", "26"));
+        foundationsMaterials.addAll(new foundationsMaterials("STBC5065E",
+                "BAR CHAIR PLASTIC 50-65MM - PER EACH", "EACH", "300"));
+        foundationsMaterials.addAll(new foundationsMaterials("RPPO250425",
+                "POLYTHENE BLK 250MU X 4M X 25M 2010103", "ROLL", "2"));
+        foundationsMaterials.addAll(new foundationsMaterials("RPJT2040116",
+                "TAPE-IT HIGH ADHESIVE PVC JOINING TAPE 48MMX30M 2040116", "ROLL", "4"));
+        foundationsMaterials.addAll(new foundationsMaterials("STW300GX1KG",
+                "TIE WIRE GALV 300MM X 1KG", "EACH", "2"));
 
         //component table menu
         componentsMenu.getItems().add(editRow);

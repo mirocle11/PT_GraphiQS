@@ -23,7 +23,7 @@ public class setupSheetsController implements Initializable {
     public AnchorPane FOUNDATIONS, EXT_OPENINGS, INT_OPENINGS, POST_BEAM_HARDWARE, WALLS_SGL_LEV, ROOF, EXT_LINING;
 
     //sheets content (shed)
-    public AnchorPane SHED_FOUNDATION;
+    public AnchorPane SHED_FOUNDATION, SHED_EXTERNAL_FRAMING;
 
     //contentList = residential
     public ArrayList<AnchorPane> contentList = new ArrayList();
@@ -46,7 +46,7 @@ public class setupSheetsController implements Initializable {
                     });
                     TAB_PANE.getTabs().add(tab);
                 });
-            } else {
+            } else if (jobInfoController.selectedProjectType.equals("Shed")) {
                 selectedBoxes.forEach((String s) -> {
                     Tab tab = new Tab();
                     tab.setText(s);
@@ -125,6 +125,15 @@ public class setupSheetsController implements Initializable {
             SHED_FOUNDATION = loader.load();
             SHED_FOUNDATION.setId("Foundations");
             shedList.add(SHED_FOUNDATION);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/externalFraming.fxml"));
+            SHED_EXTERNAL_FRAMING = loader.load();
+            SHED_EXTERNAL_FRAMING.setId("External Framing");
+            shedList.add(SHED_EXTERNAL_FRAMING);
         } catch (Exception e) {
             e.printStackTrace();
         }
