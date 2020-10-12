@@ -7,11 +7,16 @@ import Model.data.shed.foundations.postFootingsSec;
 import Model.data.shed.foundationsData;
 import Model.data.subtradesData;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import javax.swing.*;
 import java.sql.*;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -944,9 +949,19 @@ public class DataBase {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
+                //create label (load string from resource)
+                Image foundations_img = new Image(getClass().getResourceAsStream(resultSet.getString("IMAGE")));
+                Label image = new Label();
+                image.setMinWidth(60);
+                image.setMinHeight(30);
+                image.setGraphic(new ImageView(foundations_img));
+                image.setAlignment(Pos.CENTER);
+
+                System.out.println(resultSet.getString("IMAGE"));
+
                 //create container for data
                 foundationsStampData.addAll(new foundationsStampData(String.valueOf(
-                        resultSet.getInt("ID")), resultSet.getString("PART"),
+                        resultSet.getInt("ID")), resultSet.getString("PART"), image,
                         String.valueOf(resultSet.getString("QUANTITY")), resultSet.getString("DEPTH"),
                         resultSet.getString("WIDTH"), resultSet.getString("LENGTH"),
                         resultSet.getString("DIAMETER"), resultSet.getString("HEIGHT"),
@@ -957,22 +972,23 @@ public class DataBase {
         }
     }
 
-    public void insertFoundationsLayouts(int section, String part, int quantity, String depth, String width,
+    public void insertFoundationsLayouts(int section, String part, String path, int quantity, String depth, String width,
                                         String length, String diameter, String height, String volume) {
         try {
-            String sql = "INSERT INTO LAYOUTS_FOUNDATIONS (ID, PART, QUANTITY, DEPTH, WIDTH, LENGTH, DIAMETER," +
-                    " HEIGHT, VOLUME) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO LAYOUTS_FOUNDATIONS (ID, PART, IMAGE, QUANTITY, DEPTH, WIDTH, LENGTH, DIAMETER," +
+                    " HEIGHT, VOLUME) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, section);
             preparedStatement.setString(2, part);
-            preparedStatement.setInt(3, quantity);
-            preparedStatement.setString(4, depth);
-            preparedStatement.setString(5, width);
-            preparedStatement.setString(6, length);
-            preparedStatement.setString(7, diameter);
-            preparedStatement.setString(8, height);
-            preparedStatement.setString(9, volume);
+            preparedStatement.setString(3, path);
+            preparedStatement.setInt(4, quantity);
+            preparedStatement.setString(5, depth);
+            preparedStatement.setString(6, width);
+            preparedStatement.setString(7, length);
+            preparedStatement.setString(8, diameter);
+            preparedStatement.setString(9, height);
+            preparedStatement.setString(10, volume);
 
             preparedStatement.executeUpdate();
         } catch (Exception e) {
@@ -1047,6 +1063,39 @@ public class DataBase {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 section.setText(String.valueOf(resultSet.getInt("ID") + 1));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getFoundationsTotal(JFXTextField post_footings, JFXTextField concrete_bores) {
+        try {
+            String sql = "SELECT * FROM LAYOUTS_FOUNDATIONS WHERE PART = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,"Post Footings");
+
+            double total = 0.0;
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                total += Double.parseDouble(resultSet.getString("VOLUME"));
+                post_footings.setText(String.valueOf(new DecimalFormat("0.00").format(total)));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            String sql = "SELECT * FROM LAYOUTS_FOUNDATIONS WHERE PART = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,"Concrete Bores");
+
+            double total = 0.0;
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                total += Double.parseDouble(resultSet.getString("VOLUME"));
+                concrete_bores.setText(String.valueOf(new DecimalFormat("0.00").format(total)));
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -4,7 +4,10 @@ import DataBase.DataBase;
 import Main.Main;
 import Model.data.shed.foundations.postFootingsSec;
 import Model.data.shed.foundationsData;
-import com.jfoenix.controls.*;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,7 +16,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -53,7 +55,7 @@ public class foundationsController implements Initializable {
     public ListView<Integer> PF_SECTIONS, CB_SECTIONS, CF_SECTIONS;
     public JFXButton PF_ADD_SECTION, PF_REMOVE_SECTION, CB_ADD_SECTION, CB_REMOVE_SECTION, CF_ADD_SECTION, CF_REMOVE_SECTION;
     public JFXComboBox<String> PF_SET, PF_SET_OVERRIDE;
-    public JFXTextField PF_QTY, PF_DEPTH, PF_WIDTH, PF_LENGTH, PF_TOTAL;
+    public JFXTextField PF_QTY;
 
     //component editor
     private double xOffset = 0;
@@ -239,20 +241,20 @@ public class foundationsController implements Initializable {
 //            db.deleteSection(Integer.parseInt(id_indicator.getText()), PF_SECTIONS.getSelectionModel().getSelectedItem());
         });
 
-        PF_LENGTH.setOnKeyPressed(event -> {
-            if (event.getCode().equals(KeyCode.ENTER)) {
-                //adds a row to section dimensions
-                pf_dimension_no++;
-                postFootingsData.clear();
-                //formula
-                PF_TOTAL.setText("" + Double.valueOf(PF_DEPTH.getText()) * Double.valueOf(PF_LENGTH.getText()) *
-                        Double.valueOf(PF_WIDTH.getText()));
-
-                db.setSectionDimensions(Integer.parseInt(id_indicator.getText()), selectedSection, pf_dimension_no,
-                        PF_DEPTH.getText(), PF_WIDTH.getText(), PF_LENGTH.getText(), PF_TOTAL.getText(), "");
-                db.getPostFootingsSD(Integer.parseInt(id_indicator.getText()), selectedSection, postFootingsData);
-            }
-        });
+//        PF_LENGTH.setOnKeyPressed(event -> {
+//            if (event.getCode().equals(KeyCode.ENTER)) {
+//                //adds a row to section dimensions
+//                pf_dimension_no++;
+//                postFootingsData.clear();
+//                //formula
+//                PF_TOTAL.setText("" + Double.valueOf(PF_DEPTH.getText()) * Double.valueOf(PF_LENGTH.getText()) *
+//                        Double.valueOf(PF_WIDTH.getText()));
+//
+//                db.setSectionDimensions(Integer.parseInt(id_indicator.getText()), selectedSection, pf_dimension_no,
+//                        PF_DEPTH.getText(), PF_WIDTH.getText(), PF_LENGTH.getText(), PF_TOTAL.getText(), "");
+//                db.getPostFootingsSD(Integer.parseInt(id_indicator.getText()), selectedSection, postFootingsData);
+//            }
+//        });
 
         PF_SET.setItems(PF_SET_DATA);
         PF_SET.getSelectionModel().select(0);
@@ -383,10 +385,6 @@ public class foundationsController implements Initializable {
         PF_SET.getSelectionModel().select(0);
         PF_SET_OVERRIDE.getSelectionModel().select(0);
         PF_QTY.setText("");
-        PF_DEPTH.setText("");
-        PF_WIDTH.setText("");
-        PF_LENGTH.setText("");
-        PF_TOTAL.setText("");
     }
 
 }

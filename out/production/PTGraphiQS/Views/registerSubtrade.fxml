@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="604.0" style="-fx-background-color: TRANSPARENT;" stylesheets="@CSS/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.registerSubtradeController">
+   <children>
+      <AnchorPane layoutX="13.0" layoutY="11.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="675.0" style="-fx-background-color: #102027; -fx-background-radius: 30px;" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="11.0">
+         <children>
+            <Label alignment="CENTER" layoutX="15.0" layoutY="14.0" prefHeight="35.0" prefWidth="178.0" text="Register Subtrade" textFill="#bcbcbc" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+               <font>
+                  <Font name="Segoe UI Bold" size="18.0" />
+               </font>
+            </Label>
+            <VBox fx:id="DETAIL_BOX" layoutX="15.0" layoutY="61.0" prefHeight="438.0" prefWidth="255.0" spacing="25.0" style="-fx-background-color: #102027; -fx-background-radius: 30px;" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="60.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <JFXComboBox fx:id="SUBTRADE" focusTraversable="false" prefHeight="28.0" prefWidth="236.0" promptText="Subtrade" />
+                  <JFXTextField fx:id="FIRST_NAME" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="First Name" style="-fx-text-inner-color: #b9b9b9;">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="LAST_NAME" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="Last Name" style="-fx-text-inner-color: #b9b9b9;">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="ADDRESS" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="Address" style="-fx-text-inner-color: #b9b9b9;">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="CONTACT_PERSON" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="Contact Person" style="-fx-text-inner-color: #b9b9b9;">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="EMAIL" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="Email" style="-fx-text-inner-color: #b9b9b9;">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="MOBILE" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="Mobile" style="-fx-text-inner-color: #b9b9b9;">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXComboBox fx:id="BEST_WAY_TO_CONTACT" focusTraversable="false" prefHeight="28.0" prefWidth="262.0" promptText="Best way to contact" />
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="15.0" right="15.0" top="19.0" />
+               </padding>
+            </VBox>
+            <AnchorPane fx:id="RATE_PANE" layoutX="288.0" layoutY="61.0" prefHeight="257.0" prefWidth="262.0" style="-fx-background-color: #102027; -fx-background-radius: 30px;" AnchorPane.leftAnchor="288.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="60.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <JFXComboBox fx:id="MATERIAL" focusTraversable="false" layoutX="25.0" layoutY="66.0" prefHeight="30.0" prefWidth="239.0" promptText="Material" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="66.0" />
+                  <JFXTextField fx:id="RATE" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="25.0" layoutY="117.0" prefHeight="30.0" prefWidth="239.0" promptText="Rate/Labour" style="-fx-text-inner-color: #b9b9b9;" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="117.0">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <Label layoutX="29.0" layoutY="173.0" prefHeight="30.0" prefWidth="45.0" text="Unit :" textFill="#bcbcbc" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="206.0" AnchorPane.topAnchor="173.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UNIT" layoutX="70.0" layoutY="173.0" prefHeight="30.0" prefWidth="178.0" textFill="#bcbcbc" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="173.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="14.0" prefHeight="30.0" prefWidth="115.0" text="Price Card" textFill="#bcbcbc">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <JFXButton fx:id="SAVE" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="5.0" layoutX="362.0" layoutY="469.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="91.0" style="-fx-background-radius: 30px;" text="Save" textAlignment="CENTER" textFill="#bcbcbc" AnchorPane.rightAnchor="112.0">
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/ok_35px.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="CANCEL" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="5.0" layoutX="453.0" layoutY="469.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="98.0" style="-fx-background-radius: 30px;" text="Cancel" textAlignment="CENTER" textFill="#bcbcbc" AnchorPane.rightAnchor="14.0">
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/cancel_30px.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+   </children>
+</AnchorPane>

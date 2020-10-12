@@ -126,13 +126,6 @@ public class foundationsController implements Initializable {
                 dimension_no++;
                 postFootingsData.addAll(new foundationsData(String.valueOf(dimension_no), PF_QTY.getText(),
                         PF_DEPTH.getText(), PF_WIDTH.getText(), PF_LENGTH.getText()));
-//                foundationsData.setNo(String.valueOf(dimension_no));
-//                foundationsData.setSet(PF_SET.getSelectionModel().getSelectedItem());
-//                foundationsData.setSet_override(PF_SET_OVERRIDE.getSelectionModel().getSelectedItem());
-//                foundationsData.setQty(PF_QTY.getText());
-//                foundationsData.setDepth(PF_DEPTH.getText());
-//                foundationsData.setWidth(PF_WIDTH.getText());
-//                foundationsData.setLength(PF_LENGTH.getText());
             }
         });
 

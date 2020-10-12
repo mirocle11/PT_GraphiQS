@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="800.0" style="-fx-background-color: transparent;" stylesheets="@CSS/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.createProjectController">
+   <children>
+      <AnchorPane fx:id="createBox" layoutX="7.0" layoutY="6.0" prefHeight="570.0" prefWidth="785.0" style="-fx-background-color: #102027; -fx-background-radius: 30px;">
+         <effect>
+            <DropShadow color="#121212" spread="0.2" />
+         </effect>
+         <children>
+            <Label layoutX="28.0" layoutY="21.0" prefHeight="32.0" prefWidth="202.0" text="GQS  |  Create Project" textFill="#bcbcbc">
+               <font>
+                  <Font name="Segoe UI Bold" size="18.0" />
+               </font>
+            </Label>
+            <Separator layoutX="28.0" layoutY="52.0" prefHeight="5.0" prefWidth="218.0" />
+            <JFXButton fx:id="next" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="10.0" layoutX="621.0" layoutY="490.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#next" prefHeight="32.0" prefWidth="94.0" style="-fx-background-radius: 30px;" stylesheets="@CSS/style.css" text="Next" textAlignment="CENTER" textFill="#b5b5b5">
+               <font>
+                  <Font name="Segoe UI" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="10.0" layoutX="32.0" layoutY="488.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#cancel" prefHeight="36.0" prefWidth="112.0" style="-fx-background-radius: 30px;" text="Cancel" textAlignment="CENTER" textFill="#b5b5b5">
+               <font>
+                  <Font name="Segoe UI" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/cancel_30px.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <AnchorPane fx:id="firstpane" layoutX="32.0" layoutY="80.0" prefHeight="405.0" prefWidth="718.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="105.0" text="Basic Details" textFill="#bcbcbc">
+                     <font>
+                        <Font name="Segoe UI" size="17.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="14.0" layoutY="95.0" prefHeight="30.0" prefWidth="335.0" promptText="Job Name" style="-fx-text-inner-color: #b9b9b9;">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="131.0" layoutY="140.0" prefHeight="30.0" prefWidth="218.0" promptText="Street Name" style="-fx-text-inner-color: #b9b9b9;">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="14.0" layoutY="140.0" prefHeight="30.0" prefWidth="105.0" promptText="Street No" style="-fx-text-inner-color: #b9b9b9;">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="14.0" layoutY="185.0" prefHeight="30.0" prefWidth="335.0" promptText="Suburb" style="-fx-text-inner-color: #b9b9b9;">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="14.0" layoutY="230.0" prefHeight="30.0" prefWidth="335.0" promptText="City" style="-fx-text-inner-color: #b9b9b9;">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="399.0" layoutY="50.0" prefHeight="30.0" prefWidth="305.0" promptText="Branch" style="-fx-text-inner-color: #b9b9b9;">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXDatePicker focusTraversable="false" layoutX="488.0" layoutY="110.0" prefHeight="30.0" prefWidth="218.0" />
+                  <Label focusTraversable="false" layoutX="398.0" layoutY="110.0" prefHeight="30.0" prefWidth="94.0" text="Date Started:" textFill="#868686">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <JFXComboBox fx:id="CLIENT_COMBO_BOX" focusColor="#0f9d58" layoutX="14.0" layoutY="50.0" prefHeight="30.0" prefWidth="335.0" promptText="Client" />
+                  <JFXCheckBox focusTraversable="false" layoutX="399.0" layoutY="170.0" prefHeight="30.0" prefWidth="156.0" selected="true" text="With Labour" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="secondpane" layoutX="32.0" layoutY="80.0" prefHeight="405.0" prefWidth="718.0" visible="false">
+               <children>
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="38.0" prefHeight="30.0" prefWidth="156.0" text="Foundations" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="68.0" prefHeight="30.0" prefWidth="156.0" text="Prestressed Floors" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="98.0" prefHeight="30.0" prefWidth="156.0" text="Block Openings" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="128.0" prefHeight="30.0" prefWidth="156.0" text="Block Walls" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="158.0" prefHeight="30.0" prefWidth="156.0" text="Floor Packing" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="188.0" prefHeight="30.0" prefWidth="156.0" text="Subfloor" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="218.0" prefHeight="30.0" prefWidth="156.0" text="Int Floor Lev 1" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="248.0" prefHeight="30.0" prefWidth="156.0" text="Int Floor Lev 2" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="278.0" prefHeight="30.0" prefWidth="156.0" text="Ext Openings" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="308.0" prefHeight="30.0" prefWidth="156.0" text="Int Openings" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="338.0" prefHeight="30.0" prefWidth="156.0" text="Brace Hardware" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="368.0" prefHeight="30.0" prefWidth="156.0" text="Brace Sgl Lev" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="173.0" layoutY="38.0" prefHeight="30.0" prefWidth="170.0" text="Inter-Tenancy Section" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="173.0" layoutY="68.0" prefHeight="30.0" prefWidth="170.0" text="Wet Linings" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="173.0" layoutY="98.0" prefHeight="30.0" prefWidth="170.0" text="Wall Strapping" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="173.0" layoutY="128.0" prefHeight="30.0" prefWidth="170.0" text="Misc Manuf" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="173.0" layoutY="158.0" prefHeight="30.0" prefWidth="186.0" text="Post &amp; Beam Hardware" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="173.0" layoutY="188.0" prefHeight="30.0" prefWidth="170.0" text="Walls Sgl Lev" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="173.0" layoutY="218.0" prefHeight="30.0" prefWidth="170.0" text="Walls Basement" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="173.0" layoutY="248.0" prefHeight="30.0" prefWidth="170.0" text="Walls Gnd Lev" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="173.0" layoutY="278.0" prefHeight="30.0" prefWidth="170.0" text="Walls Lev 1" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="173.0" layoutY="308.0" prefHeight="30.0" prefWidth="170.0" text="Walls Lev 2" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="173.0" layoutY="338.0" prefHeight="30.0" prefWidth="170.0" text="Walls Lev 3" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="173.0" layoutY="368.0" prefHeight="30.0" prefWidth="170.0" text="Walls Lev 4" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="364.0" layoutY="38.0" prefHeight="30.0" prefWidth="156.0" text="BP Packers" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="364.0" layoutY="68.0" prefHeight="30.0" prefWidth="156.0" text="Wall Hardware" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="364.0" layoutY="98.0" prefHeight="30.0" prefWidth="156.0" text="Bolts Manual" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="364.0" layoutY="128.0" prefHeight="30.0" prefWidth="156.0" text="Chimney" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="364.0" layoutY="158.0" prefHeight="30.0" prefWidth="156.0" text="Trusses" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="364.0" layoutY="188.0" prefHeight="30.0" prefWidth="156.0" text="Roof" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="364.0" layoutY="218.0" prefHeight="30.0" prefWidth="156.0" text="Ext Lining" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="364.0" layoutY="248.0" prefHeight="30.0" prefWidth="156.0" text="Rain Screen" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="364.0" layoutY="278.0" prefHeight="30.0" prefWidth="156.0" text="Wet Ceilings" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="364.0" layoutY="308.0" prefHeight="30.0" prefWidth="156.0" text="Ceilings" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="364.0" layoutY="338.0" prefHeight="30.0" prefWidth="156.0" text="Cupboards" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="364.0" layoutY="368.0" prefHeight="30.0" prefWidth="156.0" text="Showers &amp; Baths" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="527.0" layoutY="38.0" prefHeight="30.0" prefWidth="170.0" text="Decks" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="527.0" layoutY="68.0" prefHeight="30.0" prefWidth="170.0" text="Pergola" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="527.0" layoutY="98.0" prefHeight="30.0" prefWidth="170.0" text="Miscellanious" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="527.0" layoutY="128.0" prefHeight="30.0" prefWidth="170.0" text="Plumbing" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="527.0" layoutY="158.0" prefHeight="30.0" prefWidth="170.0" text="Bulk Heads" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="527.0" layoutY="188.0" prefHeight="30.0" prefWidth="170.0" text="Window Seats" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="527.0" layoutY="218.0" prefHeight="30.0" prefWidth="170.0" text="Landscaping" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="527.0" layoutY="248.0" prefHeight="30.0" prefWidth="170.0" text="Fencing" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox focusTraversable="false" layoutX="527.0" layoutY="278.0" prefHeight="30.0" prefWidth="170.0" text="Preliminary &amp; General" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+               </children>
+            </AnchorPane>
+            <Label fx:id="page" layoutX="367.0" layoutY="27.0" prefHeight="30.0" prefWidth="75.0" text="1 out of 2" textFill="#bcbcbc">
+               <font>
+                  <Font name="Segoe UI" size="17.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="back" alignment="BASELINE_LEFT" disable="true" focusTraversable="false" graphicTextGap="10.0" layoutX="509.0" layoutY="490.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#back" prefHeight="32.0" prefWidth="112.0" style="-fx-background-radius: 30px;" text="Back" textAlignment="CENTER" textFill="#b5b5b5">
+               <font>
+                  <Font name="Segoe UI" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/more_than_25px.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="proceed" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="10.0" layoutX="621.0" layoutY="490.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#proceed" prefHeight="32.0" prefWidth="125.0" style="-fx-background-radius: 30px;" text="Proceed" textAlignment="CENTER" textFill="#b5b5b5" visible="false">
+               <font>
+                  <Font name="Segoe UI" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/ok_35px.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Label fx:id="second_label" layoutX="32.0" layoutY="79.0" prefHeight="32.0" prefWidth="178.0" text="Structure Options" textFill="#bcbcbc" visible="false">
+               <font>
+                  <Font name="Segoe UI" size="17.0" />
+               </font>
+            </Label>
+            <JFXCheckBox fx:id="selectAllBox" focusTraversable="false" layoutX="668.0" layoutY="65.0" onAction="#selectAll" prefHeight="30.0" prefWidth="94.0" text="Select All" textFill="#b8b8b8" visible="false">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </JFXCheckBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

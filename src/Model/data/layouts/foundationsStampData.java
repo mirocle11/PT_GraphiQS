@@ -2,16 +2,19 @@ package Model.data.layouts;
 
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.scene.control.Label;
 
 public class foundationsStampData extends RecursiveTreeObject<foundationsStampData> {
 
     private final SimpleStringProperty no, part, quantity, depth, width, length, diameter, height, volume;
+    private Label image;
 
-    public foundationsStampData(String no, String part, String quantity, String depth, String width, String length,
+    public foundationsStampData(String no, String part, Label image, String quantity, String depth, String width, String length,
                                 String diameter, String height, String volume) {
 
         this.no = new SimpleStringProperty(no);
         this.part = new SimpleStringProperty(part);
+        this.image = image;
         this.quantity = new SimpleStringProperty(quantity);
         this.depth = new SimpleStringProperty(depth);
         this.width = new SimpleStringProperty(width);
@@ -127,5 +130,13 @@ public class foundationsStampData extends RecursiveTreeObject<foundationsStampDa
 
     public void setVolume(String volume) {
         this.volume.set(volume);
+    }
+
+    public Label getImage() {
+        return image;
+    }
+
+    public void setImage(Label image) {
+        this.image = image;
     }
 }

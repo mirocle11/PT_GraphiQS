@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 public class FoundationsObject {
 
     private String no, part, quantity, depth, width, length, diameter, height, volume;
-    private Label door_stamp;
+    private Label stamp;
 
     public String getNo() {
         return no;
@@ -55,14 +55,6 @@ public class FoundationsObject {
         this.length = length;
     }
 
-    public Label getDoor_stamp() {
-        return door_stamp;
-    }
-
-    public void setDoor_stamp(Label door_stamp) {
-        this.door_stamp = door_stamp;
-    }
-
     public String getDiameter() {
         return diameter;
     }
@@ -85,5 +77,13 @@ public class FoundationsObject {
 
     public void setVolume(String volume) {
         this.volume = volume;
+    }
+
+    public Label getStamp() {
+        return stamp;
+    }
+
+    public void setStamp(Label stamp) {
+        this.stamp = stamp;
     }
 }

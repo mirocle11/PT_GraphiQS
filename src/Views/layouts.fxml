@@ -33,7 +33,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                  <AnchorPane fx:id="MEASUREMENTS_SUMMARY" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.rowIndex="1">
                      <children>
                         <Label alignment="CENTER" layoutX="95.0" layoutY="-1.0" prefHeight="30.0" prefWidth="134.0" text="Summary Details" textFill="#bcbcbc" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="95.0">
                            <font>
@@ -96,6 +96,25 @@
                            </font>
                         </JFXTextField>
                         <JFXTextField fx:id="LOBOUR" alignment="CENTER" disable="true" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="25.0" layoutY="598.0" prefHeight="30.0" prefWidth="277.0" promptText="Lobour" style="-fx-text-inner-color: WHITE;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+                           <font>
+                              <Font name="Segoe UI" size="16.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="FOUNDATIONS_SUMMARY" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label alignment="CENTER" layoutX="95.0" layoutY="-1.0" prefHeight="30.0" prefWidth="134.0" text="Summary Details" textFill="#bcbcbc" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="95.0">
+                           <font>
+                              <Font name="Segoe UI" size="17.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="FOUNDATIONS_PF_TOTAL" alignment="CENTER" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="40.0" layoutY="47.0" prefHeight="21.0" prefWidth="167.0" promptText="Post Footings Total" style="-fx-text-inner-color: WHITE;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+                           <font>
+                              <Font name="Segoe UI" size="16.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="FOUNDATIONS_CB_TOTAL" alignment="CENTER" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="40.0" layoutY="98.0" prefHeight="30.0" prefWidth="252.0" promptText="Concrete Bores Total" style="-fx-text-inner-color: WHITE;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                            <font>
                               <Font name="Segoe UI" size="16.0" />
                            </font>
@@ -176,13 +195,13 @@
                <columns>
                   <TreeTableColumn fx:id="FOUNDATIONS_NO" prefWidth="59.0" text="No." />
                   <TreeTableColumn fx:id="FOUNDATIONS_PART" prefWidth="144.0" text="Part" />
-                  <TreeTableColumn fx:id="FOUNDATIONS_VOLUME1" prefWidth="120.0" text="Image" />
+                  <TreeTableColumn fx:id="FOUNDATIONS_IMAGE" prefWidth="120.0" text="Image" />
                   <TreeTableColumn fx:id="FOUNDATIONS_QTY" prefWidth="122.0" text="Quantity" />
                   <TreeTableColumn fx:id="FOUNDATIONS_DEPTH" prefWidth="135.0" text="Depth" />
                   <TreeTableColumn fx:id="FOUNDATIONS_WIDTH" prefWidth="115.0" text="Width" />
                   <TreeTableColumn fx:id="FOUNDATIONS_LENGTH" prefWidth="112.0" text="Length" />
-                  <TreeTableColumn fx:id="FOUNDATIONS_DIAMETER" prefWidth="112.0" text="Diameter" />
-                  <TreeTableColumn fx:id="FOUNDATIONS_HEIGHT" prefWidth="112.0" text="Height" />
+                  <TreeTableColumn fx:id="FOUNDATIONS_DIAMETER" prefWidth="112.0" text="Diameter (mm)" />
+                  <TreeTableColumn fx:id="FOUNDATIONS_HEIGHT" prefWidth="112.0" text="Height (mm)" />
                   <TreeTableColumn fx:id="FOUNDATIONS_VOLUME" prefWidth="128.0" text="Volume" />
                </columns>
             </JFXTreeTableView>

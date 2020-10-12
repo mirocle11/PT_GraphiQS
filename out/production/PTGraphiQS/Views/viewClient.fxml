@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="557.0" prefWidth="390.0" style="-fx-background-color: TRANSPARENT;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.viewClientController">
+   <children>
+      <AnchorPane layoutX="15.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #102027; -fx-background-radius: 30px;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Label alignment="CENTER" layoutX="100.0" layoutY="34.0" prefHeight="35.0" prefWidth="158.0" text="Client Details" textFill="#bcbcbc" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+               <font>
+                  <Font name="Segoe UI Bold" size="16.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="EDIT" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="5.0" layoutX="131.0" layoutY="479.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="91.0" style="-fx-background-radius: 30px;" text="Edit" textAlignment="CENTER" textFill="#bcbcbc">
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/edit_property_35px.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="CANCEL" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="5.0" layoutX="222.0" layoutY="479.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="98.0" style="-fx-background-radius: 30px;" text="Cancel" textAlignment="CENTER" textFill="#bcbcbc">
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/cancel_30px.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="SAVE" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="5.0" layoutX="131.0" layoutY="479.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="91.0" style="-fx-background-radius: 30px;" text="Save" textAlignment="CENTER" textFill="#bcbcbc" visible="false">
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/ok_35px.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <AnchorPane layoutX="45.0" layoutY="99.0" prefHeight="346.0" prefWidth="264.0" style="-fx-background-color: #102027; -fx-background-radius: 30px;" AnchorPane.bottomAnchor="92.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="99.0">
+               <children>
+                  <VBox fx:id="LABEL_BOX" layoutX="11.0" layoutY="14.0" prefWidth="242.0" spacing="25.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                     <children>
+                        <Label fx:id="FIRST_NAME_LBL" alignment="CENTER" prefHeight="30.0" prefWidth="244.0" text="First Name" textFill="#bcbcbc">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="LAST_NAME_LBL" alignment="CENTER" prefHeight="30.0" prefWidth="244.0" text="Last Name" textFill="#bcbcbc">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="CONTACT_PERSON_LBL" alignment="CENTER" prefHeight="30.0" prefWidth="244.0" text="Contact Person" textFill="#bcbcbc">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="EMAIL_LBL" alignment="CENTER" prefHeight="30.0" prefWidth="244.0" text="Email" textFill="#bcbcbc">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="MOBILE_LBL" alignment="CENTER" prefHeight="30.0" prefWidth="244.0" text="Mobile" textFill="#bcbcbc">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="LANDLINE_LBL" alignment="CENTER" prefHeight="30.0" prefWidth="244.0" text="Landline" textFill="#bcbcbc">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="FIELD_BOX" prefWidth="242.0" spacing="25.0" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                     <children>
+                        <JFXTextField fx:id="FIRST_NAME_FLD" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="First Name" style="-fx-text-inner-color: #b9b9b9;">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="LAST_NAME_FLD" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="Last Name" style="-fx-text-inner-color: #b9b9b9;">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="CONTACT_PERSON_FLD" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="Contact Person" style="-fx-text-inner-color: #b9b9b9;">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="EMAIL_FLD" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="Email" style="-fx-text-inner-color: #b9b9b9;">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="MOBILE_FLD" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="Mobile" style="-fx-text-inner-color: #b9b9b9;">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="LANDLINE_FLD" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" prefHeight="30.0" prefWidth="239.0" promptText="Landline" style="-fx-text-inner-color: #b9b9b9;">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </VBox>
+               </children>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </AnchorPane>
+            <JFXButton fx:id="BACK" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="5.0" layoutX="40.0" layoutY="479.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="91.0" style="-fx-background-radius: 30px;" text="Back" textAlignment="CENTER" textFill="#bcbcbc" visible="false">
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/back_arrow_30px.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+   </children>
+</AnchorPane>

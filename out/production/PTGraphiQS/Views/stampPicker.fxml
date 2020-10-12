@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="345.0" prefWidth="378.0" style="-fx-background-color: TRANSPARENT;" stylesheets="@CSS/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.stampPickerController">
+<children>
+    <AnchorPane layoutX="7.0" layoutY="11.0" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-radius: 20px; -fx-background-color: #0F1E25;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+        <effect>
+            <DropShadow color="#121212" height="35.03" radius="17.155" spread="0.15" width="35.59" />
+        </effect>
+        <children>
+            <Label alignment="CENTER" layoutX="13.0" layoutY="7.0" prefHeight="37.0" prefWidth="114.0" text="Stamp Picker" textFill="#bcbcbc">
+                <font>
+                    <Font name="Segoe UI Bold" size="16.0" />
+                </font>
+            </Label>
+            <AnchorPane layoutX="13.0" layoutY="55.0" prefHeight="246.0" prefWidth="254.0" style="-fx-background-color: #0F1E25; -fx-background-radius: 15px;" AnchorPane.topAnchor="55.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <JFXComboBox fx:id="DOOR_TYPE" editable="true" focusTraversable="false" layoutX="25.0" layoutY="26.0" prefHeight="28.0" prefWidth="205.0" promptText="Door Type" />
+                  <JFXComboBox fx:id="DOOR_HEIGHT" editable="true" focusTraversable="false" layoutX="25.0" layoutY="87.0" prefHeight="28.0" prefWidth="205.0" promptText="Door Height" />
+                  <JFXComboBox fx:id="COLOR" focusTraversable="false" layoutX="25.0" layoutY="147.0" prefHeight="28.0" prefWidth="205.0" promptText="Color" />
+                  <JFXButton fx:id="UNDO" alignment="CENTER" focusTraversable="false" graphicTextGap="5.0" layoutX="25.0" layoutY="202.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="98.0" style="-fx-background-radius: 30px; -fx-background-color: #263238;" text="Undo" textAlignment="CENTER" textFill="#bcbcbc" visible="false">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="REDO" alignment="CENTER" focusTraversable="false" graphicTextGap="5.0" layoutX="132.0" layoutY="202.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="98.0" style="-fx-background-radius: 30px; -fx-background-color: #263238;" text="Redo" textAlignment="CENTER" textFill="#bcbcbc" visible="false">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+            <ListView fx:id="iconList" layoutX="280.0" layoutY="55.0" prefHeight="246.0" prefWidth="50.0" style="-fx-background-color: #0F1E25; -fx-background-radius: 15px;" AnchorPane.rightAnchor="15.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ListView>
+            <JFXButton fx:id="DONE" alignment="CENTER" focusTraversable="false" graphicTextGap="5.0" layoutX="234.0" layoutY="14.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="91.0" style="-fx-background-radius: 30px;" text="Done" textAlignment="CENTER" textFill="#bcbcbc" AnchorPane.rightAnchor="16.0">
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/ok_35px.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+        </children>
+    </AnchorPane>
+</children>
+</AnchorPane>

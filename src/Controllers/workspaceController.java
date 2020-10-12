@@ -1,8 +1,8 @@
 package Controllers;
 
-import Model.data.WallData;
 import Model.PageObject;
 import Model.ShapeObject;
+import Model.data.WallData;
 import com.jfoenix.controls.*;
 import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
 import javafx.animation.FadeTransition;
@@ -16,8 +16,9 @@ import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.*;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -27,17 +28,16 @@ import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
-import service.*;
+import service.Tools;
 
 import javax.swing.*;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -160,7 +160,7 @@ public class workspaceController implements Initializable {
 
     //stamp (foundations)
     public int fs_indicator = 0;
-    public JFXComboBox<String> FOUNDATIONS_PART, FOUNDATIONS_SHAPE;
+    public JFXComboBox<String> FOUNDATIONS_PART;
     public JFXTextField FOUNDATIONS_DEPTH, FOUNDATIONS_WIDTH, FOUNDATIONS_LENGTH, FOUNDATIONS_DIAMETER,
             FOUNDATIONS_HEIGHT, FOUNDATIONS_VOLUME1, FOUNDATIONS_VOLUME2;
 
@@ -190,10 +190,9 @@ public class workspaceController implements Initializable {
         DOOR_HEIGHT.setItems(door_height);
         WINDOW_TYPE.setItems(window_type);
         FOUNDATIONS_PART.setItems(foundations_parts);
-        FOUNDATIONS_SHAPE.setItems(foundations_shapes);
 
-        FOUNDATIONS_SHAPE.setOnAction(event -> {
-            if (FOUNDATIONS_SHAPE.getSelectionModel().getSelectedItem().equals("Square")) {
+        FOUNDATIONS_PART.setOnAction(event -> {
+            if (FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Post Footings")) {
                 FOUNDATIONS_DEPTH.setVisible(true);
                 FOUNDATIONS_WIDTH.setVisible(true);
                 FOUNDATIONS_LENGTH.setVisible(true);
@@ -202,11 +201,18 @@ public class workspaceController implements Initializable {
                 FOUNDATIONS_DIAMETER.setVisible(false);
                 FOUNDATIONS_HEIGHT.setVisible(false);
                 FOUNDATIONS_VOLUME2.setVisible(false);
-            } else {
+
+                FOUNDATIONS_DIAMETER.setText("");
+                FOUNDATIONS_HEIGHT.setText("");
+            } else if (FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Concrete Bores")) {
                 FOUNDATIONS_DEPTH.setVisible(false);
                 FOUNDATIONS_WIDTH.setVisible(false);
                 FOUNDATIONS_LENGTH.setVisible(false);
                 FOUNDATIONS_VOLUME1.setVisible(false);
+
+                FOUNDATIONS_DEPTH.setText("");
+                FOUNDATIONS_WIDTH.setText("");
+                FOUNDATIONS_LENGTH.setText("");
 
                 FOUNDATIONS_DIAMETER.setVisible(true);
                 FOUNDATIONS_HEIGHT.setVisible(true);
@@ -220,23 +226,23 @@ public class workspaceController implements Initializable {
 
             if (!FOUNDATIONS_WIDTH.getText().isEmpty() && !FOUNDATIONS_DEPTH.getText().isEmpty() &&
                     !FOUNDATIONS_LENGTH.getText().isEmpty()) {
-                volume = Double.parseDouble(FOUNDATIONS_WIDTH.getText()) * Double.parseDouble(FOUNDATIONS_DEPTH.getText())
-                                        * Double.parseDouble(FOUNDATIONS_LENGTH.getText());
+                volume = Double.parseDouble(FOUNDATIONS_WIDTH.getText()) * Double.parseDouble
+                        (FOUNDATIONS_DEPTH.getText()) * Double.parseDouble(FOUNDATIONS_LENGTH.getText());
             }
             //Return result as String
             return String.valueOf(volume);
         }, FOUNDATIONS_WIDTH.textProperty(), FOUNDATIONS_DEPTH.textProperty(), FOUNDATIONS_LENGTH.textProperty()));
 
         FOUNDATIONS_VOLUME2.textProperty().bind(Bindings.createStringBinding(()->{
-            //Do your calculation
+            //Do your calculations
             double volume = 0;
-
+            DecimalFormat df = new DecimalFormat("0.00");
             if (!FOUNDATIONS_DIAMETER.getText().isEmpty() && !FOUNDATIONS_HEIGHT.getText().isEmpty()) {
                 double radius = Double.parseDouble(FOUNDATIONS_DIAMETER.getText()) * 0.001 / 2;
-                volume = radius * radius * 3.14 * Double.parseDouble(FOUNDATIONS_HEIGHT.getText());
+                volume = radius * radius * 3.14 * (Double.parseDouble(FOUNDATIONS_HEIGHT.getText()) / 1000);
             }
             //Return result as String
-            return String.valueOf(volume);
+            return String.valueOf(df.format(volume));
         }, FOUNDATIONS_DIAMETER.textProperty(), FOUNDATIONS_HEIGHT.textProperty()));
 
         DONE.setOnAction(event -> {

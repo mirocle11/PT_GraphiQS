@@ -1,5 +1,6 @@
 package Controllers;
 
+import DataBase.DataBase;
 import Model.data.layouts.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -25,7 +26,7 @@ public class layoutsController implements Initializable {
     public ScrollPane lengthScrollPane;
 
     public JFXTextField SEARCH, ROW_NO, PAGE, MEASUREMENT, STRUCTURE, WALL_TYPE, WALL, MATERIAL, COLOR_TXT, VALUE,
-            STUD_HEIGHT, VOLUME, LOBOUR;
+            STUD_HEIGHT, VOLUME, LOBOUR, FOUNDATIONS_PF_TOTAL, FOUNDATIONS_CB_TOTAL;
 
     public JFXButton LENGTH, AREA, STAMPS, WINDOWS, CLADDING, FOUNDATIONS;
 
@@ -73,6 +74,7 @@ public class layoutsController implements Initializable {
     public JFXTreeTableView<foundationsStampData> FOUNDATIONS_TBL;
     public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_NO;
     public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_PART;
+    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_IMAGE;
     public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_QTY;
     public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_DEPTH;
     public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_WIDTH;
@@ -80,7 +82,6 @@ public class layoutsController implements Initializable {
     public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_DIAMETER;
     public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_HEIGHT;
     public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_VOLUME;
-
 
     //data lists
     public static ObservableList<layoutsData> data;
@@ -91,6 +92,9 @@ public class layoutsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        FOUNDATIONS_PF_TOTAL.setEditable(false);
+        FOUNDATIONS_CB_TOTAL.setEditable(false);
+
         lengthScrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         lengthScrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         lengthScrollPane.setVmax(0.0);
@@ -203,6 +207,9 @@ public class layoutsController implements Initializable {
         FOUNDATIONS_PART.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("part")
         );
+        FOUNDATIONS_IMAGE.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("image")
+        );
         FOUNDATIONS_QTY.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("quantity")
         );
@@ -291,6 +298,9 @@ public class layoutsController implements Initializable {
             WINDOW_TBL.setVisible(false);
             CLADDING_TBL.setVisible(false);
             FOUNDATIONS_TBL.setVisible(true);
+
+            DataBase db = DataBase.getInstance();
+            db.getFoundationsTotal(FOUNDATIONS_PF_TOTAL, FOUNDATIONS_CB_TOTAL);
         });
     }
 

@@ -35,6 +35,7 @@ import javafx.scene.text.Font;
 import javax.swing.*;
 import java.io.File;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -418,63 +419,83 @@ public class Tools {
                         if (!(window.fs_indicator == 0)) {
                             ImageView foundations_img = new ImageView();
                             Label foundations_stamp = new Label();
+                            String path = "";
 
                             int selected_icon = window.iconList.getSelectionModel().getSelectedIndex();
 
                             switch (selected_icon) {
                                 case 0:
                                     foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon1.png")));
+//                                    path = "C:\\Users\\User\\Documents\\IdeaProjects\\PT_GraphiQS\\src\\Views\\stamper_icons\\blue-icon1.png";
+                                    path = "../Views/stamper_icons/blue-icon1.png";
                                     break;
                                 case 1:
                                     foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon2.png")));
+                                    path = "../Views/stamper_icons/blue-icon2.png";
                                     break;
                                 case 2:
                                     foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon3.png")));
+                                    path = "../Views/stamper_icons/blue-icon3.png";
                                     break;
                                 case 3:
                                     foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon4.png")));
+                                    path = "../Views/stamper_icons/blue-icon4.png";
                                     break;
                                 case 4:
                                     foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon5.png")));
+                                    path = "../Views/stamper_icons/blue-icon5.png";
                                     break;
                                 case 5:
                                     foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon6.png")));
+                                    path = "../Views/stamper_icons/blue-icon6.png";
                                     break;
                                 case 6:
                                     foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon1.png")));
+                                    path = "../Views/stamper_icons/green-icon1.png";
                                     break;
                                 case 7:
                                     foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon2.png")));
+                                    path = "../Views/stamper_icons/green-icon2.png";
                                     break;
                                 case 8:
                                     foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon3.png")));
+                                    path = "../Views/stamper_icons/green-icon3.png";
                                     break;
                                 case 9:
                                     foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon4.png")));
+                                    path = "../Views/stamper_icons/green-icon4.png";
                                     break;
                                 case 10:
                                     foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon5.png")));
+                                    path = "../Views/stamper_icons/green-icon5.png";
                                     break;
                                 case 11:
                                     foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon6.png")));
+                                    path = "../Views/stamper_icons/green-icon6.png";
                                     break;
                                 case 12:
                                     foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon1.png")));
+                                    path = "../Views/stamper_icons/red-icon1.png";
                                     break;
                                 case 13:
                                     foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon2.png")));
+                                    path = "../Views/stamper_icons/red-icon2.png";
                                     break;
                                 case 14:
                                     foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon3.png")));
+                                    path = "../Views/stamper_icons/red-icon3.png";
                                     break;
                                 case 15:
                                     foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon4.png")));
+                                    path = "../Views/stamper_icons/red-icon4.png";
                                     break;
                                 case 16:
                                     foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon5.png")));
+                                    path = "../Views/stamper_icons/red-icon5.png";
                                     break;
                                 case 17:
                                     foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon6.png")));
+                                    path = "../Views/stamper_icons/red-icon6.png";
                                     break;
                             }
                             foundations_stamp.setGraphic(foundations_img);
@@ -483,6 +504,7 @@ public class Tools {
                             foundations_stamp.setAlignment(Pos.CENTER);
 
                             pane.getChildren().add(foundations_stamp);
+//                            System.out.println("foundations image path: " + path);
 
                             //before.. object for updating table
 //                            FoundationsObject foundationsObject = new FoundationsObject();
@@ -492,7 +514,7 @@ public class Tools {
 //                            foundationsObject.setDepth(window.FOUNDATIONS_DEPTH.getText());
 //                            foundationsObject.setWidth(window.FOUNDATIONS_WIDTH.getText());
 //                            foundationsObject.setLength(window.FOUNDATIONS_LENGTH.getText());
-//                            foundationsObject.setDoor_stamp(foundations_stamp);
+//                            foundationsObject.setStamp(foundations_stamp);
 
                             //after.. db for managing table sections w/ identifier
                             DataBase db = DataBase.getInstance();
@@ -508,15 +530,15 @@ public class Tools {
                                     lastRowSection.setText("1");
                                 }
                                 System.out.println("Section id = " + lastRowSection.getText());
-                                if (window.FOUNDATIONS_SHAPE.getSelectionModel().getSelectedItem().equals("Square")) {
+                                if (window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Post Footings")) {
                                     db.insertFoundationsLayouts(Integer.parseInt(lastRowSection.getText()),
-                                            window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(), 1,
+                                            window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(), path, 1,
                                             window.FOUNDATIONS_DEPTH.getText(), window.FOUNDATIONS_WIDTH.getText(),
                                             window.FOUNDATIONS_LENGTH.getText(), window.FOUNDATIONS_DIAMETER.getText(),
                                             window.FOUNDATIONS_HEIGHT.getText(), window.FOUNDATIONS_VOLUME1.getText());
-                                } else if (window.FOUNDATIONS_SHAPE.getSelectionModel().getSelectedItem().equals("Cylinder")) {
+                                } else if (window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Concrete Bores")) {
                                     db.insertFoundationsLayouts(Integer.parseInt(lastRowSection.getText()),
-                                            window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(), 1,
+                                            window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(), path, 1,
                                             window.FOUNDATIONS_DEPTH.getText(), window.FOUNDATIONS_WIDTH.getText(),
                                             window.FOUNDATIONS_LENGTH.getText(), window.FOUNDATIONS_DIAMETER.getText(),
                                             window.FOUNDATIONS_HEIGHT.getText(), window.FOUNDATIONS_VOLUME2.getText());
@@ -527,8 +549,8 @@ public class Tools {
                                 double volume = quantity * Double.parseDouble(foundations_volume.getText());
 
                                 System.out.println("Volume total is:" + volume);
-                                db.updateFoundationsLayoutCount(quantity, String.valueOf(volume),
-                                        Integer.parseInt(foundations_section.getText()));
+                                db.updateFoundationsLayoutCount(quantity, String.valueOf(new DecimalFormat("0.00")
+                                        .format(volume)), Integer.parseInt(foundations_section.getText()));
                             }
 
                             //show foundations table
