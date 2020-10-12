@@ -68,6 +68,13 @@ public class workspaceController implements Initializable {
     public VBox toolsMenu;
     public Label toastLabel;
     public JFXButton PREVIOUS_PAGE, NEXT_PAGE;
+    public AnchorPane MISCELLANEOUS_PICKER;
+    public JFXTextField CONCRETE_FLOOR_LENGTH;
+    public JFXTextField CONCRETE_FLOOR_WIDTH;
+    public JFXTextField CONCRETE_FLOOR_THICKNESS;
+    public JFXButton MISCELLANEOUS_DONE;
+    public JFXButton MISCELLANEOUS_CLOSE;
+
 
     //collections
     List<Shape> shapeList = new ArrayList<>();
@@ -255,6 +262,17 @@ public class workspaceController implements Initializable {
             fs_indicator = 0;
 
             STAMP_TYPE.getSelectionModel().clearSelection();
+        });
+
+        MISCELLANEOUS_DONE.setOnAction(event -> {
+            MISCELLANEOUS_PICKER.setVisible(false);
+        });
+
+        MISCELLANEOUS_CLOSE.setOnAction(event -> {
+            CONCRETE_FLOOR_LENGTH.setText("");
+            CONCRETE_FLOOR_WIDTH.setText("");
+            CONCRETE_FLOOR_THICKNESS.setText("");
+            MISCELLANEOUS_PICKER.setVisible(false);
         });
 
         wallData = new WallData(this);
@@ -776,4 +794,8 @@ public class workspaceController implements Initializable {
         });
     }
 
+    //Miscellaneous
+    public void miscellaneousAction() {
+        MISCELLANEOUS_PICKER.setVisible(true);
+    }
 }

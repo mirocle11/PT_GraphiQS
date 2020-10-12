@@ -24,30 +24,22 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-10/08/20">
-      <change afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/externalFramingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/data/shed/externalFramingMaterials.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/data/shed/foundationsMaterials.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Residential/foundationsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Residential/foundationsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/foundationsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/foundationsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/setupSheetsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/setupSheetsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/extOpenings.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/foundations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/foundations.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/intOpenings.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/postAndBeams.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/wallsSglLev.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Residential/foundationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Residential/foundationsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/setupSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/setupSheetsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/extOpenings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/externalFraming.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/foundations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/foundations.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/intOpenings.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/postAndBeams.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/wallsSglLev.fxml" beforeDir="false" />
+    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-9/21/20">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController$IconInfo.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController$IconInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/DataBase/DataBase.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/DataBase/DataBase.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/foundations.fxml" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/foundations.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/jobInfo.fxml" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/jobInfo.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataBase/DataBase.java" afterPath="$PROJECT_DIR$/src/DataBase/DataBase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Views/workspace.fxml" afterPath="$PROJECT_DIR$/src/Views/workspace.fxml" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
     <list id="4dddbee8-77b6-41fd-be25-1624817806eb" name="Revert &quot;#60 commit&quot;" comment="Revert &quot;#60 commit&quot;&#10;&#10;This reverts commit 096c3c72" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,6 +50,118 @@
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="workspaceController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/workspaceController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1375">
+              <caret line="481" column="5" lean-forward="true" selection-start-line="481" selection-start-column="5" selection-end-line="481" selection-end-column="5" />
+              <folding>
+                <element signature="class#IconInfo#0;class#workspaceController#0" expanded="false" />
+                <element signature="e#6984#8219#0" expanded="false" />
+                <element signature="e#8300#8839#0" expanded="false" />
+                <element signature="e#9024#9578#0" expanded="false" />
+                <element signature="e#10580#11965#0" expanded="false" />
+                <element signature="e#12094#12158#0" expanded="false" />
+                <element signature="e#12194#12336#0" expanded="false" />
+                <element signature="e#12371#12436#0" expanded="false" />
+                <element signature="e#13491#13844#0" expanded="false" />
+                <element signature="method#showToast#0;class#workspaceController#0" expanded="false" />
+                <element signature="e#14354#14600#0" expanded="false" />
+                <element signature="method#setStructures#0;class#workspaceController#0" expanded="false" />
+                <element signature="method#connectStructures#0;class#workspaceController#0" expanded="false" />
+                <element signature="e#15062#15311#0" expanded="false" />
+                <element signature="e#15128#15299#0" expanded="false" />
+                <element signature="method#scaledIndicator#0;class#workspaceController#0" expanded="false" />
+                <element signature="method#areaAction#0;class#workspaceController#0" expanded="false" />
+                <element signature="method#lengthAction#0;class#workspaceController#0" expanded="false" />
+                <element signature="method#claddingAction#0;class#workspaceController#0" expanded="false" />
+                <element signature="e#16688#16689#0" expanded="true" />
+                <element signature="e#16732#16733#0" expanded="true" />
+                <element signature="method#createIconList#0;class#workspaceController#0" expanded="false" />
+                <element signature="method#setStudHeight#0;class#workspaceController#0" expanded="false" />
+                <element signature="method#updateLine#0;class#workspaceController#0" expanded="false" />
+                <element signature="e#19076#19159#0" expanded="false" />
+                <element signature="e#19208#19520#0" expanded="false" />
+                <element signature="method#zoom#0;class#workspaceController#0" expanded="false" />
+                <element signature="e#20908#20976#0" expanded="false" />
+                <element signature="e#21443#22591#0" expanded="false" />
+                <element signature="method#figureScrollOffset#0;class#workspaceController#0" expanded="false" />
+                <element signature="method#repositionScroller#0;class#workspaceController#0" expanded="false" />
+                <element signature="method#clamp#0;class#workspaceController#0" expanded="false" />
+                <element signature="method#handlePan#0;class#workspaceController#0" expanded="false" />
+                <element signature="method#structureListTransition#0;class#workspaceController#0" expanded="false" />
+                <element signature="e#25402#25537#0" expanded="false" />
+                <element signature="e#25953#26078#0" expanded="false" />
+                <element signature="method#closeMeasurementList#0;class#workspaceController#0" expanded="false" />
+                <element signature="e#26531#26689#0" expanded="false" />
+                <element signature="e#26789#26861#0" expanded="false" />
+                <element signature="e#26962#27202#0" expanded="false" />
+                <element signature="e#27028#27190#0" expanded="false" />
+                <element signature="method#selectAll#0;class#workspaceController#0" expanded="false" />
+                <element signature="e#27330#27409#0" expanded="false" />
+                <element signature="method#unselectAllAction#0;class#workspaceController#0" expanded="false" />
+                <element signature="e#27625#27845#0" expanded="false" />
+                <element signature="e#27680#27833#0" expanded="false" />
+                <element signature="method#saveStructures#0;class#workspaceController#0" expanded="false" />
+                <element signature="e#28017#28271#0" expanded="false" />
+                <element signature="e#28594#28752#0" expanded="false" />
+                <element signature="method#setSelectedCladding#0;class#workspaceController#0" expanded="false" />
+                <element signature="e#28971#29124#0" expanded="false" />
+                <element signature="method#setCladdingIndicator#0;class#workspaceController#0" expanded="false" />
+                <element signature="e#29218#29487#0" expanded="false" />
+                <element signature="e#29273#29475#0" expanded="false" />
+                <element signature="e#29555#29556#0" expanded="true" />
+                <element signature="e#29608#29609#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layoutsController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/layoutsController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layouts.fxml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Views/layouts.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-255">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workspace.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Views/workspace.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="387">
+              <caret line="1218" column="47" lean-forward="false" selection-start-line="1218" selection-start-column="47" selection-end-line="1218" selection-end-column="47" />
+              <folding>
+                <element signature="n#AnchorPane#1;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+                <element signature="n#AnchorPane#2;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+                <marker date="1602486317285" expanded="true" signature="17409:17567" ph="..." />
+              </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -70,12 +174,21 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>DONE</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+  </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -85,11 +198,31 @@
     </option>
     <option name="RESET_MODE" value="MIXED" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/libraries/mysql-connector-java-8.0.19.jar!/com/mysql/cj/jdbc/exceptions/SQLError.class" />
+        <option value="$PROJECT_DIR$/libraries/mysql-connector-java-8.0.19.jar!/com/mysql/cj/jdbc/exceptions/SQLExceptionsMapping.class" />
+        <option value="$PROJECT_DIR$/libraries/mysql-connector-java-8.0.19.jar!/com/mysql/cj/jdbc/NonRegisteringDriver.class" />
+        <option value="$PROJECT_DIR$/libraries/mysql-connector-java-8.0.19.jar!/com/mysql/cj/jdbc/ConnectionImpl.class" />
+        <option value="$PROJECT_DIR$/out/production/PTGraphiQS/Views/CSS/style.css" />
+        <option value="$PROJECT_DIR$/src/DataBase/DataBase.java" />
+        <option value="$PROJECT_DIR$/src/Views/workspace.fxml" />
+        <option value="$PROJECT_DIR$/src/Controllers/workspaceController.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsFlowSettings">
     <service-enabled>false</service-enabled>
     <exe-path />
     <annotation-enable>false</annotation-enable>
     <other-services-enabled>false</other-services-enabled>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="JsbtTreeLayoutManager">
     <layout place="tools.popupGrunt">
@@ -97,8 +230,98 @@
     </layout>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
+  </component>
   <component name="ProjectId" id="1Q2xk7vGkU1u9iEO53La1s8iEqU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PT_GraphiQS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PT_GraphiQS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PT_GraphiQS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PT_GraphiQS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PT_GraphiQS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PT_GraphiQS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PT_GraphiQS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PT_GraphiQS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -128,7 +351,7 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="dynamic.classpath" value="false" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Views/Sheets/Shed" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LBP_Trades" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -149,20 +372,6 @@
       <recent name="Controllers.Sheets" />
       <recent name="Controllers" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets\Residential" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\data backup" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Framing" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Floors" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PTGraphiQS\src\Views" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="Model.data.shed" />
-      <recent name="Model" />
-      <recent name="Controllers.Sheets.Shed" />
-      <recent name="Controllers.Sheets" />
-      <recent name="Test" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets\Shed" />
       <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets" />
@@ -170,33 +379,139 @@
       <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Model\data" />
       <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Controllers" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Model" />
+      <recent name="Controllers.Sheets.Shed" />
+      <recent name="Model.data.shed" />
+      <recent name="Controllers.Sheets" />
+      <recent name="Test" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets\Residential" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\data backup" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Framing" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Floors" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PTGraphiQS\src\Views" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+    <configuration default="false" name="CollectionsDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Views.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="Views.test.CollectionsDemo" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="PTGraphiQS" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="Main.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="PTGraphiQS" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="SillyStamper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="Test.SillyStamper" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="PTGraphiQS" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="TabTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="Test.TabTest" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="PTGraphiQS" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="TwoDArrayInput" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="Test.TwoDArrayInput" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="PTGraphiQS" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="EXTRA_OPTIONS" value="" />
-      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="DEBUGGER_TYPE" value="Java" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <Java />
-      <Profilers>
-        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
-        <option name="GAPID_ENABLED" value="false" />
-        <option name="GAPID_DISABLE_PCS" value="false" />
-        <option name="SUPPORT_LIB_ENABLED" value="true" />
-        <option name="INSTRUMENTATION_ENABLED" value="true" />
-      </Profilers>
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -207,148 +522,224 @@
       <module />
       <method />
     </configuration>
-    <configuration name="CollectionsDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Views.test.CollectionsDemo" />
-      <module name="PTGraphiQS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Views.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main.Main" />
-      <module name="PTGraphiQS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SillyStamper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test.SillyStamper" />
-      <module name="PTGraphiQS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TabTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test.TabTest" />
-      <module name="PTGraphiQS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TwoDArrayInput" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test.TwoDArrayInput" />
-      <module name="PTGraphiQS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
     </configuration>
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
     </configuration>
     <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
       <properties />
       <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+      <method />
+    </configuration>
+    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
+      <method />
     </configuration>
     <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
     </configuration>
-    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="run-app" />
-      <setting name="passParentEnv" value="true" />
-      <setting name="grailsApplicationRoot" value="" />
-      <setting name="launchBrowser" value="true" />
-      <setting name="launchBrowserUrl" value="" />
-      <setting name="depsClasspath" value="false" />
-      <method v="2" />
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="TEST_OBJECT" value="class" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SCRATCH_FILE_ID" value="0" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="PTGraphiQS" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="filePath" />
       <option name="vmParameters" />
       <option name="alternativeJrePath" />
@@ -356,60 +747,84 @@
       <option name="passParentEnvs" value="true" />
       <option name="workingDirectory" />
       <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
       <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="TestNG">
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
       <properties />
       <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+      <method />
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file enabled="true" id="idea.log" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp">
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
       <arguments />
       <envs />
-      <method v="2" />
+      <method />
     </configuration>
-    <list>
-      <item itemvalue="Application.CollectionsDemo" />
-      <item itemvalue="Application.Main" />
-      <item itemvalue="Application.SillyStamper" />
-      <item itemvalue="Application.TabTest" />
-      <item itemvalue="Application.TwoDArrayInput" />
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
+      <method />
+    </configuration>
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Application.CollectionsDemo" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="2" class="java.lang.String" itemvalue="Application.SillyStamper" />
+      <item index="3" class="java.lang.String" itemvalue="Application.TabTest" />
+      <item index="4" class="java.lang.String" itemvalue="Application.TwoDArrayInput" />
     </list>
     <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.TabTest" />
-        <item itemvalue="Application.SillyStamper" />
-        <item itemvalue="Application.TwoDArrayInput" />
-        <item itemvalue="Application.CollectionsDemo" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="1" class="java.lang.String" itemvalue="Application.TwoDArrayInput" />
+        <item index="2" class="java.lang.String" itemvalue="Application.TabTest" />
+        <item index="3" class="java.lang.String" itemvalue="Application.SillyStamper" />
+        <item index="4" class="java.lang.String" itemvalue="Application.CollectionsDemo" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -680,10 +1095,22 @@
       <workItem from="1601865586416" duration="11609000" />
       <workItem from="1601954501284" duration="18236000" />
       <workItem from="1602034848066" duration="4974000" />
-      <workItem from="1602043199785" duration="15941000" />
-      <workItem from="1602133259198" duration="24796000" />
-      <workItem from="1602318064696" duration="7196000" />
-      <workItem from="1602469935663" duration="12266000" />
+      <workItem from="1602043199785" duration="9433000" />
+      <workItem from="1602469093570" duration="8681000" />
+    </task>
+    <task id="LOCAL-00078" summary="#94 commit sections progress">
+      <created>1574326933464</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1574326933464</updated>
+    </task>
+    <task id="LOCAL-00079" summary="#95 commit popup sections finished">
+      <created>1574386795369</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1574386795369</updated>
     </task>
     <task id="LOCAL-00080" summary="#95 commit popup sections finished">
       <created>1574387444996</created>
@@ -1014,25 +1441,48 @@
       <option name="project" value="LOCAL" />
       <updated>1600670345312</updated>
     </task>
-    <task id="LOCAL-00127" summary="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-10/08/20">
-      <created>1602124242981</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
-      <option name="project" value="LOCAL" />
-      <updated>1602124242982</updated>
-    </task>
-    <task id="LOCAL-00128" summary="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-10/08/20">
-      <created>1602468189356</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
-      <option name="project" value="LOCAL" />
-      <updated>1602468189357</updated>
-    </task>
-    <option name="localTasksCounter" value="129" />
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="9099000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32870865" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11886994" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="processedProjectFiles" value="true" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
@@ -1053,6 +1503,12 @@
         <entry key="1">
           <value>
             <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
@@ -1076,12 +1532,18 @@
         </entry>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />
@@ -1104,180 +1566,533 @@
     <MESSAGE value="-setup sheets updated &#10;-dashboard new lineup&#10;-fixed door stamping / ongoing progress for delete function&#10;-shed order applied (in progress)&#10;-8/18/20 update" />
     <MESSAGE value="-setup sheets update (sheds)&#10;-added initial functions for foundations tab&#10;-new closing option for unsaved work&#10;-9/16/20" />
     <MESSAGE value="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-9/21/20" />
-    <MESSAGE value="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-10/08/20" />
-    <option name="LAST_COMMIT_MESSAGE" value="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-10/08/20" />
+    <option name="LAST_COMMIT_MESSAGE" value="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-9/21/20" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2646" y="40" key="#Auto_Import" timestamp="1602190068585">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2646" y="40" key="#Auto_Import/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602190068585" />
-    <state x="2767" y="356" key="#Notifications" timestamp="1596706299116">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="847" y="356" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1594923005484" />
-    <state x="2767" y="356" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596706299116" />
-    <state x="2360" y="94" key="#Project_Structure" timestamp="1595774085443">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2360" y="94" key="#Project_Structure/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595774085443" />
-    <state x="2334" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593977513654">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2334" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593977513654" />
-    <state x="2685" y="223" key="#com.intellij.ide.util.MemberChooser" timestamp="1602190208120">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2685" y="223" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602190208120" />
-    <state x="2608" y="306" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1595789322123">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2608" y="306" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595789322123" />
-    <state x="2560" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1594289472086">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2560" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1594289472086" />
-    <state x="2645" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1602485105023">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="725" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602474847327" />
-    <state x="2645" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602485105023" />
-    <state x="2393" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1602485175279">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2393" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602485175279" />
-    <state x="2610" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600108655680">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2610" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600108655680" />
-    <state x="2610" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1600108949047">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2610" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600108949047" />
-    <state x="555" y="0" key="CommitChangelistDialog2" timestamp="1602469016325">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="555" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602469016325" />
-    <state x="2475" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602124241394" />
-    <state x="3035" y="318" key="FileChooserDialogImpl" timestamp="1601585227374">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="674" y="288" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595788545082" />
-    <state x="3035" y="318" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601585227374" />
-    <state width="1877" height="190" key="GridCell.Tab.0.bottom" timestamp="1602486303814">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="190" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602432443834" />
-    <state width="1877" height="190" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602486303814" />
-    <state width="1877" height="190" key="GridCell.Tab.0.center" timestamp="1602486303814">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="190" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602432443834" />
-    <state width="1877" height="190" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602486303814" />
-    <state width="1877" height="190" key="GridCell.Tab.0.left" timestamp="1602486303814">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="190" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602432443834" />
-    <state width="1877" height="190" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602486303814" />
-    <state width="1877" height="190" key="GridCell.Tab.0.right" timestamp="1602486303814">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="190" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602432443834" />
-    <state width="1877" height="190" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602486303814" />
-    <state width="1877" height="339" key="GridCell.Tab.1.bottom" timestamp="1602484067205">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="339" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602484067205" />
-    <state width="1877" height="339" key="GridCell.Tab.1.center" timestamp="1602484067205">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="339" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602484067205" />
-    <state width="1877" height="339" key="GridCell.Tab.1.left" timestamp="1602484067205">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="339" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602484067205" />
-    <state width="1877" height="339" key="GridCell.Tab.1.right" timestamp="1602484067205">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="339" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602484067205" />
-    <state x="2460" y="254" key="IDE.errors.dialog" timestamp="1602234667858">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="540" y="254" key="IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599826939423" />
-    <state x="2460" y="254" key="IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602234667858" />
-    <state x="2695" y="453" key="ReplaceDuplicatesPrompt" timestamp="1600107583729">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2695" y="453" key="ReplaceDuplicatesPrompt/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600107583729" />
-    <state x="694" y="138" key="RollbackChangesDialog" timestamp="1602469013435">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="694" y="138" key="RollbackChangesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602469013435" />
-    <state x="2266" y="158" width="1054" height="708" key="SettingsEditor" timestamp="1602071617371">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="432" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595788561514" />
-    <state x="2266" y="158" width="1054" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602071617371" />
-    <state x="552" y="248" key="Vcs.Push.Dialog.v2" timestamp="1602468200344">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602468200344" />
-    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602125569021" />
-    <state x="753" y="454" key="classpath-attribute-editor" timestamp="1595788555192">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="753" y="454" key="classpath-attribute-editor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595788555192" />
-    <state x="107" y="77" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1595259214180">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="92" y="92" width="1636" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595255429073" />
-    <state x="107" y="77" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595259214180" />
-    <state x="2529" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599632424507">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2529" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599632424507" />
-    <state x="2687" y="429" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599719181455">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2687" y="429" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599719181455" />
-    <state x="952" y="0" width="974" height="1047" key="dock-window-1" timestamp="1602056880074">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="952" y="0" width="974" height="1047" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602056880074" />
-    <state x="952" y="0" width="974" height="1047" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602043555940" />
-    <state x="953" y="0" width="974" height="1047" key="dock-window-2" timestamp="1596700006940">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="953" y="0" width="974" height="1047" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596700006940" />
-    <state x="847" y="0" width="1089" height="1045" key="dock-window-3" timestamp="1595232343515">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="847" y="0" width="1089" height="1045" key="dock-window-3/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595232343515" />
-    <state x="2610" y="259" key="extract.method.dialog" timestamp="1600107580813">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2610" y="259" key="extract.method.dialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600107580812" />
-    <state x="2588" y="95" width="583" height="849" key="find.popup" timestamp="1597212288765">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2588" y="95" width="583" height="849" key="find.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597212288765" />
-    <state x="2262" y="94" key="new project wizard" timestamp="1595755205601">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2262" y="94" key="new project wizard/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595755205601" />
-    <state x="2589" y="273" key="refactoring.ChangeSignatureDialog" timestamp="1601581643370">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2589" y="273" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601581643370" />
-    <state x="2536" y="240" width="672" height="677" key="run.anything.popup" timestamp="1601458502293">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595256125834" />
-    <state x="2536" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601458502293" />
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602485486724">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600667467948" />
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602485486724" />
+    <state x="2646" y="40" key="#Auto_Import" />
+    <state x="2646" y="40" key="#Auto_Import/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2767" y="356" key="#Notifications" />
+    <state x="847" y="356" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state x="2767" y="356" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2360" y="94" key="#Project_Structure" />
+    <state x="2360" y="94" key="#Project_Structure/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2334" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" />
+    <state x="2334" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2685" y="223" key="#com.intellij.ide.util.MemberChooser" />
+    <state x="2685" y="223" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2608" y="306" key="#com.intellij.ide.util.TreeClassChooserDialog" />
+    <state x="2608" y="306" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2560" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" />
+    <state x="2560" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2645" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" />
+    <state x="2645" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2393" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" />
+    <state x="2393" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2610" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" />
+    <state x="2610" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2610" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" />
+    <state x="2610" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="555" y="0" key="CommitChangelistDialog2" />
+    <state x="555" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state x="2475" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="3035" y="318" key="FileChooserDialogImpl" />
+    <state x="674" y="288" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state x="3035" y="318" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1877" height="190" key="GridCell.Tab.0.bottom" />
+    <state width="1877" height="193" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state width="1877" height="190" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1877" height="190" key="GridCell.Tab.0.center" />
+    <state width="1877" height="193" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state width="1877" height="190" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1877" height="190" key="GridCell.Tab.0.left" />
+    <state width="1877" height="193" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state width="1877" height="190" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1877" height="190" key="GridCell.Tab.0.right" />
+    <state width="1877" height="193" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state width="1877" height="190" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1877" height="339" key="GridCell.Tab.1.bottom" />
+    <state width="1877" height="339" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1877" height="339" key="GridCell.Tab.1.center" />
+    <state width="1877" height="339" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1877" height="339" key="GridCell.Tab.1.left" />
+    <state width="1877" height="339" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1877" height="339" key="GridCell.Tab.1.right" />
+    <state width="1877" height="339" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2460" y="254" key="IDE.errors.dialog" />
+    <state x="540" y="254" key="IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state x="2460" y="254" key="IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2695" y="453" key="ReplaceDuplicatesPrompt" />
+    <state x="2695" y="453" key="ReplaceDuplicatesPrompt/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2266" y="158" width="1054" height="708" key="SettingsEditor" />
+    <state x="432" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state x="2266" y="158" width="1054" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="552" y="248" key="Vcs.Push.Dialog.v2" />
+    <state x="552" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="753" y="454" key="classpath-attribute-editor" />
+    <state x="753" y="454" key="classpath-attribute-editor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state x="107" y="77" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" />
+    <state x="92" y="92" width="1636" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state x="107" y="77" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2529" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" />
+    <state x="2529" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2687" y="429" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" />
+    <state x="2687" y="429" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="952" y="0" width="974" height="1047" key="dock-window-1" />
+    <state x="952" y="0" width="974" height="1047" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state x="952" y="0" width="974" height="1047" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="953" y="0" width="974" height="1047" key="dock-window-2" />
+    <state x="953" y="0" width="974" height="1047" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="847" y="0" width="1089" height="1045" key="dock-window-3" />
+    <state x="847" y="0" width="1089" height="1045" key="dock-window-3/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2610" y="259" key="extract.method.dialog" />
+    <state x="2610" y="259" key="extract.method.dialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2588" y="95" width="583" height="849" key="find.popup" />
+    <state x="2588" y="95" width="583" height="849" key="find.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2262" y="94" key="new project wizard" />
+    <state x="2262" y="94" key="new project wizard/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2589" y="273" key="refactoring.ChangeSignatureDialog" />
+    <state x="2589" y="273" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2536" y="240" width="672" height="677" key="run.anything.popup" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state x="2536" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Controllers/workspaceController.java</url>
+          <line>242</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/DataBase/DataBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1602469350845" expanded="true" signature="2104:2370" ph="CREATE TABLE... IF" />
+            <marker date="1602469350845" expanded="true" signature="2415:2802" ph="CREATE TABLE... IF" />
+            <marker date="1602469350845" expanded="true" signature="2849:3275" ph="CREATE TABLE... IF" />
+            <marker date="1602469350845" expanded="true" signature="3324:3601" ph="CREATE TABLE... IF" />
+            <marker date="1602469350845" expanded="true" signature="3648:3799" ph="CREATE TABLE... IF" />
+            <marker date="1602469350845" expanded="true" signature="3842:4096" ph="CREATE TABLE... IF" />
+            <marker date="1602469350845" expanded="true" signature="6660:6758" ph="INSERT INTO USERS_TBL... " />
+            <marker date="1602469350845" expanded="true" signature="7411:7591" ph="INSERT INTO CLIENTS_TBL... " />
+            <marker date="1602469350845" expanded="true" signature="8478:8669" ph="INSERT INTO SUBTRADES_TBL... " />
+            <marker date="1602469350845" expanded="true" signature="9503:9600" ph="INSERT INTO PRICE_CARD_TBL... " />
+            <marker date="1602469350845" expanded="true" signature="10168:10193" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="10814:10860" ph="SELECT * FRO... SUBTRADES_TBL" />
+            <marker date="1602469350845" expanded="true" signature="12173:12210" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="13061:13208" ph="UPDATE CLIEN... " />
+            <marker date="1602469350845" expanded="true" signature="13997:14040" ph="SELECT USER_... CLIENTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="14387:14421" ph="DELETE FROM " />
+            <marker date="1602469350845" expanded="true" signature="15089:15128" ph="SELECT * FRO... SUBTRADES_TBL" />
+            <marker date="1602469350845" expanded="true" signature="15988:16037" ph="SELECT * FRO... PRICE_CARD_TBL" />
+            <marker date="1602469350845" expanded="true" signature="16685:16872" ph="UPDATE SUBTR... " />
+            <marker date="1602469350845" expanded="true" signature="17688:17758" ph="UPDATE PRICE... " />
+            <marker date="1602469350845" expanded="true" signature="18208:18246" ph="DELETE FROM " />
+            <marker date="1602469350845" expanded="true" signature="18643:18702" ph="SELECT * FRO... USERS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="19585:19620" ph="SELECT * FRO... USERS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="20135:20160" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="20603:20648" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="21082:21146" ph="SELECT * FRO... SUBTRADES_TBL" />
+            <marker date="1602469350845" expanded="true" signature="21632:21682" ph="SELECT * FRO... PRICE_CARD_TBL" />
+            <marker date="1602469350845" expanded="true" signature="23179:23240" ph="SELECT PARTS... STRUCTURES_PARTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="23811:23866" ph="SELECT PARTS... SHED_PARTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="24492:24558" ph="SELECT ID FR... SHED_PARTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="25284:25353" ph="SELECT COMPO... SHED_COMPONENTS_CONTENT_TBL" />
+            <marker date="1602469350845" expanded="true" signature="25873:25952" ph="INSERT INTO SHED_COMPONENTS_TBL... " />
+            <marker date="1602469350845" expanded="true" signature="26524:26592" ph="SELECT * FRO... SHED_COMPONENTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="28112:28177" ph="SELECT * FRO... SHED_SECTION_TBL" />
+            <marker date="1602469350845" expanded="true" signature="28879:28968" ph="UPDATE SHED_... " />
+            <marker date="1602469350845" expanded="true" signature="29492:29554" ph="INSERT INTO SHED_SECTION_TBL... " />
+            <marker date="1602469350845" expanded="true" signature="30102:30263" ph="INSERT INTO SHED_SECTION_DIMENSIONS... " />
+            <marker date="1602469350845" expanded="true" signature="31069:31141" ph="SELECT * FRO... SHED_SECTION_DIMENSIONS" />
+            <marker date="1602469350845" expanded="true" signature="32290:32353" ph="DELETE FROM " />
+            <marker date="1602469350845" expanded="true" signature="32830:32885" ph="SELECT ID FR... SHED_SETS" />
+            <marker date="1602469350845" expanded="true" signature="33330:33380" ph="SELECT * FRO... SHED_SET_COMPONENTS" />
+            <marker date="1602469350845" expanded="true" signature="34518:34573" ph="SELECT ID FR... SHED_SETS" />
+            <marker date="1602469350845" expanded="true" signature="35020:35090" ph="SELECT ID FR... SHED_SET_OVERRIDE" />
+            <marker date="1602469350845" expanded="true" signature="35611:35694" ph="SELECT * FRO... SHED_SET_OVERRIDE_COMPONENTS" />
+            <marker date="1602469350845" expanded="true" signature="38534:38795" ph="UPDATE SHED_... " />
+            <marker date="1602469350845" expanded="true" signature="40020:40053" ph="SELECT * FRO... LAYOUTS_FOUNDATIONS" />
+            <marker date="1602469350845" expanded="true" signature="41634:41804" ph="INSERT INTO LAYOUTS_FOUNDATIONS... " />
+            <marker date="1602469350845" expanded="true" signature="42806:42874" ph="UPDATE LAYOU... " />
+            <marker date="1602469350845" expanded="true" signature="43482:43617" ph="SELECT * FRO... LAYOUTS_FOUNDATIONS" />
+            <marker date="1602469350845" expanded="true" signature="44902:44961" ph="SELECT ID FR... LAYOUTS_FOUNDATIONS" />
+            <marker date="1602469350845" expanded="true" signature="45465:45513" ph="SELECT * FRO... LAYOUTS_FOUNDATIONS" />
+            <marker date="1602469350845" expanded="true" signature="46102:46150" ph="SELECT * FRO... LAYOUTS_FOUNDATIONS" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/PTGraphiQS/Views/CSS/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3893">
+          <caret line="229" column="27" lean-forward="true" selection-start-line="229" selection-start-column="27" selection-end-line="229" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1343">
+          <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataBase/DataBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17969">
+          <caret line="1057" column="0" lean-forward="false" selection-start-line="1057" selection-start-column="0" selection-end-line="1057" selection-end-column="0" />
+          <folding>
+            <marker date="1602469350845" expanded="true" signature="2104:2370" ph="CREATE TABLE... IF" />
+            <marker date="1602469350845" expanded="true" signature="2415:2802" ph="CREATE TABLE... IF" />
+            <marker date="1602469350845" expanded="true" signature="2849:3275" ph="CREATE TABLE... IF" />
+            <marker date="1602469350845" expanded="true" signature="3324:3601" ph="CREATE TABLE... IF" />
+            <marker date="1602469350845" expanded="true" signature="3648:3799" ph="CREATE TABLE... IF" />
+            <marker date="1602469350845" expanded="true" signature="3842:4096" ph="CREATE TABLE... IF" />
+            <marker date="1602469350845" expanded="true" signature="6660:6758" ph="INSERT INTO USERS_TBL... " />
+            <marker date="1602469350845" expanded="true" signature="7411:7591" ph="INSERT INTO CLIENTS_TBL... " />
+            <marker date="1602469350845" expanded="true" signature="8478:8669" ph="INSERT INTO SUBTRADES_TBL... " />
+            <marker date="1602469350845" expanded="true" signature="9503:9600" ph="INSERT INTO PRICE_CARD_TBL... " />
+            <marker date="1602469350845" expanded="true" signature="10168:10193" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="10814:10860" ph="SELECT * FRO... SUBTRADES_TBL" />
+            <marker date="1602469350845" expanded="true" signature="12173:12210" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="13061:13208" ph="UPDATE CLIEN... " />
+            <marker date="1602469350845" expanded="true" signature="13997:14040" ph="SELECT USER_... CLIENTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="14387:14421" ph="DELETE FROM " />
+            <marker date="1602469350845" expanded="true" signature="15089:15128" ph="SELECT * FRO... SUBTRADES_TBL" />
+            <marker date="1602469350845" expanded="true" signature="15988:16037" ph="SELECT * FRO... PRICE_CARD_TBL" />
+            <marker date="1602469350845" expanded="true" signature="16685:16872" ph="UPDATE SUBTR... " />
+            <marker date="1602469350845" expanded="true" signature="17688:17758" ph="UPDATE PRICE... " />
+            <marker date="1602469350845" expanded="true" signature="18208:18246" ph="DELETE FROM " />
+            <marker date="1602469350845" expanded="true" signature="18643:18702" ph="SELECT * FRO... USERS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="19585:19620" ph="SELECT * FRO... USERS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="20135:20160" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="20603:20648" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="21082:21146" ph="SELECT * FRO... SUBTRADES_TBL" />
+            <marker date="1602469350845" expanded="true" signature="21632:21682" ph="SELECT * FRO... PRICE_CARD_TBL" />
+            <marker date="1602469350845" expanded="true" signature="23179:23240" ph="SELECT PARTS... STRUCTURES_PARTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="23811:23866" ph="SELECT PARTS... SHED_PARTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="24492:24558" ph="SELECT ID FR... SHED_PARTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="25284:25353" ph="SELECT COMPO... SHED_COMPONENTS_CONTENT_TBL" />
+            <marker date="1602469350845" expanded="true" signature="25873:25952" ph="INSERT INTO SHED_COMPONENTS_TBL... " />
+            <marker date="1602469350845" expanded="true" signature="26524:26592" ph="SELECT * FRO... SHED_COMPONENTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="28112:28177" ph="SELECT * FRO... SHED_SECTION_TBL" />
+            <marker date="1602469350845" expanded="true" signature="28879:28968" ph="UPDATE SHED_... " />
+            <marker date="1602469350845" expanded="true" signature="29492:29554" ph="INSERT INTO SHED_SECTION_TBL... " />
+            <marker date="1602469350845" expanded="true" signature="30102:30263" ph="INSERT INTO SHED_SECTION_DIMENSIONS... " />
+            <marker date="1602469350845" expanded="true" signature="31069:31141" ph="SELECT * FRO... SHED_SECTION_DIMENSIONS" />
+            <marker date="1602469350845" expanded="true" signature="32290:32353" ph="DELETE FROM " />
+            <marker date="1602469350845" expanded="true" signature="32830:32885" ph="SELECT ID FR... SHED_SETS" />
+            <marker date="1602469350845" expanded="true" signature="33330:33380" ph="SELECT * FRO... SHED_SET_COMPONENTS" />
+            <marker date="1602469350845" expanded="true" signature="34518:34573" ph="SELECT ID FR... SHED_SETS" />
+            <marker date="1602469350845" expanded="true" signature="35020:35090" ph="SELECT ID FR... SHED_SET_OVERRIDE" />
+            <marker date="1602469350845" expanded="true" signature="35611:35694" ph="SELECT * FRO... SHED_SET_OVERRIDE_COMPONENTS" />
+            <marker date="1602469350845" expanded="true" signature="38534:38795" ph="UPDATE SHED_... " />
+            <marker date="1602469350845" expanded="true" signature="40020:40053" ph="SELECT * FRO... LAYOUTS_FOUNDATIONS" />
+            <marker date="1602469350845" expanded="true" signature="41634:41804" ph="INSERT INTO LAYOUTS_FOUNDATIONS... " />
+            <marker date="1602469350845" expanded="true" signature="42806:42874" ph="UPDATE LAYOU... " />
+            <marker date="1602469350845" expanded="true" signature="43482:43617" ph="SELECT * FRO... LAYOUTS_FOUNDATIONS" />
+            <marker date="1602469350845" expanded="true" signature="44902:44961" ph="SELECT ID FR... LAYOUTS_FOUNDATIONS" />
+            <marker date="1602469350845" expanded="true" signature="45465:45513" ph="SELECT * FRO... LAYOUTS_FOUNDATIONS" />
+            <marker date="1602469350845" expanded="true" signature="46102:46150" ph="SELECT * FRO... LAYOUTS_FOUNDATIONS" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1343">
+          <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/PTGraphiQS/Views/CSS/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3519">
+          <caret line="207" column="0" lean-forward="true" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libraries/mysql-connector-java-8.0.19.jar!/com/mysql/cj/jdbc/ConnectionImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="625" column="0" lean-forward="false" selection-start-line="625" selection-start-column="0" selection-end-line="625" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libraries/mysql-connector-java-8.0.19.jar!/com/mysql/cj/jdbc/exceptions/SQLExceptionsMapping.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/src.zip!/java/sql/DriverManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="663" column="0" lean-forward="false" selection-start-line="663" selection-start-column="0" selection-end-line="663" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libraries/mysql-connector-java-8.0.19.jar!/com/mysql/cj/jdbc/NonRegisteringDriver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libraries/mysql-connector-java-8.0.19.jar!/com/mysql/cj/jdbc/exceptions/SQLError.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="152" column="0" lean-forward="true" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/PTGraphiQS/Views/CSS/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="229" column="27" lean-forward="false" selection-start-line="229" selection-start-column="27" selection-end-line="229" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataBase/DataBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-323">
+          <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+          <folding>
+            <marker date="1602469350845" expanded="true" signature="2104:2370" ph="CREATE TABLE... IF" />
+            <marker date="1602469350845" expanded="true" signature="2415:2802" ph="CREATE TABLE... IF" />
+            <marker date="1602469350845" expanded="true" signature="2849:3275" ph="CREATE TABLE... IF" />
+            <marker date="1602469350845" expanded="true" signature="3324:3601" ph="CREATE TABLE... IF" />
+            <marker date="1602469350845" expanded="true" signature="3648:3799" ph="CREATE TABLE... IF" />
+            <marker date="1602469350845" expanded="true" signature="3842:4096" ph="CREATE TABLE... IF" />
+            <marker date="1602469350845" expanded="true" signature="6660:6758" ph="INSERT INTO USERS_TBL... " />
+            <marker date="1602469350845" expanded="true" signature="7411:7591" ph="INSERT INTO CLIENTS_TBL... " />
+            <marker date="1602469350845" expanded="true" signature="8478:8669" ph="INSERT INTO SUBTRADES_TBL... " />
+            <marker date="1602469350845" expanded="true" signature="9503:9600" ph="INSERT INTO PRICE_CARD_TBL... " />
+            <marker date="1602469350845" expanded="true" signature="10168:10193" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="10814:10860" ph="SELECT * FRO... SUBTRADES_TBL" />
+            <marker date="1602469350845" expanded="true" signature="12173:12210" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="13061:13208" ph="UPDATE CLIEN... " />
+            <marker date="1602469350845" expanded="true" signature="13997:14040" ph="SELECT USER_... CLIENTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="14387:14421" ph="DELETE FROM " />
+            <marker date="1602469350845" expanded="true" signature="15089:15128" ph="SELECT * FRO... SUBTRADES_TBL" />
+            <marker date="1602469350845" expanded="true" signature="15988:16037" ph="SELECT * FRO... PRICE_CARD_TBL" />
+            <marker date="1602469350845" expanded="true" signature="16685:16872" ph="UPDATE SUBTR... " />
+            <marker date="1602469350845" expanded="true" signature="17688:17758" ph="UPDATE PRICE... " />
+            <marker date="1602469350845" expanded="true" signature="18208:18246" ph="DELETE FROM " />
+            <marker date="1602469350845" expanded="true" signature="18643:18702" ph="SELECT * FRO... USERS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="19585:19620" ph="SELECT * FRO... USERS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="20135:20160" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="20603:20648" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="21082:21146" ph="SELECT * FRO... SUBTRADES_TBL" />
+            <marker date="1602469350845" expanded="true" signature="21632:21682" ph="SELECT * FRO... PRICE_CARD_TBL" />
+            <marker date="1602469350845" expanded="true" signature="23179:23240" ph="SELECT PARTS... STRUCTURES_PARTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="23811:23866" ph="SELECT PARTS... SHED_PARTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="24492:24558" ph="SELECT ID FR... SHED_PARTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="25284:25353" ph="SELECT COMPO... SHED_COMPONENTS_CONTENT_TBL" />
+            <marker date="1602469350845" expanded="true" signature="25873:25952" ph="INSERT INTO SHED_COMPONENTS_TBL... " />
+            <marker date="1602469350845" expanded="true" signature="26524:26592" ph="SELECT * FRO... SHED_COMPONENTS_TBL" />
+            <marker date="1602469350845" expanded="true" signature="28112:28177" ph="SELECT * FRO... SHED_SECTION_TBL" />
+            <marker date="1602469350845" expanded="true" signature="28879:28968" ph="UPDATE SHED_... " />
+            <marker date="1602469350845" expanded="true" signature="29492:29554" ph="INSERT INTO SHED_SECTION_TBL... " />
+            <marker date="1602469350845" expanded="true" signature="30102:30263" ph="INSERT INTO SHED_SECTION_DIMENSIONS... " />
+            <marker date="1602469350845" expanded="true" signature="31069:31141" ph="SELECT * FRO... SHED_SECTION_DIMENSIONS" />
+            <marker date="1602469350845" expanded="true" signature="32290:32353" ph="DELETE FROM " />
+            <marker date="1602469350845" expanded="true" signature="32830:32885" ph="SELECT ID FR... SHED_SETS" />
+            <marker date="1602469350845" expanded="true" signature="33330:33380" ph="SELECT * FRO... SHED_SET_COMPONENTS" />
+            <marker date="1602469350845" expanded="true" signature="34518:34573" ph="SELECT ID FR... SHED_SETS" />
+            <marker date="1602469350845" expanded="true" signature="35020:35090" ph="SELECT ID FR... SHED_SET_OVERRIDE" />
+            <marker date="1602469350845" expanded="true" signature="35611:35694" ph="SELECT * FRO... SHED_SET_OVERRIDE_COMPONENTS" />
+            <marker date="1602469350845" expanded="true" signature="38534:38795" ph="UPDATE SHED_... " />
+            <marker date="1602469350845" expanded="true" signature="40020:40053" ph="SELECT * FRO... LAYOUTS_FOUNDATIONS" />
+            <marker date="1602469350845" expanded="true" signature="41634:41804" ph="INSERT INTO LAYOUTS_FOUNDATIONS... " />
+            <marker date="1602469350845" expanded="true" signature="42806:42874" ph="UPDATE LAYOU... " />
+            <marker date="1602469350845" expanded="true" signature="43482:43617" ph="SELECT * FRO... LAYOUTS_FOUNDATIONS" />
+            <marker date="1602469350845" expanded="true" signature="44902:44961" ph="SELECT ID FR... LAYOUTS_FOUNDATIONS" />
+            <marker date="1602469350845" expanded="true" signature="45465:45513" ph="SELECT * FRO... LAYOUTS_FOUNDATIONS" />
+            <marker date="1602469350845" expanded="true" signature="46102:46150" ph="SELECT * FRO... LAYOUTS_FOUNDATIONS" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/viewSubtrade.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/stampPicker.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/workspaceSideNavigation.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1238">
+          <caret line="87" column="14" lean-forward="true" selection-start-line="87" selection-start-column="14" selection-end-line="87" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/stampPickerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-646">
+          <caret line="23" column="32" lean-forward="true" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/workspace.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="1218" column="47" lean-forward="false" selection-start-line="1218" selection-start-column="47" selection-end-line="1218" selection-end-column="47" />
+          <folding>
+            <element signature="n#AnchorPane#1;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#AnchorPane#2;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <marker date="1602486317285" expanded="true" signature="17409:17567" ph="..." />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/workspaceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1375">
+          <caret line="481" column="5" lean-forward="true" selection-start-line="481" selection-start-column="5" selection-end-line="481" selection-end-column="5" />
+          <folding>
+            <element signature="class#IconInfo#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#6984#8219#0" expanded="false" />
+            <element signature="e#8300#8839#0" expanded="false" />
+            <element signature="e#9024#9578#0" expanded="false" />
+            <element signature="e#10580#11965#0" expanded="false" />
+            <element signature="e#12094#12158#0" expanded="false" />
+            <element signature="e#12194#12336#0" expanded="false" />
+            <element signature="e#12371#12436#0" expanded="false" />
+            <element signature="e#13491#13844#0" expanded="false" />
+            <element signature="method#showToast#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#14354#14600#0" expanded="false" />
+            <element signature="method#setStructures#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#connectStructures#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#15062#15311#0" expanded="false" />
+            <element signature="e#15128#15299#0" expanded="false" />
+            <element signature="method#scaledIndicator#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#areaAction#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#lengthAction#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#claddingAction#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#16688#16689#0" expanded="true" />
+            <element signature="e#16732#16733#0" expanded="true" />
+            <element signature="method#createIconList#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#setStudHeight#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#updateLine#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#19076#19159#0" expanded="false" />
+            <element signature="e#19208#19520#0" expanded="false" />
+            <element signature="method#zoom#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#20908#20976#0" expanded="false" />
+            <element signature="e#21443#22591#0" expanded="false" />
+            <element signature="method#figureScrollOffset#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#repositionScroller#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#clamp#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#handlePan#0;class#workspaceController#0" expanded="false" />
+            <element signature="method#structureListTransition#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#25402#25537#0" expanded="false" />
+            <element signature="e#25953#26078#0" expanded="false" />
+            <element signature="method#closeMeasurementList#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#26531#26689#0" expanded="false" />
+            <element signature="e#26789#26861#0" expanded="false" />
+            <element signature="e#26962#27202#0" expanded="false" />
+            <element signature="e#27028#27190#0" expanded="false" />
+            <element signature="method#selectAll#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#27330#27409#0" expanded="false" />
+            <element signature="method#unselectAllAction#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#27625#27845#0" expanded="false" />
+            <element signature="e#27680#27833#0" expanded="false" />
+            <element signature="method#saveStructures#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#28017#28271#0" expanded="false" />
+            <element signature="e#28594#28752#0" expanded="false" />
+            <element signature="method#setSelectedCladding#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#28971#29124#0" expanded="false" />
+            <element signature="method#setCladdingIndicator#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#29218#29487#0" expanded="false" />
+            <element signature="e#29273#29475#0" expanded="false" />
+            <element signature="e#29555#29556#0" expanded="true" />
+            <element signature="e#29608#29609#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/layoutsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/layouts.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
   </component>
 </project>
