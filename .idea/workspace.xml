@@ -24,16 +24,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-10/08/20">
-      <change afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/claddingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/framingHardwareController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/data/shed/claddingMaterials.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/data/shed/framingHardwareMaterials.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/cladding.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/framingHardware.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/externalFramingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/externalFramingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/setupSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/setupSheetsController.java" afterDir="false" />
-    </list>
+    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-materials table&#10;-10/13/20" />
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
     <list id="4dddbee8-77b6-41fd-be25-1624817806eb" name="Revert &quot;#60 commit&quot;" comment="Revert &quot;#60 commit&quot;&#10;&#10;This reverts commit 096c3c72" />
     <option name="SHOW_DIALOG" value="false" />
@@ -673,13 +664,6 @@
       <workItem from="1602318064696" duration="7196000" />
       <workItem from="1602469935663" duration="12266000" />
     </task>
-    <task id="LOCAL-00080" summary="#95 commit popup sections finished">
-      <created>1574387444996</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1574387444996</updated>
-    </task>
     <task id="LOCAL-00081" summary="#95 commit popup sections finished">
       <created>1574387641371</created>
       <option name="number" value="00081" />
@@ -1016,7 +1000,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602468189357</updated>
     </task>
-    <option name="localTasksCounter" value="129" />
+    <task id="LOCAL-00129" summary="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-materials table&#10;-10/13/20">
+      <created>1602568004060</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1602568004060</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1093,7 +1084,8 @@
     <MESSAGE value="-setup sheets update (sheds)&#10;-added initial functions for foundations tab&#10;-new closing option for unsaved work&#10;-9/16/20" />
     <MESSAGE value="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-9/21/20" />
     <MESSAGE value="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-10/08/20" />
-    <option name="LAST_COMMIT_MESSAGE" value="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-10/08/20" />
+    <MESSAGE value="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-materials table&#10;-10/13/20" />
+    <option name="LAST_COMMIT_MESSAGE" value="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-materials table&#10;-10/13/20" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2646" y="40" key="#Auto_Import" timestamp="1602190068585">
@@ -1142,11 +1134,11 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2610" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600108949047" />
-    <state x="555" y="0" key="CommitChangelistDialog2" timestamp="1602469016325">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2475" y="0" key="CommitChangelistDialog2" timestamp="1602568003418">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="555" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602469016325" />
-    <state x="2475" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602124241394" />
+    <state x="2475" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602568003418" />
     <state x="3035" y="318" key="FileChooserDialogImpl" timestamp="1601585227374">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -1206,11 +1198,11 @@
     </state>
     <state x="432" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595788561514" />
     <state x="2266" y="158" width="1054" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602071617371" />
-    <state x="2472" y="248" key="Vcs.Push.Dialog.v2" timestamp="1602567949062">
+    <state x="2472" y="248" key="Vcs.Push.Dialog.v2" timestamp="1602568008185">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602468200344" />
-    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602567949062" />
+    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602568008185" />
     <state x="753" y="454" key="classpath-attribute-editor" timestamp="1595788555192">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -1253,6 +1245,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2588" y="95" width="583" height="849" key="find.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597212288765" />
+    <state x="2601" y="293" key="git4idea.merge.GitPullDialog" timestamp="1602568478222">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2601" y="293" key="git4idea.merge.GitPullDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602568478222" />
     <state x="2262" y="94" key="new project wizard" timestamp="1595755205601">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

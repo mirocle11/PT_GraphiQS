@@ -1,0 +1,1411 @@
+Index: src/Controllers/setupSheetsController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Controllers;\r\n\r\nimport com.jfoenix.controls.JFXButton;\r\nimport com.jfoenix.controls.JFXTabPane;\r\nimport javafx.collections.FXCollections;\r\nimport javafx.collections.ObservableList;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.fxml.Initializable;\r\nimport javafx.scene.control.Tab;\r\nimport javafx.scene.layout.AnchorPane;\r\n\r\nimport java.net.URL;\r\nimport java.util.ArrayList;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class setupSheetsController implements Initializable {\r\n\r\n    public JFXTabPane TAB_PANE;\r\n    public JFXButton REFRESH;\r\n    public static ObservableList<String> selectedBoxes = FXCollections.observableArrayList();\r\n\r\n    //sheets content (residential)\r\n    public AnchorPane FOUNDATIONS, EXT_OPENINGS, INT_OPENINGS, POST_BEAM_HARDWARE, WALLS_SGL_LEV, ROOF, EXT_LINING;\r\n\r\n    //sheets content (shed)\r\n    public AnchorPane SHED_FOUNDATION, SHED_EXTERNAL_FRAMING;\r\n\r\n    //contentList = residential\r\n    public ArrayList<AnchorPane> contentList = new ArrayList();\r\n    public ArrayList<AnchorPane> shedList = new ArrayList();\r\n\r\n    @Override\r\n    public void initialize(URL location, ResourceBundle resource) {\r\n        loadTabs();\r\n\r\n        REFRESH.setOnAction(event -> {\r\n            TAB_PANE.getTabs().clear();\r\n            if (jobInfoController.selectedProjectType.equals(\"Residential\")) {\r\n                selectedBoxes.forEach((String s) -> {\r\n                    Tab tab = new Tab();\r\n                    tab.setText(s);\r\n                    contentList.forEach(anchorPane -> {\r\n                        if (anchorPane.getId().equals(s)) {\r\n                            tab.setContent(anchorPane);\r\n                        }\r\n                    });\r\n                    TAB_PANE.getTabs().add(tab);\r\n                });\r\n            } else if (jobInfoController.selectedProjectType.equals(\"Shed\")) {\r\n                selectedBoxes.forEach((String s) -> {\r\n                    Tab tab = new Tab();\r\n                    tab.setText(s);\r\n                    shedList.forEach(anchorPane -> {\r\n                        if (anchorPane.getId().equals(s)) {\r\n                            tab.setContent(anchorPane);\r\n                        }\r\n                    });\r\n                    TAB_PANE.getTabs().add(tab);\r\n                });\r\n            }\r\n        });\r\n    }\r\n\r\n    public void loadTabs() {\r\n        try {\r\n            FXMLLoader loader = new FXMLLoader(getClass().getResource(\"/Views/Sheets/Residential/foundations.fxml\"));\r\n            FOUNDATIONS = loader.load();\r\n            FOUNDATIONS.setId(\"Foundations\");\r\n            contentList.add(FOUNDATIONS);\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n        try {\r\n            FXMLLoader loader = new FXMLLoader(getClass().getResource(\"/Views/Sheets/Residential/extOpenings.fxml\"));\r\n            EXT_OPENINGS = loader.load();\r\n            EXT_OPENINGS.setId(\"Ext Openings\");\r\n            contentList.add(EXT_OPENINGS);\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n        try {\r\n            FXMLLoader loader = new FXMLLoader(getClass().getResource(\"/Views/Sheets/Residential/intOpenings.fxml\"));\r\n            INT_OPENINGS = loader.load();\r\n            INT_OPENINGS.setId(\"Int Openings\");\r\n            contentList.add(INT_OPENINGS);\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n        try {\r\n            FXMLLoader loader = new FXMLLoader(getClass().getResource(\"/Views/Sheets/Residential/postAndBeams.fxml\"));\r\n            POST_BEAM_HARDWARE = loader.load();\r\n            POST_BEAM_HARDWARE.setId(\"Post & Beam Hardware\");\r\n            contentList.add(POST_BEAM_HARDWARE);\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n        try {\r\n            FXMLLoader loader = new FXMLLoader(getClass().getResource(\"/Views/Sheets/Residential/wallsSglLev.fxml\"));\r\n            WALLS_SGL_LEV = loader.load();\r\n            WALLS_SGL_LEV.setId(\"Walls Sgl Lev\");\r\n            contentList.add(WALLS_SGL_LEV);\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n        try {\r\n            FXMLLoader loader = new FXMLLoader(getClass().getResource(\"/Views/Sheets/Residential/roof.fxml\"));\r\n            ROOF = loader.load();\r\n            ROOF.setId(\"Roof\");\r\n            contentList.add(ROOF);\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n        try {\r\n            FXMLLoader loader = new FXMLLoader(getClass().getResource(\"/Views/Sheets/Residential/extLining.fxml\"));\r\n            EXT_LINING = loader.load();\r\n            EXT_LINING.setId(\"Ext Lining\");\r\n            contentList.add(EXT_LINING);\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n\r\n        //shed loaders\r\n        try {\r\n            FXMLLoader loader = new FXMLLoader(getClass().getResource(\"/Views/Sheets/Shed/foundations.fxml\"));\r\n            SHED_FOUNDATION = loader.load();\r\n            SHED_FOUNDATION.setId(\"Foundations\");\r\n            shedList.add(SHED_FOUNDATION);\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n\r\n        try {\r\n            FXMLLoader loader = new FXMLLoader(getClass().getResource(\"/Views/Sheets/Shed/externalFraming.fxml\"));\r\n            SHED_EXTERNAL_FRAMING = loader.load();\r\n            SHED_EXTERNAL_FRAMING.setId(\"External Framing\");\r\n            shedList.add(SHED_EXTERNAL_FRAMING);\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n\r\n//        try {\r\n//            FXMLLoader loader = new FXMLLoader(getClass().getResource(\"/Views/Sheets/Shed/externalFraming.fxml\"));\r\n//            SHED_EXTERNAL_FRAMING = loader.load();\r\n//            SHED_EXTERNAL_FRAMING.setId(\"Pole Shed External Framing\");\r\n//            shedList.add(SHED_EXTERNAL_FRAMING);\r\n//        } catch (Exception e) {\r\n//            e.printStackTrace();\r\n//        }\r\n//\r\n//        try {\r\n//            FXMLLoader loader = new FXMLLoader(getClass().getResource(\"/Views/Sheets/Shed/framingHardware.fxml\"));\r\n//            SHED_FRAMING_HARDWARE = loader.load();\r\n//            SHED_FRAMING_HARDWARE.setId(\"Poleshed Framing Hardware\");\r\n//            shedList.add(SHED_FRAMING_HARDWARE);\r\n//        } catch (Exception e) {\r\n//            e.printStackTrace();\r\n//        }\r\n//\r\n//        try {\r\n//            FXMLLoader loader = new FXMLLoader(getClass().getResource(\"/Views/Sheets/Shed/cladding.fxml\"));\r\n//            SHED_CLADDING = loader.load();\r\n//            SHED_CLADDING.setId(\"Poleshed Cladding\");\r\n//            shedList.add(SHED_CLADDING);\r\n//        } catch (Exception e) {\r\n//            e.printStackTrace();\r\n//        }\r\n//\r\n//        try {\r\n//            FXMLLoader loader = new FXMLLoader(getClass().getResource(\"/Views/Sheets/Shed/claddingOpt.fxml\"));\r\n//            SHED_CLADDING_OPT = loader.load();\r\n//            SHED_CLADDING_OPT.setId(\"Poleshed Cladding Opt\");\r\n//            shedList.add(SHED_CLADDING_OPT);\r\n//        } catch (Exception e) {\r\n//            e.printStackTrace();\r\n//        }\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Controllers/setupSheetsController.java	(revision 2cac3f05d912f8991c46b3d4cefe15c7c732c731)
++++ src/Controllers/setupSheetsController.java	(date 1602565760106)
+@@ -23,7 +23,7 @@
+     public AnchorPane FOUNDATIONS, EXT_OPENINGS, INT_OPENINGS, POST_BEAM_HARDWARE, WALLS_SGL_LEV, ROOF, EXT_LINING;
+ 
+     //sheets content (shed)
+-    public AnchorPane SHED_FOUNDATION, SHED_EXTERNAL_FRAMING;
++    public AnchorPane SHED_FOUNDATION, SHED_EXTERNAL_FRAMING, SHED_FRAMING_HARDWARE, SHED_CLADDING;
+ 
+     //contentList = residential
+     public ArrayList<AnchorPane> contentList = new ArrayList();
+@@ -138,41 +138,23 @@
+             e.printStackTrace();
+         }
+ 
+-//        try {
+-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/externalFraming.fxml"));
+-//            SHED_EXTERNAL_FRAMING = loader.load();
+-//            SHED_EXTERNAL_FRAMING.setId("Pole Shed External Framing");
+-//            shedList.add(SHED_EXTERNAL_FRAMING);
+-//        } catch (Exception e) {
+-//            e.printStackTrace();
+-//        }
+-//
+-//        try {
+-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/framingHardware.fxml"));
+-//            SHED_FRAMING_HARDWARE = loader.load();
+-//            SHED_FRAMING_HARDWARE.setId("Poleshed Framing Hardware");
+-//            shedList.add(SHED_FRAMING_HARDWARE);
+-//        } catch (Exception e) {
+-//            e.printStackTrace();
+-//        }
+-//
+-//        try {
+-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/cladding.fxml"));
+-//            SHED_CLADDING = loader.load();
+-//            SHED_CLADDING.setId("Poleshed Cladding");
+-//            shedList.add(SHED_CLADDING);
+-//        } catch (Exception e) {
+-//            e.printStackTrace();
+-//        }
+-//
+-//        try {
+-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/claddingOpt.fxml"));
+-//            SHED_CLADDING_OPT = loader.load();
+-//            SHED_CLADDING_OPT.setId("Poleshed Cladding Opt");
+-//            shedList.add(SHED_CLADDING_OPT);
+-//        } catch (Exception e) {
+-//            e.printStackTrace();
+-//        }
+-    }
++        try {
++            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/framingHardware.fxml"));
++            SHED_FRAMING_HARDWARE = loader.load();
++            SHED_FRAMING_HARDWARE.setId("Framing Hardware");
++            shedList.add(SHED_FRAMING_HARDWARE);
++        } catch (Exception e) {
++            e.printStackTrace();
++        }
++
++        try {
++            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/cladding.fxml"));
++            SHED_CLADDING = loader.load();
++            SHED_CLADDING.setId("Cladding");
++            shedList.add(SHED_CLADDING);
++        } catch (Exception e) {
++            e.printStackTrace();
++        }
+ 
++    }
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ArtifactsWorkspaceSettings\">\r\n    <artifacts-to-build>\r\n      <artifact name=\"PTGraphiQS:jar\" />\r\n    </artifacts-to-build>\r\n  </component>\r\n  <component name=\"BranchesTreeState\">\r\n    <expand>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </expand>\r\n    <select />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"06660981-57d8-4909-9e13-4e708b05908b\" name=\"Default\" comment=\"-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-10/08/20\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/Controllers/Sheets/Shed/externalFramingController.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/Model/data/shed/externalFramingMaterials.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/Model/data/shed/foundationsMaterials.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Residential/foundationsController.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Residential/foundationsController.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/foundationsController.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/foundationsController.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/setupSheetsController.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/setupSheetsController.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/extOpenings.fxml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/foundations.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/foundations.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/intOpenings.fxml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/postAndBeams.fxml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/wallsSglLev.fxml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Controllers/Sheets/Residential/foundationsController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Controllers/Sheets/Residential/foundationsController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Controllers/setupSheetsController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Controllers/setupSheetsController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Views/Sheets/Shed/extOpenings.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Views/Sheets/Shed/externalFraming.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Views/Sheets/Shed/foundations.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Views/Sheets/Shed/foundations.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Views/Sheets/Shed/intOpenings.fxml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Views/Sheets/Shed/postAndBeams.fxml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Views/Sheets/Shed/wallsSglLev.fxml\" beforeDir=\"false\" />\r\n    </list>\r\n    <list id=\"ac1f3f65-96a2-4f29-8961-946c932b7981\" name=\"Revert &quot;#49 commit&quot;\" comment=\"Revert &quot;#49 commit&quot;\" />\r\n    <list id=\"4dddbee8-77b6-41fd-be25-1624817806eb\" name=\"Revert &quot;#60 commit&quot;\" comment=\"Revert &quot;#60 commit&quot;&#10;&#10;This reverts commit 096c3c72\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"CodeInsightWorkspaceSettings\">\r\n    <option name=\"optimizeImportsOnTheFly\" value=\"true\" />\r\n  </component>\r\n  <component name=\"CreatePatchCommitExecutor\">\r\n    <option name=\"PATCH_PATH\" value=\"\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Gradle Kotlin DSL Build Script\" />\r\n        <option value=\"package-info\" />\r\n        <option value=\"CSS File\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"FindManager\">\r\n    <FindUsagesManager>\r\n      <setting name=\"OPEN_NEW_TAB\" value=\"false\" />\r\n    </FindUsagesManager>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"ROOT_SYNC\" value=\"DONT_SYNC\" />\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"UI\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RESET_MODE\" value=\"MIXED\" />\r\n  </component>\r\n  <component name=\"JsFlowSettings\">\r\n    <service-enabled>false</service-enabled>\r\n    <exe-path />\r\n    <annotation-enable>false</annotation-enable>\r\n    <other-services-enabled>false</other-services-enabled>\r\n  </component>\r\n  <component name=\"JsbtTreeLayoutManager\">\r\n    <layout place=\"tools.popupGrunt\">\r\n      <scroll-view-position x=\"0\" y=\"0\" />\r\n    </layout>\r\n  </component>\r\n  <component name=\"PhpWorkspaceProjectConfiguration\" backward_compatibility_performed=\"true\" />\r\n  <component name=\"ProjectId\" id=\"1Q2xk7vGkU1u9iEO53La1s8iEqU\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\r\n    <property name=\"Downloaded.Files.Path.Enabled\" value=\"false\" />\r\n    <property name=\"GenerateAntBuildDialog.backupFiles\" value=\"true\" />\r\n    <property name=\"GenerateAntBuildDialog.enableUiFormCompile\" value=\"true\" />\r\n    <property name=\"GenerateAntBuildDialog.forceTargetJdk\" value=\"true\" />\r\n    <property name=\"GenerateAntBuildDialog.outputFileNameProperty\" value=\"pt_graphiqs\" />\r\n    <property name=\"Git.Branch.Popup.ShowAllRemotes\" value=\"true\" />\r\n    <property name=\"GoToClass.includeLibraries\" value=\"false\" />\r\n    <property name=\"GoToClass.toSaveIncludeLibraries\" value=\"false\" />\r\n    <property name=\"GoToFile.includeJavaFiles\" value=\"false\" />\r\n    <property name=\"MemberChooser.copyJavadoc\" value=\"false\" />\r\n    <property name=\"MemberChooser.showClasses\" value=\"true\" />\r\n    <property name=\"MemberChooser.sorted\" value=\"false\" />\r\n    <property name=\"OverrideImplement.combined\" value=\"false\" />\r\n    <property name=\"Repository.Attach.Annotations\" value=\"false\" />\r\n    <property name=\"Repository.Attach.JavaDocs\" value=\"false\" />\r\n    <property name=\"Repository.Attach.Sources\" value=\"false\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"SearchEverywhereHistoryKey\" value=\"&#9;FILE&#9;file://C:/Users/User/Documents/IdeaProjects/PT_GraphiQS/src/Controllers/stampPickerController.java\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\r\n    <property name=\"com.intellij.database.dataSource.DataSourceTemplate\" value=\"MySQL\" />\r\n    <property name=\"dynamic.classpath\" value=\"false\" />\r\n    <property name=\"extract.method.default.visibility\" value=\"private\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/src/Views/Sheets/Shed\" />\r\n    <property name=\"list.type.of.created.stylesheet\" value=\"CSS\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Project\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\r\n    <property name=\"recentsLimit\" value=\"5\" />\r\n    <property name=\"run.code.analysis.last.selected.profile\" value=\"pProject Default\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"background.image.plus\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"ExtractSuperBase.RECENT_KEYS\">\r\n      <recent name=\"Controllers.Sheets\" />\r\n      <recent name=\"Controllers\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\User\\Documents\\IdeaProjects\\PT_GraphiQS\\src\\Views\\Sheets\\Residential\" />\r\n      <recent name=\"C:\\Users\\User\\Documents\\IdeaProjects\\PT_GraphiQS\\data backup\" />\r\n      <recent name=\"C:\\Users\\User\\Documents\\IdeaProjects\\PT_GraphiQS\\src\\Views\\Framing\" />\r\n      <recent name=\"C:\\Users\\User\\Documents\\IdeaProjects\\PT_GraphiQS\\src\\Views\\Floors\" />\r\n      <recent name=\"C:\\Users\\User\\Documents\\IdeaProjects\\PTGraphiQS\\src\\Views\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"Model.data.shed\" />\r\n      <recent name=\"Model\" />\r\n      <recent name=\"Controllers.Sheets.Shed\" />\r\n      <recent name=\"Controllers.Sheets\" />\r\n      <recent name=\"Test\" />\r\n    </key>\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\User\\Documents\\IdeaProjects\\PT_GraphiQS\\src\\Views\\Sheets\\Shed\" />\r\n      <recent name=\"C:\\Users\\User\\Documents\\IdeaProjects\\PT_GraphiQS\\src\\Views\\Sheets\" />\r\n      <recent name=\"C:\\Users\\User\\Documents\\IdeaProjects\\PT_GraphiQS\\src\\Views\" />\r\n      <recent name=\"C:\\Users\\User\\Documents\\IdeaProjects\\PT_GraphiQS\\src\\Model\\data\" />\r\n      <recent name=\"C:\\Users\\User\\Documents\\IdeaProjects\\PT_GraphiQS\\src\\Controllers\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration default=\"true\" type=\"AndroidTestRunConfigurationType\" factoryName=\"Android Tests\">\r\n      <module name=\"\" />\r\n      <option name=\"TESTING_TYPE\" value=\"0\" />\r\n      <option name=\"INSTRUMENTATION_RUNNER_CLASS\" value=\"\" />\r\n      <option name=\"METHOD_NAME\" value=\"\" />\r\n      <option name=\"CLASS_NAME\" value=\"\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"EXTRA_OPTIONS\" value=\"\" />\r\n      <option name=\"TARGET_SELECTION_MODE\" value=\"SHOW_DIALOG\" />\r\n      <option name=\"PREFERRED_AVD\" value=\"\" />\r\n      <option name=\"CLEAR_LOGCAT\" value=\"false\" />\r\n      <option name=\"SHOW_LOGCAT_AUTOMATICALLY\" value=\"false\" />\r\n      <option name=\"SKIP_NOOP_APK_INSTALLATIONS\" value=\"true\" />\r\n      <option name=\"FORCE_STOP_RUNNING_APP\" value=\"true\" />\r\n      <option name=\"DEBUGGER_TYPE\" value=\"Java\" />\r\n      <option name=\"USE_LAST_SELECTED_DEVICE\" value=\"false\" />\r\n      <option name=\"PREFERRED_AVD\" value=\"\" />\r\n      <Java />\r\n      <Profilers>\r\n        <option name=\"ENABLE_ADVANCED_PROFILING\" value=\"true\" />\r\n        <option name=\"GAPID_ENABLED\" value=\"false\" />\r\n        <option name=\"GAPID_DISABLE_PCS\" value=\"false\" />\r\n        <option name=\"SUPPORT_LIB_ENABLED\" value=\"true\" />\r\n        <option name=\"INSTRUMENTATION_ENABLED\" value=\"true\" />\r\n      </Profilers>\r\n      <method />\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"Applet\" factoryName=\"Applet\">\r\n      <option name=\"HTML_USED\" value=\"false\" />\r\n      <option name=\"WIDTH\" value=\"400\" />\r\n      <option name=\"HEIGHT\" value=\"300\" />\r\n      <option name=\"POLICY_FILE\" value=\"$APPLICATION_HOME_DIR$/bin/appletviewer.policy\" />\r\n      <module />\r\n      <method />\r\n    </configuration>\r\n    <configuration name=\"CollectionsDemo\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Views.test.CollectionsDemo\" />\r\n      <module name=\"PTGraphiQS\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"Views.test.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main.Main\" />\r\n      <module name=\"PTGraphiQS\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"Main.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"SillyStamper\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Test.SillyStamper\" />\r\n      <module name=\"PTGraphiQS\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"Test.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"TabTest\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Test.TabTest\" />\r\n      <module name=\"PTGraphiQS\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"Test.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"TwoDArrayInput\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Test.TwoDArrayInput\" />\r\n      <module name=\"PTGraphiQS\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"Test.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"Application\" factoryName=\"Application\">\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"ArquillianJUnit\" factoryName=\"\" nameIsGenerated=\"true\">\r\n      <option name=\"arquillianRunConfiguration\">\r\n        <value>\r\n          <option name=\"containerStateName\" value=\"\" />\r\n        </value>\r\n      </option>\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <option name=\"VM_PARAMETERS\" />\r\n      <option name=\"WORKING_DIRECTORY\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"ArquillianTestNG\" factoryName=\"\">\r\n      <option name=\"arquillianRunConfiguration\">\r\n        <value>\r\n          <option name=\"containerStateName\" value=\"\" />\r\n        </value>\r\n      </option>\r\n      <option name=\"TEST_OBJECT\" value=\"CLASS\" />\r\n      <option name=\"VM_PARAMETERS\" />\r\n      <option name=\"WORKING_DIRECTORY\" />\r\n      <properties />\r\n      <listeners />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\">\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"GrailsRunConfigurationType\" factoryName=\"Grails\">\r\n      <setting name=\"vmparams\" value=\"\" />\r\n      <setting name=\"cmdLine\" value=\"run-app\" />\r\n      <setting name=\"passParentEnv\" value=\"true\" />\r\n      <setting name=\"grailsApplicationRoot\" value=\"\" />\r\n      <setting name=\"launchBrowser\" value=\"true\" />\r\n      <setting name=\"launchBrowserUrl\" value=\"\" />\r\n      <setting name=\"depsClasspath\" value=\"false\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"JUnit\" factoryName=\"JUnit\">\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_DIR$\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\r\n      <option name=\"filePath\" />\r\n      <option name=\"vmParameters\" />\r\n      <option name=\"alternativeJrePath\" />\r\n      <option name=\"programParameters\" />\r\n      <option name=\"passParentEnvs\" value=\"true\" />\r\n      <option name=\"workingDirectory\" />\r\n      <option name=\"isAlternativeJrePathEnabled\" value=\"false\" />\r\n      <option name=\"VM_PARAMETERS\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"false\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" />\r\n      <option name=\"PASS_PARENT_ENVS\" value=\"true\" />\r\n      <option name=\"MAIN_CLASS_NAME\" />\r\n      <option name=\"WORKING_DIRECTORY\" />\r\n      <module name=\"\" />\r\n      <option name=\"filePath\" />\r\n      <option name=\"vmParameters\" />\r\n      <option name=\"alternativeJrePath\" />\r\n      <option name=\"programParameters\" />\r\n      <option name=\"passParentEnvs\" value=\"true\" />\r\n      <option name=\"workingDirectory\" />\r\n      <option name=\"isAlternativeJrePathEnabled\" value=\"false\" />\r\n      <option name=\"VM_PARAMETERS\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"false\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" />\r\n      <option name=\"PASS_PARENT_ENVS\" value=\"true\" />\r\n      <option name=\"MAIN_CLASS_NAME\" />\r\n      <option name=\"WORKING_DIRECTORY\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"TestNG\">\r\n      <option name=\"TEST_OBJECT\" value=\"CLASS\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_DIR$\" />\r\n      <properties />\r\n      <listeners />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"#org.jetbrains.idea.devkit.run.PluginConfigurationType\">\r\n      <module name=\"\" />\r\n      <option name=\"VM_PARAMETERS\" value=\"-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" />\r\n      <predefined_log_file enabled=\"true\" id=\"idea.log\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"js.build_tools.gulp\">\r\n      <node-interpreter>project</node-interpreter>\r\n      <node-options />\r\n      <gulpfile />\r\n      <tasks />\r\n      <arguments />\r\n      <envs />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Application.CollectionsDemo\" />\r\n      <item itemvalue=\"Application.Main\" />\r\n      <item itemvalue=\"Application.SillyStamper\" />\r\n      <item itemvalue=\"Application.TabTest\" />\r\n      <item itemvalue=\"Application.TwoDArrayInput\" />\r\n    </list>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Application.TabTest\" />\r\n        <item itemvalue=\"Application.SillyStamper\" />\r\n        <item itemvalue=\"Application.TwoDArrayInput\" />\r\n        <item itemvalue=\"Application.CollectionsDemo\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SvnConfiguration\">\r\n    <configuration />\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"06660981-57d8-4909-9e13-4e708b05908b\" name=\"Default\" comment=\"\" />\r\n      <created>1359379246138</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1359379246138</updated>\r\n      <workItem from=\"1359379250712\" duration=\"1302000\" />\r\n      <workItem from=\"1566982635860\" duration=\"635000\" />\r\n      <workItem from=\"1567048618083\" duration=\"2464000\" />\r\n      <workItem from=\"1567122931345\" duration=\"19000\" />\r\n      <workItem from=\"1567126201826\" duration=\"12449000\" />\r\n      <workItem from=\"1567382552784\" duration=\"15702000\" />\r\n      <workItem from=\"1567466874086\" duration=\"21382000\" />\r\n      <workItem from=\"1567555626037\" duration=\"1000\" />\r\n      <workItem from=\"1567555634454\" duration=\"11020000\" />\r\n      <workItem from=\"1567639631990\" duration=\"11341000\" />\r\n      <workItem from=\"1567726427981\" duration=\"9309000\" />\r\n      <workItem from=\"1567986705338\" duration=\"1715000\" />\r\n      <workItem from=\"1567994280149\" duration=\"6926000\" />\r\n      <workItem from=\"1568076580316\" duration=\"9325000\" />\r\n      <workItem from=\"1568098105517\" duration=\"7237000\" />\r\n      <workItem from=\"1568159970692\" duration=\"11814000\" />\r\n      <workItem from=\"1568245216865\" duration=\"23320000\" />\r\n      <workItem from=\"1568330151392\" duration=\"26075000\" />\r\n      <workItem from=\"1568594536823\" duration=\"15615000\" />\r\n      <workItem from=\"1568615849497\" duration=\"8523000\" />\r\n      <workItem from=\"1568676348574\" duration=\"8324000\" />\r\n      <workItem from=\"1568686602630\" duration=\"6757000\" />\r\n      <workItem from=\"1568704199811\" duration=\"2129000\" />\r\n      <workItem from=\"1568707400321\" duration=\"3361000\" />\r\n      <workItem from=\"1568765854211\" duration=\"18989000\" />\r\n      <workItem from=\"1568850842554\" duration=\"12127000\" />\r\n      <workItem from=\"1568864046366\" duration=\"13502000\" />\r\n      <workItem from=\"1568935447949\" duration=\"22104000\" />\r\n      <workItem from=\"1569197955338\" duration=\"17996000\" />\r\n      <workItem from=\"1569279963776\" duration=\"28206000\" />\r\n      <workItem from=\"1569369176796\" duration=\"21740000\" />\r\n      <workItem from=\"1569454622505\" duration=\"23433000\" />\r\n      <workItem from=\"1569541799030\" duration=\"3289000\" />\r\n      <workItem from=\"1569799721432\" duration=\"6381000\" />\r\n      <workItem from=\"1569813387486\" duration=\"11026000\" />\r\n      <workItem from=\"1569829770334\" duration=\"492000\" />\r\n      <workItem from=\"1569885929671\" duration=\"3033000\" />\r\n      <workItem from=\"1569890441404\" duration=\"31000\" />\r\n      <workItem from=\"1569890486914\" duration=\"275000\" />\r\n      <workItem from=\"1569890773959\" duration=\"18949000\" />\r\n      <workItem from=\"1569976365541\" duration=\"18583000\" />\r\n      <workItem from=\"1570061313734\" duration=\"20136000\" />\r\n      <workItem from=\"1570149165202\" duration=\"15175000\" />\r\n      <workItem from=\"1570404303611\" duration=\"20707000\" />\r\n      <workItem from=\"1570493636900\" duration=\"25910000\" />\r\n      <workItem from=\"1570578808747\" duration=\"21962000\" />\r\n      <workItem from=\"1570666218439\" duration=\"17475000\" />\r\n      <workItem from=\"1570754478903\" duration=\"7160000\" />\r\n      <workItem from=\"1570775117192\" duration=\"1037000\" />\r\n      <workItem from=\"1571014275323\" duration=\"22616000\" />\r\n      <workItem from=\"1571098540971\" duration=\"12727000\" />\r\n      <workItem from=\"1571184676953\" duration=\"24883000\" />\r\n      <workItem from=\"1571271244747\" duration=\"12909000\" />\r\n      <workItem from=\"1571289126593\" duration=\"11600000\" />\r\n      <workItem from=\"1571356606627\" duration=\"18259000\" />\r\n      <workItem from=\"1571612930425\" duration=\"30355000\" />\r\n      <workItem from=\"1571698579532\" duration=\"943000\" />\r\n      <workItem from=\"1571701536215\" duration=\"20423000\" />\r\n      <workItem from=\"1571787104965\" duration=\"18166000\" />\r\n      <workItem from=\"1571872800041\" duration=\"14439000\" />\r\n      <workItem from=\"1571959468117\" duration=\"6540000\" />\r\n      <workItem from=\"1572219060453\" duration=\"19196000\" />\r\n      <workItem from=\"1572246891664\" duration=\"3321000\" />\r\n      <workItem from=\"1572305401962\" duration=\"14802000\" />\r\n      <workItem from=\"1572395471546\" duration=\"14916000\" />\r\n      <workItem from=\"1572825127236\" duration=\"14519000\" />\r\n      <workItem from=\"1572910733216\" duration=\"24113000\" />\r\n      <workItem from=\"1572997577072\" duration=\"21062000\" />\r\n      <workItem from=\"1573084164913\" duration=\"16076000\" />\r\n      <workItem from=\"1573171377032\" duration=\"15875000\" />\r\n      <workItem from=\"1573200801796\" duration=\"599000\" />\r\n      <workItem from=\"1573428590655\" duration=\"2902000\" />\r\n      <workItem from=\"1573433255842\" duration=\"891000\" />\r\n      <workItem from=\"1573438245400\" duration=\"20551000\" />\r\n      <workItem from=\"1573515301541\" duration=\"3155000\" />\r\n      <workItem from=\"1573603123128\" duration=\"9310000\" />\r\n      <workItem from=\"1573615009204\" duration=\"4378000\" />\r\n      <workItem from=\"1573621822308\" duration=\"1274000\" />\r\n      <workItem from=\"1573623235179\" duration=\"8933000\" />\r\n      <workItem from=\"1573688555769\" duration=\"20963000\" />\r\n      <workItem from=\"1573775403896\" duration=\"4313000\" />\r\n      <workItem from=\"1574121551904\" duration=\"20998000\" />\r\n      <workItem from=\"1574152165952\" duration=\"1700000\" />\r\n      <workItem from=\"1574208139415\" duration=\"6059000\" />\r\n      <workItem from=\"1574217621603\" duration=\"5422000\" />\r\n      <workItem from=\"1574295211789\" duration=\"38049000\" />\r\n      <workItem from=\"1574642515020\" duration=\"534000\" />\r\n      <workItem from=\"1574643485660\" duration=\"11575000\" />\r\n      <workItem from=\"1574726502105\" duration=\"22050000\" />\r\n      <workItem from=\"1574814494192\" duration=\"12476000\" />\r\n      <workItem from=\"1574837837795\" duration=\"24842000\" />\r\n      <workItem from=\"1574987894580\" duration=\"16149000\" />\r\n      <workItem from=\"1575249440364\" duration=\"18643000\" />\r\n      <workItem from=\"1575330718794\" duration=\"19347000\" />\r\n      <workItem from=\"1575417869940\" duration=\"23036000\" />\r\n      <workItem from=\"1575505390459\" duration=\"20976000\" />\r\n      <workItem from=\"1575592299440\" duration=\"5319000\" />\r\n      <workItem from=\"1575613037094\" duration=\"4483000\" />\r\n      <workItem from=\"1575620576348\" duration=\"1748000\" />\r\n      <workItem from=\"1575849481025\" duration=\"25994000\" />\r\n      <workItem from=\"1575935152356\" duration=\"27564000\" />\r\n      <workItem from=\"1576021832453\" duration=\"9829000\" />\r\n      <workItem from=\"1576108322435\" duration=\"7539000\" />\r\n      <workItem from=\"1576028475502\" duration=\"4068000\" />\r\n      <workItem from=\"1576201472258\" duration=\"17079000\" />\r\n      <workItem from=\"1576457899572\" duration=\"21670000\" />\r\n      <workItem from=\"1576549736433\" duration=\"16020000\" />\r\n      <workItem from=\"1576629194073\" duration=\"13195000\" />\r\n      <workItem from=\"1576714640365\" duration=\"17788000\" />\r\n      <workItem from=\"1578265894075\" duration=\"9660000\" />\r\n      <workItem from=\"1579497277610\" duration=\"12503000\" />\r\n      <workItem from=\"1579511715367\" duration=\"6636000\" />\r\n      <workItem from=\"1579562763289\" duration=\"13226000\" />\r\n      <workItem from=\"1579649368319\" duration=\"14173000\" />\r\n      <workItem from=\"1579822124046\" duration=\"16286000\" />\r\n      <workItem from=\"1580457052056\" duration=\"562000\" />\r\n      <workItem from=\"1580690580488\" duration=\"25551000\" />\r\n      <workItem from=\"1580881645739\" duration=\"18456000\" />\r\n      <workItem from=\"1581381045245\" duration=\"3375000\" />\r\n      <workItem from=\"1581401086832\" duration=\"5858000\" />\r\n      <workItem from=\"1581641334473\" duration=\"2099000\" />\r\n      <workItem from=\"1581897835348\" duration=\"31030000\" />\r\n      <workItem from=\"1581982059348\" duration=\"37182000\" />\r\n      <workItem from=\"1582022450488\" duration=\"2154000\" />\r\n      <workItem from=\"1582084495546\" duration=\"4152000\" />\r\n      <workItem from=\"1582860815863\" duration=\"1694000\" />\r\n      <workItem from=\"1583721467461\" duration=\"70615000\" />\r\n      <workItem from=\"1583972617288\" duration=\"12357000\" />\r\n      <workItem from=\"1583997084495\" duration=\"46962000\" />\r\n      <workItem from=\"1584423545399\" duration=\"2199000\" />\r\n      <workItem from=\"1584846440206\" duration=\"1405000\" />\r\n      <workItem from=\"1584874268942\" duration=\"93650000\" />\r\n      <workItem from=\"1585300048379\" duration=\"147882000\" />\r\n      <workItem from=\"1586911002812\" duration=\"19885000\" />\r\n      <workItem from=\"1586995036230\" duration=\"29330000\" />\r\n      <workItem from=\"1587084082096\" duration=\"14778000\" />\r\n      <workItem from=\"1587296221901\" duration=\"3055000\" />\r\n      <workItem from=\"1587346324441\" duration=\"20673000\" />\r\n      <workItem from=\"1587429205048\" duration=\"26342000\" />\r\n      <workItem from=\"1587515788600\" duration=\"23761000\" />\r\n      <workItem from=\"1587602564777\" duration=\"19948000\" />\r\n      <workItem from=\"1587688324426\" duration=\"48010000\" />\r\n      <workItem from=\"1587957571750\" duration=\"2534000\" />\r\n      <workItem from=\"1588040683370\" duration=\"6439000\" />\r\n      <workItem from=\"1588129202777\" duration=\"5152000\" />\r\n      <workItem from=\"1588208863849\" duration=\"9068000\" />\r\n      <workItem from=\"1588296645312\" duration=\"11662000\" />\r\n      <workItem from=\"1588410679305\" duration=\"5092000\" />\r\n      <workItem from=\"1588477836282\" duration=\"3052000\" />\r\n      <workItem from=\"1588561294974\" duration=\"3284000\" />\r\n      <workItem from=\"1588643305580\" duration=\"10141000\" />\r\n      <workItem from=\"1588728282846\" duration=\"20720000\" />\r\n      <workItem from=\"1588815439659\" duration=\"14628000\" />\r\n      <workItem from=\"1588901558496\" duration=\"10520000\" />\r\n      <workItem from=\"1588998505713\" duration=\"3904000\" />\r\n      <workItem from=\"1589102109925\" duration=\"2108000\" />\r\n      <workItem from=\"1589164000353\" duration=\"8216000\" />\r\n      <workItem from=\"1589248907969\" duration=\"16983000\" />\r\n      <workItem from=\"1589340206430\" duration=\"21389000\" />\r\n      <workItem from=\"1589421856266\" duration=\"4773000\" />\r\n      <workItem from=\"1589455397142\" duration=\"3041000\" />\r\n      <workItem from=\"1589518200296\" duration=\"2204000\" />\r\n      <workItem from=\"1589599113086\" duration=\"33000\" />\r\n      <workItem from=\"1589702779326\" duration=\"7526000\" />\r\n      <workItem from=\"1589767284664\" duration=\"4777000\" />\r\n      <workItem from=\"1589858021507\" duration=\"3675000\" />\r\n      <workItem from=\"1589943596872\" duration=\"5523000\" />\r\n      <workItem from=\"1590031406529\" duration=\"3359000\" />\r\n      <workItem from=\"1590122465829\" duration=\"3337000\" />\r\n      <workItem from=\"1590208775340\" duration=\"1797000\" />\r\n      <workItem from=\"1590299039153\" duration=\"1532000\" />\r\n      <workItem from=\"1590379175319\" duration=\"3777000\" />\r\n      <workItem from=\"1590468552580\" duration=\"6229000\" />\r\n      <workItem from=\"1590554429291\" duration=\"8305000\" />\r\n      <workItem from=\"1590627418418\" duration=\"841000\" />\r\n      <workItem from=\"1590643511608\" duration=\"670000\" />\r\n      <workItem from=\"1590724380101\" duration=\"5580000\" />\r\n      <workItem from=\"1590846431997\" duration=\"1554000\" />\r\n      <workItem from=\"1590900017079\" duration=\"12661000\" />\r\n      <workItem from=\"1591074094218\" duration=\"604000\" />\r\n      <workItem from=\"1591158797130\" duration=\"13647000\" />\r\n      <workItem from=\"1591333832031\" duration=\"1918000\" />\r\n      <workItem from=\"1591406101493\" duration=\"3643000\" />\r\n      <workItem from=\"1591505317348\" duration=\"7954000\" />\r\n      <workItem from=\"1591593264534\" duration=\"4194000\" />\r\n      <workItem from=\"1591674055855\" duration=\"2463000\" />\r\n      <workItem from=\"1591768418807\" duration=\"4000\" />\r\n      <workItem from=\"1591853214148\" duration=\"1212000\" />\r\n      <workItem from=\"1591941082084\" duration=\"3617000\" />\r\n      <workItem from=\"1592029360271\" duration=\"2024000\" />\r\n      <workItem from=\"1592069432283\" duration=\"1862000\" />\r\n      <workItem from=\"1592130467927\" duration=\"860000\" />\r\n      <workItem from=\"1592205955518\" duration=\"7496000\" />\r\n      <workItem from=\"1592294380367\" duration=\"4713000\" />\r\n      <workItem from=\"1592317698762\" duration=\"22187000\" />\r\n      <workItem from=\"1592460016130\" duration=\"3506000\" />\r\n      <workItem from=\"1592484367085\" duration=\"6017000\" />\r\n      <workItem from=\"1592544186144\" duration=\"7228000\" />\r\n      <workItem from=\"1597125017856\" duration=\"119000\" />\r\n      <workItem from=\"1597125163780\" duration=\"6000\" />\r\n      <workItem from=\"1597125180351\" duration=\"20000\" />\r\n      <workItem from=\"1597125209747\" duration=\"105000\" />\r\n      <workItem from=\"1597125324323\" duration=\"18464000\" />\r\n      <workItem from=\"1597204640795\" duration=\"20946000\" />\r\n      <workItem from=\"1597287790832\" duration=\"11201000\" />\r\n      <workItem from=\"1597332057141\" duration=\"18474000\" />\r\n      <workItem from=\"1597577101269\" duration=\"23267000\" />\r\n      <workItem from=\"1597659940143\" duration=\"29000\" />\r\n      <workItem from=\"1597659979711\" duration=\"3101000\" />\r\n      <workItem from=\"1597663549220\" duration=\"13712000\" />\r\n      <workItem from=\"1597721190643\" duration=\"8995000\" />\r\n      <workItem from=\"1597760313096\" duration=\"13181000\" />\r\n      <workItem from=\"1597915296658\" duration=\"9513000\" />\r\n      <workItem from=\"1597988188167\" duration=\"8816000\" />\r\n      <workItem from=\"1598113162917\" duration=\"3274000\" />\r\n      <workItem from=\"1598179551043\" duration=\"9684000\" />\r\n      <workItem from=\"1598333005292\" duration=\"10309000\" />\r\n      <workItem from=\"1598353893856\" duration=\"21067000\" />\r\n      <workItem from=\"1598506389728\" duration=\"1202000\" />\r\n      <workItem from=\"1598508822948\" duration=\"19975000\" />\r\n      <workItem from=\"1598663447145\" duration=\"605000\" />\r\n      <workItem from=\"1598710874152\" duration=\"1348000\" />\r\n      <workItem from=\"1598773781118\" duration=\"1813000\" />\r\n      <workItem from=\"1598782513447\" duration=\"16804000\" />\r\n      <workItem from=\"1598937604932\" duration=\"3610000\" />\r\n      <workItem from=\"1599026956773\" duration=\"7429000\" />\r\n      <workItem from=\"1599113156449\" duration=\"6222000\" />\r\n      <workItem from=\"1599189400468\" duration=\"10257000\" />\r\n      <workItem from=\"1599294622024\" duration=\"2843000\" />\r\n      <workItem from=\"1599375872898\" duration=\"1811000\" />\r\n      <workItem from=\"1599458409916\" duration=\"5559000\" />\r\n      <workItem from=\"1599533237412\" duration=\"18706000\" />\r\n      <workItem from=\"1599620622120\" duration=\"19189000\" />\r\n      <workItem from=\"1599708755284\" duration=\"15531000\" />\r\n      <workItem from=\"1599800775740\" duration=\"12513000\" />\r\n      <workItem from=\"1599902115222\" duration=\"17442000\" />\r\n      <workItem from=\"1600060370327\" duration=\"17000\" />\r\n      <workItem from=\"1600060400395\" duration=\"24871000\" />\r\n      <workItem from=\"1600145752314\" duration=\"37851000\" />\r\n      <workItem from=\"1600401315285\" duration=\"91000\" />\r\n      <workItem from=\"1600401416380\" duration=\"8655000\" />\r\n      <workItem from=\"1600428281029\" duration=\"1456000\" />\r\n      <workItem from=\"1600505246025\" duration=\"40244000\" />\r\n      <workItem from=\"1600745640899\" duration=\"5010000\" />\r\n      <workItem from=\"1600756281978\" duration=\"2388000\" />\r\n      <workItem from=\"1600759168698\" duration=\"6051000\" />\r\n      <workItem from=\"1600776653169\" duration=\"7384000\" />\r\n      <workItem from=\"1600838071432\" duration=\"6348000\" />\r\n      <workItem from=\"1600851762372\" duration=\"4679000\" />\r\n      <workItem from=\"1600916844459\" duration=\"13208000\" />\r\n      <workItem from=\"1600945381646\" duration=\"5933000\" />\r\n      <workItem from=\"1601001735392\" duration=\"21786000\" />\r\n      <workItem from=\"1601262855852\" duration=\"12701000\" />\r\n      <workItem from=\"1601348869521\" duration=\"29949000\" />\r\n      <workItem from=\"1601523034630\" duration=\"11834000\" />\r\n      <workItem from=\"1601556763343\" duration=\"13925000\" />\r\n      <workItem from=\"1601865586416\" duration=\"11609000\" />\r\n      <workItem from=\"1601954501284\" duration=\"18236000\" />\r\n      <workItem from=\"1602034848066\" duration=\"4974000\" />\r\n      <workItem from=\"1602043199785\" duration=\"15941000\" />\r\n      <workItem from=\"1602133259198\" duration=\"24796000\" />\r\n      <workItem from=\"1602318064696\" duration=\"7196000\" />\r\n      <workItem from=\"1602469935663\" duration=\"12266000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00080\" summary=\"#95 commit popup sections finished\">\r\n      <created>1574387444996</created>\r\n      <option name=\"number\" value=\"00080\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00080\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1574387444996</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00081\" summary=\"#95 commit popup sections finished\">\r\n      <created>1574387641371</created>\r\n      <option name=\"number\" value=\"00081\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00081\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1574387641371</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00082\" summary=\"#96 commit popup sections finished\">\r\n      <created>1574391451364</created>\r\n      <option name=\"number\" value=\"00082\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00082\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1574391451364</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00083\" summary=\"#96 commit\">\r\n      <created>1574391819077</created>\r\n      <option name=\"number\" value=\"00083\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00083\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1574391819077</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00084\" summary=\"#97 commit\">\r\n      <created>1574405150137</created>\r\n      <option name=\"number\" value=\"00084\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00084\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1574405150137</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00085\" summary=\"#103 commit\">\r\n      <created>1574746104663</created>\r\n      <option name=\"number\" value=\"00085\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00085\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1574746104664</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00086\" summary=\"#104 commit\">\r\n      <created>1574814761772</created>\r\n      <option name=\"number\" value=\"00086\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00086\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1574814761773</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00087\" summary=\"#105 commit\">\r\n      <created>1574822839978</created>\r\n      <option name=\"number\" value=\"00087\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00087\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1574822839978</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00088\" summary=\"#106 commit\">\r\n      <created>1575511474139</created>\r\n      <option name=\"number\" value=\"00088\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00088\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1575511474139</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00089\" summary=\"fixed save file\">\r\n      <created>1576035582776</created>\r\n      <option name=\"number\" value=\"00089\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00089\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1576035582777</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00090\" summary=\"#115 Commit sets progress\">\r\n      <created>1576473470008</created>\r\n      <option name=\"number\" value=\"00090\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00090\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1576473470008</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00091\" summary=\"#116 Commit sets progress\">\r\n      <created>1576629795322</created>\r\n      <option name=\"number\" value=\"00091\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00091\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1576629795323</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00092\" summary=\"#117 Commit sets progress\">\r\n      <created>1576640680576</created>\r\n      <option name=\"number\" value=\"00092\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00092\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1576640680576</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00093\" summary=\"#118 Commit sets progress\">\r\n      <created>1576734406603</created>\r\n      <option name=\"number\" value=\"00093\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00093\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1576734406603</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00094\" summary=\"test\">\r\n      <created>1579497550911</created>\r\n      <option name=\"number\" value=\"00094\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00094\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1579497550911</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00095\" summary=\"test\">\r\n      <created>1579497712504</created>\r\n      <option name=\"number\" value=\"00095\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00095\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1579497712504</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00096\" summary=\"test\">\r\n      <created>1579497721204</created>\r\n      <option name=\"number\" value=\"00096\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00096\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1579497721204</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00097\" summary=\"test\">\r\n      <created>1579497725470</created>\r\n      <option name=\"number\" value=\"00097\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00097\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1579497725470</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00098\" summary=\"added snap function\">\r\n      <created>1579518829813</created>\r\n      <option name=\"number\" value=\"00098\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00098\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1579518829813</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00099\" summary=\"added snap function v 1.01\">\r\n      <created>1579578601338</created>\r\n      <option name=\"number\" value=\"00099\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00099\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1579578601338</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00100\" summary=\"added snap function v 1.01\">\r\n      <created>1582102509662</created>\r\n      <option name=\"number\" value=\"00100\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00100\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1582102509663</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00101\" summary=\"added snap function v 1.01\">\r\n      <created>1582102565930</created>\r\n      <option name=\"number\" value=\"00101\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00101\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1582102565930</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00102\" summary=\"added create project popup before filechooser\">\r\n      <created>1582187474050</created>\r\n      <option name=\"number\" value=\"00102\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00102\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1582187474050</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00103\" summary=\"updated new layout and fixed ui\">\r\n      <created>1582688722329</created>\r\n      <option name=\"number\" value=\"00103\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00103\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1582688722329</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00104\" summary=\"updated new layout and fixed top list\">\r\n      <created>1583890994279</created>\r\n      <option name=\"number\" value=\"00104\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00104\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1583890994279</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00105\" summary=\"updated new layout and fixed top list\">\r\n      <created>1583891309979</created>\r\n      <option name=\"number\" value=\"00105\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00105\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1583891309979</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00106\" summary=\"fixed bugs and updated workspace\">\r\n      <created>1584079068740</created>\r\n      <option name=\"number\" value=\"00106\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00106\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1584079068742</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00107\" summary=\"updated layout\">\r\n      <created>1584346467190</created>\r\n      <option name=\"number\" value=\"00107\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00107\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1584346467190</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00108\" summary=\"updated layout and functions\">\r\n      <created>1584670825808</created>\r\n      <option name=\"number\" value=\"00108\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00108\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1584670825808</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00109\" summary=\"updated layouts form and fixed bugs\">\r\n      <created>1584931495215</created>\r\n      <option name=\"number\" value=\"00109\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00109\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1584931495215</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00110\" summary=\"updated layouts form and fixed bugs\">\r\n      <created>1585360314911</created>\r\n      <option name=\"number\" value=\"00110\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00110\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1585360314916</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00111\" summary=\"-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators\">\r\n      <created>1587914028726</created>\r\n      <option name=\"number\" value=\"00111\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00111\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1587914028726</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00112\" summary=\"-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators\">\r\n      <created>1588049478212</created>\r\n      <option name=\"number\" value=\"00112\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00112\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1588049478213</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00113\" summary=\"-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators\">\r\n      <created>1588049646547</created>\r\n      <option name=\"number\" value=\"00113\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00113\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1588049646547</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00114\" summary=\"-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators&#10;-working stamps\">\r\n      <created>1592299155344</created>\r\n      <option name=\"number\" value=\"00114\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00114\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1592299155345</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00115\" summary=\"-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators&#10;-working stamps\">\r\n      <created>1592319829884</created>\r\n      <option name=\"number\" value=\"00115\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00115\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1592319829884</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00116\" summary=\"-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators&#10;-working stamps\">\r\n      <created>1592370652950</created>\r\n      <option name=\"number\" value=\"00116\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00116\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1592370652950</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00117\" summary=\"-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators&#10;-window stamping updated w/ layout list\">\r\n      <created>1592638332471</created>\r\n      <option name=\"number\" value=\"00117\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00117\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1592638332471</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00118\" summary=\"-window stamping updated w/ layout list&#10;-updated delete stamp w/ list\">\r\n      <created>1593079046016</created>\r\n      <option name=\"number\" value=\"00118\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00118\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1593079046017</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00119\" summary=\"-cladding length updated&#10;-window stamping reference for cladding\">\r\n      <created>1593500778317</created>\r\n      <option name=\"number\" value=\"00119\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00119\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1593500778317</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00120\" summary=\"-cladding length updated&#10;-window stamping reference for cladding&#10;-setup sheets dashboard function added&#10;-7/6/20 update\">\r\n      <created>1594035874577</created>\r\n      <option name=\"number\" value=\"00120\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00120\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1594035874578</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00121\" summary=\"-setup sheets updated &#10;-dashboard new lineup&#10;-fixed door stamping / ongoing progress for delete function&#10;-7/22/20 update\">\r\n      <created>1595406257963</created>\r\n      <option name=\"number\" value=\"00121\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00121\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1595406257963</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00122\" summary=\"-setup sheets updated &#10;-dashboard new lineup&#10;-fixed door stamping / ongoing progress for delete function&#10;-shed order applied (in progress)&#10;-8/18/20 update\">\r\n      <created>1597721461696</created>\r\n      <option name=\"number\" value=\"00122\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00122\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1597721461697</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00123\" summary=\"-setup sheets updated &#10;-dashboard new lineup&#10;-fixed door stamping / ongoing progress for delete function&#10;-shed order applied (in progress)&#10;-8/18/20 update\">\r\n      <created>1598123092377</created>\r\n      <option name=\"number\" value=\"00123\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00123\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1598123092377</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00124\" summary=\"-setup sheets updated &#10;-dashboard new lineup&#10;-fixed door stamping / ongoing progress for delete function&#10;-shed order applied (in progress)&#10;-8/18/20 update\">\r\n      <created>1599030885561</created>\r\n      <option name=\"number\" value=\"00124\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00124\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1599030885561</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00125\" summary=\"-setup sheets update (sheds)&#10;-added initial functions for foundations tab&#10;-new closing option for unsaved work&#10;-9/16/20\">\r\n      <created>1600186402596</created>\r\n      <option name=\"number\" value=\"00125\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00125\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1600186402596</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00126\" summary=\"-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-9/21/20\">\r\n      <created>1600670345312</created>\r\n      <option name=\"number\" value=\"00126\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00126\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1600670345312</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00127\" summary=\"-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-10/08/20\">\r\n      <created>1602124242981</created>\r\n      <option name=\"number\" value=\"00127\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00127\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1602124242982</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00128\" summary=\"-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-10/08/20\">\r\n      <created>1602468189356</created>\r\n      <option name=\"number\" value=\"00128\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00128\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1602468189357</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"129\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"2\" />\r\n  </component>\r\n  <component name=\"UnknownFeatures\">\r\n    <option featureType=\"com.intellij.fileTypeFactory\" implementationName=\"*.css\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.History.Properties\">\r\n    <option name=\"COLUMN_ORDER\">\r\n      <list>\r\n        <option value=\"0\" />\r\n        <option value=\"2\" />\r\n        <option value=\"3\" />\r\n        <option value=\"1\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"1\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"HEAD\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                  <entry key=\"roots\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"$PROJECT_DIR$\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"test\" />\r\n    <MESSAGE value=\"added snap function\" />\r\n    <MESSAGE value=\"added snap function v 1.01\" />\r\n    <MESSAGE value=\"added create project popup before filechooser\" />\r\n    <MESSAGE value=\"updated new layout and fixed ui\" />\r\n    <MESSAGE value=\"updated new layout and fixed top list\" />\r\n    <MESSAGE value=\"fixed bugs and updated workspace\" />\r\n    <MESSAGE value=\"updated layout\" />\r\n    <MESSAGE value=\"updated layout and functions\" />\r\n    <MESSAGE value=\"updated layouts form and fixed bugs\" />\r\n    <MESSAGE value=\"-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators\" />\r\n    <MESSAGE value=\"-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators&#10;-working stamps\" />\r\n    <MESSAGE value=\"-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators&#10;-window stamping updated w/ layout list\" />\r\n    <MESSAGE value=\"-window stamping updated w/ layout list&#10;-updated delete stamp w/ list\" />\r\n    <MESSAGE value=\"-cladding length updated&#10;-window stamping reference for cladding\" />\r\n    <MESSAGE value=\"-cladding length updated&#10;-window stamping reference for cladding&#10;-setup sheets dashboard function added&#10;-7/6/20 update\" />\r\n    <MESSAGE value=\"-setup sheets updated &#10;-dashboard new lineup&#10;-fixed door stamping / ongoing progress for delete function&#10;-7/22/20 update\" />\r\n    <MESSAGE value=\"-setup sheets updated &#10;-dashboard new lineup&#10;-fixed door stamping / ongoing progress for delete function&#10;-shed order applied (in progress)&#10;-8/18/20 update\" />\r\n    <MESSAGE value=\"-setup sheets update (sheds)&#10;-added initial functions for foundations tab&#10;-new closing option for unsaved work&#10;-9/16/20\" />\r\n    <MESSAGE value=\"-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-9/21/20\" />\r\n    <MESSAGE value=\"-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-10/08/20\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-10/08/20\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"2646\" y=\"40\" key=\"#Auto_Import\" timestamp=\"1602190068585\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"2646\" y=\"40\" key=\"#Auto_Import/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1602190068585\" />\r\n    <state x=\"2767\" y=\"356\" key=\"#Notifications\" timestamp=\"1596706299116\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"847\" y=\"356\" key=\"#Notifications/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040\" timestamp=\"1594923005484\" />\r\n    <state x=\"2767\" y=\"356\" key=\"#Notifications/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1596706299116\" />\r\n    <state x=\"2360\" y=\"94\" key=\"#Project_Structure\" timestamp=\"1595774085443\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"2360\" y=\"94\" key=\"#Project_Structure/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1595774085443\" />\r\n    <state x=\"2334\" y=\"174\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog\" timestamp=\"1593977513654\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"2334\" y=\"174\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1593977513654\" />\r\n    <state x=\"2685\" y=\"223\" key=\"#com.intellij.ide.util.MemberChooser\" timestamp=\"1602190208120\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"2685\" y=\"223\" key=\"#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1602190208120\" />\r\n    <state x=\"2608\" y=\"306\" key=\"#com.intellij.ide.util.TreeClassChooserDialog\" timestamp=\"1595789322123\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"2608\" y=\"306\" key=\"#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1595789322123\" />\r\n    <state x=\"2560\" y=\"255\" key=\"#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog\" timestamp=\"1594289472086\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"2560\" y=\"255\" key=\"#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1594289472086\" />\r\n    <state x=\"2645\" y=\"404\" key=\"#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes\" timestamp=\"1602485105023\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"725\" y=\"404\" key=\"#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040\" timestamp=\"1602474847327\" />\r\n    <state x=\"2645\" y=\"404\" key=\"#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1602485105023\" />\r\n    <state x=\"2393\" y=\"0\" key=\"#com.intellij.refactoring.rename.AutomaticRenamingDialog\" timestamp=\"1602485175279\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"2393\" y=\"0\" key=\"#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1602485175279\" />\r\n    <state x=\"2610\" y=\"266\" key=\"#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog\" timestamp=\"1600108655680\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"2610\" y=\"266\" key=\"#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1600108655680\" />\r\n    <state x=\"2610\" y=\"266\" key=\"#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog\" timestamp=\"1600108949047\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"2610\" y=\"266\" key=\"#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1600108949047\" />\r\n    <state x=\"555\" y=\"0\" key=\"CommitChangelistDialog2\" timestamp=\"1602469016325\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"555\" y=\"0\" key=\"CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040\" timestamp=\"1602469016325\" />\r\n    <state x=\"2475\" y=\"0\" key=\"CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1602124241394\" />\r\n    <state x=\"3035\" y=\"318\" key=\"FileChooserDialogImpl\" timestamp=\"1601585227374\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"674\" y=\"288\" key=\"FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040\" timestamp=\"1595788545082\" />\r\n    <state x=\"3035\" y=\"318\" key=\"FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1601585227374\" />\r\n    <state width=\"1877\" height=\"190\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1602486303814\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"190\" key=\"GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040\" timestamp=\"1602432443834\" />\r\n    <state width=\"1877\" height=\"190\" key=\"GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1602486303814\" />\r\n    <state width=\"1877\" height=\"190\" key=\"GridCell.Tab.0.center\" timestamp=\"1602486303814\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"190\" key=\"GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040\" timestamp=\"1602432443834\" />\r\n    <state width=\"1877\" height=\"190\" key=\"GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1602486303814\" />\r\n    <state width=\"1877\" height=\"190\" key=\"GridCell.Tab.0.left\" timestamp=\"1602486303814\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"190\" key=\"GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040\" timestamp=\"1602432443834\" />\r\n    <state width=\"1877\" height=\"190\" key=\"GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1602486303814\" />\r\n    <state width=\"1877\" height=\"190\" key=\"GridCell.Tab.0.right\" timestamp=\"1602486303814\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"190\" key=\"GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040\" timestamp=\"1602432443834\" />\r\n    <state width=\"1877\" height=\"190\" key=\"GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1602486303814\" />\r\n    <state width=\"1877\" height=\"339\" key=\"GridCell.Tab.1.bottom\" timestamp=\"1602484067205\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"339\" key=\"GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1602484067205\" />\r\n    <state width=\"1877\" height=\"339\" key=\"GridCell.Tab.1.center\" timestamp=\"1602484067205\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"339\" key=\"GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1602484067205\" />\r\n    <state width=\"1877\" height=\"339\" key=\"GridCell.Tab.1.left\" timestamp=\"1602484067205\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"339\" key=\"GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1602484067205\" />\r\n    <state width=\"1877\" height=\"339\" key=\"GridCell.Tab.1.right\" timestamp=\"1602484067205\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"339\" key=\"GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1602484067205\" />\r\n    <state x=\"2460\" y=\"254\" key=\"IDE.errors.dialog\" timestamp=\"1602234667858\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"540\" y=\"254\" key=\"IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040\" timestamp=\"1599826939423\" />\r\n    <state x=\"2460\" y=\"254\" key=\"IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1602234667858\" />\r\n    <state x=\"2695\" y=\"453\" key=\"ReplaceDuplicatesPrompt\" timestamp=\"1600107583729\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"2695\" y=\"453\" key=\"ReplaceDuplicatesPrompt/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1600107583729\" />\r\n    <state x=\"694\" y=\"138\" key=\"RollbackChangesDialog\" timestamp=\"1602469013435\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"694\" y=\"138\" key=\"RollbackChangesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040\" timestamp=\"1602469013435\" />\r\n    <state x=\"2266\" y=\"158\" width=\"1054\" height=\"708\" key=\"SettingsEditor\" timestamp=\"1602071617371\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"432\" y=\"163\" key=\"SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040\" timestamp=\"1595788561514\" />\r\n    <state x=\"2266\" y=\"158\" width=\"1054\" height=\"708\" key=\"SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1602071617371\" />\r\n    <state x=\"552\" y=\"248\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1602468200344\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"552\" y=\"248\" key=\"Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040\" timestamp=\"1602468200344\" />\r\n    <state x=\"2472\" y=\"248\" key=\"Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1602125569021\" />\r\n    <state x=\"753\" y=\"454\" key=\"classpath-attribute-editor\" timestamp=\"1595788555192\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"753\" y=\"454\" key=\"classpath-attribute-editor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040\" timestamp=\"1595788555192\" />\r\n    <state x=\"107\" y=\"77\" width=\"1736\" height=\"856\" key=\"com.intellij.history.integration.ui.views.FileHistoryDialog\" timestamp=\"1595259214180\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"92\" y=\"92\" width=\"1636\" height=\"856\" key=\"com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040\" timestamp=\"1595255429073\" />\r\n    <state x=\"107\" y=\"77\" width=\"1736\" height=\"856\" key=\"com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1595259214180\" />\r\n    <state x=\"2529\" y=\"134\" key=\"com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser\" timestamp=\"1599632424507\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"2529\" y=\"134\" key=\"com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1599632424507\" />\r\n    <state x=\"2687\" y=\"429\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1599719181455\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"2687\" y=\"429\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1599719181455\" />\r\n    <state x=\"952\" y=\"0\" width=\"974\" height=\"1047\" key=\"dock-window-1\" timestamp=\"1602056880074\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"952\" y=\"0\" width=\"974\" height=\"1047\" key=\"dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040\" timestamp=\"1602056880074\" />\r\n    <state x=\"952\" y=\"0\" width=\"974\" height=\"1047\" key=\"dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1602043555940\" />\r\n    <state x=\"953\" y=\"0\" width=\"974\" height=\"1047\" key=\"dock-window-2\" timestamp=\"1596700006940\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"953\" y=\"0\" width=\"974\" height=\"1047\" key=\"dock-window-2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1596700006940\" />\r\n    <state x=\"847\" y=\"0\" width=\"1089\" height=\"1045\" key=\"dock-window-3\" timestamp=\"1595232343515\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"847\" y=\"0\" width=\"1089\" height=\"1045\" key=\"dock-window-3/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1595232343515\" />\r\n    <state x=\"2610\" y=\"259\" key=\"extract.method.dialog\" timestamp=\"1600107580813\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"2610\" y=\"259\" key=\"extract.method.dialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1600107580812\" />\r\n    <state x=\"2588\" y=\"95\" width=\"583\" height=\"849\" key=\"find.popup\" timestamp=\"1597212288765\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"2588\" y=\"95\" width=\"583\" height=\"849\" key=\"find.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1597212288765\" />\r\n    <state x=\"2262\" y=\"94\" key=\"new project wizard\" timestamp=\"1595755205601\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"2262\" y=\"94\" key=\"new project wizard/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1595755205601\" />\r\n    <state x=\"2589\" y=\"273\" key=\"refactoring.ChangeSignatureDialog\" timestamp=\"1601581643370\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"2589\" y=\"273\" key=\"refactoring.ChangeSignatureDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1601581643370\" />\r\n    <state x=\"2536\" y=\"240\" width=\"672\" height=\"677\" key=\"run.anything.popup\" timestamp=\"1601458502293\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"616\" y=\"240\" width=\"672\" height=\"677\" key=\"run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040\" timestamp=\"1595256125834\" />\r\n    <state x=\"2536\" y=\"240\" width=\"672\" height=\"677\" key=\"run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1601458502293\" />\r\n    <state x=\"2543\" y=\"225\" width=\"672\" height=\"678\" key=\"search.everywhere.popup\" timestamp=\"1602485486724\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"623\" y=\"225\" width=\"672\" height=\"678\" key=\"search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040\" timestamp=\"1600667467948\" />\r\n    <state x=\"2543\" y=\"225\" width=\"672\" height=\"678\" key=\"search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1602485486724\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 2cac3f05d912f8991c46b3d4cefe15c7c732c731)
++++ .idea/workspace.xml	(date 1602566573732)
+@@ -25,26 +25,16 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-10/08/20">
+-      <change afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/externalFramingController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/Model/data/shed/externalFramingMaterials.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/Model/data/shed/foundationsMaterials.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/claddingController.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/framingHardwareController.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/Model/data/shed/claddingMaterials.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/Model/data/shed/framingHardwareMaterials.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/cladding.fxml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/framingHardware.fxml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Residential/foundationsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Residential/foundationsController.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/foundationsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/foundationsController.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/setupSheetsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/setupSheetsController.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/extOpenings.fxml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/foundations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/foundations.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/intOpenings.fxml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/postAndBeams.fxml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/wallsSglLev.fxml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Residential/foundationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Residential/foundationsController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/externalFramingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/externalFramingController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/Controllers/setupSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/setupSheetsController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/extOpenings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/externalFraming.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/foundations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/foundations.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/intOpenings.fxml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/postAndBeams.fxml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/wallsSglLev.fxml" beforeDir="false" />
+     </list>
+     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
+     <list id="4dddbee8-77b6-41fd-be25-1624817806eb" name="Revert &quot;#60 commit&quot;" comment="Revert &quot;#60 commit&quot;&#10;&#10;This reverts commit 096c3c72" />
+@@ -157,9 +147,9 @@
+       <recent name="C:\Users\User\Documents\IdeaProjects\PTGraphiQS\src\Views" />
+     </key>
+     <key name="CopyClassDialog.RECENTS_KEY">
++      <recent name="Controllers.Sheets.Shed" />
+       <recent name="Model.data.shed" />
+       <recent name="Model" />
+-      <recent name="Controllers.Sheets.Shed" />
+       <recent name="Controllers.Sheets" />
+       <recent name="Test" />
+     </key>
+@@ -683,14 +673,7 @@
+       <workItem from="1602043199785" duration="15941000" />
+       <workItem from="1602133259198" duration="24796000" />
+       <workItem from="1602318064696" duration="7196000" />
+-      <workItem from="1602469935663" duration="12266000" />
+-    </task>
+-    <task id="LOCAL-00080" summary="#95 commit popup sections finished">
+-      <created>1574387444996</created>
+-      <option name="number" value="00080" />
+-      <option name="presentableId" value="LOCAL-00080" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1574387444996</updated>
++      <workItem from="1602469935663" duration="20639000" />
+     </task>
+     <task id="LOCAL-00081" summary="#95 commit popup sections finished">
+       <created>1574387641371</created>
+@@ -1028,7 +1011,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1602468189357</updated>
+     </task>
+-    <option name="localTasksCounter" value="129" />
++    <task id="LOCAL-00129" summary="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-10/08/20">
++      <created>1602487363357</created>
++      <option name="number" value="00129" />
++      <option name="presentableId" value="LOCAL-00129" />
++      <option name="project" value="LOCAL" />
++      <updated>1602487363357</updated>
++    </task>
++    <option name="localTasksCounter" value="130" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -1142,10 +1132,10 @@
+     </state>
+     <state x="725" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602474847327" />
+     <state x="2645" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602485105023" />
+-    <state x="2393" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1602485175279">
++    <state x="2393" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1602563210117">
+       <screen x="1920" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="2393" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602485175279" />
++    <state x="2393" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602563210117" />
+     <state x="2610" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600108655680">
+       <screen x="1920" y="0" width="1920" height="1040" />
+     </state>
+@@ -1154,52 +1144,52 @@
+       <screen x="1920" y="0" width="1920" height="1040" />
+     </state>
+     <state x="2610" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600108949047" />
+-    <state x="555" y="0" key="CommitChangelistDialog2" timestamp="1602469016325">
+-      <screen x="0" y="0" width="1920" height="1040" />
++    <state x="2475" y="0" key="CommitChangelistDialog2" timestamp="1602487362311">
++      <screen x="1920" y="0" width="1920" height="1040" />
+     </state>
+     <state x="555" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602469016325" />
+-    <state x="2475" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602124241394" />
++    <state x="2475" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602487362311" />
+     <state x="3035" y="318" key="FileChooserDialogImpl" timestamp="1601585227374">
+       <screen x="1920" y="0" width="1920" height="1040" />
+     </state>
+     <state x="674" y="288" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595788545082" />
+     <state x="3035" y="318" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601585227374" />
+-    <state width="1877" height="190" key="GridCell.Tab.0.bottom" timestamp="1602486303814">
++    <state width="1877" height="190" key="GridCell.Tab.0.bottom" timestamp="1602565761441">
+       <screen x="1920" y="0" width="1920" height="1040" />
+     </state>
+     <state width="1877" height="190" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602432443834" />
+-    <state width="1877" height="190" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602486303814" />
+-    <state width="1877" height="190" key="GridCell.Tab.0.center" timestamp="1602486303814">
++    <state width="1877" height="190" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602565761441" />
++    <state width="1877" height="190" key="GridCell.Tab.0.center" timestamp="1602565761441">
+       <screen x="1920" y="0" width="1920" height="1040" />
+     </state>
+     <state width="1877" height="190" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602432443834" />
+-    <state width="1877" height="190" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602486303814" />
+-    <state width="1877" height="190" key="GridCell.Tab.0.left" timestamp="1602486303814">
++    <state width="1877" height="190" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602565761441" />
++    <state width="1877" height="190" key="GridCell.Tab.0.left" timestamp="1602565761441">
+       <screen x="1920" y="0" width="1920" height="1040" />
+     </state>
+     <state width="1877" height="190" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602432443834" />
+-    <state width="1877" height="190" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602486303814" />
+-    <state width="1877" height="190" key="GridCell.Tab.0.right" timestamp="1602486303814">
++    <state width="1877" height="190" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602565761441" />
++    <state width="1877" height="190" key="GridCell.Tab.0.right" timestamp="1602565761441">
+       <screen x="1920" y="0" width="1920" height="1040" />
+     </state>
+     <state width="1877" height="190" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602432443834" />
+-    <state width="1877" height="190" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602486303814" />
+-    <state width="1877" height="339" key="GridCell.Tab.1.bottom" timestamp="1602484067205">
++    <state width="1877" height="190" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602565761441" />
++    <state width="1877" height="339" key="GridCell.Tab.1.bottom" timestamp="1602565656971">
+       <screen x="1920" y="0" width="1920" height="1040" />
+     </state>
+-    <state width="1877" height="339" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602484067205" />
+-    <state width="1877" height="339" key="GridCell.Tab.1.center" timestamp="1602484067205">
++    <state width="1877" height="339" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602565656971" />
++    <state width="1877" height="339" key="GridCell.Tab.1.center" timestamp="1602565656971">
+       <screen x="1920" y="0" width="1920" height="1040" />
+     </state>
+-    <state width="1877" height="339" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602484067205" />
+-    <state width="1877" height="339" key="GridCell.Tab.1.left" timestamp="1602484067205">
++    <state width="1877" height="339" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602565656971" />
++    <state width="1877" height="339" key="GridCell.Tab.1.left" timestamp="1602565656971">
+       <screen x="1920" y="0" width="1920" height="1040" />
+     </state>
+-    <state width="1877" height="339" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602484067205" />
+-    <state width="1877" height="339" key="GridCell.Tab.1.right" timestamp="1602484067205">
++    <state width="1877" height="339" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602565656971" />
++    <state width="1877" height="339" key="GridCell.Tab.1.right" timestamp="1602565656971">
+       <screen x="1920" y="0" width="1920" height="1040" />
+     </state>
+-    <state width="1877" height="339" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602484067205" />
++    <state width="1877" height="339" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602565656971" />
+     <state x="2460" y="254" key="IDE.errors.dialog" timestamp="1602234667858">
+       <screen x="1920" y="0" width="1920" height="1040" />
+     </state>
+@@ -1218,11 +1208,11 @@
+     </state>
+     <state x="432" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595788561514" />
+     <state x="2266" y="158" width="1054" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602071617371" />
+-    <state x="552" y="248" key="Vcs.Push.Dialog.v2" timestamp="1602468200344">
+-      <screen x="0" y="0" width="1920" height="1040" />
++    <state x="2472" y="248" key="Vcs.Push.Dialog.v2" timestamp="1602487364797">
++      <screen x="1920" y="0" width="1920" height="1040" />
+     </state>
+     <state x="552" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602468200344" />
+-    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602125569021" />
++    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602487364797" />
+     <state x="753" y="454" key="classpath-attribute-editor" timestamp="1595788555192">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+@@ -1240,11 +1230,11 @@
+       <screen x="1920" y="0" width="1920" height="1040" />
+     </state>
+     <state x="2687" y="429" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599719181455" />
+-    <state x="952" y="0" width="974" height="1047" key="dock-window-1" timestamp="1602056880074">
+-      <screen x="0" y="0" width="1920" height="1040" />
++    <state x="2473" y="-17" width="895" height="1023" maximized="true" key="dock-window-1" timestamp="1602565223211">
++      <screen x="1920" y="0" width="1920" height="1040" />
+     </state>
+     <state x="952" y="0" width="974" height="1047" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602056880074" />
+-    <state x="952" y="0" width="974" height="1047" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602043555940" />
++    <state x="2473" y="-17" width="895" height="1023" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602565223211" />
+     <state x="953" y="0" width="974" height="1047" key="dock-window-2" timestamp="1596700006940">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+Index: src/Controllers/Sheets/Shed/framingHardwareController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Controllers/Sheets/Shed/framingHardwareController.java	(date 1602564973815)
++++ src/Controllers/Sheets/Shed/framingHardwareController.java	(date 1602564973815)
+@@ -0,0 +1,123 @@
++package Controllers.Sheets.Shed;
++
++import Model.data.shed.framingHardwareMaterials;
++import com.jfoenix.controls.JFXButton;
++import com.jfoenix.controls.JFXTreeTableView;
++import com.jfoenix.controls.RecursiveTreeItem;
++import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
++import javafx.collections.FXCollections;
++import javafx.collections.ObservableList;
++import javafx.fxml.Initializable;
++import javafx.scene.control.TreeItem;
++import javafx.scene.control.TreeTableColumn;
++import javafx.scene.control.cell.TreeItemPropertyValueFactory;
++import javafx.scene.layout.VBox;
++import javafx.scene.paint.Color;
++import javafx.scene.text.Font;
++
++import java.net.URL;
++import java.util.ArrayList;
++import java.util.ResourceBundle;
++
++public class framingHardwareController implements Initializable {
++
++    //collections
++    public ObservableList<String> parts = FXCollections.observableArrayList();
++    public VBox PARTS_VBOX;
++    public ArrayList<JFXButton> buttonList = new ArrayList<>();
++
++    //tables
++    public JFXTreeTableView<framingHardwareMaterials> MATERIALS_TBL;
++    public TreeTableColumn<framingHardwareMaterials, String> SKU_NUMBER_COL;
++    public TreeTableColumn<framingHardwareMaterials, String> DESCRIPTION_COL;
++    public TreeTableColumn<framingHardwareMaterials, String> UNIT_COL;
++    public TreeTableColumn<framingHardwareMaterials, String> QUANTITY_COL;
++
++    //data lists
++    public static ObservableList<framingHardwareMaterials> framingHardwareMaterials;
++
++    @Override
++    public void initialize(URL location, ResourceBundle resource) {
++        parts.forEach(s -> {
++            JFXButton button = new JFXButton();
++            button.setText(s);
++            button.setId(s);
++            button.setPrefWidth(183);
++            button.setPrefHeight(30);
++            button.setFont(new Font("Segoe UI",15.0));
++            button.setTextFill(Color.web("#bcbcbc"));
++            PARTS_VBOX.getChildren().add(button);
++            buttonList.add(button);
++
++            button.setOnAction(event -> {
++                buttonList.forEach(button1 -> { //selection highlighter
++                    if (button1.getId().equals(button.getId())) {
++                        button1.setStyle("-fx-background-color: #394F5A");
++                    } else {
++                        button1.setStyle("-fx-background-color: TRANSPARENT");
++                    }
++                });
++            });
++        });
++
++        //foundations materials
++        framingHardwareMaterials = FXCollections.observableArrayList();
++
++        SKU_NUMBER_COL.setCellValueFactory(
++                new TreeItemPropertyValueFactory<>("sku_number")
++        );
++        DESCRIPTION_COL.setCellValueFactory(
++                new TreeItemPropertyValueFactory<>("description")
++        );
++        UNIT_COL.setCellValueFactory(
++                new TreeItemPropertyValueFactory<>("unit")
++        );
++        QUANTITY_COL.setCellValueFactory(
++                new TreeItemPropertyValueFactory<>("quantity")
++        );
++
++        TreeItem<framingHardwareMaterials> framingHardwareMaterialsTreeItem = new RecursiveTreeItem<>
++                (framingHardwareMaterials, RecursiveTreeObject::getChildren);
++        MATERIALS_TBL.setRoot(framingHardwareMaterialsTreeItem);
++        MATERIALS_TBL.setShowRoot(false);
++
++        framingHardwareMaterials.addAll(new framingHardwareMaterials("FXLLSP400802",
++                "MITEK SPLICE PLATE 400 X 80 X 2 MM RS40080", "EACH", "8"));
++        framingHardwareMaterials.addAll(new framingHardwareMaterials("FXLL4T10",
++                "L/LOK 4T10 TYLOK NAIL PLATE 120X68MM", "EACH", "16"));
++        framingHardwareMaterials.addAll(new framingHardwareMaterials("FXLL4T10",
++                "WASHER SQ M16 X 50 X 50 X 6 GALV P/ EA", "EACH", "100"));
++        framingHardwareMaterials.addAll(new framingHardwareMaterials("BHBMB75",
++                "BOWMAC B75 STRAP", "EACH", "28"));
++        framingHardwareMaterials.addAll(new framingHardwareMaterials("FXLLCPC80",
++                "L/LOK CPC80 CONCEALED PURLIN CLEAT 2.0MM X 80MM", "EACH", "12"));
++        framingHardwareMaterials.addAll(new framingHardwareMaterials("BULLGIRT",
++                "LUMBERLOK GIRT TO POLE FIXING PLATE", "EACH", "278"));
++        framingHardwareMaterials.addAll(new framingHardwareMaterials("FXLLJH1252",
++                "L/LOK 120 X 52MM JOIST HANGER", "EACH", "72"));
++        framingHardwareMaterials.addAll(new framingHardwareMaterials("BOEN12130",
++                "M12 X 130 ENG BOLT/NUT GALV EACH", "EACH", "56"));
++        framingHardwareMaterials.addAll(new framingHardwareMaterials("BOEN16240",
++                "M16 X 240 ENG BOLT/NUT GALV EACH", "EACH", "50"));
++        framingHardwareMaterials.addAll(new framingHardwareMaterials("BULLMB30",
++                "L/LOK 30M COIL MULTIBRACE 1MMX53MM WIDE PUNCHED", "COIL", "3"));
++        framingHardwareMaterials.addAll(new framingHardwareMaterials("FXLLMBT",
++                "L/LOK MULTIBRACE TENSIONER ONLY EACH", "EACH", "12"));
++        framingHardwareMaterials.addAll(new framingHardwareMaterials("FXLLNP110124",
++                "L/LOK NAILON PLATE 110MM WIDE X 1.0MM X 240MM", "EACH", "8"));
++        framingHardwareMaterials.addAll(new framingHardwareMaterials("NALLPN30315P",
++                "L/LOK 30X3.15MM PRODUCT NAILS 500G PKT", "PKT", "3"));
++        framingHardwareMaterials.addAll(new framingHardwareMaterials("NAGFH100X2KG",
++                "NAIL FLAT HEAD GALV 100 X 4.00MM 2KG", "BOX", "1"));
++        framingHardwareMaterials.addAll(new framingHardwareMaterials("SCMKSC3512DG",
++                "MITEK 12G 35MM GALV SCREWS 100/BAG SC3512DG", "BAG", "23"));
++        framingHardwareMaterials.addAll(new framingHardwareMaterials("FXLLSC3514EG",
++                "LUMBERLOK SCREW FIXINGS 14G 35MM ELECTRO GALV BAG OF 100", "BAG", "1"));
++        framingHardwareMaterials.addAll(new framingHardwareMaterials("FXLLSC3514EG",
++                "LUMBERLOK SCREW FIXINGS 14G 75MM ELECTRO GALV BAG OF 100", "BAG", "1"));
++        framingHardwareMaterials.addAll(new framingHardwareMaterials("NAIMPZB20571",
++                "PASLODE IMPULSE 90X3.15MM HD GALV D-HEAD NAIL 1000 B20571", "BOX", "1"));
++
++    }
++
++}
+Index: src/Model/data/shed/framingHardwareMaterials.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Model/data/shed/framingHardwareMaterials.java	(date 1602563096139)
++++ src/Model/data/shed/framingHardwareMaterials.java	(date 1602563096139)
+@@ -0,0 +1,65 @@
++package Model.data.shed;
++
++import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
++import javafx.beans.property.SimpleStringProperty;
++
++public class framingHardwareMaterials extends RecursiveTreeObject<framingHardwareMaterials> {
++
++    private SimpleStringProperty sku_number, description, unit, quantity;
++
++    public framingHardwareMaterials(String sku_number, String description, String unit, String quantity) {
++
++        this.sku_number = new SimpleStringProperty(sku_number);
++        this.description = new SimpleStringProperty(description);
++        this.unit = new SimpleStringProperty(unit);
++        this.quantity = new SimpleStringProperty(quantity);
++    }
++
++    public String getSku_number() {
++        return sku_number.get();
++    }
++
++    public SimpleStringProperty sku_numberProperty() {
++        return sku_number;
++    }
++
++    public void setSku_number(String sku_number) {
++        this.sku_number.set(sku_number);
++    }
++
++    public String getDescription() {
++        return description.get();
++    }
++
++    public SimpleStringProperty descriptionProperty() {
++        return description;
++    }
++
++    public void setDescription(String description) {
++        this.description.set(description);
++    }
++
++    public String getUnit() {
++        return unit.get();
++    }
++
++    public SimpleStringProperty unitProperty() {
++        return unit;
++    }
++
++    public void setUnit(String unit) {
++        this.unit.set(unit);
++    }
++
++    public String getQuantity() {
++        return quantity.get();
++    }
++
++    public SimpleStringProperty quantityProperty() {
++        return quantity;
++    }
++
++    public void setQuantity(String quantity) {
++        this.quantity.set(quantity);
++    }
++}
+Index: src/Controllers/Sheets/Shed/claddingController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Controllers/Sheets/Shed/claddingController.java	(date 1602565653586)
++++ src/Controllers/Sheets/Shed/claddingController.java	(date 1602565653586)
+@@ -0,0 +1,110 @@
++package Controllers.Sheets.Shed;
++
++import Model.data.shed.claddingMaterials;
++import com.jfoenix.controls.JFXButton;
++import com.jfoenix.controls.JFXTreeTableView;
++import com.jfoenix.controls.RecursiveTreeItem;
++import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
++import javafx.collections.FXCollections;
++import javafx.collections.ObservableList;
++import javafx.fxml.Initializable;
++import javafx.scene.control.TreeItem;
++import javafx.scene.control.TreeTableColumn;
++import javafx.scene.control.cell.TreeItemPropertyValueFactory;
++import javafx.scene.layout.VBox;
++import javafx.scene.paint.Color;
++import javafx.scene.text.Font;
++
++import java.net.URL;
++import java.util.ArrayList;
++import java.util.ResourceBundle;
++
++public class claddingController implements Initializable {
++
++    //collections
++    public ObservableList<String> parts = FXCollections.observableArrayList();
++    public VBox PARTS_VBOX;
++    public ArrayList<JFXButton> buttonList = new ArrayList<>();
++
++    //tables
++    public JFXTreeTableView<claddingMaterials> MATERIALS_TBL;
++    public TreeTableColumn<claddingMaterials, String> SKU_NUMBER_COL;
++    public TreeTableColumn<claddingMaterials, String> DESCRIPTION_COL;
++    public TreeTableColumn<claddingMaterials, String> UNIT_COL;
++    public TreeTableColumn<claddingMaterials, String> QUANTITY_COL;
++
++    //data lists
++    public static ObservableList<claddingMaterials> claddingMaterials;
++
++    @Override
++    public void initialize(URL location, ResourceBundle resource) {
++        parts.forEach(s -> {
++            JFXButton button = new JFXButton();
++            button.setText(s);
++            button.setId(s);
++            button.setPrefWidth(183);
++            button.setPrefHeight(30);
++            button.setFont(new Font("Segoe UI",15.0));
++            button.setTextFill(Color.web("#bcbcbc"));
++            PARTS_VBOX.getChildren().add(button);
++            buttonList.add(button);
++
++            button.setOnAction(event -> {
++                buttonList.forEach(button1 -> { //selection highlighter
++                    if (button1.getId().equals(button.getId())) {
++                        button1.setStyle("-fx-background-color: #394F5A");
++                    } else {
++                        button1.setStyle("-fx-background-color: TRANSPARENT");
++                    }
++                });
++            });
++        });
++
++        //foundations materials
++        claddingMaterials = FXCollections.observableArrayList();
++
++        SKU_NUMBER_COL.setCellValueFactory(
++                new TreeItemPropertyValueFactory<>("sku_number")
++        );
++        DESCRIPTION_COL.setCellValueFactory(
++                new TreeItemPropertyValueFactory<>("description")
++        );
++        UNIT_COL.setCellValueFactory(
++                new TreeItemPropertyValueFactory<>("unit")
++        );
++        QUANTITY_COL.setCellValueFactory(
++                new TreeItemPropertyValueFactory<>("quantity")
++        );
++
++        TreeItem<claddingMaterials> claddingMaterialsTreeItem = new RecursiveTreeItem<>
++                (claddingMaterials, RecursiveTreeObject::getChildren);
++        MATERIALS_TBL.setRoot(claddingMaterialsTreeItem);
++        MATERIALS_TBL.setShowRoot(false);
++
++        claddingMaterials.addAll(new claddingMaterials("Buy-in",
++                "LR CORRUGATE ENDURA .40", "EACH", "565"));
++        claddingMaterials.addAll(new claddingMaterials("Buy-in",
++                "RIDGE - 200X200 WESTCOAST FL/G ENDURA CLR", "EACH", "20"));
++        claddingMaterials.addAll(new claddingMaterials("Buy-in",
++                "VERMIN STRIP", "EACH", "50"));
++        claddingMaterials.addAll(new claddingMaterials("Buy-in",
++                "HP TIMBERTITE SCREWS 12X65 COLOUR (100)", "EACH", "43"));
++        claddingMaterials.addAll(new claddingMaterials("BUNE18315250",
++                "SAFETY MESH 1800X300X150X2 50M 90M2 AUSMESH", "ROLL", "3"));
++        claddingMaterials.addAll(new claddingMaterials("RPTKCTP135055",
++                "T/KRAFT COVERTEK 403 PLUS ROOF UNDERLAY 1350 X 55.6M 75M2", "ROLL", "4"));
++        claddingMaterials.addAll(new claddingMaterials("RPTKWGJH274036",
++                "T/KRAFT *JENNIAN HOMES* WATERGATE PLUS 295 2740X36.5M 100M2", "ROLL", "5"));
++        claddingMaterials.addAll(new claddingMaterials("Buy-in",
++                "ENDURA P A DOOR 2MX800MM", "EACH", "1"));
++        claddingMaterials.addAll(new claddingMaterials("Buy-in",
++                "COLOURSTEEL ROLLER DOOR 3MX3M", "EACH", "1"));
++        claddingMaterials.addAll(new claddingMaterials("Buy-in",
++                "COLOURSTEEL ROLLER DOOR 3.6(W)X3350MM(H)", "EACH", "2"));
++        claddingMaterials.addAll(new claddingMaterials("PSAMPSSC8C30",
++                "SOLASAFE CORRUGATED 850MM X 3.0M CLEAR 760 COVER", "SHT", "4"));
++        claddingMaterials.addAll(new claddingMaterials("PSAMPSSC8C42",
++                "SOLASAFE CORRUGATED 850MM X 4.2M CLEAR 760 COVER", "SHT", "5"));
++    }
++
++}
+Index: src/Model/data/shed/claddingMaterials.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Model/data/shed/claddingMaterials.java	(date 1602564973818)
++++ src/Model/data/shed/claddingMaterials.java	(date 1602564973818)
+@@ -0,0 +1,65 @@
++package Model.data.shed;
++
++import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
++import javafx.beans.property.SimpleStringProperty;
++
++public class claddingMaterials extends RecursiveTreeObject<claddingMaterials> {
++
++    private SimpleStringProperty sku_number, description, unit, quantity;
++
++    public claddingMaterials(String sku_number, String description, String unit, String quantity) {
++
++        this.sku_number = new SimpleStringProperty(sku_number);
++        this.description = new SimpleStringProperty(description);
++        this.unit = new SimpleStringProperty(unit);
++        this.quantity = new SimpleStringProperty(quantity);
++    }
++
++    public String getSku_number() {
++        return sku_number.get();
++    }
++
++    public SimpleStringProperty sku_numberProperty() {
++        return sku_number;
++    }
++
++    public void setSku_number(String sku_number) {
++        this.sku_number.set(sku_number);
++    }
++
++    public String getDescription() {
++        return description.get();
++    }
++
++    public SimpleStringProperty descriptionProperty() {
++        return description;
++    }
++
++    public void setDescription(String description) {
++        this.description.set(description);
++    }
++
++    public String getUnit() {
++        return unit.get();
++    }
++
++    public SimpleStringProperty unitProperty() {
++        return unit;
++    }
++
++    public void setUnit(String unit) {
++        this.unit.set(unit);
++    }
++
++    public String getQuantity() {
++        return quantity.get();
++    }
++
++    public SimpleStringProperty quantityProperty() {
++        return quantity;
++    }
++
++    public void setQuantity(String quantity) {
++        this.quantity.set(quantity);
++    }
++}
+Index: src/Views/Sheets/Shed/cladding.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Views/Sheets/Shed/cladding.fxml	(date 1602565222852)
++++ src/Views/Sheets/Shed/cladding.fxml	(date 1602565222852)
+@@ -0,0 +1,346 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import com.jfoenix.controls.JFXButton?>
++<?import com.jfoenix.controls.JFXComboBox?>
++<?import com.jfoenix.controls.JFXTextField?>
++<?import com.jfoenix.controls.JFXTreeTableView?>
++<?import javafx.geometry.Insets?>
++<?import javafx.scene.control.Label?>
++<?import javafx.scene.control.ListView?>
++<?import javafx.scene.control.ScrollPane?>
++<?import javafx.scene.control.Separator?>
++<?import javafx.scene.control.TableColumn?>
++<?import javafx.scene.control.TableView?>
++<?import javafx.scene.control.TreeTableColumn?>
++<?import javafx.scene.control.TreeTableView?>
++<?import javafx.scene.effect.DropShadow?>
++<?import javafx.scene.image.Image?>
++<?import javafx.scene.image.ImageView?>
++<?import javafx.scene.layout.AnchorPane?>
++<?import javafx.scene.layout.ColumnConstraints?>
++<?import javafx.scene.layout.GridPane?>
++<?import javafx.scene.layout.RowConstraints?>
++<?import javafx.scene.layout.VBox?>
++<?import javafx.scene.text.Font?>
++
++<AnchorPane prefHeight="800.0" prefWidth="1550.0" style="-fx-background-color: #102027;" stylesheets="@../../CSS/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Sheets.Shed.claddingController">
++   <children>
++      <AnchorPane layoutX="23.0" layoutY="40.0" prefHeight="623.0" prefWidth="205.0" style="-fx-background-color: #102027; -fx-background-radius: 30px;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="30.0">
++         <effect>
++            <DropShadow color="#121212" />
++         </effect>
++         <children>
++            <Label layoutX="27.0" layoutY="14.0" prefHeight="27.0" prefWidth="88.0" text="Parts" textFill="#bcbcbc">
++               <font>
++                  <Font size="16.0" />
++               </font>
++            </Label>
++            <Separator layoutX="15.0" layoutY="50.0" prefHeight="3.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
++            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="11.0" layoutY="66.0" prefHeight="558.0" prefWidth="246.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="65.0">
++               <content>
++                  <VBox fx:id="PARTS_VBOX" style="-fx-background-color: #102027;" stylesheets="@../../CSS/style.css" />
++               </content>
++            </ScrollPane>
++         </children>
++      </AnchorPane>
++      <GridPane id="Post Footings" fx:id="POST_FOOTINGS" layoutX="20.0" layoutY="20.0" prefHeight="286.0" prefWidth="785.0" visible="false" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
++         <columnConstraints>
++            <ColumnConstraints hgrow="ALWAYS" maxWidth="668.0" minWidth="10.0" prefWidth="498.0" />
++            <ColumnConstraints hgrow="ALWAYS" maxWidth="459.0" minWidth="10.0" prefWidth="287.0" />
++         </columnConstraints>
++         <rowConstraints>
++            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++         </rowConstraints>
++         <children>
++            <AnchorPane style="-fx-background-color: #102027; -fx-background-radius: 30px;" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
++               <effect>
++                  <DropShadow color="#121212" />
++               </effect>
++               <children>
++                  <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="88.0" text="Sections" textFill="#bcbcbc">
++                     <font>
++                        <Font size="15.0" />
++                     </font>
++                  </Label>
++                  <ListView fx:id="PF_SECTIONS" layoutX="15.0" layoutY="41.0" prefHeight="200.0" prefWidth="88.0" AnchorPane.topAnchor="40.0" />
++                  <JFXButton fx:id="PF_ADD_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="41.0" prefHeight="30.0" prefWidth="30.0" text="Button">
++                     <graphic>
++                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
++                           <image>
++                              <Image url="@../../images/add_30px.png" />
++                           </image>
++                        </ImageView>
++                     </graphic>
++                  </JFXButton>
++                  <JFXButton fx:id="PF_REMOVE_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="83.0" prefHeight="30.0" prefWidth="30.0">
++                     <graphic>
++                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
++                           <image>
++                              <Image url="@../../images/minus_30px.png" />
++                           </image>
++                        </ImageView>
++                     </graphic>
++                  </JFXButton>
++                  <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="127.0" prefHeight="30.0" prefWidth="30.0">
++                     <graphic>
++                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
++                           <image>
++                              <Image url="@../../images/note_30px.png" />
++                           </image>
++                        </ImageView>
++                     </graphic>
++                  </JFXButton>
++                  <JFXComboBox fx:id="PF_SET" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
++                  <JFXComboBox fx:id="PF_SET_OVERRIDE" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
++                  <JFXTextField fx:id="PF_QTY" focusColor="#0f9d58" labelFloat="true" layoutX="392.0" layoutY="87.0" prefHeight="30.0" prefWidth="80.0" promptText="Qty" style="-fx-text-inner-color: #b9b9b9;">
++                     <font>
++                        <Font name="Segoe UI" size="14.0" />
++                     </font>
++                  </JFXTextField>
++               </children>
++               <GridPane.margin>
++                  <Insets right="10.0" />
++               </GridPane.margin>
++            </AnchorPane>
++            <AnchorPane style="-fx-background-color: #102027; -fx-background-radius: 30px;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
++               <effect>
++                  <DropShadow color="#121212" />
++               </effect>
++               <children>
++                  <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="153.0" text="Section Dimensions" textFill="#bcbcbc">
++                     <font>
++                        <Font size="15.0" />
++                     </font>
++                  </Label>
++                  <TreeTableView fx:id="PF_TABLE" layoutX="10.0" layoutY="43.0" prefHeight="200.0" prefWidth="258.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
++                     <columns>
++                        <TreeTableColumn fx:id="PF_COL_NO" prefWidth="75.0" text="#" />
++                        <TreeTableColumn fx:id="PF_COL_DEPTH" prefWidth="75.0" text="Depth" />
++                        <TreeTableColumn fx:id="PF_COL_WIDTH" prefWidth="75.0" text="Width" />
++                        <TreeTableColumn fx:id="PF_COL_LENGTH" prefWidth="75.0" text="Length" />
++                        <TreeTableColumn fx:id="PF_COL_QTY" prefWidth="75.0" text="Qty" />
++                     </columns>
++                     <columnResizePolicy>
++                        <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
++                     </columnResizePolicy>
++                  </TreeTableView>
++               </children>
++               <GridPane.margin>
++                  <Insets right="10.0" />
++               </GridPane.margin>
++            </AnchorPane>
++         </children>
++      </GridPane>
++      <GridPane id="Concrete Bores" fx:id="CONCRETE_BORES" layoutX="30.0" layoutY="30.0" prefHeight="286.0" prefWidth="785.0" visible="false" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
++         <columnConstraints>
++            <ColumnConstraints hgrow="ALWAYS" maxWidth="668.0" minWidth="10.0" prefWidth="498.0" />
++            <ColumnConstraints hgrow="ALWAYS" maxWidth="459.0" minWidth="10.0" prefWidth="287.0" />
++         </columnConstraints>
++         <rowConstraints>
++            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++         </rowConstraints>
++         <children>
++            <AnchorPane style="-fx-background-color: #102027; -fx-background-radius: 30px;" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
++               <effect>
++                  <DropShadow color="#121212" />
++               </effect>
++               <children>
++                  <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="88.0" text="Sections" textFill="#bcbcbc">
++                     <font>
++                        <Font size="15.0" />
++                     </font>
++                  </Label>
++                  <ListView fx:id="CB_SECTIONS" layoutX="15.0" layoutY="41.0" prefHeight="200.0" prefWidth="88.0" AnchorPane.topAnchor="40.0" />
++                  <JFXButton fx:id="CB_ADD_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="41.0" prefHeight="30.0" prefWidth="30.0">
++                     <graphic>
++                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
++                           <image>
++                              <Image url="@../../images/add_30px.png" />
++                           </image>
++                        </ImageView>
++                     </graphic>
++                  </JFXButton>
++                  <JFXButton fx:id="CB_REMOVE_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="83.0" prefHeight="30.0" prefWidth="30.0">
++                     <graphic>
++                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
++                           <image>
++                              <Image url="@../../images/minus_30px.png" />
++                           </image>
++                        </ImageView>
++                     </graphic>
++                  </JFXButton>
++                  <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="127.0" prefHeight="30.0" prefWidth="30.0">
++                     <graphic>
++                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
++                           <image>
++                              <Image url="@../../images/note_30px.png" />
++                           </image>
++                        </ImageView>
++                     </graphic>
++                  </JFXButton>
++                  <JFXComboBox editable="true" focusTraversable="false" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
++                  <JFXComboBox editable="true" focusTraversable="false" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
++                  <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="392.0" layoutY="87.0" prefHeight="30.0" prefWidth="80.0" promptText="Qty" style="-fx-text-inner-color: #b9b9b9;">
++                     <font>
++                        <Font name="Segoe UI" size="14.0" />
++                     </font>
++                  </JFXTextField>
++               </children>
++               <GridPane.margin>
++                  <Insets right="10.0" />
++               </GridPane.margin>
++            </AnchorPane>
++            <AnchorPane style="-fx-background-color: #102027; -fx-background-radius: 30px;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
++               <effect>
++                  <DropShadow color="#121212" />
++               </effect>
++               <children>
++                  <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="153.0" text="Section Dimensions" textFill="#bcbcbc">
++                     <font>
++                        <Font size="15.0" />
++                     </font>
++                  </Label>
++                  <TableView layoutX="14.0" layoutY="41.0" prefHeight="200.0" prefWidth="226.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
++                     <columns>
++                        <TableColumn prefWidth="39.0" text="#" />
++                        <TableColumn prefWidth="77.0" text="Depth" />
++                        <TableColumn prefWidth="77.0" text="Qty" />
++                     </columns>
++                     <columnResizePolicy>
++                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
++                     </columnResizePolicy>
++                  </TableView>
++               </children>
++               <GridPane.margin>
++                  <Insets right="10.0" />
++               </GridPane.margin>
++            </AnchorPane>
++         </children>
++      </GridPane>
++      <GridPane id="Concrete Floor" fx:id="CONCRETE_FLOOR" layoutX="50.0" layoutY="50.0" prefHeight="286.0" prefWidth="785.0" visible="false" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
++         <columnConstraints>
++            <ColumnConstraints hgrow="ALWAYS" maxWidth="668.0" minWidth="10.0" prefWidth="498.0" />
++            <ColumnConstraints hgrow="ALWAYS" maxWidth="459.0" minWidth="10.0" prefWidth="287.0" />
++         </columnConstraints>
++         <rowConstraints>
++            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++         </rowConstraints>
++         <children>
++            <AnchorPane style="-fx-background-color: #102027; -fx-background-radius: 30px;" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
++               <effect>
++                  <DropShadow color="#121212" />
++               </effect>
++               <children>
++                  <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="88.0" text="Sections" textFill="#bcbcbc">
++                     <font>
++                        <Font size="15.0" />
++                     </font>
++                  </Label>
++                  <ListView fx:id="CF_SECTIONS" layoutX="15.0" layoutY="41.0" prefHeight="200.0" prefWidth="88.0" AnchorPane.topAnchor="40.0" />
++                  <JFXButton fx:id="CF_ADD_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="41.0" prefHeight="30.0" prefWidth="30.0">
++                     <graphic>
++                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
++                           <image>
++                              <Image url="@../../images/add_30px.png" />
++                           </image>
++                        </ImageView>
++                     </graphic>
++                  </JFXButton>
++                  <JFXButton fx:id="CF_REMOVE_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="83.0" prefHeight="30.0" prefWidth="30.0">
++                     <graphic>
++                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
++                           <image>
++                              <Image url="@../../images/minus_30px.png" />
++                           </image>
++                        </ImageView>
++                     </graphic>
++                  </JFXButton>
++                  <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="127.0" prefHeight="30.0" prefWidth="30.0">
++                     <graphic>
++                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
++                           <image>
++                              <Image url="@../../images/note_30px.png" />
++                           </image>
++                        </ImageView>
++                     </graphic>
++                  </JFXButton>
++                  <JFXComboBox editable="true" focusTraversable="false" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
++                  <JFXComboBox editable="true" focusTraversable="false" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
++                  <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="168.0" layoutY="141.0" prefHeight="30.0" prefWidth="80.0" promptText="Thickness" style="-fx-text-inner-color: #b9b9b9;">
++                     <font>
++                        <Font name="Segoe UI" size="14.0" />
++                     </font>
++                  </JFXTextField>
++                  <JFXTextField editable="false" focusColor="#0f9d58" labelFloat="true" layoutX="168.0" layoutY="196.0" prefHeight="30.0" prefWidth="80.0" promptText="Total" style="-fx-text-inner-color: #b9b9b9;">
++                     <font>
++                        <Font name="Segoe UI" size="14.0" />
++                     </font>
++                  </JFXTextField>
++                  <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="280.0" layoutY="141.0" prefHeight="30.0" prefWidth="80.0" promptText="Width" style="-fx-text-inner-color: #b9b9b9;">
++                     <font>
++                        <Font name="Segoe UI" size="14.0" />
++                     </font>
++                  </JFXTextField>
++                  <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="392.0" layoutY="141.0" prefHeight="30.0" prefWidth="80.0" promptText="Length" style="-fx-text-inner-color: #b9b9b9;">
++                     <font>
++                        <Font name="Segoe UI" size="14.0" />
++                     </font>
++                  </JFXTextField>
++               </children>
++               <GridPane.margin>
++                  <Insets right="10.0" />
++               </GridPane.margin>
++            </AnchorPane>
++            <AnchorPane style="-fx-background-color: #102027; -fx-background-radius: 30px;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
++               <effect>
++                  <DropShadow color="#121212" />
++               </effect>
++               <children>
++                  <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="153.0" text="Section Dimensions" textFill="#bcbcbc">
++                     <font>
++                        <Font size="15.0" />
++                     </font>
++                  </Label>
++                  <TableView layoutX="14.0" layoutY="41.0" prefHeight="200.0" prefWidth="226.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
++                     <columns>
++                        <TableColumn prefWidth="39.0" text="#" />
++                        <TableColumn prefWidth="77.0" text="Thickness" />
++                        <TableColumn prefWidth="77.0" text="Width" />
++                        <TableColumn prefWidth="77.0" text="Length" />
++                        <TableColumn prefWidth="77.0" text="Qty" />
++                     </columns>
++                     <columnResizePolicy>
++                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
++                     </columnResizePolicy>
++                  </TableView>
++               </children>
++               <GridPane.margin>
++                  <Insets right="10.0" />
++               </GridPane.margin>
++            </AnchorPane>
++         </children>
++      </GridPane>
++      <TreeTableView fx:id="TREE_TABLE_VIEW" layoutX="230.0" layoutY="331.0" prefHeight="455.0" prefWidth="1300.0" visible="false" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="330.0">
++        <columns>
++          <TreeTableColumn fx:id="COMPONENT" prefWidth="160.0" text="Component" />
++            <TreeTableColumn fx:id="CODE" prefWidth="90.0" text="Code" />
++            <TreeTableColumn fx:id="DESCRIPTION" prefWidth="270.0" text="Description" />
++            <TreeTableColumn fx:id="EXTRA1" prefWidth="140.0" text="Extra 1" />
++            <TreeTableColumn fx:id="EXTRA2" prefWidth="140.0" text="Extra 2" />
++            <TreeTableColumn fx:id="QUANTITY" text="Quantity" />
++            <TreeTableColumn fx:id="USAGE" prefWidth="100.0" text="Usage" />
++            <TreeTableColumn fx:id="WASTE" prefWidth="60.0" text="Waste" />
++            <TreeTableColumn fx:id="SUBHEADING" prefWidth="150.0" text="Subheading" />
++            <TreeTableColumn fx:id="USAGE2" prefWidth="100.0" text="Usage 2" />
++        </columns>
++      </TreeTableView>
++      <JFXTreeTableView fx:id="MATERIALS_TBL" fixedCellSize="0.0" layoutX="230.0" layoutY="331.0" prefHeight="440.0" prefWidth="962.0" sortMode="ONLY_FIRST_LEVEL" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="330.0">
++         <columns>
++            <TreeTableColumn fx:id="SKU_NUMBER_COL" prefWidth="253.0" text="SKU Number" />
++            <TreeTableColumn fx:id="DESCRIPTION_COL" minWidth="0.0" prefWidth="450.0" text="Description" />
++            <TreeTableColumn fx:id="UNIT_COL" minWidth="0.0" prefWidth="130.0" text="Unit" />
++            <TreeTableColumn fx:id="QUANTITY_COL" minWidth="0.0" prefWidth="130.0" text="Qty" />
++         </columns>
++      </JFXTreeTableView>
++   </children>
++</AnchorPane>
+Index: src/Views/Sheets/Shed/framingHardware.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Views/Sheets/Shed/framingHardware.fxml	(date 1602565155670)
++++ src/Views/Sheets/Shed/framingHardware.fxml	(date 1602565155670)
+@@ -0,0 +1,346 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import com.jfoenix.controls.JFXButton?>
++<?import com.jfoenix.controls.JFXComboBox?>
++<?import com.jfoenix.controls.JFXTextField?>
++<?import com.jfoenix.controls.JFXTreeTableView?>
++<?import javafx.geometry.Insets?>
++<?import javafx.scene.control.Label?>
++<?import javafx.scene.control.ListView?>
++<?import javafx.scene.control.ScrollPane?>
++<?import javafx.scene.control.Separator?>
++<?import javafx.scene.control.TableColumn?>
++<?import javafx.scene.control.TableView?>
++<?import javafx.scene.control.TreeTableColumn?>
++<?import javafx.scene.control.TreeTableView?>
++<?import javafx.scene.effect.DropShadow?>
++<?import javafx.scene.image.Image?>
++<?import javafx.scene.image.ImageView?>
++<?import javafx.scene.layout.AnchorPane?>
++<?import javafx.scene.layout.ColumnConstraints?>
++<?import javafx.scene.layout.GridPane?>
++<?import javafx.scene.layout.RowConstraints?>
++<?import javafx.scene.layout.VBox?>
++<?import javafx.scene.text.Font?>
++
++<AnchorPane prefHeight="800.0" prefWidth="1550.0" style="-fx-background-color: #102027;" stylesheets="@../../CSS/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Sheets.Shed.framingHardwareController">
++   <children>
++      <AnchorPane layoutX="23.0" layoutY="40.0" prefHeight="623.0" prefWidth="205.0" style="-fx-background-color: #102027; -fx-background-radius: 30px;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="30.0">
++         <effect>
++            <DropShadow color="#121212" />
++         </effect>
++         <children>
++            <Label layoutX="27.0" layoutY="14.0" prefHeight="27.0" prefWidth="88.0" text="Parts" textFill="#bcbcbc">
++               <font>
++                  <Font size="16.0" />
++               </font>
++            </Label>
++            <Separator layoutX="15.0" layoutY="50.0" prefHeight="3.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
++            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="11.0" layoutY="66.0" prefHeight="558.0" prefWidth="246.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="65.0">
++               <content>
++                  <VBox fx:id="PARTS_VBOX" style="-fx-background-color: #102027;" stylesheets="@../../CSS/style.css" />
++               </content>
++            </ScrollPane>
++         </children>
++      </AnchorPane>
++      <GridPane id="Post Footings" fx:id="POST_FOOTINGS" layoutX="20.0" layoutY="20.0" prefHeight="286.0" prefWidth="785.0" visible="false" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
++         <columnConstraints>
++            <ColumnConstraints hgrow="ALWAYS" maxWidth="668.0" minWidth="10.0" prefWidth="498.0" />
++            <ColumnConstraints hgrow="ALWAYS" maxWidth="459.0" minWidth="10.0" prefWidth="287.0" />
++         </columnConstraints>
++         <rowConstraints>
++            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++         </rowConstraints>
++         <children>
++            <AnchorPane style="-fx-background-color: #102027; -fx-background-radius: 30px;" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
++               <effect>
++                  <DropShadow color="#121212" />
++               </effect>
++               <children>
++                  <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="88.0" text="Sections" textFill="#bcbcbc">
++                     <font>
++                        <Font size="15.0" />
++                     </font>
++                  </Label>
++                  <ListView fx:id="PF_SECTIONS" layoutX="15.0" layoutY="41.0" prefHeight="200.0" prefWidth="88.0" AnchorPane.topAnchor="40.0" />
++                  <JFXButton fx:id="PF_ADD_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="41.0" prefHeight="30.0" prefWidth="30.0" text="Button">
++                     <graphic>
++                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
++                           <image>
++                              <Image url="@../../images/add_30px.png" />
++                           </image>
++                        </ImageView>
++                     </graphic>
++                  </JFXButton>
++                  <JFXButton fx:id="PF_REMOVE_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="83.0" prefHeight="30.0" prefWidth="30.0">
++                     <graphic>
++                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
++                           <image>
++                              <Image url="@../../images/minus_30px.png" />
++                           </image>
++                        </ImageView>
++                     </graphic>
++                  </JFXButton>
++                  <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="127.0" prefHeight="30.0" prefWidth="30.0">
++                     <graphic>
++                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
++                           <image>
++                              <Image url="@../../images/note_30px.png" />
++                           </image>
++                        </ImageView>
++                     </graphic>
++                  </JFXButton>
++                  <JFXComboBox fx:id="PF_SET" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
++                  <JFXComboBox fx:id="PF_SET_OVERRIDE" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
++                  <JFXTextField fx:id="PF_QTY" focusColor="#0f9d58" labelFloat="true" layoutX="392.0" layoutY="87.0" prefHeight="30.0" prefWidth="80.0" promptText="Qty" style="-fx-text-inner-color: #b9b9b9;">
++                     <font>
++                        <Font name="Segoe UI" size="14.0" />
++                     </font>
++                  </JFXTextField>
++               </children>
++               <GridPane.margin>
++                  <Insets right="10.0" />
++               </GridPane.margin>
++            </AnchorPane>
++            <AnchorPane style="-fx-background-color: #102027; -fx-background-radius: 30px;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
++               <effect>
++                  <DropShadow color="#121212" />
++               </effect>
++               <children>
++                  <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="153.0" text="Section Dimensions" textFill="#bcbcbc">
++                     <font>
++                        <Font size="15.0" />
++                     </font>
++                  </Label>
++                  <TreeTableView fx:id="PF_TABLE" layoutX="10.0" layoutY="43.0" prefHeight="200.0" prefWidth="258.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
++                     <columns>
++                        <TreeTableColumn fx:id="PF_COL_NO" prefWidth="75.0" text="#" />
++                        <TreeTableColumn fx:id="PF_COL_DEPTH" prefWidth="75.0" text="Depth" />
++                        <TreeTableColumn fx:id="PF_COL_WIDTH" prefWidth="75.0" text="Width" />
++                        <TreeTableColumn fx:id="PF_COL_LENGTH" prefWidth="75.0" text="Length" />
++                        <TreeTableColumn fx:id="PF_COL_QTY" prefWidth="75.0" text="Qty" />
++                     </columns>
++                     <columnResizePolicy>
++                        <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
++                     </columnResizePolicy>
++                  </TreeTableView>
++               </children>
++               <GridPane.margin>
++                  <Insets right="10.0" />
++               </GridPane.margin>
++            </AnchorPane>
++         </children>
++      </GridPane>
++      <GridPane id="Concrete Bores" fx:id="CONCRETE_BORES" layoutX="30.0" layoutY="30.0" prefHeight="286.0" prefWidth="785.0" visible="false" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
++         <columnConstraints>
++            <ColumnConstraints hgrow="ALWAYS" maxWidth="668.0" minWidth="10.0" prefWidth="498.0" />
++            <ColumnConstraints hgrow="ALWAYS" maxWidth="459.0" minWidth="10.0" prefWidth="287.0" />
++         </columnConstraints>
++         <rowConstraints>
++            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++         </rowConstraints>
++         <children>
++            <AnchorPane style="-fx-background-color: #102027; -fx-background-radius: 30px;" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
++               <effect>
++                  <DropShadow color="#121212" />
++               </effect>
++               <children>
++                  <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="88.0" text="Sections" textFill="#bcbcbc">
++                     <font>
++                        <Font size="15.0" />
++                     </font>
++                  </Label>
++                  <ListView fx:id="CB_SECTIONS" layoutX="15.0" layoutY="41.0" prefHeight="200.0" prefWidth="88.0" AnchorPane.topAnchor="40.0" />
++                  <JFXButton fx:id="CB_ADD_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="41.0" prefHeight="30.0" prefWidth="30.0">
++                     <graphic>
++                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
++                           <image>
++                              <Image url="@../../images/add_30px.png" />
++                           </image>
++                        </ImageView>
++                     </graphic>
++                  </JFXButton>
++                  <JFXButton fx:id="CB_REMOVE_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="83.0" prefHeight="30.0" prefWidth="30.0">
++                     <graphic>
++                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
++                           <image>
++                              <Image url="@../../images/minus_30px.png" />
++                           </image>
++                        </ImageView>
++                     </graphic>
++                  </JFXButton>
++                  <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="127.0" prefHeight="30.0" prefWidth="30.0">
++                     <graphic>
++                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
++                           <image>
++                              <Image url="@../../images/note_30px.png" />
++                           </image>
++                        </ImageView>
++                     </graphic>
++                  </JFXButton>
++                  <JFXComboBox editable="true" focusTraversable="false" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
++                  <JFXComboBox editable="true" focusTraversable="false" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
++                  <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="392.0" layoutY="87.0" prefHeight="30.0" prefWidth="80.0" promptText="Qty" style="-fx-text-inner-color: #b9b9b9;">
++                     <font>
++                        <Font name="Segoe UI" size="14.0" />
++                     </font>
++                  </JFXTextField>
++               </children>
++               <GridPane.margin>
++                  <Insets right="10.0" />
++               </GridPane.margin>
++            </AnchorPane>
++            <AnchorPane style="-fx-background-color: #102027; -fx-background-radius: 30px;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
++               <effect>
++                  <DropShadow color="#121212" />
++               </effect>
++               <children>
++                  <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="153.0" text="Section Dimensions" textFill="#bcbcbc">
++                     <font>
++                        <Font size="15.0" />
++                     </font>
++                  </Label>
++                  <TableView layoutX="14.0" layoutY="41.0" prefHeight="200.0" prefWidth="226.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
++                     <columns>
++                        <TableColumn prefWidth="39.0" text="#" />
++                        <TableColumn prefWidth="77.0" text="Depth" />
++                        <TableColumn prefWidth="77.0" text="Qty" />
++                     </columns>
++                     <columnResizePolicy>
++                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
++                     </columnResizePolicy>
++                  </TableView>
++               </children>
++               <GridPane.margin>
++                  <Insets right="10.0" />
++               </GridPane.margin>
++            </AnchorPane>
++         </children>
++      </GridPane>
++      <GridPane id="Concrete Floor" fx:id="CONCRETE_FLOOR" layoutX="50.0" layoutY="50.0" prefHeight="286.0" prefWidth="785.0" visible="false" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
++         <columnConstraints>
++            <ColumnConstraints hgrow="ALWAYS" maxWidth="668.0" minWidth="10.0" prefWidth="498.0" />
++            <ColumnConstraints hgrow="ALWAYS" maxWidth="459.0" minWidth="10.0" prefWidth="287.0" />
++         </columnConstraints>
++         <rowConstraints>
++            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++         </rowConstraints>
++         <children>
++            <AnchorPane style="-fx-background-color: #102027; -fx-background-radius: 30px;" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
++               <effect>
++                  <DropShadow color="#121212" />
++               </effect>
++               <children>
++                  <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="88.0" text="Sections" textFill="#bcbcbc">
++                     <font>
++                        <Font size="15.0" />
++                     </font>
++                  </Label>
++                  <ListView fx:id="CF_SECTIONS" layoutX="15.0" layoutY="41.0" prefHeight="200.0" prefWidth="88.0" AnchorPane.topAnchor="40.0" />
++                  <JFXButton fx:id="CF_ADD_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="41.0" prefHeight="30.0" prefWidth="30.0">
++                     <graphic>
++                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
++                           <image>
++                              <Image url="@../../images/add_30px.png" />
++                           </image>
++                        </ImageView>
++                     </graphic>
++                  </JFXButton>
++                  <JFXButton fx:id="CF_REMOVE_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="83.0" prefHeight="30.0" prefWidth="30.0">
++                     <graphic>
++                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
++                           <image>
++                              <Image url="@../../images/minus_30px.png" />
++                           </image>
++                        </ImageView>
++                     </graphic>
++                  </JFXButton>
++                  <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="127.0" prefHeight="30.0" prefWidth="30.0">
++                     <graphic>
++                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
++                           <image>
++                              <Image url="@../../images/note_30px.png" />
++                           </image>
++                        </ImageView>
++                     </graphic>
++                  </JFXButton>
++                  <JFXComboBox editable="true" focusTraversable="false" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
++                  <JFXComboBox editable="true" focusTraversable="false" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
++                  <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="168.0" layoutY="141.0" prefHeight="30.0" prefWidth="80.0" promptText="Thickness" style="-fx-text-inner-color: #b9b9b9;">
++                     <font>
++                        <Font name="Segoe UI" size="14.0" />
++                     </font>
++                  </JFXTextField>
++                  <JFXTextField editable="false" focusColor="#0f9d58" labelFloat="true" layoutX="168.0" layoutY="196.0" prefHeight="30.0" prefWidth="80.0" promptText="Total" style="-fx-text-inner-color: #b9b9b9;">
++                     <font>
++                        <Font name="Segoe UI" size="14.0" />
++                     </font>
++                  </JFXTextField>
++                  <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="280.0" layoutY="141.0" prefHeight="30.0" prefWidth="80.0" promptText="Width" style="-fx-text-inner-color: #b9b9b9;">
++                     <font>
++                        <Font name="Segoe UI" size="14.0" />
++                     </font>
++                  </JFXTextField>
++                  <JFXTextField focusColor="#0f9d58" labelFloat="true" layoutX="392.0" layoutY="141.0" prefHeight="30.0" prefWidth="80.0" promptText="Length" style="-fx-text-inner-color: #b9b9b9;">
++                     <font>
++                        <Font name="Segoe UI" size="14.0" />
++                     </font>
++                  </JFXTextField>
++               </children>
++               <GridPane.margin>
++                  <Insets right="10.0" />
++               </GridPane.margin>
++            </AnchorPane>
++            <AnchorPane style="-fx-background-color: #102027; -fx-background-radius: 30px;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
++               <effect>
++                  <DropShadow color="#121212" />
++               </effect>
++               <children>
++                  <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="153.0" text="Section Dimensions" textFill="#bcbcbc">
++                     <font>
++                        <Font size="15.0" />
++                     </font>
++                  </Label>
++                  <TableView layoutX="14.0" layoutY="41.0" prefHeight="200.0" prefWidth="226.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
++                     <columns>
++                        <TableColumn prefWidth="39.0" text="#" />
++                        <TableColumn prefWidth="77.0" text="Thickness" />
++                        <TableColumn prefWidth="77.0" text="Width" />
++                        <TableColumn prefWidth="77.0" text="Length" />
++                        <TableColumn prefWidth="77.0" text="Qty" />
++                     </columns>
++                     <columnResizePolicy>
++                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
++                     </columnResizePolicy>
++                  </TableView>
++               </children>
++               <GridPane.margin>
++                  <Insets right="10.0" />
++               </GridPane.margin>
++            </AnchorPane>
++         </children>
++      </GridPane>
++      <TreeTableView fx:id="TREE_TABLE_VIEW" layoutX="230.0" layoutY="331.0" prefHeight="455.0" prefWidth="1300.0" visible="false" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="330.0">
++        <columns>
++          <TreeTableColumn fx:id="COMPONENT" prefWidth="160.0" text="Component" />
++            <TreeTableColumn fx:id="CODE" prefWidth="90.0" text="Code" />
++            <TreeTableColumn fx:id="DESCRIPTION" prefWidth="270.0" text="Description" />
++            <TreeTableColumn fx:id="EXTRA1" prefWidth="140.0" text="Extra 1" />
++            <TreeTableColumn fx:id="EXTRA2" prefWidth="140.0" text="Extra 2" />
++            <TreeTableColumn fx:id="QUANTITY" text="Quantity" />
++            <TreeTableColumn fx:id="USAGE" prefWidth="100.0" text="Usage" />
++            <TreeTableColumn fx:id="WASTE" prefWidth="60.0" text="Waste" />
++            <TreeTableColumn fx:id="SUBHEADING" prefWidth="150.0" text="Subheading" />
++            <TreeTableColumn fx:id="USAGE2" prefWidth="100.0" text="Usage 2" />
++        </columns>
++      </TreeTableView>
++      <JFXTreeTableView fx:id="MATERIALS_TBL" fixedCellSize="0.0" layoutX="230.0" layoutY="331.0" prefHeight="440.0" prefWidth="962.0" sortMode="ONLY_FIRST_LEVEL" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="330.0">
++         <columns>
++            <TreeTableColumn fx:id="SKU_NUMBER_COL" prefWidth="253.0" text="SKU Number" />
++            <TreeTableColumn fx:id="DESCRIPTION_COL" minWidth="0.0" prefWidth="450.0" text="Description" />
++            <TreeTableColumn fx:id="UNIT_COL" minWidth="0.0" prefWidth="130.0" text="Unit" />
++            <TreeTableColumn fx:id="QUANTITY_COL" minWidth="0.0" prefWidth="130.0" text="Qty" />
++         </columns>
++      </JFXTreeTableView>
++   </children>
++</AnchorPane>
+Index: src/Controllers/Sheets/Shed/externalFramingController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Controllers.Sheets.Shed;\r\n\r\nimport Model.data.shed.externalFramingMaterials;\r\nimport com.jfoenix.controls.JFXButton;\r\nimport com.jfoenix.controls.JFXTreeTableView;\r\nimport com.jfoenix.controls.RecursiveTreeItem;\r\nimport com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;\r\nimport javafx.collections.FXCollections;\r\nimport javafx.collections.ObservableList;\r\nimport javafx.fxml.Initializable;\r\nimport javafx.scene.control.TreeItem;\r\nimport javafx.scene.control.TreeTableColumn;\r\nimport javafx.scene.control.cell.TreeItemPropertyValueFactory;\r\nimport javafx.scene.layout.VBox;\r\nimport javafx.scene.paint.Color;\r\nimport javafx.scene.text.Font;\r\n\r\nimport java.net.URL;\r\nimport java.util.ArrayList;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class externalFramingController implements Initializable {\r\n\r\n    //collections\r\n    public ObservableList<String> parts = FXCollections.observableArrayList(\"Building Poles\", \"Purlins\");\r\n    public VBox PARTS_VBOX;\r\n    public ArrayList<JFXButton> buttonList = new ArrayList<>();\r\n\r\n    //tables\r\n    public JFXTreeTableView<externalFramingMaterials> MATERIALS_TBL;\r\n    public TreeTableColumn<externalFramingMaterials, String> SKU_NUMBER_COL;\r\n    public TreeTableColumn<externalFramingMaterials, String> DESCRIPTION_COL;\r\n    public TreeTableColumn<externalFramingMaterials, String> UNIT_COL;\r\n    public TreeTableColumn<externalFramingMaterials, String> QUANTITY_COL;\r\n\r\n    //data lists\r\n    public static ObservableList<externalFramingMaterials> externalFramingMaterials;\r\n\r\n    @Override\r\n    public void initialize(URL location, ResourceBundle resource) {\r\n        parts.forEach(s -> {\r\n            JFXButton button = new JFXButton();\r\n            button.setText(s);\r\n            button.setId(s);\r\n            button.setPrefWidth(183);\r\n            button.setPrefHeight(30);\r\n            button.setFont(new Font(\"Segoe UI\",15.0));\r\n            button.setTextFill(Color.web(\"#bcbcbc\"));\r\n            PARTS_VBOX.getChildren().add(button);\r\n            buttonList.add(button);\r\n\r\n            button.setOnAction(event -> {\r\n                buttonList.forEach(button1 -> { //selection highlighter\r\n                    if (button1.getId().equals(button.getId())) {\r\n                        button1.setStyle(\"-fx-background-color: #394F5A\");\r\n                    } else {\r\n                        button1.setStyle(\"-fx-background-color: TRANSPARENT\");\r\n                    }\r\n                });\r\n            });\r\n        });\r\n\r\n        //foundations materials\r\n        externalFramingMaterials = FXCollections.observableArrayList();\r\n\r\n        SKU_NUMBER_COL.setCellValueFactory(\r\n                new TreeItemPropertyValueFactory<>(\"sku_number\")\r\n        );\r\n        DESCRIPTION_COL.setCellValueFactory(\r\n                new TreeItemPropertyValueFactory<>(\"description\")\r\n        );\r\n        UNIT_COL.setCellValueFactory(\r\n                new TreeItemPropertyValueFactory<>(\"unit\")\r\n        );\r\n        QUANTITY_COL.setCellValueFactory(\r\n                new TreeItemPropertyValueFactory<>(\"quantity\")\r\n        );\r\n\r\n        TreeItem<externalFramingMaterials> externalFramingControllerTreeItem = new RecursiveTreeItem<>\r\n                (externalFramingMaterials, RecursiveTreeObject::getChildren);\r\n        MATERIALS_TBL.setRoot(externalFramingControllerTreeItem);\r\n        MATERIALS_TBL.setShowRoot(false);\r\n\r\n        //poles\r\n        externalFramingMaterials.addAll(new externalFramingMaterials(\"RWBP17542\",\r\n                \"4.2M BUILDING POLE H5 175-199\", \"EACH\", \"5\"));\r\n        externalFramingMaterials.addAll(new externalFramingMaterials(\"RWBP17548\",\r\n                \"4.8M BUILDING POLE H5 175-199\", \"EACH\", \"10\"));\r\n        externalFramingMaterials.addAll(new externalFramingMaterials(\"RWBP17554\",\r\n                \"5.4M BUILDING POLE H5 175-199\", \"EACH\", \"5\"));\r\n\r\n        //purlins\r\n        externalFramingMaterials.addAll(new externalFramingMaterials(\"15050RVH32RS36\",\r\n                \"150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M\", \"LGTH\", \"66\"));\r\n        externalFramingMaterials.addAll(new externalFramingMaterials(\"15050RVH32RS48\",\r\n                \"150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M\", \"LGTH\", \"32\"));\r\n        externalFramingMaterials.addAll(new externalFramingMaterials(\"15050RVH32RS60\",\r\n                \"150 X 50 RAD SG8 VERIFIED H3.2 WET RS 6.0M\", \"LGTH\", \"6\"));\r\n        externalFramingMaterials.addAll(new externalFramingMaterials(\"20050RVH32RS48\",\r\n                \"200 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M\", \"LGTH\", \"52\"));\r\n        externalFramingMaterials.addAll(new externalFramingMaterials(\"25050RVH32RS48\",\r\n                \"250 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M\", \"LGTH\", \"24\"));\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Controllers/Sheets/Shed/externalFramingController.java	(revision 2cac3f05d912f8991c46b3d4cefe15c7c732c731)
++++ src/Controllers/Sheets/Shed/externalFramingController.java	(date 1602498119259)
+@@ -81,16 +81,14 @@
+         MATERIALS_TBL.setRoot(externalFramingControllerTreeItem);
+         MATERIALS_TBL.setShowRoot(false);
+ 
+-        //poles
+-        externalFramingMaterials.addAll(new externalFramingMaterials("RWBP17542",
++        externalFramingMaterials.addAll(new externalFramingMaterials("RWBP17542", //poles
+                 "4.2M BUILDING POLE H5 175-199", "EACH", "5"));
+         externalFramingMaterials.addAll(new externalFramingMaterials("RWBP17548",
+                 "4.8M BUILDING POLE H5 175-199", "EACH", "10"));
+         externalFramingMaterials.addAll(new externalFramingMaterials("RWBP17554",
+                 "5.4M BUILDING POLE H5 175-199", "EACH", "5"));
+ 
+-        //purlins
+-        externalFramingMaterials.addAll(new externalFramingMaterials("15050RVH32RS36",
++        externalFramingMaterials.addAll(new externalFramingMaterials("15050RVH32RS36", //purlins
+                 "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M", "LGTH", "66"));
+         externalFramingMaterials.addAll(new externalFramingMaterials("15050RVH32RS48",
+                 "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M", "LGTH", "32"));

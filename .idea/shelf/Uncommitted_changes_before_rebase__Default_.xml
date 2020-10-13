@@ -1,0 +1,9 @@
+<changelist name="Uncommitted_changes_before_rebase_[Default]" date="1602566913818" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Default]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before rebase [Default]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/PTGraphiQS/Controllers/setupSheetsController.class" />
+    <option name="AFTER_PATH" value="out/production/PTGraphiQS/Controllers/setupSheetsController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Default]/setupSheetsController.class" />
+  </binary>
+</changelist>
