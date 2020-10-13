@@ -81,16 +81,14 @@ public class externalFramingController implements Initializable {
         MATERIALS_TBL.setRoot(externalFramingControllerTreeItem);
         MATERIALS_TBL.setShowRoot(false);
 
-        //poles
-        externalFramingMaterials.addAll(new externalFramingMaterials("RWBP17542",
+        externalFramingMaterials.addAll(new externalFramingMaterials("RWBP17542", //poles
                 "4.2M BUILDING POLE H5 175-199", "EACH", "5"));
         externalFramingMaterials.addAll(new externalFramingMaterials("RWBP17548",
                 "4.8M BUILDING POLE H5 175-199", "EACH", "10"));
         externalFramingMaterials.addAll(new externalFramingMaterials("RWBP17554",
                 "5.4M BUILDING POLE H5 175-199", "EACH", "5"));
 
-        //purlins
-        externalFramingMaterials.addAll(new externalFramingMaterials("15050RVH32RS36",
+        externalFramingMaterials.addAll(new externalFramingMaterials("15050RVH32RS36", //purlins
                 "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M", "LGTH", "66"));
         externalFramingMaterials.addAll(new externalFramingMaterials("15050RVH32RS48",
                 "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M", "LGTH", "32"));

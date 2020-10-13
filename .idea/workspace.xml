@@ -25,26 +25,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-stamping for sheets (ongoing)&#10;-10/08/20">
-      <change afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/externalFramingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/data/shed/externalFramingMaterials.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/data/shed/foundationsMaterials.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Residential/foundationsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Residential/foundationsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/foundationsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/foundationsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/setupSheetsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/setupSheetsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/extOpenings.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/foundations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/foundations.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/intOpenings.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/postAndBeams.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/wallsSglLev.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Residential/foundationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Residential/foundationsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/claddingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/framingHardwareController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/data/shed/claddingMaterials.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/data/shed/framingHardwareMaterials.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/cladding.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/framingHardware.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/externalFramingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/externalFramingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/setupSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/setupSheetsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/extOpenings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/externalFraming.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/foundations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/foundations.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/intOpenings.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/postAndBeams.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/wallsSglLev.fxml" beforeDir="false" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
     <list id="4dddbee8-77b6-41fd-be25-1624817806eb" name="Revert &quot;#60 commit&quot;" comment="Revert &quot;#60 commit&quot;&#10;&#10;This reverts commit 096c3c72" />
@@ -76,14 +64,14 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="UI" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="MIXED" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>false</service-enabled>
@@ -149,12 +137,12 @@
       <recent name="Controllers.Sheets" />
       <recent name="Controllers" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets\Residential" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\data backup" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Framing" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Floors" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PTGraphiQS\src\Views" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets\Shed" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Model\data" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Controllers" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Model.data.shed" />
@@ -163,12 +151,12 @@
       <recent name="Controllers.Sheets" />
       <recent name="Test" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets\Shed" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Model\data" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Controllers" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets\Residential" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\data backup" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Framing" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Floors" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PTGraphiQS\src\Views" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -1218,15 +1206,19 @@
     </state>
     <state x="432" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595788561514" />
     <state x="2266" y="158" width="1054" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602071617371" />
-    <state x="552" y="248" key="Vcs.Push.Dialog.v2" timestamp="1602468200344">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2472" y="248" key="Vcs.Push.Dialog.v2" timestamp="1602567949062">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602468200344" />
-    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602125569021" />
+    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602567949062" />
     <state x="753" y="454" key="classpath-attribute-editor" timestamp="1595788555192">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="753" y="454" key="classpath-attribute-editor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595788555192" />
+    <state x="2012" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1602567949736">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2012" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602567949736" />
     <state x="107" y="77" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1595259214180">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
