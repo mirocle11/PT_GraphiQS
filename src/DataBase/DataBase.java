@@ -22,7 +22,7 @@ import java.util.Collections;
 
 public class DataBase {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/";
+    private static final String URL = "jdbc:mysql://localhost:3306/pt_graphiqs_db?serverTimezone=UTC";
     private static Connection connection;
     private static String dbName = "pt_graphiqs_db";
 
@@ -41,7 +41,7 @@ public class DataBase {
     private DataBase() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(URL + dbName, "root", "password");
+            connection = DriverManager.getConnection(URL + dbName, "root", "");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -53,7 +53,7 @@ public class DataBase {
     public void createDatabase() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(URL, "root","password");
+            connection = DriverManager.getConnection(URL, "root","");
             Statement statement = connection.createStatement();
             statement.executeUpdate("CREATE DATABASE IF NOT EXISTS " + dbName);
             setTables();
@@ -64,7 +64,6 @@ public class DataBase {
 
     public void setTables() {
         try {
-            connection = DriverManager.getConnection(URL + dbName, "root", "password");
 
             String CREATE_USERS_TBL = "CREATE TABLE IF NOT EXISTS USERS_TBL(ID INTEGER NOT NULL AUTO_INCREMENT, " +
                     "USERNAME VARCHAR(20), PASSWORD VARCHAR(20), POSITION VARCHAR(20), SECURITY_QUESTION VARCHAR(45), " +

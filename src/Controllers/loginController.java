@@ -1,6 +1,5 @@
 package Controllers;
 
-import DataBase.DataBase;
 import Main.Main;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -30,11 +29,11 @@ public class loginController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         LOGIN.setDefaultButton(true);
         LOGIN.setOnAction((ActionEvent event) -> {
-            DataBase db = DataBase.getInstance();
-            if (db.setAccountIndex(workspaceController.user_id, USERNAME.getText(), PASSWORD.getText())) {
+//            DataBase db = DataBase.getInstance();
+//            if (db.setAccountIndex(workspaceController.user_id, USERNAME.getText(), PASSWORD.getText())) {
                 main.closeLoginStage();
                 main.mainWindow();
-            }
+//            }
         });
 
         CLOSE.setOnAction(event -> main.closeLoginStage());

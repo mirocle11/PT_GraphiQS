@@ -27,6 +27,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.*;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
@@ -68,6 +69,16 @@ public class workspaceController implements Initializable {
     public VBox toolsMenu;
     public Label toastLabel;
     public JFXButton PREVIOUS_PAGE, NEXT_PAGE;
+    public AnchorPane MISCELLANEOUS_PICKER;
+    public JFXTextField CONCRETE_FLOOR_LENGTH;
+    public JFXTextField CONCRETE_FLOOR_WIDTH;
+    public JFXTextField CONCRETE_FLOOR_THICKNESS;
+    public JFXButton MISCELLANEOUS_DONE;
+    public JFXButton MISCELLANEOUS_CLOSE;
+    public Label CONCRETE_FLOOR_LENGTH_ERROR;
+    public Label CONCRETE_FLOOR_WIDTH_ERROR;
+    public Label CONCRETE_FLOOR_THICKNESS_ERROR;
+
 
     //collections
     List<Shape> shapeList = new ArrayList<>();
@@ -255,6 +266,60 @@ public class workspaceController implements Initializable {
             fs_indicator = 0;
 
             STAMP_TYPE.getSelectionModel().clearSelection();
+        });
+
+        MISCELLANEOUS_DONE.setOnAction(event -> {
+            try{
+                double lenght = Double.parseDouble(CONCRETE_FLOOR_LENGTH.getText());
+                double width = Double.parseDouble(CONCRETE_FLOOR_WIDTH.getText());
+                double thickness = Double.parseDouble(CONCRETE_FLOOR_THICKNESS.getText());
+                layoutsController.concreteData.add(0,CONCRETE_FLOOR_LENGTH.getText());
+                layoutsController.concreteData.add(1,CONCRETE_FLOOR_WIDTH.getText());
+                layoutsController.concreteData.add(2,CONCRETE_FLOOR_THICKNESS.getText());
+                double volume = lenght*width*thickness;
+                layoutsController.concreteData.add(3,Double.toString(volume));
+
+                CONCRETE_FLOOR_LENGTH_ERROR.setVisible(false);
+                CONCRETE_FLOOR_WIDTH_ERROR.setVisible(false);
+                CONCRETE_FLOOR_THICKNESS_ERROR.setVisible(false);
+                CONCRETE_FLOOR_LENGTH.setUnFocusColor(Paint.valueOf("#b9b9b9"));
+                CONCRETE_FLOOR_WIDTH.setUnFocusColor(Paint.valueOf("#b9b9b9"));
+                CONCRETE_FLOOR_THICKNESS.setUnFocusColor(Paint.valueOf("#b9b9b9"));
+                MISCELLANEOUS_PICKER.setVisible(false);
+            }catch (Exception e){
+                try {
+                    double lenght = Double.parseDouble(CONCRETE_FLOOR_LENGTH.getText());
+                    CONCRETE_FLOOR_LENGTH.setUnFocusColor(Paint.valueOf("#b9b9b9"));
+                    CONCRETE_FLOOR_LENGTH_ERROR.setVisible(false);
+                }catch (Exception a){
+                    CONCRETE_FLOOR_LENGTH.setUnFocusColor(Paint.valueOf("#ff5148"));
+                    CONCRETE_FLOOR_LENGTH_ERROR.setVisible(true);
+                }
+                try {
+                    double width = Double.parseDouble(CONCRETE_FLOOR_WIDTH.getText());
+                    CONCRETE_FLOOR_WIDTH.setUnFocusColor(Paint.valueOf("#b9b9b9"));
+                    CONCRETE_FLOOR_WIDTH_ERROR.setVisible(false);
+                }catch (Exception a){
+                    CONCRETE_FLOOR_WIDTH.setUnFocusColor(Paint.valueOf("#ff5148"));
+                    CONCRETE_FLOOR_WIDTH_ERROR.setVisible(true);
+                }
+                try {
+                    double thickness = Double.parseDouble(CONCRETE_FLOOR_THICKNESS.getText());
+                    CONCRETE_FLOOR_THICKNESS.setUnFocusColor(Paint.valueOf("#b9b9b9"));
+                    CONCRETE_FLOOR_THICKNESS_ERROR.setVisible(false);
+                }catch (Exception a){
+                    CONCRETE_FLOOR_THICKNESS.setUnFocusColor(Paint.valueOf("#ff5148"));
+                    CONCRETE_FLOOR_THICKNESS_ERROR.setVisible(true);
+                }
+            }
+
+        });
+
+        MISCELLANEOUS_CLOSE.setOnAction(event -> {
+            CONCRETE_FLOOR_LENGTH.setText("");
+            CONCRETE_FLOOR_WIDTH.setText("");
+            CONCRETE_FLOOR_THICKNESS.setText("");
+            MISCELLANEOUS_PICKER.setVisible(false);
         });
 
         wallData = new WallData(this);
@@ -776,4 +841,8 @@ public class workspaceController implements Initializable {
         });
     }
 
+    //Miscellaneous
+    public void miscellaneousAction() {
+        MISCELLANEOUS_PICKER.setVisible(true);
+    }
 }

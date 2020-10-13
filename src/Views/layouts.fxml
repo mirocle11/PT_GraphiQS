@@ -15,6 +15,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
@@ -139,7 +140,7 @@
                   <Image url="@images/search_25px.png" />
                </image>
             </ImageView>
-            <ScrollPane fx:id="lengthScrollPane" layoutX="27.0" layoutY="70.0" maxWidth="1360.0" prefHeight="610.0" prefWidth="634.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="75.0">
+            <ScrollPane fx:id="lengthScrollPane" layoutX="27.0" layoutY="70.0" maxWidth="1360.0" prefHeight="610.0" prefWidth="634.0" visible="false" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="75.0">
                <content>
                   <Group>
                      <children>
@@ -205,6 +206,39 @@
                   <TreeTableColumn fx:id="FOUNDATIONS_VOLUME" prefWidth="128.0" text="Volume" />
                </columns>
             </JFXTreeTableView>
+            <Pane fx:id="CONCRETE_PANE" layoutX="64.0" layoutY="89.0" prefHeight="329.0" prefWidth="453.0">
+               <children>
+                  <Label layoutX="7.0" layoutY="24.0" text="Concrete Floor" textFill="#bcbcbc">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="7.0" layoutY="80.0" text="Length" textFill="#bcbcbc">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="7.0" layoutY="113.0" text="Width" textFill="#bcbcbc">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="7.0" layoutY="147.0" text="Thickness" textFill="#bcbcbc">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="CONCRETE_LENGTH" layoutX="109.0" layoutY="67.0" />
+                  <JFXTextField fx:id="CONCRETE_WIDTH" layoutX="109.0" layoutY="100.0" />
+                  <JFXTextField fx:id="CONCRETE_THICKNESS" layoutX="109.0" layoutY="134.0" />
+                  <Label layoutX="7.0" layoutY="178.0" text="Volume" textFill="#bcbcbc">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="CONCRETE_VOLUME" layoutX="109.0" layoutY="165.0" />
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
    </center>
