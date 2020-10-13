@@ -7,6 +7,7 @@ import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
@@ -16,6 +17,7 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -89,9 +91,17 @@ public class layoutsController implements Initializable {
     public static ObservableList<windowData> windowData;
     public static ObservableList<claddingData> claddingData;
     public static ObservableList<foundationsStampData> foundationsStampData;
+    public static ObservableList<String> concreteData;
+
+    public Pane CONCRETE_PANE;
+    public JFXTextField CONCRETE_LENGTH;
+    public JFXTextField CONCRETE_WIDTH;
+    public JFXTextField CONCRETE_THICKNESS;
+    public JFXTextField CONCRETE_VOLUME;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         FOUNDATIONS_PF_TOTAL.setEditable(false);
         FOUNDATIONS_CB_TOTAL.setEditable(false);
 
@@ -302,6 +312,15 @@ public class layoutsController implements Initializable {
             DataBase db = DataBase.getInstance();
             db.getFoundationsTotal(FOUNDATIONS_PF_TOTAL, FOUNDATIONS_CB_TOTAL);
         });
+
+
+        concreteData = FXCollections.observableArrayList();
+
+        CONCRETE_LENGTH.textProperty().bind(Bindings.stringValueAt(concreteData, 0));
+        CONCRETE_WIDTH.textProperty().bind(Bindings.stringValueAt(concreteData, 1));
+        CONCRETE_THICKNESS.textProperty().bind(Bindings.stringValueAt(concreteData, 2));
+        CONCRETE_VOLUME.textProperty().bind(Bindings.stringValueAt(concreteData, 3));
+
     }
 
     private void showDetails(TreeItem<layoutsData> treeItem) {
