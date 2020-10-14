@@ -16,6 +16,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
@@ -93,11 +94,16 @@ public class layoutsController implements Initializable {
     public static ObservableList<foundationsStampData> foundationsStampData;
     public static ObservableList<String> concreteData;
 
-    public Pane CONCRETE_PANE;
-    public JFXTextField CONCRETE_LENGTH;
-    public JFXTextField CONCRETE_WIDTH;
-    public JFXTextField CONCRETE_THICKNESS;
-    public JFXTextField CONCRETE_VOLUME;
+    public Pane CONCRETE_FLOOR_TBL;
+    public JFXTextField CONCRETE_FLOOR_LENGTH;
+    public JFXTextField CONCRETE_FLOOR_WIDTH;
+    public JFXTextField CONCRETE_FLOOR_THICKNESS;
+    public JFXTextField CONCRETE_FLOOR_VOLUME;
+    public JFXTextField CONCRETE_FLOOR_AREA;
+    public JFXButton POST_FOOTING_BTN;
+    public JFXButton CONCRETE_BORES_BTN;
+    public JFXButton CONCRETE_FLOORS_BTN;
+    public AnchorPane FOUNDATIONS_TAB;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -275,7 +281,7 @@ public class layoutsController implements Initializable {
             STAMP_TBL.setVisible(true);
             WINDOW_TBL.setVisible(false);
             CLADDING_TBL.setVisible(false);
-            FOUNDATIONS_TBL.setVisible(false);
+            FOUNDATIONS_TAB.setVisible(false);
         });
 
         LENGTH.setOnAction(event -> {
@@ -283,7 +289,7 @@ public class layoutsController implements Initializable {
             STAMP_TBL.setVisible(false);
             WINDOW_TBL.setVisible(false);
             CLADDING_TBL.setVisible(false);
-            FOUNDATIONS_TBL.setVisible(false);
+            FOUNDATIONS_TAB.setVisible(false);
         });
 
         WINDOWS.setOnAction(event -> {
@@ -291,7 +297,7 @@ public class layoutsController implements Initializable {
             STAMP_TBL.setVisible(false);
             CLADDING_TBL.setVisible(false);
             WINDOW_TBL.setVisible(true);
-            FOUNDATIONS_TBL.setVisible(false);
+            FOUNDATIONS_TAB.setVisible(false);
         });
 
         CLADDING.setOnAction(event -> {
@@ -299,7 +305,7 @@ public class layoutsController implements Initializable {
             STAMP_TBL.setVisible(false);
             WINDOW_TBL.setVisible(false);
             CLADDING_TBL.setVisible(true);
-            FOUNDATIONS_TBL.setVisible(false);
+            FOUNDATIONS_TAB.setVisible(false);
         });
 
         FOUNDATIONS.setOnAction(event -> {
@@ -307,19 +313,36 @@ public class layoutsController implements Initializable {
             STAMP_TBL.setVisible(false);
             WINDOW_TBL.setVisible(false);
             CLADDING_TBL.setVisible(false);
-            FOUNDATIONS_TBL.setVisible(true);
+            FOUNDATIONS_TAB.setVisible(true);
 
             DataBase db = DataBase.getInstance();
             db.getFoundationsTotal(FOUNDATIONS_PF_TOTAL, FOUNDATIONS_CB_TOTAL);
         });
 
+        POST_FOOTING_BTN.setOnAction(event -> {
+            FOUNDATIONS_TBL.setVisible(true);
+            CONCRETE_FLOOR_TBL.setVisible(false);
+        });
+
+        CONCRETE_BORES_BTN.setOnAction(event -> {
+            FOUNDATIONS_TBL.setVisible(true);
+            CONCRETE_FLOOR_TBL.setVisible(false);
+        });
+
+        CONCRETE_FLOORS_BTN.setOnAction(event -> {
+            FOUNDATIONS_TBL.setVisible(false);
+            CONCRETE_FLOOR_TBL.setVisible(true);
+        });
+
+
+
 
         concreteData = FXCollections.observableArrayList();
-
-        CONCRETE_LENGTH.textProperty().bind(Bindings.stringValueAt(concreteData, 0));
-        CONCRETE_WIDTH.textProperty().bind(Bindings.stringValueAt(concreteData, 1));
-        CONCRETE_THICKNESS.textProperty().bind(Bindings.stringValueAt(concreteData, 2));
-        CONCRETE_VOLUME.textProperty().bind(Bindings.stringValueAt(concreteData, 3));
+        CONCRETE_FLOOR_LENGTH.textProperty().bind(Bindings.stringValueAt(concreteData, 0));
+        CONCRETE_FLOOR_WIDTH.textProperty().bind(Bindings.stringValueAt(concreteData, 1));
+        CONCRETE_FLOOR_THICKNESS.textProperty().bind(Bindings.stringValueAt(concreteData, 2));
+        CONCRETE_FLOOR_VOLUME.textProperty().bind(Bindings.stringValueAt(concreteData, 3));
+        CONCRETE_FLOOR_AREA.textProperty().bind(Bindings.stringValueAt(concreteData, 4));
 
     }
 
