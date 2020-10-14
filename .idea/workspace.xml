@@ -25,12 +25,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-9/21/20">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_10_13_2020_1_32_PM__Default_.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_1.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/setupSheetsController.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/setupSheetsController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_.xml" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/layoutsController.java" afterPath="$PROJECT_DIR$/src/Controllers/layoutsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Views/layouts.fxml" afterPath="$PROJECT_DIR$/src/Views/layouts.fxml" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
     <list id="4dddbee8-77b6-41fd-be25-1624817806eb" name="Revert &quot;#60 commit&quot;" comment="Revert &quot;#60 commit&quot;&#10;&#10;This reverts commit 096c3c72" />
     <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="C:\Users\User\Desktop\GQS 2020\PT_GraphiQS\.idea\shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,152 +57,113 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="workspaceController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="workspaceController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/workspaceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="315" column="11" lean-forward="false" selection-start-line="315" selection-start-column="11" selection-end-line="315" selection-end-column="11" />
+            <state relative-caret-position="2652">
+              <caret line="199" column="40" lean-forward="false" selection-start-line="199" selection-start-column="40" selection-end-line="199" selection-end-column="40" />
               <folding>
+                <element signature="imports" expanded="false" />
                 <element signature="class#IconInfo#0;class#workspaceController#0" expanded="false" />
+                <element signature="e#7157#8392#0" expanded="false" />
+                <element signature="e#8473#9012#0" expanded="false" />
                 <element signature="e#9197#9751#0" expanded="false" />
                 <element signature="e#9853#10153#0" expanded="false" />
-                <element signature="e#13339#14724#0" expanded="false" />
-                <element signature="e#14853#14917#0" expanded="false" />
-                <element signature="e#14953#15095#0" expanded="false" />
-                <element signature="e#15130#15195#0" expanded="false" />
-                <element signature="e#16250#16603#0" expanded="false" />
+                <element signature="e#10196#12951#0" expanded="false" />
+                <element signature="e#12995#13210#0" expanded="false" />
+                <element signature="e#13436#14821#0" expanded="false" />
+                <element signature="e#14950#15014#0" expanded="false" />
+                <element signature="e#15050#15192#0" expanded="false" />
+                <element signature="e#15227#15292#0" expanded="false" />
+                <element signature="e#16347#16700#0" expanded="false" />
                 <element signature="method#showToast#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#17113#17359#0" expanded="false" />
+                <element signature="e#17210#17456#0" expanded="false" />
+                <element signature="e#17493#17494#0" expanded="false" />
+                <element signature="e#17521#17522#0" expanded="false" />
+                <element signature="e#17604#17605#0" expanded="false" />
+                <element signature="e#17653#17654#0" expanded="false" />
                 <element signature="method#setStructures#0;class#workspaceController#0" expanded="false" />
                 <element signature="method#connectStructures#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#17821#18070#0" expanded="false" />
-                <element signature="e#17887#18058#0" expanded="false" />
+                <element signature="e#17918#18167#0" expanded="false" />
+                <element signature="e#17984#18155#0" expanded="false" />
+                <element signature="e#18204#18205#0" expanded="false" />
+                <element signature="e#18232#18233#0" expanded="false" />
+                <element signature="e#18293#18294#0" expanded="false" />
+                <element signature="e#18331#18332#0" expanded="false" />
                 <element signature="method#scaledIndicator#0;class#workspaceController#0" expanded="false" />
                 <element signature="method#areaAction#0;class#workspaceController#0" expanded="false" />
                 <element signature="method#lengthAction#0;class#workspaceController#0" expanded="false" />
                 <element signature="method#claddingAction#0;class#workspaceController#0" expanded="false" />
+                <element signature="e#19312#19313#0" expanded="false" />
+                <element signature="e#19367#19368#0" expanded="false" />
+                <element signature="e#19403#19404#0" expanded="false" />
+                <element signature="e#19435#19436#0" expanded="false" />
+                <element signature="e#19475#19476#0" expanded="false" />
+                <element signature="e#19511#19512#0" expanded="false" />
+                <element signature="e#19544#19545#0" expanded="false" />
+                <element signature="e#19588#19589#0" expanded="false" />
                 <element signature="method#createIconList#0;class#workspaceController#0" expanded="false" />
                 <element signature="method#setStudHeight#0;class#workspaceController#0" expanded="false" />
                 <element signature="method#updateLine#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#21835#21918#0" expanded="false" />
-                <element signature="e#21967#22279#0" expanded="false" />
+                <element signature="e#21932#22015#0" expanded="false" />
+                <element signature="e#22064#22376#0" expanded="false" />
                 <element signature="method#zoom#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#23667#23735#0" expanded="false" />
-                <element signature="e#24202#25350#0" expanded="false" />
+                <element signature="e#23764#23832#0" expanded="false" />
+                <element signature="e#24299#25447#0" expanded="false" />
                 <element signature="method#figureScrollOffset#0;class#workspaceController#0" expanded="false" />
                 <element signature="method#repositionScroller#0;class#workspaceController#0" expanded="false" />
                 <element signature="method#clamp#0;class#workspaceController#0" expanded="false" />
                 <element signature="method#handlePan#0;class#workspaceController#0" expanded="false" />
                 <element signature="method#structureListTransition#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#28161#28296#0" expanded="false" />
-                <element signature="e#28712#28837#0" expanded="false" />
+                <element signature="e#28258#28393#0" expanded="false" />
+                <element signature="e#28809#28934#0" expanded="false" />
                 <element signature="method#closeMeasurementList#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#29290#29448#0" expanded="false" />
-                <element signature="e#29548#29620#0" expanded="false" />
-                <element signature="e#29721#29961#0" expanded="false" />
-                <element signature="e#29787#29949#0" expanded="false" />
+                <element signature="e#29387#29545#0" expanded="false" />
+                <element signature="e#29645#29717#0" expanded="false" />
+                <element signature="e#29818#30058#0" expanded="false" />
+                <element signature="e#29884#30046#0" expanded="false" />
                 <element signature="method#selectAll#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#30089#30168#0" expanded="false" />
+                <element signature="e#30186#30265#0" expanded="false" />
                 <element signature="method#unselectAllAction#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#30384#30604#0" expanded="false" />
-                <element signature="e#30439#30592#0" expanded="false" />
+                <element signature="e#30481#30701#0" expanded="false" />
+                <element signature="e#30536#30689#0" expanded="false" />
                 <element signature="method#saveStructures#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#30776#31030#0" expanded="false" />
-                <element signature="e#31353#31511#0" expanded="false" />
+                <element signature="e#30873#31127#0" expanded="false" />
+                <element signature="e#31450#31608#0" expanded="false" />
+                <element signature="e#31670#31671#0" expanded="false" />
+                <element signature="e#31714#31715#0" expanded="false" />
                 <element signature="method#setSelectedCladding#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#31730#31883#0" expanded="false" />
+                <element signature="e#31827#31980#0" expanded="false" />
                 <element signature="method#setCladdingIndicator#0;class#workspaceController#0" expanded="false" />
-                <element signature="e#31977#32246#0" expanded="false" />
-                <element signature="e#32032#32234#0" expanded="false" />
+                <element signature="e#32074#32343#0" expanded="false" />
+                <element signature="e#32129#32331#0" expanded="false" />
+                <element signature="e#32411#32412#0" expanded="false" />
+                <element signature="e#32464#32465#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loginController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/loginController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="32" column="51" lean-forward="false" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stampPickerController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/stampPickerController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="23" column="32" lean-forward="false" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="method#initialize#0;class#stampPickerController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layoutsController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="layoutsController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/layoutsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1428">
-              <caret line="325" column="5" lean-forward="false" selection-start-line="325" selection-start-column="5" selection-end-line="325" selection-end-column="5" />
+            <state relative-caret-position="540">
+              <caret line="332" column="46" lean-forward="false" selection-start-line="332" selection-start-column="46" selection-end-line="332" selection-end-column="46" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="method#initialize#0;class#layoutsController#0" expanded="false" />
                 <element signature="method#showDetails#0;class#layoutsController#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Area.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/service/Area.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="42" column="33" lean-forward="false" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DrawService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/service/DrawService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="method#drawLine#0;class#DrawService#0" expanded="false" />
-                <element signature="method#drawBox#0;class#DrawService#0" expanded="false" />
-                <element signature="method#drawLabel#0;class#DrawService#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="workspace.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Views/workspace.fxml">
+      <file leaf-file-name="layouts.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Views/layouts.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21080">
-              <caret line="1240" column="50" lean-forward="false" selection-start-line="1240" selection-start-column="50" selection-end-line="1240" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Views/CSS/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
-              <caret line="64" column="31" lean-forward="false" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="31" />
+            <state relative-caret-position="3298">
+              <caret line="194" column="36" lean-forward="false" selection-start-line="194" selection-start-column="36" selection-end-line="194" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -228,6 +199,8 @@
       <find>data</find>
       <find>stamp</find>
       <find>focus</find>
+      <find>FOUNDATIONS</find>
+      <find>FOUNDATIONS_TA</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -258,13 +231,13 @@
         <option value="$PROJECT_DIR$/out/production/PTGraphiQS/Views/CSS/style.css" />
         <option value="$PROJECT_DIR$/src/DataBase/DataBase.java" />
         <option value="$PROJECT_DIR$/src/Views/workspace.fxml" />
-        <option value="$PROJECT_DIR$/src/Views/layouts.fxml" />
         <option value="$PROJECT_DIR$/src/Model/data/layouts/concreteData.java" />
         <option value="$PROJECT_DIR$/src/Controllers/dashboardController.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/layoutsController.java" />
         <option value="$PROJECT_DIR$/src/Controllers/loginController.java" />
         <option value="$PROJECT_DIR$/src/Views/CSS/style.css" />
         <option value="$PROJECT_DIR$/src/Controllers/workspaceController.java" />
+        <option value="$PROJECT_DIR$/src/Views/layouts.fxml" />
+        <option value="$PROJECT_DIR$/src/Controllers/layoutsController.java" />
       </list>
     </option>
   </component>
@@ -374,8 +347,8 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -1158,6 +1131,9 @@
       <workItem from="1602553962845" duration="4594000" />
       <workItem from="1602558777584" duration="5355000" />
       <workItem from="1602633722230" duration="86000" />
+      <workItem from="1602636054550" duration="4891000" />
+      <workItem from="1602652950724" duration="426000" />
+      <workItem from="1602654032254" duration="14000" />
     </task>
     <task id="LOCAL-00078" summary="#94 commit sections progress">
       <created>1574326933464</created>
@@ -1506,7 +1482,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27147000" />
+    <option name="totallyTimeSpent" value="32478000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1519,24 +1495,23 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32870865" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24733475" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2553305" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1747,7 +1722,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Controllers/workspaceController.java</url>
-          <line>527</line>
+          <line>529</line>
           <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
@@ -1760,7 +1735,7 @@
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1769,37 +1744,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/service/DrawService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#drawLine#0;class#DrawService#0" expanded="false" />
-            <element signature="method#drawBox#0;class#DrawService#0" expanded="false" />
-            <element signature="method#drawLabel#0;class#DrawService#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/workspace.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17119">
-          <caret line="1007" column="53" lean-forward="false" selection-start-line="1007" selection-start-column="37" selection-end-line="1007" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/layoutsController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5066">
           <caret line="318" column="67" lean-forward="false" selection-start-line="318" selection-start-column="53" selection-end-line="318" selection-end-column="67" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#initialize#0;class#layoutsController#0" expanded="false" />
             <element signature="method#showDetails#0;class#layoutsController#0" expanded="false" />
           </folding>
         </state>
@@ -1810,57 +1759,82 @@
         <state relative-caret-position="2924">
           <caret line="273" column="34" lean-forward="false" selection-start-line="273" selection-start-column="34" selection-end-line="273" selection-end-column="34" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="class#IconInfo#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#7157#8392#0" expanded="false" />
+            <element signature="e#8473#9012#0" expanded="false" />
             <element signature="e#9197#9751#0" expanded="false" />
             <element signature="e#9853#10153#0" expanded="false" />
-            <element signature="e#13339#14724#0" expanded="false" />
-            <element signature="e#14853#14917#0" expanded="false" />
-            <element signature="e#14953#15095#0" expanded="false" />
-            <element signature="e#15130#15195#0" expanded="false" />
-            <element signature="e#16250#16603#0" expanded="false" />
+            <element signature="e#10196#12951#0" expanded="false" />
+            <element signature="e#12995#13210#0" expanded="false" />
+            <element signature="e#13436#14821#0" expanded="false" />
+            <element signature="e#14950#15014#0" expanded="false" />
+            <element signature="e#15050#15192#0" expanded="false" />
+            <element signature="e#15227#15292#0" expanded="false" />
+            <element signature="e#16347#16700#0" expanded="false" />
             <element signature="method#showToast#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#17113#17359#0" expanded="false" />
+            <element signature="e#17210#17456#0" expanded="false" />
+            <element signature="e#17493#17494#0" expanded="false" />
+            <element signature="e#17521#17522#0" expanded="false" />
+            <element signature="e#17604#17605#0" expanded="false" />
+            <element signature="e#17653#17654#0" expanded="false" />
             <element signature="method#setStructures#0;class#workspaceController#0" expanded="false" />
             <element signature="method#connectStructures#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#17821#18070#0" expanded="false" />
-            <element signature="e#17887#18058#0" expanded="false" />
+            <element signature="e#17918#18167#0" expanded="false" />
+            <element signature="e#17984#18155#0" expanded="false" />
+            <element signature="e#18204#18205#0" expanded="false" />
+            <element signature="e#18232#18233#0" expanded="false" />
+            <element signature="e#18293#18294#0" expanded="false" />
+            <element signature="e#18331#18332#0" expanded="false" />
             <element signature="method#scaledIndicator#0;class#workspaceController#0" expanded="false" />
             <element signature="method#areaAction#0;class#workspaceController#0" expanded="false" />
             <element signature="method#lengthAction#0;class#workspaceController#0" expanded="false" />
             <element signature="method#claddingAction#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#19312#19313#0" expanded="false" />
+            <element signature="e#19367#19368#0" expanded="false" />
+            <element signature="e#19403#19404#0" expanded="false" />
+            <element signature="e#19435#19436#0" expanded="false" />
+            <element signature="e#19475#19476#0" expanded="false" />
+            <element signature="e#19511#19512#0" expanded="false" />
+            <element signature="e#19544#19545#0" expanded="false" />
+            <element signature="e#19588#19589#0" expanded="false" />
             <element signature="method#createIconList#0;class#workspaceController#0" expanded="false" />
             <element signature="method#setStudHeight#0;class#workspaceController#0" expanded="false" />
             <element signature="method#updateLine#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#21835#21918#0" expanded="false" />
-            <element signature="e#21967#22279#0" expanded="false" />
+            <element signature="e#21932#22015#0" expanded="false" />
+            <element signature="e#22064#22376#0" expanded="false" />
             <element signature="method#zoom#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#23667#23735#0" expanded="false" />
-            <element signature="e#24202#25350#0" expanded="false" />
+            <element signature="e#23764#23832#0" expanded="false" />
+            <element signature="e#24299#25447#0" expanded="false" />
             <element signature="method#figureScrollOffset#0;class#workspaceController#0" expanded="false" />
             <element signature="method#repositionScroller#0;class#workspaceController#0" expanded="false" />
             <element signature="method#clamp#0;class#workspaceController#0" expanded="false" />
             <element signature="method#handlePan#0;class#workspaceController#0" expanded="false" />
             <element signature="method#structureListTransition#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#28161#28296#0" expanded="false" />
-            <element signature="e#28712#28837#0" expanded="false" />
+            <element signature="e#28258#28393#0" expanded="false" />
+            <element signature="e#28809#28934#0" expanded="false" />
             <element signature="method#closeMeasurementList#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#29290#29448#0" expanded="false" />
-            <element signature="e#29548#29620#0" expanded="false" />
-            <element signature="e#29721#29961#0" expanded="false" />
-            <element signature="e#29787#29949#0" expanded="false" />
+            <element signature="e#29387#29545#0" expanded="false" />
+            <element signature="e#29645#29717#0" expanded="false" />
+            <element signature="e#29818#30058#0" expanded="false" />
+            <element signature="e#29884#30046#0" expanded="false" />
             <element signature="method#selectAll#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#30089#30168#0" expanded="false" />
+            <element signature="e#30186#30265#0" expanded="false" />
             <element signature="method#unselectAllAction#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#30384#30604#0" expanded="false" />
-            <element signature="e#30439#30592#0" expanded="false" />
+            <element signature="e#30481#30701#0" expanded="false" />
+            <element signature="e#30536#30689#0" expanded="false" />
             <element signature="method#saveStructures#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#30776#31030#0" expanded="false" />
-            <element signature="e#31353#31511#0" expanded="false" />
+            <element signature="e#30873#31127#0" expanded="false" />
+            <element signature="e#31450#31608#0" expanded="false" />
+            <element signature="e#31670#31671#0" expanded="false" />
+            <element signature="e#31714#31715#0" expanded="false" />
             <element signature="method#setSelectedCladding#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#31730#31883#0" expanded="false" />
+            <element signature="e#31827#31980#0" expanded="false" />
             <element signature="method#setCladdingIndicator#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#31977#32246#0" expanded="false" />
-            <element signature="e#32032#32234#0" expanded="false" />
+            <element signature="e#32074#32343#0" expanded="false" />
+            <element signature="e#32129#32331#0" expanded="false" />
+            <element signature="e#32411#32412#0" expanded="false" />
+            <element signature="e#32464#32465#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1937,9 +1911,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3910">
           <caret line="230" column="54" lean-forward="false" selection-start-line="230" selection-start-column="39" selection-end-line="230" selection-end-column="54" />
-          <folding>
-            <element signature="n#bottom#0;n#BorderPane#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1970,8 +1942,6 @@
         <state relative-caret-position="5423">
           <caret line="338" column="28" lean-forward="true" selection-start-line="338" selection-start-column="28" selection-end-line="338" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#initialize#0;class#layoutsController#0" expanded="false" />
             <element signature="method#showDetails#0;class#layoutsController#0" expanded="false" />
           </folding>
         </state>
@@ -1982,57 +1952,82 @@
         <state relative-caret-position="4573">
           <caret line="481" column="5" lean-forward="true" selection-start-line="481" selection-start-column="5" selection-end-line="481" selection-end-column="5" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="class#IconInfo#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#7157#8392#0" expanded="false" />
+            <element signature="e#8473#9012#0" expanded="false" />
             <element signature="e#9197#9751#0" expanded="false" />
             <element signature="e#9853#10153#0" expanded="false" />
-            <element signature="e#13339#14724#0" expanded="false" />
-            <element signature="e#14853#14917#0" expanded="false" />
-            <element signature="e#14953#15095#0" expanded="false" />
-            <element signature="e#15130#15195#0" expanded="false" />
-            <element signature="e#16250#16603#0" expanded="false" />
+            <element signature="e#10196#12951#0" expanded="false" />
+            <element signature="e#12995#13210#0" expanded="false" />
+            <element signature="e#13436#14821#0" expanded="false" />
+            <element signature="e#14950#15014#0" expanded="false" />
+            <element signature="e#15050#15192#0" expanded="false" />
+            <element signature="e#15227#15292#0" expanded="false" />
+            <element signature="e#16347#16700#0" expanded="false" />
             <element signature="method#showToast#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#17113#17359#0" expanded="false" />
+            <element signature="e#17210#17456#0" expanded="false" />
+            <element signature="e#17493#17494#0" expanded="false" />
+            <element signature="e#17521#17522#0" expanded="false" />
+            <element signature="e#17604#17605#0" expanded="false" />
+            <element signature="e#17653#17654#0" expanded="false" />
             <element signature="method#setStructures#0;class#workspaceController#0" expanded="false" />
             <element signature="method#connectStructures#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#17821#18070#0" expanded="false" />
-            <element signature="e#17887#18058#0" expanded="false" />
+            <element signature="e#17918#18167#0" expanded="false" />
+            <element signature="e#17984#18155#0" expanded="false" />
+            <element signature="e#18204#18205#0" expanded="false" />
+            <element signature="e#18232#18233#0" expanded="false" />
+            <element signature="e#18293#18294#0" expanded="false" />
+            <element signature="e#18331#18332#0" expanded="false" />
             <element signature="method#scaledIndicator#0;class#workspaceController#0" expanded="false" />
             <element signature="method#areaAction#0;class#workspaceController#0" expanded="false" />
             <element signature="method#lengthAction#0;class#workspaceController#0" expanded="false" />
             <element signature="method#claddingAction#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#19312#19313#0" expanded="false" />
+            <element signature="e#19367#19368#0" expanded="false" />
+            <element signature="e#19403#19404#0" expanded="false" />
+            <element signature="e#19435#19436#0" expanded="false" />
+            <element signature="e#19475#19476#0" expanded="false" />
+            <element signature="e#19511#19512#0" expanded="false" />
+            <element signature="e#19544#19545#0" expanded="false" />
+            <element signature="e#19588#19589#0" expanded="false" />
             <element signature="method#createIconList#0;class#workspaceController#0" expanded="false" />
             <element signature="method#setStudHeight#0;class#workspaceController#0" expanded="false" />
             <element signature="method#updateLine#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#21835#21918#0" expanded="false" />
-            <element signature="e#21967#22279#0" expanded="false" />
+            <element signature="e#21932#22015#0" expanded="false" />
+            <element signature="e#22064#22376#0" expanded="false" />
             <element signature="method#zoom#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#23667#23735#0" expanded="false" />
-            <element signature="e#24202#25350#0" expanded="false" />
+            <element signature="e#23764#23832#0" expanded="false" />
+            <element signature="e#24299#25447#0" expanded="false" />
             <element signature="method#figureScrollOffset#0;class#workspaceController#0" expanded="false" />
             <element signature="method#repositionScroller#0;class#workspaceController#0" expanded="false" />
             <element signature="method#clamp#0;class#workspaceController#0" expanded="false" />
             <element signature="method#handlePan#0;class#workspaceController#0" expanded="false" />
             <element signature="method#structureListTransition#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#28161#28296#0" expanded="false" />
-            <element signature="e#28712#28837#0" expanded="false" />
+            <element signature="e#28258#28393#0" expanded="false" />
+            <element signature="e#28809#28934#0" expanded="false" />
             <element signature="method#closeMeasurementList#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#29290#29448#0" expanded="false" />
-            <element signature="e#29548#29620#0" expanded="false" />
-            <element signature="e#29721#29961#0" expanded="false" />
-            <element signature="e#29787#29949#0" expanded="false" />
+            <element signature="e#29387#29545#0" expanded="false" />
+            <element signature="e#29645#29717#0" expanded="false" />
+            <element signature="e#29818#30058#0" expanded="false" />
+            <element signature="e#29884#30046#0" expanded="false" />
             <element signature="method#selectAll#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#30089#30168#0" expanded="false" />
+            <element signature="e#30186#30265#0" expanded="false" />
             <element signature="method#unselectAllAction#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#30384#30604#0" expanded="false" />
-            <element signature="e#30439#30592#0" expanded="false" />
+            <element signature="e#30481#30701#0" expanded="false" />
+            <element signature="e#30536#30689#0" expanded="false" />
             <element signature="method#saveStructures#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#30776#31030#0" expanded="false" />
-            <element signature="e#31353#31511#0" expanded="false" />
+            <element signature="e#30873#31127#0" expanded="false" />
+            <element signature="e#31450#31608#0" expanded="false" />
+            <element signature="e#31670#31671#0" expanded="false" />
+            <element signature="e#31714#31715#0" expanded="false" />
             <element signature="method#setSelectedCladding#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#31730#31883#0" expanded="false" />
+            <element signature="e#31827#31980#0" expanded="false" />
             <element signature="method#setCladdingIndicator#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#31977#32246#0" expanded="false" />
-            <element signature="e#32032#32234#0" expanded="false" />
+            <element signature="e#32074#32343#0" expanded="false" />
+            <element signature="e#32129#32331#0" expanded="false" />
+            <element signature="e#32411#32412#0" expanded="false" />
+            <element signature="e#32464#32465#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2042,8 +2037,6 @@
         <state relative-caret-position="68">
           <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#initialize#0;class#layoutsController#0" expanded="false" />
             <element signature="method#showDetails#0;class#layoutsController#0" expanded="false" />
           </folding>
         </state>
@@ -2067,9 +2060,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#bottom#0;n#BorderPane#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2149,13 +2140,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libraries/mysql-connector-java-8.0.19.jar!/com/mysql/cj/jdbc/exceptions/SQLError.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="152" column="0" lean-forward="true" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -2277,19 +2261,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/layouts.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="230" column="54" lean-forward="false" selection-start-line="230" selection-start-column="39" selection-end-line="230" selection-end-column="54" />
-          <folding>
-            <element signature="n#bottom#0;n#BorderPane#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Views/viewSubtrade.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -2305,9 +2276,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="42" column="33" lean-forward="false" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2361,18 +2329,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/layoutsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="325" column="5" lean-forward="false" selection-start-line="325" selection-start-column="5" selection-end-line="325" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#initialize#0;class#layoutsController#0" expanded="false" />
-            <element signature="method#showDetails#0;class#layoutsController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/loginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -2383,24 +2339,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/DrawService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#drawLine#0;class#DrawService#0" expanded="false" />
-            <element signature="method#drawBox#0;class#DrawService#0" expanded="false" />
-            <element signature="method#drawLabel#0;class#DrawService#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Views/CSS/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1088">
           <caret line="64" column="31" lean-forward="false" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="31" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libraries/mysql-connector-java-8.0.19.jar!/com/mysql/cj/jdbc/exceptions/SQLError.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -2409,68 +2358,139 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21080">
+        <state relative-caret-position="515">
           <caret line="1240" column="50" lean-forward="false" selection-start-line="1240" selection-start-column="50" selection-end-line="1240" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/registerSubtrade.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/javafx-src.zip!/com/sun/javafx/tk/quantum/GlassViewEventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="430" column="0" lean-forward="false" selection-start-line="430" selection-start-column="0" selection-end-line="430" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/DrawService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/workspaceController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="315" column="11" lean-forward="false" selection-start-line="315" selection-start-column="11" selection-end-line="315" selection-end-column="11" />
+        <state relative-caret-position="2652">
+          <caret line="199" column="40" lean-forward="false" selection-start-line="199" selection-start-column="40" selection-end-line="199" selection-end-column="40" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="class#IconInfo#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#7157#8392#0" expanded="false" />
+            <element signature="e#8473#9012#0" expanded="false" />
             <element signature="e#9197#9751#0" expanded="false" />
             <element signature="e#9853#10153#0" expanded="false" />
-            <element signature="e#13339#14724#0" expanded="false" />
-            <element signature="e#14853#14917#0" expanded="false" />
-            <element signature="e#14953#15095#0" expanded="false" />
-            <element signature="e#15130#15195#0" expanded="false" />
-            <element signature="e#16250#16603#0" expanded="false" />
+            <element signature="e#10196#12951#0" expanded="false" />
+            <element signature="e#12995#13210#0" expanded="false" />
+            <element signature="e#13436#14821#0" expanded="false" />
+            <element signature="e#14950#15014#0" expanded="false" />
+            <element signature="e#15050#15192#0" expanded="false" />
+            <element signature="e#15227#15292#0" expanded="false" />
+            <element signature="e#16347#16700#0" expanded="false" />
             <element signature="method#showToast#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#17113#17359#0" expanded="false" />
+            <element signature="e#17210#17456#0" expanded="false" />
+            <element signature="e#17493#17494#0" expanded="false" />
+            <element signature="e#17521#17522#0" expanded="false" />
+            <element signature="e#17604#17605#0" expanded="false" />
+            <element signature="e#17653#17654#0" expanded="false" />
             <element signature="method#setStructures#0;class#workspaceController#0" expanded="false" />
             <element signature="method#connectStructures#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#17821#18070#0" expanded="false" />
-            <element signature="e#17887#18058#0" expanded="false" />
+            <element signature="e#17918#18167#0" expanded="false" />
+            <element signature="e#17984#18155#0" expanded="false" />
+            <element signature="e#18204#18205#0" expanded="false" />
+            <element signature="e#18232#18233#0" expanded="false" />
+            <element signature="e#18293#18294#0" expanded="false" />
+            <element signature="e#18331#18332#0" expanded="false" />
             <element signature="method#scaledIndicator#0;class#workspaceController#0" expanded="false" />
             <element signature="method#areaAction#0;class#workspaceController#0" expanded="false" />
             <element signature="method#lengthAction#0;class#workspaceController#0" expanded="false" />
             <element signature="method#claddingAction#0;class#workspaceController#0" expanded="false" />
+            <element signature="e#19312#19313#0" expanded="false" />
+            <element signature="e#19367#19368#0" expanded="false" />
+            <element signature="e#19403#19404#0" expanded="false" />
+            <element signature="e#19435#19436#0" expanded="false" />
+            <element signature="e#19475#19476#0" expanded="false" />
+            <element signature="e#19511#19512#0" expanded="false" />
+            <element signature="e#19544#19545#0" expanded="false" />
+            <element signature="e#19588#19589#0" expanded="false" />
             <element signature="method#createIconList#0;class#workspaceController#0" expanded="false" />
             <element signature="method#setStudHeight#0;class#workspaceController#0" expanded="false" />
             <element signature="method#updateLine#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#21835#21918#0" expanded="false" />
-            <element signature="e#21967#22279#0" expanded="false" />
+            <element signature="e#21932#22015#0" expanded="false" />
+            <element signature="e#22064#22376#0" expanded="false" />
             <element signature="method#zoom#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#23667#23735#0" expanded="false" />
-            <element signature="e#24202#25350#0" expanded="false" />
+            <element signature="e#23764#23832#0" expanded="false" />
+            <element signature="e#24299#25447#0" expanded="false" />
             <element signature="method#figureScrollOffset#0;class#workspaceController#0" expanded="false" />
             <element signature="method#repositionScroller#0;class#workspaceController#0" expanded="false" />
             <element signature="method#clamp#0;class#workspaceController#0" expanded="false" />
             <element signature="method#handlePan#0;class#workspaceController#0" expanded="false" />
             <element signature="method#structureListTransition#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#28161#28296#0" expanded="false" />
-            <element signature="e#28712#28837#0" expanded="false" />
+            <element signature="e#28258#28393#0" expanded="false" />
+            <element signature="e#28809#28934#0" expanded="false" />
             <element signature="method#closeMeasurementList#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#29290#29448#0" expanded="false" />
-            <element signature="e#29548#29620#0" expanded="false" />
-            <element signature="e#29721#29961#0" expanded="false" />
-            <element signature="e#29787#29949#0" expanded="false" />
+            <element signature="e#29387#29545#0" expanded="false" />
+            <element signature="e#29645#29717#0" expanded="false" />
+            <element signature="e#29818#30058#0" expanded="false" />
+            <element signature="e#29884#30046#0" expanded="false" />
             <element signature="method#selectAll#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#30089#30168#0" expanded="false" />
+            <element signature="e#30186#30265#0" expanded="false" />
             <element signature="method#unselectAllAction#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#30384#30604#0" expanded="false" />
-            <element signature="e#30439#30592#0" expanded="false" />
+            <element signature="e#30481#30701#0" expanded="false" />
+            <element signature="e#30536#30689#0" expanded="false" />
             <element signature="method#saveStructures#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#30776#31030#0" expanded="false" />
-            <element signature="e#31353#31511#0" expanded="false" />
+            <element signature="e#30873#31127#0" expanded="false" />
+            <element signature="e#31450#31608#0" expanded="false" />
+            <element signature="e#31670#31671#0" expanded="false" />
+            <element signature="e#31714#31715#0" expanded="false" />
             <element signature="method#setSelectedCladding#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#31730#31883#0" expanded="false" />
+            <element signature="e#31827#31980#0" expanded="false" />
             <element signature="method#setCladdingIndicator#0;class#workspaceController#0" expanded="false" />
-            <element signature="e#31977#32246#0" expanded="false" />
-            <element signature="e#32032#32234#0" expanded="false" />
+            <element signature="e#32074#32343#0" expanded="false" />
+            <element signature="e#32129#32331#0" expanded="false" />
+            <element signature="e#32411#32412#0" expanded="false" />
+            <element signature="e#32464#32465#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/layouts.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3298">
+          <caret line="194" column="36" lean-forward="false" selection-start-line="194" selection-start-column="36" selection-end-line="194" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/layoutsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="332" column="46" lean-forward="false" selection-start-line="332" selection-start-column="46" selection-end-line="332" selection-end-column="46" />
+          <folding>
+            <element signature="method#showDetails#0;class#layoutsController#0" expanded="false" />
           </folding>
         </state>
       </provider>
