@@ -51,8 +51,8 @@ public class foundationsController implements Initializable {
 
     //components
     public ListView<Integer> PF_SECTIONS, CB_SECTIONS, CF_SECTIONS;
-    public JFXButton PF_ADD_SECTION, PF_REMOVE_SECTION, CB_ADD_SECTION, CB_REMOVE_SECTION, CF_ADD_SECTION, CF_REMOVE_SECTION;
-    public JFXComboBox<String> PF_SET, PF_SET_OVERRIDE;
+    public JFXButton PF_ADD_SECTION, PF_REMOVE_SECTION, CB_ADD_SECTION, CB_REMOVE_SECTION, CF_ADD_SECTION, CF_REMOVE_SECTION, REFRESH;
+    public JFXComboBox<String> PF_SET, PF_SET_OVERRIDE, CF_SET;
     public JFXTextField PF_QTY;
 
     //component editor
@@ -66,6 +66,8 @@ public class foundationsController implements Initializable {
 
     private ObservableList<String> PF_SET_OVERRIDE_DATA = FXCollections.observableArrayList("" , "20 Mpa",
             "25 Mpa", "30 Mpa");
+
+    private ObservableList<String> CF_SET_DATA = FXCollections.observableArrayList("(None)", "17.5 SE620-500");
 
     //tables
     public TreeTableView<foundationsData> TREE_TABLE_VIEW; //components tbl
@@ -103,6 +105,8 @@ public class foundationsController implements Initializable {
     public static ObservableList<foundationsData> foundationsData; //components
     public static ObservableList<postFootingsSec> postFootingsData; //section dimensions
     public static ObservableList<foundationsMaterials> foundationsMaterials;
+
+    public static double cf_area = 0.0;
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {
@@ -225,15 +229,15 @@ public class foundationsController implements Initializable {
         MATERIALS_TBL.setShowRoot(false);
 
         foundationsMaterials.addAll(new foundationsMaterials("STMESE620500SM",
-                "STEEL REINFORCING MESH SE620-500SMALL 4.68X2.05 7.612M2", "SHT", "26"));
+                "STEEL REINFORCING MESH SE620-500SMALL 4.68X2.05 7.612M2", "SHT", ""));
         foundationsMaterials.addAll(new foundationsMaterials("STBC5065E",
-                "BAR CHAIR PLASTIC 50-65MM - PER EACH", "EACH", "300"));
+                "BAR CHAIR PLASTIC 50-65MM - PER EACH", "EACH", ""));
         foundationsMaterials.addAll(new foundationsMaterials("RPPO250425",
-                "POLYTHENE BLK 250MU X 4M X 25M 2010103", "ROLL", "2"));
+                "POLYTHENE BLK 250MU X 4M X 25M 2010103", "ROLL", ""));
         foundationsMaterials.addAll(new foundationsMaterials("RPJT2040116",
-                "TAPE-IT HIGH ADHESIVE PVC JOINING TAPE 48MMX30M 2040116", "ROLL", "4"));
+                "TAPE-IT HIGH ADHESIVE PVC JOINING TAPE 48MMX30M 2040116", "ROLL", ""));
         foundationsMaterials.addAll(new foundationsMaterials("STW300GX1KG",
-                "TIE WIRE GALV 300MM X 1KG", "EACH", "2"));
+                "TIE WIRE GALV 300MM X 1KG", "EACH", ""));
 
         //component table menu
         componentsMenu.getItems().add(editRow);
@@ -362,6 +366,9 @@ public class foundationsController implements Initializable {
         });
 
         //concrete floors
+        CF_SET.setItems(CF_SET_DATA);
+        CF_SET.getSelectionModel().select(0);
+
         CF_ADD_SECTION.setOnAction(event -> {
             cf_section_no++;
             CF_SECTIONS.getItems().add(cf_section_no);
@@ -378,6 +385,24 @@ public class foundationsController implements Initializable {
             foundationsData.clear();
             db.displayFoundationComponents(Integer.parseInt(id_indicator.getText()), Integer.parseInt(
                     CF_SECTIONS.getSelectionModel().getSelectedItem().toString()), foundationsData);
+        });
+
+        CF_SET.setOnAction(event -> {
+            if (CF_SET.getSelectionModel().getSelectedIndex() == 1) {
+                foundationsMaterials.clear();
+                // calculaton here
+                int quantity = (int) ((int) cf_area / 7.612);
+                foundationsMaterials.addAll(new foundationsMaterials("STMESE620500SM",
+                        "STEEL REINFORCING MESH SE620-500SMALL 4.68X2.05 7.612M2", "SHT", String.valueOf(quantity)));
+            }
+        });
+
+        REFRESH.setOnAction(event -> {
+            // refresh all tables
+            foundationsMaterials.clear();
+            int quantity = (int) ((int) cf_area / 7.612);
+            foundationsMaterials.addAll(new foundationsMaterials("STMESE620500SM",
+                    "STEEL REINFORCING MESH SE620-500SMALL 4.68X2.05 7.612M2", "SHT", String.valueOf(quantity)));
         });
     }
 

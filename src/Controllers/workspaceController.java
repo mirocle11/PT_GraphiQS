@@ -1,5 +1,6 @@
 package Controllers;
 
+import Controllers.Sheets.Shed.foundationsController;
 import Model.PageObject;
 import Model.ShapeObject;
 import Model.data.WallData;
@@ -311,6 +312,13 @@ public class workspaceController implements Initializable {
                     CONCRETE_FLOOR_THICKNESS.setUnFocusColor(Paint.valueOf("#ff5148"));
                     CONCRETE_FLOOR_THICKNESS_ERROR.setVisible(true);
                 }
+            }
+            try {
+                double lenght = Double.parseDouble(CONCRETE_FLOOR_LENGTH.getText());
+                double width = Double.parseDouble(CONCRETE_FLOOR_WIDTH.getText());
+                foundationsController.cf_area = lenght * width;
+            } catch (Exception e) {
+
             }
 
         });

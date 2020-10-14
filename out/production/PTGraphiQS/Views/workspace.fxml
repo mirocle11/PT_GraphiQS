@@ -1246,6 +1246,9 @@
                </children>
             </AnchorPane>
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </AnchorPane>
 </children>
 </AnchorPane>

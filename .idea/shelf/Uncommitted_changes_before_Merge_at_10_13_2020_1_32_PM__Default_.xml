@@ -1,9 +1,0 @@
-<changelist name="Uncommitted_changes_before_Merge_at_10_13_2020_1_32_PM_[Default]" date="1602567144033" recycled="true" deleted="true">
-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_10_13_2020_1_32_PM_[Default]/shelved.patch" />
-  <option name="DESCRIPTION" value="Uncommitted changes before Merge at 10/13/2020 1:32 PM [Default]" />
-  <binary>
-    <option name="BEFORE_PATH" value="out/production/PTGraphiQS/Controllers/setupSheetsController.class" />
-    <option name="AFTER_PATH" value="out/production/PTGraphiQS/Controllers/setupSheetsController.class" />
-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_10_13_2020_1_32_PM_[Default]/setupSheetsController.class" />
-  </binary>
-</changelist>

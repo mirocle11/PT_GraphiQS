@@ -22,7 +22,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1550.0" style="-fx-background-color: #102027;" stylesheets="@../../CSS/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Sheets.Shed.foundationsController">
+<AnchorPane prefHeight="827.0" prefWidth="1550.0" style="-fx-background-color: #102027;" stylesheets="@../../CSS/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Sheets.Shed.foundationsController">
    <children>
       <AnchorPane layoutX="23.0" layoutY="40.0" prefHeight="623.0" prefWidth="205.0" style="-fx-background-color: #102027; -fx-background-radius: 30px;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="30.0">
          <effect>
@@ -253,7 +253,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXComboBox editable="true" focusTraversable="false" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
+                  <JFXComboBox fx:id="CF_SET" editable="true" focusTraversable="false" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
                   <JFXComboBox editable="true" focusTraversable="false" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
                </children>
                <GridPane.margin>
@@ -311,5 +311,17 @@
             <TreeTableColumn fx:id="QUANTITY_COL" minWidth="0.0" prefWidth="130.0" text="Qty" />
          </columns>
       </JFXTreeTableView>
+      <JFXButton fx:id="REFRESH" contentDisplay="GRAPHIC_ONLY" layoutX="1195.0" layoutY="330.0" prefHeight="47.0" prefWidth="55.0" style="-fx-background-radius: 30px; -fx-background-color: #263238;" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/restart_25px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>
