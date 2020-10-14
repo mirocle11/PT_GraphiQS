@@ -271,9 +271,9 @@ public class workspaceController implements Initializable {
 
         MISCELLANEOUS_DONE.setOnAction(event -> {
             try{
-                double lenght = Double.parseDouble(CONCRETE_FLOOR_LENGTH.getText());
-                double width = Double.parseDouble(CONCRETE_FLOOR_WIDTH.getText());
-                double thickness = Double.parseDouble(CONCRETE_FLOOR_THICKNESS.getText());
+                double lenght = Double.parseDouble(CONCRETE_FLOOR_LENGTH.getText()) * 0.001;
+                double width = Double.parseDouble(CONCRETE_FLOOR_WIDTH.getText()) * 0.001;
+                double thickness = Double.parseDouble(CONCRETE_FLOOR_THICKNESS.getText()) * 0.001;
                 layoutsController.concreteData.add(0,Double.toString(lenght));
                 layoutsController.concreteData.add(1,Double.toString(width));
                 layoutsController.concreteData.add(2,Double.toString(thickness));
@@ -281,6 +281,7 @@ public class workspaceController implements Initializable {
                 double area = lenght*width;
                 layoutsController.concreteData.add(3,Double.toString(volume));
                 layoutsController.concreteData.add(4,Double.toString(area));
+                foundationsController.cf_area = area;
 
                 CONCRETE_FLOOR_LENGTH_ERROR.setVisible(false);
                 CONCRETE_FLOOR_WIDTH_ERROR.setVisible(false);
@@ -315,14 +316,6 @@ public class workspaceController implements Initializable {
                     CONCRETE_FLOOR_THICKNESS_ERROR.setVisible(true);
                 }
             }
-            try {
-                double lenght = Double.parseDouble(CONCRETE_FLOOR_LENGTH.getText());
-                double width = Double.parseDouble(CONCRETE_FLOOR_WIDTH.getText());
-                foundationsController.cf_area = lenght * width;
-            } catch (Exception e) {
-
-            }
-
         });
 
         MISCELLANEOUS_CLOSE.setOnAction(event -> {
