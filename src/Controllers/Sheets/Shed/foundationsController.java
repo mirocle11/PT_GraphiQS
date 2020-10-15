@@ -106,6 +106,7 @@ public class foundationsController implements Initializable {
     public static ObservableList<postFootingsSec> postFootingsData; //section dimensions
     public static ObservableList<foundationsMaterials> foundationsMaterials;
 
+    public static int cf_length = 0;
     public static double cf_area = 0.0;
 
     @Override
@@ -389,21 +390,49 @@ public class foundationsController implements Initializable {
 
         CF_SET.setOnAction(event -> {
             if (CF_SET.getSelectionModel().getSelectedIndex() == 1) {
-                foundationsMaterials.clear();
-                // calculaton here
-                int quantity = (int) ((int) cf_area / 7.612);
-                foundationsMaterials.addAll(new foundationsMaterials("STMESE620500SM",
-                        "STEEL REINFORCING MESH SE620-500SMALL 4.68X2.05 7.612M2", "SHT", String.valueOf(quantity)));
+                refreshConcreteFloorMaterials();
             }
         });
 
         REFRESH.setOnAction(event -> {
-            // refresh all tables
-            foundationsMaterials.clear();
-            int quantity = (int) ((int) cf_area / 7.612);
-            foundationsMaterials.addAll(new foundationsMaterials("STMESE620500SM",
-                    "STEEL REINFORCING MESH SE620-500SMALL 4.68X2.05 7.612M2", "SHT", String.valueOf(quantity)));
+            //refresh all tables
+            refreshConcreteFloorMaterials();
         });
+    }
+
+    public void refreshConcreteFloorMaterials() {
+        foundationsMaterials.clear();
+        int srm_quantity = (int) ((int) cf_area / 7.612);
+        int pb_quantity;
+        if (cf_area < 100 && srm_quantity > 0.00) {
+            pb_quantity = 1;
+        } else {
+            int remainder = (int) (cf_area % 100);
+            if (remainder > 0) {
+                pb_quantity = (int) (cf_area / 100) + 1;
+            } else {
+                pb_quantity = (int) (cf_area / 100);
+            }
+        }
+        int tp_quantity;
+        if (cf_length < 30) {
+            tp_quantity = 1;
+        } else {
+            int remainder = cf_length % 30;
+            if (remainder > 0) {
+                tp_quantity = cf_length / 30 + 1;
+            } else {
+                tp_quantity = cf_length / 30;
+            }
+        }
+        foundationsMaterials.addAll(new foundationsMaterials("STMESE620500SM",
+                "STEEL REINFORCING MESH SE620-500SMALL 4.68X2.05 7.612M2", "SHT", String.valueOf(srm_quantity)));
+        foundationsMaterials.addAll(new foundationsMaterials("STBC5065E",
+                "BAR CHAIR PLASTIC 50-65MM - PER EACH", "EACH", String.valueOf(srm_quantity * 12)));
+        foundationsMaterials.addAll(new foundationsMaterials("RPPO250425",
+                "POLYTHENE BLK 250MU X 4M X 25M 2010103", "ROLL", String.valueOf(pb_quantity)));
+        foundationsMaterials.addAll(new foundationsMaterials("RPJT2040116",
+                "TAPE-IT HIGH ADHESIVE PVC JOINING TAPE 48MMX30M 2040116", "ROLL", String.valueOf(tp_quantity)));
     }
 
     public void loadComponentEditor() {

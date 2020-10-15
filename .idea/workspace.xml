@@ -24,10 +24,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-9/21/20">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_.xml" afterDir="false" />
+    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-updated materials table for setup sheets&#10;-updated new foundations stamps&#10;-added misc to workspace for parts w/ one section&#10;-layouts updated (foundations)&#10;-10/14/20">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterDir="false" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
@@ -679,13 +679,7 @@
       <workItem from="1602636054550" duration="4891000" />
       <workItem from="1602652950724" duration="426000" />
       <workItem from="1602654032254" duration="14000" />
-    </task>
-    <task id="LOCAL-00082" summary="#96 commit popup sections finished">
-      <created>1574391451364</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1574391451364</updated>
+      <workItem from="1602732972558" duration="11329000" />
     </task>
     <task id="LOCAL-00083" summary="#96 commit">
       <created>1574391819077</created>
@@ -1023,7 +1017,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602568515366</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="-updated materials table for setup sheets&#10;-updated new foundations stamps&#10;-added misc to workspace for parts w/ one section&#10;-layouts updated (foundations)&#10;-10/14/20">
+      <created>1602687709139</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1602687709139</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1108,7 +1109,8 @@
     <MESSAGE value="-setup sheets updated &#10;-dashboard new lineup&#10;-fixed door stamping / ongoing progress for delete function&#10;-shed order applied (in progress)&#10;-8/18/20 update" />
     <MESSAGE value="-setup sheets update (sheds)&#10;-added initial functions for foundations tab&#10;-new closing option for unsaved work&#10;-9/16/20" />
     <MESSAGE value="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-9/21/20" />
-    <option name="LAST_COMMIT_MESSAGE" value="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-9/21/20" />
+    <MESSAGE value="-updated materials table for setup sheets&#10;-updated new foundations stamps&#10;-added misc to workspace for parts w/ one section&#10;-layouts updated (foundations)&#10;-10/14/20" />
+    <option name="LAST_COMMIT_MESSAGE" value="-updated materials table for setup sheets&#10;-updated new foundations stamps&#10;-added misc to workspace for parts w/ one section&#10;-layouts updated (foundations)&#10;-10/14/20" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2646" y="40" key="#Auto_Import" timestamp="1602656677620" />
@@ -1134,34 +1136,34 @@
     <state x="2610" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
     <state x="2610" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1602656677620" />
     <state x="2610" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="2475" y="0" key="CommitChangelistDialog2" timestamp="1602659832528">
+    <state x="2475" y="0" key="CommitChangelistDialog2" timestamp="1602687708463">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="555" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
-    <state x="2475" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602659832528" />
+    <state x="2475" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602687708463" />
     <state x="3035" y="318" key="FileChooserDialogImpl" timestamp="1602656677620" />
     <state x="674" y="288" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
     <state x="3035" y="318" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state width="1877" height="190" key="GridCell.Tab.0.bottom" timestamp="1602663226917">
+    <state width="1877" height="190" key="GridCell.Tab.0.bottom" timestamp="1602745544013">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="193" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
-    <state width="1877" height="190" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602663226917" />
-    <state width="1877" height="190" key="GridCell.Tab.0.center" timestamp="1602663226917">
+    <state width="1877" height="190" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602745544013" />
+    <state width="1877" height="190" key="GridCell.Tab.0.center" timestamp="1602745544013">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="193" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
-    <state width="1877" height="190" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602663226917" />
-    <state width="1877" height="190" key="GridCell.Tab.0.left" timestamp="1602663226917">
+    <state width="1877" height="190" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602745544013" />
+    <state width="1877" height="190" key="GridCell.Tab.0.left" timestamp="1602745544013">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="193" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
-    <state width="1877" height="190" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602663226917" />
-    <state width="1877" height="190" key="GridCell.Tab.0.right" timestamp="1602663226917">
+    <state width="1877" height="190" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602745544013" />
+    <state width="1877" height="190" key="GridCell.Tab.0.right" timestamp="1602745544013">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="193" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
-    <state width="1877" height="190" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602663226917" />
+    <state width="1877" height="190" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602745544013" />
     <state width="1877" height="339" key="GridCell.Tab.1.bottom" timestamp="1602656677620" />
     <state width="1877" height="339" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
     <state width="1877" height="339" key="GridCell.Tab.1.center" timestamp="1602656677620" />
@@ -1178,11 +1180,11 @@
     <state x="2266" y="158" width="1054" height="708" key="SettingsEditor" timestamp="1602656677620" />
     <state x="432" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
     <state x="2266" y="158" width="1054" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="2472" y="248" key="Vcs.Push.Dialog.v2" timestamp="1602659841334">
+    <state x="2472" y="248" key="Vcs.Push.Dialog.v2" timestamp="1602687751033">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
-    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602659841334" />
+    <state x="2472" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602687751033" />
     <state x="753" y="454" key="classpath-attribute-editor" timestamp="1602656677620" />
     <state x="753" y="454" key="classpath-attribute-editor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
     <state x="107" y="77" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1602656677620" />
@@ -1207,9 +1209,11 @@
     <state x="2262" y="94" key="new project wizard/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
     <state x="2589" y="273" key="refactoring.ChangeSignatureDialog" timestamp="1602656677620" />
     <state x="2589" y="273" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="2536" y="240" width="672" height="677" key="run.anything.popup" timestamp="1602656677620" />
+    <state x="2536" y="240" width="672" height="677" key="run.anything.popup" timestamp="1602744336027">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
-    <state x="2536" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
+    <state x="2536" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602744336027" />
     <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602656677620" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
     <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
@@ -1219,7 +1223,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Controllers/workspaceController.java</url>
-          <line>524</line>
+          <line>525</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">

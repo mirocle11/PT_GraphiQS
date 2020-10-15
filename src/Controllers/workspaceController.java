@@ -282,6 +282,7 @@ public class workspaceController implements Initializable {
                 layoutsController.concreteData.add(3,Double.toString(volume));
                 layoutsController.concreteData.add(4,Double.toString(area));
                 foundationsController.cf_area = area;
+                foundationsController.cf_length = (int) lenght;
 
                 CONCRETE_FLOOR_LENGTH_ERROR.setVisible(false);
                 CONCRETE_FLOOR_WIDTH_ERROR.setVisible(false);
