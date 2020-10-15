@@ -25,6 +25,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -108,6 +109,7 @@ public class foundationsController implements Initializable {
 
     public static int cf_length = 0;
     public static double cf_area = 0.0;
+    public static double cf_volume = 0.0;
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {
@@ -229,16 +231,16 @@ public class foundationsController implements Initializable {
         MATERIALS_TBL.setRoot(foundationsMaterialsDataTreeItem);
         MATERIALS_TBL.setShowRoot(false);
 
-        foundationsMaterials.addAll(new foundationsMaterials("STMESE620500SM",
-                "STEEL REINFORCING MESH SE620-500SMALL 4.68X2.05 7.612M2", "SHT", ""));
-        foundationsMaterials.addAll(new foundationsMaterials("STBC5065E",
-                "BAR CHAIR PLASTIC 50-65MM - PER EACH", "EACH", ""));
-        foundationsMaterials.addAll(new foundationsMaterials("RPPO250425",
-                "POLYTHENE BLK 250MU X 4M X 25M 2010103", "ROLL", ""));
-        foundationsMaterials.addAll(new foundationsMaterials("RPJT2040116",
-                "TAPE-IT HIGH ADHESIVE PVC JOINING TAPE 48MMX30M 2040116", "ROLL", ""));
-        foundationsMaterials.addAll(new foundationsMaterials("STW300GX1KG",
-                "TIE WIRE GALV 300MM X 1KG", "EACH", ""));
+//        foundationsMaterials.addAll(new foundationsMaterials("STMESE620500SM",
+//                "STEEL REINFORCING MESH SE620-500SMALL 4.68X2.05 7.612M2", "SHT", ""));
+//        foundationsMaterials.addAll(new foundationsMaterials("STBC5065E",
+//                "BAR CHAIR PLASTIC 50-65MM - PER EACH", "EACH", ""));
+//        foundationsMaterials.addAll(new foundationsMaterials("RPPO250425",
+//                "POLYTHENE BLK 250MU X 4M X 25M 2010103", "ROLL", ""));
+//        foundationsMaterials.addAll(new foundationsMaterials("RPJT2040116",
+//                "TAPE-IT HIGH ADHESIVE PVC JOINING TAPE 48MMX30M 2040116", "ROLL", ""));
+//        foundationsMaterials.addAll(new foundationsMaterials("STW300GX1KG",
+//                "TIE WIRE GALV 300MM X 1KG", "EACH", ""));
 
         //component table menu
         componentsMenu.getItems().add(editRow);
@@ -415,7 +417,7 @@ public class foundationsController implements Initializable {
             }
         }
         int tp_quantity;
-        if (cf_length < 30) {
+        if (cf_length < 30 && cf_length > 0) {
             tp_quantity = 1;
         } else {
             int remainder = cf_length % 30;
@@ -423,6 +425,17 @@ public class foundationsController implements Initializable {
                 tp_quantity = cf_length / 30 + 1;
             } else {
                 tp_quantity = cf_length / 30;
+            }
+        }
+        int tw_quantity;
+        if (cf_area < 20 && cf_area > 0) {
+            tw_quantity = 1;
+        } else {
+            int remainder = (int) (cf_area % 20);
+            if (remainder > 0) {
+                tw_quantity = (int) (cf_area / 20 + 1);
+            } else {
+                tw_quantity = (int) (cf_area / 20);
             }
         }
         foundationsMaterials.addAll(new foundationsMaterials("STMESE620500SM",
@@ -433,6 +446,10 @@ public class foundationsController implements Initializable {
                 "POLYTHENE BLK 250MU X 4M X 25M 2010103", "ROLL", String.valueOf(pb_quantity)));
         foundationsMaterials.addAll(new foundationsMaterials("RPJT2040116",
                 "TAPE-IT HIGH ADHESIVE PVC JOINING TAPE 48MMX30M 2040116", "ROLL", String.valueOf(tp_quantity)));
+        foundationsMaterials.addAll(new foundationsMaterials("32100832", "Structural Concrete 17.5Mpa 19mm",
+                "M3", String.valueOf(new DecimalFormat("0.00").format(cf_volume))));
+        foundationsMaterials.addAll(new foundationsMaterials("STW300GX1KG", "TIE WIRE GALV 300MM X 1KG",
+                "EACH", String.valueOf(tw_quantity)));
     }
 
     public void loadComponentEditor() {
