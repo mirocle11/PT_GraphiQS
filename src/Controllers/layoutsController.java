@@ -334,16 +334,12 @@ public class layoutsController implements Initializable {
             CONCRETE_FLOOR_TBL.setVisible(true);
         });
 
-
-
-
         concreteData = FXCollections.observableArrayList();
         CONCRETE_FLOOR_LENGTH.textProperty().bind(Bindings.stringValueAt(concreteData, 0));
         CONCRETE_FLOOR_WIDTH.textProperty().bind(Bindings.stringValueAt(concreteData, 1));
         CONCRETE_FLOOR_THICKNESS.textProperty().bind(Bindings.stringValueAt(concreteData, 2));
         CONCRETE_FLOOR_VOLUME.textProperty().bind(Bindings.stringValueAt(concreteData, 3));
         CONCRETE_FLOOR_AREA.textProperty().bind(Bindings.stringValueAt(concreteData, 4));
-
     }
 
     private void showDetails(TreeItem<layoutsData> treeItem) {

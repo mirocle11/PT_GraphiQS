@@ -294,7 +294,7 @@ public class workspaceController implements Initializable {
                 CONCRETE_FLOOR_WIDTH.setUnFocusColor(Paint.valueOf("#b9b9b9"));
                 CONCRETE_FLOOR_THICKNESS.setUnFocusColor(Paint.valueOf("#b9b9b9"));
                 MISCELLANEOUS_PICKER.setVisible(false);
-            } catch (Exception e){
+            } catch (Exception e) {
                 try {
                     double lenght = Double.parseDouble(CONCRETE_FLOOR_LENGTH.getText());
                     CONCRETE_FLOOR_LENGTH.setUnFocusColor(Paint.valueOf("#b9b9b9"));

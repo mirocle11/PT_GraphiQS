@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 public class externalFramingController implements Initializable {
 
     //collections
-    public ObservableList<String> parts = FXCollections.observableArrayList("Building Poles", "Purlins");
+    public ObservableList<String> parts = FXCollections.observableArrayList();
     public VBox PARTS_VBOX;
     public ArrayList<JFXButton> buttonList = new ArrayList<>();
 
@@ -82,22 +82,22 @@ public class externalFramingController implements Initializable {
         MATERIALS_TBL.setShowRoot(false);
 
         externalFramingMaterials.addAll(new externalFramingMaterials("RWBP17542", //poles
-                "4.2M BUILDING POLE H5 175-199", "EACH", "5"));
+                "4.2M BUILDING POLE H5 175-199", "EACH", "0"));
         externalFramingMaterials.addAll(new externalFramingMaterials("RWBP17548",
-                "4.8M BUILDING POLE H5 175-199", "EACH", "10"));
+                "4.8M BUILDING POLE H5 175-199", "EACH", "0"));
         externalFramingMaterials.addAll(new externalFramingMaterials("RWBP17554",
-                "5.4M BUILDING POLE H5 175-199", "EACH", "5"));
+                "5.4M BUILDING POLE H5 175-199", "EACH", "0"));
 
         externalFramingMaterials.addAll(new externalFramingMaterials("15050RVH32RS36", //purlins
-                "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M", "LGTH", "66"));
+                "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M", "LGTH", "0"));
         externalFramingMaterials.addAll(new externalFramingMaterials("15050RVH32RS48",
-                "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M", "LGTH", "32"));
+                "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M", "LGTH", "0"));
         externalFramingMaterials.addAll(new externalFramingMaterials("15050RVH32RS60",
-                "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 6.0M", "LGTH", "6"));
+                "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 6.0M", "LGTH", "0"));
         externalFramingMaterials.addAll(new externalFramingMaterials("20050RVH32RS48",
-                "200 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", "52"));
+                "200 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", "0"));
         externalFramingMaterials.addAll(new externalFramingMaterials("25050RVH32RS48",
-                "250 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", "24"));
+                "250 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", "0"));
     }
 
 }
