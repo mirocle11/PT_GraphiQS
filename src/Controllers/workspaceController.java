@@ -271,19 +271,20 @@ public class workspaceController implements Initializable {
 
         MISCELLANEOUS_DONE.setOnAction(event -> {
             try{
-                double lenght = Double.parseDouble(CONCRETE_FLOOR_LENGTH.getText()) * 0.001;
+                double length = Double.parseDouble(CONCRETE_FLOOR_LENGTH.getText()) * 0.001;
                 double width = Double.parseDouble(CONCRETE_FLOOR_WIDTH.getText()) * 0.001;
                 double thickness = Double.parseDouble(CONCRETE_FLOOR_THICKNESS.getText()) * 0.001;
-                layoutsController.concreteData.add(0,Double.toString(lenght));
+                layoutsController.concreteData.add(0,Double.toString(length));
                 layoutsController.concreteData.add(1,Double.toString(width));
                 layoutsController.concreteData.add(2,Double.toString(thickness));
-                double volume = lenght*width*thickness;
-                double area = lenght*width;
+                double volume = length * width * thickness;
+                double area = length * width;
                 layoutsController.concreteData.add(3,Double.toString(Double.parseDouble(new DecimalFormat
                         ("0.00").format(volume))));
-                layoutsController.concreteData.add(4,Double.toString(area));
+                layoutsController.concreteData.add(4,Double.toString(Double.parseDouble(new DecimalFormat
+                        ("0.00").format(area))));
                 foundationsController.cf_area = area;
-                foundationsController.cf_length = (int) lenght;
+                foundationsController.cf_length = (int) length;
                 foundationsController.cf_volume = volume;
 
                 CONCRETE_FLOOR_LENGTH_ERROR.setVisible(false);
@@ -293,12 +294,12 @@ public class workspaceController implements Initializable {
                 CONCRETE_FLOOR_WIDTH.setUnFocusColor(Paint.valueOf("#b9b9b9"));
                 CONCRETE_FLOOR_THICKNESS.setUnFocusColor(Paint.valueOf("#b9b9b9"));
                 MISCELLANEOUS_PICKER.setVisible(false);
-            }catch (Exception e){
+            } catch (Exception e){
                 try {
                     double lenght = Double.parseDouble(CONCRETE_FLOOR_LENGTH.getText());
                     CONCRETE_FLOOR_LENGTH.setUnFocusColor(Paint.valueOf("#b9b9b9"));
                     CONCRETE_FLOOR_LENGTH_ERROR.setVisible(false);
-                }catch (Exception a){
+                } catch (Exception a) {
                     CONCRETE_FLOOR_LENGTH.setUnFocusColor(Paint.valueOf("#ff5148"));
                     CONCRETE_FLOOR_LENGTH_ERROR.setVisible(true);
                 }
@@ -306,7 +307,7 @@ public class workspaceController implements Initializable {
                     double width = Double.parseDouble(CONCRETE_FLOOR_WIDTH.getText());
                     CONCRETE_FLOOR_WIDTH.setUnFocusColor(Paint.valueOf("#b9b9b9"));
                     CONCRETE_FLOOR_WIDTH_ERROR.setVisible(false);
-                }catch (Exception a){
+                } catch (Exception a) {
                     CONCRETE_FLOOR_WIDTH.setUnFocusColor(Paint.valueOf("#ff5148"));
                     CONCRETE_FLOOR_WIDTH_ERROR.setVisible(true);
                 }
@@ -314,7 +315,7 @@ public class workspaceController implements Initializable {
                     double thickness = Double.parseDouble(CONCRETE_FLOOR_THICKNESS.getText());
                     CONCRETE_FLOOR_THICKNESS.setUnFocusColor(Paint.valueOf("#b9b9b9"));
                     CONCRETE_FLOOR_THICKNESS_ERROR.setVisible(false);
-                }catch (Exception a){
+                } catch (Exception a){
                     CONCRETE_FLOOR_THICKNESS.setUnFocusColor(Paint.valueOf("#ff5148"));
                     CONCRETE_FLOOR_THICKNESS_ERROR.setVisible(true);
                 }
