@@ -4,23 +4,20 @@ import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.Label;
 
-public class foundationsStampData extends RecursiveTreeObject<foundationsStampData> {
+public class foundationsPostFootingsData extends RecursiveTreeObject<foundationsPostFootingsData> {
 
-    private final SimpleStringProperty no, part, quantity, depth, width, length, diameter, height, volume;
+    private final SimpleStringProperty no, quantity, depth, width, length, volume;
     private Label image;
 
-    public foundationsStampData(String no, String part, Label image, String quantity, String depth, String width, String length,
-                                String diameter, String height, String volume) {
+    public foundationsPostFootingsData(String no, Label image, String quantity, String depth, String width,
+                                       String length, String volume) {
 
         this.no = new SimpleStringProperty(no);
-        this.part = new SimpleStringProperty(part);
         this.image = image;
         this.quantity = new SimpleStringProperty(quantity);
         this.depth = new SimpleStringProperty(depth);
         this.width = new SimpleStringProperty(width);
         this.length = new SimpleStringProperty(length);
-        this.diameter = new SimpleStringProperty(diameter);
-        this.height = new SimpleStringProperty(height);
         this.volume = new SimpleStringProperty(volume);
     }
 
@@ -34,18 +31,6 @@ public class foundationsStampData extends RecursiveTreeObject<foundationsStampDa
 
     public void setNo(String no) {
         this.no.set(no);
-    }
-
-    public String getPart() {
-        return part.get();
-    }
-
-    public SimpleStringProperty partProperty() {
-        return part;
-    }
-
-    public void setPart(String part) {
-        this.part.set(part);
     }
 
     public String getDepth() {
@@ -94,30 +79,6 @@ public class foundationsStampData extends RecursiveTreeObject<foundationsStampDa
 
     public void setQuantity(String quantity) {
         this.quantity.set(quantity);
-    }
-
-    public String getDiameter() {
-        return diameter.get();
-    }
-
-    public SimpleStringProperty diameterProperty() {
-        return diameter;
-    }
-
-    public void setDiameter(String diameter) {
-        this.diameter.set(diameter);
-    }
-
-    public String getHeight() {
-        return height.get();
-    }
-
-    public SimpleStringProperty heightProperty() {
-        return height;
-    }
-
-    public void setHeight(String height) {
-        this.height.set(height);
     }
 
     public String getVolume() {

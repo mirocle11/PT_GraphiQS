@@ -110,12 +110,12 @@
                               <Font name="Segoe UI" size="17.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="FOUNDATIONS_PF_TOTAL" alignment="CENTER" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="40.0" layoutY="47.0" prefHeight="21.0" prefWidth="167.0" promptText="Post Footings Total" style="-fx-text-inner-color: WHITE;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+                        <JFXTextField fx:id="FOUNDATIONS_PF_TOTAL" alignment="CENTER" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="40.0" layoutY="55.0" prefHeight="21.0" prefWidth="167.0" promptText="Post Footings Total" style="-fx-text-inner-color: WHITE;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                            <font>
                               <Font name="Segoe UI" size="16.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="FOUNDATIONS_CB_TOTAL" alignment="CENTER" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="40.0" layoutY="98.0" prefHeight="30.0" prefWidth="252.0" promptText="Concrete Bores Total" style="-fx-text-inner-color: WHITE;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+                        <JFXTextField fx:id="FOUNDATIONS_CB_TOTAL" alignment="CENTER" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="40.0" layoutY="106.0" prefHeight="30.0" prefWidth="252.0" promptText="Concrete Bores Total" style="-fx-text-inner-color: WHITE;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                            <font>
                               <Font name="Segoe UI" size="16.0" />
                            </font>
@@ -128,7 +128,7 @@
       </AnchorPane>
    </right>
    <center>
-      <AnchorPane prefHeight="720.0" prefWidth="739.0" stylesheets="@CSS/style.css" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="675.0" prefWidth="1014.0" stylesheets="@CSS/style.css" BorderPane.alignment="CENTER">
          <children>
             <JFXTextField fx:id="SEARCH" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="64.0" layoutY="29.0" prefHeight="30.0" prefWidth="251.0" promptText="Search" style="-fx-text-inner-color: #b9b9b9;" AnchorPane.leftAnchor="64.0" AnchorPane.topAnchor="40.0">
                <font>
@@ -194,18 +194,25 @@
             </JFXTreeTableView>
             <AnchorPane fx:id="FOUNDATIONS_TAB" layoutX="64.0" layoutY="66.0" prefHeight="675.0" prefWidth="1190.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <JFXTreeTableView fx:id="FOUNDATIONS_TBL" fixedCellSize="0.0" layoutX="63.0" layoutY="85.0" prefHeight="590.0" prefWidth="1127.0" sortMode="ONLY_FIRST_LEVEL" AnchorPane.leftAnchor="63.0" AnchorPane.topAnchor="85.0">
+                  <JFXTreeTableView fx:id="FOUNDATIONS_POST_FOOTINGS_TBL" fixedCellSize="0.0" layoutX="63.0" layoutY="85.0" prefHeight="590.0" prefWidth="810.0" sortMode="ONLY_FIRST_LEVEL" AnchorPane.leftAnchor="63.0" AnchorPane.topAnchor="85.0">
                      <columns>
-                        <TreeTableColumn fx:id="FOUNDATIONS_NO" prefWidth="59.0" text="No." />
-                        <TreeTableColumn fx:id="FOUNDATIONS_PART" prefWidth="144.0" text="Part" />
-                        <TreeTableColumn fx:id="FOUNDATIONS_IMAGE" prefWidth="120.0" text="Image" />
-                        <TreeTableColumn fx:id="FOUNDATIONS_QTY" prefWidth="122.0" text="Quantity" />
-                        <TreeTableColumn fx:id="FOUNDATIONS_DEPTH" prefWidth="135.0" text="Depth" />
-                        <TreeTableColumn fx:id="FOUNDATIONS_WIDTH" prefWidth="115.0" text="Width" />
-                        <TreeTableColumn fx:id="FOUNDATIONS_LENGTH" prefWidth="112.0" text="Length" />
-                        <TreeTableColumn fx:id="FOUNDATIONS_DIAMETER" prefWidth="112.0" text="Diameter (mm)" />
-                        <TreeTableColumn fx:id="FOUNDATIONS_HEIGHT" prefWidth="112.0" text="Height (mm)" />
-                        <TreeTableColumn fx:id="FOUNDATIONS_VOLUME" prefWidth="128.0" text="Volume" />
+                        <TreeTableColumn fx:id="FOUNDATIONS_PF_NO" prefWidth="59.0" text="No." />
+                        <TreeTableColumn fx:id="FOUNDATIONS_PF_IMAGE" prefWidth="120.0" text="Image" />
+                        <TreeTableColumn fx:id="FOUNDATIONS_PF_QTY" prefWidth="122.0" text="Quantity" />
+                        <TreeTableColumn fx:id="FOUNDATIONS_PF_DEPTH" prefWidth="135.0" text="Depth" />
+                        <TreeTableColumn fx:id="FOUNDATIONS_PF_WIDTH" prefWidth="115.0" text="Width" />
+                        <TreeTableColumn fx:id="FOUNDATIONS_PF_LENGTH" prefWidth="112.0" text="Length" />
+                        <TreeTableColumn fx:id="FOUNDATIONS_PF_VOLUME" prefWidth="146.0" text="Volume" />
+                     </columns>
+                  </JFXTreeTableView>
+                  <JFXTreeTableView fx:id="FOUNDATIONS_CONCRETE_BORES_TBL" fixedCellSize="0.0" prefHeight="590.0" prefWidth="938.0" sortMode="ONLY_FIRST_LEVEL" visible="false" AnchorPane.leftAnchor="63.0" AnchorPane.topAnchor="85.0">
+                     <columns>
+                        <TreeTableColumn fx:id="FOUNDATIONS_CB_NO" prefWidth="59.0" text="No." />
+                        <TreeTableColumn fx:id="FOUNDATIONS_CB_IMAGE" prefWidth="120.0" text="Image" />
+                        <TreeTableColumn fx:id="FOUNDATIONS_CB_QTY" prefWidth="122.0" text="Quantity" />
+                        <TreeTableColumn fx:id="FOUNDATIONS_CB_DIAMETER" prefWidth="145.0" text="Diameter" />
+                        <TreeTableColumn fx:id="FOUNDATIONS_CB_HEIGHT" prefWidth="145.0" text="Height" />
+                        <TreeTableColumn fx:id="FOUNDATIONS_CB_VOLUME" prefWidth="202.0" text="Volume" />
                      </columns>
                   </JFXTreeTableView>
                   <Pane fx:id="CONCRETE_FLOOR_TBL" layoutX="62.0" layoutY="85.0" prefHeight="590.0" prefWidth="1128.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="85.0">

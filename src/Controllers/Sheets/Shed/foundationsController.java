@@ -3,7 +3,6 @@ package Controllers.Sheets.Shed;
 import DataBase.DataBase;
 import Main.Main;
 import Model.data.shed.foundations.postFootingsSec;
-import Model.data.shed.foundationsData;
 import Model.data.shed.foundationsMaterials;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
@@ -14,7 +13,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
-import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -70,19 +68,6 @@ public class foundationsController implements Initializable {
 
     private ObservableList<String> CF_SET_DATA = FXCollections.observableArrayList("(None)", "17.5 SE620-500");
 
-    //tables
-    public TreeTableView<foundationsData> TREE_TABLE_VIEW; //components tbl
-    public TreeTableColumn<foundationsData, String> COMPONENT;
-    public TreeTableColumn<foundationsData, String> CODE;
-    public TreeTableColumn<foundationsData, String> DESCRIPTION;
-    public TreeTableColumn<foundationsData, String> EXTRA1;
-    public TreeTableColumn<foundationsData, String> EXTRA2;
-    public TreeTableColumn<foundationsData, String> QUANTITY;
-    public TreeTableColumn<foundationsData, String> USAGE;
-    public TreeTableColumn<foundationsData, String> WASTE;
-    public TreeTableColumn<foundationsData, String> SUBHEADING;
-    public TreeTableColumn<foundationsData, String> USAGE2;
-
     //table right click menu
     public ContextMenu componentsMenu = new ContextMenu();
     public MenuItem editRow = new MenuItem("Edit Row");
@@ -103,13 +88,15 @@ public class foundationsController implements Initializable {
     public TreeTableColumn<foundationsMaterials, String> QUANTITY_COL;
 
     //data lists
-    public static ObservableList<foundationsData> foundationsData; //components
-    public static ObservableList<postFootingsSec> postFootingsData; //section dimensions
     public static ObservableList<foundationsMaterials> foundationsMaterials;
+    public static ObservableList<postFootingsSec> postFootingsData; //section dimensions
 
     public static int cf_length = 0;
     public static double cf_area = 0.0;
     public static double cf_volume = 0.0;
+
+    public static ObservableList<Integer> foundationsPFSectionList = FXCollections.observableArrayList();
+    public static ObservableList<Integer> foundationsCBSectionList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {
@@ -131,7 +118,7 @@ public class foundationsController implements Initializable {
             buttonList.add(button);
 
             button.setOnAction(event -> {
-                foundationsData.clear();
+//                foundationsData.clear(); //clear table materials
                 db.getPartID(1, button.getId(), id_indicator);
                 buttonList.forEach(button1 -> { //selection highlighter
                     if (button1.getId().equals(button.getId())) {
@@ -148,40 +135,6 @@ public class foundationsController implements Initializable {
                 });
             });
         });
-
-        //component table
-        foundationsData = FXCollections.observableArrayList();
-
-        COMPONENT.setCellValueFactory(
-                new TreeItemPropertyValueFactory<>("component")
-        );
-        CODE.setCellValueFactory(
-                new TreeItemPropertyValueFactory<>("code")
-        );
-        DESCRIPTION.setCellValueFactory(
-                new TreeItemPropertyValueFactory<>("description")
-        );
-        EXTRA1.setCellValueFactory(
-                new TreeItemPropertyValueFactory<>("extra1")
-        );
-        EXTRA2.setCellValueFactory(
-                new TreeItemPropertyValueFactory<>("extra2")
-        );
-        QUANTITY.setCellValueFactory(
-                new TreeItemPropertyValueFactory<>("quantity")
-        );
-        USAGE.setCellValueFactory(
-                new TreeItemPropertyValueFactory<>("usage")
-        );
-        WASTE.setCellValueFactory(
-                new TreeItemPropertyValueFactory<>("waste")
-        );
-        SUBHEADING.setCellValueFactory(
-                new TreeItemPropertyValueFactory<>("subheading")
-        );
-        USAGE2.setCellValueFactory(
-                new TreeItemPropertyValueFactory<>("usage2")
-        );
 
         //parts - section dimensions
         postFootingsData = FXCollections.observableArrayList();
@@ -218,10 +171,6 @@ public class foundationsController implements Initializable {
                 new TreeItemPropertyValueFactory<>("quantity")
         );
 
-        TreeItem<foundationsData> component_root = new RecursiveTreeItem<>(foundationsData, RecursiveTreeObject::getChildren);
-        TREE_TABLE_VIEW.setRoot(component_root);
-        TREE_TABLE_VIEW.setShowRoot(false);
-
         TreeItem<postFootingsSec> post_footings_root = new RecursiveTreeItem<>(postFootingsData, RecursiveTreeObject::getChildren);
         PF_TABLE.setRoot(post_footings_root);
         PF_TABLE.setShowRoot(false);
@@ -231,29 +180,19 @@ public class foundationsController implements Initializable {
         MATERIALS_TBL.setRoot(foundationsMaterialsDataTreeItem);
         MATERIALS_TBL.setShowRoot(false);
 
-//        foundationsMaterials.addAll(new foundationsMaterials("STMESE620500SM",
-//                "STEEL REINFORCING MESH SE620-500SMALL 4.68X2.05 7.612M2", "SHT", ""));
-//        foundationsMaterials.addAll(new foundationsMaterials("STBC5065E",
-//                "BAR CHAIR PLASTIC 50-65MM - PER EACH", "EACH", ""));
-//        foundationsMaterials.addAll(new foundationsMaterials("RPPO250425",
-//                "POLYTHENE BLK 250MU X 4M X 25M 2010103", "ROLL", ""));
-//        foundationsMaterials.addAll(new foundationsMaterials("RPJT2040116",
-//                "TAPE-IT HIGH ADHESIVE PVC JOINING TAPE 48MMX30M 2040116", "ROLL", ""));
-//        foundationsMaterials.addAll(new foundationsMaterials("STW300GX1KG",
-//                "TIE WIRE GALV 300MM X 1KG", "EACH", ""));
-
         //component table menu
         componentsMenu.getItems().add(editRow);
         componentsMenu.getItems().add(clearRow);
         componentsMenu.getItems().add(productSelect);
 
-        TREE_TABLE_VIEW.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, event -> {
-            if (event.getButton() == MouseButton.SECONDARY) {
-                componentsMenu.show(TREE_TABLE_VIEW, event.getScreenX(), event.getScreenY());
-            } else {
-                componentsMenu.hide();
-            }
-        });
+        //code stub for right click component
+//        TREE_TABLE_VIEW.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, event -> {
+//            if (event.getButton() == MouseButton.SECONDARY) {
+//                componentsMenu.show(TREE_TABLE_VIEW, event.getScreenX(), event.getScreenY());
+//            } else {
+//                componentsMenu.hide();
+//            }
+//        });
 
         //menu items (components)
         editRow.setOnAction(event -> {
@@ -269,6 +208,8 @@ public class foundationsController implements Initializable {
         });
 
         //post footings
+        PF_SECTIONS.setItems(foundationsPFSectionList);
+
         PF_ADD_SECTION.setOnAction(event -> {
             pf_section_no++;
             postFootingsData.clear();
@@ -306,44 +247,26 @@ public class foundationsController implements Initializable {
         PF_SET_OVERRIDE.getSelectionModel().select(0);
 
         PF_SET.setOnAction(event -> {
-            foundationsData.clear();
-            db.setSelectedSets(Integer.parseInt(id_indicator.getText()), selectedSection, PF_SET.getSelectionModel().
-                    getSelectedItem(), PF_SET_OVERRIDE.getSelectionModel().getSelectedItem());
-            if (!PF_SET.getSelectionModel().isEmpty()) {
-                db.getFoundationsSetComponents(Integer.parseInt(id_indicator.getText()), PF_SET.getSelectionModel().
-                        getSelectedItem(), foundationsData);
-            }
-            selectedSection = PF_SECTIONS.getSelectionModel().getSelectedItem();
-            db.getFoundationsSetOverrideComponents(Integer.parseInt(id_indicator.getText()), selectedSection,
-                    PF_SET.getSelectionModel().getSelectedItem(), PF_SET_OVERRIDE.getSelectionModel()
-                            .getSelectedItem(), foundationsData);
+
         });
 
         PF_SET_OVERRIDE.setOnAction(event -> {
-            selectedSection = PF_SECTIONS.getSelectionModel().getSelectedItem();
-            db.setSelectedSets(Integer.parseInt(id_indicator.getText()), selectedSection, PF_SET.getSelectionModel().
-                    getSelectedItem(), PF_SET_OVERRIDE.getSelectionModel().getSelectedItem());
-            db.getFoundationsSetOverrideComponents(Integer.parseInt(id_indicator.getText()), selectedSection,
-                    PF_SET.getSelectionModel().getSelectedItem(), PF_SET_OVERRIDE.getSelectionModel()
-                            .getSelectedItem(), foundationsData);
+
         });
 
         PF_SECTIONS.setOnMouseReleased(event -> {
             try {
                 //section list event
                 clearForms();
-                foundationsData.clear();
-                postFootingsData.clear();
-                selectedSection = PF_SECTIONS.getSelectionModel().getSelectedItem();
-                db.displayFoundationComponents(Integer.parseInt(id_indicator.getText()), selectedSection, foundationsData);
-                db.getSelectedSets(Integer.parseInt(id_indicator.getText()), selectedSection, PF_SET, PF_SET_OVERRIDE); // combo boxes updater
-                db.getPostFootingsSD(Integer.parseInt(id_indicator.getText()), selectedSection, postFootingsData);// section dimensions updater
-                db.getFoundationsSetOverrideComponents(Integer.parseInt(id_indicator.getText()), selectedSection,
-                        PF_SET.getSelectionModel().getSelectedItem(), PF_SET_OVERRIDE.getSelectionModel()
-                                .getSelectedItem(), foundationsData);
-                System.out.print("foundation params: " + id_indicator.getText() + " " +selectedSection + " " +
-                        PF_SET.getSelectionModel().getSelectedItem() + " " + PF_SET_OVERRIDE.getSelectionModel()
-                        .getSelectedItem());
+//                foundationsData.clear();
+//                postFootingsData.clear();
+//                selectedSection = PF_SECTIONS.getSelectionModel().getSelectedItem();
+//                db.displayFoundationComponents(Integer.parseInt(id_indicator.getText()), selectedSection, foundationsData);
+//                db.getSelectedSets(Integer.parseInt(id_indicator.getText()), selectedSection, PF_SET, PF_SET_OVERRIDE); // combo boxes updater
+//                db.getPostFootingsSD(Integer.parseInt(id_indicator.getText()), selectedSection, postFootingsData);// section dimensions updater
+//                db.getFoundationsSetOverrideComponents(Integer.parseInt(id_indicator.getText()), selectedSection,
+//                        PF_SET.getSelectionModel().getSelectedItem(), PF_SET_OVERRIDE.getSelectionModel()
+//                                .getSelectedItem(), foundationsData);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -361,11 +284,13 @@ public class foundationsController implements Initializable {
             CB_SECTIONS.getItems().remove(cb_section_no);
         });
 
+        CB_SECTIONS.setItems(foundationsCBSectionList);
+
         CB_SECTIONS.setOnMouseReleased(event -> {
             //section list event
-            foundationsData.clear();
-            db.displayFoundationComponents(Integer.parseInt(id_indicator.getText()), Integer.parseInt(
-                    CB_SECTIONS.getSelectionModel().getSelectedItem().toString()), foundationsData);
+//            foundationsData.clear();
+//            db.displayFoundationComponents(Integer.parseInt(id_indicator.getText()), Integer.parseInt(
+//                    CB_SECTIONS.getSelectionModel().getSelectedItem().toString()), foundationsData);
         });
 
         //concrete floors
@@ -385,9 +310,9 @@ public class foundationsController implements Initializable {
 
         CF_SECTIONS.setOnMouseReleased(event -> {
             //section list event
-            foundationsData.clear();
-            db.displayFoundationComponents(Integer.parseInt(id_indicator.getText()), Integer.parseInt(
-                    CF_SECTIONS.getSelectionModel().getSelectedItem().toString()), foundationsData);
+//            foundationsData.clear();
+//            db.displayFoundationComponents(Integer.parseInt(id_indicator.getText()), Integer.parseInt(
+//                    CF_SECTIONS.getSelectionModel().getSelectedItem().toString()), foundationsData);
         });
 
         CF_SET.setOnAction(event -> {
@@ -438,6 +363,8 @@ public class foundationsController implements Initializable {
                 tw_quantity = (int) (cf_area / 20);
             }
         }
+        foundationsMaterials.addAll(new foundationsMaterials("32100832", "Structural Concrete 17.5Mpa 19mm",
+                "M3", String.valueOf(new DecimalFormat("0.00").format(cf_volume))));
         foundationsMaterials.addAll(new foundationsMaterials("STMESE620500SM",
                 "STEEL REINFORCING MESH SE620-500SMALL 4.68X2.05 7.612M2", "SHT", String.valueOf(srm_quantity)));
         foundationsMaterials.addAll(new foundationsMaterials("STBC5065E",
@@ -446,8 +373,6 @@ public class foundationsController implements Initializable {
                 "POLYTHENE BLK 250MU X 4M X 25M 2010103", "ROLL", String.valueOf(pb_quantity)));
         foundationsMaterials.addAll(new foundationsMaterials("RPJT2040116",
                 "TAPE-IT HIGH ADHESIVE PVC JOINING TAPE 48MMX30M 2040116", "ROLL", String.valueOf(tp_quantity)));
-        foundationsMaterials.addAll(new foundationsMaterials("32100832", "Structural Concrete 17.5Mpa 19mm",
-                "M3", String.valueOf(new DecimalFormat("0.00").format(cf_volume))));
         foundationsMaterials.addAll(new foundationsMaterials("STW300GX1KG", "TIE WIRE GALV 300MM X 1KG",
                 "EACH", String.valueOf(tw_quantity)));
     }
@@ -492,7 +417,6 @@ public class foundationsController implements Initializable {
         //post footings
         PF_SET.getSelectionModel().select(0);
         PF_SET_OVERRIDE.getSelectionModel().select(0);
-        PF_QTY.setText("");
     }
 
 }

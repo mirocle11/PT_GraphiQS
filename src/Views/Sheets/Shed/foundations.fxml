@@ -42,7 +42,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <GridPane id="Post Footings" fx:id="POST_FOOTINGS" layoutX="20.0" layoutY="20.0" prefHeight="286.0" prefWidth="785.0" visible="false" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
+      <GridPane id="Post Footings" fx:id="POST_FOOTINGS" layoutX="20.0" layoutY="20.0" prefHeight="286.0" prefWidth="785.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
          <columnConstraints>
             <ColumnConstraints hgrow="ALWAYS" maxWidth="668.0" minWidth="10.0" prefWidth="498.0" />
             <ColumnConstraints hgrow="ALWAYS" maxWidth="459.0" minWidth="10.0" prefWidth="287.0" />
@@ -62,7 +62,7 @@
                      </font>
                   </Label>
                   <ListView fx:id="PF_SECTIONS" layoutX="15.0" layoutY="41.0" prefHeight="200.0" prefWidth="88.0" AnchorPane.topAnchor="40.0" />
-                  <JFXButton fx:id="PF_ADD_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="41.0" prefHeight="30.0" prefWidth="30.0" text="Button">
+                  <JFXButton fx:id="PF_ADD_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" disable="true" layoutX="104.0" layoutY="41.0" prefHeight="30.0" prefWidth="30.0" text="Button">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -71,7 +71,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="PF_REMOVE_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="83.0" prefHeight="30.0" prefWidth="30.0">
+                  <JFXButton fx:id="PF_REMOVE_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" disable="true" layoutX="104.0" layoutY="83.0" prefHeight="30.0" prefWidth="30.0">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -89,8 +89,8 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXComboBox fx:id="PF_SET" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
-                  <JFXComboBox fx:id="PF_SET_OVERRIDE" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
+                  <JFXComboBox fx:id="PF_SET" disable="true" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
+                  <JFXComboBox fx:id="PF_SET_OVERRIDE" disable="true" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
                </children>
                <GridPane.margin>
                   <Insets right="10.0" />
@@ -172,8 +172,8 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXComboBox editable="true" focusTraversable="false" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
-                  <JFXComboBox editable="true" focusTraversable="false" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
+                  <JFXComboBox disable="true" editable="true" focusTraversable="false" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
+                  <JFXComboBox disable="true" editable="true" focusTraversable="false" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
                </children>
                <GridPane.margin>
                   <Insets right="10.0" />
@@ -226,7 +226,7 @@
                      </font>
                   </Label>
                   <ListView fx:id="CF_SECTIONS" layoutX="15.0" layoutY="41.0" prefHeight="200.0" prefWidth="88.0" AnchorPane.topAnchor="40.0" />
-                  <JFXButton fx:id="CF_ADD_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="41.0" prefHeight="30.0" prefWidth="30.0">
+                  <JFXButton fx:id="CF_ADD_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" disable="true" layoutX="104.0" layoutY="41.0" prefHeight="30.0" prefWidth="30.0">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -235,7 +235,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="CF_REMOVE_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="83.0" prefHeight="30.0" prefWidth="30.0">
+                  <JFXButton fx:id="CF_REMOVE_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" disable="true" layoutX="104.0" layoutY="83.0" prefHeight="30.0" prefWidth="30.0">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -253,8 +253,8 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXComboBox fx:id="CF_SET" editable="true" focusTraversable="false" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
-                  <JFXComboBox editable="true" focusTraversable="false" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
+                  <JFXComboBox fx:id="CF_SET" disable="true" editable="true" focusTraversable="false" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
+                  <JFXComboBox disable="true" editable="true" focusTraversable="false" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
                </children>
                <GridPane.margin>
                   <Insets right="10.0" />
@@ -270,18 +270,18 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TableView layoutX="14.0" layoutY="41.0" prefHeight="200.0" prefWidth="226.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
+                  <TreeTableView fx:id="PF_TABLE1" prefHeight="286.0" prefWidth="449.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
                      <columns>
-                        <TableColumn prefWidth="39.0" text="#" />
-                        <TableColumn prefWidth="77.0" text="Thickness" />
-                        <TableColumn prefWidth="77.0" text="Width" />
-                        <TableColumn prefWidth="77.0" text="Length" />
-                        <TableColumn prefWidth="77.0" text="Qty" />
+                        <TreeTableColumn fx:id="PF_COL_NO1" prefWidth="75.0" text="#" />
+                        <TreeTableColumn fx:id="PF_COL_DEPTH1" prefWidth="75.0" text="Length" />
+                        <TreeTableColumn fx:id="PF_COL_WIDTH1" prefWidth="75.0" text="Width" />
+                        <TreeTableColumn fx:id="PF_COL_LENGTH1" prefWidth="75.0" text="Thickness" />
+                        <TreeTableColumn fx:id="PF_COL_QTY1" prefWidth="75.0" text="Qty" />
                      </columns>
                      <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                        <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
-                  </TableView>
+                  </TreeTableView>
                </children>
                <GridPane.margin>
                   <Insets right="10.0" />
@@ -289,20 +289,6 @@
             </AnchorPane>
          </children>
       </GridPane>
-      <TreeTableView fx:id="TREE_TABLE_VIEW" layoutX="230.0" layoutY="331.0" prefHeight="455.0" prefWidth="1300.0" visible="false" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="330.0">
-        <columns>
-          <TreeTableColumn fx:id="COMPONENT" prefWidth="160.0" text="Component" />
-            <TreeTableColumn fx:id="CODE" prefWidth="90.0" text="Code" />
-            <TreeTableColumn fx:id="DESCRIPTION" prefWidth="270.0" text="Description" />
-            <TreeTableColumn fx:id="EXTRA1" prefWidth="140.0" text="Extra 1" />
-            <TreeTableColumn fx:id="EXTRA2" prefWidth="140.0" text="Extra 2" />
-            <TreeTableColumn fx:id="QUANTITY" text="Quantity" />
-            <TreeTableColumn fx:id="USAGE" prefWidth="100.0" text="Usage" />
-            <TreeTableColumn fx:id="WASTE" prefWidth="60.0" text="Waste" />
-            <TreeTableColumn fx:id="SUBHEADING" prefWidth="150.0" text="Subheading" />
-            <TreeTableColumn fx:id="USAGE2" prefWidth="100.0" text="Usage 2" />
-        </columns>
-      </TreeTableView>
       <JFXTreeTableView fx:id="MATERIALS_TBL" fixedCellSize="0.0" layoutX="230.0" layoutY="331.0" prefHeight="440.0" prefWidth="962.0" sortMode="ONLY_FIRST_LEVEL" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="330.0">
          <columns>
             <TreeTableColumn fx:id="SKU_NUMBER_COL" prefWidth="253.0" text="SKU Number" />

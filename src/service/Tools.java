@@ -42,6 +42,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
+import static Controllers.Sheets.Shed.foundationsController.foundationsCBSectionList;
+import static Controllers.Sheets.Shed.foundationsController.foundationsPFSectionList;
+
 public class Tools {
     public PageObject page;
     Group group;
@@ -82,12 +85,15 @@ public class Tools {
     int door_no = 1;
 
     //layouts foundations
-    public Label foundations_section = new Label();
-    public Label foundations_volume = new Label("");
-    public Label foundations_quantity = new Label("");
-    public Label lastRowSection = new Label();
+    public Label foundations_pf_section = new Label();
+    public Label foundations_pf_volume = new Label("");
+    public Label foundations_pf_quantity = new Label("");
+    public Label pfLastRowSection = new Label();
 
-    int foundations_no = 1; //quantity
+    public Label foundations_cb_section = new Label();
+    public Label foundations_cb_volume = new Label("");
+    public Label foundations_cb_quantity = new Label("");
+    public Label cbLastRowSection = new Label();
 
     public Tools(PageObject page, Group group, String mode, Line line, Circle circle, VBox box) {
         this.page = page;
@@ -504,92 +510,65 @@ public class Tools {
                             foundations_stamp.setAlignment(Pos.CENTER);
 
                             pane.getChildren().add(foundations_stamp);
-//                            System.out.println("foundations image path: " + path);
 
-                            //before.. object for updating table
-//                            FoundationsObject foundationsObject = new FoundationsObject();
-//                            foundationsObject.setNo(String.valueOf(foundations_no++));
-//                            foundationsObject.setPart(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem());
-//                            foundationsObject.setQuantity(window.FOUNDATIONS_SHAPE.getSelectionModel().getSelectedItem());
-//                            foundationsObject.setDepth(window.FOUNDATIONS_DEPTH.getText());
-//                            foundationsObject.setWidth(window.FOUNDATIONS_WIDTH.getText());
-//                            foundationsObject.setLength(window.FOUNDATIONS_LENGTH.getText());
-//                            foundationsObject.setStamp(foundations_stamp);
-
-                            //after.. db for managing table sections w/ identifier
+                            //db for managing table sections w/ identifier
                             DataBase db = DataBase.getInstance();
-                            db.identifyEqualValues(window.FOUNDATIONS_DEPTH.getText(), window.FOUNDATIONS_WIDTH.getText(),
-                                    window.FOUNDATIONS_LENGTH.getText(), window.FOUNDATIONS_DIAMETER.getText(),
-                                    window.FOUNDATIONS_HEIGHT.getText(), foundations_section, foundations_volume,
-                                    foundations_quantity); //identifies whether to update or insert row by section
+                            //identifies whether to update or insert row by section
+                            db.identifyFoundationsPFValues(window.FOUNDATIONS_DEPTH.getText(),
+                                    window.FOUNDATIONS_WIDTH.getText(), window.FOUNDATIONS_LENGTH.getText(),
+                                    foundations_pf_section, foundations_pf_volume, foundations_pf_quantity);
 
-                            //if null means there is no existing section with set params
-                            if (foundations_section.getText().equals("")) {
-                                db.getLayoutsFoundationsLastRow(lastRowSection); //gets last row (last section added)
-                                if (lastRowSection.getText().equals("")) {
-                                    lastRowSection.setText("1");
-                                }
-                                System.out.println("Section id = " + lastRowSection.getText());
-                                if (window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Post Footings")) {
-                                    db.insertFoundationsLayouts(Integer.parseInt(lastRowSection.getText()),
-                                            window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(), path, 1,
-                                            window.FOUNDATIONS_DEPTH.getText(), window.FOUNDATIONS_WIDTH.getText(),
-                                            window.FOUNDATIONS_LENGTH.getText(), window.FOUNDATIONS_DIAMETER.getText(),
-                                            window.FOUNDATIONS_HEIGHT.getText(), window.FOUNDATIONS_VOLUME1.getText());
-                                } else if (window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Concrete Bores")) {
-                                    db.insertFoundationsLayouts(Integer.parseInt(lastRowSection.getText()),
-                                            window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(), path, 1,
-                                            window.FOUNDATIONS_DEPTH.getText(), window.FOUNDATIONS_WIDTH.getText(),
-                                            window.FOUNDATIONS_LENGTH.getText(), window.FOUNDATIONS_DIAMETER.getText(),
-                                            window.FOUNDATIONS_HEIGHT.getText(), window.FOUNDATIONS_VOLUME2.getText());
-                                }
-                            } else {
-                                //update section selected by identifier along with quantity and volume (total)
-                                int quantity = Integer.parseInt(foundations_quantity.getText()) + 1;
-                                double volume = quantity * Double.parseDouble(foundations_volume.getText());
+                            db.identifyFoundationsCBValues(window.FOUNDATIONS_DIAMETER.getText(),
+                                    window.FOUNDATIONS_HEIGHT.getText(), foundations_cb_section, foundations_cb_volume,
+                                    foundations_cb_quantity);
 
-                                System.out.println("Volume total is:" + volume);
-                                db.updateFoundationsLayoutCount(quantity, String.valueOf(new DecimalFormat("0.00")
-                                        .format(volume)), Integer.parseInt(foundations_section.getText()));
+                            if (window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Post Footings")) {
+                                if (foundations_pf_section.getText().equals("")) {
+                                    db.getFoundationsPFLastRow(pfLastRowSection);
+                                    if (pfLastRowSection.getText().equals("")) {
+                                        pfLastRowSection.setText("1");
+                                    }
+                                    db.insertFoundationsPF(Integer.parseInt(pfLastRowSection.getText()), path, 1,
+                                            window.FOUNDATIONS_DEPTH.getText(), window.FOUNDATIONS_WIDTH.getText(),
+                                            window.FOUNDATIONS_LENGTH.getText(), window.FOUNDATIONS_VOLUME1.getText());
+                                } else {
+                                    int pf_quantity = Integer.parseInt(foundations_pf_quantity.getText()) + 1;
+                                    double pf_volume = pf_quantity * Double.parseDouble(foundations_pf_volume.getText());
+
+                                    db.updateFoundationsPFCount(pf_quantity, String.valueOf(new DecimalFormat("0.00")
+                                            .format(pf_volume)), Integer.parseInt(foundations_pf_section.getText()));
+                                }
                             }
 
-                            //show foundations table
-                            layoutsController.foundationsStampData.clear();
-                            foundations_section.setText("");
-                            db.showFoundationsLayout(layoutsController.foundationsStampData);
+                            if (window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Concrete Bores")) {
+                                if (foundations_cb_section.getText().equals("")) {
+                                    db.getFoundationsCBLastRow(cbLastRowSection);
+                                    if (cbLastRowSection.getText().equals("")) {
+                                        cbLastRowSection.setText("1");
+                                    }
+                                    db.insertFoundationsCB(Integer.parseInt(cbLastRowSection.getText()), path, 1,
+                                            window.FOUNDATIONS_DIAMETER.getText(), window.FOUNDATIONS_HEIGHT.getText(),
+                                            window.FOUNDATIONS_VOLUME2.getText());
+                                } else {
+                                    int cb_quantity = Integer.parseInt(foundations_cb_quantity.getText()) + 1;
+                                    double cb_volume = cb_quantity * Double.parseDouble(foundations_cb_volume.getText());
 
-//                            foundations_stamp.setOnMouseClicked(event1 -> {
-//                                if (event1.getButton() == MouseButton.SECONDARY) {
-//                                    stampMenu = new ContextMenu();
-//                                    stampMenu.hide();
-//
-//                                    MenuItem removeStamp = new MenuItem("Remove Stamp");
-//                                    removeStamp.setOnAction(event2 -> {
-//                                        foundations_stamp.setVisible(false);
-//
-//                                        foundationsStampData fs = new foundationsStampData(foundationsObject.getNo(),
-//                                                foundationsObject.getPart(), foundationsObject.getQuantity(),
-//                                                foundationsObject.getDepth(), foundationsObject.getWidth(),
-//                                                foundationsObject.getLength(), foundationsObject.getDiameter(),
-//                                                foundationsObject.getHeight(), foundationsObject.getVolume());
-//
-//                                        Iterator itr =  layouts.foundationsStampData.iterator();
-//                                        while (itr.hasNext()) {
-//                                            foundationsStampData element = (foundationsStampData) itr.next();
-//                                            if (element.getNo().equals(fs.getNo())) {
-//                                                System.out.print(element.getNo());
-//                                                itr.remove();
-//                                                break;
-//                                            }
-//                                        }
-//                                    });
-//                                    stampMenu.getItems().add(removeStamp);
-//                                    stampMenu.show(foundations_stamp, event1.getScreenX(), event1.getScreenY());
-//                                }
-//                            });
-//                            layouts.foundationsStampData.addAll(new foundationsStampData(foundationsObject.getNo(),
-//                                    foundationsObject.getPart(), foundationsObject.getQuantity(), foundationsObject.getDepth(),
-//                                    foundationsObject.getWidth(), foundationsObject.getLength()));
+                                    db.updateFoundationsCBCount(cb_quantity, String.valueOf(new DecimalFormat("0.00")
+                                            .format(cb_volume)), Integer.parseInt(foundations_cb_section.getText()));
+                                }
+                            }
+                            //pass section to setup sheet
+                            db.getFoundationsPFSections(foundationsPFSectionList);
+                            db.getFoundationsCBSections(foundationsCBSectionList);
+
+                            //show foundations table
+                            layoutsController.foundationsPostFootingsData.clear();
+                            foundations_pf_section.setText("");
+                            db.showFoundationsPF(layoutsController.foundationsPostFootingsData);
+
+                            layoutsController.foundationsConcreteBoresData.clear();
+                            foundations_cb_section.setText("");
+                            db.showFoundationsCB(layoutsController.foundationsConcreteBoresData);
                         }
                     }
                 });

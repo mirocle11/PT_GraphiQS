@@ -110,7 +110,7 @@ public class Main extends Application {
                 if (n == 0) {
                     DataBase db = DataBase.getInstance();
                     db.clearComponents();
-                    db.clearSectionDimensions();
+//                    db.clearSectionDimensions();
                     db.clearLayoutsFoundations();
                     dashboard_stage.close();
                 }

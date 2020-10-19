@@ -372,7 +372,7 @@ public class workspaceController implements Initializable {
                 }
             });
         } catch (Exception e) {
-            e.getSuppressed();
+
         }
 
         //cladding

@@ -74,24 +74,33 @@ public class layoutsController implements Initializable {
     public TreeTableColumn<claddingData, String> CLADDING_HEIGHT;
 
     //foundations table (setup sheets)
-    public JFXTreeTableView<foundationsStampData> FOUNDATIONS_TBL;
-    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_NO;
-    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_PART;
-    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_IMAGE;
-    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_QTY;
-    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_DEPTH;
-    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_WIDTH;
-    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_LENGTH;
-    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_DIAMETER;
-    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_HEIGHT;
-    public TreeTableColumn<foundationsStampData, String> FOUNDATIONS_VOLUME;
+    public JFXTreeTableView<foundationsPostFootingsData> FOUNDATIONS_POST_FOOTINGS_TBL; // post footings
+    public TreeTableColumn<foundationsPostFootingsData, String> FOUNDATIONS_PF_NO;
+    public TreeTableColumn<foundationsPostFootingsData, String> FOUNDATIONS_PF_PART;
+    public TreeTableColumn<foundationsPostFootingsData, String> FOUNDATIONS_PF_IMAGE;
+    public TreeTableColumn<foundationsPostFootingsData, String> FOUNDATIONS_PF_QTY;
+    public TreeTableColumn<foundationsPostFootingsData, String> FOUNDATIONS_PF_DEPTH;
+    public TreeTableColumn<foundationsPostFootingsData, String> FOUNDATIONS_PF_WIDTH;
+    public TreeTableColumn<foundationsPostFootingsData, String> FOUNDATIONS_PF_LENGTH;
+    public TreeTableColumn<foundationsPostFootingsData, String> FOUNDATIONS_PF_VOLUME;
+
+    public JFXTreeTableView<foundationsConcreteBoresData> FOUNDATIONS_CONCRETE_BORES_TBL; // concrete bores
+    public TreeTableColumn<foundationsConcreteBoresData, String> FOUNDATIONS_CB_NO;
+    public TreeTableColumn<foundationsConcreteBoresData, String> FOUNDATIONS_CB_PART;
+    public TreeTableColumn<foundationsConcreteBoresData, String> FOUNDATIONS_CB_IMAGE;
+    public TreeTableColumn<foundationsConcreteBoresData, String> FOUNDATIONS_CB_QTY;
+    public TreeTableColumn<foundationsConcreteBoresData, String> FOUNDATIONS_CB_DIAMETER;
+    public TreeTableColumn<foundationsConcreteBoresData, String> FOUNDATIONS_CB_HEIGHT;
+    public TreeTableColumn<foundationsConcreteBoresData, String> FOUNDATIONS_CB_VOLUME;
 
     //data lists
     public static ObservableList<layoutsData> data;
     public static ObservableList<doorData> doorData;
     public static ObservableList<windowData> windowData;
     public static ObservableList<claddingData> claddingData;
-    public static ObservableList<foundationsStampData> foundationsStampData;
+
+    public static ObservableList<foundationsPostFootingsData> foundationsPostFootingsData;
+    public static ObservableList<foundationsConcreteBoresData> foundationsConcreteBoresData;
     public static ObservableList<String> concreteData;
 
     public Pane CONCRETE_FLOOR_TBL;
@@ -107,7 +116,6 @@ public class layoutsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         FOUNDATIONS_PF_TOTAL.setEditable(false);
         FOUNDATIONS_CB_TOTAL.setEditable(false);
 
@@ -215,36 +223,48 @@ public class layoutsController implements Initializable {
         );
 
         //foundations
-        foundationsStampData = FXCollections.observableArrayList();
+        foundationsPostFootingsData = FXCollections.observableArrayList();
 
-        FOUNDATIONS_NO.setCellValueFactory(
+        FOUNDATIONS_PF_NO.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("no")
         );
-        FOUNDATIONS_PART.setCellValueFactory(
-                new TreeItemPropertyValueFactory<>("part")
-        );
-        FOUNDATIONS_IMAGE.setCellValueFactory(
+        FOUNDATIONS_PF_IMAGE.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("image")
         );
-        FOUNDATIONS_QTY.setCellValueFactory(
+        FOUNDATIONS_PF_QTY.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("quantity")
         );
-        FOUNDATIONS_DEPTH.setCellValueFactory(
+        FOUNDATIONS_PF_DEPTH.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("depth")
         );
-        FOUNDATIONS_WIDTH.setCellValueFactory(
+        FOUNDATIONS_PF_WIDTH.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("width")
         );
-        FOUNDATIONS_LENGTH.setCellValueFactory(
+        FOUNDATIONS_PF_LENGTH.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("length")
         );
-        FOUNDATIONS_DIAMETER.setCellValueFactory(
+        FOUNDATIONS_PF_VOLUME.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("volume")
+        );
+
+        foundationsConcreteBoresData = FXCollections.observableArrayList();
+
+        FOUNDATIONS_CB_NO.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("no")
+        );
+        FOUNDATIONS_CB_IMAGE.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("image")
+        );
+        FOUNDATIONS_CB_QTY.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("quantity")
+        );
+        FOUNDATIONS_CB_DIAMETER.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("diameter")
         );
-        FOUNDATIONS_HEIGHT.setCellValueFactory(
+        FOUNDATIONS_CB_HEIGHT.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("height")
         );
-        FOUNDATIONS_VOLUME.setCellValueFactory(
+        FOUNDATIONS_CB_VOLUME.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("volume")
         );
 
@@ -264,9 +284,15 @@ public class layoutsController implements Initializable {
         CLADDING_TBL.setRoot(cladding_root);
         CLADDING_TBL.setShowRoot(false);
 
-        TreeItem<foundationsStampData> foundations_root = new RecursiveTreeItem<>(foundationsStampData, RecursiveTreeObject::getChildren);
-        FOUNDATIONS_TBL.setRoot(foundations_root);
-        FOUNDATIONS_TBL.setShowRoot(false);
+        TreeItem<foundationsPostFootingsData> foundationsPostFootingsRoot = new RecursiveTreeItem<>(foundationsPostFootingsData,
+                RecursiveTreeObject::getChildren);
+        FOUNDATIONS_POST_FOOTINGS_TBL.setRoot(foundationsPostFootingsRoot);
+        FOUNDATIONS_POST_FOOTINGS_TBL.setShowRoot(false);
+
+        TreeItem<foundationsConcreteBoresData> foundationsConcreteBoresRoot = new RecursiveTreeItem<>(foundationsConcreteBoresData,
+                RecursiveTreeObject::getChildren);
+        FOUNDATIONS_CONCRETE_BORES_TBL.setRoot(foundationsConcreteBoresRoot);
+        FOUNDATIONS_CONCRETE_BORES_TBL.setShowRoot(false);
 
         SEARCH.textProperty().addListener((observable, oldValue, newValue) -> layoutsTableView.setPredicate(
                 modelTreeItem -> modelTreeItem.getValue().getMeasurement().contains(newValue) |
@@ -320,17 +346,20 @@ public class layoutsController implements Initializable {
         });
 
         POST_FOOTING_BTN.setOnAction(event -> {
-            FOUNDATIONS_TBL.setVisible(true);
+            FOUNDATIONS_POST_FOOTINGS_TBL.setVisible(true);
+            FOUNDATIONS_CONCRETE_BORES_TBL.setVisible(false);
             CONCRETE_FLOOR_TBL.setVisible(false);
         });
 
         CONCRETE_BORES_BTN.setOnAction(event -> {
-            FOUNDATIONS_TBL.setVisible(true);
+            FOUNDATIONS_POST_FOOTINGS_TBL.setVisible(false);
+            FOUNDATIONS_CONCRETE_BORES_TBL.setVisible(true);
             CONCRETE_FLOOR_TBL.setVisible(false);
         });
 
         CONCRETE_FLOORS_BTN.setOnAction(event -> {
-            FOUNDATIONS_TBL.setVisible(false);
+            FOUNDATIONS_POST_FOOTINGS_TBL.setVisible(false);
+            FOUNDATIONS_CONCRETE_BORES_TBL.setVisible(false);
             CONCRETE_FLOOR_TBL.setVisible(true);
         });
 
