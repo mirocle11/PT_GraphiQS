@@ -5,12 +5,12 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class foundationsMaterials extends RecursiveTreeObject<foundationsMaterials> {
 
-    private SimpleStringProperty components, sku_number, description, unit, quantity, usage;
+    private SimpleStringProperty component, sku_number, description, unit, quantity, usage;
 
-    public foundationsMaterials(String components, String sku_number, String description, String unit, String quantity,
+    public foundationsMaterials(String component, String sku_number, String description, String unit, String quantity,
                                 String usage) {
 
-        this.components = new SimpleStringProperty(components);
+        this.component = new SimpleStringProperty(component);
         this.sku_number = new SimpleStringProperty(sku_number);
         this.description = new SimpleStringProperty(description);
         this.unit = new SimpleStringProperty(unit);
@@ -66,16 +66,16 @@ public class foundationsMaterials extends RecursiveTreeObject<foundationsMateria
         this.quantity.set(quantity);
     }
 
-    public String getComponents() {
-        return components.get();
+    public String getComponent() {
+        return component.get();
     }
 
-    public SimpleStringProperty componentsProperty() {
-        return components;
+    public SimpleStringProperty componentProperty() {
+        return component;
     }
 
-    public void setComponents(String components) {
-        this.components.set(components);
+    public void setComponent(String component) {
+        this.component.set(component);
     }
 
     public String getUsage() {

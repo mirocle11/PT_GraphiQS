@@ -1,6 +1,7 @@
 package Controllers;
 
 import Controllers.Sheets.Shed.foundationsController;
+import DataBase.DataBase;
 import Model.PageObject;
 import Model.ShapeObject;
 import Model.data.WallData;
@@ -265,9 +266,10 @@ public class workspaceController implements Initializable {
             ws_indicator = 0;
             ds_indicator = 0;
             fs_indicator = 0;
-            try{
-            STAMP_TYPE.getSelectionModel().clearSelection();
-}catch (Exception e){
+
+            try {
+                STAMP_TYPE.getSelectionModel().clearSelection();
+            } catch (Exception e){
 
             }
         });
@@ -289,6 +291,10 @@ public class workspaceController implements Initializable {
                 foundationsController.cf_area = area;
                 foundationsController.cf_length = (int) length;
                 foundationsController.cf_volume = volume;
+                DataBase db = DataBase.getInstance();
+                db.setSections(3, 1);
+                foundationsController.foundationsCFSectionList.clear();
+                foundationsController.foundationsCFSectionList.add(1);
 
                 CONCRETE_FLOOR_LENGTH_ERROR.setVisible(false);
                 CONCRETE_FLOOR_WIDTH_ERROR.setVisible(false);

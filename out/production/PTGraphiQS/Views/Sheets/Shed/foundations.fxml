@@ -292,15 +292,15 @@
       </GridPane>
       <JFXTreeTableView fx:id="MATERIALS_TBL" fixedCellSize="0.0" layoutX="230.0" layoutY="331.0" prefHeight="440.0" prefWidth="1116.0" sortMode="ONLY_FIRST_LEVEL" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="330.0">
          <columns>
-            <TreeTableColumn fx:id="COMPONENTS" prefWidth="180.0" text="Components" />
-            <TreeTableColumn fx:id="SKU_NUMBER_COL" prefWidth="178.0" text="Code" />
-            <TreeTableColumn fx:id="DESCRIPTION_COL" minWidth="0.0" prefWidth="434.0" text="Description" />
-            <TreeTableColumn fx:id="UNIT_COL" minWidth="0.0" prefWidth="160.0" text="Unit" />
-            <TreeTableColumn fx:id="QUANTITY_COL" minWidth="0.0" prefWidth="160.0" text="Qty" />
-            <TreeTableColumn fx:id="USAGE_COL" minWidth="0.0" prefWidth="253.0" text="Usage" />
+            <TreeTableColumn fx:id="COMPONENT_COL" prefWidth="180.0" text="Component" />
+            <TreeTableColumn fx:id="SKU_NUMBER_COL" prefWidth="168.0" text="Code" />
+            <TreeTableColumn fx:id="DESCRIPTION_COL" minWidth="0.0" prefWidth="411.0" text="Description" />
+            <TreeTableColumn fx:id="UNIT_COL" minWidth="0.0" prefWidth="97.0" text="Unit" />
+            <TreeTableColumn fx:id="QUANTITY_COL" minWidth="0.0" prefWidth="101.0" text="Qty" />
+            <TreeTableColumn fx:id="USAGE_COL" minWidth="0.0" prefWidth="158.0" text="Usage" />
          </columns>
       </JFXTreeTableView>
-      <JFXButton fx:id="REFRESH" contentDisplay="GRAPHIC_ONLY" layoutX="1357.0" layoutY="330.0" prefHeight="47.0" prefWidth="55.0" style="-fx-background-radius: 30px; -fx-background-color: #263238;" textFill="WHITE">
+      <JFXButton fx:id="REFRESH" contentDisplay="GRAPHIC_ONLY" layoutX="1357.0" layoutY="330.0" prefHeight="47.0" prefWidth="55.0" style="-fx-background-radius: 30px; -fx-background-color: #263238;" text="Button" textFill="WHITE" visible="false">
          <font>
             <Font name="Segoe UI" size="15.0" />
          </font>
