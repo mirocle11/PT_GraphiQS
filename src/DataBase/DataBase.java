@@ -4,6 +4,7 @@ import Model.data.clientsData;
 import Model.data.layouts.foundationsConcreteBoresData;
 import Model.data.layouts.foundationsPostFootingsData;
 import Model.data.setupSheetsData;
+import Model.data.shed.foundations.concreteBoresSec;
 import Model.data.shed.foundations.postFootingsSec;
 import Model.data.subtradesData;
 import com.jfoenix.controls.JFXComboBox;
@@ -41,7 +42,7 @@ public class DataBase {
     private DataBase() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(URL + dbName, "root", "password");
+            connection = DriverManager.getConnection(URL + dbName, "root", "");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -53,7 +54,7 @@ public class DataBase {
     public void createDatabase() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(URL, "root","password");
+            connection = DriverManager.getConnection(URL, "root","");
             Statement statement = connection.createStatement();
             statement.executeUpdate("CREATE DATABASE IF NOT EXISTS " + dbName);
             setTables();
@@ -753,21 +754,62 @@ public class DataBase {
     }
 
     //section dimensions
-    public void getPostFootingsSD(int part_id, int section, ObservableList<postFootingsSec> sectionDimensions) {
+    public void getConcreteBoresSD(int part_id, int section, ObservableList<concreteBoresSec> sectionDimensions) {
         try {
-            String sql = "SELECT * FROM SHED_SECTION_DIMENSIONS WHERE PARTS_ID = ? AND SECTION = ?";
+            String sql = "SELECT * FROM shed_foundations_concrete_bores WHERE ID = ?";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, part_id);
-            preparedStatement.setInt(2, section);
+            preparedStatement.setInt(1, section);
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
                 //create container for data
-                sectionDimensions.addAll(new postFootingsSec(String.valueOf(resultSet.getInt("DIMENSION")),
-                        resultSet.getString("DEPTH"), resultSet.getString("WIDTH"),
-                        resultSet.getString("LENGTH"), resultSet.getString("QTY")));
+//                sectionDimensions.addAll(new postFootingsSec(String.valueOf(resultSet.getInt("DIMENSION")),
+//                        resultSet.getString("DEPTH"), resultSet.getString("WIDTH"),
+//                        resultSet.getString("LENGTH"), resultSet.getString("QTY")));
+                System.out.println(String.valueOf(resultSet.getString("QUANTITY")));
+                System.out.println(resultSet.getString("DIAMETER"));
+                System.out.println(resultSet.getString("HEIGHT"));
+                System.out.println(resultSet.getString("VOLUME"));
+
+                sectionDimensions.addAll(new concreteBoresSec("1",
+                        String.valueOf(resultSet.getString("QUANTITY")),
+                        resultSet.getString("DIAMETER"),
+                        resultSet.getString("HEIGHT"),
+                        resultSet.getString("VOLUME")
+                ));
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getPostFootingsSD(int part_id, int section, ObservableList<postFootingsSec> sectionDimensions) {
+        try {
+            String sql = "SELECT * FROM SHED_FOUNDATIONS_POST_FOOTINGS WHERE ID = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+//            preparedStatement.setString(1, "test");
+            preparedStatement.setInt(1, section);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                //create container for data
+//                sectionDimensions.addAll(new postFootingsSec(String.valueOf(resultSet.getInt("DIMENSION")),
+//                        resultSet.getString("DEPTH"), resultSet.getString("WIDTH"),
+//                        resultSet.getString("LENGTH"), resultSet.getString("QTY")));
+
+                sectionDimensions.addAll(new postFootingsSec("1",
+                        resultSet.getString("DEPTH"),
+                        resultSet.getString("WIDTH"),
+                        resultSet.getString("LENGTH"),
+                        String.valueOf(resultSet.getString("QUANTITY")),
+                        resultSet.getString("VOLUME")
+                ));
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -956,7 +998,7 @@ public class DataBase {
                                     String volume) {
         try {
             String sql = "INSERT INTO SHED_FOUNDATIONS_POST_FOOTINGS (ID, IMAGE, QUANTITY, DEPTH, WIDTH, LENGTH," +
-                    " VOLUME) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                    " VOLUME,PART) VALUES (?, ?, ?, ?, ?, ?, ?,?)";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, section);
@@ -966,6 +1008,7 @@ public class DataBase {
             preparedStatement.setString(5, width);
             preparedStatement.setString(6, length);
             preparedStatement.setString(7, volume);
+            preparedStatement.setString(8, "test");
 
             preparedStatement.executeUpdate();
         } catch (Exception e) {

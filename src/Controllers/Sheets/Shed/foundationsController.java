@@ -2,17 +2,21 @@ package Controllers.Sheets.Shed;
 
 import DataBase.DataBase;
 import Main.Main;
+import Model.Sheets.foundationsData;
+import Model.data.shed.foundations.concreteBoresSec;
 import Model.data.shed.foundations.postFootingsSec;
 import Model.data.shed.foundationsMaterials;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -54,6 +58,8 @@ public class foundationsController implements Initializable {
     public JFXComboBox<String> PF_SET, PF_SET_OVERRIDE, CF_SET;
     public JFXTextField PF_QTY;
 
+
+
     //component editor
     private double xOffset = 0;
     private double yOffset = 0;
@@ -80,6 +86,16 @@ public class foundationsController implements Initializable {
     public TreeTableColumn<postFootingsSec, String> PF_COL_WIDTH;
     public TreeTableColumn<postFootingsSec, String> PF_COL_LENGTH;
     public TreeTableColumn<postFootingsSec, String> PF_COL_QTY;
+    public TreeTableColumn<postFootingsSec, String> PF_COL_VOLUME;
+
+    public TreeTableView<concreteBoresSec> CB_TABLE; //section dimensions
+    public TreeTableColumn<concreteBoresSec, String> CB_COL_NO;
+    public TreeTableColumn<concreteBoresSec, String> CB_COL_QTY;
+    public TreeTableColumn<concreteBoresSec, String> CB_COL_DIAMETER;
+    public TreeTableColumn<concreteBoresSec, String> CB_COL_HEIGHT;
+    public TreeTableColumn<concreteBoresSec, String> CB_COL_VOLUME;
+
+
 
     public JFXTreeTableView<foundationsMaterials> MATERIALS_TBL;
     public TreeTableColumn<foundationsMaterials, String> SKU_NUMBER_COL;
@@ -90,6 +106,7 @@ public class foundationsController implements Initializable {
     //data lists
     public static ObservableList<foundationsMaterials> foundationsMaterials;
     public static ObservableList<postFootingsSec> postFootingsData; //section dimensions
+    public static ObservableList<concreteBoresSec> concreteBoresData; //section dimensions
 
     public static int cf_length = 0;
     public static double cf_area = 0.0;
@@ -97,6 +114,8 @@ public class foundationsController implements Initializable {
 
     public static ObservableList<Integer> foundationsPFSectionList = FXCollections.observableArrayList();
     public static ObservableList<Integer> foundationsCBSectionList = FXCollections.observableArrayList();
+    public static ObservableList<foundationsData> foundationsData= FXCollections.observableArrayList();
+
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {
@@ -142,7 +161,7 @@ public class foundationsController implements Initializable {
         PF_COL_NO.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("no")
         );
-        PF_COL_DEPTH.setCellValueFactory( 
+        PF_COL_DEPTH.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("depth")
         );
         PF_COL_WIDTH.setCellValueFactory(
@@ -154,6 +173,18 @@ public class foundationsController implements Initializable {
         PF_COL_QTY.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("qty")
         );
+        PF_COL_VOLUME.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("volume")
+        );
+
+        concreteBoresData = FXCollections.observableArrayList();
+
+        CB_COL_NO.setCellValueFactory(new TreeItemPropertyValueFactory<>("no"));
+        CB_COL_QTY.setCellValueFactory(new TreeItemPropertyValueFactory<>("qty"));
+        CB_COL_DIAMETER.setCellValueFactory(new TreeItemPropertyValueFactory<>("diameter"));
+        CB_COL_HEIGHT.setCellValueFactory(new TreeItemPropertyValueFactory<>("height"));
+        CB_COL_VOLUME.setCellValueFactory(new TreeItemPropertyValueFactory<>("volume"));
+
 
         //foundations materials
         foundationsMaterials = FXCollections.observableArrayList();
@@ -174,6 +205,10 @@ public class foundationsController implements Initializable {
         TreeItem<postFootingsSec> post_footings_root = new RecursiveTreeItem<>(postFootingsData, RecursiveTreeObject::getChildren);
         PF_TABLE.setRoot(post_footings_root);
         PF_TABLE.setShowRoot(false);
+
+        TreeItem<concreteBoresSec> concrete_bores_root = new RecursiveTreeItem<>(concreteBoresData, RecursiveTreeObject::getChildren);
+        CB_TABLE.setRoot(concrete_bores_root);
+        CB_TABLE.setShowRoot(false);
 
         TreeItem<foundationsMaterials> foundationsMaterialsDataTreeItem = new RecursiveTreeItem<>
                 (foundationsMaterials, RecursiveTreeObject::getChildren);
@@ -209,6 +244,18 @@ public class foundationsController implements Initializable {
 
         //post footings
         PF_SECTIONS.setItems(foundationsPFSectionList);
+
+        PF_SECTIONS.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+                System.out.println("clicked on " + PF_SECTIONS.getSelectionModel().getSelectedItem());
+                postFootingsData.clear();
+                db.getPostFootingsSD(1,PF_SECTIONS.getSelectionModel().getSelectedItem(),postFootingsData);
+            }
+        });
+
+
 
         PF_ADD_SECTION.setOnAction(event -> {
             pf_section_no++;
@@ -293,6 +340,17 @@ public class foundationsController implements Initializable {
 //                    CB_SECTIONS.getSelectionModel().getSelectedItem().toString()), foundationsData);
         });
 
+        CB_SECTIONS.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+                System.out.println("clicked on " + CB_SECTIONS.getSelectionModel().getSelectedItem());
+                concreteBoresData.clear();
+                System.out.println(concreteBoresData.size()+" size");
+                db.getConcreteBoresSD(1,CB_SECTIONS.getSelectionModel().getSelectedItem(),concreteBoresData);
+            }
+        });
+
         //concrete floors
         CF_SET.setItems(CF_SET_DATA);
         CF_SET.getSelectionModel().select(0);
@@ -320,6 +378,8 @@ public class foundationsController implements Initializable {
                 refreshConcreteFloorMaterials();
             }
         });
+
+
 
         REFRESH.setOnAction(event -> {
             //refresh all tables
