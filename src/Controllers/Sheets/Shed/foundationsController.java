@@ -6,17 +6,18 @@ import Model.Sheets.foundationsData;
 import Model.data.shed.foundations.concreteBoresSec;
 import Model.data.shed.foundations.postFootingsSec;
 import Model.data.shed.foundationsMaterials;
-import com.jfoenix.controls.*;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -27,7 +28,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.net.URL;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -52,15 +52,11 @@ public class foundationsController implements Initializable {
     public JFXButton PF_ADD_SECTION, PF_REMOVE_SECTION, CB_ADD_SECTION, CB_REMOVE_SECTION, CF_ADD_SECTION,
             CF_REMOVE_SECTION, REFRESH;
     public JFXComboBox<String> PF_SET, PF_SET_OVERRIDE, CB_SET, CB_SET_OVERRIDE, CF_SET, CF_SET_OVERRIDE;
-//    public JFXTextField PF_QTY;
 
     //component editor
     private double xOffset = 0;
     private double yOffset = 0;
     private static Stage editComponentStage;
-
-    //sample data
-    private ObservableList<String> CF_SET_DATA = FXCollections.observableArrayList("(None)", "17.5 SE620-500");
 
     //table right click menu
     public ContextMenu componentsMenu = new ContextMenu();
@@ -82,8 +78,6 @@ public class foundationsController implements Initializable {
     public TreeTableColumn<concreteBoresSec, String> CB_COL_HEIGHT;
     public TreeTableColumn<concreteBoresSec, String> CB_COL_VOLUME;
 
-
-
     public JFXTreeTableView<foundationsMaterials> MATERIALS_TBL;
     public TreeTableColumn<foundationsMaterials, String> SKU_NUMBER_COL;
     public TreeTableColumn<foundationsMaterials, String> DESCRIPTION_COL;
@@ -104,7 +98,9 @@ public class foundationsController implements Initializable {
     public static ObservableList<foundationsData> foundationsData= FXCollections.observableArrayList();
 
 
-    private final ObservableList<String> setsList = FXCollections.observableArrayList();
+    private final ObservableList<String> setsListPF = FXCollections.observableArrayList();
+    private final ObservableList<String> setsListCB = FXCollections.observableArrayList();
+    private final ObservableList<String> setsListCF = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {
@@ -113,6 +109,9 @@ public class foundationsController implements Initializable {
         DataBase db = DataBase.getInstance();
         parts.clear();
         db.displayShedParts(1, parts);
+        db.getSets(1, setsListPF);
+        db.getSets(2, setsListCB);
+        db.getSets(3, setsListCF);
 
         parts.forEach(s -> {
             JFXButton button = new JFXButton();
@@ -128,7 +127,6 @@ public class foundationsController implements Initializable {
             button.setOnAction(event -> {
 //                foundationsData.clear();
                 db.getPartID(1, button.getId(), id_indicator);
-                db.getSets(Integer.parseInt(id_indicator.getText()), setsList); //apply sets to selected part
                 //selection highlighter
                 buttonList.forEach(button1 -> {
                     if (button1.getId().equals(button.getId())) {
@@ -176,7 +174,6 @@ public class foundationsController implements Initializable {
         CB_COL_HEIGHT.setCellValueFactory(new TreeItemPropertyValueFactory<>("height"));
         CB_COL_VOLUME.setCellValueFactory(new TreeItemPropertyValueFactory<>("volume"));
 
-
         //foundations materials
         foundationsMaterials = FXCollections.observableArrayList();
 
@@ -222,7 +219,7 @@ public class foundationsController implements Initializable {
         //post footings
         PF_SECTIONS.setItems(foundationsPFSectionList);
 
-        PF_SET.setItems(setsList);
+        PF_SET.setItems(setsListPF);
 
 //        PF_SET_OVERRIDE.setItems(PF_SET_OVERRIDE_DATA);
         PF_SET_OVERRIDE.getSelectionModel().select(0);
@@ -259,7 +256,7 @@ public class foundationsController implements Initializable {
         });
 
         //concrete bores
-        CB_SET.setItems(setsList);
+        CB_SET.setItems(setsListCB);
 
         CB_SET.setOnAction(event -> {
             String set_override;
@@ -268,8 +265,8 @@ public class foundationsController implements Initializable {
             } catch (Exception e) {
                 set_override = "";
             }
-            db.setSelectedSets(Integer.parseInt(id_indicator.getText()), CB_SECTIONS.getSelectionModel().getSelectedItem(),
-                    CB_SET.getSelectionModel().getSelectedItem(), set_override);
+            db.setSelectedSets(Integer.parseInt(id_indicator.getText()), CB_SECTIONS.getSelectionModel()
+                    .getSelectedItem(), CB_SET.getSelectionModel().getSelectedItem(), set_override);
         });
 
         CB_SET_OVERRIDE.setOnAction(event -> {
@@ -287,15 +284,15 @@ public class foundationsController implements Initializable {
                 //john
                 System.out.println("clicked on " + CB_SECTIONS.getSelectionModel().getSelectedItem());
                 concreteBoresData.clear();
-                System.out.println(concreteBoresData.size()+" size");
-                db.getConcreteBoresSD(1,CB_SECTIONS.getSelectionModel().getSelectedItem(),concreteBoresData);
+                System.out.println(concreteBoresData.size() + " size");
+                db.getConcreteBoresSD(1,CB_SECTIONS.getSelectionModel().getSelectedItem(), concreteBoresData);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         });
 
         //concrete floors
-        CF_SET.setItems(setsList);
+        CF_SET.setItems(setsListCF);
         CF_SET.getSelectionModel().select(0);
 
         CF_SECTIONS.setOnMouseReleased(event -> {
