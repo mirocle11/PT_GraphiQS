@@ -2,8 +2,6 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="@localhost" uuid="fb3766c5-ce24-40cd-bbff-e14a8f7376bd">
-      <database-info product="MySQL" version="8.0.21" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.47 ( Revision: fe1903b1ecb4a96a917f7ed3190d80c049b1de29 )" dbms="MYSQL" exact-version="8.0.21" exact-driver-version="5.1">
-      <database-info product="MySQL" version="8.0.19" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.47 ( Revision: fe1903b1ecb4a96a917f7ed3190d80c049b1de29 )">
       <database-info product="MySQL" version="8.0.19" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.47 ( Revision: fe1903b1ecb4a96a917f7ed3190d80c049b1de29 )" dbms="MYSQL" exact-version="8.0.19">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
@@ -14,12 +12,10 @@
         <introspection-scope>
           <node kind="schema">
             <name qname="information_schema" />
-            <name qname="lbp_trades_db" />
             <name qname="pt_graphiqs_db" />
           </node>
         </introspection-scope>
       </schema-mapping>
-      <introspection-schemas>*:information_schema,pt_graphiqs_db</introspection-schemas>
     </data-source>
   </component>
 </project>
