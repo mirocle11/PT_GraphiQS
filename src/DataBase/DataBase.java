@@ -42,7 +42,7 @@ public class DataBase {
     private DataBase() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(URL + dbName, "root", "");
+            connection = DriverManager.getConnection(URL + dbName, "root", "password");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -54,7 +54,7 @@ public class DataBase {
     public void createDatabase() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(URL, "root","");
+            connection = DriverManager.getConnection(URL, "root","password");
             Statement statement = connection.createStatement();
             statement.executeUpdate("CREATE DATABASE IF NOT EXISTS " + dbName);
             setTables();

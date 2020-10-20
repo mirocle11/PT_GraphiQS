@@ -111,7 +111,7 @@
                                 <TreeTableColumn fx:id="PF_COL_WIDTH" prefWidth="75.0" text="Width" />
                                 <TreeTableColumn fx:id="PF_COL_LENGTH" prefWidth="75.0" text="Length" />
                                 <TreeTableColumn fx:id="PF_COL_QTY" prefWidth="75.0" text="Qty" />
-                                <TreeTableColumn fx:id="PF_COL_VOLUME" prefWidth="75.0" text="Volume" />
+                                <TreeTableColumn fx:id="PF_COL_VOLUME" prefWidth="75.0" text="Volume 1" />
                             </columns>
                             <columnResizePolicy>
                                 <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
