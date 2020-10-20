@@ -29,7 +29,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1013.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.workspaceController">
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1270.0" style="-fx-background-color: #102027;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.workspaceController">
    <children>
       <JFXDrawer fx:id="drawer" defaultDrawerSize="240.0" direction="RIGHT" layoutX="700.0" layoutY="73.0" miniDrawerSize="0.0" prefHeight="515.0" prefWidth="240.0" style="-fx-background-radius: 20px;" AnchorPane.bottomAnchor="120.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="115.0">
          <effect>

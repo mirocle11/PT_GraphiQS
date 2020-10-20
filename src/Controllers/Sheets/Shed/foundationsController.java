@@ -23,7 +23,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.net.URL;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -31,9 +30,6 @@ public class foundationsController implements Initializable {
 
     //indicators
     public Label id_indicator = new Label(); //part id every selection
-    public int pf_section_no = 0;
-    public int cb_section_no = 0;
-    public int cf_section_no = 0;
 
     public int selectedSection = 0;
 
@@ -41,8 +37,6 @@ public class foundationsController implements Initializable {
     public ObservableList<String> parts = FXCollections.observableArrayList();
     public ArrayList<GridPane> gridPaneList = new ArrayList<>();
     public VBox PARTS_VBOX;
-    public int pf_dimension_no = 0;
-    public ToggleGroup toggleGroup = new ToggleGroup();
     public ArrayList<JFXButton> buttonList = new ArrayList<>();
 
     //gridpanes (parts)
@@ -50,9 +44,10 @@ public class foundationsController implements Initializable {
 
     //components
     public ListView<Integer> PF_SECTIONS, CB_SECTIONS, CF_SECTIONS;
-    public JFXButton PF_ADD_SECTION, PF_REMOVE_SECTION, CB_ADD_SECTION, CB_REMOVE_SECTION, CF_ADD_SECTION, CF_REMOVE_SECTION, REFRESH;
-    public JFXComboBox<String> PF_SET, PF_SET_OVERRIDE, CF_SET;
-    public JFXTextField PF_QTY;
+    public JFXButton PF_ADD_SECTION, PF_REMOVE_SECTION, CB_ADD_SECTION, CB_REMOVE_SECTION, CF_ADD_SECTION,
+            CF_REMOVE_SECTION, REFRESH;
+    public JFXComboBox<String> PF_SET, PF_SET_OVERRIDE, CB_SET, CB_SET_OVERRIDE, CF_SET, CF_SET_OVERRIDE;
+//    public JFXTextField PF_QTY;
 
     //component editor
     private double xOffset = 0;
@@ -60,19 +55,12 @@ public class foundationsController implements Initializable {
     private static Stage editComponentStage;
 
     //sample data
-    private ObservableList<String> PF_SET_DATA = FXCollections.observableArrayList("(None)", "17.5 Footing [1]",
-            "17.5 Post [1]", "17.5 Slab", "17.5 Con Footings D12 CHANGE", "17.5 Con Post D12 CHANGE", "17.5 Con Slab D12 CHANGE");
-
-    private ObservableList<String> PF_SET_OVERRIDE_DATA = FXCollections.observableArrayList("" , "20 Mpa",
-            "25 Mpa", "30 Mpa");
-
     private ObservableList<String> CF_SET_DATA = FXCollections.observableArrayList("(None)", "17.5 SE620-500");
 
     //table right click menu
     public ContextMenu componentsMenu = new ContextMenu();
     public MenuItem editRow = new MenuItem("Edit Row");
     public MenuItem clearRow = new MenuItem("Clear Row");
-    public MenuItem productSelect = new MenuItem("Product Select");
 
     public TreeTableView<postFootingsSec> PF_TABLE; //section dimensions
     public TreeTableColumn<postFootingsSec, String> PF_COL_NO;
@@ -98,6 +86,8 @@ public class foundationsController implements Initializable {
     public static ObservableList<Integer> foundationsPFSectionList = FXCollections.observableArrayList();
     public static ObservableList<Integer> foundationsCBSectionList = FXCollections.observableArrayList();
 
+    private final ObservableList<String> setsList = FXCollections.observableArrayList();
+
     @Override
     public void initialize(URL location, ResourceBundle resource) {
         loadPanes();
@@ -118,9 +108,11 @@ public class foundationsController implements Initializable {
             buttonList.add(button);
 
             button.setOnAction(event -> {
-//                foundationsData.clear(); //clear table materials
+//                foundationsData.clear();
                 db.getPartID(1, button.getId(), id_indicator);
-                buttonList.forEach(button1 -> { //selection highlighter
+                db.getSets(Integer.parseInt(id_indicator.getText()), setsList); //apply sets to selected part
+                //selection highlighter
+                buttonList.forEach(button1 -> {
                     if (button1.getId().equals(button.getId())) {
                         button1.setStyle("-fx-background-color: #394F5A");
                     } else {
@@ -183,16 +175,6 @@ public class foundationsController implements Initializable {
         //component table menu
         componentsMenu.getItems().add(editRow);
         componentsMenu.getItems().add(clearRow);
-        componentsMenu.getItems().add(productSelect);
-
-        //code stub for right click component
-//        TREE_TABLE_VIEW.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, event -> {
-//            if (event.getButton() == MouseButton.SECONDARY) {
-//                componentsMenu.show(TREE_TABLE_VIEW, event.getScreenX(), event.getScreenY());
-//            } else {
-//                componentsMenu.hide();
-//            }
-//        });
 
         //menu items (components)
         editRow.setOnAction(event -> {
@@ -203,51 +185,23 @@ public class foundationsController implements Initializable {
             //clears details on selected row
         });
 
-        productSelect.setOnAction(event -> {
-
-        });
-
         //post footings
         PF_SECTIONS.setItems(foundationsPFSectionList);
 
-        PF_ADD_SECTION.setOnAction(event -> {
-            pf_section_no++;
-            postFootingsData.clear();
-            clearForms();
-            PF_SECTIONS.getItems().add(pf_section_no);
-            db.setSections(Integer.parseInt(id_indicator.getText()), pf_section_no);
-            db.setShedComponents(Integer.parseInt(id_indicator.getText()), pf_section_no);
-            db.getPostFootingsSD(Integer.parseInt(id_indicator.getText()), selectedSection, postFootingsData);
-        });
+        PF_SET.setItems(setsList);
 
-        PF_REMOVE_SECTION.setOnAction(event -> {
-            pf_section_no--;
-            PF_SECTIONS.getItems().remove(pf_section_no);
-//            db.deleteSection(Integer.parseInt(id_indicator.getText()), PF_SECTIONS.getSelectionModel().getSelectedItem());
-        });
-
-//        PF_LENGTH.setOnKeyPressed(event -> {
-//            if (event.getCode().equals(KeyCode.ENTER)) {
-//                //adds a row to section dimensions
-//                pf_dimension_no++;
-//                postFootingsData.clear();
-//                //formula
-//                PF_TOTAL.setText("" + Double.valueOf(PF_DEPTH.getText()) * Double.valueOf(PF_LENGTH.getText()) *
-//                        Double.valueOf(PF_WIDTH.getText()));
-//
-//                db.setSectionDimensions(Integer.parseInt(id_indicator.getText()), selectedSection, pf_dimension_no,
-//                        PF_DEPTH.getText(), PF_WIDTH.getText(), PF_LENGTH.getText(), PF_TOTAL.getText(), "");
-//                db.getPostFootingsSD(Integer.parseInt(id_indicator.getText()), selectedSection, postFootingsData);
-//            }
-//        });
-
-        PF_SET.setItems(PF_SET_DATA);
-        PF_SET.getSelectionModel().select(0);
-        PF_SET_OVERRIDE.setItems(PF_SET_OVERRIDE_DATA);
+//        PF_SET_OVERRIDE.setItems(PF_SET_OVERRIDE_DATA);
         PF_SET_OVERRIDE.getSelectionModel().select(0);
 
         PF_SET.setOnAction(event -> {
-
+            String set_override;
+            try {
+                set_override = PF_SET_OVERRIDE.getSelectionModel().getSelectedItem();
+            } catch (Exception e) {
+                set_override = "";
+            }
+            db.setSelectedSets(1, PF_SECTIONS.getSelectionModel().getSelectedItem(),
+                    PF_SET.getSelectionModel().getSelectedItem(), set_override);
         });
 
         PF_SET_OVERRIDE.setOnAction(event -> {
@@ -256,63 +210,55 @@ public class foundationsController implements Initializable {
 
         PF_SECTIONS.setOnMouseReleased(event -> {
             try {
+//                clearForms();
                 //section list event
-                clearForms();
-//                foundationsData.clear();
-//                postFootingsData.clear();
-//                selectedSection = PF_SECTIONS.getSelectionModel().getSelectedItem();
-//                db.displayFoundationComponents(Integer.parseInt(id_indicator.getText()), selectedSection, foundationsData);
-//                db.getSelectedSets(Integer.parseInt(id_indicator.getText()), selectedSection, PF_SET, PF_SET_OVERRIDE); // combo boxes updater
-//                db.getPostFootingsSD(Integer.parseInt(id_indicator.getText()), selectedSection, postFootingsData);// section dimensions updater
-//                db.getFoundationsSetOverrideComponents(Integer.parseInt(id_indicator.getText()), selectedSection,
-//                        PF_SET.getSelectionModel().getSelectedItem(), PF_SET_OVERRIDE.getSelectionModel()
-//                                .getSelectedItem(), foundationsData);
+                PF_SET.setDisable(false);
+                PF_SET_OVERRIDE.setDisable(false);
+                db.getSelectedSets(Integer.parseInt(id_indicator.getText()), PF_SECTIONS.getSelectionModel()
+                        .getSelectedItem(), PF_SET, PF_SET_OVERRIDE);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         });
 
         //concrete bores
-        CB_ADD_SECTION.setOnAction(event -> {
-            cb_section_no++;
-            CB_SECTIONS.getItems().add(cb_section_no);
-            db.setShedComponents(Integer.parseInt(id_indicator.getText()), cb_section_no);
+        CB_SET.setItems(setsList);
+
+        CB_SET.setOnAction(event -> {
+            String set_override;
+            try {
+                set_override = CB_SET_OVERRIDE.getSelectionModel().getSelectedItem();
+            } catch (Exception e) {
+                set_override = "";
+            }
+            db.setSelectedSets(Integer.parseInt(id_indicator.getText()), CB_SECTIONS.getSelectionModel().getSelectedItem(),
+                    CB_SET.getSelectionModel().getSelectedItem(), set_override);
         });
 
-        CB_REMOVE_SECTION.setOnAction(event -> {
-            cb_section_no--;
-            CB_SECTIONS.getItems().remove(cb_section_no);
+        CB_SET_OVERRIDE.setOnAction(event -> {
+
         });
 
         CB_SECTIONS.setItems(foundationsCBSectionList);
-
         CB_SECTIONS.setOnMouseReleased(event -> {
-            //section list event
-//            foundationsData.clear();
-//            db.displayFoundationComponents(Integer.parseInt(id_indicator.getText()), Integer.parseInt(
-//                    CB_SECTIONS.getSelectionModel().getSelectedItem().toString()), foundationsData);
+            try {
+//                clearForms();
+                //section list event
+                CB_SET.setDisable(false);
+                CB_SET_OVERRIDE.setDisable(false);
+                db.getSelectedSets(Integer.parseInt(id_indicator.getText()), CB_SECTIONS.getSelectionModel()
+                        .getSelectedItem(), CB_SET, CB_SET_OVERRIDE);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         });
 
         //concrete floors
-        CF_SET.setItems(CF_SET_DATA);
+        CF_SET.setItems(setsList);
         CF_SET.getSelectionModel().select(0);
-
-        CF_ADD_SECTION.setOnAction(event -> {
-            cf_section_no++;
-            CF_SECTIONS.getItems().add(cf_section_no);
-            db.setShedComponents(Integer.parseInt(id_indicator.getText()), cf_section_no);
-        });
-
-        CF_REMOVE_SECTION.setOnAction(event -> {
-            cf_section_no--;
-            CF_SECTIONS.getItems().remove(cf_section_no);
-        });
 
         CF_SECTIONS.setOnMouseReleased(event -> {
             //section list event
-//            foundationsData.clear();
-//            db.displayFoundationComponents(Integer.parseInt(id_indicator.getText()), Integer.parseInt(
-//                    CF_SECTIONS.getSelectionModel().getSelectedItem().toString()), foundationsData);
         });
 
         CF_SET.setOnAction(event -> {
@@ -363,18 +309,18 @@ public class foundationsController implements Initializable {
                 tw_quantity = (int) (cf_area / 20);
             }
         }
-        foundationsMaterials.addAll(new foundationsMaterials("32100832", "Structural Concrete 17.5Mpa 19mm",
-                "M3", String.valueOf(new DecimalFormat("0.00").format(cf_volume))));
-        foundationsMaterials.addAll(new foundationsMaterials("STMESE620500SM",
-                "STEEL REINFORCING MESH SE620-500SMALL 4.68X2.05 7.612M2", "SHT", String.valueOf(srm_quantity)));
-        foundationsMaterials.addAll(new foundationsMaterials("STBC5065E",
-                "BAR CHAIR PLASTIC 50-65MM - PER EACH", "EACH", String.valueOf(srm_quantity * 12)));
-        foundationsMaterials.addAll(new foundationsMaterials("RPPO250425",
-                "POLYTHENE BLK 250MU X 4M X 25M 2010103", "ROLL", String.valueOf(pb_quantity)));
-        foundationsMaterials.addAll(new foundationsMaterials("RPJT2040116",
-                "TAPE-IT HIGH ADHESIVE PVC JOINING TAPE 48MMX30M 2040116", "ROLL", String.valueOf(tp_quantity)));
-        foundationsMaterials.addAll(new foundationsMaterials("STW300GX1KG", "TIE WIRE GALV 300MM X 1KG",
-                "EACH", String.valueOf(tw_quantity)));
+//        foundationsMaterials.addAll(new foundationsMaterials("32100832", "Structural Concrete 17.5Mpa 19mm",
+//                "M3", String.valueOf(new DecimalFormat("0.00").format(cf_volume))));
+//        foundationsMaterials.addAll(new foundationsMaterials("STMESE620500SM",
+//                "STEEL REINFORCING MESH SE620-500SMALL 4.68X2.05 7.612M2", "SHT", String.valueOf(srm_quantity)));
+//        foundationsMaterials.addAll(new foundationsMaterials("STBC5065E",
+//                "BAR CHAIR PLASTIC 50-65MM - PER EACH", "EACH", String.valueOf(srm_quantity * 12)));
+//        foundationsMaterials.addAll(new foundationsMaterials("RPPO250425",
+//                "POLYTHENE BLK 250MU X 4M X 25M 2010103", "ROLL", String.valueOf(pb_quantity)));
+//        foundationsMaterials.addAll(new foundationsMaterials("RPJT2040116",
+//                "TAPE-IT HIGH ADHESIVE PVC JOINING TAPE 48MMX30M 2040116", "ROLL", String.valueOf(tp_quantity)));
+//        foundationsMaterials.addAll(new foundationsMaterials("STW300GX1KG", "TIE WIRE GALV 300MM X 1KG",
+//                "EACH", String.valueOf(tw_quantity)));
     }
 
     public void loadComponentEditor() {
@@ -414,9 +360,22 @@ public class foundationsController implements Initializable {
     }
 
     public void clearForms() {
-        //post footings
-        PF_SET.getSelectionModel().select(0);
-        PF_SET_OVERRIDE.getSelectionModel().select(0);
+        try {
+            //post footings
+            if (PF_SET.getSelectionModel().isEmpty()) {
+                PF_SET.getSelectionModel().clearSelection();
+                PF_SET_OVERRIDE.getSelectionModel().clearSelection();
+            }
+
+            //concrete bores
+            CB_SET.getSelectionModel().clearSelection();
+            CB_SET_OVERRIDE.getSelectionModel().clearSelection();
+            //concrete bores
+            CF_SET.getSelectionModel().clearSelection();
+            CF_SET_OVERRIDE.getSelectionModel().clearSelection();
+        } catch (Exception e) {
+
+        }
     }
 
 }

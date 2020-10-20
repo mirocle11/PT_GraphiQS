@@ -111,6 +111,7 @@ public class Main extends Application {
                     DataBase db = DataBase.getInstance();
                     db.clearComponents();
 //                    db.clearSectionDimensions();
+                    db.clearSectionsTbl();
                     db.clearLayoutsFoundations();
                     dashboard_stage.close();
                 }

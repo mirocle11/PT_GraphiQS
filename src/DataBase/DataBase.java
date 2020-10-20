@@ -5,6 +5,7 @@ import Model.data.layouts.foundationsConcreteBoresData;
 import Model.data.layouts.foundationsPostFootingsData;
 import Model.data.setupSheetsData;
 import Model.data.shed.foundations.postFootingsSec;
+import Model.data.shed.foundationsMaterials;
 import Model.data.subtradesData;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
@@ -17,8 +18,6 @@ import javafx.scene.image.ImageView;
 import javax.swing.*;
 import java.sql.*;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Collections;
 
 public class DataBase {
 
@@ -613,69 +612,51 @@ public class DataBase {
         }
     }
 
-    //should be called in condition when adding section
-    public void setShedComponents(int parts_id, int section) {
-        ArrayList<String> components = new ArrayList<>();
+    public void displayFoundationComponents(int parts_id, int section, ObservableList<foundationsMaterials> content) {
         try {
-            String sql = "SELECT COMPONENTS FROM SHED_COMPONENTS_CONTENT_TBL WHERE PARTS_ID = ?";
+            String sql = "SELECT * FROM SHED_COMPONENTS_TBL WHERE PARTS_ID = ? AND SECTION = ?";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, parts_id);
+            preparedStatement.setInt(2, section);
+
+            System.out.println(parts_id + " " + section);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                components.addAll(Collections.singleton(resultSet.getString("COMPONENTS")));
+                //create container for data
+                content.addAll(new foundationsMaterials(resultSet.getString("COMPONENT"),
+                        resultSet.getString("CODE"), resultSet.getString("DESCRIPTION"),
+                        resultSet.getString("UNIT"), resultSet.getString("QUANTITY"),
+                        resultSet.getString("USAGE")));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        components.forEach(component -> {
-            try {
-                String sql = "INSERT INTO SHED_COMPONENTS_TBL (PARTS_ID, SECTION, COMPONENT) VALUES (?, ?, ?)";
-
-                PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setInt(1, parts_id);
-                preparedStatement.setInt(2, section);
-                preparedStatement.setString(3, component);
-
-                preparedStatement.executeUpdate();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
     }
-
-//    public void displayFoundationComponents(int parts_id, int section, ObservableList<foundationsData> content) {
-//        try {
-//            String sql = "SELECT * FROM SHED_COMPONENTS_TBL WHERE PARTS_ID = ? AND SECTION = ?";
-//
-//            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-//            preparedStatement.setInt(1, parts_id);
-//            preparedStatement.setInt(2, section);
-//
-//            System.out.println(parts_id + " " + section);
-//
-//            ResultSet resultSet = preparedStatement.executeQuery();
-//            while (resultSet.next()) {
-//                //create container for data
-//                content.addAll(new foundationsData(resultSet.getString("COMPONENT"),
-//                        resultSet.getString("CODE"), resultSet.getString("DESCRIPTION"),
-//                        resultSet.getString("EXTRA1"), resultSet.getString("EXTRA2"),
-//                        resultSet.getString("QUANTITY"), resultSet.getString("USAGE"),
-//                        resultSet.getString("WASTE"), resultSet.getString("SUBHEADING"),
-//                        resultSet.getString("USAGE2")));
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     public void clearComponents() {
         try {
             String sql = "TRUNCATE TABLE SHED_COMPONENTS_TBL";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getSets(int part_id, ObservableList<String> setsList) {
+        try {
+            setsList.clear();
+            String sql = "SELECT * FROM SHED_SETS WHERE PART_ID = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, part_id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                setsList.addAll(resultSet.getString("SETS"));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -702,15 +683,25 @@ public class DataBase {
 
     public void setSelectedSets(int part_id, int section_id, String set, String set_override) {
         try {
-            String sql = "UPDATE SHED_SECTION_TBL SET SETS = ?, SET_OVERRIDE = ? WHERE PARTS_ID = ? AND SECTION = ?";
-
+            String sql = "SELECT ID FROM SHED_SECTION_TBL WHERE PARTS_ID = ? AND SECTION = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, set);
-            preparedStatement.setString(2, set_override);
-            preparedStatement.setInt(3, part_id);
-            preparedStatement.setInt(4, section_id);
+            preparedStatement.setInt(1, part_id);
+            preparedStatement.setInt(2, section_id);
 
-            preparedStatement.executeUpdate();
+            int id = 0;
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                id = resultSet.getInt("ID");
+            }
+
+            String sql1 = "UPDATE SHED_SECTION_TBL SET SETS = ?, SET_OVERRIDE = ? WHERE ID = ?";
+
+            PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
+            preparedStatement1.setString(1, set);
+            preparedStatement1.setString(2, set_override);
+            preparedStatement1.setInt(3, id);
+
+            preparedStatement1.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -724,6 +715,16 @@ public class DataBase {
             preparedStatement.setInt(1, part_id);
             preparedStatement.setInt(2, section);
 
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void clearSectionsTbl() {
+        try {
+            String sql = "TRUNCATE TABLE SHED_SECTION_TBL";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -968,6 +969,8 @@ public class DataBase {
             preparedStatement.setString(7, volume);
 
             preparedStatement.executeUpdate();
+
+            setSections(1, section);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1075,14 +1078,14 @@ public class DataBase {
     public void getFoundationsPFSections(ObservableList<Integer> sectionList) {
         try {
             sectionList.clear();
-            String sql = "SELECT * FROM SHED_FOUNDATIONS_POST_FOOTINGS";
+            String sql = "SELECT * FROM SHED_SECTION_TBL WHERE PARTS_ID = 1";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             int sections = 0;
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                sections++;
-                sectionList.addAll(sections);
+//                sections++;
+                sectionList.addAll(resultSet.getInt("SECTION"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1133,6 +1136,8 @@ public class DataBase {
             preparedStatement.setString(6, volume);
 
             preparedStatement.executeUpdate();
+
+            setSections(2, section);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1191,14 +1196,14 @@ public class DataBase {
     public void getFoundationsCBSections(ObservableList<Integer> sectionList) {
         try {
             sectionList.clear();
-            String sql = "SELECT * FROM SHED_FOUNDATIONS_CONCRETE_BORES";
+            String sql = "SELECT * FROM SHED_SECTION_TBL WHERE PARTS_ID = 2";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             int sections = 0;
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                sections++;
-                sectionList.addAll(sections);
+//                sections++;
+                sectionList.addAll(resultSet.getInt("SECTION"));
             }
         } catch (Exception e) {
             e.printStackTrace();
