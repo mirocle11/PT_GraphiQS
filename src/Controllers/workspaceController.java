@@ -265,9 +265,11 @@ public class workspaceController implements Initializable {
             ws_indicator = 0;
             ds_indicator = 0;
             fs_indicator = 0;
-
+            try{
             STAMP_TYPE.getSelectionModel().clearSelection();
+}catch (Exception e){
 
+            }
         });
 
         MISCELLANEOUS_DONE.setOnAction(event -> {

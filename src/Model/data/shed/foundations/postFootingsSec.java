@@ -5,14 +5,15 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class postFootingsSec extends RecursiveTreeObject<postFootingsSec> {
 
-    private SimpleStringProperty no, depth, width, length, qty;
+    private SimpleStringProperty no, depth, width, length, qty,volume;
 
-    public postFootingsSec(String no, String depth, String width, String length, String qty) {
+    public postFootingsSec(String no, String depth, String width, String length, String qty,String volume) {
         this.no = new SimpleStringProperty(no);
         this.depth = new SimpleStringProperty(depth);
         this.width = new SimpleStringProperty(width);
         this.length = new SimpleStringProperty(length);
         this.qty = new SimpleStringProperty(qty);
+        this.volume = new SimpleStringProperty(volume);
     }
 
     public String getNo() {
@@ -73,5 +74,17 @@ public class postFootingsSec extends RecursiveTreeObject<postFootingsSec> {
 
     public void setQty(String qty) {
         this.qty.set(qty);
+    }
+
+    public String getVolume() {
+        return volume.get();
+    }
+
+    public SimpleStringProperty volumeProperty() {
+        return volume;
+    }
+
+    public void setVolume(String volume) {
+        this.volume.set(volume);
     }
 }
