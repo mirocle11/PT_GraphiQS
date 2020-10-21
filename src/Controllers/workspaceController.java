@@ -178,7 +178,7 @@ public class workspaceController implements Initializable {
             FOUNDATIONS_HEIGHT, FOUNDATIONS_VOLUME1, FOUNDATIONS_VOLUME2;
 
     private final ObservableList<String> foundations_parts = FXCollections.observableArrayList("Post Footings",
-            "Concrete Bores");
+            "Pole Footings");
     private final ObservableList<String> foundations_shapes = FXCollections.observableArrayList("Square",
             "Cylinder");
 
@@ -217,7 +217,7 @@ public class workspaceController implements Initializable {
 
                 FOUNDATIONS_DIAMETER.setText("");
                 FOUNDATIONS_HEIGHT.setText("");
-            } else if (FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Concrete Bores")) {
+            } else if (FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Pole Footings")) {
                 FOUNDATIONS_DEPTH.setVisible(false);
                 FOUNDATIONS_WIDTH.setVisible(false);
                 FOUNDATIONS_LENGTH.setVisible(false);
@@ -239,8 +239,11 @@ public class workspaceController implements Initializable {
 
             if (!FOUNDATIONS_WIDTH.getText().isEmpty() && !FOUNDATIONS_DEPTH.getText().isEmpty() &&
                     !FOUNDATIONS_LENGTH.getText().isEmpty()) {
-                volume = Double.parseDouble(FOUNDATIONS_WIDTH.getText()) * Double.parseDouble
-                        (FOUNDATIONS_DEPTH.getText()) * Double.parseDouble(FOUNDATIONS_LENGTH.getText());
+                double width = Double.parseDouble(FOUNDATIONS_WIDTH.getText()) / 1000;
+                double length = Double.parseDouble(FOUNDATIONS_LENGTH.getText()) / 1000;
+                double depth = Double.parseDouble(FOUNDATIONS_DEPTH.getText()) / 1000;
+
+                volume = length * width * depth;
             }
             //Return result as String
             return String.valueOf(volume);
@@ -251,7 +254,7 @@ public class workspaceController implements Initializable {
             double volume = 0;
             DecimalFormat df = new DecimalFormat("0.00");
             if (!FOUNDATIONS_DIAMETER.getText().isEmpty() && !FOUNDATIONS_HEIGHT.getText().isEmpty()) {
-                double radius = Double.parseDouble(FOUNDATIONS_DIAMETER.getText()) * 0.001 / 2;
+                double radius = Double.parseDouble(FOUNDATIONS_DIAMETER.getText()) / 1000 / 2;
                 volume = radius * radius * 3.14 * (Double.parseDouble(FOUNDATIONS_HEIGHT.getText()) / 1000);
             }
             //Return result as String

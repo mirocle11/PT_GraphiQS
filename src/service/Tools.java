@@ -533,14 +533,15 @@ public class Tools {
                                             window.FOUNDATIONS_LENGTH.getText(), window.FOUNDATIONS_VOLUME1.getText());
                                 } else {
                                     int pf_quantity = Integer.parseInt(foundations_pf_quantity.getText()) + 1;
-                                    double pf_volume = pf_quantity * Double.parseDouble(foundations_pf_volume.getText());
+                                    double pf_volume = pf_quantity * (Double.parseDouble(foundations_pf_volume.getText())
+                                            / Double.parseDouble(foundations_pf_quantity.getText()));
 
                                     db.updateFoundationsPFCount(pf_quantity, String.valueOf(new DecimalFormat("0.00")
                                             .format(pf_volume)), Integer.parseInt(foundations_pf_section.getText()));
                                 }
                             }
 
-                            if (window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Concrete Bores")) {
+                            if (window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Pole Footings")) {
                                 if (foundations_cb_section.getText().equals("")) {
                                     db.getFoundationsCBLastRow(cbLastRowSection);
                                     if (cbLastRowSection.getText().equals("")) {
@@ -551,10 +552,12 @@ public class Tools {
                                             window.FOUNDATIONS_VOLUME2.getText());
                                 } else {
                                     int cb_quantity = Integer.parseInt(foundations_cb_quantity.getText()) + 1;
-                                    double cb_volume = cb_quantity * Double.parseDouble(foundations_cb_volume.getText());
+                                    double cb_volume = cb_quantity * (Double.parseDouble(foundations_cb_volume.getText())
+                                            / Double.parseDouble(foundations_cb_quantity.getText()));
 
-                                    db.updateFoundationsCBCount(cb_quantity, String.valueOf(new DecimalFormat("0.00")
-                                            .format(cb_volume)), Integer.parseInt(foundations_cb_section.getText()));
+                                    db.updateFoundationsCBCount(cb_quantity, String.valueOf(
+                                            new DecimalFormat("0.00").format(cb_volume)),
+                                            Integer.parseInt(foundations_cb_section.getText()));
                                 }
                             }
                             //pass section to setup sheet

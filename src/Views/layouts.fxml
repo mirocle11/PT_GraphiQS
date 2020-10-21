@@ -115,7 +115,7 @@
                               <Font name="Segoe UI" size="16.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="FOUNDATIONS_CB_TOTAL" alignment="CENTER" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="40.0" layoutY="106.0" prefHeight="30.0" prefWidth="252.0" promptText="Concrete Bores Total" style="-fx-text-inner-color: WHITE;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+                        <JFXTextField fx:id="FOUNDATIONS_CB_TOTAL" alignment="CENTER" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="40.0" layoutY="106.0" prefHeight="30.0" prefWidth="252.0" promptText="Pole Footings Total" style="-fx-text-inner-color: WHITE;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                            <font>
                               <Font name="Segoe UI" size="16.0" />
                            </font>
@@ -254,7 +254,7 @@
                         <JFXTextField fx:id="CONCRETE_FLOOR_VOLUME" layoutX="109.0" layoutY="195.0" />
                      </children>
                   </Pane>
-                  <JFXButton fx:id="CONCRETE_BORES_BTN" layoutX="686.0" layoutY="49.0" prefHeight="31.0" prefWidth="147.0" text="Concrete Bores" textFill="#bcbcbc" underline="true">
+                  <JFXButton fx:id="CONCRETE_BORES_BTN" layoutX="686.0" layoutY="49.0" prefHeight="31.0" prefWidth="147.0" text="Pole Footings" textFill="#bcbcbc" underline="true">
                      <font>
                         <Font name="Segoe UI" size="16.0" />
                      </font>

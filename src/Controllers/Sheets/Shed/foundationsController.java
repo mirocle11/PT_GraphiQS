@@ -46,13 +46,13 @@ public class foundationsController implements Initializable {
     public ArrayList<JFXButton> buttonList = new ArrayList<>();
 
     //gridpanes (parts)
-    public GridPane POST_FOOTINGS, CONCRETE_BORES, CONCRETE_FLOOR;
+    public GridPane POST_FOOTINGS, POLE_FOOTINGS, CONCRETE_FLOOR;
 
     //components
-    public ListView<Integer> PF_SECTIONS, CB_SECTIONS, CF_SECTIONS;
+    public ListView<Integer> PF_SECTIONS, PLF_SECTIONS, CF_SECTIONS;
     public JFXButton PF_ADD_SECTION, PF_REMOVE_SECTION, CB_ADD_SECTION, CB_REMOVE_SECTION, CF_ADD_SECTION,
             CF_REMOVE_SECTION, REFRESH;
-    public JFXComboBox<String> PF_SET, PF_SET_OVERRIDE, CB_SET, CB_SET_OVERRIDE, CF_SET, CF_SET_OVERRIDE;
+    public JFXComboBox<String> PF_SET, PF_SET_OVERRIDE, PLF_SET, PLF_SET_OVERRIDE, CF_SET, CF_SET_OVERRIDE;
 
     //component editor
     private double xOffset = 0;
@@ -270,39 +270,39 @@ public class foundationsController implements Initializable {
             }
         });
 
-        //concrete bores
-        CB_SET.setItems(setsListCB);
+        //pole footings
+        PLF_SET.setItems(setsListCB);
 
-        CB_SET.setOnAction(event -> {
+        PLF_SET.setOnAction(event -> {
             String set_override = "";
-            if (!CB_SET_OVERRIDE.getSelectionModel().isEmpty()) {
-                set_override = CB_SET_OVERRIDE.getSelectionModel().getSelectedItem();
+            if (!PLF_SET_OVERRIDE.getSelectionModel().isEmpty()) {
+                set_override = PLF_SET_OVERRIDE.getSelectionModel().getSelectedItem();
             }
-            db.setSelectedSets(Integer.parseInt(id_indicator.getText()), CB_SECTIONS.getSelectionModel()
-                    .getSelectedItem(), CB_SET.getSelectionModel().getSelectedItem(), set_override);
-            setComponentContents(2, CB_SET.getSelectionModel().getSelectedItem());
+            db.setSelectedSets(Integer.parseInt(id_indicator.getText()), PLF_SECTIONS.getSelectionModel()
+                    .getSelectedItem(), PLF_SET.getSelectionModel().getSelectedItem(), set_override);
+            setComponentContents(2, PLF_SET.getSelectionModel().getSelectedItem());
         });
 
-        CB_SET_OVERRIDE.setOnAction(event -> {
+        PLF_SET_OVERRIDE.setOnAction(event -> {
 
         });
 
-        CB_SECTIONS.setItems(foundationsCBSectionList);
-        CB_SECTIONS.setOnMouseReleased(event -> {
+        PLF_SECTIONS.setItems(foundationsCBSectionList);
+        PLF_SECTIONS.setOnMouseReleased(event -> {
             try {
                 //section list event
-                CB_SET.setDisable(false);
-                CB_SET_OVERRIDE.setDisable(false);
-                db.getSelectedSets(Integer.parseInt(id_indicator.getText()), CB_SECTIONS.getSelectionModel()
-                        .getSelectedItem(), CB_SET, CB_SET_OVERRIDE);
+                PLF_SET.setDisable(false);
+                PLF_SET_OVERRIDE.setDisable(false);
+                db.getSelectedSets(Integer.parseInt(id_indicator.getText()), PLF_SECTIONS.getSelectionModel()
+                        .getSelectedItem(), PLF_SET, PLF_SET_OVERRIDE);
 
-                System.out.println("clicked on " + CB_SECTIONS.getSelectionModel().getSelectedItem());
+                System.out.println("clicked on " + PLF_SECTIONS.getSelectionModel().getSelectedItem());
                 concreteBoresData.clear();
                 System.out.println(concreteBoresData.size() + " size");
-                db.getConcreteBoresSD(1,CB_SECTIONS.getSelectionModel().getSelectedItem(), concreteBoresData);
-                db.getFoundationsCBData(CB_SECTIONS.getSelectionModel().getSelectedItem(), foundations_cb_volume);
-                if (!CB_SET.getSelectionModel().isEmpty()) {
-                    setComponentContents(2, CB_SET.getSelectionModel().getSelectedItem());
+                db.getConcreteBoresSD(1, PLF_SECTIONS.getSelectionModel().getSelectedItem(), concreteBoresData);
+                db.getFoundationsCBData(PLF_SECTIONS.getSelectionModel().getSelectedItem(), foundations_cb_volume);
+                if (!PLF_SET.getSelectionModel().isEmpty()) {
+                    setComponentContents(2, PLF_SET.getSelectionModel().getSelectedItem());
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -421,7 +421,7 @@ public class foundationsController implements Initializable {
 
     public void loadPanes() {
         gridPaneList.add(POST_FOOTINGS);
-        gridPaneList.add(CONCRETE_BORES);
+        gridPaneList.add(POLE_FOOTINGS);
         gridPaneList.add(CONCRETE_FLOOR);
     }
 
@@ -429,14 +429,12 @@ public class foundationsController implements Initializable {
         foundationsMaterials.clear();
         if (!set.isEmpty()) {
             switch (set) {
-                case "17.5 Footing [1]":
+                case "17.5 Footing":
                     if (part_id == 1) {
                         foundationsMaterials.addAll(new foundationsMaterials("Concrete","32100832",
                                 "17.5MPA 19MM STRUCTURAL CONCRETE", "M3", String.valueOf(new DecimalFormat("0.00").
                                 format(Double.parseDouble(foundations_pf_volume.getText()))), "FOOTINGS"));
                     }
-                    break;
-                case "17.5 Mpa  D12 rod CHANGE":
                     if (part_id == 2) {
                         foundationsMaterials.addAll(new foundationsMaterials("Concrete","32100832",
                                 "17.5MPA 19MM STRUCTURAL CONCRETE", "M3", String.valueOf(new DecimalFormat("0.00").
