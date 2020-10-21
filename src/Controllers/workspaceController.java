@@ -276,9 +276,9 @@ public class workspaceController implements Initializable {
 
         MISCELLANEOUS_DONE.setOnAction(event -> {
             try{
-                double length = Double.parseDouble(CONCRETE_FLOOR_LENGTH.getText()) * 0.001;
-                double width = Double.parseDouble(CONCRETE_FLOOR_WIDTH.getText()) * 0.001;
-                double thickness = Double.parseDouble(CONCRETE_FLOOR_THICKNESS.getText()) * 0.001;
+                double length = Double.parseDouble(CONCRETE_FLOOR_LENGTH.getText()) / 1000;
+                double width = Double.parseDouble(CONCRETE_FLOOR_WIDTH.getText()) / 1000;
+                double thickness = Double.parseDouble(CONCRETE_FLOOR_THICKNESS.getText()) / 1000;
                 layoutsController.concreteData.add(0,Double.toString(length));
                 layoutsController.concreteData.add(1,Double.toString(width));
                 layoutsController.concreteData.add(2,Double.toString(thickness));
@@ -291,10 +291,13 @@ public class workspaceController implements Initializable {
                 foundationsController.cf_area = area;
                 foundationsController.cf_length = (int) length;
                 foundationsController.cf_volume = volume;
-                DataBase db = DataBase.getInstance();
-                db.setSections(3, 1);
-                foundationsController.foundationsCFSectionList.clear();
-                foundationsController.foundationsCFSectionList.add(1);
+                //if there are values
+                if (length > 0 && width > 0 && thickness > 0) {
+                    DataBase db = DataBase.getInstance();
+                    db.setSections(3, 1);
+                    foundationsController.foundationsCFSectionList.clear();
+                    foundationsController.foundationsCFSectionList.add(1);
+                }
 
                 CONCRETE_FLOOR_LENGTH_ERROR.setVisible(false);
                 CONCRETE_FLOOR_WIDTH_ERROR.setVisible(false);

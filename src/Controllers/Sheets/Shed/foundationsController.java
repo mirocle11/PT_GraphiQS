@@ -340,25 +340,25 @@ public class foundationsController implements Initializable {
     }
 
     public void refreshConcreteFloorMaterials() {
-        foundationsMaterials.clear();
-        int srm_quantity = (int) ((int) cf_area / 7.612);
-        int pb_quantity;
-        if (cf_area < 100 && srm_quantity > 0.00) {
-            pb_quantity = 1;
-        } else {
-            int remainder = (int) (cf_area % 100);
-            if (remainder > 0) {
-                pb_quantity = (int) (cf_area / 100) + 1;
-            } else {
-                pb_quantity = (int) (cf_area / 100);
-            }
-        }
-        int tp_quantity;
-        if (cf_length < 30 && cf_length > 0) {
-            tp_quantity = 1;
-        } else {
-            int remainder = cf_length % 30;
-            if (remainder > 0) {
+                foundationsMaterials.clear();
+                int srm_quantity = (int) ((int) cf_area / 7.612);
+                int pb_quantity;
+                if (cf_area < 100 && srm_quantity > 0.00) {
+                    pb_quantity = 1;
+                } else {
+                    int remainder = (int) (cf_area % 100);
+                    if (remainder > 0) {
+                        pb_quantity = (int) (cf_area / 100) + 1;
+                    } else {
+                        pb_quantity = (int) (cf_area / 100);
+                    }
+                }
+                int tp_quantity;
+                if (cf_length < 30 && cf_length > 0) {
+                    tp_quantity = 1;
+                } else {
+                    int remainder = cf_length % 30;
+                    if (remainder > 0) {
                 tp_quantity = cf_length / 30 + 1;
             } else {
                 tp_quantity = cf_length / 30;
