@@ -113,6 +113,8 @@ public class layoutsController implements Initializable {
     public JFXButton CONCRETE_BORES_BTN;
     public JFXButton CONCRETE_FLOORS_BTN;
     public AnchorPane FOUNDATIONS_TAB;
+    public JFXTextField POST_FOOTING_TOTAL;
+    public JFXTextField POLE_FOOTING_TOTAL;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -268,6 +270,9 @@ public class layoutsController implements Initializable {
                 new TreeItemPropertyValueFactory<>("volume")
         );
 
+        DataBase db = DataBase.getInstance();
+        POST_FOOTING_TOTAL.setText(db.getTotalVolume("shed_foundations_post_footings"));
+
         TreeItem<layoutsData> root = new RecursiveTreeItem<>(data, RecursiveTreeObject::getChildren);
         layoutsTableView.setRoot(root);
         layoutsTableView.setShowRoot(false);
@@ -341,7 +346,7 @@ public class layoutsController implements Initializable {
             CLADDING_TBL.setVisible(false);
             FOUNDATIONS_TAB.setVisible(true);
 
-            DataBase db = DataBase.getInstance();
+
             db.getFoundationsTotal(FOUNDATIONS_PF_TOTAL, FOUNDATIONS_CB_TOTAL);
         });
 
@@ -349,12 +354,20 @@ public class layoutsController implements Initializable {
             FOUNDATIONS_POST_FOOTINGS_TBL.setVisible(true);
             FOUNDATIONS_CONCRETE_BORES_TBL.setVisible(false);
             CONCRETE_FLOOR_TBL.setVisible(false);
+            POST_FOOTING_TOTAL.setVisible(true);
+            POLE_FOOTING_TOTAL.setVisible(false);
+
+            POST_FOOTING_TOTAL.setText(db.getTotalVolume("shed_foundations_post_footings"));
         });
 
         CONCRETE_BORES_BTN.setOnAction(event -> {
             FOUNDATIONS_POST_FOOTINGS_TBL.setVisible(false);
             FOUNDATIONS_CONCRETE_BORES_TBL.setVisible(true);
             CONCRETE_FLOOR_TBL.setVisible(false);
+            POLE_FOOTING_TOTAL.setVisible(true);
+            POST_FOOTING_TOTAL.setVisible(false);
+
+            POLE_FOOTING_TOTAL.setText(db.getTotalVolume("shed_foundations_concrete_bores"));
         });
 
         CONCRETE_FLOORS_BTN.setOnAction(event -> {
