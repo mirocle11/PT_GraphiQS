@@ -43,7 +43,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <GridPane id="Post Footings" fx:id="POST_FOOTINGS" layoutX="20.0" layoutY="20.0" prefHeight="286.0" prefWidth="785.0" visible="false" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
+      <GridPane id="Poles" fx:id="POLES" layoutX="20.0" layoutY="20.0" prefHeight="286.0" prefWidth="785.0" visible="false" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
          <columnConstraints>
             <ColumnConstraints hgrow="ALWAYS" maxWidth="668.0" minWidth="10.0" prefWidth="498.0" />
             <ColumnConstraints hgrow="ALWAYS" maxWidth="459.0" minWidth="10.0" prefWidth="287.0" />
@@ -131,7 +131,7 @@
             </AnchorPane>
          </children>
       </GridPane>
-      <GridPane id="Concrete Bores" fx:id="CONCRETE_BORES" layoutX="30.0" layoutY="30.0" prefHeight="286.0" prefWidth="785.0" visible="false" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
+      <GridPane id="Columns" fx:id="CONCRETE_BORES" layoutX="30.0" layoutY="30.0" prefHeight="286.0" prefWidth="785.0" visible="false" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
          <columnConstraints>
             <ColumnConstraints hgrow="ALWAYS" maxWidth="668.0" minWidth="10.0" prefWidth="498.0" />
             <ColumnConstraints hgrow="ALWAYS" maxWidth="459.0" minWidth="10.0" prefWidth="287.0" />
@@ -320,26 +320,14 @@
             </AnchorPane>
          </children>
       </GridPane>
-      <TreeTableView fx:id="TREE_TABLE_VIEW" layoutX="230.0" layoutY="331.0" prefHeight="455.0" prefWidth="1300.0" visible="false" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="330.0">
-        <columns>
-          <TreeTableColumn fx:id="COMPONENT" prefWidth="160.0" text="Component" />
-            <TreeTableColumn fx:id="CODE" prefWidth="90.0" text="Code" />
-            <TreeTableColumn fx:id="DESCRIPTION" prefWidth="270.0" text="Description" />
-            <TreeTableColumn fx:id="EXTRA1" prefWidth="140.0" text="Extra 1" />
-            <TreeTableColumn fx:id="EXTRA2" prefWidth="140.0" text="Extra 2" />
-            <TreeTableColumn fx:id="QUANTITY" text="Quantity" />
-            <TreeTableColumn fx:id="USAGE" prefWidth="100.0" text="Usage" />
-            <TreeTableColumn fx:id="WASTE" prefWidth="60.0" text="Waste" />
-            <TreeTableColumn fx:id="SUBHEADING" prefWidth="150.0" text="Subheading" />
-            <TreeTableColumn fx:id="USAGE2" prefWidth="100.0" text="Usage 2" />
-        </columns>
-      </TreeTableView>
-      <JFXTreeTableView fx:id="MATERIALS_TBL" fixedCellSize="0.0" layoutX="230.0" layoutY="331.0" prefHeight="440.0" prefWidth="962.0" sortMode="ONLY_FIRST_LEVEL" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="330.0">
+      <JFXTreeTableView fx:id="MATERIALS_TBL" fixedCellSize="0.0" layoutX="240.0" layoutY="341.0" prefHeight="440.0" prefWidth="1116.0" sortMode="ONLY_FIRST_LEVEL" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="330.0">
          <columns>
-            <TreeTableColumn fx:id="SKU_NUMBER_COL" prefWidth="253.0" text="SKU Number" />
-            <TreeTableColumn fx:id="DESCRIPTION_COL" minWidth="0.0" prefWidth="450.0" text="Description" />
-            <TreeTableColumn fx:id="UNIT_COL" minWidth="0.0" prefWidth="130.0" text="Unit" />
-            <TreeTableColumn fx:id="QUANTITY_COL" minWidth="0.0" prefWidth="130.0" text="Qty" />
+            <TreeTableColumn fx:id="COMPONENT_COL" prefWidth="180.0" text="Component" />
+            <TreeTableColumn fx:id="SKU_NUMBER_COL" prefWidth="168.0" text="Code" />
+            <TreeTableColumn fx:id="DESCRIPTION_COL" minWidth="0.0" prefWidth="411.0" text="Description" />
+            <TreeTableColumn fx:id="UNIT_COL" minWidth="0.0" prefWidth="97.0" text="Unit" />
+            <TreeTableColumn fx:id="QUANTITY_COL" minWidth="0.0" prefWidth="101.0" text="Qty" />
+            <TreeTableColumn fx:id="USAGE_COL" minWidth="0.0" prefWidth="158.0" text="Usage" />
          </columns>
       </JFXTreeTableView>
    </children>

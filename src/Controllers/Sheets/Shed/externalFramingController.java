@@ -1,5 +1,6 @@
 package Controllers.Sheets.Shed;
 
+import DataBase.DataBase;
 import Model.data.shed.externalFramingMaterials;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableView;
@@ -28,16 +29,22 @@ public class externalFramingController implements Initializable {
 
     //tables
     public JFXTreeTableView<externalFramingMaterials> MATERIALS_TBL;
+    public TreeTableColumn<externalFramingMaterials, String> COMPONENT_COL;
     public TreeTableColumn<externalFramingMaterials, String> SKU_NUMBER_COL;
     public TreeTableColumn<externalFramingMaterials, String> DESCRIPTION_COL;
     public TreeTableColumn<externalFramingMaterials, String> UNIT_COL;
     public TreeTableColumn<externalFramingMaterials, String> QUANTITY_COL;
+    public TreeTableColumn<externalFramingMaterials, String> USAGE_COL;
 
     //data lists
     public static ObservableList<externalFramingMaterials> externalFramingMaterials;
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {
+        DataBase db = DataBase.getInstance();
+        parts.clear();
+        db.displayShedParts(2, parts);
+
         parts.forEach(s -> {
             JFXButton button = new JFXButton();
             button.setText(s);
@@ -63,6 +70,9 @@ public class externalFramingController implements Initializable {
         //foundations materials
         externalFramingMaterials = FXCollections.observableArrayList();
 
+        COMPONENT_COL.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("component")
+        );
         SKU_NUMBER_COL.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("sku_number")
         );
@@ -75,29 +85,14 @@ public class externalFramingController implements Initializable {
         QUANTITY_COL.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("quantity")
         );
+        USAGE_COL.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("usage")
+        );
 
         TreeItem<externalFramingMaterials> externalFramingControllerTreeItem = new RecursiveTreeItem<>
                 (externalFramingMaterials, RecursiveTreeObject::getChildren);
         MATERIALS_TBL.setRoot(externalFramingControllerTreeItem);
         MATERIALS_TBL.setShowRoot(false);
-
-        externalFramingMaterials.addAll(new externalFramingMaterials("RWBP17542", //poles
-                "4.2M BUILDING POLE H5 175-199", "EACH", "0"));
-        externalFramingMaterials.addAll(new externalFramingMaterials("RWBP17548",
-                "4.8M BUILDING POLE H5 175-199", "EACH", "0"));
-        externalFramingMaterials.addAll(new externalFramingMaterials("RWBP17554",
-                "5.4M BUILDING POLE H5 175-199", "EACH", "0"));
-
-        externalFramingMaterials.addAll(new externalFramingMaterials("15050RVH32RS36", //purlins
-                "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M", "LGTH", "0"));
-        externalFramingMaterials.addAll(new externalFramingMaterials("15050RVH32RS48",
-                "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M", "LGTH", "0"));
-        externalFramingMaterials.addAll(new externalFramingMaterials("15050RVH32RS60",
-                "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 6.0M", "LGTH", "0"));
-        externalFramingMaterials.addAll(new externalFramingMaterials("20050RVH32RS48",
-                "200 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", "0"));
-        externalFramingMaterials.addAll(new externalFramingMaterials("25050RVH32RS48",
-                "250 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", "0"));
     }
 
 }

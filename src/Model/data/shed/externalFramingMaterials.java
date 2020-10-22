@@ -5,14 +5,17 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class externalFramingMaterials extends RecursiveTreeObject<externalFramingMaterials> {
 
-    private SimpleStringProperty sku_number, description, unit, quantity;
+    private SimpleStringProperty component, sku_number, description, unit, quantity, usage;
 
-    public externalFramingMaterials(String sku_number, String description, String unit, String quantity) {
+    public externalFramingMaterials(String component, String sku_number, String description, String unit, String quantity,
+                                String usage) {
 
+        this.component = new SimpleStringProperty(component);
         this.sku_number = new SimpleStringProperty(sku_number);
         this.description = new SimpleStringProperty(description);
         this.unit = new SimpleStringProperty(unit);
         this.quantity = new SimpleStringProperty(quantity);
+        this.usage = new SimpleStringProperty(usage);
     }
 
     public String getSku_number() {
@@ -61,5 +64,29 @@ public class externalFramingMaterials extends RecursiveTreeObject<externalFramin
 
     public void setQuantity(String quantity) {
         this.quantity.set(quantity);
+    }
+
+    public String getComponent() {
+        return component.get();
+    }
+
+    public SimpleStringProperty componentProperty() {
+        return component;
+    }
+
+    public void setComponent(String component) {
+        this.component.set(component);
+    }
+
+    public String getUsage() {
+        return usage.get();
+    }
+
+    public SimpleStringProperty usageProperty() {
+        return usage;
+    }
+
+    public void setUsage(String usage) {
+        this.usage.set(usage);
     }
 }

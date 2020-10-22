@@ -81,7 +81,6 @@ public class workspaceController implements Initializable {
     public Label CONCRETE_FLOOR_WIDTH_ERROR;
     public Label CONCRETE_FLOOR_THICKNESS_ERROR;
 
-
     //collections
     List<Shape> shapeList = new ArrayList<>();
     ArrayList<Point2D> pointList = new ArrayList<>();
