@@ -281,9 +281,9 @@ public class workspaceController implements Initializable {
                 double length = Double.parseDouble(CONCRETE_FLOOR_LENGTH.getText()) / 1000;
                 double width = Double.parseDouble(CONCRETE_FLOOR_WIDTH.getText()) / 1000;
                 double thickness = Double.parseDouble(CONCRETE_FLOOR_THICKNESS.getText()) / 1000;
-                layoutsController.concreteData.add(0,Double.toString(length));
-                layoutsController.concreteData.add(1,Double.toString(width));
-                layoutsController.concreteData.add(2,Double.toString(thickness));
+                layoutsController.concreteData.add(0,Double.toString(length*1000));
+                layoutsController.concreteData.add(1,Double.toString(width*1000));
+                layoutsController.concreteData.add(2,Double.toString(thickness*1000));
                 double volume = length * width * thickness;
                 double area = length * width;
                 layoutsController.concreteData.add(3,Double.toString(Double.parseDouble(new DecimalFormat

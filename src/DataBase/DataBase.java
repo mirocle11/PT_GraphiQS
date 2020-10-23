@@ -57,8 +57,18 @@ public class DataBase {
             Statement statement = connection.createStatement();
             statement.executeUpdate("CREATE DATABASE IF NOT EXISTS " + dbName);
             setTables();
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+           try{
+               Class.forName("com.mysql.cj.jdbc.Driver");
+               connection = DriverManager.getConnection(URL, "root","");
+               Statement statement = connection.createStatement();
+               statement.executeUpdate("CREATE DATABASE IF NOT EXISTS " + dbName);
+               setTables();
+           }catch (Exception exc){
+
+           }
+        }catch (ClassNotFoundException ex){
+            ex.printStackTrace();
         }
     }
 
@@ -1302,7 +1312,6 @@ public class DataBase {
             e.printStackTrace();
         }
     }
-
     public void updateFoundationsCBCount(int quantity, String volume, int section) {
         try {
             String sql = "UPDATE SHED_FOUNDATIONS_CONCRETE_BORES SET QUANTITY = ?, VOLUME = ? WHERE ID = ?";
@@ -1349,4 +1358,67 @@ public class DataBase {
             e.printStackTrace();
         }
     }
+
+    public void insertSectionDimension(String part, String path,  String diameter, String height, String depth, String width, String length,String volume){
+        try {
+            String sql = "INSERT INTO shed_section_dimensions (IMAGE,PART,HEIGHT,DEPTH,DIAMETER,VOLUME,WIDTH,LENGTH,QTY,SECTION_ID)" +
+                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE QTY = QTY+1 ";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, path);
+            preparedStatement.setString(2, part);
+            preparedStatement.setString(3, height);
+            preparedStatement.setString(4, depth);
+            preparedStatement.setString(5, diameter);
+            preparedStatement.setString(6, volume);
+            preparedStatement.setString(7, width);
+            preparedStatement.setString(8, length);
+            preparedStatement.setInt(9, 1);
+            preparedStatement.setInt(10, getLastSection(part)+1);
+            preparedStatement.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public int getLastSection(String part){
+        try {
+            String sql = "SELECT SECTION_ID FROM shed_section_dimensions WHERE  PART = ? ORDER BY SECTION_ID DESC LIMIT 1";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, part);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                return resultSet.getInt("SECTION_ID");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
+
+    public String getTotalVolume(String tablename){
+        double total = 0;
+        try {
+            String sql = "SELECT VOLUME FROM "+tablename;
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                double volume  = Double.parseDouble(resultSet.getString("VOLUME"));
+                total+=volume;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Double.toString(total);
+    }
+
 }

@@ -531,6 +531,10 @@ public class Tools {
                                     db.insertFoundationsPF(Integer.parseInt(pfLastRowSection.getText()), path, 1,
                                             window.FOUNDATIONS_DEPTH.getText(), window.FOUNDATIONS_WIDTH.getText(),
                                             window.FOUNDATIONS_LENGTH.getText(), window.FOUNDATIONS_VOLUME1.getText());
+
+                                    //new insert api here
+
+
                                 } else {
                                     int pf_quantity = Integer.parseInt(foundations_pf_quantity.getText()) + 1;
                                     double pf_volume = pf_quantity * (Double.parseDouble(foundations_pf_volume.getText())
@@ -539,6 +543,9 @@ public class Tools {
                                     db.updateFoundationsPFCount(pf_quantity, String.valueOf(new DecimalFormat("0.00")
                                             .format(pf_volume)), Integer.parseInt(foundations_pf_section.getText()));
                                 }
+                                db.insertSectionDimension(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(),
+                                        path,"","", window.FOUNDATIONS_DEPTH.getText(),
+                                        window.FOUNDATIONS_WIDTH.getText(),window.FOUNDATIONS_LENGTH.getText(),window.FOUNDATIONS_VOLUME1.getText());
                             }
 
                             if (window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Pole Footings")) {
@@ -547,9 +554,13 @@ public class Tools {
                                     if (cbLastRowSection.getText().equals("")) {
                                         cbLastRowSection.setText("1");
                                     }
-                                    db.insertFoundationsCB(Integer.parseInt(cbLastRowSection.getText()), path, 1,
+                                    db. insertFoundationsCB(Integer.parseInt(cbLastRowSection.getText()), path, 1,
                                             window.FOUNDATIONS_DIAMETER.getText(), window.FOUNDATIONS_HEIGHT.getText(),
                                             window.FOUNDATIONS_VOLUME2.getText());
+
+                                    //new insert api here
+
+
                                 } else {
                                     int cb_quantity = Integer.parseInt(foundations_cb_quantity.getText()) + 1;
                                     double cb_volume = cb_quantity * (Double.parseDouble(foundations_cb_volume.getText())
@@ -559,6 +570,9 @@ public class Tools {
                                             new DecimalFormat("0.00").format(cb_volume)),
                                             Integer.parseInt(foundations_cb_section.getText()));
                                 }
+                                db.insertSectionDimension(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(),
+                                        path,  window.FOUNDATIONS_DIAMETER.getText(), window.FOUNDATIONS_HEIGHT.getText(),"",
+                                        "","",window.FOUNDATIONS_VOLUME2.getText());
                             }
                             //pass section to setup sheet
                             db.getFoundationsPFSections(foundationsPFSectionList);

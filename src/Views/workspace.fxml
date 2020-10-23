@@ -1008,22 +1008,22 @@
                         <Pane fx:id="FOUNDATIONS_PANE" layoutX="1.0" layoutY="53.0" prefHeight="216.0" prefWidth="200.0" visible="false">
                            <children>
                               <JFXComboBox fx:id="FOUNDATIONS_PART" focusTraversable="false" layoutX="13.0" layoutY="11.0" prefHeight="28.0" prefWidth="175.0" promptText="Part" unFocusColor="#bcbcbc" />
-                              <JFXTextField fx:id="FOUNDATIONS_DEPTH" labelFloat="true" layoutX="13.0" layoutY="108.0" prefHeight="30.0" prefWidth="81.0" promptText="Depth" visible="false">
+                              <JFXTextField fx:id="FOUNDATIONS_DEPTH" labelFloat="true" layoutX="13.0" layoutY="108.0" prefHeight="30.0" prefWidth="81.0" promptText="Depth (mm)" visible="false">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="FOUNDATIONS_WIDTH" labelFloat="true" layoutX="105.0" layoutY="108.0" prefHeight="30.0" prefWidth="81.0" promptText="Width" visible="false">
+                              <JFXTextField fx:id="FOUNDATIONS_WIDTH" labelFloat="true" layoutX="105.0" layoutY="108.0" prefHeight="30.0" prefWidth="81.0" promptText="Width (mm)" visible="false">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="FOUNDATIONS_LENGTH" labelFloat="true" layoutX="13.0" layoutY="156.0" prefHeight="30.0" prefWidth="81.0" promptText="Length" visible="false">
+                              <JFXTextField fx:id="FOUNDATIONS_LENGTH" labelFloat="true" layoutX="13.0" layoutY="156.0" prefHeight="30.0" prefWidth="81.0" promptText="Length (mm)" visible="false">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="FOUNDATIONS_VOLUME1" labelFloat="true" layoutX="105.0" layoutY="156.0" prefHeight="30.0" prefWidth="81.0" promptText="Volume" visible="false">
+                              <JFXTextField fx:id="FOUNDATIONS_VOLUME1" labelFloat="true" layoutX="105.0" layoutY="156.0" prefHeight="30.0" prefWidth="81.0" promptText="Volume (m³)" visible="false">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1038,7 +1038,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="FOUNDATIONS_VOLUME2" labelFloat="true" layoutX="13.0" layoutY="156.0" prefHeight="30.0" prefWidth="81.0" promptText="Volume" visible="false">
+                              <JFXTextField fx:id="FOUNDATIONS_VOLUME2" labelFloat="true" layoutX="13.0" layoutY="156.0" prefHeight="30.0" prefWidth="81.0" promptText="Volume (m³)" visible="false">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1201,9 +1201,9 @@
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
                   </Label>
-                  <JFXTextField fx:id="CONCRETE_FLOOR_LENGTH" labelFloat="true" layoutX="28.0" layoutY="53.0" prefHeight="25.0" prefWidth="147.0" promptText="Length" />
-                  <JFXTextField fx:id="CONCRETE_FLOOR_WIDTH" labelFloat="true" layoutX="28.0" layoutY="112.0" prefHeight="25.0" prefWidth="147.0" promptText="Width" />
-                  <JFXTextField fx:id="CONCRETE_FLOOR_THICKNESS" labelFloat="true" layoutX="28.0" layoutY="169.0" prefHeight="25.0" prefWidth="147.0" promptText="Thickness" />
+                  <JFXTextField fx:id="CONCRETE_FLOOR_LENGTH" labelFloat="true" layoutX="28.0" layoutY="53.0" prefHeight="25.0" prefWidth="147.0" promptText="Length (mm)" />
+                  <JFXTextField fx:id="CONCRETE_FLOOR_WIDTH" labelFloat="true" layoutX="28.0" layoutY="112.0" prefHeight="25.0" prefWidth="147.0" promptText="Width (mm)" />
+                  <JFXTextField fx:id="CONCRETE_FLOOR_THICKNESS" labelFloat="true" layoutX="28.0" layoutY="169.0" prefHeight="25.0" prefWidth="147.0" promptText="Thickness (mm)" />
                   <JFXButton fx:id="MISCELLANEOUS_DONE" layoutX="108.0" layoutY="232.0" prefHeight="38.0" prefWidth="91.0" text="Done" textFill="#bcbcbc">
                      <graphic>
                         <ImageView fitHeight="104.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
