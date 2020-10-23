@@ -9,9 +9,11 @@ import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -22,10 +24,17 @@ import java.util.ResourceBundle;
 
 public class externalFramingController implements Initializable {
 
+    //indicators
+    public Label id_indicator = new Label(); //part id every selection
+
     //collections
     public ObservableList<String> parts = FXCollections.observableArrayList();
     public VBox PARTS_VBOX;
     public ArrayList<JFXButton> buttonList = new ArrayList<>();
+    public ArrayList<GridPane> gridPaneList = new ArrayList<>();
+
+    //gridpanes (parts)
+    public GridPane POLES, COLUMNS, GIRTS, DOORS, WINDOWS;
 
     //tables
     public JFXTreeTableView<externalFramingMaterials> MATERIALS_TBL;
@@ -41,6 +50,8 @@ public class externalFramingController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {
+        loadPanes();
+
         DataBase db = DataBase.getInstance();
         parts.clear();
         db.displayShedParts(2, parts);
@@ -57,11 +68,18 @@ public class externalFramingController implements Initializable {
             buttonList.add(button);
 
             button.setOnAction(event -> {
+                db.getPartID(2, button.getId(), id_indicator);
                 buttonList.forEach(button1 -> { //selection highlighter
                     if (button1.getId().equals(button.getId())) {
                         button1.setStyle("-fx-background-color: #394F5A");
                     } else {
                         button1.setStyle("-fx-background-color: TRANSPARENT");
+                    }
+                });
+                gridPaneList.forEach(gridPane -> {
+                    gridPane.setVisible(false);
+                    if (button.getId().equals(gridPane.getId())) {
+                        gridPane.setVisible(true);
                     }
                 });
             });
@@ -93,6 +111,14 @@ public class externalFramingController implements Initializable {
                 (externalFramingMaterials, RecursiveTreeObject::getChildren);
         MATERIALS_TBL.setRoot(externalFramingControllerTreeItem);
         MATERIALS_TBL.setShowRoot(false);
+    }
+
+    public void loadPanes() {
+        gridPaneList.add(POLES);
+        gridPaneList.add(COLUMNS);
+        gridPaneList.add(GIRTS);
+        gridPaneList.add(DOORS);
+        gridPaneList.add(WINDOWS);
     }
 
 }
