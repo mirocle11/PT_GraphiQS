@@ -1359,7 +1359,8 @@ public class DataBase {
         }
     }
 
-    public void insertSectionDimension(String part, String path,  String diameter, String height, String depth, String width, String length,String volume){
+    public void insertSectionDimension(String part, String path,  String diameter, String height, String depth,
+                                       String width, String length,String volume) {
         try {
             String sql = "INSERT INTO shed_section_dimensions (IMAGE,PART,HEIGHT,DEPTH,DIAMETER,VOLUME,WIDTH,LENGTH,QTY,SECTION_ID)" +
                     " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE QTY = QTY+1 ";
@@ -1380,10 +1381,9 @@ public class DataBase {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
-    public int getLastSection(String part){
+    public int getLastSection(String part) {
         try {
             String sql = "SELECT SECTION_ID FROM shed_section_dimensions WHERE  PART = ? ORDER BY SECTION_ID DESC LIMIT 1";
 
@@ -1399,11 +1399,10 @@ public class DataBase {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return 0;
     }
 
-    public String getTotalVolume(String tablename){
+    public String getTotalVolume(String tablename) {
         double total = 0;
         try {
             String sql = "SELECT VOLUME FROM "+tablename;
