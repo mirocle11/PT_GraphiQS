@@ -12,6 +12,7 @@ import Model.data.layouts.doorData;
 import Model.data.layouts.layoutsData;
 import Model.data.layouts.windowData;
 import Model.stamps.DoorObject;
+import Model.stamps.FoundationsObject;
 import Model.stamps.WindowObject;
 import com.jfoenix.controls.JFXButton;
 import javafx.geometry.Insets;
@@ -76,6 +77,7 @@ public class Tools {
     ArrayList<double[][]> snapList = new ArrayList<>();
     public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
     public ArrayList<CladdingObject> claddingObjectList = new ArrayList<>();
+    public ArrayList<FoundationsObject> foundationsObjectList = new ArrayList<>();
 
     double total;
     double stud_height;
@@ -201,7 +203,7 @@ public class Tools {
                 }
             });
             service.start();
-        } catch(Exception ignored) {
+        } catch (Exception ignored) {
 
         }
     }
@@ -291,7 +293,7 @@ public class Tools {
                                                 windowObject.getCladding(), windowObject.getType(), windowObject.getWidth(),
                                                 windowObject.getHeight());
 
-                                        Iterator itr =  layouts.windowData.iterator();
+                                        Iterator itr = layouts.windowData.iterator();
                                         while (itr.hasNext()) {
                                             windowData element = (windowData) itr.next();
                                             if (element.getWindow_no().equals(w.getWindow_no())) {
@@ -301,7 +303,7 @@ public class Tools {
                                             }
                                         }
 
-                                        System.out.println("contains remove"+ layouts.windowData.remove(w));
+                                        System.out.println("contains remove" + layouts.windowData.remove(w));
                                     });
                                     stampMenu.getItems().add(removeStamp);
                                     stampMenu.show(window_stamp, event1.getScreenX(), event1.getScreenY());
@@ -402,7 +404,7 @@ public class Tools {
                                         doorData d = new doorData(doorObject.getNo(), doorObject.getDoor_type(),
                                                 doorObject.getDoor_width(), doorObject.getDoor_height());
 
-                                        Iterator itr =  layouts.doorData.iterator();
+                                        Iterator itr = layouts.doorData.iterator();
                                         while (itr.hasNext()) {
                                             doorData element = (doorData) itr.next();
                                             if (element.getNo().equals(d.getNo())) {
@@ -412,7 +414,7 @@ public class Tools {
                                             }
                                         }
 
-                                        System.out.println("contains remove"+ layouts.doorData.remove(d));
+                                        System.out.println("contains remove" + layouts.doorData.remove(d));
                                     });
                                     stampMenu.getItems().add(removeStamp);
                                     stampMenu.show(door_stamp, event1.getScreenX(), event1.getScreenY());
@@ -423,8 +425,10 @@ public class Tools {
                                     doorObject.getDoor_width(), doorObject.getDoor_height()));
                         }
                         if (!(window.fs_indicator == 0)) {
+
                             ImageView foundations_img = new ImageView();
                             Label foundations_stamp = new Label();
+
                             String path = "";
 
                             int selected_icon = window.iconList.getSelectionModel().getSelectedIndex();
@@ -509,7 +513,11 @@ public class Tools {
                             foundations_stamp.setLayoutY(event.getY());
                             foundations_stamp.setAlignment(Pos.CENTER);
 
-                            pane.getChildren().add(foundations_stamp);
+                            FoundationsObject foundations_stamp_object = new FoundationsObject();
+                            foundations_stamp_object.setStamp(foundations_stamp);
+
+
+                            pane.getChildren().add(foundations_stamp_object.getStamp());
 
                             //db for managing table sections w/ identifier
                             DataBase db = DataBase.getInstance();
@@ -522,12 +530,15 @@ public class Tools {
                                     window.FOUNDATIONS_HEIGHT.getText(), foundations_cb_section, foundations_cb_volume,
                                     foundations_cb_quantity);
 
+
+                            foundations_stamp_object.setPart(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem());
                             if (window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Post Footings")) {
                                 if (foundations_pf_section.getText().equals("")) {
                                     db.getFoundationsPFLastRow(pfLastRowSection);
                                     if (pfLastRowSection.getText().equals("")) {
                                         pfLastRowSection.setText("1");
                                     }
+
                                     db.insertFoundationsPF(Integer.parseInt(pfLastRowSection.getText()), path, 1,
                                             window.FOUNDATIONS_DEPTH.getText(), window.FOUNDATIONS_WIDTH.getText(),
                                             window.FOUNDATIONS_LENGTH.getText(), window.FOUNDATIONS_VOLUME1.getText());
@@ -539,13 +550,15 @@ public class Tools {
                                     int pf_quantity = Integer.parseInt(foundations_pf_quantity.getText()) + 1;
                                     double pf_volume = pf_quantity * (Double.parseDouble(foundations_pf_volume.getText())
                                             / Double.parseDouble(foundations_pf_quantity.getText()));
-
+                                    foundations_stamp_object.setNo(pfLastRowSection.getText());
                                     db.updateFoundationsPFCount(pf_quantity, String.valueOf(new DecimalFormat("0.00")
                                             .format(pf_volume)), Integer.parseInt(foundations_pf_section.getText()));
                                 }
+
+                                foundations_stamp_object.setNo(pfLastRowSection.getText());
                                 db.insertSectionDimension(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(),
-                                        path,"","", window.FOUNDATIONS_DEPTH.getText(),
-                                        window.FOUNDATIONS_WIDTH.getText(),window.FOUNDATIONS_LENGTH.getText(),window.FOUNDATIONS_VOLUME1.getText());
+                                        path, "", "", window.FOUNDATIONS_DEPTH.getText(),
+                                        window.FOUNDATIONS_WIDTH.getText(), window.FOUNDATIONS_LENGTH.getText(), window.FOUNDATIONS_VOLUME1.getText());
                             }
 
                             if (window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Pole Footings")) {
@@ -554,7 +567,8 @@ public class Tools {
                                     if (cbLastRowSection.getText().equals("")) {
                                         cbLastRowSection.setText("1");
                                     }
-                                    db. insertFoundationsCB(Integer.parseInt(cbLastRowSection.getText()), path, 1,
+
+                                    db.insertFoundationsCB(Integer.parseInt(cbLastRowSection.getText()), path, 1,
                                             window.FOUNDATIONS_DIAMETER.getText(), window.FOUNDATIONS_HEIGHT.getText(),
                                             window.FOUNDATIONS_VOLUME2.getText());
 
@@ -566,14 +580,96 @@ public class Tools {
                                     double cb_volume = cb_quantity * (Double.parseDouble(foundations_cb_volume.getText())
                                             / Double.parseDouble(foundations_cb_quantity.getText()));
 
+
                                     db.updateFoundationsCBCount(cb_quantity, String.valueOf(
                                             new DecimalFormat("0.00").format(cb_volume)),
                                             Integer.parseInt(foundations_cb_section.getText()));
                                 }
+
+                                foundations_stamp_object.setNo(cbLastRowSection.getText());
                                 db.insertSectionDimension(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(),
-                                        path,  window.FOUNDATIONS_DIAMETER.getText(), window.FOUNDATIONS_HEIGHT.getText(),"",
-                                        "","",window.FOUNDATIONS_VOLUME2.getText());
+                                        path, window.FOUNDATIONS_DIAMETER.getText(), window.FOUNDATIONS_HEIGHT.getText(), "",
+                                        "", "", window.FOUNDATIONS_VOLUME2.getText());
+
                             }
+                            foundationsObjectList.add(foundations_stamp_object);
+                            foundations_stamp_object.setId(foundationsObjectList.size());
+
+                            foundations_stamp_object.getStamp().setOnMouseClicked(event1 -> {
+                                if (event1.getButton() == MouseButton.SECONDARY) {
+                                    stampMenu = new ContextMenu();
+                                    stampMenu.hide();
+
+                                    MenuItem removeStamp = new MenuItem("Remove Stamp");
+                                    removeStamp.setOnAction(event2 -> {
+                                        foundations_stamp_object.getStamp().setVisible(false);
+
+                                        Iterator itr = foundationsObjectList.iterator();
+                                        while (itr.hasNext()) {
+                                            FoundationsObject element = (FoundationsObject) itr.next();
+                                            if (element.getId() == (foundations_stamp_object.getId())) {
+                                                String table = "shed_foundations_";
+                                                if (element.getPart() == "Post Footings") {
+                                                    table += "post_footings";
+                                                } else {
+                                                    table += "concrete_bores";
+                                                }
+                                                String[] result = db.getSectionData(table, Integer.parseInt(element.getNo()));
+                                                if (result != null) {
+                                                    double vol = Double.parseDouble(result[0]);
+                                                    int qty = Integer.parseInt(result[1]);
+                                                    System.out.println("QTY " + qty);
+                                                    if (qty == 1) {
+                                                        db.deleteSectionData(table, Integer.parseInt(element.getNo()));
+                                                    } else {
+                                                        if (element.getPart() == "Post Footings") {
+                                                            vol -= (vol / qty);
+                                                            db.updateFoundationsPFCount(qty - 1, String.valueOf(
+                                                                    new DecimalFormat("0.00").format(vol)),
+                                                                    Integer.parseInt(element.getNo()));
+                                                        } else {
+                                                            vol -= (vol / qty);
+                                                            db.updateFoundationsCBCount(qty - 1, String.valueOf(
+                                                                    new DecimalFormat("0.00").format(vol)),
+                                                                    Integer.parseInt(element.getNo()));
+                                                        }
+                                                    }
+                                                }
+                                                layoutsController.foundationsPostFootingsData.clear();
+                                                foundations_pf_section.setText("");
+                                                db.showFoundationsPF(layoutsController.foundationsPostFootingsData);
+
+                                                layoutsController.foundationsConcreteBoresData.clear();
+                                                foundations_cb_section.setText("");
+                                                db.showFoundationsCB(layoutsController.foundationsConcreteBoresData);
+
+                                                layoutsController.totalData.clear();
+
+                                                double pf = Double.parseDouble(db.getTotalVolume("shed_foundations_post_footings"));
+                                                double cb = Double.parseDouble(db.getTotalVolume("shed_foundations_concrete_bores"));
+                                                double cf = 0;
+                                                try {
+                                                    cf = Double.parseDouble(layoutsController.concreteData.get(3));
+                                                } catch (Exception e) {
+                                                    cf = 0;
+                                                }
+                                                double total = pf + cb + cf;
+                                                new DecimalFormat("0.00").format(total);
+                                                layoutsController.totalData.add(0, Double.toString(pf));
+                                                layoutsController.totalData.add(1, Double.toString(cb));
+                                                layoutsController.totalData.add(2, String.valueOf(
+                                                        new DecimalFormat("0.00").format(total)));
+                                                itr.remove();
+                                                break;
+                                            }
+                                        }
+                                    });
+                                    stampMenu.getItems().add(removeStamp);
+                                    stampMenu.show(foundations_stamp_object.getStamp(), event1.getScreenX(), event1.getScreenY());
+
+                                }
+                            });
+                            System.out.println(foundationsObjectList.size());
                             //pass section to setup sheet
                             db.getFoundationsPFSections(foundationsPFSectionList);
                             db.getFoundationsCBSections(foundationsCBSectionList);
@@ -586,6 +682,24 @@ public class Tools {
                             layoutsController.foundationsConcreteBoresData.clear();
                             foundations_cb_section.setText("");
                             db.showFoundationsCB(layoutsController.foundationsConcreteBoresData);
+
+                            layoutsController.totalData.clear();
+
+                            double pf = Double.parseDouble(db.getTotalVolume("shed_foundations_post_footings"));
+                            double cb = Double.parseDouble(db.getTotalVolume("shed_foundations_concrete_bores"));
+                            double cf = 0;
+                            try {
+                                cf = Double.parseDouble(layoutsController.concreteData.get(3));
+                            } catch (Exception e) {
+                                cf = 0;
+                            }
+                            double total = pf + cb + cf;
+                            new DecimalFormat("0.00").format(total);
+                            layoutsController.totalData.add(0, Double.toString(pf));
+                            layoutsController.totalData.add(1, Double.toString(cb));
+                            layoutsController.totalData.add(2, String.valueOf(
+                                    new DecimalFormat("0.00").format(total)));
+
                         }
                     }
                 });
@@ -756,7 +870,7 @@ public class Tools {
                 System.out.println(sp2.getWallType());
                 System.out.println(sp2.getWall());
                 System.out.println(sp2.getMaterial());
-                System.out.println("Page : "+ i + 1);
+                System.out.println("Page : " + i + 1);
                 System.out.println(count++);
 
                 double value;

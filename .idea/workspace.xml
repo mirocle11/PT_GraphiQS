@@ -25,28 +25,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-setup sheets update (sheds)&#10;-toggles for part selection&#10;-sets selected (saved)&#10;-sections saved to db&#10;-9/21/20">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/foundationsController$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/foundationsController$2.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/DataBase/DataBase.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/DataBase/DataBase.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/stamps/FoundationsObject.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/stamps/FoundationsObject.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/service/Tools.class" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/service/Tools.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_20_2020_2_18_PM__Default_.xml" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_20_2020_2_18_PM__Default_.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/foundations.fxml" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/foundations.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/layoutsController.java" afterPath="$PROJECT_DIR$/src/Controllers/layoutsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataBase/DataBase.java" afterPath="$PROJECT_DIR$/src/DataBase/DataBase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/foundations.fxml" afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/foundations.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Views/layouts.fxml" afterPath="$PROJECT_DIR$/src/Views/layouts.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Views/workspace.fxml" afterPath="$PROJECT_DIR$/src/Views/workspace.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/stamps/FoundationsObject.java" afterPath="$PROJECT_DIR$/src/Model/stamps/FoundationsObject.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/service/Tools.java" afterPath="$PROJECT_DIR$/src/service/Tools.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/svg_0.svg" afterPath="$PROJECT_DIR$/temp/svg_0.svg" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
     <list id="4dddbee8-77b6-41fd-be25-1624817806eb" name="Revert &quot;#60 commit&quot;" comment="Revert &quot;#60 commit&quot;&#10;&#10;This reverts commit 096c3c72" />
+    <ignored path="C:\Users\User\Desktop\GQS 2020\PT_GraphiQS\.idea\shelf/" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,99 +59,108 @@
       <file leaf-file-name="DataBase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DataBase/DataBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="1405" column="25" lean-forward="true" selection-start-line="1405" selection-start-column="25" selection-end-line="1405" selection-end-column="25" />
+            <state relative-caret-position="446">
+              <caret line="1459" column="0" lean-forward="false" selection-start-line="1459" selection-start-column="0" selection-end-line="1459" selection-end-column="0" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#DataBase#0;class#DataBase#0" expanded="false" />
                 <element signature="method#getFoundationsPFData#0;class#DataBase#0" expanded="false" />
                 <element signature="method#getFoundationsCBData#0;class#DataBase#0" expanded="false" />
                 <element signature="method#insertComponents#0;class#DataBase#0" expanded="false" />
                 <element signature="method#clearComponentsTable#0;class#DataBase#0" expanded="false" />
                 <element signature="e#37541#37567#0" expanded="false" />
-                <element signature="method#showFoundationsPF#0;class#DataBase#0" expanded="false" />
                 <element signature="method#insertFoundationsPF#0;class#DataBase#0" expanded="false" />
                 <element signature="method#updateFoundationsPFCount#0;class#DataBase#0" expanded="false" />
                 <element signature="method#identifyFoundationsPFValues#0;class#DataBase#0" expanded="false" />
+                <element signature="method#clearLayoutsFoundations#0;class#DataBase#0" expanded="false" />
                 <element signature="method#getFoundationsPFLastRow#0;class#DataBase#0" expanded="false" />
+                <element signature="method#getFoundationsTotal#0;class#DataBase#0" expanded="false" />
+                <element signature="method#getFoundationsPFSections#0;class#DataBase#0" expanded="false" />
+                <element signature="method#showFoundationsCB#0;class#DataBase#0" expanded="false" />
+                <element signature="method#insertFoundationsCB#0;class#DataBase#0" expanded="false" />
+                <element signature="method#identifyFoundationsCBValues#0;class#DataBase#0" expanded="false" />
                 <element signature="method#updateFoundationsCBCount#0;class#DataBase#0" expanded="false" />
                 <element signature="method#getFoundationsCBLastRow#0;class#DataBase#0" expanded="false" />
                 <element signature="method#getFoundationsCBSections#0;class#DataBase#0" expanded="false" />
                 <element signature="method#insertSectionDimension#0;class#DataBase#0" expanded="false" />
-                <marker date="1603356768034" expanded="true" signature="2577:2843" ph="CREATE TABLE... IF" />
-                <marker date="1603356768034" expanded="true" signature="2888:3275" ph="CREATE TABLE... IF" />
-                <marker date="1603356768034" expanded="true" signature="3322:3748" ph="CREATE TABLE... IF" />
-                <marker date="1603356768034" expanded="true" signature="3797:4074" ph="CREATE TABLE... IF" />
-                <marker date="1603356768034" expanded="true" signature="4121:4272" ph="CREATE TABLE... IF" />
-                <marker date="1603356768034" expanded="true" signature="4315:4569" ph="CREATE TABLE... IF" />
-                <marker date="1603356768034" expanded="true" signature="7133:7231" ph="INSERT INTO USERS_TBL... " />
-                <marker date="1603356768034" expanded="true" signature="7884:8064" ph="INSERT INTO CLIENTS_TBL... " />
-                <marker date="1603356768034" expanded="true" signature="8951:9142" ph="INSERT INTO SUBTRADES_TBL... " />
-                <marker date="1603356768034" expanded="true" signature="9976:10073" ph="INSERT INTO PRICE_CARD_TBL... " />
-                <marker date="1603356768034" expanded="true" signature="10641:10666" ph="SELECT * FRO... CLIENTS_TBL" />
-                <marker date="1603356768034" expanded="true" signature="11287:11333" ph="SELECT * FRO... SUBTRADES_TBL" />
-                <marker date="1603356768034" expanded="true" signature="12646:12683" ph="SELECT * FRO... CLIENTS_TBL" />
-                <marker date="1603356768034" expanded="true" signature="13534:13681" ph="UPDATE CLIEN... " />
-                <marker date="1603356768034" expanded="true" signature="14470:14513" ph="SELECT USER_... CLIENTS_TBL" />
-                <marker date="1603356768034" expanded="true" signature="14860:14894" ph="DELETE FROM " />
-                <marker date="1603356768034" expanded="true" signature="15562:15601" ph="SELECT * FRO... SUBTRADES_TBL" />
-                <marker date="1603356768034" expanded="true" signature="16461:16510" ph="SELECT * FRO... PRICE_CARD_TBL" />
-                <marker date="1603356768034" expanded="true" signature="17158:17345" ph="UPDATE SUBTR... " />
-                <marker date="1603356768034" expanded="true" signature="18161:18231" ph="UPDATE PRICE... " />
-                <marker date="1603356768034" expanded="true" signature="18681:18719" ph="DELETE FROM " />
-                <marker date="1603356768034" expanded="true" signature="19116:19175" ph="SELECT * FRO... USERS_TBL" />
-                <marker date="1603356768034" expanded="true" signature="20058:20093" ph="SELECT * FRO... USERS_TBL" />
-                <marker date="1603356768034" expanded="true" signature="20608:20633" ph="SELECT * FRO... CLIENTS_TBL" />
-                <marker date="1603356768034" expanded="true" signature="21076:21121" ph="SELECT * FRO... CLIENTS_TBL" />
-                <marker date="1603356768034" expanded="true" signature="21555:21619" ph="SELECT * FRO... SUBTRADES_TBL" />
-                <marker date="1603356768034" expanded="true" signature="22105:22155" ph="SELECT * FRO... PRICE_CARD_TBL" />
-                <marker date="1603356768034" expanded="true" signature="23652:23713" ph="SELECT PARTS... STRUCTURES_PARTS_TBL" />
-                <marker date="1603356768034" expanded="true" signature="24284:24339" ph="SELECT PARTS... SHED_PARTS_TBL" />
-                <marker date="1603356768034" expanded="true" signature="24965:25031" ph="SELECT ID FR... SHED_PARTS_TBL" />
-                <marker date="1603356768034" expanded="true" signature="25699:25767" ph="SELECT * FRO... SHED_COMPONENTS_TBL" />
-                <marker date="1603356768034" expanded="true" signature="27052:27093" ph="SELECT * FRO... SHED_SETS" />
-                <marker date="1603356768034" expanded="true" signature="27702:27767" ph="SELECT * FRO... SHED_SECTION_TBL" />
-                <marker date="1603356768034" expanded="true" signature="28469:28535" ph="SELECT ID FR... SHED_SECTION_TBL" />
-                <marker date="1603356768034" expanded="true" signature="28944:29011" ph="UPDATE SHED_... " />
-                <marker date="1603356768034" expanded="true" signature="29483:29545" ph="INSERT INTO SHED_SECTION_TBL... " />
-                <marker date="1603356768034" expanded="true" signature="30417:30578" ph="INSERT INTO SHED_SECTION_DIMENSIONS... " />
-                <marker date="1603356768034" expanded="true" signature="31386:31444" ph="SELECT * FRO... shed_foundations_concrete_bores" />
-                <marker date="1603356768034" expanded="true" signature="32883:32940" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
-                <marker date="1603356768034" expanded="true" signature="34495:34558" ph="DELETE FROM " />
-                <marker date="1603356768034" expanded="true" signature="34981:35038" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
-                <marker date="1603356768034" expanded="true" signature="35549:35607" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
-                <marker date="1603356768034" expanded="true" signature="36242:36409" ph="INSERT INTO SHED_COMPONENTS_TBL... " />
-                <marker date="1603356768034" expanded="true" signature="37150:37216" ph="DELETE FROM " />
-                <marker date="1603356768034" expanded="true" signature="45624:45668" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
-                <marker date="1603356768034" expanded="true" signature="47093:47248" ph="INSERT INTO SHED_FOUNDATIONS_POST_FOOTINGS... " />
-                <marker date="1603356768034" expanded="true" signature="48038:48117" ph="UPDATE SHED_... " />
-                <marker date="1603356768034" expanded="true" signature="48706:48795" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
-                <marker date="1603356768034" expanded="false" signature="49580:50209" ph="{...}" />
-                <marker date="1603356768034" expanded="true" signature="50308:50378" ph="SELECT ID FR... SHED_FOUNDATIONS_POST_FOOTINGS" />
-                <marker date="1603356768034" expanded="false" signature="50840:51993" ph="{...}" />
-                <marker date="1603356768034" expanded="true" signature="50882:50926" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
-                <marker date="1603356768034" expanded="true" signature="51454:51499" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
-                <marker date="1603356768034" expanded="false" signature="52073:52611" ph="{...}" />
-                <marker date="1603356768034" expanded="true" signature="52148:52197" ph="SELECT * FRO... SHED_SECTION_TBL" />
-                <marker date="1603356768034" expanded="false" signature="52743:53991" ph="{...}" />
-                <marker date="1603356768034" expanded="true" signature="52785:52830" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
-                <marker date="1603356768034" expanded="false" signature="54116:54863" ph="{...}" />
-                <marker date="1603356768034" expanded="true" signature="54158:54300" ph="INSERT INTO SHED_FOUNDATIONS_CONCRETE_BORES... " />
-                <marker date="1603356768034" expanded="false" signature="55041:55774" ph="{...}" />
-                <marker date="1603356768034" expanded="true" signature="55083:55162" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
-                <marker date="1603356768034" expanded="true" signature="55900:55980" ph="UPDATE SHED_... " />
-                <marker date="1603356768034" expanded="true" signature="56448:56519" ph="SELECT ID FR... SHED_FOUNDATIONS_CONCRETE_BORES" />
-                <marker date="1603356768034" expanded="true" signature="57041:57090" ph="SELECT * FRO... SHED_SECTION_TBL" />
-                <marker date="1603356768034" expanded="true" signature="57702:57763" ph="INSERT INTO shed_section_dimensions... " />
-                <marker date="1603356768034" expanded="true" signature="57702:57870" ph="INSERT INTO shed_section_dimensions... " />
-                <marker date="1603356768034" expanded="true" signature="57702:57906" ph="INSERT INTO shed_section_dimensions... " />
-                <marker date="1603356768034" expanded="true" signature="58732:58794" ph="SELECT MAX(S... SHED_SECTION_DIMENSIONS" />
-                <marker date="1603356768034" expanded="true" signature="58732:58814" ph="SELECT SECTI... SHED_SECTION_DIMENSIONS" />
-                <marker date="1603356768034" expanded="true" signature="58732:58815" ph="SELECT SECTI... SHED_SECTION_DIMENSIONS" />
-                <marker date="1603356768034" expanded="true" signature="58732:58827" ph="SELECT SECTI... shed_section_dimensions" />
-                <marker date="1603356768034" expanded="true" signature="59362:59380" ph="SELECT VOLUM... " />
-                <marker date="1603356768034" expanded="true" signature="59362:59381" ph="SELECT VOLUM... missingValue" />
-                <marker date="1603356768034" expanded="true" signature="59362:59383" ph="SELECT VOLUM... shed_section_dimensions" />
-                <marker date="1603356768034" expanded="true" signature="59362:59392" ph="SELECT V FRO... shed_section_dimensions" />
+                <element signature="method#getLastSection#0;class#DataBase#0" expanded="false" />
+                <element signature="method#getSectionData#0;class#DataBase#0" expanded="false" />
+                <element signature="method#deleteSectionData#0;class#DataBase#0" expanded="false" />
+                <element signature="method#getTotalVolume#0;class#DataBase#0" expanded="false" />
+                <marker date="1603680669718" expanded="true" signature="2577:2843" ph="CREATE TABLE... IF" />
+                <marker date="1603680669718" expanded="true" signature="2888:3275" ph="CREATE TABLE... IF" />
+                <marker date="1603680669718" expanded="true" signature="3322:3748" ph="CREATE TABLE... IF" />
+                <marker date="1603680669718" expanded="true" signature="3797:4074" ph="CREATE TABLE... IF" />
+                <marker date="1603680669718" expanded="true" signature="4121:4272" ph="CREATE TABLE... IF" />
+                <marker date="1603680669718" expanded="true" signature="4315:4569" ph="CREATE TABLE... IF" />
+                <marker date="1603680669718" expanded="true" signature="7133:7231" ph="INSERT INTO USERS_TBL... " />
+                <marker date="1603680669718" expanded="true" signature="7884:8064" ph="INSERT INTO CLIENTS_TBL... " />
+                <marker date="1603680669718" expanded="true" signature="8951:9142" ph="INSERT INTO SUBTRADES_TBL... " />
+                <marker date="1603680669718" expanded="true" signature="9976:10073" ph="INSERT INTO PRICE_CARD_TBL... " />
+                <marker date="1603680669718" expanded="true" signature="10641:10666" ph="SELECT * FRO... CLIENTS_TBL" />
+                <marker date="1603680669718" expanded="true" signature="11287:11333" ph="SELECT * FRO... SUBTRADES_TBL" />
+                <marker date="1603680669718" expanded="true" signature="12646:12683" ph="SELECT * FRO... CLIENTS_TBL" />
+                <marker date="1603680669718" expanded="true" signature="13534:13681" ph="UPDATE CLIEN... " />
+                <marker date="1603680669718" expanded="true" signature="14470:14513" ph="SELECT USER_... CLIENTS_TBL" />
+                <marker date="1603680669718" expanded="true" signature="14860:14894" ph="DELETE FROM " />
+                <marker date="1603680669718" expanded="true" signature="15562:15601" ph="SELECT * FRO... SUBTRADES_TBL" />
+                <marker date="1603680669718" expanded="true" signature="16461:16510" ph="SELECT * FRO... PRICE_CARD_TBL" />
+                <marker date="1603680669718" expanded="true" signature="17158:17345" ph="UPDATE SUBTR... " />
+                <marker date="1603680669718" expanded="true" signature="18161:18231" ph="UPDATE PRICE... " />
+                <marker date="1603680669718" expanded="true" signature="18681:18719" ph="DELETE FROM " />
+                <marker date="1603680669718" expanded="true" signature="19116:19175" ph="SELECT * FRO... USERS_TBL" />
+                <marker date="1603680669718" expanded="true" signature="20058:20093" ph="SELECT * FRO... USERS_TBL" />
+                <marker date="1603680669718" expanded="true" signature="20608:20633" ph="SELECT * FRO... CLIENTS_TBL" />
+                <marker date="1603680669718" expanded="true" signature="21076:21121" ph="SELECT * FRO... CLIENTS_TBL" />
+                <marker date="1603680669718" expanded="true" signature="21555:21619" ph="SELECT * FRO... SUBTRADES_TBL" />
+                <marker date="1603680669718" expanded="true" signature="22105:22155" ph="SELECT * FRO... PRICE_CARD_TBL" />
+                <marker date="1603680669718" expanded="true" signature="23652:23713" ph="SELECT PARTS... STRUCTURES_PARTS_TBL" />
+                <marker date="1603680669718" expanded="true" signature="24284:24339" ph="SELECT PARTS... SHED_PARTS_TBL" />
+                <marker date="1603680669718" expanded="true" signature="24965:25031" ph="SELECT ID FR... SHED_PARTS_TBL" />
+                <marker date="1603680669718" expanded="true" signature="25699:25767" ph="SELECT * FRO... SHED_COMPONENTS_TBL" />
+                <marker date="1603680669718" expanded="true" signature="27052:27093" ph="SELECT * FRO... SHED_SETS" />
+                <marker date="1603680669718" expanded="true" signature="27702:27767" ph="SELECT * FRO... SHED_SECTION_TBL" />
+                <marker date="1603680669718" expanded="true" signature="28469:28535" ph="SELECT ID FR... SHED_SECTION_TBL" />
+                <marker date="1603680669718" expanded="true" signature="28944:29011" ph="UPDATE SHED_... " />
+                <marker date="1603680669718" expanded="true" signature="29483:29545" ph="INSERT INTO SHED_SECTION_TBL... " />
+                <marker date="1603680669718" expanded="true" signature="30417:30578" ph="INSERT INTO SHED_SECTION_DIMENSIONS... " />
+                <marker date="1603680669718" expanded="true" signature="31386:31444" ph="SELECT * FRO... shed_foundations_concrete_bores" />
+                <marker date="1603680669718" expanded="true" signature="32883:32940" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
+                <marker date="1603680669718" expanded="true" signature="34495:34558" ph="DELETE FROM " />
+                <marker date="1603680669718" expanded="true" signature="34981:35038" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
+                <marker date="1603680669718" expanded="true" signature="35549:35607" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
+                <marker date="1603680669718" expanded="true" signature="36242:36409" ph="INSERT INTO SHED_COMPONENTS_TBL... " />
+                <marker date="1603680669718" expanded="true" signature="37150:37216" ph="DELETE FROM " />
+                <marker date="1603680669718" expanded="true" signature="45624:45668" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
+                <marker date="1603680669718" expanded="true" signature="47093:47248" ph="INSERT INTO SHED_FOUNDATIONS_POST_FOOTINGS... " />
+                <marker date="1603680669718" expanded="true" signature="48038:48117" ph="UPDATE SHED_... " />
+                <marker date="1603680669718" expanded="true" signature="48706:48795" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
+                <marker date="1603680669718" expanded="true" signature="50308:50378" ph="SELECT ID FR... SHED_FOUNDATIONS_POST_FOOTINGS" />
+                <marker date="1603680669718" expanded="true" signature="50882:50926" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
+                <marker date="1603680669718" expanded="true" signature="51454:51499" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
+                <marker date="1603680669718" expanded="true" signature="52148:52197" ph="SELECT * FRO... SHED_SECTION_TBL" />
+                <marker date="1603680669718" expanded="true" signature="52785:52830" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
+                <marker date="1603680669718" expanded="true" signature="54158:54300" ph="INSERT INTO SHED_FOUNDATIONS_CONCRETE_BORES... " />
+                <marker date="1603680669718" expanded="true" signature="55083:55162" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
+                <marker date="1603680669718" expanded="true" signature="55900:55980" ph="UPDATE SHED_... " />
+                <marker date="1603680669718" expanded="true" signature="56448:56519" ph="SELECT ID FR... SHED_FOUNDATIONS_CONCRETE_BORES" />
+                <marker date="1603680669718" expanded="true" signature="57041:57090" ph="SELECT * FRO... SHED_SECTION_TBL" />
+                <marker date="1603680669718" expanded="true" signature="57702:57763" ph="INSERT INTO shed_section_dimensions... " />
+                <marker date="1603680669718" expanded="true" signature="57702:57870" ph="INSERT INTO shed_section_dimensions... " />
+                <marker date="1603680669718" expanded="true" signature="57702:57906" ph="INSERT INTO shed_section_dimensions... " />
+                <marker date="1603680669718" expanded="true" signature="58732:58794" ph="SELECT MAX(S... SHED_SECTION_DIMENSIONS" />
+                <marker date="1603680669718" expanded="true" signature="58732:58814" ph="SELECT SECTI... SHED_SECTION_DIMENSIONS" />
+                <marker date="1603680669718" expanded="true" signature="58732:58815" ph="SELECT SECTI... SHED_SECTION_DIMENSIONS" />
+                <marker date="1603680669718" expanded="true" signature="58732:58827" ph="SELECT SECTI... shed_section_dimensions" />
+                <marker date="1603680669718" expanded="true" signature="59392:59405" ph="SELECT * FRO... " />
+                <marker date="1603680669718" expanded="true" signature="59392:59406" ph="SELECT * FRO... missingValue" />
+                <marker date="1603680669718" expanded="true" signature="59392:59427" ph="SELECT * FRO... shed_section_dimensions" />
+                <marker date="1603680669718" expanded="true" signature="59392:59433" ph="SELECT * FRO... missingValue" />
+                <marker date="1603680669718" expanded="true" signature="60171:60210" ph="DELETE FROM " />
+                <marker date="1603680669718" expanded="true" signature="60596:60614" ph="SELECT VOLUM... " />
+                <marker date="1603680669718" expanded="true" signature="60596:60615" ph="SELECT VOLUM... missingValue" />
+                <marker date="1603680669718" expanded="true" signature="60596:60617" ph="SELECT VOLUM... shed_section_dimensions" />
+                <marker date="1603680669718" expanded="true" signature="60596:60626" ph="SELECT V FRO... shed_section_dimensions" />
               </folding>
             </state>
           </provider>
@@ -166,8 +169,8 @@
       <file leaf-file-name="layoutsController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/layoutsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="284" column="40" lean-forward="true" selection-start-line="284" selection-start-column="40" selection-end-line="284" selection-end-column="40" />
+            <state relative-caret-position="333">
+              <caret line="390" column="82" lean-forward="false" selection-start-line="390" selection-start-column="82" selection-end-line="390" selection-end-column="82" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#showDetails#0;class#layoutsController#0" expanded="false" />
@@ -176,11 +179,26 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="FoundationsObject.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/stamps/FoundationsObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-340">
+              <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#342#343#0" expanded="true" />
+                <element signature="e#375#376#0" expanded="true" />
+                <element signature="e#403#404#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Tools.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/service/Tools.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="536" column="0" lean-forward="false" selection-start-line="536" selection-start-column="0" selection-end-line="536" selection-end-column="0" />
+            <state relative-caret-position="310">
+              <caret line="697" column="81" lean-forward="false" selection-start-line="697" selection-start-column="79" selection-end-line="697" selection-end-column="81" />
               <folding />
             </state>
           </provider>
@@ -190,8 +208,40 @@
         <entry file="file://$PROJECT_DIR$/src/Model/data/shed/foundations/concreteBoresSec.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#747#748#0" expanded="false" />
+                <element signature="e#778#779#0" expanded="false" />
+                <element signature="e#826#827#0" expanded="false" />
+                <element signature="e#851#852#0" expanded="false" />
+                <element signature="e#887#888#0" expanded="false" />
+                <element signature="e#918#919#0" expanded="false" />
+                <element signature="e#948#949#0" expanded="false" />
+                <element signature="e#980#981#0" expanded="false" />
+                <element signature="e#1029#1030#0" expanded="false" />
+                <element signature="e#1055#1056#0" expanded="false" />
+                <element signature="e#1093#1094#0" expanded="false" />
+                <element signature="e#1126#1127#0" expanded="false" />
+                <element signature="e#1161#1162#0" expanded="false" />
+                <element signature="e#1198#1199#0" expanded="false" />
+                <element signature="e#1252#1253#0" expanded="false" />
+                <element signature="e#1283#1284#0" expanded="false" />
+                <element signature="e#1331#1332#0" expanded="false" />
+                <element signature="e#1374#1375#0" expanded="false" />
+                <element signature="e#1407#1408#0" expanded="false" />
+                <element signature="e#1442#1443#0" expanded="false" />
+                <element signature="e#1494#1495#0" expanded="false" />
+                <element signature="e#1523#1524#0" expanded="false" />
+                <element signature="e#1567#1568#0" expanded="false" />
+                <element signature="e#1606#1607#0" expanded="false" />
+                <element signature="e#1639#1640#0" expanded="false" />
+                <element signature="e#1674#1675#0" expanded="false" />
+                <element signature="e#1726#1727#0" expanded="false" />
+                <element signature="e#1755#1756#0" expanded="false" />
+                <element signature="e#1799#1800#0" expanded="false" />
+                <element signature="e#1838#1839#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -199,40 +249,43 @@
       <file leaf-file-name="foundationsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2499">
+            <state relative-caret-position="599">
               <caret line="153" column="63" lean-forward="false" selection-start-line="153" selection-start-column="63" selection-end-line="153" selection-end-column="63" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="foundations.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Views/Sheets/Shed/foundations.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5372">
-              <caret line="316" column="0" lean-forward="false" selection-start-line="316" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
-              <folding>
-                <marker date="1603352852270" expanded="true" signature="20458:20833" ph="..." />
-                <marker date="1603352852270" expanded="true" signature="20474:20540" ph="..." />
-                <marker date="1603352852270" expanded="true" signature="20559:20814" ph="..." />
-                <marker date="1603352852270" expanded="true" signature="20657:20794" ph="..." />
-                <marker date="1603352852270" expanded="true" signature="20680:20769" ph="..." />
-              </folding>
-            </state>
-          </provider>
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="723">
+              <caret line="316" column="0" lean-forward="false" selection-start-line="316" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="postFootingsSec.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/data/shed/foundations/postFootingsSec.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="workspaceController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/workspaceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-969">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="25" />
+            <state relative-caret-position="51">
+              <caret line="354" column="0" lean-forward="false" selection-start-line="354" selection-start-column="0" selection-end-line="354" selection-end-column="0" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <marker date="1603353246307" expanded="true" signature="16008:16040" ph="{...}" />
               </folding>
             </state>
@@ -241,115 +294,13 @@
       </file>
       <file leaf-file-name="layouts.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Views/layouts.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="301" column="46" lean-forward="true" selection-start-line="301" selection-start-column="46" selection-end-line="301" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FXMLLoader.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38250">
-              <caret line="2408" column="0" lean-forward="false" selection-start-line="2408" selection-start-column="0" selection-end-line="2408" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#127539#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#3205#3216#0" expanded="false" />
-                <element signature="e#3306#3317#0" expanded="false" />
-                <element signature="e#3405#3416#0" expanded="false" />
-                <element signature="e#3508#3525#0" expanded="false" />
-                <element signature="e#3555#3556#0" expanded="false" />
-                <element signature="e#3595#3596#0" expanded="false" />
-                <element signature="e#6271#6272#0" expanded="false" />
-                <element signature="e#6331#6332#0" expanded="false" />
-                <element signature="e#31089#31431#0" expanded="false" />
-                <element signature="e#31430#31431#0" expanded="false" />
-                <element signature="e#44464#44480#0" expanded="false" />
-                <element signature="e#45311#45312#0" expanded="false" />
-                <element signature="e#45372#45373#0" expanded="false" />
-                <element signature="e#57599#57600#0" expanded="false" />
-                <element signature="e#57671#57672#0" expanded="false" />
-                <element signature="e#60461#60462#0" expanded="false" />
-                <element signature="e#60497#60498#0" expanded="false" />
-                <element signature="e#60556#60557#0" expanded="false" />
-                <element signature="e#60598#60599#0" expanded="false" />
-                <element signature="e#61112#61113#0" expanded="false" />
-                <element signature="e#61148#61149#0" expanded="false" />
-                <element signature="e#65761#65762#0" expanded="false" />
-                <element signature="e#65796#65797#0" expanded="false" />
-                <element signature="e#66818#66819#0" expanded="false" />
-                <element signature="e#66864#66865#0" expanded="false" />
-                <element signature="e#66921#66922#0" expanded="false" />
-                <element signature="e#66966#66967#0" expanded="false" />
-                <element signature="e#68431#68432#0" expanded="false" />
-                <element signature="e#68477#68478#0" expanded="false" />
-                <element signature="e#68921#68922#0" expanded="false" />
-                <element signature="e#68967#68968#0" expanded="false" />
-                <element signature="e#69372#69373#0" expanded="false" />
-                <element signature="e#69418#69419#0" expanded="false" />
-                <element signature="e#69818#69819#0" expanded="false" />
-                <element signature="e#69864#69865#0" expanded="false" />
-                <element signature="e#71768#71776#0" expanded="false" />
-                <element signature="e#71835#71853#0" expanded="false" />
-                <element signature="e#78562#78735#0" expanded="false" />
-                <element signature="e#78734#78735#0" expanded="false" />
-                <element signature="e#78827#78828#0" expanded="false" />
-                <element signature="e#78858#78859#0" expanded="false" />
-                <element signature="e#79010#79011#0" expanded="false" />
-                <element signature="e#79046#79047#0" expanded="false" />
-                <element signature="e#79248#79249#0" expanded="false" />
-                <element signature="e#79295#79296#0" expanded="false" />
-                <element signature="e#80212#80213#0" expanded="false" />
-                <element signature="e#80265#80266#0" expanded="false" />
-                <element signature="e#81592#81593#0" expanded="false" />
-                <element signature="e#81623#81624#0" expanded="false" />
-                <element signature="e#81787#81788#0" expanded="false" />
-                <element signature="e#81827#81828#0" expanded="false" />
-                <element signature="e#81963#81964#0" expanded="false" />
-                <element signature="e#81995#81996#0" expanded="false" />
-                <element signature="e#82173#82174#0" expanded="false" />
-                <element signature="e#82215#82216#0" expanded="false" />
-                <element signature="e#82340#82341#0" expanded="false" />
-                <element signature="e#82372#82373#0" expanded="false" />
-                <element signature="e#82502#82503#0" expanded="false" />
-                <element signature="e#82532#82533#0" expanded="false" />
-                <element signature="e#82931#82932#0" expanded="false" />
-                <element signature="e#82963#82964#0" expanded="false" />
-                <element signature="e#83880#83881#0" expanded="false" />
-                <element signature="e#83916#83917#0" expanded="false" />
-                <element signature="e#84840#84841#0" expanded="false" />
-                <element signature="e#84877#84878#0" expanded="false" />
-                <element signature="e#85050#85051#0" expanded="false" />
-                <element signature="e#85102#85103#0" expanded="false" />
-                <element signature="e#85270#85271#0" expanded="false" />
-                <element signature="e#85310#85311#0" expanded="false" />
-                <element signature="e#85699#85700#0" expanded="false" />
-                <element signature="e#85729#85730#0" expanded="false" />
-                <element signature="e#96278#96279#0" expanded="false" />
-                <element signature="e#96346#96347#0" expanded="false" />
-                <element signature="e#105847#105848#0" expanded="false" />
-                <element signature="e#105919#105920#0" expanded="false" />
-                <element signature="e#123080#123678#0" expanded="false" />
-                <element signature="e#123677#123678#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="setupSheetsController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/setupSheetsController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1921">
-              <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+            <state relative-caret-position="141">
+              <caret line="110" column="34" lean-forward="true" selection-start-line="110" selection-start-column="34" selection-end-line="110" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -373,6 +324,9 @@
       <find>database</find>
       <find>getPost</find>
       <find>db</find>
+      <find>FOUNDATIONS_POST_FOOTINGS_TBL</find>
+      <find>FOUNDATIONS_to</find>
+      <find>FOUNDATIONS_</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -394,8 +348,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Controllers/workspaceController.java" />
+        <option value="$PROJECT_DIR$/src/Model/stamps/FoundationsObject.java" />
         <option value="$PROJECT_DIR$/src/Views/layouts.fxml" />
         <option value="$PROJECT_DIR$/src/DataBase/DataBase.java" />
+        <option value="$PROJECT_DIR$/src/service/Tools.java" />
         <option value="$PROJECT_DIR$/src/Controllers/layoutsController.java" />
       </list>
     </option>
@@ -442,6 +398,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -571,6 +528,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="stamps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PT_GraphiQS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PT_GraphiQS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Sheets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -667,6 +646,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PT_GraphiQS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PT_GraphiQS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="DataBase" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -689,31 +694,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PT_GraphiQS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PT_GraphiQS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -739,7 +721,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/User/Documents/IdeaProjects/PT_GraphiQS/src/Controllers/stampPickerController.java" />
+    <property name="SearchEverywhereHistoryKey" value="lay&#9;FILE&#9;file://C:/Users/User/Desktop/GQS 2020/PT_GraphiQS/src/Controllers/layoutsController.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
@@ -787,129 +769,6 @@
       <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Floors" />
       <recent name="C:\Users\User\Documents\IdeaProjects\PTGraphiQS\src\Views" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/foundationsController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController$IconInfo.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/PTGraphiQS/DataBase/DataBase.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/PTGraphiQS/Model/data/shed/foundationsMaterials.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/foundations.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Controllers/workspaceController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/DataBase/DataBase.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Model/data/shed/foundationsMaterials.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Views/Sheets/Shed/foundations.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Views/layouts.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/service/Tools.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -1637,6 +1496,9 @@
       <workItem from="1603122779931" duration="14059000" />
       <workItem from="1603175267409" duration="23439000" />
       <workItem from="1603250474017" duration="11614000" />
+      <workItem from="1603439909901" duration="669000" />
+      <workItem from="1603671728774" duration="878000" />
+      <workItem from="1603672698233" duration="9240000" />
     </task>
     <task id="LOCAL-00097" summary="test">
       <created>1579497725470</created>
@@ -1985,7 +1847,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4856000" />
+    <option name="totallyTimeSpent" value="15707000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1998,6 +1860,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2005,13 +1868,12 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3244397" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3244397" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18176973" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18550107" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36499467" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2027,8 +1889,43 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36499467" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3244397" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18550107" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36499467" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
@@ -2289,7 +2186,7 @@
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2298,13 +2195,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/out/production/PTGraphiQS/Views/CSS/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3893">
-          <caret line="229" column="27" lean-forward="true" selection-start-line="229" selection-start-column="27" selection-end-line="229" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1343">
@@ -2317,96 +2207,105 @@
         <state relative-caret-position="17969">
           <caret line="1057" column="0" lean-forward="false" selection-start-line="1057" selection-start-column="0" selection-end-line="1057" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#DataBase#0;class#DataBase#0" expanded="false" />
             <element signature="method#getFoundationsPFData#0;class#DataBase#0" expanded="false" />
             <element signature="method#getFoundationsCBData#0;class#DataBase#0" expanded="false" />
             <element signature="method#insertComponents#0;class#DataBase#0" expanded="false" />
             <element signature="method#clearComponentsTable#0;class#DataBase#0" expanded="false" />
             <element signature="e#37541#37567#0" expanded="false" />
-            <element signature="method#showFoundationsPF#0;class#DataBase#0" expanded="false" />
             <element signature="method#insertFoundationsPF#0;class#DataBase#0" expanded="false" />
             <element signature="method#updateFoundationsPFCount#0;class#DataBase#0" expanded="false" />
             <element signature="method#identifyFoundationsPFValues#0;class#DataBase#0" expanded="false" />
+            <element signature="method#clearLayoutsFoundations#0;class#DataBase#0" expanded="false" />
             <element signature="method#getFoundationsPFLastRow#0;class#DataBase#0" expanded="false" />
+            <element signature="method#getFoundationsTotal#0;class#DataBase#0" expanded="false" />
+            <element signature="method#getFoundationsPFSections#0;class#DataBase#0" expanded="false" />
+            <element signature="method#showFoundationsCB#0;class#DataBase#0" expanded="false" />
+            <element signature="method#insertFoundationsCB#0;class#DataBase#0" expanded="false" />
+            <element signature="method#identifyFoundationsCBValues#0;class#DataBase#0" expanded="false" />
             <element signature="method#updateFoundationsCBCount#0;class#DataBase#0" expanded="false" />
             <element signature="method#getFoundationsCBLastRow#0;class#DataBase#0" expanded="false" />
             <element signature="method#getFoundationsCBSections#0;class#DataBase#0" expanded="false" />
             <element signature="method#insertSectionDimension#0;class#DataBase#0" expanded="false" />
-            <marker date="1603356768034" expanded="true" signature="2577:2843" ph="CREATE TABLE... IF" />
-            <marker date="1603356768034" expanded="true" signature="2888:3275" ph="CREATE TABLE... IF" />
-            <marker date="1603356768034" expanded="true" signature="3322:3748" ph="CREATE TABLE... IF" />
-            <marker date="1603356768034" expanded="true" signature="3797:4074" ph="CREATE TABLE... IF" />
-            <marker date="1603356768034" expanded="true" signature="4121:4272" ph="CREATE TABLE... IF" />
-            <marker date="1603356768034" expanded="true" signature="4315:4569" ph="CREATE TABLE... IF" />
-            <marker date="1603356768034" expanded="true" signature="7133:7231" ph="INSERT INTO USERS_TBL... " />
-            <marker date="1603356768034" expanded="true" signature="7884:8064" ph="INSERT INTO CLIENTS_TBL... " />
-            <marker date="1603356768034" expanded="true" signature="8951:9142" ph="INSERT INTO SUBTRADES_TBL... " />
-            <marker date="1603356768034" expanded="true" signature="9976:10073" ph="INSERT INTO PRICE_CARD_TBL... " />
-            <marker date="1603356768034" expanded="true" signature="10641:10666" ph="SELECT * FRO... CLIENTS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="11287:11333" ph="SELECT * FRO... SUBTRADES_TBL" />
-            <marker date="1603356768034" expanded="true" signature="12646:12683" ph="SELECT * FRO... CLIENTS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="13534:13681" ph="UPDATE CLIEN... " />
-            <marker date="1603356768034" expanded="true" signature="14470:14513" ph="SELECT USER_... CLIENTS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="14860:14894" ph="DELETE FROM " />
-            <marker date="1603356768034" expanded="true" signature="15562:15601" ph="SELECT * FRO... SUBTRADES_TBL" />
-            <marker date="1603356768034" expanded="true" signature="16461:16510" ph="SELECT * FRO... PRICE_CARD_TBL" />
-            <marker date="1603356768034" expanded="true" signature="17158:17345" ph="UPDATE SUBTR... " />
-            <marker date="1603356768034" expanded="true" signature="18161:18231" ph="UPDATE PRICE... " />
-            <marker date="1603356768034" expanded="true" signature="18681:18719" ph="DELETE FROM " />
-            <marker date="1603356768034" expanded="true" signature="19116:19175" ph="SELECT * FRO... USERS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="20058:20093" ph="SELECT * FRO... USERS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="20608:20633" ph="SELECT * FRO... CLIENTS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="21076:21121" ph="SELECT * FRO... CLIENTS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="21555:21619" ph="SELECT * FRO... SUBTRADES_TBL" />
-            <marker date="1603356768034" expanded="true" signature="22105:22155" ph="SELECT * FRO... PRICE_CARD_TBL" />
-            <marker date="1603356768034" expanded="true" signature="23652:23713" ph="SELECT PARTS... STRUCTURES_PARTS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="24284:24339" ph="SELECT PARTS... SHED_PARTS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="24965:25031" ph="SELECT ID FR... SHED_PARTS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="25699:25767" ph="SELECT * FRO... SHED_COMPONENTS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="27052:27093" ph="SELECT * FRO... SHED_SETS" />
-            <marker date="1603356768034" expanded="true" signature="27702:27767" ph="SELECT * FRO... SHED_SECTION_TBL" />
-            <marker date="1603356768034" expanded="true" signature="28469:28535" ph="SELECT ID FR... SHED_SECTION_TBL" />
-            <marker date="1603356768034" expanded="true" signature="28944:29011" ph="UPDATE SHED_... " />
-            <marker date="1603356768034" expanded="true" signature="29483:29545" ph="INSERT INTO SHED_SECTION_TBL... " />
-            <marker date="1603356768034" expanded="true" signature="30417:30578" ph="INSERT INTO SHED_SECTION_DIMENSIONS... " />
-            <marker date="1603356768034" expanded="true" signature="31386:31444" ph="SELECT * FRO... shed_foundations_concrete_bores" />
-            <marker date="1603356768034" expanded="true" signature="32883:32940" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
-            <marker date="1603356768034" expanded="true" signature="34495:34558" ph="DELETE FROM " />
-            <marker date="1603356768034" expanded="true" signature="34981:35038" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
-            <marker date="1603356768034" expanded="true" signature="35549:35607" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
-            <marker date="1603356768034" expanded="true" signature="36242:36409" ph="INSERT INTO SHED_COMPONENTS_TBL... " />
-            <marker date="1603356768034" expanded="true" signature="37150:37216" ph="DELETE FROM " />
-            <marker date="1603356768034" expanded="true" signature="45624:45668" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
-            <marker date="1603356768034" expanded="true" signature="47093:47248" ph="INSERT INTO SHED_FOUNDATIONS_POST_FOOTINGS... " />
-            <marker date="1603356768034" expanded="true" signature="48038:48117" ph="UPDATE SHED_... " />
-            <marker date="1603356768034" expanded="true" signature="48706:48795" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
-            <marker date="1603356768034" expanded="false" signature="49580:50209" ph="{...}" />
-            <marker date="1603356768034" expanded="true" signature="50308:50378" ph="SELECT ID FR... SHED_FOUNDATIONS_POST_FOOTINGS" />
-            <marker date="1603356768034" expanded="false" signature="50840:51993" ph="{...}" />
-            <marker date="1603356768034" expanded="true" signature="50882:50926" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
-            <marker date="1603356768034" expanded="true" signature="51454:51499" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
-            <marker date="1603356768034" expanded="false" signature="52073:52611" ph="{...}" />
-            <marker date="1603356768034" expanded="true" signature="52148:52197" ph="SELECT * FRO... SHED_SECTION_TBL" />
-            <marker date="1603356768034" expanded="false" signature="52743:53991" ph="{...}" />
-            <marker date="1603356768034" expanded="true" signature="52785:52830" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
-            <marker date="1603356768034" expanded="false" signature="54116:54863" ph="{...}" />
-            <marker date="1603356768034" expanded="true" signature="54158:54300" ph="INSERT INTO SHED_FOUNDATIONS_CONCRETE_BORES... " />
-            <marker date="1603356768034" expanded="false" signature="55041:55774" ph="{...}" />
-            <marker date="1603356768034" expanded="true" signature="55083:55162" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
-            <marker date="1603356768034" expanded="true" signature="55900:55980" ph="UPDATE SHED_... " />
-            <marker date="1603356768034" expanded="true" signature="56448:56519" ph="SELECT ID FR... SHED_FOUNDATIONS_CONCRETE_BORES" />
-            <marker date="1603356768034" expanded="true" signature="57041:57090" ph="SELECT * FRO... SHED_SECTION_TBL" />
-            <marker date="1603356768034" expanded="true" signature="57702:57763" ph="INSERT INTO shed_section_dimensions... " />
-            <marker date="1603356768034" expanded="true" signature="57702:57870" ph="INSERT INTO shed_section_dimensions... " />
-            <marker date="1603356768034" expanded="true" signature="57702:57906" ph="INSERT INTO shed_section_dimensions... " />
-            <marker date="1603356768034" expanded="true" signature="58732:58794" ph="SELECT MAX(S... SHED_SECTION_DIMENSIONS" />
-            <marker date="1603356768034" expanded="true" signature="58732:58814" ph="SELECT SECTI... SHED_SECTION_DIMENSIONS" />
-            <marker date="1603356768034" expanded="true" signature="58732:58815" ph="SELECT SECTI... SHED_SECTION_DIMENSIONS" />
-            <marker date="1603356768034" expanded="true" signature="58732:58827" ph="SELECT SECTI... shed_section_dimensions" />
-            <marker date="1603356768034" expanded="true" signature="59362:59380" ph="SELECT VOLUM... " />
-            <marker date="1603356768034" expanded="true" signature="59362:59381" ph="SELECT VOLUM... missingValue" />
-            <marker date="1603356768034" expanded="true" signature="59362:59383" ph="SELECT VOLUM... shed_section_dimensions" />
-            <marker date="1603356768034" expanded="true" signature="59362:59392" ph="SELECT V FRO... shed_section_dimensions" />
+            <element signature="method#getLastSection#0;class#DataBase#0" expanded="false" />
+            <element signature="method#getSectionData#0;class#DataBase#0" expanded="false" />
+            <element signature="method#deleteSectionData#0;class#DataBase#0" expanded="false" />
+            <element signature="method#getTotalVolume#0;class#DataBase#0" expanded="false" />
+            <marker date="1603680669718" expanded="true" signature="2577:2843" ph="CREATE TABLE... IF" />
+            <marker date="1603680669718" expanded="true" signature="2888:3275" ph="CREATE TABLE... IF" />
+            <marker date="1603680669718" expanded="true" signature="3322:3748" ph="CREATE TABLE... IF" />
+            <marker date="1603680669718" expanded="true" signature="3797:4074" ph="CREATE TABLE... IF" />
+            <marker date="1603680669718" expanded="true" signature="4121:4272" ph="CREATE TABLE... IF" />
+            <marker date="1603680669718" expanded="true" signature="4315:4569" ph="CREATE TABLE... IF" />
+            <marker date="1603680669718" expanded="true" signature="7133:7231" ph="INSERT INTO USERS_TBL... " />
+            <marker date="1603680669718" expanded="true" signature="7884:8064" ph="INSERT INTO CLIENTS_TBL... " />
+            <marker date="1603680669718" expanded="true" signature="8951:9142" ph="INSERT INTO SUBTRADES_TBL... " />
+            <marker date="1603680669718" expanded="true" signature="9976:10073" ph="INSERT INTO PRICE_CARD_TBL... " />
+            <marker date="1603680669718" expanded="true" signature="10641:10666" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="11287:11333" ph="SELECT * FRO... SUBTRADES_TBL" />
+            <marker date="1603680669718" expanded="true" signature="12646:12683" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="13534:13681" ph="UPDATE CLIEN... " />
+            <marker date="1603680669718" expanded="true" signature="14470:14513" ph="SELECT USER_... CLIENTS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="14860:14894" ph="DELETE FROM " />
+            <marker date="1603680669718" expanded="true" signature="15562:15601" ph="SELECT * FRO... SUBTRADES_TBL" />
+            <marker date="1603680669718" expanded="true" signature="16461:16510" ph="SELECT * FRO... PRICE_CARD_TBL" />
+            <marker date="1603680669718" expanded="true" signature="17158:17345" ph="UPDATE SUBTR... " />
+            <marker date="1603680669718" expanded="true" signature="18161:18231" ph="UPDATE PRICE... " />
+            <marker date="1603680669718" expanded="true" signature="18681:18719" ph="DELETE FROM " />
+            <marker date="1603680669718" expanded="true" signature="19116:19175" ph="SELECT * FRO... USERS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="20058:20093" ph="SELECT * FRO... USERS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="20608:20633" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="21076:21121" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="21555:21619" ph="SELECT * FRO... SUBTRADES_TBL" />
+            <marker date="1603680669718" expanded="true" signature="22105:22155" ph="SELECT * FRO... PRICE_CARD_TBL" />
+            <marker date="1603680669718" expanded="true" signature="23652:23713" ph="SELECT PARTS... STRUCTURES_PARTS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="24284:24339" ph="SELECT PARTS... SHED_PARTS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="24965:25031" ph="SELECT ID FR... SHED_PARTS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="25699:25767" ph="SELECT * FRO... SHED_COMPONENTS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="27052:27093" ph="SELECT * FRO... SHED_SETS" />
+            <marker date="1603680669718" expanded="true" signature="27702:27767" ph="SELECT * FRO... SHED_SECTION_TBL" />
+            <marker date="1603680669718" expanded="true" signature="28469:28535" ph="SELECT ID FR... SHED_SECTION_TBL" />
+            <marker date="1603680669718" expanded="true" signature="28944:29011" ph="UPDATE SHED_... " />
+            <marker date="1603680669718" expanded="true" signature="29483:29545" ph="INSERT INTO SHED_SECTION_TBL... " />
+            <marker date="1603680669718" expanded="true" signature="30417:30578" ph="INSERT INTO SHED_SECTION_DIMENSIONS... " />
+            <marker date="1603680669718" expanded="true" signature="31386:31444" ph="SELECT * FRO... shed_foundations_concrete_bores" />
+            <marker date="1603680669718" expanded="true" signature="32883:32940" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
+            <marker date="1603680669718" expanded="true" signature="34495:34558" ph="DELETE FROM " />
+            <marker date="1603680669718" expanded="true" signature="34981:35038" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
+            <marker date="1603680669718" expanded="true" signature="35549:35607" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
+            <marker date="1603680669718" expanded="true" signature="36242:36409" ph="INSERT INTO SHED_COMPONENTS_TBL... " />
+            <marker date="1603680669718" expanded="true" signature="37150:37216" ph="DELETE FROM " />
+            <marker date="1603680669718" expanded="true" signature="45624:45668" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
+            <marker date="1603680669718" expanded="true" signature="47093:47248" ph="INSERT INTO SHED_FOUNDATIONS_POST_FOOTINGS... " />
+            <marker date="1603680669718" expanded="true" signature="48038:48117" ph="UPDATE SHED_... " />
+            <marker date="1603680669718" expanded="true" signature="48706:48795" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
+            <marker date="1603680669718" expanded="true" signature="50308:50378" ph="SELECT ID FR... SHED_FOUNDATIONS_POST_FOOTINGS" />
+            <marker date="1603680669718" expanded="true" signature="50882:50926" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
+            <marker date="1603680669718" expanded="true" signature="51454:51499" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
+            <marker date="1603680669718" expanded="true" signature="52148:52197" ph="SELECT * FRO... SHED_SECTION_TBL" />
+            <marker date="1603680669718" expanded="true" signature="52785:52830" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
+            <marker date="1603680669718" expanded="true" signature="54158:54300" ph="INSERT INTO SHED_FOUNDATIONS_CONCRETE_BORES... " />
+            <marker date="1603680669718" expanded="true" signature="55083:55162" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
+            <marker date="1603680669718" expanded="true" signature="55900:55980" ph="UPDATE SHED_... " />
+            <marker date="1603680669718" expanded="true" signature="56448:56519" ph="SELECT ID FR... SHED_FOUNDATIONS_CONCRETE_BORES" />
+            <marker date="1603680669718" expanded="true" signature="57041:57090" ph="SELECT * FRO... SHED_SECTION_TBL" />
+            <marker date="1603680669718" expanded="true" signature="57702:57763" ph="INSERT INTO shed_section_dimensions... " />
+            <marker date="1603680669718" expanded="true" signature="57702:57870" ph="INSERT INTO shed_section_dimensions... " />
+            <marker date="1603680669718" expanded="true" signature="57702:57906" ph="INSERT INTO shed_section_dimensions... " />
+            <marker date="1603680669718" expanded="true" signature="58732:58794" ph="SELECT MAX(S... SHED_SECTION_DIMENSIONS" />
+            <marker date="1603680669718" expanded="true" signature="58732:58814" ph="SELECT SECTI... SHED_SECTION_DIMENSIONS" />
+            <marker date="1603680669718" expanded="true" signature="58732:58815" ph="SELECT SECTI... SHED_SECTION_DIMENSIONS" />
+            <marker date="1603680669718" expanded="true" signature="58732:58827" ph="SELECT SECTI... shed_section_dimensions" />
+            <marker date="1603680669718" expanded="true" signature="59392:59405" ph="SELECT * FRO... " />
+            <marker date="1603680669718" expanded="true" signature="59392:59406" ph="SELECT * FRO... missingValue" />
+            <marker date="1603680669718" expanded="true" signature="59392:59427" ph="SELECT * FRO... shed_section_dimensions" />
+            <marker date="1603680669718" expanded="true" signature="59392:59433" ph="SELECT * FRO... missingValue" />
+            <marker date="1603680669718" expanded="true" signature="60171:60210" ph="DELETE FROM " />
+            <marker date="1603680669718" expanded="true" signature="60596:60614" ph="SELECT VOLUM... " />
+            <marker date="1603680669718" expanded="true" signature="60596:60615" ph="SELECT VOLUM... missingValue" />
+            <marker date="1603680669718" expanded="true" signature="60596:60617" ph="SELECT VOLUM... shed_section_dimensions" />
+            <marker date="1603680669718" expanded="true" signature="60596:60626" ph="SELECT V FRO... shed_section_dimensions" />
           </folding>
         </state>
       </provider>
@@ -2461,36 +2360,36 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Views/stampPicker.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/workspaceSideNavigation.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/workspaceSideNavigation.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1238">
           <caret line="87" column="14" lean-forward="true" selection-start-line="87" selection-start-column="14" selection-end-line="87" selection-end-column="14" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/viewClient.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/viewClient.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/service/Cladding.java">
@@ -2570,14 +2469,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Views/registerSubtrade.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/javafx-src.zip!/com/sun/javafx/tk/quantum/GlassViewEventHandler.java">
@@ -2595,14 +2494,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Views/setupSheets.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/javafx-src.zip!/javafx/scene/control/ListView.java">
@@ -2613,25 +2512,25 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Views/viewSubtrade.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/workspace.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/workspace.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="515">
           <caret line="1240" column="50" lean-forward="false" selection-start-line="1240" selection-start-column="50" selection-end-line="1240" selection-end-column="50" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/data/shed/foundationsMaterials.java">
@@ -2698,7 +2597,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2329">
           <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2733,89 +2631,9 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38250">
+        <state relative-caret-position="38318">
           <caret line="2408" column="0" lean-forward="false" selection-start-line="2408" selection-start-column="0" selection-end-line="2408" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#127539#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#3205#3216#0" expanded="false" />
-            <element signature="e#3306#3317#0" expanded="false" />
-            <element signature="e#3405#3416#0" expanded="false" />
-            <element signature="e#3508#3525#0" expanded="false" />
-            <element signature="e#3555#3556#0" expanded="false" />
-            <element signature="e#3595#3596#0" expanded="false" />
-            <element signature="e#6271#6272#0" expanded="false" />
-            <element signature="e#6331#6332#0" expanded="false" />
-            <element signature="e#31089#31431#0" expanded="false" />
-            <element signature="e#31430#31431#0" expanded="false" />
-            <element signature="e#44464#44480#0" expanded="false" />
-            <element signature="e#45311#45312#0" expanded="false" />
-            <element signature="e#45372#45373#0" expanded="false" />
-            <element signature="e#57599#57600#0" expanded="false" />
-            <element signature="e#57671#57672#0" expanded="false" />
-            <element signature="e#60461#60462#0" expanded="false" />
-            <element signature="e#60497#60498#0" expanded="false" />
-            <element signature="e#60556#60557#0" expanded="false" />
-            <element signature="e#60598#60599#0" expanded="false" />
-            <element signature="e#61112#61113#0" expanded="false" />
-            <element signature="e#61148#61149#0" expanded="false" />
-            <element signature="e#65761#65762#0" expanded="false" />
-            <element signature="e#65796#65797#0" expanded="false" />
-            <element signature="e#66818#66819#0" expanded="false" />
-            <element signature="e#66864#66865#0" expanded="false" />
-            <element signature="e#66921#66922#0" expanded="false" />
-            <element signature="e#66966#66967#0" expanded="false" />
-            <element signature="e#68431#68432#0" expanded="false" />
-            <element signature="e#68477#68478#0" expanded="false" />
-            <element signature="e#68921#68922#0" expanded="false" />
-            <element signature="e#68967#68968#0" expanded="false" />
-            <element signature="e#69372#69373#0" expanded="false" />
-            <element signature="e#69418#69419#0" expanded="false" />
-            <element signature="e#69818#69819#0" expanded="false" />
-            <element signature="e#69864#69865#0" expanded="false" />
-            <element signature="e#71768#71776#0" expanded="false" />
-            <element signature="e#71835#71853#0" expanded="false" />
-            <element signature="e#78562#78735#0" expanded="false" />
-            <element signature="e#78734#78735#0" expanded="false" />
-            <element signature="e#78827#78828#0" expanded="false" />
-            <element signature="e#78858#78859#0" expanded="false" />
-            <element signature="e#79010#79011#0" expanded="false" />
-            <element signature="e#79046#79047#0" expanded="false" />
-            <element signature="e#79248#79249#0" expanded="false" />
-            <element signature="e#79295#79296#0" expanded="false" />
-            <element signature="e#80212#80213#0" expanded="false" />
-            <element signature="e#80265#80266#0" expanded="false" />
-            <element signature="e#81592#81593#0" expanded="false" />
-            <element signature="e#81623#81624#0" expanded="false" />
-            <element signature="e#81787#81788#0" expanded="false" />
-            <element signature="e#81827#81828#0" expanded="false" />
-            <element signature="e#81963#81964#0" expanded="false" />
-            <element signature="e#81995#81996#0" expanded="false" />
-            <element signature="e#82173#82174#0" expanded="false" />
-            <element signature="e#82215#82216#0" expanded="false" />
-            <element signature="e#82340#82341#0" expanded="false" />
-            <element signature="e#82372#82373#0" expanded="false" />
-            <element signature="e#82502#82503#0" expanded="false" />
-            <element signature="e#82532#82533#0" expanded="false" />
-            <element signature="e#82931#82932#0" expanded="false" />
-            <element signature="e#82963#82964#0" expanded="false" />
-            <element signature="e#83880#83881#0" expanded="false" />
-            <element signature="e#83916#83917#0" expanded="false" />
-            <element signature="e#84840#84841#0" expanded="false" />
-            <element signature="e#84877#84878#0" expanded="false" />
-            <element signature="e#85050#85051#0" expanded="false" />
-            <element signature="e#85102#85103#0" expanded="false" />
-            <element signature="e#85270#85271#0" expanded="false" />
-            <element signature="e#85310#85311#0" expanded="false" />
-            <element signature="e#85699#85700#0" expanded="false" />
-            <element signature="e#85729#85730#0" expanded="false" />
-            <element signature="e#96278#96279#0" expanded="false" />
-            <element signature="e#96346#96347#0" expanded="false" />
-            <element signature="e#105847#105848#0" expanded="false" />
-            <element signature="e#105919#105920#0" expanded="false" />
-            <element signature="e#123080#123678#0" expanded="false" />
-            <element signature="e#123677#123678#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2829,6 +2647,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/data/shed/foundations/concreteBoresSec.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#747#748#0" expanded="false" />
+            <element signature="e#778#779#0" expanded="false" />
+            <element signature="e#826#827#0" expanded="false" />
+            <element signature="e#851#852#0" expanded="false" />
+            <element signature="e#887#888#0" expanded="false" />
+            <element signature="e#918#919#0" expanded="false" />
+            <element signature="e#948#949#0" expanded="false" />
+            <element signature="e#980#981#0" expanded="false" />
+            <element signature="e#1029#1030#0" expanded="false" />
+            <element signature="e#1055#1056#0" expanded="false" />
+            <element signature="e#1093#1094#0" expanded="false" />
+            <element signature="e#1126#1127#0" expanded="false" />
+            <element signature="e#1161#1162#0" expanded="false" />
+            <element signature="e#1198#1199#0" expanded="false" />
+            <element signature="e#1252#1253#0" expanded="false" />
+            <element signature="e#1283#1284#0" expanded="false" />
+            <element signature="e#1331#1332#0" expanded="false" />
+            <element signature="e#1374#1375#0" expanded="false" />
+            <element signature="e#1407#1408#0" expanded="false" />
+            <element signature="e#1442#1443#0" expanded="false" />
+            <element signature="e#1494#1495#0" expanded="false" />
+            <element signature="e#1523#1524#0" expanded="false" />
+            <element signature="e#1567#1568#0" expanded="false" />
+            <element signature="e#1606#1607#0" expanded="false" />
+            <element signature="e#1639#1640#0" expanded="false" />
+            <element signature="e#1674#1675#0" expanded="false" />
+            <element signature="e#1726#1727#0" expanded="false" />
+            <element signature="e#1755#1756#0" expanded="false" />
+            <element signature="e#1799#1800#0" expanded="false" />
+            <element signature="e#1838#1839#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/Sheets/Shed/foundations.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="723">
+          <caret line="316" column="0" lean-forward="false" selection-start-line="316" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/data/shed/foundations/postFootingsSec.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -2837,173 +2706,169 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/Sheets/Shed/foundations.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5372">
-          <caret line="316" column="0" lean-forward="false" selection-start-line="316" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
-          <folding>
-            <marker date="1603352852270" expanded="true" signature="20458:20833" ph="..." />
-            <marker date="1603352852270" expanded="true" signature="20474:20540" ph="..." />
-            <marker date="1603352852270" expanded="true" signature="20559:20814" ph="..." />
-            <marker date="1603352852270" expanded="true" signature="20657:20794" ph="..." />
-            <marker date="1603352852270" expanded="true" signature="20680:20769" ph="..." />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2499">
+        <state relative-caret-position="599">
           <caret line="153" column="63" lean-forward="false" selection-start-line="153" selection-start-column="63" selection-end-line="153" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/workspaceController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-969">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="25" />
-          <folding>
-            <marker date="1603353246307" expanded="true" signature="16008:16040" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/Tools.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="536" column="0" lean-forward="false" selection-start-line="536" selection-start-column="0" selection-end-line="536" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/data/shed/foundations/concreteBoresSec.java">
+    <entry file="file://$PROJECT_DIR$/src/Views/layouts.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state relative-caret-position="141">
+          <caret line="110" column="34" lean-forward="true" selection-start-line="110" selection-start-column="34" selection-end-line="110" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DataBase/DataBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="1405" column="25" lean-forward="true" selection-start-line="1405" selection-start-column="25" selection-end-line="1405" selection-end-column="25" />
+        <state relative-caret-position="446">
+          <caret line="1459" column="0" lean-forward="false" selection-start-line="1459" selection-start-column="0" selection-end-line="1459" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#DataBase#0;class#DataBase#0" expanded="false" />
             <element signature="method#getFoundationsPFData#0;class#DataBase#0" expanded="false" />
             <element signature="method#getFoundationsCBData#0;class#DataBase#0" expanded="false" />
             <element signature="method#insertComponents#0;class#DataBase#0" expanded="false" />
             <element signature="method#clearComponentsTable#0;class#DataBase#0" expanded="false" />
             <element signature="e#37541#37567#0" expanded="false" />
-            <element signature="method#showFoundationsPF#0;class#DataBase#0" expanded="false" />
             <element signature="method#insertFoundationsPF#0;class#DataBase#0" expanded="false" />
             <element signature="method#updateFoundationsPFCount#0;class#DataBase#0" expanded="false" />
             <element signature="method#identifyFoundationsPFValues#0;class#DataBase#0" expanded="false" />
+            <element signature="method#clearLayoutsFoundations#0;class#DataBase#0" expanded="false" />
             <element signature="method#getFoundationsPFLastRow#0;class#DataBase#0" expanded="false" />
+            <element signature="method#getFoundationsTotal#0;class#DataBase#0" expanded="false" />
+            <element signature="method#getFoundationsPFSections#0;class#DataBase#0" expanded="false" />
+            <element signature="method#showFoundationsCB#0;class#DataBase#0" expanded="false" />
+            <element signature="method#insertFoundationsCB#0;class#DataBase#0" expanded="false" />
+            <element signature="method#identifyFoundationsCBValues#0;class#DataBase#0" expanded="false" />
             <element signature="method#updateFoundationsCBCount#0;class#DataBase#0" expanded="false" />
             <element signature="method#getFoundationsCBLastRow#0;class#DataBase#0" expanded="false" />
             <element signature="method#getFoundationsCBSections#0;class#DataBase#0" expanded="false" />
             <element signature="method#insertSectionDimension#0;class#DataBase#0" expanded="false" />
-            <marker date="1603356768034" expanded="true" signature="2577:2843" ph="CREATE TABLE... IF" />
-            <marker date="1603356768034" expanded="true" signature="2888:3275" ph="CREATE TABLE... IF" />
-            <marker date="1603356768034" expanded="true" signature="3322:3748" ph="CREATE TABLE... IF" />
-            <marker date="1603356768034" expanded="true" signature="3797:4074" ph="CREATE TABLE... IF" />
-            <marker date="1603356768034" expanded="true" signature="4121:4272" ph="CREATE TABLE... IF" />
-            <marker date="1603356768034" expanded="true" signature="4315:4569" ph="CREATE TABLE... IF" />
-            <marker date="1603356768034" expanded="true" signature="7133:7231" ph="INSERT INTO USERS_TBL... " />
-            <marker date="1603356768034" expanded="true" signature="7884:8064" ph="INSERT INTO CLIENTS_TBL... " />
-            <marker date="1603356768034" expanded="true" signature="8951:9142" ph="INSERT INTO SUBTRADES_TBL... " />
-            <marker date="1603356768034" expanded="true" signature="9976:10073" ph="INSERT INTO PRICE_CARD_TBL... " />
-            <marker date="1603356768034" expanded="true" signature="10641:10666" ph="SELECT * FRO... CLIENTS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="11287:11333" ph="SELECT * FRO... SUBTRADES_TBL" />
-            <marker date="1603356768034" expanded="true" signature="12646:12683" ph="SELECT * FRO... CLIENTS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="13534:13681" ph="UPDATE CLIEN... " />
-            <marker date="1603356768034" expanded="true" signature="14470:14513" ph="SELECT USER_... CLIENTS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="14860:14894" ph="DELETE FROM " />
-            <marker date="1603356768034" expanded="true" signature="15562:15601" ph="SELECT * FRO... SUBTRADES_TBL" />
-            <marker date="1603356768034" expanded="true" signature="16461:16510" ph="SELECT * FRO... PRICE_CARD_TBL" />
-            <marker date="1603356768034" expanded="true" signature="17158:17345" ph="UPDATE SUBTR... " />
-            <marker date="1603356768034" expanded="true" signature="18161:18231" ph="UPDATE PRICE... " />
-            <marker date="1603356768034" expanded="true" signature="18681:18719" ph="DELETE FROM " />
-            <marker date="1603356768034" expanded="true" signature="19116:19175" ph="SELECT * FRO... USERS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="20058:20093" ph="SELECT * FRO... USERS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="20608:20633" ph="SELECT * FRO... CLIENTS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="21076:21121" ph="SELECT * FRO... CLIENTS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="21555:21619" ph="SELECT * FRO... SUBTRADES_TBL" />
-            <marker date="1603356768034" expanded="true" signature="22105:22155" ph="SELECT * FRO... PRICE_CARD_TBL" />
-            <marker date="1603356768034" expanded="true" signature="23652:23713" ph="SELECT PARTS... STRUCTURES_PARTS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="24284:24339" ph="SELECT PARTS... SHED_PARTS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="24965:25031" ph="SELECT ID FR... SHED_PARTS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="25699:25767" ph="SELECT * FRO... SHED_COMPONENTS_TBL" />
-            <marker date="1603356768034" expanded="true" signature="27052:27093" ph="SELECT * FRO... SHED_SETS" />
-            <marker date="1603356768034" expanded="true" signature="27702:27767" ph="SELECT * FRO... SHED_SECTION_TBL" />
-            <marker date="1603356768034" expanded="true" signature="28469:28535" ph="SELECT ID FR... SHED_SECTION_TBL" />
-            <marker date="1603356768034" expanded="true" signature="28944:29011" ph="UPDATE SHED_... " />
-            <marker date="1603356768034" expanded="true" signature="29483:29545" ph="INSERT INTO SHED_SECTION_TBL... " />
-            <marker date="1603356768034" expanded="true" signature="30417:30578" ph="INSERT INTO SHED_SECTION_DIMENSIONS... " />
-            <marker date="1603356768034" expanded="true" signature="31386:31444" ph="SELECT * FRO... shed_foundations_concrete_bores" />
-            <marker date="1603356768034" expanded="true" signature="32883:32940" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
-            <marker date="1603356768034" expanded="true" signature="34495:34558" ph="DELETE FROM " />
-            <marker date="1603356768034" expanded="true" signature="34981:35038" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
-            <marker date="1603356768034" expanded="true" signature="35549:35607" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
-            <marker date="1603356768034" expanded="true" signature="36242:36409" ph="INSERT INTO SHED_COMPONENTS_TBL... " />
-            <marker date="1603356768034" expanded="true" signature="37150:37216" ph="DELETE FROM " />
-            <marker date="1603356768034" expanded="true" signature="45624:45668" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
-            <marker date="1603356768034" expanded="true" signature="47093:47248" ph="INSERT INTO SHED_FOUNDATIONS_POST_FOOTINGS... " />
-            <marker date="1603356768034" expanded="true" signature="48038:48117" ph="UPDATE SHED_... " />
-            <marker date="1603356768034" expanded="true" signature="48706:48795" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
-            <marker date="1603356768034" expanded="false" signature="49580:50209" ph="{...}" />
-            <marker date="1603356768034" expanded="true" signature="50308:50378" ph="SELECT ID FR... SHED_FOUNDATIONS_POST_FOOTINGS" />
-            <marker date="1603356768034" expanded="false" signature="50840:51993" ph="{...}" />
-            <marker date="1603356768034" expanded="true" signature="50882:50926" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
-            <marker date="1603356768034" expanded="true" signature="51454:51499" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
-            <marker date="1603356768034" expanded="false" signature="52073:52611" ph="{...}" />
-            <marker date="1603356768034" expanded="true" signature="52148:52197" ph="SELECT * FRO... SHED_SECTION_TBL" />
-            <marker date="1603356768034" expanded="false" signature="52743:53991" ph="{...}" />
-            <marker date="1603356768034" expanded="true" signature="52785:52830" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
-            <marker date="1603356768034" expanded="false" signature="54116:54863" ph="{...}" />
-            <marker date="1603356768034" expanded="true" signature="54158:54300" ph="INSERT INTO SHED_FOUNDATIONS_CONCRETE_BORES... " />
-            <marker date="1603356768034" expanded="false" signature="55041:55774" ph="{...}" />
-            <marker date="1603356768034" expanded="true" signature="55083:55162" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
-            <marker date="1603356768034" expanded="true" signature="55900:55980" ph="UPDATE SHED_... " />
-            <marker date="1603356768034" expanded="true" signature="56448:56519" ph="SELECT ID FR... SHED_FOUNDATIONS_CONCRETE_BORES" />
-            <marker date="1603356768034" expanded="true" signature="57041:57090" ph="SELECT * FRO... SHED_SECTION_TBL" />
-            <marker date="1603356768034" expanded="true" signature="57702:57763" ph="INSERT INTO shed_section_dimensions... " />
-            <marker date="1603356768034" expanded="true" signature="57702:57870" ph="INSERT INTO shed_section_dimensions... " />
-            <marker date="1603356768034" expanded="true" signature="57702:57906" ph="INSERT INTO shed_section_dimensions... " />
-            <marker date="1603356768034" expanded="true" signature="58732:58794" ph="SELECT MAX(S... SHED_SECTION_DIMENSIONS" />
-            <marker date="1603356768034" expanded="true" signature="58732:58814" ph="SELECT SECTI... SHED_SECTION_DIMENSIONS" />
-            <marker date="1603356768034" expanded="true" signature="58732:58815" ph="SELECT SECTI... SHED_SECTION_DIMENSIONS" />
-            <marker date="1603356768034" expanded="true" signature="58732:58827" ph="SELECT SECTI... shed_section_dimensions" />
-            <marker date="1603356768034" expanded="true" signature="59362:59380" ph="SELECT VOLUM... " />
-            <marker date="1603356768034" expanded="true" signature="59362:59381" ph="SELECT VOLUM... missingValue" />
-            <marker date="1603356768034" expanded="true" signature="59362:59383" ph="SELECT VOLUM... shed_section_dimensions" />
-            <marker date="1603356768034" expanded="true" signature="59362:59392" ph="SELECT V FRO... shed_section_dimensions" />
+            <element signature="method#getLastSection#0;class#DataBase#0" expanded="false" />
+            <element signature="method#getSectionData#0;class#DataBase#0" expanded="false" />
+            <element signature="method#deleteSectionData#0;class#DataBase#0" expanded="false" />
+            <element signature="method#getTotalVolume#0;class#DataBase#0" expanded="false" />
+            <marker date="1603680669718" expanded="true" signature="2577:2843" ph="CREATE TABLE... IF" />
+            <marker date="1603680669718" expanded="true" signature="2888:3275" ph="CREATE TABLE... IF" />
+            <marker date="1603680669718" expanded="true" signature="3322:3748" ph="CREATE TABLE... IF" />
+            <marker date="1603680669718" expanded="true" signature="3797:4074" ph="CREATE TABLE... IF" />
+            <marker date="1603680669718" expanded="true" signature="4121:4272" ph="CREATE TABLE... IF" />
+            <marker date="1603680669718" expanded="true" signature="4315:4569" ph="CREATE TABLE... IF" />
+            <marker date="1603680669718" expanded="true" signature="7133:7231" ph="INSERT INTO USERS_TBL... " />
+            <marker date="1603680669718" expanded="true" signature="7884:8064" ph="INSERT INTO CLIENTS_TBL... " />
+            <marker date="1603680669718" expanded="true" signature="8951:9142" ph="INSERT INTO SUBTRADES_TBL... " />
+            <marker date="1603680669718" expanded="true" signature="9976:10073" ph="INSERT INTO PRICE_CARD_TBL... " />
+            <marker date="1603680669718" expanded="true" signature="10641:10666" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="11287:11333" ph="SELECT * FRO... SUBTRADES_TBL" />
+            <marker date="1603680669718" expanded="true" signature="12646:12683" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="13534:13681" ph="UPDATE CLIEN... " />
+            <marker date="1603680669718" expanded="true" signature="14470:14513" ph="SELECT USER_... CLIENTS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="14860:14894" ph="DELETE FROM " />
+            <marker date="1603680669718" expanded="true" signature="15562:15601" ph="SELECT * FRO... SUBTRADES_TBL" />
+            <marker date="1603680669718" expanded="true" signature="16461:16510" ph="SELECT * FRO... PRICE_CARD_TBL" />
+            <marker date="1603680669718" expanded="true" signature="17158:17345" ph="UPDATE SUBTR... " />
+            <marker date="1603680669718" expanded="true" signature="18161:18231" ph="UPDATE PRICE... " />
+            <marker date="1603680669718" expanded="true" signature="18681:18719" ph="DELETE FROM " />
+            <marker date="1603680669718" expanded="true" signature="19116:19175" ph="SELECT * FRO... USERS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="20058:20093" ph="SELECT * FRO... USERS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="20608:20633" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="21076:21121" ph="SELECT * FRO... CLIENTS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="21555:21619" ph="SELECT * FRO... SUBTRADES_TBL" />
+            <marker date="1603680669718" expanded="true" signature="22105:22155" ph="SELECT * FRO... PRICE_CARD_TBL" />
+            <marker date="1603680669718" expanded="true" signature="23652:23713" ph="SELECT PARTS... STRUCTURES_PARTS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="24284:24339" ph="SELECT PARTS... SHED_PARTS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="24965:25031" ph="SELECT ID FR... SHED_PARTS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="25699:25767" ph="SELECT * FRO... SHED_COMPONENTS_TBL" />
+            <marker date="1603680669718" expanded="true" signature="27052:27093" ph="SELECT * FRO... SHED_SETS" />
+            <marker date="1603680669718" expanded="true" signature="27702:27767" ph="SELECT * FRO... SHED_SECTION_TBL" />
+            <marker date="1603680669718" expanded="true" signature="28469:28535" ph="SELECT ID FR... SHED_SECTION_TBL" />
+            <marker date="1603680669718" expanded="true" signature="28944:29011" ph="UPDATE SHED_... " />
+            <marker date="1603680669718" expanded="true" signature="29483:29545" ph="INSERT INTO SHED_SECTION_TBL... " />
+            <marker date="1603680669718" expanded="true" signature="30417:30578" ph="INSERT INTO SHED_SECTION_DIMENSIONS... " />
+            <marker date="1603680669718" expanded="true" signature="31386:31444" ph="SELECT * FRO... shed_foundations_concrete_bores" />
+            <marker date="1603680669718" expanded="true" signature="32883:32940" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
+            <marker date="1603680669718" expanded="true" signature="34495:34558" ph="DELETE FROM " />
+            <marker date="1603680669718" expanded="true" signature="34981:35038" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
+            <marker date="1603680669718" expanded="true" signature="35549:35607" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
+            <marker date="1603680669718" expanded="true" signature="36242:36409" ph="INSERT INTO SHED_COMPONENTS_TBL... " />
+            <marker date="1603680669718" expanded="true" signature="37150:37216" ph="DELETE FROM " />
+            <marker date="1603680669718" expanded="true" signature="45624:45668" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
+            <marker date="1603680669718" expanded="true" signature="47093:47248" ph="INSERT INTO SHED_FOUNDATIONS_POST_FOOTINGS... " />
+            <marker date="1603680669718" expanded="true" signature="48038:48117" ph="UPDATE SHED_... " />
+            <marker date="1603680669718" expanded="true" signature="48706:48795" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
+            <marker date="1603680669718" expanded="true" signature="50308:50378" ph="SELECT ID FR... SHED_FOUNDATIONS_POST_FOOTINGS" />
+            <marker date="1603680669718" expanded="true" signature="50882:50926" ph="SELECT * FRO... SHED_FOUNDATIONS_POST_FOOTINGS" />
+            <marker date="1603680669718" expanded="true" signature="51454:51499" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
+            <marker date="1603680669718" expanded="true" signature="52148:52197" ph="SELECT * FRO... SHED_SECTION_TBL" />
+            <marker date="1603680669718" expanded="true" signature="52785:52830" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
+            <marker date="1603680669718" expanded="true" signature="54158:54300" ph="INSERT INTO SHED_FOUNDATIONS_CONCRETE_BORES... " />
+            <marker date="1603680669718" expanded="true" signature="55083:55162" ph="SELECT * FRO... SHED_FOUNDATIONS_CONCRETE_BORES" />
+            <marker date="1603680669718" expanded="true" signature="55900:55980" ph="UPDATE SHED_... " />
+            <marker date="1603680669718" expanded="true" signature="56448:56519" ph="SELECT ID FR... SHED_FOUNDATIONS_CONCRETE_BORES" />
+            <marker date="1603680669718" expanded="true" signature="57041:57090" ph="SELECT * FRO... SHED_SECTION_TBL" />
+            <marker date="1603680669718" expanded="true" signature="57702:57763" ph="INSERT INTO shed_section_dimensions... " />
+            <marker date="1603680669718" expanded="true" signature="57702:57870" ph="INSERT INTO shed_section_dimensions... " />
+            <marker date="1603680669718" expanded="true" signature="57702:57906" ph="INSERT INTO shed_section_dimensions... " />
+            <marker date="1603680669718" expanded="true" signature="58732:58794" ph="SELECT MAX(S... SHED_SECTION_DIMENSIONS" />
+            <marker date="1603680669718" expanded="true" signature="58732:58814" ph="SELECT SECTI... SHED_SECTION_DIMENSIONS" />
+            <marker date="1603680669718" expanded="true" signature="58732:58815" ph="SELECT SECTI... SHED_SECTION_DIMENSIONS" />
+            <marker date="1603680669718" expanded="true" signature="58732:58827" ph="SELECT SECTI... shed_section_dimensions" />
+            <marker date="1603680669718" expanded="true" signature="59392:59405" ph="SELECT * FRO... " />
+            <marker date="1603680669718" expanded="true" signature="59392:59406" ph="SELECT * FRO... missingValue" />
+            <marker date="1603680669718" expanded="true" signature="59392:59427" ph="SELECT * FRO... shed_section_dimensions" />
+            <marker date="1603680669718" expanded="true" signature="59392:59433" ph="SELECT * FRO... missingValue" />
+            <marker date="1603680669718" expanded="true" signature="60171:60210" ph="DELETE FROM " />
+            <marker date="1603680669718" expanded="true" signature="60596:60614" ph="SELECT VOLUM... " />
+            <marker date="1603680669718" expanded="true" signature="60596:60615" ph="SELECT VOLUM... missingValue" />
+            <marker date="1603680669718" expanded="true" signature="60596:60617" ph="SELECT VOLUM... shed_section_dimensions" />
+            <marker date="1603680669718" expanded="true" signature="60596:60626" ph="SELECT V FRO... shed_section_dimensions" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/layouts.fxml">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/workspaceController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="301" column="46" lean-forward="true" selection-start-line="301" selection-start-column="46" selection-end-line="301" selection-end-column="46" />
-          <folding />
+        <state relative-caret-position="51">
+          <caret line="354" column="0" lean-forward="false" selection-start-line="354" selection-start-column="0" selection-end-line="354" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1603353246307" expanded="true" signature="16008:16040" ph="{...}" />
+          </folding>
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/stamps/FoundationsObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-340">
+          <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#342#343#0" expanded="true" />
+            <element signature="e#375#376#0" expanded="true" />
+            <element signature="e#403#404#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/Tools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="697" column="81" lean-forward="false" selection-start-line="697" selection-start-column="79" selection-end-line="697" selection-end-column="81" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/layoutsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="284" column="40" lean-forward="true" selection-start-line="284" selection-start-column="40" selection-end-line="284" selection-end-column="40" />
+        <state relative-caret-position="333">
+          <caret line="390" column="82" lean-forward="false" selection-start-line="390" selection-start-column="82" selection-end-line="390" selection-end-column="82" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#showDetails#0;class#layoutsController#0" expanded="false" />

@@ -102,6 +102,7 @@ public class layoutsController implements Initializable {
     public static ObservableList<foundationsPostFootingsData> foundationsPostFootingsData;
     public static ObservableList<foundationsConcreteBoresData> foundationsConcreteBoresData;
     public static ObservableList<String> concreteData;
+    public static ObservableList<String> totalData;
 
     public Pane CONCRETE_FLOOR_TBL;
     public JFXTextField CONCRETE_FLOOR_LENGTH;
@@ -270,6 +271,8 @@ public class layoutsController implements Initializable {
                 new TreeItemPropertyValueFactory<>("volume")
         );
 
+
+
         DataBase db = DataBase.getInstance();
         POST_FOOTING_TOTAL.setText(db.getTotalVolume("shed_foundations_post_footings"));
 
@@ -357,7 +360,7 @@ public class layoutsController implements Initializable {
             POST_FOOTING_TOTAL.setVisible(true);
             POLE_FOOTING_TOTAL.setVisible(false);
 
-            POST_FOOTING_TOTAL.setText(db.getTotalVolume("shed_foundations_post_footings"));
+//            POST_FOOTING_TOTAL.setText(db.getTotalVolume("shed_foundations_post_footings"));
         });
 
         CONCRETE_BORES_BTN.setOnAction(event -> {
@@ -367,7 +370,7 @@ public class layoutsController implements Initializable {
             POLE_FOOTING_TOTAL.setVisible(true);
             POST_FOOTING_TOTAL.setVisible(false);
 
-            POLE_FOOTING_TOTAL.setText(db.getTotalVolume("shed_foundations_concrete_bores"));
+//            POLE_FOOTING_TOTAL.setText(db.getTotalVolume("shed_foundations_concrete_bores"));
         });
 
         CONCRETE_FLOORS_BTN.setOnAction(event -> {
@@ -382,6 +385,12 @@ public class layoutsController implements Initializable {
         CONCRETE_FLOOR_THICKNESS.textProperty().bind(Bindings.stringValueAt(concreteData, 2));
         CONCRETE_FLOOR_VOLUME.textProperty().bind(Bindings.stringValueAt(concreteData, 3));
         CONCRETE_FLOOR_AREA.textProperty().bind(Bindings.stringValueAt(concreteData, 4));
+
+        totalData= FXCollections.observableArrayList();
+        POST_FOOTING_TOTAL.textProperty().bind(Bindings.stringValueAt(totalData, 0));
+        POLE_FOOTING_TOTAL.textProperty().bind(Bindings.stringValueAt(totalData, 1));
+        FOUNDATIONS_PF_TOTAL.textProperty().bind(Bindings.stringValueAt(totalData, 2));
+
     }
 
     private void showDetails(TreeItem<layoutsData> treeItem) {
