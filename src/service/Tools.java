@@ -411,7 +411,6 @@ public class Tools {
                                                 break;
                                             }
                                         }
-
                                         System.out.println("contains remove"+ layouts.doorData.remove(d));
                                     });
                                     stampMenu.getItems().add(removeStamp);
@@ -531,7 +530,6 @@ public class Tools {
                                     db.insertFoundationsPF(Integer.parseInt(pfLastRowSection.getText()), path, 1,
                                             window.FOUNDATIONS_DEPTH.getText(), window.FOUNDATIONS_WIDTH.getText(),
                                             window.FOUNDATIONS_LENGTH.getText(), window.FOUNDATIONS_VOLUME1.getText());
-
                                     //new insert api here
 
 
@@ -545,7 +543,8 @@ public class Tools {
                                 }
                                 db.insertSectionDimension(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(),
                                         path,"","", window.FOUNDATIONS_DEPTH.getText(),
-                                        window.FOUNDATIONS_WIDTH.getText(),window.FOUNDATIONS_LENGTH.getText(),window.FOUNDATIONS_VOLUME1.getText());
+                                        window.FOUNDATIONS_WIDTH.getText(),window.FOUNDATIONS_LENGTH.getText(),
+                                        window.FOUNDATIONS_VOLUME1.getText());
                             }
 
                             if (window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Pole Footings")) {
@@ -571,8 +570,8 @@ public class Tools {
                                             Integer.parseInt(foundations_cb_section.getText()));
                                 }
                                 db.insertSectionDimension(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(),
-                                        path,  window.FOUNDATIONS_DIAMETER.getText(), window.FOUNDATIONS_HEIGHT.getText(),"",
-                                        "","",window.FOUNDATIONS_VOLUME2.getText());
+                                        path,  window.FOUNDATIONS_DIAMETER.getText(), window.FOUNDATIONS_HEIGHT.getText(),
+                                        "", "","",window.FOUNDATIONS_VOLUME2.getText());
                             }
                             //pass section to setup sheet
                             db.getFoundationsPFSections(foundationsPFSectionList);

@@ -1392,6 +1392,7 @@ public class DataBase {
 
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+
                 return resultSet.getInt("SECTION_ID");
             }
 

@@ -351,39 +351,43 @@ public class workspaceController implements Initializable {
 
         try {
             STAMP_TYPE.setOnAction(event -> {
-                if (!STAMP_TYPE.getSelectionModel().getSelectedItem().equals("")) {
-                    if (STAMP_TYPE.getSelectionModel().getSelectedItem().equals("Doors")) {
-                        DOOR_PANE.setVisible(true);
-                        WINDOW_PANE.setVisible(false);
+                if (STAMP_TYPE.getSelectionModel().getSelectedItem() != null) {
+                    switch (STAMP_TYPE.getSelectionModel().getSelectedItem()) {
+                        case "Doors":
+                            DOOR_PANE.setVisible(true);
+                            WINDOW_PANE.setVisible(false);
 
-                        ds_indicator = 1;
-                        ws_indicator = 0;
-                        fs_indicator = 0;
+                            ds_indicator = 1;
+                            ws_indicator = 0;
+                            fs_indicator = 0;
 
-                        iconList = createIconList();
-                        stampPicker.getChildren().add(iconList);
-                    } else if (STAMP_TYPE.getSelectionModel().getSelectedItem().equals("Windows")) {
-                        DOOR_PANE.setVisible(false);
-                        WINDOW_PANE.setVisible(true);
-                        iconList.setVisible(false);
+                            iconList = createIconList();
+                            stampPicker.getChildren().add(iconList);
+                            break;
+                        case "Windows":
+                            DOOR_PANE.setVisible(false);
+                            WINDOW_PANE.setVisible(true);
+                            iconList.setVisible(false);
 
-                        ds_indicator = 0;
-                        ws_indicator = 1;
-                        fs_indicator = 0;
+                            ds_indicator = 0;
+                            ws_indicator = 1;
+                            fs_indicator = 0;
 
-                        UNDO.setVisible(false);
-                        REDO.setVisible(false);
-                    } else if (STAMP_TYPE.getSelectionModel().getSelectedItem().equals("Foundations")) {
-                        DOOR_PANE.setVisible(false);
-                        WINDOW_PANE.setVisible(false);
-                        FOUNDATIONS_PANE.setVisible(true);
+                            UNDO.setVisible(false);
+                            REDO.setVisible(false);
+                            break;
+                        case "Foundations":
+                            DOOR_PANE.setVisible(false);
+                            WINDOW_PANE.setVisible(false);
+                            FOUNDATIONS_PANE.setVisible(true);
 
-                        ds_indicator = 0;
-                        ws_indicator = 0;
-                        fs_indicator = 1;
+                            ds_indicator = 0;
+                            ws_indicator = 0;
+                            fs_indicator = 1;
 
-                        iconList = createIconList();
-                        stampPicker.getChildren().add(iconList);
+                            iconList = createIconList();
+                            stampPicker.getChildren().add(iconList);
+                            break;
                     }
                 }
             });
