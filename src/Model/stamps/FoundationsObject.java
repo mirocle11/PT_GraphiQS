@@ -2,10 +2,30 @@ package Model.stamps;
 
 import javafx.scene.control.Label;
 
+import javax.swing.text.html.ImageView;
+
 public class FoundationsObject {
 
     private String no, part, quantity, depth, width, length, diameter, height, volume;
     private Label stamp;
+    private ImageView img;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public ImageView getImg() {
+        return img;
+    }
+
+    public void setImg(ImageView img) {
+        this.img = img;
+    }
 
     public String getNo() {
         return no;

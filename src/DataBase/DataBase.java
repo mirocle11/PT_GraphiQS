@@ -1399,10 +1399,48 @@ public class DataBase {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         return 0;
     }
 
-    public String getTotalVolume(String tablename) {
+    public String[] getSectionData(String tableName,int section){
+        String[] result = new  String[2];
+        try {
+            String sql = "SELECT * FROM "+tableName+ " WHERE ID = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, section);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+
+                result[0] = resultSet.getString("VOLUME");
+                System.out.println("0 "+result[0]);
+                result[1] = String.valueOf(resultSet.getInt("QUANTITY"));
+                System.out.println("1 "+result[1]);
+                return result;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void deleteSectionData(String tableName,int section){
+
+        try {
+            String sql = "DELETE FROM "+tableName+ " WHERE ID = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, section);
+            preparedStatement.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String getTotalVolume(String tablename){
         double total = 0;
         try {
             String sql = "SELECT VOLUME FROM "+tablename;
