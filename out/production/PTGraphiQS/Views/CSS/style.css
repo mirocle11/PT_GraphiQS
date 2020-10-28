@@ -241,6 +241,16 @@
     -fx-text-fill: #bcbcbc;
 }
 
+#MISCELLANEOUS_PICKER .jfx-combo-box {
+    -fx-font-size: 14px;
+    -fx-font-family: "Segoe UI";
+    -fx-text-inner-color: #bcbcbc;
+}
+
+#MISCELLANEOUS_PICKER .jfx-combo-box .cell {
+    -fx-text-fill: #bcbcbc;
+}
+
 #WINDOW_TBL .table-column {
     -fx-alignment: CENTER;
 }

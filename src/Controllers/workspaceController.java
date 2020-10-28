@@ -18,7 +18,6 @@ import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
@@ -48,7 +47,6 @@ public class workspaceController implements Initializable {
 
     //buttons
     public JFXButton IMPORT_PDF, IMPORT_PDF_1, SAVE, SCALE, LENGTH, AREA, CLADDING_BTN, STAMP, ROTATE, structureToggle;
-    //    public JFXButton NEXT_PAGE, PREVIOUS_PAGE;
     public JFXHamburger hamburger;
 
     //combo box (for length selection)
@@ -71,15 +69,6 @@ public class workspaceController implements Initializable {
     public VBox toolsMenu;
     public Label toastLabel;
     public JFXButton PREVIOUS_PAGE, NEXT_PAGE;
-    public AnchorPane MISCELLANEOUS_PICKER;
-    public JFXTextField CONCRETE_FLOOR_LENGTH;
-    public JFXTextField CONCRETE_FLOOR_WIDTH;
-    public JFXTextField CONCRETE_FLOOR_THICKNESS;
-    public JFXButton MISCELLANEOUS_DONE;
-    public JFXButton MISCELLANEOUS_CLOSE;
-    public Label CONCRETE_FLOOR_LENGTH_ERROR;
-    public Label CONCRETE_FLOOR_WIDTH_ERROR;
-    public Label CONCRETE_FLOOR_THICKNESS_ERROR;
 
     //collections
     List<Shape> shapeList = new ArrayList<>();
@@ -99,19 +88,13 @@ public class workspaceController implements Initializable {
     double snapX = -1;
     double snapY = -1;
 
-    //others
-    String mode;
-    ContextMenu contextMenu = new ContextMenu();
-    ContextMenu stampMenu = new ContextMenu();
-    int pageNumber = 0;
-
     //shapes
     Line line = new Line();
     Rectangle rect = new Rectangle();
     Circle circle = new Circle();
     Label noScaleLabel = new Label();
-    //booleans
 
+    //booleans
     private boolean isNew = true;
     private boolean canDraw = true;
 
@@ -132,13 +115,6 @@ public class workspaceController implements Initializable {
 
     //stamp (doors)
     public AnchorPane stampPicker;
-    private static class IconInfo {
-        int iconNumber;  // an index into the iconImages array
-        int x, y;        // coords of the upper left corner of the image
-    }
-    private ArrayList<IconInfo> icons = new ArrayList<IconInfo>();
-    private int iconsShown;
-    private int iconsPlaced;
 
     public ListView<ImageView> iconList;
 
@@ -152,6 +128,7 @@ public class workspaceController implements Initializable {
 
     public Image[] iconImages;  // The little images that can be "stamped".
 
+    //sample data
     private final ObservableList<String> stamp_type = FXCollections.observableArrayList("Doors", "Windows", "Showers",
             "Toilets", "Foundations");
     private final ObservableList<String> door_type = FXCollections.observableArrayList( "Sgl Cav", "Dbl Cav",
@@ -178,8 +155,6 @@ public class workspaceController implements Initializable {
 
     private final ObservableList<String> foundations_parts = FXCollections.observableArrayList("Post Footings",
             "Pole Footings");
-    private final ObservableList<String> foundations_shapes = FXCollections.observableArrayList("Square",
-            "Cylinder");
 
     //set stud height
     public double stud_height;
@@ -191,17 +166,37 @@ public class workspaceController implements Initializable {
     public AnchorPane CLADDING_LIST;
     public JFXColorPicker CLD_COLOR_PICKER;
     public String selectedCladding;
-
     int cld_indicator = 0;
+
+    //misc --
+    public AnchorPane MISCELLANEOUS_PICKER, MISC_CONCRETE_FLOOR, MISC_GIRTS;
+    public JFXButton MISCELLANEOUS_DONE, MISCELLANEOUS_CLOSE;
+    public JFXComboBox<String> MISC_PART, MISC_METHOD, MISC_SHED_TYPE;
+    public ObservableList<String> misc_parts = FXCollections.observableArrayList("Concrete Floor", "Girts");
+    public ObservableList<String> method_parts = FXCollections.observableArrayList("Bays", "Length");
+    public ObservableList<String> shed_type_parts = FXCollections.observableArrayList("Enclosed", "Open");
+
+    //foundations
+    public JFXTextField CONCRETE_FLOOR_LENGTH, CONCRETE_FLOOR_WIDTH, CONCRETE_FLOOR_THICKNESS;
+    public Label CONCRETE_FLOOR_LENGTH_ERROR, CONCRETE_FLOOR_WIDTH_ERROR, CONCRETE_FLOOR_THICKNESS_ERROR;
+    //girts
+    public JFXTextField GIRTS_LENGTH, GIRTS_WIDTH, GIRTS_REAR_HEIGHT, GIRTS_NO, GIRTS_TOTAL;
+    public Label GIRTS_LENGTH_ERROR, GIRTS_WIDTH_ERROR, GIRTS_REAR_HEIGHT_ERROR;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //stamping combo boxes
         STAMP_TYPE.setItems(stamp_type);
         DOOR_TYPE.setItems(door_type);
         DOOR_WIDTH.setItems(door_width);
         DOOR_HEIGHT.setItems(door_height);
         WINDOW_TYPE.setItems(window_type);
         FOUNDATIONS_PART.setItems(foundations_parts);
+
+        //misc
+        MISC_PART.setItems(misc_parts);
+        MISC_METHOD.setItems(method_parts);
+        MISC_SHED_TYPE.setItems(shed_type_parts);
 
         FOUNDATIONS_PART.setOnAction(event -> {
             if (FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Post Footings")) {
@@ -260,7 +255,7 @@ public class workspaceController implements Initializable {
             return String.valueOf(df.format(volume));
         }, FOUNDATIONS_DIAMETER.textProperty(), FOUNDATIONS_HEIGHT.textProperty()));
 
-        DONE.setOnAction(event -> {
+        DONE.setOnAction(event -> { //stamping
             stampPicker.setVisible(false);
             DOOR_PANE.setVisible(false);
             WINDOW_PANE.setVisible(false);
@@ -269,71 +264,130 @@ public class workspaceController implements Initializable {
             ds_indicator = 0;
             fs_indicator = 0;
 
-            try {
+            if (!STAMP_TYPE.getSelectionModel().isEmpty()) {
                 STAMP_TYPE.getSelectionModel().clearSelection();
-            } catch (Exception e){
-
             }
         });
 
-        MISCELLANEOUS_DONE.setOnAction(event -> {
-            try{
-                double length = Double.parseDouble(CONCRETE_FLOOR_LENGTH.getText()) / 1000;
-                double width = Double.parseDouble(CONCRETE_FLOOR_WIDTH.getText()) / 1000;
-                double thickness = Double.parseDouble(CONCRETE_FLOOR_THICKNESS.getText()) / 1000;
-                layoutsController.concreteData.add(0,Double.toString(length*1000));
-                layoutsController.concreteData.add(1,Double.toString(width*1000));
-                layoutsController.concreteData.add(2,Double.toString(thickness*1000));
-                double volume = length * width * thickness;
-                double area = length * width;
-                layoutsController.concreteData.add(3,Double.toString(Double.parseDouble(new DecimalFormat
-                        ("0.00").format(volume))));
-                layoutsController.concreteData.add(4,Double.toString(Double.parseDouble(new DecimalFormat
-                        ("0.00").format(area))));
-                foundationsController.cf_area = area;
-                foundationsController.cf_length = (int) length;
-                foundationsController.cf_volume = volume;
-                //if there are values
-                if (length > 0 && width > 0 && thickness > 0) {
-                    DataBase db = DataBase.getInstance();
-                    db.setSections(3, 1);
-                    foundationsController.foundationsCFSectionList.clear();
-                    foundationsController.foundationsCFSectionList.add(1);
+        MISC_PART.setOnAction(event -> {
+            if (!MISC_PART.getSelectionModel().isEmpty())
+                if (MISC_PART.getSelectionModel().getSelectedItem().equals("Concrete Floor")) {
+                    MISC_CONCRETE_FLOOR.setVisible(true);
+                    MISC_GIRTS.setVisible(false);
+                } else if (MISC_PART.getSelectionModel().getSelectedItem().equals("Girts")) {
+                    MISC_CONCRETE_FLOOR.setVisible(false);
+                    MISC_GIRTS.setVisible(true);
                 }
+        });
 
-                CONCRETE_FLOOR_LENGTH_ERROR.setVisible(false);
-                CONCRETE_FLOOR_WIDTH_ERROR.setVisible(false);
-                CONCRETE_FLOOR_THICKNESS_ERROR.setVisible(false);
-                CONCRETE_FLOOR_LENGTH.setUnFocusColor(Paint.valueOf("#b9b9b9"));
-                CONCRETE_FLOOR_WIDTH.setUnFocusColor(Paint.valueOf("#b9b9b9"));
-                CONCRETE_FLOOR_THICKNESS.setUnFocusColor(Paint.valueOf("#b9b9b9"));
-                MISCELLANEOUS_PICKER.setVisible(false);
-            } catch (Exception e) {
-                try {
-                    double lenght = Double.parseDouble(CONCRETE_FLOOR_LENGTH.getText());
-                    CONCRETE_FLOOR_LENGTH.setUnFocusColor(Paint.valueOf("#b9b9b9"));
-                    CONCRETE_FLOOR_LENGTH_ERROR.setVisible(false);
-                } catch (Exception a) {
-                    CONCRETE_FLOOR_LENGTH.setUnFocusColor(Paint.valueOf("#ff5148"));
-                    CONCRETE_FLOOR_LENGTH_ERROR.setVisible(true);
-                }
-                try {
-                    double width = Double.parseDouble(CONCRETE_FLOOR_WIDTH.getText());
-                    CONCRETE_FLOOR_WIDTH.setUnFocusColor(Paint.valueOf("#b9b9b9"));
-                    CONCRETE_FLOOR_WIDTH_ERROR.setVisible(false);
-                } catch (Exception a) {
-                    CONCRETE_FLOOR_WIDTH.setUnFocusColor(Paint.valueOf("#ff5148"));
-                    CONCRETE_FLOOR_WIDTH_ERROR.setVisible(true);
-                }
-                try {
-                    double thickness = Double.parseDouble(CONCRETE_FLOOR_THICKNESS.getText());
-                    CONCRETE_FLOOR_THICKNESS.setUnFocusColor(Paint.valueOf("#b9b9b9"));
-                    CONCRETE_FLOOR_THICKNESS_ERROR.setVisible(false);
-                } catch (Exception a){
-                    CONCRETE_FLOOR_THICKNESS.setUnFocusColor(Paint.valueOf("#ff5148"));
-                    CONCRETE_FLOOR_THICKNESS_ERROR.setVisible(true);
+        GIRTS_NO.textProperty().bind(Bindings.createStringBinding(()-> {
+            //Do your calculation
+            int qty = 0;
+
+            if (!GIRTS_REAR_HEIGHT.getText().isEmpty()) {
+                double rear_height = Double.parseDouble(GIRTS_REAR_HEIGHT.getText());
+                qty = (int) (rear_height - 300) / 1000;
+            }
+            //Return result as String
+            return String.valueOf(qty);
+        }, GIRTS_REAR_HEIGHT.textProperty()));
+
+        GIRTS_TOTAL.textProperty().bind(Bindings.createStringBinding(()-> {
+            //Do your calculation
+            double total = 0;
+
+            if (!GIRTS_LENGTH.getText().isEmpty() && !GIRTS_WIDTH.getText().isEmpty() &&
+                    !MISC_SHED_TYPE.getSelectionModel().isEmpty()) {
+                if (MISC_SHED_TYPE.getSelectionModel().getSelectedItem().equals("Enclosed")) {
+                    double length = Double.parseDouble(GIRTS_LENGTH.getText()) / 1000;
+                    double width = Double.parseDouble(GIRTS_WIDTH.getText()) / 1000;
+
+                    total = (length + width) * 2;
+                } else if (MISC_SHED_TYPE.getSelectionModel().getSelectedItem().equals("Open")) {
+                    double length = Double.parseDouble(GIRTS_LENGTH.getText()) / 1000;
+                    double width = Double.parseDouble(GIRTS_WIDTH.getText()) / 1000;
+
+                    total = length + (width * 2) / 1000;
                 }
             }
+            //Return result as String
+            return String.valueOf(total);
+        }, GIRTS_LENGTH.textProperty(), GIRTS_WIDTH.textProperty()));
+
+        MISCELLANEOUS_DONE.setOnAction(event -> {
+            if (!MISC_PART.getSelectionModel().isEmpty()) {
+                if (MISC_PART.getSelectionModel().getSelectedItem().equals("Concrete Floor")) {
+                    try {
+                        double length = Double.parseDouble(CONCRETE_FLOOR_LENGTH.getText()) / 1000;
+                        double width = Double.parseDouble(CONCRETE_FLOOR_WIDTH.getText()) / 1000;
+                        double thickness = Double.parseDouble(CONCRETE_FLOOR_THICKNESS.getText()) / 1000;
+
+                        layoutsController.concreteData.add(0, Double.toString(length * 1000));
+                        layoutsController.concreteData.add(1, Double.toString(width * 1000));
+                        layoutsController.concreteData.add(2, Double.toString(thickness * 1000));
+
+                        double volume = length * width * thickness;
+                        double area = length * width;
+
+                        layoutsController.concreteData.add(3, Double.toString(Double.parseDouble(new DecimalFormat
+                                ("0.00").format(volume))));
+                        layoutsController.concreteData.add(4, Double.toString(Double.parseDouble(new DecimalFormat
+                                ("0.00").format(area))));
+
+                        foundationsController.cf_area = area;
+                        foundationsController.cf_length = (int) length;
+                        foundationsController.cf_volume = volume;
+
+                        //if there are values
+                        if (length > 0 && width > 0 && thickness > 0) {
+                            DataBase db = DataBase.getInstance();
+                            db.setSections(3, 1);
+                            foundationsController.foundationsCFSectionList.clear();
+                            foundationsController.foundationsCFSectionList.add(1);
+                        }
+
+                        CONCRETE_FLOOR_LENGTH_ERROR.setVisible(false);
+                        CONCRETE_FLOOR_WIDTH_ERROR.setVisible(false);
+                        CONCRETE_FLOOR_THICKNESS_ERROR.setVisible(false);
+                        CONCRETE_FLOOR_LENGTH.setUnFocusColor(Paint.valueOf("#b9b9b9"));
+                        CONCRETE_FLOOR_WIDTH.setUnFocusColor(Paint.valueOf("#b9b9b9"));
+                        CONCRETE_FLOOR_THICKNESS.setUnFocusColor(Paint.valueOf("#b9b9b9"));
+                        MISCELLANEOUS_PICKER.setVisible(false);
+                    } catch (Exception e) {
+                        try {
+                            double lenght = Double.parseDouble(CONCRETE_FLOOR_LENGTH.getText());
+                            CONCRETE_FLOOR_LENGTH.setUnFocusColor(Paint.valueOf("#b9b9b9"));
+                            CONCRETE_FLOOR_LENGTH_ERROR.setVisible(false);
+                        } catch (Exception a) {
+                            CONCRETE_FLOOR_LENGTH.setUnFocusColor(Paint.valueOf("#ff5148"));
+                            CONCRETE_FLOOR_LENGTH_ERROR.setVisible(true);
+                        }
+                        try {
+                            double width = Double.parseDouble(CONCRETE_FLOOR_WIDTH.getText());
+                            CONCRETE_FLOOR_WIDTH.setUnFocusColor(Paint.valueOf("#b9b9b9"));
+                            CONCRETE_FLOOR_WIDTH_ERROR.setVisible(false);
+                        } catch (Exception a) {
+                            CONCRETE_FLOOR_WIDTH.setUnFocusColor(Paint.valueOf("#ff5148"));
+                            CONCRETE_FLOOR_WIDTH_ERROR.setVisible(true);
+                        }
+                        try {
+                            double thickness = Double.parseDouble(CONCRETE_FLOOR_THICKNESS.getText());
+                            CONCRETE_FLOOR_THICKNESS.setUnFocusColor(Paint.valueOf("#b9b9b9"));
+                            CONCRETE_FLOOR_THICKNESS_ERROR.setVisible(false);
+                        } catch (Exception a) {
+                            CONCRETE_FLOOR_THICKNESS.setUnFocusColor(Paint.valueOf("#ff5148"));
+                            CONCRETE_FLOOR_THICKNESS_ERROR.setVisible(true);
+                        }
+                    }
+                } else if (MISC_PART.getSelectionModel().getSelectedItem().equals("Girts")) {
+                    try {
+                        // layouts and db function
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+//            clearMisc();
         });
 
         MISCELLANEOUS_CLOSE.setOnAction(event -> {
@@ -351,7 +405,7 @@ public class workspaceController implements Initializable {
 
         try {
             STAMP_TYPE.setOnAction(event -> {
-                if (STAMP_TYPE.getSelectionModel().getSelectedItem() != null) {
+                if (!STAMP_TYPE.getSelectionModel().isEmpty()) {
                     switch (STAMP_TYPE.getSelectionModel().getSelectedItem()) {
                         case "Doors":
                             DOOR_PANE.setVisible(true);
@@ -871,5 +925,16 @@ public class workspaceController implements Initializable {
     //Miscellaneous
     public void miscellaneousAction() {
         MISCELLANEOUS_PICKER.setVisible(true);
+    }
+
+    public void clearMisc() {
+        MISC_PART.getSelectionModel().clearSelection();
+        CONCRETE_FLOOR_LENGTH.setText("");
+        CONCRETE_FLOOR_THICKNESS.setText("");
+        CONCRETE_FLOOR_WIDTH.setText("");
+
+        GIRTS_LENGTH.setText("");
+        GIRTS_WIDTH.setText("");
+        GIRTS_REAR_HEIGHT.setText("");
     }
 }
