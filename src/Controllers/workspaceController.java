@@ -171,7 +171,7 @@ public class workspaceController implements Initializable {
     //misc --
     public AnchorPane MISCELLANEOUS_PICKER, MISC_CONCRETE_FLOOR, MISC_GIRTS;
     public JFXButton MISCELLANEOUS_DONE, MISCELLANEOUS_CLOSE;
-    public JFXComboBox<String> MISC_PART, MISC_METHOD, MISC_SHED_TYPE;
+    public JFXComboBox<String> MISC_PART, MISC_SHED_TYPE;
     public ObservableList<String> misc_parts = FXCollections.observableArrayList("Concrete Floor", "Girts");
     public ObservableList<String> method_parts = FXCollections.observableArrayList("Bays", "Length");
     public ObservableList<String> shed_type_parts = FXCollections.observableArrayList("Enclosed", "Open");
@@ -180,7 +180,8 @@ public class workspaceController implements Initializable {
     public JFXTextField CONCRETE_FLOOR_LENGTH, CONCRETE_FLOOR_WIDTH, CONCRETE_FLOOR_THICKNESS;
     public Label CONCRETE_FLOOR_LENGTH_ERROR, CONCRETE_FLOOR_WIDTH_ERROR, CONCRETE_FLOOR_THICKNESS_ERROR;
     //girts
-    public JFXTextField GIRTS_LENGTH, GIRTS_WIDTH, GIRTS_REAR_HEIGHT, GIRTS_NO, GIRTS_TOTAL;
+    public JFXTextField GIRTS_LENGTH, GIRTS_WIDTH, GIRTS_REAR_HEIGHT, GIRTS_NO, GIRTS_TOTAL, GIRTS_NO_OF_BAYS,
+            GIRTS_BAY_SPACING;
     public Label GIRTS_LENGTH_ERROR, GIRTS_WIDTH_ERROR, GIRTS_REAR_HEIGHT_ERROR;
 
     @Override
@@ -195,7 +196,6 @@ public class workspaceController implements Initializable {
 
         //misc
         MISC_PART.setItems(misc_parts);
-        MISC_METHOD.setItems(method_parts);
         MISC_SHED_TYPE.setItems(shed_type_parts);
 
         FOUNDATIONS_PART.setOnAction(event -> {
@@ -387,7 +387,6 @@ public class workspaceController implements Initializable {
                     }
                 }
             }
-//            clearMisc();
         });
 
         MISCELLANEOUS_CLOSE.setOnAction(event -> {
