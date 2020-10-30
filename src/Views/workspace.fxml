@@ -940,7 +940,7 @@
             <Image url="@images/more_than_25px.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="stampPicker" prefHeight="414.0" prefWidth="325.0" style="-fx-background-color: TRANSPARENT;" stylesheets="@CSS/style.css" visible="false">
+      <AnchorPane fx:id="stampPicker" prefHeight="414.0" prefWidth="325.0" style="-fx-background-color: TRANSPARENT;" stylesheets="@CSS/style.css">
          <children>
             <AnchorPane fx:id="stampPickerPane" layoutX="14.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="295.0" style="-fx-background-radius: 20px; -fx-background-color: #0F1E25;" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                <effect>
@@ -957,7 +957,7 @@
                         <DropShadow />
                      </effect>
                      <children>
-                        <JFXComboBox fx:id="STAMP_TYPE" focusTraversable="false" layoutX="13.0" layoutY="14.0" prefHeight="28.0" prefWidth="175.0" promptText="Stamp Type" unFocusColor="#bcbcbc" />
+                        <JFXComboBox fx:id="STAMP_TYPE" focusTraversable="false" layoutX="13.0" layoutY="14.0" prefHeight="28.0" prefWidth="175.0" promptText="Structure" unFocusColor="#bcbcbc" />
                         <Pane fx:id="DOOR_PANE" layoutX="2.0" layoutY="52.0" prefHeight="216.0" prefWidth="200.0" visible="false">
                            <children>
                               <JFXComboBox fx:id="DOOR_TYPE" focusTraversable="false" layoutX="12.0" layoutY="14.0" prefHeight="28.0" prefWidth="175.0" promptText="Door Type" unFocusColor="#bcbcbc" />
@@ -1005,7 +1005,7 @@
                               <JFXComboBox fx:id="WINDOW_TYPE" focusTraversable="false" layoutX="11.0" layoutY="110.0" prefHeight="28.0" prefWidth="175.0" promptText="Window Type" unFocusColor="#bcbcbc" />
                            </children>
                         </Pane>
-                        <Pane fx:id="FOUNDATIONS_PANE" layoutX="1.0" layoutY="53.0" prefHeight="216.0" prefWidth="200.0" visible="false">
+                        <Pane fx:id="FOUNDATIONS_PANE" layoutY="53.0" prefHeight="216.0" prefWidth="200.0" visible="false">
                            <children>
                               <JFXComboBox fx:id="FOUNDATIONS_PART" focusTraversable="false" layoutX="13.0" layoutY="11.0" prefHeight="28.0" prefWidth="175.0" promptText="Part" unFocusColor="#bcbcbc" />
                               <JFXTextField fx:id="FOUNDATIONS_DEPTH" labelFloat="true" layoutX="13.0" layoutY="108.0" prefHeight="30.0" prefWidth="81.0" promptText="Depth (mm)" visible="false">
@@ -1045,6 +1045,12 @@
                               </JFXTextField>
                            </children>
                         </Pane>
+                        <Pane fx:id="EXTERNAL_FRAMING_PANE" layoutY="53.0" prefHeight="216.0" prefWidth="200.0">
+                           <children>
+                              <JFXComboBox fx:id="EXTERNAL_FRAMING_PART" focusTraversable="false" layoutX="13.0" layoutY="11.0" prefHeight="28.0" prefWidth="175.0" promptText="Part" unFocusColor="#bcbcbc" />
+                              <JFXComboBox fx:id="EXTERNAL_FRAMING_MATERIAL" focusTraversable="false" layoutX="13.0" layoutY="66.0" prefHeight="28.0" prefWidth="175.0" promptText="Material" unFocusColor="#bcbcbc" />
+                           </children>
+                        </Pane>
                         <JFXButton fx:id="UNDO" alignment="CENTER" focusTraversable="false" graphicTextGap="5.0" layoutX="14.0" layoutY="278.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="81.0" style="-fx-background-radius: 30px; -fx-background-color: #263238;" text="Undo" textAlignment="CENTER" textFill="#bcbcbc">
                            <font>
                               <Font name="Segoe UI" size="14.0" />
@@ -1078,7 +1084,7 @@
       </AnchorPane>
       <AnchorPane fx:id="CLADDING_LIST" layoutX="69.0" layoutY="20.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="240.0" style="-fx-background-color: TRANSPARENT;" stylesheets="@CSS/style.css" visible="false" AnchorPane.leftAnchor="69.0" AnchorPane.topAnchor="60.0">
          <children>
-            <AnchorPane fx:id="stampPickerPane1" layoutX="7.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="387.0" prefWidth="214.0" style="-fx-background-radius: 20px; -fx-background-color: #0F1E25;" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+            <AnchorPane fx:id="stampPickerPane1" layoutX="7.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="387.0" prefWidth="214.0" style="-fx-background-radius: 20px; -fx-background-color: #0F1E25;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                <effect>
                   <DropShadow color="#121212" height="35.03" radius="17.155" spread="0.15" width="35.59" />
                </effect>
@@ -1222,11 +1228,21 @@
                   <AnchorPane fx:id="MISC_GIRTS" layoutX="18.0" layoutY="69.0" prefHeight="270.0" prefWidth="196.0" visible="false" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="69.0">
                      <children>
                         <JFXComboBox fx:id="MISC_SHED_TYPE" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="25.0" layoutY="14.0" prefHeight="32.0" prefWidth="147.0" promptText="Shed Type" />
+                        <JFXTextField fx:id="GIRTS_NO_OF_BAYS" labelFloat="true" layoutX="26.0" layoutY="67.0" prefHeight="25.0" prefWidth="147.0" promptText="No. of Bays">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="GIRTS_BAY_SPACING" labelFloat="true" layoutX="26.0" layoutY="116.0" prefHeight="25.0" prefWidth="147.0" promptText="Bay Spacing (mm)">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </JFXTextField>
                         <JFXTextField fx:id="GIRTS_LENGTH" labelFloat="true" layoutX="26.0" layoutY="165.0" prefHeight="25.0" prefWidth="147.0" promptText="Length (mm)">
                            <font>
                               <Font size="13.0" />
                            </font></JFXTextField>
-                        <JFXTextField fx:id="GIRTS_WIDTH" labelFloat="true" layoutX="26.0" layoutY="214.0" prefHeight="25.0" prefWidth="147.0" promptText="Depth (mm)">
+                        <JFXTextField fx:id="GIRTS_DEPTH" labelFloat="true" layoutX="26.0" layoutY="214.0" prefHeight="25.0" prefWidth="147.0" promptText="Depth (mm)">
                            <font>
                               <Font size="13.0" />
                            </font></JFXTextField>
@@ -1257,16 +1273,6 @@
                            <font>
                               <Font size="13.0" />
                            </font></JFXTextField>
-                        <JFXTextField fx:id="GIRTS_NO_OF_BAYS" labelFloat="true" layoutX="26.0" layoutY="67.0" prefHeight="25.0" prefWidth="147.0" promptText="No. of Bays">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </JFXTextField>
-                        <JFXTextField fx:id="GIRTS_BAY_SPACING" labelFloat="true" layoutX="26.0" layoutY="116.0" prefHeight="25.0" prefWidth="147.0" promptText="Bay Spacing (mm)">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </JFXTextField>
                      </children>
                   </AnchorPane>
                   <JFXButton fx:id="MISCELLANEOUS_DONE" layoutX="108.0" layoutY="488.0" prefHeight="38.0" prefWidth="97.0" text="Done" textFill="#bcbcbc">

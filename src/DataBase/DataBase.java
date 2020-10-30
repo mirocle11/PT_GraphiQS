@@ -1443,7 +1443,7 @@ public class DataBase {
     public String getTotalVolume(String tablename){
         double total = 0;
         try {
-            String sql = "SELECT VOLUME FROM "+tablename;
+            String sql = "SELECT VOLUME FROM " + tablename;
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -1457,6 +1457,24 @@ public class DataBase {
             e.printStackTrace();
         }
         return Double.toString(total);
+    }
+
+    public void identifyExternalFramingPLValues(String material, Label section, Label quantity) {
+        try {
+            String sql = "SELECT * FROM SHED_FOUNDATIONS_POST_FOOTINGS WHERE MATERIAL = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, material);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                section.setText(String.valueOf(resultSet.getInt("ID")));
+                quantity.setText(String.valueOf(resultSet.getInt("QUANTITY")));
+                System.out.println("section layout: " + resultSet.getInt("ID"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

@@ -110,7 +110,7 @@
                               <Font name="Segoe UI" size="17.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="FOUNDATIONS_PF_TOTAL" alignment="CENTER" editable="false" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="40.0" layoutY="55.0" prefHeight="21.0" prefWidth="167.0" promptText="Total Concrete Volume" style="-fx-text-inner-color: WHITE;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+                        <JFXTextField fx:id="FOUNDATIONS_PF_TOTAL" alignment="CENTER" editable="false" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="40.0" layoutY="55.0" prefHeight="21.0" prefWidth="167.0" promptText="Total Concrete Volume" style="-fx-text-inner-color: WHITE;" visible="false" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                            <font>
                               <Font name="Segoe UI" size="16.0" />
                            </font>
@@ -192,7 +192,7 @@
                   <TreeTableColumn fx:id="CLADDING_HEIGHT" prefWidth="177.0" text="Height" />
                </columns>
             </JFXTreeTableView>
-            <AnchorPane fx:id="FOUNDATIONS_TAB" layoutX="64.0" layoutY="66.0" prefHeight="675.0" prefWidth="969.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="FOUNDATIONS_TAB" layoutX="64.0" layoutY="66.0" prefHeight="675.0" prefWidth="969.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <JFXTreeTableView fx:id="FOUNDATIONS_POST_FOOTINGS_TBL" fixedCellSize="0.0" layoutX="63.0" layoutY="85.0" prefHeight="590.0" prefWidth="810.0" sortMode="ONLY_FIRST_LEVEL" AnchorPane.leftAnchor="63.0" AnchorPane.topAnchor="85.0">
                      <columns>
@@ -306,11 +306,99 @@
                   </JFXTextField>
                </children>
             </AnchorPane>
+            <AnchorPane fx:id="EXTERNAL_FRAMING_TAB" layoutX="74.0" layoutY="76.0" prefHeight="675.0" prefWidth="969.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <JFXTreeTableView fx:id="EXTERNAL_FRAMING_POLES_TBL" fixedCellSize="0.0" layoutX="63.0" layoutY="85.0" prefHeight="590.0" prefWidth="810.0" sortMode="ONLY_FIRST_LEVEL" AnchorPane.leftAnchor="63.0" AnchorPane.topAnchor="85.0">
+                     <columns>
+                        <TreeTableColumn fx:id="EXTERNAL_FRAMING_PL_NO" prefWidth="59.0" text="No." />
+                        <TreeTableColumn fx:id="EXTERNAL_FRAMING_PL_IMAGE" prefWidth="120.0" text="Image" />
+                        <TreeTableColumn fx:id="EXTERNAL_FRAMING_PL_QTY" prefWidth="175.0" text="Quantity" />
+                        <TreeTableColumn fx:id="EXTERNAL_FRAMING_PL_QTY1" prefWidth="455.0" text="Material" />
+                     </columns>
+                  </JFXTreeTableView>
+                  <JFXTreeTableView fx:id="EXTERNAL_FRAMING_COLUMNS_TBL" fixedCellSize="0.0" prefHeight="590.0" prefWidth="811.0" sortMode="ONLY_FIRST_LEVEL" visible="false" AnchorPane.leftAnchor="63.0" AnchorPane.topAnchor="85.0">
+                     <columns>
+                        <TreeTableColumn fx:id="EXTERNAL_FRAMING_CL_NO" prefWidth="59.0" text="No." />
+                        <TreeTableColumn fx:id="EXTERNAL_FRAMING_CL_IMAGE" prefWidth="120.0" text="Image" />
+                        <TreeTableColumn fx:id="EXTERNAL_FRAMING_CL_QTY" prefWidth="122.0" text="Quantity" />
+                     </columns>
+                  </JFXTreeTableView>
+                  <Pane fx:id="GIRTS_PANE" layoutX="62.0" layoutY="85.0" prefHeight="590.0" prefWidth="1128.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="85.0">
+                     <children>
+                        <Label layoutX="28.0" layoutY="23.0" prefHeight="23.0" prefWidth="102.0" text="Girts" textFill="#bcbcbc">
+                           <font>
+                              <Font name="Segoe UI Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="GIRTS_NO_OF_BAYS" labelFloat="true" layoutX="47.0" layoutY="67.0" prefHeight="30.0" prefWidth="179.0" promptText="No. of Bays">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="GIRTS_BAY_SPACING" labelFloat="true" layoutX="48.0" layoutY="122.0" prefHeight="30.0" prefWidth="178.0" promptText="Bay Spacing (mm)">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="GIRTS_LENGTH" labelFloat="true" layoutX="48.0" layoutY="180.0" prefHeight="30.0" prefWidth="178.0" promptText="Length (mm)">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="GIRTS_DEPTH" labelFloat="true" layoutX="48.0" layoutY="235.0" prefHeight="30.0" prefWidth="178.0" promptText="Depth (mm)">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="GIRTS_REAR_HEIGHT" labelFloat="true" layoutX="48.0" layoutY="292.0" prefHeight="30.0" prefWidth="178.0" promptText="Rear Height (mm)">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="NO_OF_GIRTS" labelFloat="true" layoutX="48.0" layoutY="351.0" prefHeight="30.0" prefWidth="178.0" promptText="No. of Girts">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="GIRTS_TOTAL" labelFloat="true" layoutX="48.0" layoutY="412.0" prefHeight="30.0" prefWidth="178.0" promptText="Total (mm)">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </Pane>
+                  <JFXButton fx:id="COLUMNS_BTN" layoutX="686.0" layoutY="49.0" prefHeight="31.0" prefWidth="147.0" text="Columns" textFill="#bcbcbc" underline="true">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="GIRTS_BTN" layoutX="822.0" layoutY="48.0" prefHeight="31.0" prefWidth="147.0" text="Girts" textFill="#bcbcbc" underline="true">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="POLES_BTN" layoutX="558.0" layoutY="49.0" prefHeight="31.0" prefWidth="147.0" text="Poles" textFill="#bcbcbc" underline="true">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXTextField fx:id="POST_FOOTING_TOTAL1" alignment="CENTER" editable="false" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="886.0" layoutY="96.0" prefHeight="31.0" prefWidth="230.0" promptText="Post Footing Total Volume (m³)" style="-fx-text-inner-color: WHITE;" visible="false">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="POLE_FOOTING_TOTAL1" alignment="CENTER" editable="false" focusColor="#0f9d58" focusTraversable="false" labelFloat="true" layoutX="886.0" layoutY="96.0" prefHeight="31.0" prefWidth="230.0" promptText="Pole Footing Total Volume (m³)" style="-fx-text-inner-color: WHITE;" visible="false">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </JFXTextField>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </center>
    <bottom>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="1015.0" BorderPane.alignment="CENTER_LEFT">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="1444.0" BorderPane.alignment="CENTER_LEFT">
          <children>
             <Label contentDisplay="RIGHT" layoutX="23.0" layoutY="4.0" prefHeight="30.0" prefWidth="85.0" text="Sort by " textFill="#bcbcbc">
                <font>
@@ -350,6 +438,11 @@
                </font>
             </JFXButton>
             <JFXButton fx:id="FOUNDATIONS" layoutX="861.0" layoutY="1.0" prefHeight="37.0" prefWidth="140.0" style="-fx-background-radius: 30px; -fx-background-color: #3e2723;" text="Foundations" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="EXTERNAL_FRAMING" layoutX="1011.0" layoutY="1.0" prefHeight="37.0" prefWidth="140.0" style="-fx-background-radius: 30px; -fx-background-color: #6d4c41;" text="External Framing" textFill="WHITE">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>

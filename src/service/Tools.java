@@ -12,6 +12,7 @@ import Model.data.layouts.doorData;
 import Model.data.layouts.layoutsData;
 import Model.data.layouts.windowData;
 import Model.stamps.DoorObject;
+import Model.stamps.ExternalFramingObject;
 import Model.stamps.FoundationsObject;
 import Model.stamps.WindowObject;
 import com.jfoenix.controls.JFXButton;
@@ -96,6 +97,11 @@ public class Tools {
     public Label foundations_cb_volume = new Label("");
     public Label foundations_cb_quantity = new Label("");
     public Label cbLastRowSection = new Label();
+
+    //layouts external framing
+    public Label external_framing_pl_section = new Label();
+    public Label external_framing_cl_quantity = new Label();
+
 
     public Tools(PageObject page, Group group, String mode, Line line, Circle circle, VBox box) {
         this.page = page;
@@ -516,7 +522,6 @@ public class Tools {
                             FoundationsObject foundations_stamp_object = new FoundationsObject();
                             foundations_stamp_object.setStamp(foundations_stamp);
 
-
                             pane.getChildren().add(foundations_stamp_object.getStamp());
 
                             //db for managing table sections w/ identifier
@@ -529,7 +534,6 @@ public class Tools {
                             db.identifyFoundationsCBValues(window.FOUNDATIONS_DIAMETER.getText(),
                                     window.FOUNDATIONS_HEIGHT.getText(), foundations_cb_section, foundations_cb_volume,
                                     foundations_cb_quantity);
-
 
                             foundations_stamp_object.setPart(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem());
                             if (window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Post Footings")) {
@@ -700,6 +704,106 @@ public class Tools {
                             layoutsController.totalData.add(2, String.valueOf(
                                     new DecimalFormat("0.00").format(total)));
 
+                        }
+                        if (!(window.ef_indicator == 0)) {
+                            ImageView external_framing_img = new ImageView();
+                            Label externalFramingStamp = new Label();
+
+                            String path = "";
+
+                            int selected_icon = window.iconList.getSelectionModel().getSelectedIndex();
+
+                            switch (selected_icon) {
+                                case 0:
+                                    external_framing_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon1.png")));
+//                                    path = "C:\\Users\\User\\Documents\\IdeaProjects\\PT_GraphiQS\\src\\Views\\stamper_icons\\blue-icon1.png";
+                                    path = "../Views/stamper_icons/blue-icon1.png";
+                                    break;
+                                case 1:
+                                    external_framing_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon2.png")));
+                                    path = "../Views/stamper_icons/blue-icon2.png";
+                                    break;
+                                case 2:
+                                    external_framing_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon3.png")));
+                                    path = "../Views/stamper_icons/blue-icon3.png";
+                                    break;
+                                case 3:
+                                    external_framing_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon4.png")));
+                                    path = "../Views/stamper_icons/blue-icon4.png";
+                                    break;
+                                case 4:
+                                    external_framing_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon5.png")));
+                                    path = "../Views/stamper_icons/blue-icon5.png";
+                                    break;
+                                case 5:
+                                    external_framing_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon6.png")));
+                                    path = "../Views/stamper_icons/blue-icon6.png";
+                                    break;
+                                case 6:
+                                    external_framing_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon1.png")));
+                                    path = "../Views/stamper_icons/green-icon1.png";
+                                    break;
+                                case 7:
+                                    external_framing_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon2.png")));
+                                    path = "../Views/stamper_icons/green-icon2.png";
+                                    break;
+                                case 8:
+                                    external_framing_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon3.png")));
+                                    path = "../Views/stamper_icons/green-icon3.png";
+                                    break;
+                                case 9:
+                                    external_framing_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon4.png")));
+                                    path = "../Views/stamper_icons/green-icon4.png";
+                                    break;
+                                case 10:
+                                    external_framing_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon5.png")));
+                                    path = "../Views/stamper_icons/green-icon5.png";
+                                    break;
+                                case 11:
+                                    external_framing_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/green-icon6.png")));
+                                    path = "../Views/stamper_icons/green-icon6.png";
+                                    break;
+                                case 12:
+                                    external_framing_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon1.png")));
+                                    path = "../Views/stamper_icons/red-icon1.png";
+                                    break;
+                                case 13:
+                                    external_framing_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon2.png")));
+                                    path = "../Views/stamper_icons/red-icon2.png";
+                                    break;
+                                case 14:
+                                    external_framing_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon3.png")));
+                                    path = "../Views/stamper_icons/red-icon3.png";
+                                    break;
+                                case 15:
+                                    external_framing_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon4.png")));
+                                    path = "../Views/stamper_icons/red-icon4.png";
+                                    break;
+                                case 16:
+                                    external_framing_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon5.png")));
+                                    path = "../Views/stamper_icons/red-icon5.png";
+                                    break;
+                                case 17:
+                                    external_framing_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/red-icon6.png")));
+                                    path = "../Views/stamper_icons/red-icon6.png";
+                                    break;
+                            }
+                            externalFramingStamp.setGraphic(external_framing_img);
+                            externalFramingStamp.setLayoutX(event.getX());
+                            externalFramingStamp.setLayoutY(event.getY());
+                            externalFramingStamp.setAlignment(Pos.CENTER);
+
+                            ExternalFramingObject externalFramingObject = new ExternalFramingObject();
+                            externalFramingObject.setStamp(externalFramingStamp);
+
+                            pane.getChildren().add(externalFramingObject.getStamp());
+
+                            DataBase db = DataBase.getInstance();
+                            db.identifyExternalFramingPLValues(window.EXTERNAL_FRAMING_MATERIAL.
+                                    getSelectionModel().getSelectedItem(), external_framing_pl_section,
+                                    external_framing_cl_quantity);
+
+                            externalFramingObject.setPart(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem());
                         }
                     }
                 });

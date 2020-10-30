@@ -27,11 +27,12 @@ public class layoutsController implements Initializable {
 
     public BorderPane layoutsPane;
     public ScrollPane lengthScrollPane;
+    public AnchorPane FOUNDATIONS_TAB, EXTERNAL_FRAMING_TAB;
 
     public JFXTextField SEARCH, ROW_NO, PAGE, MEASUREMENT, STRUCTURE, WALL_TYPE, WALL, MATERIAL, COLOR_TXT, VALUE,
             STUD_HEIGHT, VOLUME, LOBOUR, FOUNDATIONS_PF_TOTAL, FOUNDATIONS_CB_TOTAL;
 
-    public JFXButton LENGTH, AREA, STAMPS, WINDOWS, CLADDING, FOUNDATIONS;
+    public JFXButton LENGTH, AREA, STAMPS, WINDOWS, CLADDING, FOUNDATIONS, EXTERNAL_FRAMING;
 
     //length table
     public JFXTreeTableView<layoutsData> layoutsTableView;
@@ -73,10 +74,9 @@ public class layoutsController implements Initializable {
     public TreeTableColumn<claddingData, String> CLADDING_LENGTH;
     public TreeTableColumn<claddingData, String> CLADDING_HEIGHT;
 
-    //foundations table (setup sheets)
+    //foundations tables (setup sheets)
     public JFXTreeTableView<foundationsPostFootingsData> FOUNDATIONS_POST_FOOTINGS_TBL; // post footings
     public TreeTableColumn<foundationsPostFootingsData, String> FOUNDATIONS_PF_NO;
-    public TreeTableColumn<foundationsPostFootingsData, String> FOUNDATIONS_PF_PART;
     public TreeTableColumn<foundationsPostFootingsData, String> FOUNDATIONS_PF_IMAGE;
     public TreeTableColumn<foundationsPostFootingsData, String> FOUNDATIONS_PF_QTY;
     public TreeTableColumn<foundationsPostFootingsData, String> FOUNDATIONS_PF_DEPTH;
@@ -86,12 +86,22 @@ public class layoutsController implements Initializable {
 
     public JFXTreeTableView<foundationsConcreteBoresData> FOUNDATIONS_CONCRETE_BORES_TBL; // concrete bores
     public TreeTableColumn<foundationsConcreteBoresData, String> FOUNDATIONS_CB_NO;
-    public TreeTableColumn<foundationsConcreteBoresData, String> FOUNDATIONS_CB_PART;
     public TreeTableColumn<foundationsConcreteBoresData, String> FOUNDATIONS_CB_IMAGE;
     public TreeTableColumn<foundationsConcreteBoresData, String> FOUNDATIONS_CB_QTY;
     public TreeTableColumn<foundationsConcreteBoresData, String> FOUNDATIONS_CB_DIAMETER;
     public TreeTableColumn<foundationsConcreteBoresData, String> FOUNDATIONS_CB_HEIGHT;
     public TreeTableColumn<foundationsConcreteBoresData, String> FOUNDATIONS_CB_VOLUME;
+
+    //external framing tables
+    public JFXTreeTableView<externalFramingPolesData> EXTERNAL_FRAMING_POLES_TBL; // poles
+    public TreeTableColumn<externalFramingPolesData, String> EXTERNAL_FRAMING_PL_NO;
+    public TreeTableColumn<externalFramingPolesData, String> EXTERNAL_FRAMING_PL_IMAGE;
+    public TreeTableColumn<externalFramingPolesData, String> EXTERNAL_FRAMING_PL_QTY;
+
+    public JFXTreeTableView<externalFramingColumnsData> EXTERNAL_FRAMING_COLUMNS_TBL; // columns
+    public TreeTableColumn<externalFramingColumnsData, String> EXTERNAL_FRAMING_CL_NO;
+    public TreeTableColumn<externalFramingColumnsData, String> EXTERNAL_FRAMING_CL_IMAGE;
+    public TreeTableColumn<externalFramingColumnsData, String> EXTERNAL_FRAMING_CL_QTY;
 
     //data lists
     public static ObservableList<layoutsData> data;
@@ -101,21 +111,25 @@ public class layoutsController implements Initializable {
 
     public static ObservableList<foundationsPostFootingsData> foundationsPostFootingsData;
     public static ObservableList<foundationsConcreteBoresData> foundationsConcreteBoresData;
+
+    public static ObservableList<externalFramingPolesData> externalFramingPolesData;
+    public static ObservableList<externalFramingColumnsData> externalFramingColumnsData;
+
     public static ObservableList<String> concreteData;
+    public static ObservableList<String> girtsData;
+
     public static ObservableList<String> totalData;
 
-    public Pane CONCRETE_FLOOR_TBL;
-    public JFXTextField CONCRETE_FLOOR_LENGTH;
-    public JFXTextField CONCRETE_FLOOR_WIDTH;
-    public JFXTextField CONCRETE_FLOOR_THICKNESS;
-    public JFXTextField CONCRETE_FLOOR_VOLUME;
-    public JFXTextField CONCRETE_FLOOR_AREA;
-    public JFXButton POST_FOOTING_BTN;
-    public JFXButton CONCRETE_BORES_BTN;
-    public JFXButton CONCRETE_FLOORS_BTN;
-    public AnchorPane FOUNDATIONS_TAB;
-    public JFXTextField POST_FOOTING_TOTAL;
-    public JFXTextField POLE_FOOTING_TOTAL;
+    public Pane CONCRETE_FLOOR_TBL, GIRTS_PANE;
+    public JFXTextField CONCRETE_FLOOR_LENGTH, CONCRETE_FLOOR_WIDTH, CONCRETE_FLOOR_THICKNESS, CONCRETE_FLOOR_VOLUME,
+            CONCRETE_FLOOR_AREA, POST_FOOTING_TOTAL, POLE_FOOTING_TOTAL;
+
+    public JFXButton POST_FOOTING_BTN, CONCRETE_BORES_BTN, CONCRETE_FLOORS_BTN;
+
+    public JFXTextField GIRTS_NO_OF_BAYS, GIRTS_BAY_SPACING, GIRTS_LENGTH, GIRTS_DEPTH, GIRTS_REAR_HEIGHT, NO_OF_GIRTS,
+            GIRTS_TOTAL;
+
+    public JFXButton POLES_BTN, COLUMNS_BTN, GIRTS_BTN;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -271,7 +285,29 @@ public class layoutsController implements Initializable {
                 new TreeItemPropertyValueFactory<>("volume")
         );
 
+        externalFramingPolesData = FXCollections.observableArrayList();
 
+        EXTERNAL_FRAMING_PL_NO.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("no")
+        );
+        EXTERNAL_FRAMING_PL_IMAGE.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("image")
+        );
+        EXTERNAL_FRAMING_PL_QTY.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("quantity")
+        );
+
+        externalFramingColumnsData = FXCollections.observableArrayList();
+
+        EXTERNAL_FRAMING_CL_NO.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("no")
+        );
+        EXTERNAL_FRAMING_CL_IMAGE.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("image")
+        );
+        EXTERNAL_FRAMING_CL_QTY.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("quantity")
+        );
 
         DataBase db = DataBase.getInstance();
         POST_FOOTING_TOTAL.setText(db.getTotalVolume("shed_foundations_post_footings"));
@@ -302,6 +338,16 @@ public class layoutsController implements Initializable {
         FOUNDATIONS_CONCRETE_BORES_TBL.setRoot(foundationsConcreteBoresRoot);
         FOUNDATIONS_CONCRETE_BORES_TBL.setShowRoot(false);
 
+        TreeItem<externalFramingPolesData> externalFramingPolesRoot = new RecursiveTreeItem<>(externalFramingPolesData,
+                RecursiveTreeObject::getChildren);
+        EXTERNAL_FRAMING_POLES_TBL.setRoot(externalFramingPolesRoot);
+        EXTERNAL_FRAMING_POLES_TBL.setShowRoot(false);
+
+        TreeItem<externalFramingColumnsData> externalFramingColumnsRoot = new RecursiveTreeItem<>(externalFramingColumnsData,
+                RecursiveTreeObject::getChildren);
+        EXTERNAL_FRAMING_COLUMNS_TBL.setRoot(externalFramingColumnsRoot);
+        EXTERNAL_FRAMING_COLUMNS_TBL.setShowRoot(false);
+
         SEARCH.textProperty().addListener((observable, oldValue, newValue) -> layoutsTableView.setPredicate(
                 modelTreeItem -> modelTreeItem.getValue().getMeasurement().contains(newValue) |
                         modelTreeItem.getValue().getMaterial().contains(newValue)));
@@ -316,6 +362,7 @@ public class layoutsController implements Initializable {
             WINDOW_TBL.setVisible(false);
             CLADDING_TBL.setVisible(false);
             FOUNDATIONS_TAB.setVisible(false);
+            EXTERNAL_FRAMING_TAB.setVisible(false);
         });
 
         LENGTH.setOnAction(event -> {
@@ -324,6 +371,7 @@ public class layoutsController implements Initializable {
             WINDOW_TBL.setVisible(false);
             CLADDING_TBL.setVisible(false);
             FOUNDATIONS_TAB.setVisible(false);
+            EXTERNAL_FRAMING_TAB.setVisible(false);
         });
 
         WINDOWS.setOnAction(event -> {
@@ -332,6 +380,7 @@ public class layoutsController implements Initializable {
             CLADDING_TBL.setVisible(false);
             WINDOW_TBL.setVisible(true);
             FOUNDATIONS_TAB.setVisible(false);
+            EXTERNAL_FRAMING_TAB.setVisible(false);
         });
 
         CLADDING.setOnAction(event -> {
@@ -340,6 +389,7 @@ public class layoutsController implements Initializable {
             WINDOW_TBL.setVisible(false);
             CLADDING_TBL.setVisible(true);
             FOUNDATIONS_TAB.setVisible(false);
+            EXTERNAL_FRAMING_TAB.setVisible(false);
         });
 
         FOUNDATIONS.setOnAction(event -> {
@@ -348,9 +398,18 @@ public class layoutsController implements Initializable {
             WINDOW_TBL.setVisible(false);
             CLADDING_TBL.setVisible(false);
             FOUNDATIONS_TAB.setVisible(true);
-
+            EXTERNAL_FRAMING_TAB.setVisible(false);
 
             db.getFoundationsTotal(FOUNDATIONS_PF_TOTAL, FOUNDATIONS_CB_TOTAL);
+        });
+
+        EXTERNAL_FRAMING.setOnAction(event -> {
+            lengthScrollPane.setVisible(false);
+            STAMP_TBL.setVisible(false);
+            WINDOW_TBL.setVisible(false);
+            CLADDING_TBL.setVisible(false);
+            FOUNDATIONS_TAB.setVisible(false);
+            EXTERNAL_FRAMING_TAB.setVisible(true);
         });
 
         POST_FOOTING_BTN.setOnAction(event -> {
@@ -377,6 +436,26 @@ public class layoutsController implements Initializable {
             FOUNDATIONS_POST_FOOTINGS_TBL.setVisible(false);
             FOUNDATIONS_CONCRETE_BORES_TBL.setVisible(false);
             CONCRETE_FLOOR_TBL.setVisible(true);
+            POST_FOOTING_TOTAL.setVisible(false);
+            POLE_FOOTING_TOTAL.setVisible(false);
+        });
+
+        POLES_BTN.setOnAction(event -> {
+            EXTERNAL_FRAMING_POLES_TBL.setVisible(true);
+            EXTERNAL_FRAMING_COLUMNS_TBL.setVisible(false);
+            GIRTS_PANE.setVisible(false);
+        });
+
+        COLUMNS_BTN.setOnAction(event -> {
+            EXTERNAL_FRAMING_POLES_TBL.setVisible(false);
+            EXTERNAL_FRAMING_COLUMNS_TBL.setVisible(true);
+            GIRTS_PANE.setVisible(false);
+        });
+
+        GIRTS_BTN.setOnAction(event -> {
+            EXTERNAL_FRAMING_POLES_TBL.setVisible(false);
+            EXTERNAL_FRAMING_COLUMNS_TBL.setVisible(false);
+            GIRTS_PANE.setVisible(true);
         });
 
         concreteData = FXCollections.observableArrayList();
@@ -386,11 +465,19 @@ public class layoutsController implements Initializable {
         CONCRETE_FLOOR_VOLUME.textProperty().bind(Bindings.stringValueAt(concreteData, 3));
         CONCRETE_FLOOR_AREA.textProperty().bind(Bindings.stringValueAt(concreteData, 4));
 
-        totalData= FXCollections.observableArrayList();
+        totalData = FXCollections.observableArrayList();
         POST_FOOTING_TOTAL.textProperty().bind(Bindings.stringValueAt(totalData, 0));
         POLE_FOOTING_TOTAL.textProperty().bind(Bindings.stringValueAt(totalData, 1));
         FOUNDATIONS_PF_TOTAL.textProperty().bind(Bindings.stringValueAt(totalData, 2));
 
+        girtsData = FXCollections.observableArrayList();
+        GIRTS_NO_OF_BAYS.textProperty().bind(Bindings.stringValueAt(girtsData, 0));
+        GIRTS_BAY_SPACING.textProperty().bind(Bindings.stringValueAt(girtsData, 1));
+        GIRTS_LENGTH.textProperty().bind(Bindings.stringValueAt(girtsData, 2));
+        GIRTS_DEPTH.textProperty().bind(Bindings.stringValueAt(girtsData, 3));
+        GIRTS_REAR_HEIGHT.textProperty().bind(Bindings.stringValueAt(girtsData, 4));
+        NO_OF_GIRTS.textProperty().bind(Bindings.stringValueAt(girtsData, 5));
+        GIRTS_TOTAL.textProperty().bind(Bindings.stringValueAt(girtsData, 6));
     }
 
     private void showDetails(TreeItem<layoutsData> treeItem) {

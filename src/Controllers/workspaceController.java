@@ -129,17 +129,17 @@ public class workspaceController implements Initializable {
     public Image[] iconImages;  // The little images that can be "stamped".
 
     //sample data
-    private final ObservableList<String> stamp_type = FXCollections.observableArrayList("Doors", "Windows", "Showers",
-            "Toilets", "Foundations");
+    private final ObservableList<String> stamp_type = FXCollections.observableArrayList("Foundations",
+            "External Framing");
     private final ObservableList<String> door_type = FXCollections.observableArrayList( "Sgl Cav", "Dbl Cav",
             "Priv Cav", "Sgl B-fold to 900", "Sgl B-fold to 901-1200", "Dbl B-fold to 1200", "Dbl B-fold to 1201-1600",
             "Dbl B-fold to 1601-1800", "Dbl B-fold to 1801-2400");
-    private final ObservableList<String> door_width = FXCollections.observableArrayList( "510", "560", "610", "660",
-            "710", "760", "810", "860", "1200", "1600", "1800");
+    private final ObservableList<String> door_width = FXCollections.observableArrayList( "510", "560", "610",
+            "660", "710", "760", "810", "860", "1200", "1600", "1800");
     private final ObservableList<String> door_height = FXCollections.observableArrayList("1980", "2000", "2100",
             "2200", "2400");
 
-    public Pane DOOR_PANE, WINDOW_PANE, FOUNDATIONS_PANE;
+    public Pane DOOR_PANE, WINDOW_PANE, FOUNDATIONS_PANE, EXTERNAL_FRAMING_PANE;
 
     //stamp (windows)
     public int ws_indicator = 0;
@@ -155,6 +155,17 @@ public class workspaceController implements Initializable {
 
     private final ObservableList<String> foundations_parts = FXCollections.observableArrayList("Post Footings",
             "Pole Footings");
+
+    //stamp (external framing)
+    public int ef_indicator = 0;
+    public JFXComboBox<String> EXTERNAL_FRAMING_PART, EXTERNAL_FRAMING_MATERIAL;
+
+    private final ObservableList<String> external_framing_parts = FXCollections.observableArrayList("Poles",
+            "Columns");
+    private final ObservableList<String> external_framing_materials_pl = FXCollections.observableArrayList
+            ("200 SED Pole");
+    private final ObservableList<String> external_framing_materials_cl = FXCollections.observableArrayList
+            ("2/150 x 50 H3.2 Column");
 
     //set stud height
     public double stud_height;
@@ -173,14 +184,13 @@ public class workspaceController implements Initializable {
     public JFXButton MISCELLANEOUS_DONE, MISCELLANEOUS_CLOSE;
     public JFXComboBox<String> MISC_PART, MISC_SHED_TYPE;
     public ObservableList<String> misc_parts = FXCollections.observableArrayList("Concrete Floor", "Girts");
-    public ObservableList<String> method_parts = FXCollections.observableArrayList("Bays", "Length");
     public ObservableList<String> shed_type_parts = FXCollections.observableArrayList("Enclosed", "Open");
 
     //foundations
     public JFXTextField CONCRETE_FLOOR_LENGTH, CONCRETE_FLOOR_WIDTH, CONCRETE_FLOOR_THICKNESS;
     public Label CONCRETE_FLOOR_LENGTH_ERROR, CONCRETE_FLOOR_WIDTH_ERROR, CONCRETE_FLOOR_THICKNESS_ERROR;
     //girts
-    public JFXTextField GIRTS_LENGTH, GIRTS_WIDTH, GIRTS_REAR_HEIGHT, GIRTS_NO, GIRTS_TOTAL, GIRTS_NO_OF_BAYS,
+    public JFXTextField GIRTS_LENGTH, GIRTS_DEPTH, GIRTS_REAR_HEIGHT, GIRTS_NO, GIRTS_TOTAL, GIRTS_NO_OF_BAYS,
             GIRTS_BAY_SPACING;
     public Label GIRTS_LENGTH_ERROR, GIRTS_WIDTH_ERROR, GIRTS_REAR_HEIGHT_ERROR;
 
@@ -193,6 +203,7 @@ public class workspaceController implements Initializable {
         DOOR_HEIGHT.setItems(door_height);
         WINDOW_TYPE.setItems(window_type);
         FOUNDATIONS_PART.setItems(foundations_parts);
+        EXTERNAL_FRAMING_PART.setItems(external_framing_parts);
 
         //misc
         MISC_PART.setItems(misc_parts);
@@ -230,7 +241,6 @@ public class workspaceController implements Initializable {
         FOUNDATIONS_VOLUME1.textProperty().bind(Bindings.createStringBinding(()-> {
             //Do your calculation
             double volume = 0;
-
             if (!FOUNDATIONS_WIDTH.getText().isEmpty() && !FOUNDATIONS_DEPTH.getText().isEmpty() &&
                     !FOUNDATIONS_LENGTH.getText().isEmpty()) {
                 double width = Double.parseDouble(FOUNDATIONS_WIDTH.getText()) / 1000;
@@ -254,6 +264,16 @@ public class workspaceController implements Initializable {
             //Return result as String
             return String.valueOf(df.format(volume));
         }, FOUNDATIONS_DIAMETER.textProperty(), FOUNDATIONS_HEIGHT.textProperty()));
+
+        EXTERNAL_FRAMING_PART.setOnAction(event -> {
+            if (!EXTERNAL_FRAMING_PART.getSelectionModel().isEmpty()) {
+                if (EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem().equals("Poles")) {
+                    EXTERNAL_FRAMING_MATERIAL.setItems(external_framing_materials_pl);
+                } else if (EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem().equals("Columns")) {
+                    EXTERNAL_FRAMING_MATERIAL.setItems(external_framing_materials_cl);
+                }
+            }
+        });
 
         DONE.setOnAction(event -> { //stamping
             stampPicker.setVisible(false);
@@ -280,6 +300,18 @@ public class workspaceController implements Initializable {
                 }
         });
 
+        GIRTS_LENGTH.textProperty().bind(Bindings.createStringBinding(()-> {
+            //Do your calculation
+            double length = 0;
+            DecimalFormat df = new DecimalFormat("0.00");
+            if (!GIRTS_NO_OF_BAYS.getText().isEmpty() && !GIRTS_BAY_SPACING.getText().isEmpty()) {
+                double bay_spacing = Double.parseDouble(GIRTS_BAY_SPACING.getText());
+                length = Integer.parseInt(GIRTS_NO_OF_BAYS.getText()) * bay_spacing;
+            }
+            //Return result as String
+            return String.valueOf(df.format(length));
+        }, GIRTS_NO_OF_BAYS.textProperty(), GIRTS_BAY_SPACING.textProperty()));
+
         GIRTS_NO.textProperty().bind(Bindings.createStringBinding(()-> {
             //Do your calculation
             int qty = 0;
@@ -295,24 +327,24 @@ public class workspaceController implements Initializable {
         GIRTS_TOTAL.textProperty().bind(Bindings.createStringBinding(()-> {
             //Do your calculation
             double total = 0;
-
-            if (!GIRTS_LENGTH.getText().isEmpty() && !GIRTS_WIDTH.getText().isEmpty() &&
+            DecimalFormat df = new DecimalFormat("0.00");
+            if (!GIRTS_LENGTH.getText().isEmpty() && !GIRTS_DEPTH.getText().isEmpty() &&
                     !MISC_SHED_TYPE.getSelectionModel().isEmpty()) {
                 if (MISC_SHED_TYPE.getSelectionModel().getSelectedItem().equals("Enclosed")) {
-                    double length = Double.parseDouble(GIRTS_LENGTH.getText()) / 1000;
-                    double width = Double.parseDouble(GIRTS_WIDTH.getText()) / 1000;
+                    double length = Double.parseDouble(GIRTS_LENGTH.getText());
+                    double width = Double.parseDouble(GIRTS_DEPTH.getText());
 
                     total = (length + width) * 2;
                 } else if (MISC_SHED_TYPE.getSelectionModel().getSelectedItem().equals("Open")) {
-                    double length = Double.parseDouble(GIRTS_LENGTH.getText()) / 1000;
-                    double width = Double.parseDouble(GIRTS_WIDTH.getText()) / 1000;
+                    double length = Double.parseDouble(GIRTS_LENGTH.getText());
+                    double width = Double.parseDouble(GIRTS_DEPTH.getText());
 
-                    total = length + (width * 2) / 1000;
+                    total = length + (width * 2);
                 }
             }
             //Return result as String
-            return String.valueOf(total);
-        }, GIRTS_LENGTH.textProperty(), GIRTS_WIDTH.textProperty()));
+            return String.valueOf(df.format(total));
+        }, GIRTS_LENGTH.textProperty(), GIRTS_DEPTH.textProperty()));
 
         MISCELLANEOUS_DONE.setOnAction(event -> {
             if (!MISC_PART.getSelectionModel().isEmpty()) {
@@ -382,6 +414,13 @@ public class workspaceController implements Initializable {
                 } else if (MISC_PART.getSelectionModel().getSelectedItem().equals("Girts")) {
                     try {
                         // layouts and db function
+                        layoutsController.girtsData.add(0, GIRTS_NO_OF_BAYS.getText());
+                        layoutsController.girtsData.add(1, GIRTS_BAY_SPACING.getText());
+                        layoutsController.girtsData.add(2, GIRTS_LENGTH.getText());
+                        layoutsController.girtsData.add(3, GIRTS_DEPTH.getText());
+                        layoutsController.girtsData.add(4, GIRTS_REAR_HEIGHT.getText());
+                        layoutsController.girtsData.add(5, GIRTS_NO.getText());
+                        layoutsController.girtsData.add(6, GIRTS_TOTAL.getText());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -402,51 +441,63 @@ public class workspaceController implements Initializable {
         wallData.typeAction();
         wallData.choicesAction();
 
-        try {
-            STAMP_TYPE.setOnAction(event -> {
-                if (!STAMP_TYPE.getSelectionModel().isEmpty()) {
-                    switch (STAMP_TYPE.getSelectionModel().getSelectedItem()) {
-                        case "Doors":
-                            DOOR_PANE.setVisible(true);
-                            WINDOW_PANE.setVisible(false);
+        STAMP_TYPE.setOnAction(event -> {
+            if (!STAMP_TYPE.getSelectionModel().isEmpty()) {
+                switch (STAMP_TYPE.getSelectionModel().getSelectedItem()) {
+                    case "Doors":
+                        DOOR_PANE.setVisible(true);
+                        WINDOW_PANE.setVisible(false);
 
-                            ds_indicator = 1;
-                            ws_indicator = 0;
-                            fs_indicator = 0;
+                        ds_indicator = 1;
+                        ws_indicator = 0;
+                        fs_indicator = 0;
 
-                            iconList = createIconList();
-                            stampPicker.getChildren().add(iconList);
-                            break;
-                        case "Windows":
-                            DOOR_PANE.setVisible(false);
-                            WINDOW_PANE.setVisible(true);
-                            iconList.setVisible(false);
+                        iconList = createIconList();
+                        stampPicker.getChildren().add(iconList);
+                        break;
+                    case "Windows":
+                        DOOR_PANE.setVisible(false);
+                        WINDOW_PANE.setVisible(true);
+                        iconList.setVisible(false);
 
-                            ds_indicator = 0;
-                            ws_indicator = 1;
-                            fs_indicator = 0;
+                        ds_indicator = 0;
+                        ws_indicator = 1;
+                        fs_indicator = 0;
 
-                            UNDO.setVisible(false);
-                            REDO.setVisible(false);
-                            break;
-                        case "Foundations":
-                            DOOR_PANE.setVisible(false);
-                            WINDOW_PANE.setVisible(false);
-                            FOUNDATIONS_PANE.setVisible(true);
+                        UNDO.setVisible(false);
+                        REDO.setVisible(false);
+                        break;
+                    case "Foundations":
+                        DOOR_PANE.setVisible(false);
+                        WINDOW_PANE.setVisible(false);
+                        FOUNDATIONS_PANE.setVisible(true);
+                        EXTERNAL_FRAMING_PANE.setVisible(false);
 
-                            ds_indicator = 0;
-                            ws_indicator = 0;
-                            fs_indicator = 1;
+                        ds_indicator = 0;
+                        ws_indicator = 0;
+                        fs_indicator = 1;
+                        ef_indicator = 0;
 
-                            iconList = createIconList();
-                            stampPicker.getChildren().add(iconList);
-                            break;
-                    }
+                        iconList = createIconList();
+                        stampPicker.getChildren().add(iconList);
+                        break;
+                    case "External Framing":
+                        DOOR_PANE.setVisible(false);
+                        WINDOW_PANE.setVisible(false);
+                        FOUNDATIONS_PANE.setVisible(false);
+                        EXTERNAL_FRAMING_PANE.setVisible(true);
+
+                        ds_indicator = 0;
+                        ws_indicator = 0;
+                        fs_indicator = 0;
+                        ef_indicator = 1;
+
+                        iconList = createIconList();
+                        stampPicker.getChildren().add(iconList);
+                        break;
                 }
-            });
-        } catch (Exception e) {
-
-        }
+            }
+        });
 
         //cladding
         CLADDING_BTN.setOnAction(event -> {
@@ -565,6 +616,7 @@ public class workspaceController implements Initializable {
         } else {
             SCALE.setGraphic(new ImageView(ii));
         }
+
     }
 
     public void areaAction() {
@@ -933,7 +985,7 @@ public class workspaceController implements Initializable {
         CONCRETE_FLOOR_WIDTH.setText("");
 
         GIRTS_LENGTH.setText("");
-        GIRTS_WIDTH.setText("");
+        GIRTS_DEPTH.setText("");
         GIRTS_REAR_HEIGHT.setText("");
     }
 }
