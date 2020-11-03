@@ -940,7 +940,7 @@
             <Image url="@images/more_than_25px.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="stampPicker" prefHeight="414.0" prefWidth="325.0" style="-fx-background-color: TRANSPARENT;" stylesheets="@CSS/style.css">
+      <AnchorPane fx:id="stampPicker" prefHeight="414.0" prefWidth="325.0" style="-fx-background-color: TRANSPARENT;" stylesheets="@CSS/style.css" visible="false">
          <children>
             <AnchorPane fx:id="stampPickerPane" layoutX="14.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="295.0" style="-fx-background-radius: 20px; -fx-background-color: #0F1E25;" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                <effect>
@@ -1045,10 +1045,10 @@
                               </JFXTextField>
                            </children>
                         </Pane>
-                        <Pane fx:id="EXTERNAL_FRAMING_PANE" layoutY="53.0" prefHeight="216.0" prefWidth="200.0">
+                        <Pane fx:id="EXTERNAL_FRAMING_PANE" layoutY="53.0" prefHeight="216.0" prefWidth="200.0" visible="false">
                            <children>
-                              <JFXComboBox fx:id="EXTERNAL_FRAMING_PART" focusTraversable="false" layoutX="13.0" layoutY="11.0" prefHeight="28.0" prefWidth="175.0" promptText="Part" unFocusColor="#bcbcbc" />
-                              <JFXComboBox fx:id="EXTERNAL_FRAMING_MATERIAL" focusTraversable="false" layoutX="13.0" layoutY="66.0" prefHeight="28.0" prefWidth="175.0" promptText="Material" unFocusColor="#bcbcbc" />
+                              <JFXComboBox fx:id="EXTERNAL_FRAMING_PART" focusTraversable="false" labelFloat="true" layoutX="13.0" layoutY="11.0" prefHeight="28.0" prefWidth="175.0" promptText="Part" unFocusColor="#bcbcbc" />
+                              <JFXComboBox fx:id="EXTERNAL_FRAMING_MATERIAL" focusTraversable="false" labelFloat="true" layoutX="13.0" layoutY="66.0" prefHeight="28.0" prefWidth="175.0" promptText="Material" unFocusColor="#bcbcbc" />
                            </children>
                         </Pane>
                         <JFXButton fx:id="UNDO" alignment="CENTER" focusTraversable="false" graphicTextGap="5.0" layoutX="14.0" layoutY="278.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="81.0" style="-fx-background-radius: 30px; -fx-background-color: #263238;" text="Undo" textAlignment="CENTER" textFill="#bcbcbc">

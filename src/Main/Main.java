@@ -113,6 +113,7 @@ public class Main extends Application {
 //                    db.clearSectionDimensions();
                     db.clearSectionsTbl();
                     db.clearLayoutsFoundations();
+                    db.clearLayoutsExternalFraming();
                     dashboard_stage.close();
                 }
                 else {

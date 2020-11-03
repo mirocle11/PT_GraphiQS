@@ -7,9 +7,10 @@ import javafx.beans.property.SimpleStringProperty;
  * Created by User on 19/10/2020.
  */
 public class concreteBoresSec extends RecursiveTreeObject<concreteBoresSec> {
-    private SimpleStringProperty no, qty,diameter,height,volume;
 
-    public concreteBoresSec(String no,String qty,String diameter, String height, String volume) {
+    private SimpleStringProperty no, qty, diameter, height, volume;
+
+    public concreteBoresSec(String no,String qty, String diameter, String height, String volume) {
         this.no = new SimpleStringProperty(no);
         this.qty = new SimpleStringProperty(qty);
         this.diameter = new SimpleStringProperty(diameter);

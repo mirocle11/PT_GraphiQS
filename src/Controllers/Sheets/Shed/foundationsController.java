@@ -2,7 +2,6 @@ package Controllers.Sheets.Shed;
 
 import DataBase.DataBase;
 import Main.Main;
-import Model.Sheets.foundationsData;
 import Model.data.shed.foundations.concreteBoresSec;
 import Model.data.shed.foundations.postFootingsSec;
 import Model.data.shed.foundationsMaterials;
@@ -102,7 +101,6 @@ public class foundationsController implements Initializable {
     public static ObservableList<Integer> foundationsPFSectionList = FXCollections.observableArrayList();
     public static ObservableList<Integer> foundationsCBSectionList = FXCollections.observableArrayList();
     public static ObservableList<Integer> foundationsCFSectionList = FXCollections.observableArrayList();
-    public static ObservableList<foundationsData> foundationsData= FXCollections.observableArrayList();
 
     private final ObservableList<String> setsListPF = FXCollections.observableArrayList();
     private final ObservableList<String> setsListCB = FXCollections.observableArrayList();
@@ -333,60 +331,6 @@ public class foundationsController implements Initializable {
             setComponentContents(3, CF_SET.getSelectionModel().getSelectedItem());
         });
 
-        REFRESH.setOnAction(event -> {
-            //refresh all tables
-            refreshConcreteFloorMaterials();
-        });
-    }
-
-    public void refreshConcreteFloorMaterials() {
-                foundationsMaterials.clear();
-                int srm_quantity = (int) ((int) cf_area / 7.612);
-                int pb_quantity;
-                if (cf_area < 100 && srm_quantity > 0.00) {
-                    pb_quantity = 1;
-                } else {
-                    int remainder = (int) (cf_area % 100);
-                    if (remainder > 0) {
-                        pb_quantity = (int) (cf_area / 100) + 1;
-                    } else {
-                        pb_quantity = (int) (cf_area / 100);
-                    }
-                }
-                int tp_quantity;
-                if (cf_length < 30 && cf_length > 0) {
-                    tp_quantity = 1;
-                } else {
-                    int remainder = cf_length % 30;
-                    if (remainder > 0) {
-                tp_quantity = cf_length / 30 + 1;
-            } else {
-                tp_quantity = cf_length / 30;
-            }
-        }
-        int tw_quantity;
-        if (cf_area < 20 && cf_area > 0) {
-            tw_quantity = 1;
-        } else {
-            int remainder = (int) (cf_area % 20);
-            if (remainder > 0) {
-                tw_quantity = (int) (cf_area / 20 + 1);
-            } else {
-                tw_quantity = (int) (cf_area / 20);
-            }
-        }
-//        foundationsMaterials.addAll(new foundationsMaterials("32100832", "Structural Concrete 17.5Mpa 19mm",
-//                "M3", String.valueOf(new DecimalFormat("0.00").format(cf_volume))));
-//        foundationsMaterials.addAll(new foundationsMaterials("STMESE620500SM",
-//                "STEEL REINFORCING MESH SE620-500SMALL 4.68X2.05 7.612M2", "SHT", String.valueOf(srm_quantity)));
-//        foundationsMaterials.addAll(new foundationsMaterials("STBC5065E",
-//                "BAR CHAIR PLASTIC 50-65MM - PER EACH", "EACH", String.valueOf(srm_quantity * 12)));
-//        foundationsMaterials.addAll(new foundationsMaterials("RPPO250425",
-//                "POLYTHENE BLK 250MU X 4M X 25M 2010103", "ROLL", String.valueOf(pb_quantity)));
-//        foundationsMaterials.addAll(new foundationsMaterials("RPJT2040116",
-//                "TAPE-IT HIGH ADHESIVE PVC JOINING TAPE 48MMX30M 2040116", "ROLL", String.valueOf(tp_quantity)));
-//        foundationsMaterials.addAll(new foundationsMaterials("STW300GX1KG", "TIE WIRE GALV 300MM X 1KG",
-//                "EACH", String.valueOf(tw_quantity)));
     }
 
     public void loadComponentEditor() {
@@ -499,13 +443,5 @@ public class foundationsController implements Initializable {
                     break;
             }
         }
-//        DataBase db = DataBase.getInstance();
-//        foundationsMaterials.forEach(foundationsMaterials1 -> {
-//            db.clearComponentsTable(part_id, section);
-//            db.insertComponents(part_id, section, foundationsMaterials1.getComponent(),
-//                    foundationsMaterials1.getSku_number(), foundationsMaterials1.getDescription(),
-//                    foundationsMaterials1.getUnit(), foundationsMaterials1.getQuantity(),
-//                    foundationsMaterials1.getUsage());
-//        });
     }
 }

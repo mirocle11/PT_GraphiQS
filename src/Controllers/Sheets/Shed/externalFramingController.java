@@ -9,9 +9,7 @@ import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -33,6 +31,9 @@ public class externalFramingController implements Initializable {
     public ArrayList<JFXButton> buttonList = new ArrayList<>();
     public ArrayList<GridPane> gridPaneList = new ArrayList<>();
 
+    //components
+    public ListView<Integer> PL_SECTIONS, CL_SECTIONS;
+
     //gridpanes (parts)
     public GridPane POLES, COLUMNS, GIRTS, DOORS, WINDOWS;
 
@@ -44,6 +45,10 @@ public class externalFramingController implements Initializable {
     public TreeTableColumn<externalFramingMaterials, String> UNIT_COL;
     public TreeTableColumn<externalFramingMaterials, String> QUANTITY_COL;
     public TreeTableColumn<externalFramingMaterials, String> USAGE_COL;
+
+    public TreeTableView<externalFramingMaterials> POLES_TABLE;
+    public TreeTableColumn<externalFramingMaterials, String> PL_COL_NO;
+    public TreeTableColumn<externalFramingMaterials, String> PL_COL_QTY;
 
     //data lists
     public static ObservableList<externalFramingMaterials> externalFramingMaterials;
@@ -85,7 +90,7 @@ public class externalFramingController implements Initializable {
             });
         });
 
-        //foundations materials
+        //externalframing materials
         externalFramingMaterials = FXCollections.observableArrayList();
 
         COMPONENT_COL.setCellValueFactory(
@@ -111,6 +116,8 @@ public class externalFramingController implements Initializable {
                 (externalFramingMaterials, RecursiveTreeObject::getChildren);
         MATERIALS_TBL.setRoot(externalFramingControllerTreeItem);
         MATERIALS_TBL.setShowRoot(false);
+
+
     }
 
     public void loadPanes() {

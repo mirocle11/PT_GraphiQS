@@ -1,6 +1,8 @@
 package DataBase;
 
 import Model.data.clientsData;
+import Model.data.layouts.externalFramingColumnsData;
+import Model.data.layouts.externalFramingPolesData;
 import Model.data.layouts.foundationsConcreteBoresData;
 import Model.data.layouts.foundationsPostFootingsData;
 import Model.data.setupSheetsData;
@@ -779,15 +781,14 @@ public class DataBase {
 //                sectionDimensions.addAll(new postFootingsSec(String.valueOf(resultSet.getInt("DIMENSION")),
 //                        resultSet.getString("DEPTH"), resultSet.getString("WIDTH"),
 //                        resultSet.getString("LENGTH"), resultSet.getString("QTY")));
-                System.out.println(String.valueOf(resultSet.getString("QUANTITY")));
+                System.out.println(resultSet.getString("QUANTITY"));
                 System.out.println(resultSet.getString("DIAMETER"));
                 System.out.println(resultSet.getString("HEIGHT"));
                 System.out.println(resultSet.getString("VOLUME"));
 
                 sectionDimensions.addAll(new concreteBoresSec("1",
                         String.valueOf(resultSet.getString("QUANTITY")),
-                        resultSet.getString("DIAMETER"),
-                        resultSet.getString("HEIGHT"),
+                        resultSet.getString("DIAMETER"), resultSet.getString("HEIGHT"),
                         resultSet.getString("VOLUME")
                 ));
 
@@ -809,9 +810,6 @@ public class DataBase {
 
             while (resultSet.next()) {
                 //create container for data
-//                sectionDimensions.addAll(new postFootingsSec(String.valueOf(resultSet.getInt("DIMENSION")),
-//                        resultSet.getString("DEPTH"), resultSet.getString("WIDTH"),
-//                        resultSet.getString("LENGTH"), resultSet.getString("QTY")));
 
                 sectionDimensions.addAll(new postFootingsSec("1",
                         resultSet.getString("DEPTH"),
@@ -826,16 +824,6 @@ public class DataBase {
             e.printStackTrace();
         }
     }
-
-//    public void clearSectionDimensions() {
-//        try {
-//            String sql = "TRUNCATE TABLE SHED_SECTION_DIMENSIONS";
-//            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-//            preparedStatement.executeUpdate();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     public void deleteSection(int part_id, int section) {
         try {
@@ -917,160 +905,6 @@ public class DataBase {
         }
     }
 
-        // new foundations content
-//    public void setFoundationsMaterialsContent(int part_id, int section_id, String set, String set_override,
-//                                               ObservableList<foundationsMaterials> foundationsMaterials) {
-//        try {
-//            String sql = "SELECT ID FROM SHED_SETS WHERE PART_ID = ? AND SETS = ?";
-//
-//            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-//            preparedStatement.setInt(1, part_id);
-//            preparedStatement.setString(2, set);
-//
-//            ResultSet resultSet = preparedStatement.executeQuery();
-//            int set_id = 0;
-//            while (resultSet.next()) {
-//                set_id = resultSet.getInt("ID");
-//            }
-//
-//            String sql1 = "SELECT ID FROM SHED_SET_OVERRIDE WHERE SET_ID = ? AND SET_OVERRIDE = ?";
-//
-//            PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
-//            preparedStatement1.setInt(1, set_id);
-//            preparedStatement1.setString(2, set_override);
-//
-//            ResultSet resultSet1 = preparedStatement1.executeQuery();
-//            int set_override_id = 0;
-//            while (resultSet1.next()) {
-//                set_override_id = resultSet1.getInt("ID");
-//            }
-//
-//            //select components
-//            String sql2 = "SELECT * FROM SHED_SET_COMPONENTS WHERE SET_ID = ? AND SET_OVERRIDE = ?";
-//
-//            PreparedStatement preparedStatement2 = connection.prepareStatement(sql2);
-//            preparedStatement2.setInt(1, set_id);
-//            preparedStatement2.setInt(2, set_override_id);
-//
-//            ResultSet resultSet2 = preparedStatement2.executeQuery();
-//            foundationsMaterials.clear();
-//            while (resultSet2.next()) {
-////                foundationsMaterials.addAll(new foundationsMaterials(resultSet2.getString("COMPONENT"),
-////                        resultSet2.getString("CODE"), resultSet2.getString("DESCRIPTION"),
-////                        resultSet2.getString("UNIT"), resultSet2.getString("QUANTITY"),
-////                        resultSet2.getString("USAGE")));
-//
-//                String sql3 = "INSERT INTO SHED_COMPONENTS_TBL (PARTS_ID, SECTION, COMPONENT, 'CODE', 'DESCRIPTION', " +
-//                        "UNIT, QUANTITY, 'USAGE') VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-//
-//                PreparedStatement preparedStatement3 = connection.prepareStatement(sql3);
-//                preparedStatement3.setInt(1, part_id);
-//                preparedStatement3.setInt(2, section_id);
-//                preparedStatement3.setString(3, resultSet2.getString("COMPONENT"));
-//                preparedStatement3.setString(4, resultSet2.getString("CODE"));
-//                preparedStatement3.setString(5, resultSet2.getString("DESCRIPTION"));
-//                preparedStatement3.setString(6, resultSet2.getString("UNIT"));
-//                preparedStatement3.setString(7, resultSet2.getString("QUANTITY"));
-//                preparedStatement3.setString(8, resultSet2.getString("USAGE"));
-//
-//                preparedStatement3.executeUpdate();
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-//    public void getFoundationsSetOverrideComponents(int part_id, int section, String set, String set_override,
-//                                                    ObservableList<foundationsData> foundationsData) {
-//
-//        try {
-//            //get set id
-//            String sql = "SELECT ID FROM SHED_SETS WHERE PART_ID = ? AND SETS = ?";
-//
-//            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-//            preparedStatement.setInt(1, part_id);
-//            preparedStatement.setString(2, set);
-//
-//            ResultSet resultSet = preparedStatement.executeQuery();
-//            int set_id = 0;
-//            while (resultSet.next()) {
-//                set_id = resultSet.getInt("ID");
-//            }
-//            //get set override id
-//            String sql1 = "SELECT ID FROM SHED_SET_OVERRIDE WHERE SET_ID = ? AND SET_OVERRIDE = ?";
-//
-//            PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
-//            preparedStatement1.setInt(1, set_id);
-//            preparedStatement1.setString(2, set_override);
-//
-//            ResultSet resultSet1 = preparedStatement1.executeQuery();
-//            int set_override_id = 0;
-//            while (resultSet1.next()) {
-//                set_override_id = resultSet1.getInt("ID");
-//                System.out.println("set override id" + set_override_id);
-//            }
-//
-//            String sql2 = "SELECT * FROM SHED_SET_OVERRIDE_COMPONENTS WHERE SET_ID = ? AND SET_OVERRIDE_ID = ?";
-//
-//            PreparedStatement preparedStatement2 = connection.prepareStatement(sql2);
-//            preparedStatement2.setInt(1, set_id);
-//            preparedStatement2.setInt(2, set_override_id);
-//
-//            ResultSet resultSet2 = preparedStatement2.executeQuery();
-//            ArrayList<String> components = new ArrayList<>();
-//            ArrayList<String> code = new ArrayList<>();
-//            ArrayList<String> description = new ArrayList<>();
-//            ArrayList<String> extra1 = new ArrayList<>();
-//            ArrayList<String> extra2 = new ArrayList<>();
-//            ArrayList<String> quantity = new ArrayList<>();
-//            ArrayList<String> usage = new ArrayList<>();
-//            ArrayList<String> waste = new ArrayList<>();
-//            ArrayList<String> subheading = new ArrayList<>();
-//            ArrayList<String> usage2 = new ArrayList<>();
-//
-//            while (resultSet2.next()) {
-//                components.add(resultSet2.getString("COMPONENT"));
-//                code.add(resultSet2.getString("CODE"));
-//                description.add(resultSet2.getString("DESCRIPTION"));
-//                extra1.add(resultSet2.getString("EXTRA1"));
-//                extra2.add(resultSet2.getString("EXTRA2"));
-//                quantity.add(resultSet2.getString("QUANTITY"));
-//                usage.add(resultSet2.getString("USAGE"));
-//                waste.add(resultSet2.getString("WASTE"));
-//                subheading.add(resultSet2.getString("SUBHEADING"));
-//                usage2.add(resultSet2.getString("USAGE2"));
-//
-//            }
-//            int count = 0;
-//            for (String component : components) {
-//                //update components table by set selection
-//                String sql3 = "UPDATE SHED_COMPONENTS_TBL SET 'CODE' = ?, 'DESCRIPTION' = ?, EXTRA1 = ?, EXTRA2 = ?," +
-//                        " QUANTITY = ?, 'USAGE' = ?, WASTE = ?, SUBHEADING = ?, USAGE2 = ? WHERE PARTS_ID = ?" +
-//                        " AND SECTION = ? AND COMPONENT = ?";
-//
-//                PreparedStatement preparedStatement3 = connection.prepareStatement(sql3);
-//                preparedStatement3.setString(1, code.get(count));
-//                preparedStatement3.setString(2, description.get(count));
-//                preparedStatement3.setString(3, extra1.get(count));
-//                preparedStatement3.setString(4, extra2.get(count));
-//                preparedStatement3.setString(5, quantity.get(count));
-//                preparedStatement3.setString(6, usage.get(count));
-//                preparedStatement3.setString(7, waste.get(count));
-//                preparedStatement3.setString(8, subheading.get(count));
-//                preparedStatement3.setString(9, usage2.get(count));
-//                preparedStatement3.setInt(10, part_id);
-//                preparedStatement3.setInt(11, section);
-//                preparedStatement3.setString(12, component);
-//
-//                preparedStatement3.executeUpdate();
-//                count++;
-//            }
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-
     //foundations layout
     public void showFoundationsPF(ObservableList<foundationsPostFootingsData> foundationsPostFootingsData) {
         try {
@@ -1106,7 +940,7 @@ public class DataBase {
                                     String volume) {
         try {
             String sql = "INSERT INTO SHED_FOUNDATIONS_POST_FOOTINGS (ID, IMAGE, QUANTITY, DEPTH, WIDTH, LENGTH," +
-                    " VOLUME,PART) VALUES (?, ?, ?, ?, ?, ?, ?,?)";
+                    " VOLUME) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, section);
@@ -1116,7 +950,6 @@ public class DataBase {
             preparedStatement.setString(5, width);
             preparedStatement.setString(6, length);
             preparedStatement.setString(7, volume);
-            preparedStatement.setString(8, "test");
 
             preparedStatement.executeUpdate();
 
@@ -1359,11 +1192,12 @@ public class DataBase {
         }
     }
 
-    public void insertSectionDimension(String part, String path,  String diameter, String height, String depth,
-                                       String width, String length,String volume) {
+    public void insertFoundationsSectionDimension(String part, String path, String diameter, String height, String depth,
+                                                  String width, String length, String volume) {
         try {
-            String sql = "INSERT INTO shed_section_dimensions (IMAGE,PART,HEIGHT,DEPTH,DIAMETER,VOLUME,WIDTH,LENGTH,QTY,SECTION_ID)" +
-                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE QTY = QTY+1 ";
+            String sql = "INSERT INTO SHED_FOUNDATIONS_SECTION_DIMENSIONS (IMAGE,PART,HEIGHT,DEPTH," +
+                    "DIAMETER,VOLUME,WIDTH,LENGTH,QTY,SECTION_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" +
+                    " ON DUPLICATE KEY UPDATE QTY = QTY + 1 ";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, path);
@@ -1375,7 +1209,7 @@ public class DataBase {
             preparedStatement.setString(7, width);
             preparedStatement.setString(8, length);
             preparedStatement.setInt(9, 1);
-            preparedStatement.setInt(10, getLastSection(part)+1);
+            preparedStatement.setInt(10, getLastSection(part) + 1);
             preparedStatement.executeUpdate();
 
         } catch (Exception e) {
@@ -1385,7 +1219,7 @@ public class DataBase {
 
     public int getLastSection(String part) {
         try {
-            String sql = "SELECT SECTION_ID FROM shed_section_dimensions WHERE  PART = ? ORDER BY SECTION_ID DESC LIMIT 1";
+            String sql = "SELECT SECTION_ID FROM SHED_FOUNDATIONS_SECTION_DIMENSIONS WHERE  PART = ? ORDER BY SECTION_ID DESC LIMIT 1";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, part);
@@ -1459,18 +1293,155 @@ public class DataBase {
         return Double.toString(total);
     }
 
-    public void identifyExternalFramingPLValues(String material, Label section, Label quantity) {
+    public void getExternalFramingLastRow(Label section, String part) {
         try {
-            String sql = "SELECT * FROM SHED_FOUNDATIONS_POST_FOOTINGS WHERE MATERIAL = ?";
+            String sql = "SELECT ID FROM SHED_EXTERNAL_FRAMING WHERE PART = ? ORDER BY ID DESC LIMIT 1";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, material);
+            preparedStatement.setString(1, part);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                section.setText(String.valueOf(resultSet.getInt("ID")));
+                section.setText(String.valueOf(resultSet.getInt("SECTION_ID") + 1));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void identifyExternalFramingValues(String part, String material, Label section, Label quantity) {
+        try {
+            String sql = "SELECT * FROM SHED_EXTERNAL_FRAMING WHERE PART = ? AND MATERIAL = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, part);
+            preparedStatement.setString(2, material);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                section.setText(String.valueOf(resultSet.getInt("SECTION_ID")));
                 quantity.setText(String.valueOf(resultSet.getInt("QUANTITY")));
-                System.out.println("section layout: " + resultSet.getInt("ID"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void insertExternalFraming(int section, String path, String part, int quantity, String material) {
+        try {
+            String sql = "INSERT INTO SHED_EXTERNAL_FRAMING (SECTION_ID, IMAGE, PART, QUANTITY, MATERIAL) " +
+                    "VALUES (?, ?, ?, ?, ?)";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, section);
+            preparedStatement.setString(2, path);
+            preparedStatement.setString(3, part);
+            preparedStatement.setInt(4, quantity);
+            preparedStatement.setString(5, material);
+
+            preparedStatement.executeUpdate();
+
+            setSections(1, section);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateExternalFramingCount(int quantity, String part, int section) {
+        try {
+            String sql = "UPDATE SHED_EXTERNAL_FRAMING SET QUANTITY = ? WHERE PART = ? AND SECTION_ID = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, quantity);
+            preparedStatement.setString(2, part);
+            preparedStatement.setInt(3, section);
+
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void insertExternalFramingSectionDimension(String part, String path, String material) {
+        try {
+            String sql = "INSERT INTO SHED_EXTERNAL_FRAMING_SECTION_DIMENSIONS (IMAGE, PART, MATERIAL, QTY, SECTION_ID)" +
+                    " VALUES (?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE QTY = QTY + 1 ";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, path);
+            preparedStatement.setString(2, part);
+            preparedStatement.setString(3, material);
+            preparedStatement.setInt(4, 1);
+            preparedStatement.setInt(5, getLastSection(part) + 1);
+            preparedStatement.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void clearLayoutsExternalFraming() {
+        //todo -> add all tables
+        try {
+            String sql = "TRUNCATE TABLE SHED_EXTERNAL_FRAMING";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void showExternalFramingLayouts(ObservableList<externalFramingPolesData> externalFramingPolesData,
+                                           ObservableList<externalFramingColumnsData> externalFramingColumnsData) {
+        try {
+            String sql = "SELECT * FROM SHED_EXTERNAL_FRAMING WHERE PART = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, "Poles");
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                //create label (load string from resource)
+                Image external_framing_img = new Image(getClass().getResourceAsStream(resultSet.getString("IMAGE")));
+                Label image = new Label();
+                image.setMinWidth(60);
+                image.setMinHeight(30);
+                image.setGraphic(new ImageView(external_framing_img));
+                image.setAlignment(Pos.CENTER);
+
+                System.out.println(resultSet.getString("IMAGE"));
+
+                //create container for data
+                externalFramingPolesData.addAll(new externalFramingPolesData(String.valueOf(
+                        resultSet.getInt("ID")), image, String.valueOf(resultSet
+                        .getString("QUANTITY")), resultSet.getString("MATERIAL")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            String sql = "SELECT * FROM SHED_EXTERNAL_FRAMING WHERE PART = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, "Columns");
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                //create label (load string from resource)
+                Image external_framing_img = new Image(getClass().getResourceAsStream(resultSet.getString("IMAGE")));
+                Label image = new Label();
+                image.setMinWidth(60);
+                image.setMinHeight(30);
+                image.setGraphic(new ImageView(external_framing_img));
+                image.setAlignment(Pos.CENTER);
+
+                System.out.println(resultSet.getString("IMAGE"));
+
+                //create container for data
+                externalFramingColumnsData.addAll(new externalFramingColumnsData(String.valueOf(
+                        resultSet.getInt("ID")), image, String.valueOf(resultSet
+                        .getString("QUANTITY")), resultSet.getString("MATERIAL")));
             }
         } catch (Exception e) {
             e.printStackTrace();

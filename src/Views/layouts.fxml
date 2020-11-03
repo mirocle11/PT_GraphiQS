@@ -313,14 +313,15 @@
                         <TreeTableColumn fx:id="EXTERNAL_FRAMING_PL_NO" prefWidth="59.0" text="No." />
                         <TreeTableColumn fx:id="EXTERNAL_FRAMING_PL_IMAGE" prefWidth="120.0" text="Image" />
                         <TreeTableColumn fx:id="EXTERNAL_FRAMING_PL_QTY" prefWidth="175.0" text="Quantity" />
-                        <TreeTableColumn fx:id="EXTERNAL_FRAMING_PL_QTY1" prefWidth="455.0" text="Material" />
+                        <TreeTableColumn fx:id="EXTERNAL_FRAMING_PL_MATERIAL" prefWidth="455.0" text="Material" />
                      </columns>
                   </JFXTreeTableView>
                   <JFXTreeTableView fx:id="EXTERNAL_FRAMING_COLUMNS_TBL" fixedCellSize="0.0" prefHeight="590.0" prefWidth="811.0" sortMode="ONLY_FIRST_LEVEL" visible="false" AnchorPane.leftAnchor="63.0" AnchorPane.topAnchor="85.0">
                      <columns>
                         <TreeTableColumn fx:id="EXTERNAL_FRAMING_CL_NO" prefWidth="59.0" text="No." />
                         <TreeTableColumn fx:id="EXTERNAL_FRAMING_CL_IMAGE" prefWidth="120.0" text="Image" />
-                        <TreeTableColumn fx:id="EXTERNAL_FRAMING_CL_QTY" prefWidth="122.0" text="Quantity" />
+                        <TreeTableColumn fx:id="EXTERNAL_FRAMING_CL_QTY" prefWidth="175.0" text="Quantity" />
+                        <TreeTableColumn fx:id="EXTERNAL_FRAMING_CL_MATERIAL" prefWidth="455.0" text="Material" />
                      </columns>
                   </JFXTreeTableView>
                   <Pane fx:id="GIRTS_PANE" layoutX="62.0" layoutY="85.0" prefHeight="590.0" prefWidth="1128.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="85.0">

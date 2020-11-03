@@ -99,9 +99,9 @@ public class Tools {
     public Label cbLastRowSection = new Label();
 
     //layouts external framing
-    public Label external_framing_pl_section = new Label();
-    public Label external_framing_cl_quantity = new Label();
-
+    public Label external_framing_section = new Label();
+    public Label external_framing_quantity = new Label();
+    public Label efLastRowSection = new Label();
 
     public Tools(PageObject page, Group group, String mode, Line line, Circle circle, VBox box) {
         this.page = page;
@@ -442,7 +442,6 @@ public class Tools {
                             switch (selected_icon) {
                                 case 0:
                                     foundations_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon1.png")));
-//                                    path = "C:\\Users\\User\\Documents\\IdeaProjects\\PT_GraphiQS\\src\\Views\\stamper_icons\\blue-icon1.png";
                                     path = "../Views/stamper_icons/blue-icon1.png";
                                     break;
                                 case 1:
@@ -560,9 +559,10 @@ public class Tools {
                                 }
 
                                 foundations_stamp_object.setNo(pfLastRowSection.getText());
-                                db.insertSectionDimension(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(),
+                                db.insertFoundationsSectionDimension(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(),
                                         path, "", "", window.FOUNDATIONS_DEPTH.getText(),
-                                        window.FOUNDATIONS_WIDTH.getText(), window.FOUNDATIONS_LENGTH.getText(), window.FOUNDATIONS_VOLUME1.getText());
+                                        window.FOUNDATIONS_WIDTH.getText(), window.FOUNDATIONS_LENGTH.getText(),
+                                        window.FOUNDATIONS_VOLUME1.getText());
                             }
 
                             if (window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Pole Footings")) {
@@ -591,7 +591,7 @@ public class Tools {
                                 }
 
                                 foundations_stamp_object.setNo(cbLastRowSection.getText());
-                                db.insertSectionDimension(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(),
+                                db.insertFoundationsSectionDimension(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(),
                                         path, window.FOUNDATIONS_DIAMETER.getText(), window.FOUNDATIONS_HEIGHT.getText(), "",
                                         "", "", window.FOUNDATIONS_VOLUME2.getText());
 
@@ -799,11 +799,40 @@ public class Tools {
                             pane.getChildren().add(externalFramingObject.getStamp());
 
                             DataBase db = DataBase.getInstance();
-                            db.identifyExternalFramingPLValues(window.EXTERNAL_FRAMING_MATERIAL.
-                                    getSelectionModel().getSelectedItem(), external_framing_pl_section,
-                                    external_framing_cl_quantity);
+                            //identify same values
+                            db.identifyExternalFramingValues(window.EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem(),
+                                    window.EXTERNAL_FRAMING_MATERIAL.getSelectionModel().getSelectedItem(),
+                                    external_framing_section, external_framing_quantity);
 
                             externalFramingObject.setPart(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem());
+                            if (external_framing_section.getText().equals("")) {
+                                db.getExternalFramingLastRow(efLastRowSection,
+                                        window.EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem());
+                                if (efLastRowSection.getText().equals("")) {
+                                    efLastRowSection.setText("1");
+                                }
+                                db.insertExternalFraming(Integer.parseInt(efLastRowSection.getText()), path,
+                                        window.EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem(), 1,
+                                        window.EXTERNAL_FRAMING_MATERIAL.getSelectionModel().getSelectedItem());
+                            } else {
+                                int ef_quantity = Integer.parseInt(external_framing_quantity.getText()) + 1;
+
+                                externalFramingObject.setNo(efLastRowSection.getText());
+                                db.updateExternalFramingCount(ef_quantity, window.EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem(),
+                                        Integer.parseInt(external_framing_section.getText()));
+                            }
+
+                            externalFramingObject.setNo(efLastRowSection.getText());
+                            //clear values
+                            external_framing_section.setText("");
+                            external_framing_quantity.setText("");
+                            efLastRowSection.setText("");
+
+                            //pass to layouts
+                            layoutsController.externalFramingPolesData.clear();
+                            layoutsController.externalFramingColumnsData.clear();
+                            db.showExternalFramingLayouts(layoutsController.externalFramingPolesData,
+                                    layoutsController.externalFramingColumnsData);
                         }
                     }
                 });
