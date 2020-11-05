@@ -1,5 +1,6 @@
 package Controllers;
 
+import Model.ComponentData;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTabPane;
 import javafx.collections.FXCollections;
@@ -11,7 +12,9 @@ import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
+import java.util.Map;
 
 public class setupSheetsController implements Initializable {
 
@@ -27,7 +30,8 @@ public class setupSheetsController implements Initializable {
 
     //contentList = residential
     public ArrayList<AnchorPane> contentList = new ArrayList();
-    public ArrayList<AnchorPane> shedList = new ArrayList();
+    public static ArrayList<AnchorPane> shedList = new ArrayList();
+    public static Map <String,ComponentData> componentList = new HashMap<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {

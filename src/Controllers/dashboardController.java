@@ -20,7 +20,7 @@ public class dashboardController implements Initializable {
 
     @FXML
     public AnchorPane rootpane,dashboard_max,dashboard_min;
-    private AnchorPane jobInfo, workspace;
+    private AnchorPane jobInfo, workspace,materials;
     private BorderPane layouts;
     private AnchorPane sheets;
     private BorderPane builder;
@@ -86,6 +86,16 @@ public class dashboardController implements Initializable {
             e.printStackTrace();
         }
 
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/materials.fxml"));
+            materials = loader.load();
+            rootpane.getChildren().addAll(materials);
+            materials.setVisible(false);
+            System.out.println("here");
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
         initClock();
     }
 
@@ -132,6 +142,7 @@ public class dashboardController implements Initializable {
         layouts.setVisible(false);
         sheets.setVisible(false);
         builder.setVisible(false);
+        materials.setVisible(false);
     }
 
     private void setWorkspace() {
@@ -149,8 +160,30 @@ public class dashboardController implements Initializable {
         layouts.setVisible(false);
         sheets.setVisible(false);
         builder.setVisible(false);
+        materials.setVisible(false);
+
     }
 
+    private void setMaterials(){
+        AnchorPane.setRightAnchor(materials,0.0);
+        AnchorPane.setTopAnchor(materials,0.0);
+        AnchorPane.setBottomAnchor(materials,0.0);
+
+        if (i == 0) {
+            AnchorPane.setLeftAnchor(materials,265.0);
+        } else {
+            AnchorPane.setLeftAnchor(materials,65.0);
+        }
+
+        materialsContoller.updateTables();
+        materials.setVisible(true);
+        jobInfo.setVisible(false);
+        workspace.setVisible(false);
+        layouts.setVisible(false);
+        sheets.setVisible(false);
+        builder.setVisible(false);
+        builder.setVisible(false);
+    }
     private void setLayouts() {
         AnchorPane.setRightAnchor(layouts,0.0);
         AnchorPane.setTopAnchor(layouts,0.0);
@@ -166,6 +199,8 @@ public class dashboardController implements Initializable {
         layouts.setVisible(true);
         sheets.setVisible(false);
         builder.setVisible(false);
+        materials.setVisible(false);
+
     }
 
     private void setSetupSheets() {
@@ -183,6 +218,8 @@ public class dashboardController implements Initializable {
         layouts.setVisible(false);
         sheets.setVisible(true);
         builder.setVisible(false);
+        materials.setVisible(false);
+
     }
 
     private void setBuilder() {
@@ -200,6 +237,8 @@ public class dashboardController implements Initializable {
         layouts.setVisible(false);
         sheets.setVisible(false);
         builder.setVisible(true);
+        materials.setVisible(false);
+
     }
 
     private void initClock() {
@@ -231,6 +270,10 @@ public class dashboardController implements Initializable {
 
     public void builderAction() {
         setBuilder();
+    }
+
+    public void materialsAction(){
+        setMaterials();
     }
 
     public void toggle() {
