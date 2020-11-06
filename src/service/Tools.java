@@ -2,6 +2,7 @@ package service;
 
 import Controllers.createProjectController;
 import Controllers.layoutsController;
+import Controllers.setupSheetsController;
 import Controllers.workspaceController;
 import DataBase.DataBase;
 import Model.CladdingObject;
@@ -557,10 +558,11 @@ public class Tools {
                                 }
 
                                 foundations_stamp_object.setNo(pfLastRowSection.getText());
-                                db.insertFoundationsSectionDimension(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(),
-                                        path, "", "", window.FOUNDATIONS_DEPTH.getText(),
-                                        window.FOUNDATIONS_WIDTH.getText(), window.FOUNDATIONS_LENGTH.getText(),
-                                        window.FOUNDATIONS_VOLUME1.getText());
+
+//                                db.addSectionDimension("Foundations",window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(),
+//                                        path, "", "", window.FOUNDATIONS_DEPTH.getText(),
+//                                        window.FOUNDATIONS_WIDTH.getText(), window.FOUNDATIONS_LENGTH.getText(),
+//                                        window.FOUNDATIONS_VOLUME1.getText());
                             }
 
                             if (window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Pole Footings")) {
@@ -589,9 +591,10 @@ public class Tools {
                                 }
 
                                 foundations_stamp_object.setNo(cbLastRowSection.getText());
-                                db.insertFoundationsSectionDimension(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(),
-                                        path, window.FOUNDATIONS_DIAMETER.getText(), window.FOUNDATIONS_HEIGHT.getText(),
-                                        "", "", "", window.FOUNDATIONS_VOLUME2.getText());
+
+//                                db.addSectionDimension("Foundations",window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(),
+//                                        path, window.FOUNDATIONS_DIAMETER.getText(), window.FOUNDATIONS_HEIGHT.getText(), "",
+//                                        "", "", window.FOUNDATIONS_VOLUME2.getText());
 
                             }
                             foundationsObjectList.add(foundations_stamp_object);
@@ -605,7 +608,8 @@ public class Tools {
                                     MenuItem removeStamp = new MenuItem("Remove Stamp");
                                     removeStamp.setOnAction(event2 -> {
                                         foundations_stamp_object.getStamp().setVisible(false);
-
+                                        int part = 1;
+                                        String key = "";
                                         Iterator itr = foundationsObjectList.iterator();
                                         while (itr.hasNext()) {
                                             FoundationsObject element = (FoundationsObject) itr.next();
@@ -613,16 +617,21 @@ public class Tools {
                                                 String table = "shed_foundations_";
                                                 if (element.getPart() == "Post Footings") {
                                                     table += "post_footings";
+                                                    part = 1;
+                                                    key="pf_";
                                                 } else {
                                                     table += "concrete_bores";
+                                                    part = 2;
+                                                    key="cb_";
                                                 }
                                                 String[] result = db.getSectionData(table, Integer.parseInt(element.getNo()));
                                                 if (result != null) {
                                                     double vol = Double.parseDouble(result[0]);
                                                     int qty = Integer.parseInt(result[1]);
-                                                    System.out.println("QTY " + qty);
                                                     if (qty == 1) {
                                                         db.deleteSectionData(table, Integer.parseInt(element.getNo()));
+                                                        db.deleteFoundationsPFSections(part,Integer.parseInt(element.getNo()));
+                                                        setupSheetsController.componentList.remove("foundations_"+key+element.getNo());
                                                     } else {
                                                         if (element.getPart() == "Post Footings") {
                                                             vol -= (vol / qty);
@@ -637,15 +646,25 @@ public class Tools {
                                                         }
                                                     }
                                                 }
+
                                                 layoutsController.foundationsPostFootingsData.clear();
                                                 foundations_pf_section.setText("");
                                                 db.showFoundationsPF(layoutsController.foundationsPostFootingsData);
+//                                                db.updatePFLayoutsTable("Foundations","Post Footings",layoutsController.foundationsPostFootingsData);
+
 
                                                 layoutsController.foundationsConcreteBoresData.clear();
                                                 foundations_cb_section.setText("");
                                                 db.showFoundationsCB(layoutsController.foundationsConcreteBoresData);
+//                                                db.updateCBLayoutsTable("Foundations","Pole Footings",layoutsController.foundationsConcreteBoresData);
+
+
 
                                                 layoutsController.totalData.clear();
+
+                                                db.getFoundationsPFSections(foundationsPFSectionList);
+                                                db.getFoundationsCBSections(foundationsCBSectionList);
+
 
                                                 double pf = Double.parseDouble(db.getTotalVolume("shed_foundations_post_footings"));
                                                 double cb = Double.parseDouble(db.getTotalVolume("shed_foundations_concrete_bores"));
@@ -671,10 +690,13 @@ public class Tools {
 
                                 }
                             });
-                            System.out.println(foundationsObjectList.size());
+
                             //pass section to setup sheet
+                            System.out.println("pass section to setup sheet");
                             db.getFoundationsPFSections(foundationsPFSectionList);
                             db.getFoundationsCBSections(foundationsCBSectionList);
+//                            db.updatePFLayoutsTable("Foundations","Post Footings",layoutsController.foundationsPostFootingsData);
+//                            db.updateCBLayoutsTable("Foundations","Pole Footings",layoutsController.foundationsConcreteBoresData);
 
                             //show foundations table
                             layoutsController.foundationsPostFootingsData.clear();

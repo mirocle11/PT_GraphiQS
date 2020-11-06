@@ -1,7 +1,9 @@
 package Controllers.Sheets.Shed;
 
+import Controllers.setupSheetsController;
 import DataBase.DataBase;
 import Main.Main;
+import Model.ComponentData;
 import Model.data.shed.foundations.concreteBoresSec;
 import Model.data.shed.foundations.postFootingsSec;
 import Model.data.shed.foundationsMaterials;
@@ -106,6 +108,11 @@ public class foundationsController implements Initializable {
     private final ObservableList<String> setsListCB = FXCollections.observableArrayList();
     private final ObservableList<String> setsListCF = FXCollections.observableArrayList();
 
+    private static String part;
+    private static String section;
+    private ComponentData componentData;
+    private String key;
+
     @Override
     public void initialize(URL location, ResourceBundle resource) {
         loadPanes();
@@ -123,7 +130,7 @@ public class foundationsController implements Initializable {
             button.setId(s);
             button.setPrefWidth(183);
             button.setPrefHeight(30);
-            button.setFont(new Font("Segoe UI",15.0));
+            button.setFont(new Font("Segoe UI", 15.0));
             button.setTextFill(Color.web("#bcbcbc"));
             PARTS_VBOX.getChildren().add(button);
             buttonList.add(button);
@@ -238,7 +245,8 @@ public class foundationsController implements Initializable {
             }
             db.setSelectedSets(1, PF_SECTIONS.getSelectionModel().getSelectedItem(),
                     PF_SET.getSelectionModel().getSelectedItem(), set_override);
-            setComponentContents(1, PF_SET.getSelectionModel().getSelectedItem());
+//            setComponentContents(1, PF_SET.getSelectionModel().getSelectedItem());
+            updateComponentFromList(1, PF_SET.getSelectionModel().getSelectedItem());
         });
 
         PF_SET_OVERRIDE.setOnAction(event -> {
@@ -248,19 +256,32 @@ public class foundationsController implements Initializable {
         PF_SECTIONS.setItems(foundationsPFSectionList);
         PF_SECTIONS.setOnMouseReleased(event -> {
             try {
-                //section list event
+                key = "foundations_post_footings_" + PF_SECTIONS.getSelectionModel().getSelectedItem();
+
+                componentData = new ComponentData("foundations", "post footings", PF_SECTIONS.getSelectionModel().getSelectedItem().toString());
+
+                if (setupSheetsController.componentList.containsKey(key)) {
+                    componentData = setupSheetsController.componentList.get(key);
+                } else {
+                    setupSheetsController.componentList.put(key, componentData);
+                }
+
                 PF_SET.setDisable(false);
                 PF_SET_OVERRIDE.setDisable(false);
+
                 db.getSelectedSets(Integer.parseInt(id_indicator.getText()), PF_SECTIONS.getSelectionModel()
                         .getSelectedItem(), PF_SET, PF_SET_OVERRIDE);
 
-                System.out.println("clicked on " + PF_SECTIONS.getSelectionModel().getSelectedItem());
+                System.out.println("clicked on post footings " + PF_SECTIONS.getSelectionModel().getSelectedItem());
                 postFootingsData.clear();
                 db.getPostFootingsSD(1, PF_SECTIONS.getSelectionModel().getSelectedItem(), postFootingsData);
                 db.getFoundationsPFData(PF_SECTIONS.getSelectionModel().getSelectedItem(), foundations_pf_volume);
-                if (!PF_SET.getSelectionModel().isEmpty()) {
-                    setComponentContents(1, PF_SET.getSelectionModel().getSelectedItem());
-                }
+
+                setComponentsFromList();
+                System.out.println(setupSheetsController.componentList.size());
+
+//                setComponentContents(1, PF_SET.getSelectionModel().getSelectedItem());
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -276,17 +297,24 @@ public class foundationsController implements Initializable {
             }
             db.setSelectedSets(Integer.parseInt(id_indicator.getText()), PLF_SECTIONS.getSelectionModel()
                     .getSelectedItem(), PLF_SET.getSelectionModel().getSelectedItem(), set_override);
-            setComponentContents(2, PLF_SET.getSelectionModel().getSelectedItem());
-        });
-
-        PLF_SET_OVERRIDE.setOnAction(event -> {
-
+//            setComponentContents(2, PLF_SET.getSelectionModel().getSelectedItem());
+            updateComponentFromList(2, PLF_SET.getSelectionModel().getSelectedItem());
         });
 
         PLF_SECTIONS.setItems(foundationsCBSectionList);
         PLF_SECTIONS.setOnMouseReleased(event -> {
             try {
-                //section list event
+                key = "foundations_pole_footings_" + PLF_SECTIONS.getSelectionModel().getSelectedItem();
+
+                componentData = new ComponentData("foundations", "pole footings", PLF_SECTIONS.getSelectionModel().getSelectedItem().toString());
+
+                if (setupSheetsController.componentList.containsKey(key)) {
+                    componentData = setupSheetsController.componentList.get(key);
+                } else {
+                    setupSheetsController.componentList.put(key, componentData);
+                }
+
+
                 PLF_SET.setDisable(false);
                 PLF_SET_OVERRIDE.setDisable(false);
                 db.getSelectedSets(Integer.parseInt(id_indicator.getText()), PLF_SECTIONS.getSelectionModel()
@@ -294,12 +322,16 @@ public class foundationsController implements Initializable {
 
                 System.out.println("clicked on " + PLF_SECTIONS.getSelectionModel().getSelectedItem());
                 concreteBoresData.clear();
-                System.out.println(concreteBoresData.size() + " size");
+
                 db.getConcreteBoresSD(1, PLF_SECTIONS.getSelectionModel().getSelectedItem(), concreteBoresData);
                 db.getFoundationsCBData(PLF_SECTIONS.getSelectionModel().getSelectedItem(), foundations_cb_volume);
-                if (!PLF_SET.getSelectionModel().isEmpty()) {
-                    setComponentContents(2, PLF_SET.getSelectionModel().getSelectedItem());
-                }
+
+                setComponentsFromList();
+                System.out.println(setupSheetsController.componentList.size());
+
+//                if (!PLF_SET.getSelectionModel().isEmpty()) {
+//                    setComponentContents(2, PLF_SET.getSelectionModel().getSelectedItem());
+//                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -310,13 +342,27 @@ public class foundationsController implements Initializable {
 
         CF_SECTIONS.setItems(foundationsCFSectionList);
         CF_SECTIONS.setOnMouseReleased(event -> {
+
+            key = "foundations_concrete_floors_" + CF_SECTIONS.getSelectionModel().getSelectedItem();
+
+            componentData = new ComponentData("foundations", "concrete floors", CF_SECTIONS.getSelectionModel().getSelectedItem().toString());
+
+            if (setupSheetsController.componentList.containsKey(key)) {
+                componentData = setupSheetsController.componentList.get(key);
+            } else {
+                setupSheetsController.componentList.put(key, componentData);
+            }
+
             //section list event
             CF_SET.setDisable(false);
             CF_SET_OVERRIDE.setDisable(false);
+
             db.getSelectedSets(3, CF_SECTIONS.getSelectionModel().getSelectedItem(), CF_SET, CF_SET_OVERRIDE);
-            if (!CF_SET.getSelectionModel().isEmpty()) {
-                setComponentContents(3, CF_SET.getSelectionModel().getSelectedItem());
-            }
+
+            setComponentsFromList();
+//            if (!CF_SET.getSelectionModel().isEmpty()) {
+//                setComponentContents(3, CF_SET.getSelectionModel().getSelectedItem());
+//            }
         });
 
         CF_SET.setOnAction(event -> {
@@ -326,7 +372,8 @@ public class foundationsController implements Initializable {
             }
             db.setSelectedSets(3, CF_SECTIONS.getSelectionModel().getSelectedItem(),
                     CF_SET.getSelectionModel().getSelectedItem(), set_override);
-            setComponentContents(3, CF_SET.getSelectionModel().getSelectedItem());
+//            setComponentContents(3, CF_SET.getSelectionModel().getSelectedItem());
+            updateComponentFromList(3, CF_SET.getSelectionModel().getSelectedItem());
         });
 
     }
@@ -369,16 +416,16 @@ public class foundationsController implements Initializable {
 
     public void setComponentContents(int part_id, String set) { //add set override later on
         foundationsMaterials.clear();
-        if (!set.isEmpty()) {
+        if (set != null && !set.isEmpty()) {
             switch (set) {
                 case "17.5 Footing":
                     if (part_id == 1) {
-                        foundationsMaterials.addAll(new foundationsMaterials("Concrete","32100832",
+                        foundationsMaterials.addAll(new foundationsMaterials("Concrete", "32100832",
                                 "17.5MPA 19MM STRUCTURAL CONCRETE", "M3", String.valueOf(new DecimalFormat("0.00").
                                 format(Double.parseDouble(foundations_pf_volume.getText()))), "FOOTINGS"));
                     }
                     if (part_id == 2) {
-                        foundationsMaterials.addAll(new foundationsMaterials("Concrete","32100832",
+                        foundationsMaterials.addAll(new foundationsMaterials("Concrete", "32100832",
                                 "17.5MPA 19MM STRUCTURAL CONCRETE", "M3", String.valueOf(new DecimalFormat("0.00").
                                 format(Double.parseDouble(foundations_cb_volume.getText()))), "FOOTINGS"));
                     }
@@ -419,7 +466,7 @@ public class foundationsController implements Initializable {
                                 tw_quantity = (int) (cf_area / 20);
                             }
                         }
-                        foundationsMaterials.addAll(new foundationsMaterials("Concrete","32100832",
+                        foundationsMaterials.addAll(new foundationsMaterials("Concrete", "32100832",
                                 "17.5MPA 19MM STRUCTURAL CONCRETE", "M3",
                                 String.valueOf(new DecimalFormat("0.00").format(cf_volume)), "FOOTINGS"));
                         foundationsMaterials.addAll(new foundationsMaterials("Steel Mesh", "STMESE620500SM",
@@ -437,6 +484,108 @@ public class foundationsController implements Initializable {
                         foundationsMaterials.addAll(new foundationsMaterials("Tie Wire", "STW300GX1KG",
                                 "TIE WIRE GALV 300MM X 1KG", "EACH",
                                 String.valueOf(tw_quantity), "SLAB"));
+                    }
+                    break;
+            }
+        }
+    }
+
+    public void setComponentsFromList() {
+        foundationsMaterials.clear();
+        for (int i = 0; i < componentData.getComponents().size(); i++) {
+            foundationsMaterials.addAll(new foundationsMaterials(
+                    componentData.getComponents().get(i)[0], componentData.getComponents().get(i)[1],
+                    componentData.getComponents().get(i)[2], componentData.getComponents().get(i)[3],
+                    componentData.getComponents().get(i)[4], componentData.getComponents().get(i)[5]));
+        }
+    }
+
+    public void updateComponentFromList(int part_id, String set) {
+        foundationsMaterials.clear();
+        if (set != null && !set.isEmpty()) {
+            switch (set) {
+                case "17.5 Footing":
+                    if (part_id == 1) {
+                        foundationsMaterials.addAll(new foundationsMaterials("Concrete", "32100832",
+                                "17.5MPA 19MM STRUCTURAL CONCRETE", "M3", String.valueOf(new DecimalFormat("0.00").
+                                format(Double.parseDouble(foundations_pf_volume.getText()))), "FOOTINGS"));
+
+                        componentData.getComponents().clear();
+                        componentData.getComponents().add(new String[]{"Concrete", "32100832", "17.5MPA 19MM STRUCTURAL CONCRETE", "M3",
+                                String.valueOf(new DecimalFormat("0.00").format(Double.parseDouble(foundations_pf_volume.getText()))), "FOOTINGS"});
+
+                    }
+                    if (part_id == 2) {
+                        foundationsMaterials.addAll(new foundationsMaterials("Concrete", "32100832",
+                                "17.5MPA 19MM STRUCTURAL CONCRETE", "M3", String.valueOf(new DecimalFormat("0.00").
+                                format(Double.parseDouble(foundations_cb_volume.getText()))), "FOOTINGS"));
+
+                        componentData.getComponents().clear();
+                        componentData.getComponents().add(new String[]{"Concrete", "32100832", "17.5MPA 19MM STRUCTURAL CONCRETE", "M3",
+                                String.valueOf(new DecimalFormat("0.00").format(Double.parseDouble(foundations_cb_volume.getText()))), "FOOTINGS"});
+
+                    }
+                    break;
+                case "17.5 SE620-500":
+                    if (part_id == 3) {
+                        int srm_quantity = (int) ((int) cf_area / 7.612);
+                        int pb_quantity;
+                        if (cf_area < 100 && srm_quantity > 0.00) {
+                            pb_quantity = 1;
+                        } else {
+                            int remainder = (int) (cf_area % 100);
+                            if (remainder > 0) {
+                                pb_quantity = (int) (cf_area / 100) + 1;
+                            } else {
+                                pb_quantity = (int) (cf_area / 100);
+                            }
+                        }
+                        int tp_quantity;
+                        if (cf_length < 30 && cf_length > 0) {
+                            tp_quantity = 1;
+                        } else {
+                            int remainder = cf_length % 30;
+                            if (remainder > 0) {
+                                tp_quantity = cf_length / 30 + 1;
+                            } else {
+                                tp_quantity = cf_length / 30;
+                            }
+                        }
+                        int tw_quantity;
+                        if (cf_area < 20 && cf_area > 0) {
+                            tw_quantity = 1;
+                        } else {
+                            int remainder = (int) (cf_area % 20);
+                            if (remainder > 0) {
+                                tw_quantity = (int) (cf_area / 20 + 1);
+                            } else {
+                                tw_quantity = (int) (cf_area / 20);
+                            }
+                        }
+                        foundationsMaterials.addAll(new foundationsMaterials("Concrete", "32100832",
+                                "17.5MPA 19MM STRUCTURAL CONCRETE", "M3",
+                                String.valueOf(new DecimalFormat("0.00").format(cf_volume)), "FOOTINGS"));
+                        foundationsMaterials.addAll(new foundationsMaterials("Steel Mesh", "STMESE620500SM",
+                                "STEEL REINFORCING MESH SE620-500SMALL 4.68X2.05 7.612M2", "SHT",
+                                String.valueOf(srm_quantity), "SLAB"));
+                        foundationsMaterials.addAll(new foundationsMaterials("Spacers", "STBC5065E",
+                                "BAR CHAIR PLASTIC 50-65MM - PER EACH", "EACH",
+                                String.valueOf(srm_quantity * 12), "SLAB"));
+                        foundationsMaterials.addAll(new foundationsMaterials("Underlay", "RPPO250425",
+                                "POLYTHENE BLK 250MU X 4M X 25M 2010103", "ROLL",
+                                String.valueOf(pb_quantity), "SLAB"));
+                        foundationsMaterials.addAll(new foundationsMaterials("Underlay", "RPJT2040116",
+                                "TAPE-IT HIGH ADHESIVE PVC JOINING TAPE 48MMX30M 2040116", "ROLL",
+                                String.valueOf(tp_quantity), "SLAB"));
+                        foundationsMaterials.addAll(new foundationsMaterials("Tie Wire", "STW300GX1KG",
+                                "TIE WIRE GALV 300MM X 1KG", "EACH",
+                                String.valueOf(tw_quantity), "SLAB"));
+
+                        componentData.getComponents().clear();
+                        for (foundationsMaterials fm : foundationsMaterials) {
+                            componentData.getComponents().add(new String[]{fm.getComponent(), fm.getSku_number(), fm.getDescription(), fm.getUnit(),
+                                    fm.getQuantity(), fm.getUsage()});
+                        }
                     }
                     break;
             }

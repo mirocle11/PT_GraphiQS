@@ -34,6 +34,7 @@ public class DataBase {
 
     //declare instance
     private static DataBase instance = null;
+
     public static DataBase getInstance() {
         if (instance == null) {
             instance = new DataBase();
@@ -57,21 +58,21 @@ public class DataBase {
     public void createDatabase() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(URL, "root","password");
+            connection = DriverManager.getConnection(URL, "root", "password");
             Statement statement = connection.createStatement();
             statement.executeUpdate("CREATE DATABASE IF NOT EXISTS " + dbName);
             setTables();
         } catch (SQLException e) {
-           try{
-               Class.forName("com.mysql.cj.jdbc.Driver");
-               connection = DriverManager.getConnection(URL, "root","");
-               Statement statement = connection.createStatement();
-               statement.executeUpdate("CREATE DATABASE IF NOT EXISTS " + dbName);
-               setTables();
-           }catch (Exception exc){
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                connection = DriverManager.getConnection(URL, "root", "");
+                Statement statement = connection.createStatement();
+                statement.executeUpdate("CREATE DATABASE IF NOT EXISTS " + dbName);
+                setTables();
+            } catch (Exception exc) {
 
-           }
-        }catch (ClassNotFoundException ex){
+            }
+        } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         }
     }
@@ -165,7 +166,7 @@ public class DataBase {
         }
     }
 
-    public void addClient(String first_name, String last_name, String contact_person, String email,String mobile,
+    public void addClient(String first_name, String last_name, String contact_person, String email, String mobile,
                           String landline) {
         try {
             String sql = "INSERT INTO CLIENTS_TBL (USER_ID, FIRST_NAME, LAST_NAME, FULL_NAME, CONTACT_PERSON, EMAIL," +
@@ -174,7 +175,7 @@ public class DataBase {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, first_name);
             preparedStatement.setString(2, last_name);
-            preparedStatement.setString(3, first_name + " " +last_name);
+            preparedStatement.setString(3, first_name + " " + last_name);
             preparedStatement.setString(4, contact_person);
             preparedStatement.setString(5, email);
             preparedStatement.setString(6, mobile);
@@ -267,7 +268,7 @@ public class DataBase {
                 String MOBILE = resultSet.getString("MOBILE");
                 String BEST_CONTACT = resultSet.getString("BEST_WAY_TO_CONTACT");
 
-                subtradesData.addAll(new subtradesData(ID, SUBTRADE, FIRST_NAME+" "+LAST_NAME, CONTACT_PERSON,
+                subtradesData.addAll(new subtradesData(ID, SUBTRADE, FIRST_NAME + " " + LAST_NAME, CONTACT_PERSON,
                         ADDRESS, EMAIL, MOBILE, BEST_CONTACT));
             }
         } catch (Exception e) {
@@ -352,7 +353,7 @@ public class DataBase {
                                     Label MATERIAL, Label RATE, Label UNIT) {
         try {
             Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM SUBTRADES_TBL WHERE ID = "+id;
+            String sql = "SELECT * FROM SUBTRADES_TBL WHERE ID = " + id;
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
@@ -455,11 +456,10 @@ public class DataBase {
                 System.out.println(user_id);
                 return true;
             } else {
-                JOptionPane.showMessageDialog(null,"Incorrect username or password");
+                JOptionPane.showMessageDialog(null, "Incorrect username or password");
                 return false;
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
@@ -921,8 +921,6 @@ public class DataBase {
                 image.setGraphic(new ImageView(foundations_img));
                 image.setAlignment(Pos.CENTER);
 
-                System.out.println(resultSet.getString("IMAGE"));
-
                 //create container for data
                 foundationsPostFootingsData.addAll(new foundationsPostFootingsData(String.valueOf(
                         resultSet.getInt("ID")), image, String.valueOf(resultSet
@@ -1074,6 +1072,22 @@ public class DataBase {
         }
     }
 
+    public void deleteFoundationsPFSections(int part, int section) {
+
+        try {
+            String sql = "DELETE FROM SHED_SECTION_TBL WHERE PARTS_ID = ? AND SECTION = ? ";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, part);
+            preparedStatement.setInt(2, section);
+            preparedStatement.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
     //concrete bores
     public void showFoundationsCB(ObservableList<foundationsConcreteBoresData> foundationsConcreteBoresData) {
         try {
@@ -1191,26 +1205,90 @@ public class DataBase {
         }
     }
 
-    public void insertFoundationsSectionDimension(String part, String path, String diameter, String height, String depth,
-                                                  String width, String length, String volume) {
+
+    //TODO SIMPLIFIED DB QUERIES
+
+    public void addSectionDimension(String structure, String part, String path, String diameter, String height, String depth, String width, String length, String volume) {
         try {
-            String sql = "INSERT INTO SHED_FOUNDATIONS_SECTION_DIMENSIONS (IMAGE,PART,HEIGHT,DEPTH," +
-                    "DIAMETER,VOLUME,WIDTH,LENGTH,QTY,SECTION_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" +
-                    " ON DUPLICATE KEY UPDATE QTY = QTY + 1 ";
+            System.out.println("ADD STRUCTURE "+structure );
+            String sql = "INSERT INTO SHED_SECTION_DIMENSIONS (IMAGE,STRUCTURE,PART,HEIGHT,DEPTH," +
+                    "DIAMETER,VOLUME,WIDTH,LENGTH,QTY,SECTION_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" +
+                    " ON DUPLICATE KEY UPDATE QTY = QTY + 1 , VOLUME = CAST(VOLUME as FLOAT ) * QTY ";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, path);
-            preparedStatement.setString(2, part);
-            preparedStatement.setString(3, height);
-            preparedStatement.setString(4, depth);
-            preparedStatement.setString(5, diameter);
-            preparedStatement.setString(6, volume);
-            preparedStatement.setString(7, width);
-            preparedStatement.setString(8, length);
-            preparedStatement.setInt(9, 1);
-            preparedStatement.setInt(10, getLastSection(part) + 1);
+            preparedStatement.setString(2, structure);
+            preparedStatement.setString(3, part);
+            preparedStatement.setString(4, height);
+            preparedStatement.setString(5, depth);
+            preparedStatement.setString(6, diameter);
+            preparedStatement.setString(7, volume);
+            preparedStatement.setString(8, width);
+            preparedStatement.setString(9, length);
+            preparedStatement.setInt(10, 1);
+            preparedStatement.setInt(11, getLastSection(part) + 1);
             preparedStatement.executeUpdate();
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updatePFLayoutsTable(String structure, String part, ObservableList<foundationsPostFootingsData> observableList) {
+
+        try {
+            String sql = "SELECT * FROM shed_section_dimensions WHERE STRUCTURE=? AND PART = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, structure);
+            preparedStatement.setString(2, part);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            int section = 1;
+            observableList.clear();
+            while (resultSet.next()) {
+                //create label (load string from resource)
+                Image foundations_img = new Image(getClass().getResourceAsStream(resultSet.getString("IMAGE")));
+                Label image = new Label();
+                image.setMinWidth(60);
+                image.setMinHeight(30);
+                image.setGraphic(new ImageView(foundations_img));
+                image.setAlignment(Pos.CENTER);
+
+                //create container for data
+                observableList.addAll(new foundationsPostFootingsData(String.valueOf(section++), image, String.valueOf(resultSet
+                        .getString("QTY")), resultSet.getString("DEPTH"),
+                        resultSet.getString("WIDTH"), resultSet.getString("LENGTH"),
+                        resultSet.getString("VOLUME")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateCBLayoutsTable(String structure, String part, ObservableList<foundationsConcreteBoresData> observableList) {
+        try {
+            String sql = "SELECT * FROM shed_section_dimensions WHERE STRUCTURE=? AND PART = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, structure);
+            preparedStatement.setString(2, part);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            int section = 1;
+            observableList.clear();
+            while (resultSet.next()) {
+                //create label (load string from resource)
+                Image foundations_img = new Image(getClass().getResourceAsStream(resultSet.getString("IMAGE")));
+                Label image = new Label();
+                image.setMinWidth(60);
+                image.setMinHeight(30);
+                image.setGraphic(new ImageView(foundations_img));
+                image.setAlignment(Pos.CENTER);
+
+                //create container for data
+                observableList.addAll(new foundationsConcreteBoresData(String.valueOf(section++), image, String.valueOf(resultSet.getString("QTY")),
+                        resultSet.getString("DIAMETER"), resultSet.getString("HEIGHT"),
+                        resultSet.getString("VOLUME")));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1236,10 +1314,13 @@ public class DataBase {
         return 0;
     }
 
-    public String[] getSectionData(String tableName,int section){
-        String[] result = new  String[2];
+    //TODO SIMPLIFIED DB QUERIES
+
+
+    public String[] getSectionData(String tableName, int section) {
+        String[] result = new String[2];
         try {
-            String sql = "SELECT * FROM "+tableName+ " WHERE ID = ?";
+            String sql = "SELECT * FROM " + tableName + " WHERE ID = ?";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, section);
@@ -1248,9 +1329,9 @@ public class DataBase {
             while (resultSet.next()) {
 
                 result[0] = resultSet.getString("VOLUME");
-                System.out.println("0 "+result[0]);
+                System.out.println("0 " + result[0]);
                 result[1] = String.valueOf(resultSet.getInt("QUANTITY"));
-                System.out.println("1 "+result[1]);
+                System.out.println("1 " + result[1]);
                 return result;
             }
         } catch (Exception e) {
@@ -1259,10 +1340,10 @@ public class DataBase {
         return null;
     }
 
-    public void deleteSectionData(String tableName,int section) {
+    public void deleteSectionData(String tableName, int section) {
 
         try {
-            String sql = "DELETE FROM "+tableName+ " WHERE ID = ?";
+            String sql = "DELETE FROM " + tableName + " WHERE ID = ?";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, section);
@@ -1273,7 +1354,7 @@ public class DataBase {
         }
     }
 
-    public String getTotalVolume(String tablename){
+    public String getTotalVolume(String tablename) {
         double total = 0;
         try {
             String sql = "SELECT VOLUME FROM " + tablename;
@@ -1282,7 +1363,7 @@ public class DataBase {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                double volume  = Double.parseDouble(resultSet.getString("VOLUME"));
+                double volume = Double.parseDouble(resultSet.getString("VOLUME"));
                 total += volume;
             }
 
