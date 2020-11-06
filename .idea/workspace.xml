@@ -24,36 +24,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-updated materials table for setup sheets&#10;-updated foundations stamps&#10;-added misc to workspace for parts w/ one section&#10;-layouts updated (foundations)&#10;-updated quantity calculations for foundations&#10;-foundations sheets sync w/ workspace&#10;-external framing in progress&#10;-11/3/20">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/externalFramingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/externalFramingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/foundationsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/foundationsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/DataBase/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/DataBase/DataBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/data/layouts/externalFramingColumnsData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/data/layouts/externalFramingColumnsData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/data/layouts/externalFramingPolesData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/data/layouts/externalFramingPolesData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/data/shed/externalFraming/columnsSec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/data/shed/externalFraming/columnsSec.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/data/shed/externalFraming/polesSec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/data/shed/externalFraming/polesSec.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/externalFraming.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/externalFraming.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/layouts.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/service/Tools.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/service/Tools.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/externalFramingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/externalFramingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/layoutsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/layoutsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataBase/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataBase/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/data/layouts/externalFramingColumnsData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/data/layouts/externalFramingColumnsData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/data/layouts/externalFramingPolesData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/data/layouts/externalFramingPolesData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/data/shed/externalFraming/columnsSec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/data/shed/externalFraming/columnsSec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/data/shed/externalFraming/polesSec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/data/shed/externalFraming/polesSec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/data/shed/foundations/postFootingsSec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/data/shed/foundations/postFootingsSec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/externalFraming.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/externalFraming.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/layouts.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/layouts.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/workspace.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Tools.java" afterDir="false" />
-    </list>
+    <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-updated materials table for setup sheets&#10;-updated foundations stamps&#10;-added misc to workspace for parts w/ one section&#10;-layouts updated (foundations)&#10;-updated quantity calculations for foundations&#10;-foundations sheets sync w/ workspace&#10;-external framing in progress&#10;-11/3/20" />
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
     <list id="4dddbee8-77b6-41fd-be25-1624817806eb" name="Revert &quot;#60 commit&quot;" comment="Revert &quot;#60 commit&quot;&#10;&#10;This reverts commit 096c3c72" />
     <option name="SHOW_DIALOG" value="false" />
@@ -729,14 +700,7 @@
       <workItem from="1604374327149" duration="21585000" />
       <workItem from="1604458372425" duration="15115000" />
       <workItem from="1604546369912" duration="16886000" />
-      <workItem from="1604631889206" duration="4389000" />
-    </task>
-    <task id="LOCAL-00107" summary="updated layout">
-      <created>1584346467190</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1584346467190</updated>
+      <workItem from="1604631889206" duration="5258000" />
     </task>
     <task id="LOCAL-00108" summary="updated layout and functions">
       <created>1584670825808</created>
@@ -1074,7 +1038,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604384822572</updated>
     </task>
-    <option name="localTasksCounter" value="156" />
+    <task id="LOCAL-00156" summary="-updated materials table for setup sheets&#10;-updated foundations stamps&#10;-added misc to workspace for parts w/ one section&#10;-layouts updated (foundations)&#10;-updated quantity calculations for foundations&#10;-foundations sheets sync w/ workspace&#10;-external framing in progress&#10;-11/3/20">
+      <created>1604639489980</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1604639489981</updated>
+    </task>
+    <option name="localTasksCounter" value="157" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1208,10 +1179,10 @@
     <state x="2610" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
     <state x="2610" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1602656677620" />
     <state x="2610" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="2475" y="0" key="CommitChangelistDialog2" timestamp="1604384821892">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="555" y="0" key="CommitChangelistDialog2" timestamp="1604639489024">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="555" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603365538724" />
+    <state x="555" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604639489024" />
     <state x="2475" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604384821892" />
     <state x="2139" y="85" key="DiffContextDialog" timestamp="1603174823596">
       <screen x="1920" y="0" width="1920" height="1040" />
@@ -1282,10 +1253,10 @@
     </state>
     <state x="432" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
     <state x="2266" y="158" width="1054" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603175195519" />
-    <state x="2515" y="266" key="Vcs.Push.Dialog.v2" timestamp="1604384823748">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="552" y="248" key="Vcs.Push.Dialog.v2" timestamp="1604639543778">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603365543552" />
+    <state x="552" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604639543778" />
     <state x="2515" y="266" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604384823748" />
     <state x="753" y="454" key="classpath-attribute-editor" timestamp="1602656677620" />
     <state x="753" y="454" key="classpath-attribute-editor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
