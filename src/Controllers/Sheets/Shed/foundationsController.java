@@ -227,11 +227,8 @@ public class foundationsController implements Initializable {
         });
 
         //post footings
-        PF_SECTIONS.setItems(foundationsPFSectionList);
-
         PF_SET.setItems(setsListPF);
 
-//        PF_SET_OVERRIDE.setItems(PF_SET_OVERRIDE_DATA);
         PF_SET_OVERRIDE.getSelectionModel().select(0);
 
         PF_SET.setOnAction(event -> {
@@ -248,6 +245,7 @@ public class foundationsController implements Initializable {
 
         });
 
+        PF_SECTIONS.setItems(foundationsPFSectionList);
         PF_SECTIONS.setOnMouseReleased(event -> {
             try {
                 //section list event
@@ -258,7 +256,7 @@ public class foundationsController implements Initializable {
 
                 System.out.println("clicked on " + PF_SECTIONS.getSelectionModel().getSelectedItem());
                 postFootingsData.clear();
-                db.getPostFootingsSD(1,PF_SECTIONS.getSelectionModel().getSelectedItem(), postFootingsData);
+                db.getPostFootingsSD(1, PF_SECTIONS.getSelectionModel().getSelectedItem(), postFootingsData);
                 db.getFoundationsPFData(PF_SECTIONS.getSelectionModel().getSelectedItem(), foundations_pf_volume);
                 if (!PF_SET.getSelectionModel().isEmpty()) {
                     setComponentContents(1, PF_SET.getSelectionModel().getSelectedItem());

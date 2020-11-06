@@ -313,7 +313,7 @@
                         <TreeTableColumn fx:id="EXTERNAL_FRAMING_PL_NO" prefWidth="59.0" text="No." />
                         <TreeTableColumn fx:id="EXTERNAL_FRAMING_PL_IMAGE" prefWidth="120.0" text="Image" />
                         <TreeTableColumn fx:id="EXTERNAL_FRAMING_PL_QTY" prefWidth="175.0" text="Quantity" />
-                        <TreeTableColumn fx:id="EXTERNAL_FRAMING_PL_MATERIAL" prefWidth="455.0" text="Material" />
+                        <TreeTableColumn fx:id="EXTERNAL_FRAMING_PL_LENGTH" prefWidth="455.0" text="Length (mm)" />
                      </columns>
                   </JFXTreeTableView>
                   <JFXTreeTableView fx:id="EXTERNAL_FRAMING_COLUMNS_TBL" fixedCellSize="0.0" prefHeight="590.0" prefWidth="811.0" sortMode="ONLY_FIRST_LEVEL" visible="false" AnchorPane.leftAnchor="63.0" AnchorPane.topAnchor="85.0">
@@ -321,7 +321,7 @@
                         <TreeTableColumn fx:id="EXTERNAL_FRAMING_CL_NO" prefWidth="59.0" text="No." />
                         <TreeTableColumn fx:id="EXTERNAL_FRAMING_CL_IMAGE" prefWidth="120.0" text="Image" />
                         <TreeTableColumn fx:id="EXTERNAL_FRAMING_CL_QTY" prefWidth="175.0" text="Quantity" />
-                        <TreeTableColumn fx:id="EXTERNAL_FRAMING_CL_MATERIAL" prefWidth="455.0" text="Material" />
+                        <TreeTableColumn fx:id="EXTERNAL_FRAMING_CL_LENGTH" prefWidth="455.0" text="Length (mm)" />
                      </columns>
                   </JFXTreeTableView>
                   <Pane fx:id="GIRTS_PANE" layoutX="62.0" layoutY="85.0" prefHeight="590.0" prefWidth="1128.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="85.0">
@@ -368,17 +368,17 @@
                         </JFXTextField>
                      </children>
                   </Pane>
+                  <JFXButton fx:id="POLES_BTN" layoutX="558.0" layoutY="49.0" prefHeight="31.0" prefWidth="147.0" text="Poles" textFill="#bcbcbc" underline="true">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </JFXButton>
                   <JFXButton fx:id="COLUMNS_BTN" layoutX="686.0" layoutY="49.0" prefHeight="31.0" prefWidth="147.0" text="Columns" textFill="#bcbcbc" underline="true">
                      <font>
                         <Font name="Segoe UI" size="16.0" />
                      </font>
                   </JFXButton>
                   <JFXButton fx:id="GIRTS_BTN" layoutX="822.0" layoutY="48.0" prefHeight="31.0" prefWidth="147.0" text="Girts" textFill="#bcbcbc" underline="true">
-                     <font>
-                        <Font name="Segoe UI" size="16.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton fx:id="POLES_BTN" layoutX="558.0" layoutY="49.0" prefHeight="31.0" prefWidth="147.0" text="Poles" textFill="#bcbcbc" underline="true">
                      <font>
                         <Font name="Segoe UI" size="16.0" />
                      </font>
@@ -433,17 +433,17 @@
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="CLADDING" layoutX="711.0" layoutY="1.0" prefHeight="37.0" prefWidth="140.0" style="-fx-background-radius: 30px; -fx-background-color: #616161;" text="Cladding (0)" textFill="WHITE">
+            <JFXButton fx:id="CLADDING" layoutX="1007.0" layoutY="1.0" prefHeight="37.0" prefWidth="140.0" style="-fx-background-radius: 30px; -fx-background-color: #616161;" text="Cladding" textFill="WHITE">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="FOUNDATIONS" layoutX="861.0" layoutY="1.0" prefHeight="37.0" prefWidth="140.0" style="-fx-background-radius: 30px; -fx-background-color: #3e2723;" text="Foundations" textFill="WHITE">
+            <JFXButton fx:id="FOUNDATIONS" layoutX="709.0" layoutY="1.0" prefHeight="37.0" prefWidth="140.0" style="-fx-background-radius: 30px; -fx-background-color: #3e2723;" text="Foundations" textFill="WHITE">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="EXTERNAL_FRAMING" layoutX="1011.0" layoutY="1.0" prefHeight="37.0" prefWidth="140.0" style="-fx-background-radius: 30px; -fx-background-color: #6d4c41;" text="External Framing" textFill="WHITE">
+            <JFXButton fx:id="EXTERNAL_FRAMING" layoutX="859.0" layoutY="1.0" prefHeight="37.0" prefWidth="140.0" style="-fx-background-radius: 30px; -fx-background-color: #6d4c41;" text="External Framing" textFill="WHITE">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>

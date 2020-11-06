@@ -97,13 +97,13 @@ public class layoutsController implements Initializable {
     public TreeTableColumn<externalFramingPolesData, String> EXTERNAL_FRAMING_PL_NO;
     public TreeTableColumn<externalFramingPolesData, String> EXTERNAL_FRAMING_PL_IMAGE;
     public TreeTableColumn<externalFramingPolesData, String> EXTERNAL_FRAMING_PL_QTY;
-    public TreeTableColumn<externalFramingPolesData, String> EXTERNAL_FRAMING_PL_MATERIAL;
+    public TreeTableColumn<externalFramingPolesData, String> EXTERNAL_FRAMING_PL_LENGTH;
 
     public JFXTreeTableView<externalFramingColumnsData> EXTERNAL_FRAMING_COLUMNS_TBL; // columns
     public TreeTableColumn<externalFramingColumnsData, String> EXTERNAL_FRAMING_CL_NO;
     public TreeTableColumn<externalFramingColumnsData, String> EXTERNAL_FRAMING_CL_IMAGE;
     public TreeTableColumn<externalFramingColumnsData, String> EXTERNAL_FRAMING_CL_QTY;
-    public TreeTableColumn<externalFramingPolesData, String> EXTERNAL_FRAMING_CL_MATERIAL;
+    public TreeTableColumn<externalFramingPolesData, String> EXTERNAL_FRAMING_CL_LENGTH;
 
     //data lists
     public static ObservableList<layoutsData> data;
@@ -298,8 +298,8 @@ public class layoutsController implements Initializable {
         EXTERNAL_FRAMING_PL_QTY.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("quantity")
         );
-        EXTERNAL_FRAMING_PL_MATERIAL.setCellValueFactory(
-                new TreeItemPropertyValueFactory<>("material")
+        EXTERNAL_FRAMING_PL_LENGTH.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("length")
         );
 
         externalFramingColumnsData = FXCollections.observableArrayList();
@@ -313,8 +313,8 @@ public class layoutsController implements Initializable {
         EXTERNAL_FRAMING_CL_QTY.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("quantity")
         );
-        EXTERNAL_FRAMING_CL_MATERIAL.setCellValueFactory(
-                new TreeItemPropertyValueFactory<>("material")
+        EXTERNAL_FRAMING_CL_LENGTH.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("length")
         );
 
         DataBase db = DataBase.getInstance();

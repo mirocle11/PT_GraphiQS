@@ -44,6 +44,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
+import static Controllers.Sheets.Shed.externalFramingController.*;
 import static Controllers.Sheets.Shed.foundationsController.foundationsCBSectionList;
 import static Controllers.Sheets.Shed.foundationsController.foundationsPFSectionList;
 
@@ -546,9 +547,6 @@ public class Tools {
                                             window.FOUNDATIONS_DEPTH.getText(), window.FOUNDATIONS_WIDTH.getText(),
                                             window.FOUNDATIONS_LENGTH.getText(), window.FOUNDATIONS_VOLUME1.getText());
 
-                                    //new insert api here
-
-
                                 } else {
                                     int pf_quantity = Integer.parseInt(foundations_pf_quantity.getText()) + 1;
                                     double pf_volume = pf_quantity * (Double.parseDouble(foundations_pf_volume.getText())
@@ -592,8 +590,8 @@ public class Tools {
 
                                 foundations_stamp_object.setNo(cbLastRowSection.getText());
                                 db.insertFoundationsSectionDimension(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem(),
-                                        path, window.FOUNDATIONS_DIAMETER.getText(), window.FOUNDATIONS_HEIGHT.getText(), "",
-                                        "", "", window.FOUNDATIONS_VOLUME2.getText());
+                                        path, window.FOUNDATIONS_DIAMETER.getText(), window.FOUNDATIONS_HEIGHT.getText(),
+                                        "", "", "", window.FOUNDATIONS_VOLUME2.getText());
 
                             }
                             foundationsObjectList.add(foundations_stamp_object);
@@ -716,7 +714,6 @@ public class Tools {
                             switch (selected_icon) {
                                 case 0:
                                     external_framing_img.setImage(new Image(getClass().getResourceAsStream("../Views/stamper_icons/blue-icon1.png")));
-//                                    path = "C:\\Users\\User\\Documents\\IdeaProjects\\PT_GraphiQS\\src\\Views\\stamper_icons\\blue-icon1.png";
                                     path = "../Views/stamper_icons/blue-icon1.png";
                                     break;
                                 case 1:
@@ -801,19 +798,18 @@ public class Tools {
                             DataBase db = DataBase.getInstance();
                             //identify same values
                             db.identifyExternalFramingValues(window.EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem(),
-                                    window.EXTERNAL_FRAMING_MATERIAL.getSelectionModel().getSelectedItem(),
-                                    external_framing_section, external_framing_quantity);
+                                    window.EXTERNAL_FRAMING_LENGTH.getText(), external_framing_section, external_framing_quantity);
 
                             externalFramingObject.setPart(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem());
                             if (external_framing_section.getText().equals("")) {
-                                db.getExternalFramingLastRow(efLastRowSection,
-                                        window.EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem());
+                                db.getExternalFramingLastRow(efLastRowSection, window.EXTERNAL_FRAMING_PART.
+                                        getSelectionModel().getSelectedItem());
                                 if (efLastRowSection.getText().equals("")) {
                                     efLastRowSection.setText("1");
                                 }
                                 db.insertExternalFraming(Integer.parseInt(efLastRowSection.getText()), path,
                                         window.EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem(), 1,
-                                        window.EXTERNAL_FRAMING_MATERIAL.getSelectionModel().getSelectedItem());
+                                        window.EXTERNAL_FRAMING_LENGTH.getText());
                             } else {
                                 int ef_quantity = Integer.parseInt(external_framing_quantity.getText()) + 1;
 
@@ -833,6 +829,9 @@ public class Tools {
                             layoutsController.externalFramingColumnsData.clear();
                             db.showExternalFramingLayouts(layoutsController.externalFramingPolesData,
                                     layoutsController.externalFramingColumnsData);
+
+                            //pass to sheets
+                            db.getExternalFramingSections(externalFramingSectionListPL, externalFramingSectionListCL);
                         }
                     }
                 });

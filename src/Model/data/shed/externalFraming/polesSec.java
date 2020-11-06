@@ -5,11 +5,12 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class polesSec extends RecursiveTreeObject<polesSec> {
 
-    private SimpleStringProperty no, qty;
+    private SimpleStringProperty no, qty, length;
 
-    public polesSec(String no, String qty) {
+    public polesSec(String no, String qty, String length) {
         this.no = new SimpleStringProperty(no);
         this.qty = new SimpleStringProperty(qty);
+        this.length = new SimpleStringProperty(length);
     }
 
     public String getNo() {
@@ -34,5 +35,17 @@ public class polesSec extends RecursiveTreeObject<polesSec> {
 
     public void setQty(String qty) {
         this.qty.set(qty);
+    }
+
+    public String getLength() {
+        return length.get();
+    }
+
+    public SimpleStringProperty lengthProperty() {
+        return length;
+    }
+
+    public void setLength(String length) {
+        this.length.set(length);
     }
 }

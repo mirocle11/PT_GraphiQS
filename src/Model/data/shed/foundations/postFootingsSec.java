@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class postFootingsSec extends RecursiveTreeObject<postFootingsSec> {
 
-    private SimpleStringProperty no, depth, width, length, qty,volume;
+    private SimpleStringProperty no, depth, width, length, qty, volume;
 
     public postFootingsSec(String no, String depth, String width, String length, String qty,String volume) {
         this.no = new SimpleStringProperty(no);

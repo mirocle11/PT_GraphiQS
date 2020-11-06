@@ -158,14 +158,11 @@ public class workspaceController implements Initializable {
 
     //stamp (external framing)
     public int ef_indicator = 0;
-    public JFXComboBox<String> EXTERNAL_FRAMING_PART, EXTERNAL_FRAMING_MATERIAL;
+    public JFXComboBox<String> EXTERNAL_FRAMING_PART;
+    public JFXTextField EXTERNAL_FRAMING_LENGTH;
 
     private final ObservableList<String> external_framing_parts = FXCollections.observableArrayList("Poles",
             "Columns");
-    private final ObservableList<String> external_framing_materials_pl = FXCollections.observableArrayList
-            ("200 SED Pole");
-    private final ObservableList<String> external_framing_materials_cl = FXCollections.observableArrayList
-            ("2/150 x 50 H3.2 Column");
 
     //set stud height
     public double stud_height;
@@ -173,8 +170,12 @@ public class workspaceController implements Initializable {
 
     //cladding
     public VBox CLADDING_BOX;
+    public JFXComboBox<String> CLADDING_METHOD;
+    private final ObservableList<String> cladding_method = FXCollections.observableArrayList("Measure", "Input");
+
     public JFXButton CLD_PROCEED, CLD_CANCEL;
     public AnchorPane CLADDING_LIST;
+    public Pane CLD_INPUT_PANE;
     public JFXColorPicker CLD_COLOR_PICKER;
     public String selectedCladding;
     int cld_indicator = 0;
@@ -204,6 +205,7 @@ public class workspaceController implements Initializable {
         WINDOW_TYPE.setItems(window_type);
         FOUNDATIONS_PART.setItems(foundations_parts);
         EXTERNAL_FRAMING_PART.setItems(external_framing_parts);
+        CLADDING_METHOD.setItems(cladding_method);
 
         //misc
         MISC_PART.setItems(misc_parts);
@@ -264,16 +266,6 @@ public class workspaceController implements Initializable {
             //Return result as String
             return String.valueOf(df.format(volume));
         }, FOUNDATIONS_DIAMETER.textProperty(), FOUNDATIONS_HEIGHT.textProperty()));
-
-        EXTERNAL_FRAMING_PART.setOnAction(event -> {
-            if (!EXTERNAL_FRAMING_PART.getSelectionModel().isEmpty()) {
-                if (EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem().equals("Poles")) {
-                    EXTERNAL_FRAMING_MATERIAL.setItems(external_framing_materials_pl);
-                } else if (EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem().equals("Columns")) {
-                    EXTERNAL_FRAMING_MATERIAL.setItems(external_framing_materials_cl);
-                }
-            }
-        });
 
         DONE.setOnAction(event -> { //stamping
             stampPicker.setVisible(false);
@@ -502,6 +494,19 @@ public class workspaceController implements Initializable {
         //cladding
         CLADDING_BTN.setOnAction(event -> {
             CLADDING_LIST.setVisible(true);
+        });
+
+        CLADDING_METHOD.setOnAction(event -> {
+            if (!CLADDING_METHOD.getSelectionModel().isEmpty())
+                if (CLADDING_METHOD.getSelectionModel().getSelectedItem().equals("Measure")) {
+                    CLADDING_BOX.setVisible(true);
+                    CLD_COLOR_PICKER.setVisible(true);
+                    CLD_INPUT_PANE.setVisible(false);
+                } else if (CLADDING_METHOD.getSelectionModel().getSelectedItem().equals("Input")) {
+                    CLADDING_BOX.setVisible(false);
+                    CLD_COLOR_PICKER.setVisible(false);
+                    CLD_INPUT_PANE.setVisible(true);
+                }
         });
 
         CLD_PROCEED.setOnAction(event -> {

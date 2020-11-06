@@ -1047,8 +1047,8 @@
                         </Pane>
                         <Pane fx:id="EXTERNAL_FRAMING_PANE" layoutY="53.0" prefHeight="216.0" prefWidth="200.0" visible="false">
                            <children>
-                              <JFXComboBox fx:id="EXTERNAL_FRAMING_PART" focusTraversable="false" labelFloat="true" layoutX="13.0" layoutY="11.0" prefHeight="28.0" prefWidth="175.0" promptText="Part" unFocusColor="#bcbcbc" />
-                              <JFXComboBox fx:id="EXTERNAL_FRAMING_MATERIAL" focusTraversable="false" labelFloat="true" layoutX="13.0" layoutY="66.0" prefHeight="28.0" prefWidth="175.0" promptText="Material" unFocusColor="#bcbcbc" />
+                              <JFXComboBox fx:id="EXTERNAL_FRAMING_PART" focusTraversable="false" labelFloat="true" layoutX="13.0" layoutY="13.0" prefHeight="28.0" prefWidth="175.0" promptText="Part" unFocusColor="#bcbcbc" />
+                              <JFXTextField fx:id="EXTERNAL_FRAMING_LENGTH" labelFloat="true" layoutX="14.0" layoutY="65.0" prefHeight="25.0" prefWidth="175.0" promptText="Length (mm)" />
                            </children>
                         </Pane>
                         <JFXButton fx:id="UNDO" alignment="CENTER" focusTraversable="false" graphicTextGap="5.0" layoutX="14.0" layoutY="278.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="81.0" style="-fx-background-radius: 30px; -fx-background-color: #263238;" text="Undo" textAlignment="CENTER" textFill="#bcbcbc">
@@ -1082,20 +1082,20 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="CLADDING_LIST" layoutX="69.0" layoutY="20.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="240.0" style="-fx-background-color: TRANSPARENT;" stylesheets="@CSS/style.css" visible="false" AnchorPane.leftAnchor="69.0" AnchorPane.topAnchor="60.0">
+      <AnchorPane fx:id="CLADDING_LIST" layoutX="69.0" layoutY="20.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="240.0" style="-fx-background-color: TRANSPARENT;" stylesheets="@CSS/style.css" visible="false" AnchorPane.leftAnchor="69.0" AnchorPane.topAnchor="60.0">
          <children>
             <AnchorPane fx:id="stampPickerPane1" layoutX="7.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="387.0" prefWidth="214.0" style="-fx-background-radius: 20px; -fx-background-color: #0F1E25;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                <effect>
                   <DropShadow color="#121212" height="35.03" radius="17.155" spread="0.15" width="35.59" />
                </effect>
                <children>
-                  <Label fx:id="CLIENT_DETAILS_LBL" alignment="CENTER" layoutY="5.0" prefHeight="35.0" prefWidth="210.0" text="Cladding List" textFill="#bcbcbc">
+                  <Label fx:id="CLIENT_DETAILS_LBL" alignment="CENTER" layoutY="5.0" prefHeight="35.0" prefWidth="210.0" text="Cladding" textFill="#bcbcbc">
                      <font>
                         <Font name="Segoe UI" size="16.0" />
                      </font>
                   </Label>
                   <Separator layoutX="5.0" layoutY="41.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1.0" prefWidth="200.0" style="-fx-background-color: WHITE;" />
-                  <VBox fx:id="CLADDING_BOX" layoutX="5.0" layoutY="42.0" maxHeight="-Infinity" prefHeight="260.0" prefWidth="206.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="45.0">
+                  <VBox fx:id="CLADDING_BOX" layoutX="2.0" layoutY="116.0" maxHeight="-Infinity" prefHeight="260.0" prefWidth="206.0" visible="false" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="116.0">
                      <children>
                         <JFXCheckBox prefHeight="35.0" prefWidth="240.0" style="-fx-background-color: #0F1E25;" text="Brick Veneer" textFill="#b8b8b8">
                            <font>
@@ -1158,7 +1158,7 @@
                         </JFXCheckBox>
                      </children>
                   </VBox>
-                  <JFXButton fx:id="CLD_CANCEL" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="5.0" layoutX="108.0" layoutY="350.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="97.0" style="-fx-background-radius: 30px;" text="Cancel" textAlignment="CENTER" textFill="#bcbcbc">
+                  <JFXButton fx:id="CLD_CANCEL" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="5.0" layoutX="111.0" layoutY="428.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="97.0" style="-fx-background-radius: 30px;" text="Cancel" textAlignment="CENTER" textFill="#bcbcbc">
                      <font>
                         <Font name="Segoe UI" size="14.0" />
                      </font>
@@ -1173,7 +1173,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="CLD_PROCEED" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="5.0" layoutY="350.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="108.0" style="-fx-background-radius: 30px;" text="Proceed" textAlignment="CENTER" textFill="#bcbcbc">
+                  <JFXButton fx:id="CLD_PROCEED" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="5.0" layoutX="3.0" layoutY="428.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="108.0" style="-fx-background-radius: 30px;" text="Proceed" textAlignment="CENTER" textFill="#bcbcbc">
                      <font>
                         <Font name="Segoe UI" size="14.0" />
                      </font>
@@ -1188,12 +1188,19 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXColorPicker fx:id="CLD_COLOR_PICKER" layoutX="84.0" layoutY="312.0" prefHeight="30.0" prefWidth="97.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="29.0" />
-                  <Label fx:id="CLIENT_DETAILS_LBL1" alignment="CENTER" layoutX="14.0" layoutY="313.0" prefHeight="28.0" prefWidth="56.0" text="Color :" textFill="#bcbcbc">
+                  <JFXColorPicker fx:id="CLD_COLOR_PICKER" layoutX="25.0" layoutY="390.0" prefHeight="30.0" prefWidth="147.0" promptText="Color" visible="false" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="38.0" />
+                  <Label fx:id="CLD_COLOR_LBL" alignment="CENTER" layoutX="17.0" layoutY="391.0" prefHeight="28.0" prefWidth="56.0" text="Color :" textFill="#bcbcbc" visible="false">
                      <font>
                         <Font name="Segoe UI" size="14.0" />
                      </font>
                   </Label>
+                  <JFXComboBox fx:id="CLADDING_METHOD" focusTraversable="false" layoutX="18.0" layoutY="60.0" prefHeight="28.0" prefWidth="175.0" promptText="Method" unFocusColor="#bcbcbc" />
+                  <Pane fx:id="CLD_INPUT_PANE" layoutX="5.0" layoutY="116.0" prefHeight="260.0" prefWidth="200.0">
+                     <children>
+                        <JFXTextField fx:id="EXTERNAL_FRAMING_LENGTH1" labelFloat="true" layoutX="13.0" layoutY="14.0" prefHeight="25.0" prefWidth="175.0" promptText="Length (mm)" />
+                        <JFXTextField fx:id="EXTERNAL_FRAMING_HEIGHT" labelFloat="true" layoutX="13.0" layoutY="62.0" prefHeight="25.0" prefWidth="175.0" promptText="Height (mm)" />
+                     </children>
+                  </Pane>
                </children>
             </AnchorPane>
          </children>

@@ -6,14 +6,14 @@ import javafx.scene.control.Label;
 
 public class externalFramingColumnsData extends RecursiveTreeObject<externalFramingColumnsData> {
 
-    private SimpleStringProperty no, quantity, material;
+    private SimpleStringProperty no, quantity, length;
     private Label image;
 
-    public externalFramingColumnsData(String no, Label image, String quantity, String material) {
+    public externalFramingColumnsData(String no, Label image, String quantity, String length) {
         this.no = new SimpleStringProperty(no);
         this.image = image;
         this.quantity = new SimpleStringProperty(quantity);
-        this.material = new SimpleStringProperty(material);
+        this.length = new SimpleStringProperty(length);
     }
 
     public String getNo() {
@@ -48,15 +48,15 @@ public class externalFramingColumnsData extends RecursiveTreeObject<externalFram
         this.image = image;
     }
 
-    public String getMaterial() {
-        return material.get();
+    public String getLength() {
+        return length.get();
     }
 
-    public SimpleStringProperty materialProperty() {
-        return material;
+    public SimpleStringProperty lengthProperty() {
+        return length;
     }
 
-    public void setMaterial(String material) {
-        this.material.set(material);
+    public void setLength(String length) {
+        this.length.set(length);
     }
 }

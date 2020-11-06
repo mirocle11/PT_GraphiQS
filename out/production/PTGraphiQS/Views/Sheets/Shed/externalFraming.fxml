@@ -42,7 +42,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <GridPane id="Poles" fx:id="POLES" layoutX="30.0" layoutY="30.0" prefHeight="286.0" prefWidth="785.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
+      <GridPane id="Poles" fx:id="POLES" layoutX="30.0" layoutY="30.0" prefHeight="286.0" prefWidth="785.0" visible="false" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
          <columnConstraints>
             <ColumnConstraints hgrow="ALWAYS" maxWidth="668.0" minWidth="10.0" prefWidth="498.0" />
             <ColumnConstraints hgrow="ALWAYS" maxWidth="459.0" minWidth="10.0" prefWidth="287.0" />
@@ -89,8 +89,8 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXComboBox fx:id="PF_SET1" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
-                  <JFXComboBox fx:id="PF_SET_OVERRIDE1" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
+                  <JFXComboBox fx:id="PL_SET" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
+                  <JFXComboBox fx:id="PL_SET_OVERRIDE" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
                </children>
                <GridPane.margin>
                   <Insets right="10.0" />
@@ -141,7 +141,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <ListView fx:id="PF_SECTIONS" layoutX="15.0" layoutY="41.0" prefHeight="200.0" prefWidth="88.0" AnchorPane.topAnchor="40.0" />
+                  <ListView fx:id="CL_SECTIONS" layoutX="15.0" layoutY="41.0" prefHeight="200.0" prefWidth="88.0" AnchorPane.topAnchor="40.0" />
                   <JFXButton fx:id="PF_ADD_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" disable="true" layoutX="104.0" layoutY="41.0" prefHeight="30.0" prefWidth="30.0" text="Button">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -169,8 +169,8 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXComboBox fx:id="PF_SET" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
-                  <JFXComboBox fx:id="PF_SET_OVERRIDE" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
+                  <JFXComboBox fx:id="CL_SET" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
+                  <JFXComboBox fx:id="CL_SET_OVERRIDE" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
                </children>
                <GridPane.margin>
                   <Insets right="10.0" />
@@ -186,10 +186,10 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TreeTableView fx:id="PF_TABLE" layoutX="10.0" layoutY="43.0" prefHeight="200.0" prefWidth="258.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
+                  <TreeTableView fx:id="COLUMNS_TABLE" layoutX="10.0" layoutY="43.0" prefHeight="200.0" prefWidth="258.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
                      <columns>
-                        <TreeTableColumn fx:id="PF_COL_NO" prefWidth="75.0" text="#" />
-                        <TreeTableColumn fx:id="PF_COL_QTY" prefWidth="75.0" text="Qty" />
+                        <TreeTableColumn fx:id="CL_COL_NO" prefWidth="75.0" text="#" />
+                        <TreeTableColumn fx:id="CL_COL_QTY" prefWidth="75.0" text="Qty" />
                      </columns>
                      <columnResizePolicy>
                         <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

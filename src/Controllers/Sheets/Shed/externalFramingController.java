@@ -1,8 +1,11 @@
 package Controllers.Sheets.Shed;
 
 import DataBase.DataBase;
+import Model.data.shed.externalFraming.polesSec;
+import Model.data.shed.externalFraming.columnsSec;
 import Model.data.shed.externalFramingMaterials;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
@@ -37,6 +40,8 @@ public class externalFramingController implements Initializable {
     //gridpanes (parts)
     public GridPane POLES, COLUMNS, GIRTS, DOORS, WINDOWS;
 
+    public JFXComboBox<String> PL_SET, PL_SET_OVERRIDE, CL_SET, CL_SET_OVERRIDE;
+
     //tables
     public JFXTreeTableView<externalFramingMaterials> MATERIALS_TBL;
     public TreeTableColumn<externalFramingMaterials, String> COMPONENT_COL;
@@ -46,12 +51,25 @@ public class externalFramingController implements Initializable {
     public TreeTableColumn<externalFramingMaterials, String> QUANTITY_COL;
     public TreeTableColumn<externalFramingMaterials, String> USAGE_COL;
 
-    public TreeTableView<externalFramingMaterials> POLES_TABLE;
-    public TreeTableColumn<externalFramingMaterials, String> PL_COL_NO;
-    public TreeTableColumn<externalFramingMaterials, String> PL_COL_QTY;
+    public TreeTableView<polesSec> POLES_TABLE;
+    public TreeTableColumn<polesSec, String> PL_COL_NO;
+    public TreeTableColumn<polesSec, String> PL_COL_QTY;
+
+    public TreeTableView<polesSec> COLUMNS_TABLE;
+    public TreeTableColumn<polesSec, String> CL_COL_NO;
+    public TreeTableColumn<polesSec, String> CL_COL_QTY;
 
     //data lists
     public static ObservableList<externalFramingMaterials> externalFramingMaterials;
+    public static ObservableList<Integer> externalFramingSectionListPL = FXCollections.observableArrayList();
+    public static ObservableList<Integer> externalFramingSectionListCL = FXCollections.observableArrayList();
+
+    public static ObservableList<String> setsListPL = FXCollections.observableArrayList();
+    public static ObservableList<String> setsListCL = FXCollections.observableArrayList();
+
+    // section dimensions
+    public static ObservableList<polesSec> polesSec = FXCollections.observableArrayList();
+    public static ObservableList<columnsSec> columnsSec = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {
@@ -60,6 +78,8 @@ public class externalFramingController implements Initializable {
         DataBase db = DataBase.getInstance();
         parts.clear();
         db.displayShedParts(2, parts);
+        db.getSets(4, setsListPL);
+        db.getSets(5, setsListCL);
 
         parts.forEach(s -> {
             JFXButton button = new JFXButton();
@@ -117,6 +137,27 @@ public class externalFramingController implements Initializable {
         MATERIALS_TBL.setRoot(externalFramingControllerTreeItem);
         MATERIALS_TBL.setShowRoot(false);
 
+        PL_SET.setItems(setsListPL);
+
+        PL_SECTIONS.setItems(externalFramingSectionListPL);
+        PL_SECTIONS.setOnMouseReleased(event -> {
+            //section list event
+            PL_SET.setDisable(false);
+            PL_SET_OVERRIDE.setDisable(false);
+            db.getSelectedSets(Integer.parseInt(id_indicator.getText()), PL_SECTIONS.getSelectionModel().getSelectedItem(),
+                    PL_SET, PL_SET_OVERRIDE);
+            db.showExternalFramingSD("Poles", PL_SECTIONS.getSelectionModel().getSelectedItem(), polesSec, columnsSec);
+        });
+
+        PL_SET.setOnAction(event -> {
+            String set_override = "";
+            if (!PL_SET_OVERRIDE.getSelectionModel().isEmpty()) {
+                set_override = PL_SET_OVERRIDE.getSelectionModel().getSelectedItem();
+            }
+            db.setSelectedSets(Integer.parseInt(id_indicator.getText()), PL_SECTIONS.getSelectionModel()
+                    .getSelectedItem(), PL_SET.getSelectionModel().getSelectedItem(), set_override);
+//            setComponentContents(2, PL_SET.getSelectionModel().getSelectedItem());
+        });
 
     }
 
