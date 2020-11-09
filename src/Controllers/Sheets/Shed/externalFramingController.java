@@ -279,42 +279,52 @@ public class externalFramingController implements Initializable {
                     break;
                 case "150 x 50 H3.2 Girts":
                     //calculations
-                    int total = (int) Double.parseDouble(girtsData.get(6));
+                    int total_150 = (int) Double.parseDouble(girtsData.get(6));
 
-                    int girts_6 = total / 6000;
-                    int girts_48 = (total % 6000) / 4800;
+                    int girts_6_150 = total_150 / 6000;
+                    int girts_48_150 = (total_150 % 6000) / 4800;
 
-                    int remainder = (total % 6000) % 4800;
-                    int girts_36 = 0;
+                    int remainder = (total_150 % 6000) % 4800;
+                    int girts_36_150 = 0;
                     if (remainder > 0 && remainder < 3600) {
-                        girts_36 = 1;
+                        girts_36_150 = 1;
                     } else {
-                        girts_36 = remainder / 3600;
+                        girts_36_150 = remainder / 3600;
                     }
 
                     externalFramingMaterials.addAll(new externalFramingMaterials("Girts", "15050RVH32RS36",
-                            "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M", "LGTH", String.valueOf(girts_36), "Girts"));
+                            "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M", "LGTH", String.valueOf(girts_36_150), "Girts"));
                     externalFramingMaterials.addAll(new externalFramingMaterials("Girts", "15050RVH32RS48",
-                            "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", String.valueOf(girts_48), "Girts"));
+                            "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", String.valueOf(girts_48_150), "Girts"));
                     externalFramingMaterials.addAll(new externalFramingMaterials("Girts", "15050RVH32RS48",
-                            "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 6.0M", "LGTH", String.valueOf(girts_6), "Girts"));
+                            "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 6.0M", "LGTH", String.valueOf(girts_6_150), "Girts"));
                     break;
-//                case "150 x 50 H3.2 Girts":
-//                    //calculations
-//                    int total = Integer.parseInt(externalFramingColumnsData.get(CL_SECTIONS.getSelectionModel()
-//                            .getSelectedIndex()).getQuantity());
-//
-//                    int girts_6 = total / 6000;
-//                    int girts_48 = (total % 6000) / 4800;
-//                    int girts_36 = ((total % 6000) % 4800) / 3600;
-//
-//                    externalFramingMaterials.addAll(new externalFramingMaterials("Girts", "15050RVH32RS36",
-//                            "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M", "LGTH", String.valueOf(girts_36), "Girts"));
-//                    externalFramingMaterials.addAll(new externalFramingMaterials("Girts", "15050RVH32RS48",
-//                            "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", String.valueOf(girts_48), "Girts"));
-//                    externalFramingMaterials.addAll(new externalFramingMaterials("Girts", "15050RVH32RS48",
-//                            "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 6.0M", "LGTH", String.valueOf(girts_6), "Girts"));
-//                    break;
+                case "200 x 50 H3.2 Girts":
+                    //calculations
+                    int total_200 = (int) Double.parseDouble(girtsData.get(6));
+
+                    int remainder_200 = total_200 % 4800;
+                    int girts_48_200 = total_200 / 4800;
+                    if (remainder_200 > 0) {
+                        girts_48_200++;
+                    }
+
+                    externalFramingMaterials.addAll(new externalFramingMaterials("Girts", "15050RVH32RS36",
+                            "200 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", String.valueOf(girts_48_200), "Girts"));
+                    break;
+                case "250 x 50 H3.2 Girts":
+                    //calculations
+                    int total_250 = (int) Double.parseDouble(girtsData.get(6));
+
+                    int remainder_250 = total_250 % 4800;
+                    int girts_48_250 = total_250 / 4800;
+                    if (remainder_250 > 0) {
+                        girts_48_250++;
+                    }
+
+                    externalFramingMaterials.addAll(new externalFramingMaterials("Girts", "15050RVH32RS36",
+                            "250 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", String.valueOf(girts_48_250), "Girts"));
+                    break;
             }
         }
     }

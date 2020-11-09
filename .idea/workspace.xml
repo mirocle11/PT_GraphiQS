@@ -25,10 +25,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-updated external framing functions&#10;-updated external framing calculations (setup sheets)&#10;-finished setup sheets for poles, columns and girts&#10;-11/09/20">
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/claddingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/claddingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/layoutsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/externalFraming.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/externalFraming.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/externalFramingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/externalFramingController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/externalFramingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/externalFramingController.java" afterDir="false" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
@@ -709,14 +707,7 @@
       <workItem from="1604631889206" duration="9290000" />
       <workItem from="1604737627224" duration="1205000" />
       <workItem from="1604831881783" duration="4730000" />
-      <workItem from="1604890471984" duration="20129000" />
-    </task>
-    <task id="LOCAL-00113" summary="-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators">
-      <created>1588049646547</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1588049646547</updated>
+      <workItem from="1604890471984" duration="21803000" />
     </task>
     <task id="LOCAL-00114" summary="-updated layouts and builders ui&#10;-database (crud &amp; login) for builders/estimators&#10;-working stamps">
       <created>1592299155344</created>
@@ -1054,7 +1045,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604913326208</updated>
     </task>
-    <option name="localTasksCounter" value="162" />
+    <task id="LOCAL-00162" summary="-updated external framing functions&#10;-updated external framing calculations (setup sheets)&#10;-finished setup sheets for poles, columns and girts&#10;-11/09/20">
+      <created>1604913403883</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1604913403883</updated>
+    </task>
+    <option name="localTasksCounter" value="163" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1188,11 +1186,11 @@
     <state x="2610" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
     <state x="2610" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1602656677620" />
     <state x="2610" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="2475" y="0" key="CommitChangelistDialog2" timestamp="1604913325429">
+    <state x="2475" y="0" key="CommitChangelistDialog2" timestamp="1604913403120">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="555" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604640639125" />
-    <state x="2475" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604913325429" />
+    <state x="2475" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604913403120" />
     <state x="2139" y="85" key="DiffContextDialog" timestamp="1603174823596">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -1200,26 +1198,26 @@
     <state x="3035" y="318" key="FileChooserDialogImpl" timestamp="1602656677620" />
     <state x="674" y="288" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
     <state x="3035" y="318" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state width="1877" height="199" key="GridCell.Tab.0.bottom" timestamp="1604913332816">
+    <state width="1877" height="199" key="GridCell.Tab.0.bottom" timestamp="1604914962735">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="199" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604642345592" />
-    <state width="1877" height="199" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604913332816" />
-    <state width="1877" height="199" key="GridCell.Tab.0.center" timestamp="1604913332816">
+    <state width="1877" height="199" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604914962735" />
+    <state width="1877" height="199" key="GridCell.Tab.0.center" timestamp="1604914962735">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="199" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604642345592" />
-    <state width="1877" height="199" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604913332816" />
-    <state width="1877" height="199" key="GridCell.Tab.0.left" timestamp="1604913332816">
+    <state width="1877" height="199" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604914962735" />
+    <state width="1877" height="199" key="GridCell.Tab.0.left" timestamp="1604914962734">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="199" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604642345592" />
-    <state width="1877" height="199" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604913332816" />
-    <state width="1877" height="199" key="GridCell.Tab.0.right" timestamp="1604913332816">
+    <state width="1877" height="199" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604914962734" />
+    <state width="1877" height="199" key="GridCell.Tab.0.right" timestamp="1604914962735">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="199" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604642345592" />
-    <state width="1877" height="199" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604913332816" />
+    <state width="1877" height="199" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604914962735" />
     <state width="1877" height="339" key="GridCell.Tab.1.bottom" timestamp="1604902425187">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -1262,11 +1260,11 @@
     </state>
     <state x="432" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
     <state x="2266" y="158" width="1054" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603175195519" />
-    <state x="2515" y="266" key="Vcs.Push.Dialog.v2" timestamp="1604913329127">
+    <state x="2515" y="266" key="Vcs.Push.Dialog.v2" timestamp="1604913405038">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604640656521" />
-    <state x="2515" y="266" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604913329127" />
+    <state x="2515" y="266" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604913405038" />
     <state x="753" y="454" key="classpath-attribute-editor" timestamp="1602656677620" />
     <state x="753" y="454" key="classpath-attribute-editor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
     <state x="2707" y="288" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1603126594621">
