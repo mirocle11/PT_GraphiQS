@@ -143,19 +143,19 @@ public class setupSheetsController implements Initializable {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/framingHardware.fxml"));
-            SHED_FRAMING_HARDWARE = loader.load();
-            SHED_FRAMING_HARDWARE.setId("Framing Hardware");
-            shedList.add(SHED_FRAMING_HARDWARE);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/cladding.fxml"));
+            SHED_CLADDING = loader.load();
+            SHED_CLADDING.setId("Cladding");
+            shedList.add(SHED_CLADDING);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/cladding.fxml"));
-            SHED_CLADDING = loader.load();
-            SHED_CLADDING.setId("Cladding");
-            shedList.add(SHED_CLADDING);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Sheets/Shed/framingHardware.fxml"));
+            SHED_FRAMING_HARDWARE = loader.load();
+            SHED_FRAMING_HARDWARE.setId("Framing Hardware");
+            shedList.add(SHED_FRAMING_HARDWARE);
         } catch (Exception e) {
             e.printStackTrace();
         }
