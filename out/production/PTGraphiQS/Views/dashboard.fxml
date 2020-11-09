@@ -98,21 +98,6 @@
                            </ImageView>
                         </graphic>
                      </JFXButton>
-                     <JFXButton alignment="BASELINE_LEFT" graphicTextGap="45.0" onAction="#materialsAction" prefHeight="54.0" prefWidth="265.0" text="Materials" textAlignment="CENTER" textFill="#b5b5b5">
-                        <font>
-                           <Font name="Segoe UI" size="17.0" />
-                        </font>
-                        <graphic>
-                           <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-                              <image>
-                                 <Image url="@images/work_40px.png" />
-                              </image>
-                              <viewport>
-                                 <Rectangle2D />
-                              </viewport>
-                           </ImageView>
-                        </graphic>
-                     </JFXButton>
                      <JFXButton alignment="BASELINE_LEFT" graphicTextGap="45.0" onAction="#workspaceAction" prefHeight="54.0" prefWidth="265.0" text="Workspace" textAlignment="CENTER" textFill="#b5b5b5">
                         <font>
                            <Font name="Segoe UI" size="17.0" />
@@ -136,6 +121,21 @@
                            <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                               <image>
                                  <Image url="@images/blueprint_40px.png" />
+                              </image>
+                              <viewport>
+                                 <Rectangle2D />
+                              </viewport>
+                           </ImageView>
+                        </graphic>
+                     </JFXButton>
+                     <JFXButton alignment="BASELINE_LEFT" graphicTextGap="45.0" onAction="#materialsAction" prefHeight="54.0" prefWidth="265.0" text="Material Listings" textAlignment="CENTER" textFill="#b5b5b5">
+                        <font>
+                           <Font name="Segoe UI" size="17.0" />
+                        </font>
+                        <graphic>
+                           <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@images/deployment_40px.png" />
                               </image>
                               <viewport>
                                  <Rectangle2D />
