@@ -249,31 +249,31 @@ public class externalFramingController implements Initializable {
                     break;
                 case "2/150 x 50 H3.2 Column 3.6M":
                     externalFramingMaterials.addAll(new externalFramingMaterials("Columns", "15050RVH32RS36",
-                            "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M", "EACH", String.valueOf(
+                            "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M", "LGTH", String.valueOf(
                                     Integer.parseInt(externalFramingColumnsData.get(CL_SECTIONS.getSelectionModel()
                                             .getSelectedIndex()).getQuantity()) * 2), "Columns"));
                     break;
                 case "2/150 x 50 H3.2 Column 4.8M":
                     externalFramingMaterials.addAll(new externalFramingMaterials("Columns", "15050RVH32RS48",
-                            "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "EACH", String.valueOf(
+                            "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", String.valueOf(
                             Integer.parseInt(externalFramingColumnsData.get(CL_SECTIONS.getSelectionModel()
                                     .getSelectedIndex()).getQuantity()) * 2), "Columns"));
                     break;
                 case "2/150 x 50 H3.2 Column 6.0M":
                     externalFramingMaterials.addAll(new externalFramingMaterials("Columns", "15050RVH32RS60",
-                            "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 6.0M", "EACH", String.valueOf(
+                            "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 6.0M", "LGTH", String.valueOf(
                             Integer.parseInt(externalFramingColumnsData.get(CL_SECTIONS.getSelectionModel()
                                     .getSelectedIndex()).getQuantity()) * 2), "Columns"));
                     break;
                 case "2/200 x 50 H3.2 Column 4.8M":
                     externalFramingMaterials.addAll(new externalFramingMaterials("Columns", "20050RVH32RS48",
-                            "200 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "EACH", String.valueOf(
+                            "200 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", String.valueOf(
                             Integer.parseInt(externalFramingColumnsData.get(CL_SECTIONS.getSelectionModel()
                                     .getSelectedIndex()).getQuantity()) * 2), "Columns"));
                     break;
                 case "2/250 x 50 H3.2 Column 4.8M":
                     externalFramingMaterials.addAll(new externalFramingMaterials("Columns", "25050RVH32RS48",
-                            "250 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "EACH", String.valueOf(
+                            "250 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", String.valueOf(
                             Integer.parseInt(externalFramingColumnsData.get(CL_SECTIONS.getSelectionModel()
                                     .getSelectedIndex()).getQuantity()) * 2), "Columns"));
                     break;
