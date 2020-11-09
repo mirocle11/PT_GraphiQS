@@ -1421,7 +1421,15 @@ public class DataBase {
 
             preparedStatement.executeUpdate();
 
-            setSections(4, section);
+            switch (part) {
+                case "Poles":
+                    setSections(4, section);
+                    break;
+                case "Columns":
+                    setSections(5, section);
+                    break;
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1493,7 +1501,7 @@ public class DataBase {
 
                 //create container for data
                 externalFramingPolesData.addAll(new externalFramingPolesData(String.valueOf(
-                        resultSet.getInt("ID")), image, String.valueOf(resultSet
+                        resultSet.getInt("SECTION_ID")), image, String.valueOf(resultSet
                         .getString("QUANTITY")), resultSet.getString("LENGTH")));
             }
         } catch (Exception e) {
@@ -1520,7 +1528,7 @@ public class DataBase {
 
                 //create container for data
                 externalFramingColumnsData.addAll(new externalFramingColumnsData(String.valueOf(
-                        resultSet.getInt("ID")), image, String.valueOf(resultSet
+                        resultSet.getInt("SECTION_ID")), image, String.valueOf(resultSet
                         .getString("QUANTITY")), resultSet.getString("LENGTH")));
             }
         } catch (Exception e) {

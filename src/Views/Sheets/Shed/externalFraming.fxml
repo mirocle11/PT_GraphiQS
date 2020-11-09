@@ -221,7 +221,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <ListView fx:id="CB_SECTIONS" layoutX="15.0" layoutY="41.0" prefHeight="200.0" prefWidth="88.0" AnchorPane.topAnchor="40.0" />
+                  <ListView fx:id="GIRTS_SECTIONS" layoutX="15.0" layoutY="41.0" prefHeight="200.0" prefWidth="88.0" AnchorPane.topAnchor="40.0" />
                   <JFXButton fx:id="CB_ADD_SECTION" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" disable="true" layoutX="104.0" layoutY="41.0" prefHeight="30.0" prefWidth="30.0">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -249,8 +249,8 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXComboBox disable="true" editable="true" focusTraversable="false" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
-                  <JFXComboBox disable="true" editable="true" focusTraversable="false" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
+                  <JFXComboBox fx:id="GIRTS_SET" disable="true" editable="true" focusTraversable="false" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
+                  <JFXComboBox fx:id="GIRTS_SET_OVERRIDE" disable="true" editable="true" focusTraversable="false" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
                </children>
                <GridPane.margin>
                   <Insets right="10.0" />

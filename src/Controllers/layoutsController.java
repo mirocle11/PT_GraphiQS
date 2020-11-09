@@ -118,7 +118,7 @@ public class layoutsController implements Initializable {
     public static ObservableList<externalFramingColumnsData> externalFramingColumnsData;
 
     public static ObservableList<String> concreteData;
-    public static ObservableList<String> girtsData;
+    public static ObservableList<String> girtsData = FXCollections.observableArrayList();
 
     public static ObservableList<String> totalData;
 

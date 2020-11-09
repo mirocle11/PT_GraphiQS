@@ -43,6 +43,8 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static Controllers.Sheets.Shed.externalFramingController.externalFramingSectionListGirts;
+
 public class workspaceController implements Initializable {
 
     //buttons
@@ -413,6 +415,11 @@ public class workspaceController implements Initializable {
                         layoutsController.girtsData.add(4, GIRTS_REAR_HEIGHT.getText());
                         layoutsController.girtsData.add(5, GIRTS_NO.getText());
                         layoutsController.girtsData.add(6, GIRTS_TOTAL.getText());
+
+                        DataBase db = DataBase.getInstance();
+                        db.setSections(6, 1);
+                        externalFramingSectionListGirts.clear();
+                        externalFramingSectionListGirts.add(1);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
