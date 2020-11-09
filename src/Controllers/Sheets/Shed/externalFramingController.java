@@ -142,8 +142,10 @@ public class externalFramingController implements Initializable {
         PL_SECTIONS.setItems(externalFramingSectionListPL);
         PL_SECTIONS.setOnMouseReleased(event -> {
             //section list event
-            PL_SET.setDisable(false);
-            PL_SET_OVERRIDE.setDisable(false);
+            if (!PL_SECTIONS.getSelectionModel().isEmpty()) {
+                PL_SET.setDisable(false);
+                PL_SET_OVERRIDE.setDisable(false);
+            }
             db.getSelectedSets(Integer.parseInt(id_indicator.getText()), PL_SECTIONS.getSelectionModel().getSelectedItem(),
                     PL_SET, PL_SET_OVERRIDE);
             db.showExternalFramingSD("Poles", PL_SECTIONS.getSelectionModel().getSelectedItem(), polesSec, columnsSec);

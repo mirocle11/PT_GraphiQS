@@ -650,15 +650,10 @@ public class Tools {
                                                 layoutsController.foundationsPostFootingsData.clear();
                                                 foundations_pf_section.setText("");
                                                 db.showFoundationsPF(layoutsController.foundationsPostFootingsData);
-//                                                db.updatePFLayoutsTable("Foundations","Post Footings",layoutsController.foundationsPostFootingsData);
-
 
                                                 layoutsController.foundationsConcreteBoresData.clear();
                                                 foundations_cb_section.setText("");
                                                 db.showFoundationsCB(layoutsController.foundationsConcreteBoresData);
-//                                                db.updateCBLayoutsTable("Foundations","Pole Footings",layoutsController.foundationsConcreteBoresData);
-
-
 
                                                 layoutsController.totalData.clear();
 
@@ -695,8 +690,6 @@ public class Tools {
                             System.out.println("pass section to setup sheet");
                             db.getFoundationsPFSections(foundationsPFSectionList);
                             db.getFoundationsCBSections(foundationsCBSectionList);
-//                            db.updatePFLayoutsTable("Foundations","Post Footings",layoutsController.foundationsPostFootingsData);
-//                            db.updateCBLayoutsTable("Foundations","Pole Footings",layoutsController.foundationsConcreteBoresData);
 
                             //show foundations table
                             layoutsController.foundationsPostFootingsData.clear();

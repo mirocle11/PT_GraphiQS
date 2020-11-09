@@ -258,7 +258,8 @@ public class foundationsController implements Initializable {
             try {
                 key = "foundations_post_footings_" + PF_SECTIONS.getSelectionModel().getSelectedItem();
 
-                componentData = new ComponentData("foundations", "post footings", PF_SECTIONS.getSelectionModel().getSelectedItem().toString());
+                componentData = new ComponentData("foundations", "post footings",
+                        PF_SECTIONS.getSelectionModel().getSelectedItem().toString());
 
                 if (setupSheetsController.componentList.containsKey(key)) {
                     componentData = setupSheetsController.componentList.get(key);
@@ -279,8 +280,6 @@ public class foundationsController implements Initializable {
 
                 setComponentsFromList();
                 System.out.println(setupSheetsController.componentList.size());
-
-//                setComponentContents(1, PF_SET.getSelectionModel().getSelectedItem());
 
             } catch (Exception e) {
                 e.printStackTrace();
