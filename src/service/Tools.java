@@ -597,8 +597,8 @@ public class Tools {
 //                                        "", "", window.FOUNDATIONS_VOLUME2.getText());
 
                             }
-                            foundationsObjectList.add(foundations_stamp_object);
-                            foundations_stamp_object.setId(foundationsObjectList.size());
+                            page.getFoundationsObjectList().add(foundations_stamp_object);
+                            foundations_stamp_object.setId(page.getFoundationsObjectList().size());
 
                             foundations_stamp_object.getStamp().setOnMouseClicked(event1 -> {
                                 if (event1.getButton() == MouseButton.SECONDARY) {
@@ -610,7 +610,7 @@ public class Tools {
                                         foundations_stamp_object.getStamp().setVisible(false);
                                         int part = 1;
                                         String key = "";
-                                        Iterator itr = foundationsObjectList.iterator();
+                                        Iterator itr = page.getFoundationsObjectList().iterator();
                                         while (itr.hasNext()) {
                                             FoundationsObject element = (FoundationsObject) itr.next();
                                             if (element.getId() == (foundations_stamp_object.getId())) {
@@ -1004,6 +1004,10 @@ public class Tools {
 
             pane.getChildren().addAll(cl0.getLineList());
             pane.getChildren().addAll(cl0.getBoxList());
+        }
+
+        for (FoundationsObject fo : page.getFoundationsObjectList()) {
+            pane.getChildren().add(fo.getStamp());
         }
 
         //get shapeObject data to layout table
