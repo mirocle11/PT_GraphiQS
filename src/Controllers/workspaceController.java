@@ -151,20 +151,23 @@ public class workspaceController implements Initializable {
 
     //stamp (foundations)
     public int fs_indicator = 0;
-    public JFXComboBox<String> FOUNDATIONS_PART;
+    public JFXComboBox<String> FOUNDATIONS_PART, FOUNDATIONS_SET, FOUNDATIONS_MATERIAL;
     public JFXTextField FOUNDATIONS_DEPTH, FOUNDATIONS_WIDTH, FOUNDATIONS_LENGTH, FOUNDATIONS_DIAMETER,
             FOUNDATIONS_HEIGHT, FOUNDATIONS_VOLUME1, FOUNDATIONS_VOLUME2;
 
     private final ObservableList<String> foundations_parts = FXCollections.observableArrayList("Post Footings",
             "Pole Footings");
+    public ObservableList<String> foundations_setLists = FXCollections.observableArrayList();
 
     //stamp (external framing)
     public int ef_indicator = 0;
-    public JFXComboBox<String> EXTERNAL_FRAMING_PART;
+    public JFXComboBox<String> EXTERNAL_FRAMING_PART, EXTERNAL_FRAMING_SET, EXTERNAL_FRAMING_MATERIAL;
     public JFXTextField EXTERNAL_FRAMING_LENGTH;
 
     private final ObservableList<String> external_framing_parts = FXCollections.observableArrayList("Poles",
             "Columns");
+    public ObservableList<String> external_framing_setLists = FXCollections.observableArrayList();
+    public ObservableList<String> external_framing_materialLists = FXCollections.observableArrayList();
 
     //set stud height
     public double stud_height;
@@ -185,7 +188,7 @@ public class workspaceController implements Initializable {
     //misc --
     public AnchorPane MISCELLANEOUS_PICKER, MISC_CONCRETE_FLOOR, MISC_GIRTS;
     public JFXButton MISCELLANEOUS_DONE, MISCELLANEOUS_CLOSE;
-    public JFXComboBox<String> MISC_PART, MISC_SHED_TYPE;
+    public JFXComboBox<String> MISC_PART, MISC_SHED_TYPE, MISC_CF_SET, MISC_GIRTS_SET, MISC_GIRTS_MATERIAL;
     public ObservableList<String> misc_parts = FXCollections.observableArrayList("Concrete Floor", "Girts");
     public ObservableList<String> shed_type_parts = FXCollections.observableArrayList("Enclosed", "Open");
 
@@ -196,6 +199,11 @@ public class workspaceController implements Initializable {
     public JFXTextField GIRTS_LENGTH, GIRTS_DEPTH, GIRTS_REAR_HEIGHT, GIRTS_NO, GIRTS_TOTAL, GIRTS_NO_OF_BAYS,
             GIRTS_BAY_SPACING;
     public Label GIRTS_LENGTH_ERROR, GIRTS_WIDTH_ERROR, GIRTS_REAR_HEIGHT_ERROR;
+
+    public ObservableList<String> concrete_floor_setList = FXCollections.observableArrayList();
+
+    public ObservableList<String> girts_setList = FXCollections.observableArrayList();
+    public ObservableList<String> girts_materialList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -208,6 +216,13 @@ public class workspaceController implements Initializable {
         FOUNDATIONS_PART.setItems(foundations_parts);
         EXTERNAL_FRAMING_PART.setItems(external_framing_parts);
         CLADDING_METHOD.setItems(cladding_method);
+        FOUNDATIONS_SET.setItems(foundations_setLists);
+        EXTERNAL_FRAMING_SET.setItems(external_framing_setLists);
+        EXTERNAL_FRAMING_MATERIAL.setItems(external_framing_materialLists);
+        MISC_CF_SET.setItems(concrete_floor_setList);
+        MISC_GIRTS_SET.setItems(girts_setList);
+        MISC_GIRTS_MATERIAL.setItems(girts_materialList);
+
 
         //misc
         MISC_PART.setItems(misc_parts);
@@ -226,6 +241,9 @@ public class workspaceController implements Initializable {
 
                 FOUNDATIONS_DIAMETER.setText("");
                 FOUNDATIONS_HEIGHT.setText("");
+
+                DataBase db = DataBase.getInstance();
+                db.getSets(1, foundations_setLists);
             } else if (FOUNDATIONS_PART.getSelectionModel().getSelectedItem().equals("Pole Footings")) {
                 FOUNDATIONS_DEPTH.setVisible(false);
                 FOUNDATIONS_WIDTH.setVisible(false);
@@ -239,6 +257,9 @@ public class workspaceController implements Initializable {
                 FOUNDATIONS_DIAMETER.setVisible(true);
                 FOUNDATIONS_HEIGHT.setVisible(true);
                 FOUNDATIONS_VOLUME2.setVisible(true);
+
+                DataBase db = DataBase.getInstance();
+                db.getSets(2, foundations_setLists);
             }
         });
 
@@ -283,15 +304,37 @@ public class workspaceController implements Initializable {
             }
         });
 
+        EXTERNAL_FRAMING_PART.setOnAction(event -> {
+            if (!EXTERNAL_FRAMING_PART.getSelectionModel().isEmpty())
+                if (EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem().equals("Poles")) {
+                    DataBase db = DataBase.getInstance();
+                    db.getSets(4, external_framing_setLists);
+                } else if (EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem().equals("Columns")) {
+                    DataBase db = DataBase.getInstance();
+                    db.getSets(5, external_framing_setLists);
+                }
+        });
+
         MISC_PART.setOnAction(event -> {
             if (!MISC_PART.getSelectionModel().isEmpty())
                 if (MISC_PART.getSelectionModel().getSelectedItem().equals("Concrete Floor")) {
                     MISC_CONCRETE_FLOOR.setVisible(true);
                     MISC_GIRTS.setVisible(false);
+                    DataBase db = DataBase.getInstance();
+                    db.getSets(3, concrete_floor_setList);
                 } else if (MISC_PART.getSelectionModel().getSelectedItem().equals("Girts")) {
                     MISC_CONCRETE_FLOOR.setVisible(false);
                     MISC_GIRTS.setVisible(true);
+                    DataBase db = DataBase.getInstance();
+                    db.getSets(6, girts_setList);
                 }
+        });
+
+        MISC_GIRTS_SET.setOnAction(event -> {
+            if (!MISC_GIRTS_SET.getSelectionModel().getSelectedItem().isEmpty()) {
+                DataBase db = DataBase.getInstance();
+                db.getSetMaterials(MISC_GIRTS_SET.getSelectionModel().getSelectedItem(), girts_materialList);
+            }
         });
 
         GIRTS_LENGTH.textProperty().bind(Bindings.createStringBinding(()-> {
@@ -368,6 +411,8 @@ public class workspaceController implements Initializable {
                         if (length > 0 && width > 0 && thickness > 0) {
                             DataBase db = DataBase.getInstance();
                             db.setSections(3, 1);
+                            db.setSelectedSets(3, 1, MISC_CF_SET.getSelectionModel().getSelectedItem(),
+                                    "");
                             foundationsController.foundationsCFSectionList.clear();
                             foundationsController.foundationsCFSectionList.add(1);
                         }
@@ -379,6 +424,7 @@ public class workspaceController implements Initializable {
                         CONCRETE_FLOOR_WIDTH.setUnFocusColor(Paint.valueOf("#b9b9b9"));
                         CONCRETE_FLOOR_THICKNESS.setUnFocusColor(Paint.valueOf("#b9b9b9"));
                         MISCELLANEOUS_PICKER.setVisible(false);
+
                     } catch (Exception e) {
                         try {
                             double lenght = Double.parseDouble(CONCRETE_FLOOR_LENGTH.getText());
@@ -418,6 +464,8 @@ public class workspaceController implements Initializable {
 
                         DataBase db = DataBase.getInstance();
                         db.setSections(6, 1);
+                        db.setSelectedSets(6, 1, MISC_GIRTS_SET.getSelectionModel().getSelectedItem(),
+                                "");
                         externalFramingSectionListGirts.clear();
                         externalFramingSectionListGirts.add(1);
                     } catch (Exception e) {

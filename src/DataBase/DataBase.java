@@ -1597,4 +1597,38 @@ public class DataBase {
         }
     }
 
+    public void getSetMaterials(String set, ObservableList<String> materialList) {
+        int set_id = 0;
+
+        try {
+            String sql = "SELECT ID FROM SHED_SETS WHERE SETS = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, set);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                set_id = resultSet.getInt("ID");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            materialList.clear();
+            String sql = "SELECT * FROM SHED_SET_MATERIALS WHERE SET_ID = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, set_id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                materialList.addAll(resultSet.getString("MATERIAL"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

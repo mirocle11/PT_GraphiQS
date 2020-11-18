@@ -317,12 +317,12 @@
                         <Font name="Segoe UI" size="15.0" />
                      </font>
                   </JFXCheckBox>
-                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="75.0" prefHeight="30.0" prefWidth="218.0" selected="true" text="Framing Hardware" textFill="#b8b8b8">
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="105.0" prefHeight="30.0" prefWidth="258.0" selected="true" text="Cladding" textFill="#b8b8b8">
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font>
                   </JFXCheckBox>
-                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="105.0" prefHeight="30.0" prefWidth="258.0" selected="true" text="Cladding" textFill="#b8b8b8">
+                  <JFXCheckBox focusTraversable="false" layoutX="14.0" layoutY="75.0" prefHeight="30.0" prefWidth="218.0" selected="true" text="Framing Hardware" textFill="#b8b8b8">
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font>
