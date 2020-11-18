@@ -1,17 +1,18 @@
 package Model;
 
+import Model.stamps.FoundationsObject;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 import javafx.scene.shape.Shape;
 
 import java.awt.image.BufferedImage;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class PageObject {
     int pageNumber;
     public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
     public ArrayList<CladdingObject> claddingObjectList = new ArrayList<>();
+    public ArrayList<FoundationsObject> foundationsObjectList = new ArrayList<>();
     ArrayList<Shape> stampList = new ArrayList<>();
     ArrayList<double[][]> snapList = new ArrayList<>();
     Image image;
@@ -96,6 +97,17 @@ public class PageObject {
 
     public Image getImage() {
         return image;
+    }
+
+    public ArrayList<FoundationsObject> getFoundationsObjectList() {
+        return foundationsObjectList;
+    }
+
+    public void setFoundationsObjectList(ArrayList<FoundationsObject> f1) {
+        this.foundationsObjectList.clear();
+        f1.forEach(fo -> {
+            this.foundationsObjectList.add(fo);
+        });
     }
 
     public void setImage(Image image) {
