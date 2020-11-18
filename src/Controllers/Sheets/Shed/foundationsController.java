@@ -305,7 +305,8 @@ public class foundationsController implements Initializable {
             try {
                 key = "foundations_pole_footings_" + PLF_SECTIONS.getSelectionModel().getSelectedItem();
 
-                componentData = new ComponentData("foundations", "pole footings", PLF_SECTIONS.getSelectionModel().getSelectedItem().toString());
+                componentData = new ComponentData("foundations", "pole footings",
+                        PLF_SECTIONS.getSelectionModel().getSelectedItem().toString());
 
                 if (setupSheetsController.componentList.containsKey(key)) {
                     componentData = setupSheetsController.componentList.get(key);
@@ -510,7 +511,7 @@ public class foundationsController implements Initializable {
                                 format(Double.parseDouble(foundations_pf_volume.getText()))), "FOOTINGS"));
 
                         componentData.getComponents().clear();
-                        componentData.getComponents().add(new String[]{"Concrete", "32100832", "17.5MPA 19MM STRUCTURAL CONCRETE", "M3",
+                        componentData.getComponents().add(new String[] {"Concrete", "32100832", "17.5MPA 19MM STRUCTURAL CONCRETE", "M3",
                                 String.valueOf(new DecimalFormat("0.00").format(Double.parseDouble(foundations_pf_volume.getText()))), "FOOTINGS"});
 
                     }
@@ -520,8 +521,11 @@ public class foundationsController implements Initializable {
                                 format(Double.parseDouble(foundations_cb_volume.getText()))), "FOOTINGS"));
 
                         componentData.getComponents().clear();
-                        componentData.getComponents().add(new String[]{"Concrete", "32100832", "17.5MPA 19MM STRUCTURAL CONCRETE", "M3",
-                                String.valueOf(new DecimalFormat("0.00").format(Double.parseDouble(foundations_cb_volume.getText()))), "FOOTINGS"});
+                        componentData.getComponents().add(new String[] {
+                                "Concrete", "32100832", "17.5MPA 19MM STRUCTURAL CONCRETE", "M3",
+                                String.valueOf(new DecimalFormat("0.00").format(
+                                        Double.parseDouble(foundations_cb_volume.getText()))), "FOOTINGS"
+                        });
 
                     }
                     break;
@@ -582,8 +586,10 @@ public class foundationsController implements Initializable {
 
                         componentData.getComponents().clear();
                         for (foundationsMaterials fm : foundationsMaterials) {
-                            componentData.getComponents().add(new String[]{fm.getComponent(), fm.getSku_number(), fm.getDescription(), fm.getUnit(),
-                                    fm.getQuantity(), fm.getUsage()});
+                            componentData.getComponents().add(new String[] {
+                                    fm.getComponent(), fm.getSku_number(), fm.getDescription(), fm.getUnit(),
+                                    fm.getQuantity(), fm.getUsage()
+                            });
                         }
                     }
                     break;

@@ -197,6 +197,7 @@ public class Tools {
                         page = newValue;
                         setPageElements();
 //                        Tools.disableButtons(new String[]{"LENGTH", "AREA", "STAMP", "RECTANGLE"}, box);
+//                        Tools.disableButtons(new String[]{"LENGTH", "AREA", "STAMP", "RECTANGLE"}, box);
                         scroller.setOpacity(1.0);
                         issetCanvas = true;
                         loadingPane.setVisible(false);
@@ -825,6 +826,16 @@ public class Tools {
                                 db.insertExternalFraming(Integer.parseInt(efLastRowSection.getText()), path,
                                         window.EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem(), 1,
                                         window.EXTERNAL_FRAMING_LENGTH.getText());
+
+                                if (window.EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem().equals("Poles")) {
+                                    db.setSelectedSets(4, Integer.parseInt(efLastRowSection.getText()),
+                                            window.EXTERNAL_FRAMING_SET.getSelectionModel().getSelectedItem(),
+                                            window.EXTERNAL_FRAMING_MATERIAL.getSelectionModel().getSelectedItem());
+                                } else if (window.EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem().equals("Columns")) {
+                                    db.setSelectedSets(5, Integer.parseInt(efLastRowSection.getText()),
+                                            window.EXTERNAL_FRAMING_SET.getSelectionModel().getSelectedItem(),
+                                            window.EXTERNAL_FRAMING_MATERIAL.getSelectionModel().getSelectedItem());
+                                }
                             } else {
                                 int ef_quantity = Integer.parseInt(external_framing_quantity.getText()) + 1;
 
@@ -834,10 +845,6 @@ public class Tools {
                             }
 
                             externalFramingObject.setNo(efLastRowSection.getText());
-                            //clear values
-                            external_framing_section.setText("");
-                            external_framing_quantity.setText("");
-                            efLastRowSection.setText("");
 
                             //pass to layouts
                             layoutsController.externalFramingPolesData.clear();
@@ -847,6 +854,12 @@ public class Tools {
 
                             //pass to sheets
                             db.getExternalFramingSections(externalFramingSectionListPL, externalFramingSectionListCL);
+
+                            //clear values
+                            external_framing_section.setText("");
+                            external_framing_quantity.setText("");
+                            efLastRowSection.setText("");
+
                         }
                     }
                 });
