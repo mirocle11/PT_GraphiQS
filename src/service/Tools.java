@@ -830,11 +830,11 @@ public class Tools {
                                 if (window.EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem().equals("Poles")) {
                                     db.setSelectedSets(4, Integer.parseInt(efLastRowSection.getText()),
                                             window.EXTERNAL_FRAMING_SET.getSelectionModel().getSelectedItem(),
-                                            window.EXTERNAL_FRAMING_MATERIAL.getSelectionModel().getSelectedItem());
+                                            "", window.EXTERNAL_FRAMING_MATERIAL.getSelectionModel().getSelectedItem());
                                 } else if (window.EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem().equals("Columns")) {
                                     db.setSelectedSets(5, Integer.parseInt(efLastRowSection.getText()),
                                             window.EXTERNAL_FRAMING_SET.getSelectionModel().getSelectedItem(),
-                                            window.EXTERNAL_FRAMING_MATERIAL.getSelectionModel().getSelectedItem());
+                                            "", window.EXTERNAL_FRAMING_MATERIAL.getSelectionModel().getSelectedItem());
                                 }
                             } else {
                                 int ef_quantity = Integer.parseInt(external_framing_quantity.getText()) + 1;

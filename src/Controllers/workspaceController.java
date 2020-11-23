@@ -169,6 +169,8 @@ public class workspaceController implements Initializable {
     public ObservableList<String> external_framing_setLists = FXCollections.observableArrayList();
     public ObservableList<String> external_framing_materialLists = FXCollections.observableArrayList();
 
+    public static String selectedMaterial = "";
+
     //set stud height
     public double stud_height;
     public int sh_indicator = 0;
@@ -222,7 +224,6 @@ public class workspaceController implements Initializable {
         MISC_CF_SET.setItems(concrete_floor_setList);
         MISC_GIRTS_SET.setItems(girts_setList);
         MISC_GIRTS_MATERIAL.setItems(girts_materialList);
-
 
         //misc
         MISC_PART.setItems(misc_parts);
@@ -313,6 +314,14 @@ public class workspaceController implements Initializable {
                     DataBase db = DataBase.getInstance();
                     db.getSets(5, external_framing_setLists);
                 }
+        });
+
+        EXTERNAL_FRAMING_SET.setOnAction(event -> {
+            if (!EXTERNAL_FRAMING_SET.getSelectionModel().isEmpty()) {
+                DataBase db = DataBase.getInstance();
+                db.getSetMaterials(EXTERNAL_FRAMING_SET.getSelectionModel().getSelectedItem(),
+                        external_framing_materialLists);
+            }
         });
 
         MISC_PART.setOnAction(event -> {
@@ -412,7 +421,7 @@ public class workspaceController implements Initializable {
                             DataBase db = DataBase.getInstance();
                             db.setSections(3, 1);
                             db.setSelectedSets(3, 1, MISC_CF_SET.getSelectionModel().getSelectedItem(),
-                                    "");
+                                    "", "");
                             foundationsController.foundationsCFSectionList.clear();
                             foundationsController.foundationsCFSectionList.add(1);
                         }
@@ -465,7 +474,7 @@ public class workspaceController implements Initializable {
                         DataBase db = DataBase.getInstance();
                         db.setSections(6, 1);
                         db.setSelectedSets(6, 1, MISC_GIRTS_SET.getSelectionModel().getSelectedItem(),
-                                "");
+                                "", MISC_GIRTS_MATERIAL.getSelectionModel().getSelectedItem());
                         externalFramingSectionListGirts.clear();
                         externalFramingSectionListGirts.add(1);
                     } catch (Exception e) {

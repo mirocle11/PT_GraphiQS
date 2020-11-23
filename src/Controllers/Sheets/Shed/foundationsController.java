@@ -244,7 +244,7 @@ public class foundationsController implements Initializable {
                 set_override = PF_SET_OVERRIDE.getSelectionModel().getSelectedItem();
             }
             db.setSelectedSets(1, PF_SECTIONS.getSelectionModel().getSelectedItem(),
-                    PF_SET.getSelectionModel().getSelectedItem(), set_override);
+                    PF_SET.getSelectionModel().getSelectedItem(), set_override, "");
 //            setComponentContents(1, PF_SET.getSelectionModel().getSelectedItem());
             updateComponentFromList(1, PF_SET.getSelectionModel().getSelectedItem());
         });
@@ -295,7 +295,7 @@ public class foundationsController implements Initializable {
                 set_override = PLF_SET_OVERRIDE.getSelectionModel().getSelectedItem();
             }
             db.setSelectedSets(Integer.parseInt(id_indicator.getText()), PLF_SECTIONS.getSelectionModel()
-                    .getSelectedItem(), PLF_SET.getSelectionModel().getSelectedItem(), set_override);
+                    .getSelectedItem(), PLF_SET.getSelectionModel().getSelectedItem(), set_override, "");
 //            setComponentContents(2, PLF_SET.getSelectionModel().getSelectedItem());
             updateComponentFromList(2, PLF_SET.getSelectionModel().getSelectedItem());
         });
@@ -371,7 +371,7 @@ public class foundationsController implements Initializable {
                 set_override = CF_SET_OVERRIDE.getSelectionModel().getSelectedItem();
             }
             db.setSelectedSets(3, CF_SECTIONS.getSelectionModel().getSelectedItem(),
-                    CF_SET.getSelectionModel().getSelectedItem(), set_override);
+                    CF_SET.getSelectionModel().getSelectedItem(), set_override, "");
 //            setComponentContents(3, CF_SET.getSelectionModel().getSelectedItem());
             updateComponentFromList(3, CF_SET.getSelectionModel().getSelectedItem());
         });

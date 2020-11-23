@@ -1,5 +1,6 @@
 package Controllers.Sheets.Shed;
 
+import DataBase.DataBase;
 import Model.data.shed.claddingMaterials;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableView;
@@ -28,16 +29,22 @@ public class claddingController implements Initializable {
 
     //tables
     public JFXTreeTableView<claddingMaterials> MATERIALS_TBL;
+    public TreeTableColumn<claddingMaterials, String> COMPONENT_COL;
     public TreeTableColumn<claddingMaterials, String> SKU_NUMBER_COL;
     public TreeTableColumn<claddingMaterials, String> DESCRIPTION_COL;
     public TreeTableColumn<claddingMaterials, String> UNIT_COL;
     public TreeTableColumn<claddingMaterials, String> QUANTITY_COL;
+    public TreeTableColumn<claddingMaterials, String> USAGE_COL;
 
     //data lists
     public static ObservableList<claddingMaterials> claddingMaterials;
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {
+        DataBase db = DataBase.getInstance();
+        parts.clear();
+        db.displayShedParts(3, parts);
+
         parts.forEach(s -> {
             JFXButton button = new JFXButton();
             button.setText(s);
@@ -60,9 +67,12 @@ public class claddingController implements Initializable {
             });
         });
 
-        //foundations materials
+        //cladding materials
         claddingMaterials = FXCollections.observableArrayList();
 
+        COMPONENT_COL.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("component")
+        );
         SKU_NUMBER_COL.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("sku_number")
         );
@@ -75,36 +85,39 @@ public class claddingController implements Initializable {
         QUANTITY_COL.setCellValueFactory(
                 new TreeItemPropertyValueFactory<>("quantity")
         );
+        USAGE_COL.setCellValueFactory(
+                new TreeItemPropertyValueFactory<>("usage")
+        );
 
         TreeItem<claddingMaterials> claddingMaterialsTreeItem = new RecursiveTreeItem<>
                 (claddingMaterials, RecursiveTreeObject::getChildren);
         MATERIALS_TBL.setRoot(claddingMaterialsTreeItem);
         MATERIALS_TBL.setShowRoot(false);
 
-        claddingMaterials.addAll(new claddingMaterials("Buy-in",
-                "LR CORRUGATE ENDURA .40", "EACH", "0"));
-        claddingMaterials.addAll(new claddingMaterials("Buy-in",
-                "RIDGE - 200X200 WESTCOAST FL/G ENDURA CLR", "EACH", "0"));
-        claddingMaterials.addAll(new claddingMaterials("Buy-in",
-                "VERMIN STRIP", "EACH", "0"));
-        claddingMaterials.addAll(new claddingMaterials("Buy-in",
-                "HP TIMBERTITE SCREWS 12X65 COLOUR (100)", "EACH", "0"));
-        claddingMaterials.addAll(new claddingMaterials("BUNE18315250",
-                "SAFETY MESH 1800X300X150X2 50M 90M2 AUSMESH", "ROLL", "0"));
-        claddingMaterials.addAll(new claddingMaterials("RPTKCTP135055",
-                "T/KRAFT COVERTEK 403 PLUS ROOF UNDERLAY 1350 X 55.6M 75M2", "ROLL", "0"));
-        claddingMaterials.addAll(new claddingMaterials("RPTKWGJH274036",
-                "T/KRAFT *JENNIAN HOMES* WATERGATE PLUS 295 2740X36.5M 100M2", "ROLL", "0"));
-        claddingMaterials.addAll(new claddingMaterials("Buy-in",
-                "ENDURA P A DOOR 2MX800MM", "EACH", "0"));
-        claddingMaterials.addAll(new claddingMaterials("Buy-in",
-                "COLOURSTEEL ROLLER DOOR 3MX3M", "EACH", "0"));
-        claddingMaterials.addAll(new claddingMaterials("Buy-in",
-                "COLOURSTEEL ROLLER DOOR 3.6(W)X3350MM(H)", "EACH", "0"));
-        claddingMaterials.addAll(new claddingMaterials("PSAMPSSC8C30",
-                "SOLASAFE CORRUGATED 850MM X 3.0M CLEAR 760 COVER", "SHT", "0"));
-        claddingMaterials.addAll(new claddingMaterials("PSAMPSSC8C42",
-                "SOLASAFE CORRUGATED 850MM X 4.2M CLEAR 760 COVER", "SHT", "0"));
+//        claddingMaterials.addAll(new claddingMaterials("Buy-in",
+//                "LR CORRUGATE ENDURA .40", "EACH", "0"));
+//        claddingMaterials.addAll(new claddingMaterials("Buy-in",
+//                "RIDGE - 200X200 WESTCOAST FL/G ENDURA CLR", "EACH", "0"));
+//        claddingMaterials.addAll(new claddingMaterials("Buy-in",
+//                "VERMIN STRIP", "EACH", "0"));
+//        claddingMaterials.addAll(new claddingMaterials("Buy-in",
+//                "HP TIMBERTITE SCREWS 12X65 COLOUR (100)", "EACH", "0"));
+//        claddingMaterials.addAll(new claddingMaterials("BUNE18315250",
+//                "SAFETY MESH 1800X300X150X2 50M 90M2 AUSMESH", "ROLL", "0"));
+//        claddingMaterials.addAll(new claddingMaterials("RPTKCTP135055",
+//                "T/KRAFT COVERTEK 403 PLUS ROOF UNDERLAY 1350 X 55.6M 75M2", "ROLL", "0"));
+//        claddingMaterials.addAll(new claddingMaterials("RPTKWGJH274036",
+//                "T/KRAFT *JENNIAN HOMES* WATERGATE PLUS 295 2740X36.5M 100M2", "ROLL", "0"));
+//        claddingMaterials.addAll(new claddingMaterials("Buy-in",
+//                "ENDURA P A DOOR 2MX800MM", "EACH", "0"));
+//        claddingMaterials.addAll(new claddingMaterials("Buy-in",
+//                "COLOURSTEEL ROLLER DOOR 3MX3M", "EACH", "0"));
+//        claddingMaterials.addAll(new claddingMaterials("Buy-in",
+//                "COLOURSTEEL ROLLER DOOR 3.6(W)X3350MM(H)", "EACH", "0"));
+//        claddingMaterials.addAll(new claddingMaterials("PSAMPSSC8C30",
+//                "SOLASAFE CORRUGATED 850MM X 3.0M CLEAR 760 COVER", "SHT", "0"));
+//        claddingMaterials.addAll(new claddingMaterials("PSAMPSSC8C42",
+//                "SOLASAFE CORRUGATED 850MM X 4.2M CLEAR 760 COVER", "SHT", "0"));
     }
 
 }

@@ -696,7 +696,7 @@ public class DataBase {
         }
     }
 
-    public void setSelectedSets(int part_id, int section_id, String set, String set_override) {
+    public void setSelectedSets(int part_id, int section_id, String set, String set_override, String material) {
         try {
             String sql = "SELECT ID FROM SHED_SECTION_TBL WHERE PARTS_ID = ? AND SECTION = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -717,6 +717,17 @@ public class DataBase {
             preparedStatement1.setInt(3, id);
 
             preparedStatement1.executeUpdate();
+
+            if (!material.equals("")) {
+                String sql2 = "UPDATE SHED_SECTION_TBL SET MATERIAL = ? WHERE ID = ?";
+
+                PreparedStatement preparedStatement2 = connection.prepareStatement(sql2);
+                preparedStatement2.setString(1, material);
+                preparedStatement2.setInt(2, id);
+
+                preparedStatement2.executeUpdate();
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1628,7 +1639,23 @@ public class DataBase {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    public void getSelectedMaterial(int parts_id, int section, Label selectedMaterial) {
+        try {
+            String sql = "SELECT * FROM SHED_SECTION_TBL WHERE PARTS_ID = ? AND SECTION = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, parts_id);
+            preparedStatement.setInt(2, section);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                selectedMaterial.setText(resultSet.getString("MATERIAL"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

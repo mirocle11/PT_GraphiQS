@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -40,7 +41,7 @@
                 </ScrollPane>
             </children>
         </AnchorPane>
-        <GridPane id="Post Footings" fx:id="POST_FOOTINGS" layoutX="20.0" layoutY="20.0" prefHeight="286.0" prefWidth="785.0" visible="false" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
+        <GridPane id="Post Footings" fx:id="POST_FOOTINGS" layoutX="20.0" layoutY="20.0" prefHeight="286.0" prefWidth="785.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="ALWAYS" maxWidth="668.0" minWidth="10.0" prefWidth="498.0" />
                 <ColumnConstraints hgrow="ALWAYS" maxWidth="459.0" minWidth="10.0" prefWidth="287.0" />
@@ -89,6 +90,11 @@
                         </JFXButton>
                         <JFXComboBox fx:id="PF_SET" disable="true" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
                         <JFXComboBox fx:id="PF_SET_OVERRIDE" disable="true" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
+                  <JFXTextArea labelFloat="true" layoutX="165.0" layoutY="140.0" prefHeight="100.0" prefWidth="325.0" promptText="Notes">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXTextArea>
                     </children>
                     <GridPane.margin>
                         <Insets right="10.0" />
@@ -173,6 +179,11 @@
                         </JFXButton>
                         <JFXComboBox fx:id="PLF_SET" disable="true" editable="true" focusTraversable="false" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
                         <JFXComboBox fx:id="PLF_SET_OVERRIDE" disable="true" editable="true" focusTraversable="false" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
+                  <JFXTextArea labelFloat="true" layoutX="165.0" layoutY="140.0" prefHeight="100.0" prefWidth="325.0" promptText="Notes">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXTextArea>
                     </children>
                     <GridPane.margin>
                         <Insets right="10.0" />
@@ -256,6 +267,11 @@
                   </JFXButton>
                   <JFXComboBox fx:id="CF_SET" disable="true" editable="true" focusTraversable="false" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
                   <JFXComboBox fx:id="CF_SET_OVERRIDE" disable="true" editable="true" focusTraversable="false" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
+                  <JFXTextArea labelFloat="true" layoutX="165.0" layoutY="140.0" prefHeight="100.0" prefWidth="325.0" promptText="Notes">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXTextArea>
                </children>
                <GridPane.margin>
                   <Insets right="10.0" />
@@ -314,4 +330,3 @@
       </JFXButton>
    </children>
 </AnchorPane>
-
