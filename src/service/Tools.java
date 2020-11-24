@@ -44,8 +44,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.sql.ResultSet;
 
-import static Controllers.Sheets.Shed.externalFramingController.*;
+import static Controllers.Sheets.Shed.externalFramingController.externalFramingSectionListCL;
+import static Controllers.Sheets.Shed.externalFramingController.externalFramingSectionListPL;
 import static Controllers.Sheets.Shed.foundationsController.foundationsCBSectionList;
 import static Controllers.Sheets.Shed.foundationsController.foundationsPFSectionList;
 
@@ -619,11 +621,11 @@ public class Tools {
                                                 if (element.getPart() == "Post Footings") {
                                                     table += "post_footings";
                                                     part = 1;
-                                                    key="pf_";
+                                                    key = "pf_";
                                                 } else {
                                                     table += "concrete_bores";
                                                     part = 2;
-                                                    key="cb_";
+                                                    key = "cb_";
                                                 }
                                                 String[] result = db.getSectionData(table, Integer.parseInt(element.getNo()));
                                                 if (result != null) {
@@ -631,8 +633,8 @@ public class Tools {
                                                     int qty = Integer.parseInt(result[1]);
                                                     if (qty == 1) {
                                                         db.deleteSectionData(table, Integer.parseInt(element.getNo()));
-                                                        db.deleteFoundationsPFSections(part,Integer.parseInt(element.getNo()));
-                                                        setupSheetsController.componentList.remove("foundations_"+key+element.getNo());
+                                                        db.deleteFoundationsPFSections(part, Integer.parseInt(element.getNo()));
+                                                        setupSheetsController.componentList.remove("foundations_" + key + element.getNo());
                                                     } else {
                                                         if (element.getPart() == "Post Footings") {
                                                             vol -= (vol / qty);
@@ -816,7 +818,7 @@ public class Tools {
                             db.identifyExternalFramingValues(window.EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem(),
                                     window.EXTERNAL_FRAMING_LENGTH.getText(), external_framing_section, external_framing_quantity);
 
-                            externalFramingObject.setPart(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem());
+                            externalFramingObject.setPart(window.EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem());
                             if (external_framing_section.getText().equals("")) {
                                 db.getExternalFramingLastRow(efLastRowSection, window.EXTERNAL_FRAMING_PART.
                                         getSelectionModel().getSelectedItem());
@@ -836,15 +838,92 @@ public class Tools {
                                             window.EXTERNAL_FRAMING_SET.getSelectionModel().getSelectedItem(),
                                             "", window.EXTERNAL_FRAMING_MATERIAL.getSelectionModel().getSelectedItem());
                                 }
+                                System.out.println(efLastRowSection.getText() +" IF efLastRowSection.getText()");
+                                externalFramingObject.setNo(efLastRowSection.getText());
+
                             } else {
                                 int ef_quantity = Integer.parseInt(external_framing_quantity.getText()) + 1;
 
+                                db.getExternalFramingLastRow(efLastRowSection, window.EXTERNAL_FRAMING_PART.
+                                        getSelectionModel().getSelectedItem());
+                                System.out.println(efLastRowSection.getText() +" ELSE efLastRowSection.getText()");
                                 externalFramingObject.setNo(efLastRowSection.getText());
                                 db.updateExternalFramingCount(ef_quantity, window.EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem(),
                                         Integer.parseInt(external_framing_section.getText()));
                             }
 
-                            externalFramingObject.setNo(efLastRowSection.getText());
+
+
+
+                            externalFramingObject.setId(page.getExternalFramingObjectList().size());
+
+                            externalFramingObject.getStamp().setOnMouseClicked(event1 -> {
+                                if (event1.getButton() == MouseButton.SECONDARY) {
+                                    stampMenu = new ContextMenu();
+                                    stampMenu.hide();
+
+                                    MenuItem removeStamp = new MenuItem("Remove Stamp");
+                                    removeStamp.setOnAction(event2 -> {
+                                        externalFramingObject.getStamp().setVisible(false);
+                                        int part = 4;
+                                        Iterator itr = page.getExternalFramingObjectList().iterator();
+                                        while (itr.hasNext()) {
+                                            ExternalFramingObject element = (ExternalFramingObject) itr.next();
+                                            if (element.getId() == (externalFramingObject.getId())) {
+                                                String table = "shed_external_framing";
+                                                switch (element.getPart()) {
+                                                    case "Poles":
+                                                        part = 4;
+                                                        break;
+                                                    case "Columns":
+                                                        part = 5;
+                                                        break;
+                                                    case "Girts":
+                                                        part = 6;
+                                                        break;
+                                                    case "Doors":
+                                                        part = 7;
+                                                        break;
+                                                    case "Windows":
+                                                        part = 8;
+                                                        break;
+                                                }
+                                                ResultSet restultSet = db.getExtFramingSectionData(table,element.getPart(), Integer.parseInt(element.getNo()));
+                                                if (restultSet != null) {
+                                                    try {
+                                                        int qty = restultSet.getInt("QUANTITY");
+                                                        System.out.println(qty+" EXT FRAMING QTY");
+                                                        if (qty == 1) {
+                                                            db.deleteExtFramingSectionData(table, element.getPart(), Integer.parseInt(element.getNo()));
+                                                            db.deleteFoundationsPFSections(part, Integer.parseInt(element.getNo()));
+                                                            setupSheetsController.componentList.remove("external_framing_" + element.getPart().toLowerCase() + "_" + element.getNo());
+                                                        } else {
+                                                            System.out.println();
+                                                            db.updateExternalFramingCount(qty - 1, element.getPart(), Integer.parseInt(element.getNo()));
+                                                        }
+                                                    } catch (Exception e) {
+
+                                                    }
+
+                                                }
+                                                layoutsController.externalFramingPolesData.clear();
+                                                layoutsController.externalFramingColumnsData.clear();
+                                                db.showExternalFramingLayouts(layoutsController.externalFramingPolesData,
+                                                        layoutsController.externalFramingColumnsData);
+
+                                                //pass to sheets
+                                                db.getExternalFramingSections(externalFramingSectionListPL, externalFramingSectionListCL);
+
+                                                itr.remove();
+                                                break;
+                                            }
+                                        }
+                                    });
+                                    stampMenu.getItems().add(removeStamp);
+                                    stampMenu.show(externalFramingObject.getStamp(), event1.getScreenX(), event1.getScreenY());
+
+                                }
+                            });
 
                             //pass to layouts
                             layoutsController.externalFramingPolesData.clear();
@@ -854,7 +933,7 @@ public class Tools {
 
                             //pass to sheets
                             db.getExternalFramingSections(externalFramingSectionListPL, externalFramingSectionListCL);
-
+                            page.getExternalFramingObjectList().add(externalFramingObject);
                             //clear values
                             external_framing_section.setText("");
                             external_framing_quantity.setText("");
@@ -1020,6 +1099,10 @@ public class Tools {
         }
 
         for (FoundationsObject fo : page.getFoundationsObjectList()) {
+            pane.getChildren().add(fo.getStamp());
+        }
+
+        for (ExternalFramingObject fo : page.getExternalFramingObjectList()) {
             pane.getChildren().add(fo.getStamp());
         }
 

@@ -1,5 +1,6 @@
 package Model;
 
+import Model.stamps.ExternalFramingObject;
 import Model.stamps.FoundationsObject;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
@@ -13,6 +14,8 @@ public class PageObject {
     public ArrayList<ShapeObject> shapeObjList = new ArrayList<>();
     public ArrayList<CladdingObject> claddingObjectList = new ArrayList<>();
     public ArrayList<FoundationsObject> foundationsObjectList = new ArrayList<>();
+    public ArrayList<ExternalFramingObject> externalFramingObjectList = new ArrayList<>();
+
     ArrayList<Shape> stampList = new ArrayList<>();
     ArrayList<double[][]> snapList = new ArrayList<>();
     Image image;
@@ -103,12 +106,24 @@ public class PageObject {
         return foundationsObjectList;
     }
 
+    public void setExternalFramingObjectList(ArrayList<ExternalFramingObject> f1) {
+        this.externalFramingObjectList.clear();
+        f1.forEach(fo -> {
+            this.externalFramingObjectList.add(fo);
+        });
+    }
+
+    public ArrayList<ExternalFramingObject> getExternalFramingObjectList() {
+        return externalFramingObjectList;
+    }
+
     public void setFoundationsObjectList(ArrayList<FoundationsObject> f1) {
         this.foundationsObjectList.clear();
         f1.forEach(fo -> {
             this.foundationsObjectList.add(fo);
         });
     }
+
 
     public void setImage(Image image) {
         this.image = image;

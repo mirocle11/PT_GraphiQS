@@ -1327,6 +1327,7 @@ public class DataBase {
 
     //TODO SIMPLIFIED DB QUERIES
 
+    ///////////////////////////////////
 
     public String[] getSectionData(String tableName, int section) {
         String[] result = new String[2];
@@ -1383,6 +1384,44 @@ public class DataBase {
         }
         return Double.toString(total);
     }
+
+    public ResultSet getExtFramingSectionData(String table, String part, int section){
+
+        System.out.println(table);
+        System.out.println(part);
+        System.out.println(section);
+        try {
+            String sql = "SELECT * FROM shed_external_framing WHERE part = ? AND  section_id = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, part);
+            preparedStatement.setInt(2, section);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                return resultSet;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void deleteExtFramingSectionData(String table, String part, int section){
+        try {
+            String sql = "DELETE * FROM " + table + " WHERE part = ? AND  sectionn_id = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, part);
+            preparedStatement.setInt(2, section);
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    ////////////////////////////
+
 
     public void getExternalFramingLastRow(Label section, String part) {
         try {
