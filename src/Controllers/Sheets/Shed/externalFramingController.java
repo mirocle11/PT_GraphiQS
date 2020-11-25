@@ -1,6 +1,8 @@
 package Controllers.Sheets.Shed;
 
+import Controllers.setupSheetsController;
 import DataBase.DataBase;
+import Model.ComponentData;
 import Model.data.shed.externalFraming.columnsSec;
 import Model.data.shed.externalFraming.polesSec;
 import Model.data.shed.externalFramingMaterials;
@@ -78,6 +80,9 @@ public class externalFramingController implements Initializable {
     public static ObservableList<polesSec> polesSec = FXCollections.observableArrayList();
     public static ObservableList<columnsSec> columnsSec = FXCollections.observableArrayList();
 
+    private ComponentData componentData;
+    private String key;
+
     @Override
     public void initialize(URL location, ResourceBundle resource) {
         loadPanes();
@@ -95,7 +100,7 @@ public class externalFramingController implements Initializable {
             button.setId(s);
             button.setPrefWidth(183);
             button.setPrefHeight(30);
-            button.setFont(new Font("Segoe UI",15.0));
+            button.setFont(new Font("Segoe UI", 15.0));
             button.setTextFill(Color.web("#bcbcbc"));
             PARTS_VBOX.getChildren().add(button);
             buttonList.add(button);
@@ -152,15 +157,33 @@ public class externalFramingController implements Initializable {
         PL_SECTIONS.setOnMouseReleased(event -> {
             //section list event
             if (!PL_SECTIONS.getSelectionModel().isEmpty()) {
-                PL_SET.setDisable(false);
-                PL_SET_OVERRIDE.setDisable(false);
 
-                db.getSelectedSets(Integer.parseInt(id_indicator.getText()), PL_SECTIONS.getSelectionModel().getSelectedItem(),
-                        PL_SET, PL_SET_OVERRIDE);
-                db.displayNotes(Integer.parseInt(id_indicator.getText()), PL_SECTIONS.getSelectionModel().getSelectedItem(),
-                        PL_NOTES);
-                db.showExternalFramingSD("Poles", PL_SECTIONS.getSelectionModel().getSelectedItem(), polesSec, columnsSec);
-                setComponentContents(1, PL_SET.getSelectionModel().getSelectedItem());
+                try {
+                    key = "external_framing_poles_" + PL_SECTIONS.getSelectionModel().getSelectedItem();
+
+                    componentData = new ComponentData("external framing", "poles",
+                            PL_SECTIONS.getSelectionModel().getSelectedItem().toString());
+
+                    if (setupSheetsController.componentList.containsKey(key)) {
+                        componentData = setupSheetsController.componentList.get(key);
+                    } else {
+                        setupSheetsController.componentList.put(key, componentData);
+                    }
+
+                    PL_SET.setDisable(false);
+                    PL_SET_OVERRIDE.setDisable(false);
+                    db.getSelectedSets(Integer.parseInt(id_indicator.getText()), PL_SECTIONS.getSelectionModel().getSelectedItem(),
+                            PL_SET, PL_SET_OVERRIDE);
+                    db.displayNotes(Integer.parseInt(id_indicator.getText()), PL_SECTIONS.getSelectionModel().getSelectedItem(),
+                            PL_NOTES);
+                    db.showExternalFramingSD("Poles", PL_SECTIONS.getSelectionModel().getSelectedItem(), polesSec, columnsSec);
+
+//                    setComponentContents(1, PL_SET.getSelectionModel().getSelectedItem());
+                    setComponentsFromList();
+                    //setComopnents from list
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -171,7 +194,9 @@ public class externalFramingController implements Initializable {
             }
             db.setSelectedSets(Integer.parseInt(id_indicator.getText()), PL_SECTIONS.getSelectionModel()
                     .getSelectedItem(), PL_SET.getSelectionModel().getSelectedItem(), set_override, "");
-            setComponentContents(1, PL_SET.getSelectionModel().getSelectedItem());
+
+//            setComponentContents(1, PL_SET.getSelectionModel().getSelectedItem());
+            updateComponentFromList(1, PL_SET.getSelectionModel().getSelectedItem());
         });
 
         CL_SET.setItems(setsListCL);
@@ -180,15 +205,31 @@ public class externalFramingController implements Initializable {
         CL_SECTIONS.setOnMouseReleased(event -> {
             //section list event
             if (!CL_SECTIONS.getSelectionModel().isEmpty()) {
-                CL_SET.setDisable(false);
-                CL_SET_OVERRIDE.setDisable(false);
+                try {
+                    key = "external_framing_columns_" + PL_SECTIONS.getSelectionModel().getSelectedItem();
 
-                db.getSelectedSets(Integer.parseInt(id_indicator.getText()), CL_SECTIONS.getSelectionModel().getSelectedItem(),
-                        CL_SET, CL_SET_OVERRIDE);
-                db.displayNotes(Integer.parseInt(id_indicator.getText()), CL_SECTIONS.getSelectionModel().getSelectedItem(),
-                        CL_NOTES);
-                db.showExternalFramingSD("Columns", CL_SECTIONS.getSelectionModel().getSelectedItem(), polesSec, columnsSec);
-                setComponentContents(2, CL_SET.getSelectionModel().getSelectedItem());
+                    componentData = new ComponentData("external framing", "poles",
+                            PL_SECTIONS.getSelectionModel().getSelectedItem().toString());
+
+                    if (setupSheetsController.componentList.containsKey(key)) {
+                        componentData = setupSheetsController.componentList.get(key);
+                    } else {
+                        setupSheetsController.componentList.put(key, componentData);
+                    }
+
+                    CL_SET.setDisable(false);
+                    CL_SET_OVERRIDE.setDisable(false);
+
+                    db.getSelectedSets(Integer.parseInt(id_indicator.getText()), CL_SECTIONS.getSelectionModel().getSelectedItem(),
+                            CL_SET, CL_SET_OVERRIDE);
+                    db.displayNotes(Integer.parseInt(id_indicator.getText()), CL_SECTIONS.getSelectionModel().getSelectedItem(),
+                            CL_NOTES);
+                    db.showExternalFramingSD("Columns", CL_SECTIONS.getSelectionModel().getSelectedItem(), polesSec, columnsSec);
+//                    setComponentContents(2, CL_SET.getSelectionModel().getSelectedItem());
+                    setComponentsFromList();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -199,7 +240,8 @@ public class externalFramingController implements Initializable {
             }
             db.setSelectedSets(Integer.parseInt(id_indicator.getText()), CL_SECTIONS.getSelectionModel()
                     .getSelectedItem(), CL_SET.getSelectionModel().getSelectedItem(), set_override, "");
-            setComponentContents(2, CL_SET.getSelectionModel().getSelectedItem());
+//            setComponentContents(2, CL_SET.getSelectionModel().getSelectedItem());
+            updateComponentFromList(2, CL_SET.getSelectionModel().getSelectedItem());
         });
 
         GIRTS_SET.setItems(setsListGirts);
@@ -208,15 +250,31 @@ public class externalFramingController implements Initializable {
         GIRTS_SECTIONS.setOnMouseReleased(event -> {
             //section list event
             if (!GIRTS_SECTIONS.getSelectionModel().isEmpty()) {
-                GIRTS_SET.setDisable(false);
-                GIRTS_SET_OVERRIDE.setDisable(false);
+                try {
+                    key = "external_framing_girt_" + PL_SECTIONS.getSelectionModel().getSelectedItem();
 
-                db.getSelectedSets(Integer.parseInt(id_indicator.getText()), GIRTS_SECTIONS.getSelectionModel().getSelectedItem(),
-                        GIRTS_SET, GIRTS_SET_OVERRIDE);
-                db.displayNotes(Integer.parseInt(id_indicator.getText()), GIRTS_SECTIONS.getSelectionModel().getSelectedItem(),
-                        GIRTS_NOTES);
-                db.showExternalFramingSD("Girts", GIRTS_SECTIONS.getSelectionModel().getSelectedItem(), polesSec, columnsSec);
-                setComponentContents(3, GIRTS_SET.getSelectionModel().getSelectedItem());
+                    componentData = new ComponentData("external framing", "girt",
+                            PL_SECTIONS.getSelectionModel().getSelectedItem().toString());
+
+                    if (setupSheetsController.componentList.containsKey(key)) {
+                        componentData = setupSheetsController.componentList.get(key);
+                    } else {
+                        setupSheetsController.componentList.put(key, componentData);
+                    }
+
+                    GIRTS_SET.setDisable(false);
+                    GIRTS_SET_OVERRIDE.setDisable(false);
+
+                    db.getSelectedSets(Integer.parseInt(id_indicator.getText()), GIRTS_SECTIONS.getSelectionModel().getSelectedItem(),
+                            GIRTS_SET, GIRTS_SET_OVERRIDE);
+                    db.displayNotes(Integer.parseInt(id_indicator.getText()), GIRTS_SECTIONS.getSelectionModel().getSelectedItem(),
+                            GIRTS_NOTES);
+                    db.showExternalFramingSD("Girts", GIRTS_SECTIONS.getSelectionModel().getSelectedItem(), polesSec, columnsSec);
+//                    setComponentContents(3, GIRTS_SET.getSelectionModel().getSelectedItem());
+                    setComponentsFromList();
+                } catch (Exception e) {
+
+                }
             }
         });
 
@@ -227,7 +285,8 @@ public class externalFramingController implements Initializable {
             }
             db.setSelectedSets(Integer.parseInt(id_indicator.getText()), GIRTS_SECTIONS.getSelectionModel()
                     .getSelectedItem(), GIRTS_SET.getSelectionModel().getSelectedItem(), set_override, "");
-            setComponentContents(3, GIRTS_SET.getSelectionModel().getSelectedItem());
+//            setComponentContents(3, GIRTS_SET.getSelectionModel().getSelectedItem());
+            updateComponentFromList(3, GIRTS_SET.getSelectionModel().getSelectedItem());
         });
 
     }
@@ -239,12 +298,11 @@ public class externalFramingController implements Initializable {
             switch (set) {
                 case "200mm SED Pole":
                     externalFramingMaterials.addAll(new externalFramingMaterials("Poles", "",
-                            "200 SED Pole", "EACH",  externalFramingPolesData.get(
-                                    PL_SECTIONS.getSelectionModel().getSelectedIndex()).getQuantity(), "Poles"));
+                            "200 SED Pole", "EACH", externalFramingPolesData.get(
+                            PL_SECTIONS.getSelectionModel().getSelectedIndex()).getQuantity(), "Poles"));
                     break;
                 case "Building Pole H5 175-199":
-                    // insert declaration of material selected -> condition material for calculations
-                    db.getSelectedMaterial(4 , PL_SECTIONS.getSelectionModel().getSelectedItem(), selectedMaterialPL);
+                    db.getSelectedMaterial(4, PL_SECTIONS.getSelectionModel().getSelectedItem(), selectedMaterialPL);
 
                     if (selectedMaterialPL.getText().equals("4.2M BUILDING POLE H5 175-199")) {
                         externalFramingMaterials.addAll(new externalFramingMaterials("Poles", "RWBP17542",
@@ -262,7 +320,7 @@ public class externalFramingController implements Initializable {
                     break;
                 case "2/150 x 50 H3.2 Column":
                     // insert declaration of material selected -> condition material for calculations
-                    db.getSelectedMaterial(5 , CL_SECTIONS.getSelectionModel().getSelectedItem(), selectedMaterialCL);
+                    db.getSelectedMaterial(5, CL_SECTIONS.getSelectionModel().getSelectedItem(), selectedMaterialCL);
 
                     if (selectedMaterialCL.getText().equals("150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M")) {
                         externalFramingMaterials.addAll(new externalFramingMaterials("Columns", "15050RVH32RS36",
@@ -367,6 +425,162 @@ public class externalFramingController implements Initializable {
                     }
                     break;
             }
+        }
+    }
+
+    public void setComponentsFromList() {
+        externalFramingMaterials.clear();
+        for (int i = 0; i < componentData.getComponents().size(); i++) {
+            externalFramingMaterials.addAll(new externalFramingMaterials(
+                    componentData.getComponents().get(i)[0], componentData.getComponents().get(i)[1],
+                    componentData.getComponents().get(i)[2], componentData.getComponents().get(i)[3],
+                    componentData.getComponents().get(i)[4], componentData.getComponents().get(i)[5]));
+        }
+    }
+
+    public void updateComponentFromList(int part_id, String set) { // add set override later on
+        externalFramingMaterials.clear();
+        DataBase db = DataBase.getInstance();
+        if (set != null && !set.isEmpty()) {
+            switch (set) {
+                case "200mm SED Pole":
+                    externalFramingMaterials.addAll(new externalFramingMaterials("Poles", "",
+                            "200 SED Pole", "EACH", externalFramingPolesData.get(
+                            PL_SECTIONS.getSelectionModel().getSelectedIndex()).getQuantity(), "Poles"));
+
+
+                    break;
+                case "Building Pole H5 175-199":
+                    db.getSelectedMaterial(4, CL_SECTIONS.getSelectionModel().getSelectedItem(), selectedMaterialCL);
+
+                    if (selectedMaterialPL.getText().equals("4.2M BUILDING POLE H5 175-199")) {
+                        externalFramingMaterials.addAll(new externalFramingMaterials("Poles", "RWBP17542",
+                                "4.2M BUILDING POLE H5 175-199", "EACH", externalFramingPolesData.get(
+                                PL_SECTIONS.getSelectionModel().getSelectedIndex()).getQuantity(), "Poles"));
+                    } else if (selectedMaterialPL.getText().equals("4.8M Building Pole H5 175-199")) {
+                        externalFramingMaterials.addAll(new externalFramingMaterials("Poles", "RWBP17548",
+                                "4.8M BUILDING POLE H5 175-199", "EACH", externalFramingPolesData.get(
+                                PL_SECTIONS.getSelectionModel().getSelectedIndex()).getQuantity(), "Poles"));
+                    } else if (selectedMaterialPL.getText().equals("5.4M Building Pole H5 175-199")) {
+                        externalFramingMaterials.addAll(new externalFramingMaterials("Poles", "RWBP17554",
+                                "5.4M BUILDING POLE H5 175-199", "EACH", externalFramingPolesData.get(
+                                PL_SECTIONS.getSelectionModel().getSelectedIndex()).getQuantity(), "Poles"));
+                    }
+                    break;
+                case "2/150 x 50 H3.2 Column":
+                    // insert declaration of material selected -> condition material for calculations
+                    db.getSelectedMaterial(5, CL_SECTIONS.getSelectionModel().getSelectedItem(), selectedMaterialCL);
+
+                    if (selectedMaterialCL.getText().equals("150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M")) {
+                        externalFramingMaterials.addAll(new externalFramingMaterials("Columns", "15050RVH32RS36",
+                                "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M", "LGTH", String.valueOf(
+                                Integer.parseInt(externalFramingColumnsData.get(CL_SECTIONS.getSelectionModel()
+                                        .getSelectedIndex()).getQuantity()) * 2), "Columns"));
+                    } else if (selectedMaterialCL.getText().equals("150 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M")) {
+                        externalFramingMaterials.addAll(new externalFramingMaterials("Columns", "15050RVH32RS48",
+                                "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", String.valueOf(
+                                Integer.parseInt(externalFramingColumnsData.get(CL_SECTIONS.getSelectionModel()
+                                        .getSelectedIndex()).getQuantity()) * 2), "Columns"));
+                    } else if (selectedMaterialCL.getText().equals("150 X 50 RAD SG8 VERIFIED H3.2 WET RS 6.0M")) {
+                        externalFramingMaterials.addAll(new externalFramingMaterials("Columns", "15050RVH32RS60",
+                                "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 6.0M", "LGTH", String.valueOf(
+                                Integer.parseInt(externalFramingColumnsData.get(CL_SECTIONS.getSelectionModel()
+                                        .getSelectedIndex()).getQuantity()) * 2), "Columns"));
+                    }
+                    break;
+                case "2/200 x 50 H3.2 Column":
+                    db.getSelectedMaterial(5, CL_SECTIONS.getSelectionModel().getSelectedItem(), selectedMaterialCL);
+
+                    if (selectedMaterialCL.getText().equals("200 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M")) {
+                        externalFramingMaterials.addAll(new externalFramingMaterials("Columns", "20050RVH32RS48",
+                                "200 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", String.valueOf(
+                                Integer.parseInt(externalFramingColumnsData.get(CL_SECTIONS.getSelectionModel()
+                                        .getSelectedIndex()).getQuantity()) * 2), "Columns"));
+                    }
+                    break;
+                case "2/250 x 50 H3.2 Column":
+                    db.getSelectedMaterial(5, CL_SECTIONS.getSelectionModel().getSelectedItem(), selectedMaterialCL);
+
+                    if (selectedMaterialCL.getText().equals("250 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M")) {
+                        externalFramingMaterials.addAll(new externalFramingMaterials("Columns", "25050RVH32RS48",
+                                "250 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", String.valueOf(
+                                Integer.parseInt(externalFramingColumnsData.get(CL_SECTIONS.getSelectionModel()
+                                        .getSelectedIndex()).getQuantity()) * 2), "Columns"));
+                    }
+                    break;
+                case "150 x 50 H3.2 Girts":
+                    //calculations
+                    int total_150 = (int) Double.parseDouble(girtsData.get(6));
+
+                    int remainder_6_150 = total_150 % 6000;
+                    int remainder_48_150 = total_150 % 4800;
+                    int remainder_36_150 = total_150 % 3600;
+
+                    int girts_6_150 = total_150 / 6000;
+                    if (remainder_6_150 > 0) {
+                        girts_6_150++;
+                    }
+                    int girts_48_150 = total_150 / 4800;
+                    if (remainder_48_150 > 0) {
+                        girts_48_150++;
+                    }
+                    int girts_36_150 = total_150 / 3600;
+                    if (remainder_36_150 > 0) {
+                        girts_36_150++;
+                    }
+
+                    db.getSelectedMaterial(6, GIRTS_SECTIONS.getSelectionModel().getSelectedItem(), selectedMaterialGirts);
+
+                    if (selectedMaterialGirts.getText().equals("150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M")) {
+                        externalFramingMaterials.addAll(new externalFramingMaterials("Girts", "15050RVH32RS36",
+                                "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 3.6M", "LGTH", String.valueOf(girts_6_150), "Girts"));
+                    } else if (selectedMaterialGirts.getText().equals("150 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M")) {
+                        externalFramingMaterials.addAll(new externalFramingMaterials("Girts", "15050RVH32RS36",
+                                "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", String.valueOf(girts_48_150), "Girts"));
+                    } else if (selectedMaterialGirts.getText().equals("150 X 50 RAD SG8 VERIFIED H3.2 WET RS 6.0M")) {
+                        externalFramingMaterials.addAll(new externalFramingMaterials("Girts", "15050RVH32RS36",
+                                "150 X 50 RAD SG8 VERIFIED H3.2 WET RS 6.0M", "LGTH", String.valueOf(girts_36_150), "Girts"));
+                    }
+                    break;
+                case "200 x 50 H3.2 Girts":
+                    //calculations
+                    int total_200 = (int) Double.parseDouble(girtsData.get(6));
+
+                    int remainder_48_200 = total_200 % 4800;
+
+                    int girts_48_200 = total_200 / 4800;
+                    if (remainder_48_200 > 0) {
+                        girts_48_200++;
+                    }
+
+                    if (selectedMaterialGirts.getText().equals("200 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M")) {
+                        externalFramingMaterials.addAll(new externalFramingMaterials("Girts", "15050RVH32RS36",
+                                "200 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", String.valueOf(girts_48_200), "Girts"));
+                    }
+                    break;
+                case "250 x 50 H3.2 Girts":
+                    //calculations
+                    int total_250 = (int) Double.parseDouble(girtsData.get(6));
+
+                    int remainder_250 = total_250 % 4800;
+                    int girts_48_250 = total_250 / 4800;
+                    if (remainder_250 > 0) {
+                        girts_48_250++;
+                    }
+
+                    if (selectedMaterialGirts.getText().equals("250 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M")) {
+                        externalFramingMaterials.addAll(new externalFramingMaterials("Girts", "15050RVH32RS36",
+                                "250 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M", "LGTH", String.valueOf(girts_48_250), "Girts"));
+                    }
+                    break;
+            }
+        }
+        componentData.getComponents().clear();
+        for (externalFramingMaterials fm : externalFramingMaterials) {
+            componentData.getComponents().add(new String[]{
+                    fm.getComponent(), fm.getSku_number(), fm.getDescription(), fm.getUnit(),
+                    fm.getQuantity(), fm.getUsage()
+            });
         }
     }
 

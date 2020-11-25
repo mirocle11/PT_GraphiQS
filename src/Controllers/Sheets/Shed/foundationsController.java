@@ -256,36 +256,38 @@ public class foundationsController implements Initializable {
 
         PF_SECTIONS.setItems(foundationsPFSectionList);
         PF_SECTIONS.setOnMouseReleased(event -> {
-            try {
-                key = "foundations_post_footings_" + PF_SECTIONS.getSelectionModel().getSelectedItem();
+            if (!PF_SECTIONS.getSelectionModel().isEmpty()) {
+                try {
+                    key = "foundations_post_footings_" + PF_SECTIONS.getSelectionModel().getSelectedItem();
 
-                componentData = new ComponentData("foundations", "post footings",
-                        PF_SECTIONS.getSelectionModel().getSelectedItem().toString());
+                    componentData = new ComponentData("foundations", "post footings",
+                            PF_SECTIONS.getSelectionModel().getSelectedItem().toString());
 
-                if (setupSheetsController.componentList.containsKey(key)) {
-                    componentData = setupSheetsController.componentList.get(key);
-                } else {
-                    setupSheetsController.componentList.put(key, componentData);
+                    if (setupSheetsController.componentList.containsKey(key)) {
+                        componentData = setupSheetsController.componentList.get(key);
+                    } else {
+                        setupSheetsController.componentList.put(key, componentData);
+                    }
+
+                    PF_SET.setDisable(false);
+                    PF_SET_OVERRIDE.setDisable(false);
+
+                    db.getSelectedSets(Integer.parseInt(id_indicator.getText()), PF_SECTIONS.getSelectionModel()
+                            .getSelectedItem(), PF_SET, PF_SET_OVERRIDE);
+                    db.displayNotes(Integer.parseInt(id_indicator.getText()), PF_SECTIONS.getSelectionModel().getSelectedItem(),
+                            PF_NOTES);
+
+                    System.out.println("clicked on post footings " + PF_SECTIONS.getSelectionModel().getSelectedItem());
+                    postFootingsData.clear();
+                    db.getPostFootingsSD(1, PF_SECTIONS.getSelectionModel().getSelectedItem(), postFootingsData);
+                    db.getFoundationsPFData(PF_SECTIONS.getSelectionModel().getSelectedItem(), foundations_pf_volume);
+                    setComponentsFromList();
+
+                    System.out.println(setupSheetsController.componentList.size());
+
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-
-                PF_SET.setDisable(false);
-                PF_SET_OVERRIDE.setDisable(false);
-
-                db.getSelectedSets(Integer.parseInt(id_indicator.getText()), PF_SECTIONS.getSelectionModel()
-                        .getSelectedItem(), PF_SET, PF_SET_OVERRIDE);
-                db.displayNotes(Integer.parseInt(id_indicator.getText()), PF_SECTIONS.getSelectionModel().getSelectedItem(),
-                        PF_NOTES);
-
-                System.out.println("clicked on post footings " + PF_SECTIONS.getSelectionModel().getSelectedItem());
-                postFootingsData.clear();
-                db.getPostFootingsSD(1, PF_SECTIONS.getSelectionModel().getSelectedItem(), postFootingsData);
-                db.getFoundationsPFData(PF_SECTIONS.getSelectionModel().getSelectedItem(), foundations_pf_volume);
-
-                setComponentsFromList();
-                System.out.println(setupSheetsController.componentList.size());
-
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         });
 
@@ -516,9 +518,9 @@ public class foundationsController implements Initializable {
                                 "17.5MPA 19MM STRUCTURAL CONCRETE", "M3", String.valueOf(new DecimalFormat("0.00").
                                 format(Double.parseDouble(foundations_pf_volume.getText()))), "FOOTINGS"));
 
-                        componentData.getComponents().clear();
-                        componentData.getComponents().add(new String[] {"Concrete", "32100832", "17.5MPA 19MM STRUCTURAL CONCRETE", "M3",
-                                String.valueOf(new DecimalFormat("0.00").format(Double.parseDouble(foundations_pf_volume.getText()))), "FOOTINGS"});
+//                        componentData.getComponents().clear();
+//                        componentData.getComponents().add(new String[]{"Concrete", "32100832", "17.5MPA 19MM STRUCTURAL CONCRETE", "M3",
+//                                String.valueOf(new DecimalFormat("0.00").format(Double.parseDouble(foundations_pf_volume.getText()))), "FOOTINGS"});
 
                     }
                     if (part_id == 2) {
@@ -526,12 +528,12 @@ public class foundationsController implements Initializable {
                                 "17.5MPA 19MM STRUCTURAL CONCRETE", "M3", String.valueOf(new DecimalFormat("0.00").
                                 format(Double.parseDouble(foundations_cb_volume.getText()))), "FOOTINGS"));
 
-                        componentData.getComponents().clear();
-                        componentData.getComponents().add(new String[] {
-                                "Concrete", "32100832", "17.5MPA 19MM STRUCTURAL CONCRETE", "M3",
-                                String.valueOf(new DecimalFormat("0.00").format(
-                                        Double.parseDouble(foundations_cb_volume.getText()))), "FOOTINGS"
-                        });
+//                        componentData.getComponents().clear();
+//                        componentData.getComponents().add(new String[]{
+//                                "Concrete", "32100832", "17.5MPA 19MM STRUCTURAL CONCRETE", "M3",
+//                                String.valueOf(new DecimalFormat("0.00").format(
+//                                        Double.parseDouble(foundations_cb_volume.getText()))), "FOOTINGS"
+//                        });
 
                     }
                     break;
@@ -590,16 +592,17 @@ public class foundationsController implements Initializable {
                                 "TIE WIRE GALV 300MM X 1KG", "EACH",
                                 String.valueOf(tw_quantity), "SLAB"));
 
-                        componentData.getComponents().clear();
-                        for (foundationsMaterials fm : foundationsMaterials) {
-                            componentData.getComponents().add(new String[] {
-                                    fm.getComponent(), fm.getSku_number(), fm.getDescription(), fm.getUnit(),
-                                    fm.getQuantity(), fm.getUsage()
-                            });
-                        }
+
                     }
                     break;
             }
+        }
+        componentData.getComponents().clear();
+        for (foundationsMaterials fm : foundationsMaterials) {
+            componentData.getComponents().add(new String[]{
+                    fm.getComponent(), fm.getSku_number(), fm.getDescription(), fm.getUnit(),
+                    fm.getQuantity(), fm.getUsage()
+            });
         }
     }
 }
