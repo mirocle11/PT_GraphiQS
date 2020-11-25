@@ -21,6 +21,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -31,6 +32,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.*;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import service.Tools;
 
@@ -154,6 +156,7 @@ public class workspaceController implements Initializable {
     public JFXComboBox<String> FOUNDATIONS_PART, FOUNDATIONS_SET, FOUNDATIONS_MATERIAL;
     public JFXTextField FOUNDATIONS_DEPTH, FOUNDATIONS_WIDTH, FOUNDATIONS_LENGTH, FOUNDATIONS_DIAMETER,
             FOUNDATIONS_HEIGHT, FOUNDATIONS_VOLUME1, FOUNDATIONS_VOLUME2;
+    public TextArea FOUNDATIONS_NOTES;
 
     private final ObservableList<String> foundations_parts = FXCollections.observableArrayList("Post Footings",
             "Pole Footings");
@@ -163,6 +166,7 @@ public class workspaceController implements Initializable {
     public int ef_indicator = 0;
     public JFXComboBox<String> EXTERNAL_FRAMING_PART, EXTERNAL_FRAMING_SET, EXTERNAL_FRAMING_MATERIAL;
     public JFXTextField EXTERNAL_FRAMING_LENGTH;
+    public TextArea EXTERNAL_FRAMING_NOTES;
 
     private final ObservableList<String> external_framing_parts = FXCollections.observableArrayList("Poles",
             "Columns");
@@ -206,6 +210,14 @@ public class workspaceController implements Initializable {
 
     public ObservableList<String> girts_setList = FXCollections.observableArrayList();
     public ObservableList<String> girts_materialList = FXCollections.observableArrayList();
+
+    //notes
+    public static String selectedNoteStructure;
+    public static String selectedNotePart;
+
+    private static Stage addNotesStage;
+    private double xOffset = 0;
+    private double yOffset = 0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

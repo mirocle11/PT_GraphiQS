@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -11,6 +10,7 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.effect.DropShadow?>
@@ -92,11 +92,11 @@
                   </JFXButton>
                   <JFXComboBox fx:id="PL_SET" disable="true" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
                   <JFXComboBox fx:id="PL_SET_OVERRIDE" disable="true" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
-                  <JFXTextArea labelFloat="true" layoutX="165.0" layoutY="140.0" prefHeight="100.0" prefWidth="325.0" promptText="Notes">
+                  <TextArea fx:id="PL_NOTES" layoutX="165.0" layoutY="140.0" prefHeight="100.0" prefWidth="325.0" promptText="Notes :">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Segoe UI" size="13.0" />
                      </font>
-                  </JFXTextArea>
+                  </TextArea>
                </children>
                <GridPane.margin>
                   <Insets right="10.0" />
@@ -177,11 +177,11 @@
                   </JFXButton>
                   <JFXComboBox fx:id="CL_SET" disable="true" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
                   <JFXComboBox fx:id="CL_SET_OVERRIDE" disable="true" editable="true" focusTraversable="false" labelFloat="true" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
-                  <JFXTextArea labelFloat="true" layoutX="165.0" layoutY="140.0" prefHeight="100.0" prefWidth="325.0" promptText="Notes">
+                  <TextArea fx:id="CL_NOTES" layoutX="165.0" layoutY="140.0" prefHeight="100.0" prefWidth="325.0" promptText="Notes :">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Segoe UI" size="13.0" />
                      </font>
-                  </JFXTextArea>
+                  </TextArea>
                </children>
                <GridPane.margin>
                   <Insets right="10.0" />
@@ -262,11 +262,11 @@
                   </JFXButton>
                   <JFXComboBox fx:id="GIRTS_SET" disable="true" editable="true" focusTraversable="false" layoutX="165.0" layoutY="41.0" prefHeight="28.0" prefWidth="205.0" promptText="Set" />
                   <JFXComboBox fx:id="GIRTS_SET_OVERRIDE" disable="true" editable="true" focusTraversable="false" layoutX="165.0" layoutY="88.0" prefHeight="28.0" prefWidth="205.0" promptText="Set Override" />
-                  <JFXTextArea labelFloat="true" layoutX="165.0" layoutY="140.0" prefHeight="100.0" prefWidth="325.0" promptText="Notes">
+                  <TextArea fx:id="GIRTS_NOTES" layoutX="165.0" layoutY="140.0" prefHeight="100.0" prefWidth="325.0" promptText="Notes :">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Segoe UI" size="13.0" />
                      </font>
-                  </JFXTextArea>
+                  </TextArea>
                </children>
                <GridPane.margin>
                   <Insets right="10.0" />

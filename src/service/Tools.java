@@ -549,6 +549,8 @@ public class Tools {
                                             window.FOUNDATIONS_DEPTH.getText(), window.FOUNDATIONS_WIDTH.getText(),
                                             window.FOUNDATIONS_LENGTH.getText(), window.FOUNDATIONS_VOLUME1.getText());
 
+                                    db.updateNotes(1, Integer.parseInt(pfLastRowSection.getText()),
+                                            window.FOUNDATIONS_NOTES.getText());
                                 } else {
                                     int pf_quantity = Integer.parseInt(foundations_pf_quantity.getText()) + 1;
                                     double pf_volume = pf_quantity * (Double.parseDouble(foundations_pf_volume.getText())
@@ -577,14 +579,12 @@ public class Tools {
                                             window.FOUNDATIONS_DIAMETER.getText(), window.FOUNDATIONS_HEIGHT.getText(),
                                             window.FOUNDATIONS_VOLUME2.getText());
 
-                                    //new insert api here
-
-
+                                    db.updateNotes(2, Integer.parseInt(cbLastRowSection.getText()),
+                                            window.FOUNDATIONS_NOTES.getText());
                                 } else {
                                     int cb_quantity = Integer.parseInt(foundations_cb_quantity.getText()) + 1;
                                     double cb_volume = cb_quantity * (Double.parseDouble(foundations_cb_volume.getText())
                                             / Double.parseDouble(foundations_cb_quantity.getText()));
-
 
                                     db.updateFoundationsCBCount(cb_quantity, String.valueOf(
                                             new DecimalFormat("0.00").format(cb_volume)),
@@ -818,6 +818,7 @@ public class Tools {
 
                             externalFramingObject.setPart(window.FOUNDATIONS_PART.getSelectionModel().getSelectedItem());
                             if (external_framing_section.getText().equals("")) {
+                                //if there is no same values, new section -> insert
                                 db.getExternalFramingLastRow(efLastRowSection, window.EXTERNAL_FRAMING_PART.
                                         getSelectionModel().getSelectedItem());
                                 if (efLastRowSection.getText().equals("")) {
@@ -831,12 +832,18 @@ public class Tools {
                                     db.setSelectedSets(4, Integer.parseInt(efLastRowSection.getText()),
                                             window.EXTERNAL_FRAMING_SET.getSelectionModel().getSelectedItem(),
                                             "", window.EXTERNAL_FRAMING_MATERIAL.getSelectionModel().getSelectedItem());
+                                    db.updateNotes(4, Integer.parseInt(efLastRowSection.getText()),
+                                            window.EXTERNAL_FRAMING_NOTES.getText());
                                 } else if (window.EXTERNAL_FRAMING_PART.getSelectionModel().getSelectedItem().equals("Columns")) {
                                     db.setSelectedSets(5, Integer.parseInt(efLastRowSection.getText()),
                                             window.EXTERNAL_FRAMING_SET.getSelectionModel().getSelectedItem(),
                                             "", window.EXTERNAL_FRAMING_MATERIAL.getSelectionModel().getSelectedItem());
+                                    db.updateNotes(5, Integer.parseInt(efLastRowSection.getText()),
+                                            window.EXTERNAL_FRAMING_NOTES.getText());
                                 }
                             } else {
+                                //if same values, update section & add quantity
+                                //todo -> update selected sets: db.setSelectedSets();
                                 int ef_quantity = Integer.parseInt(external_framing_quantity.getText()) + 1;
 
                                 externalFramingObject.setNo(efLastRowSection.getText());

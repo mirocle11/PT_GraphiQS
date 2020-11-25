@@ -41,11 +41,11 @@ public class externalFramingController implements Initializable {
 
     //components
     public ListView<Integer> PL_SECTIONS, CL_SECTIONS, GIRTS_SECTIONS;
+    public JFXComboBox<String> PL_SET, PL_SET_OVERRIDE, CL_SET, CL_SET_OVERRIDE, GIRTS_SET, GIRTS_SET_OVERRIDE;
+    public TextArea PL_NOTES, CL_NOTES, GIRTS_NOTES;
 
     //gridpanes (parts)
     public GridPane POLES, COLUMNS, GIRTS, DOORS, WINDOWS;
-
-    public JFXComboBox<String> PL_SET, PL_SET_OVERRIDE, CL_SET, CL_SET_OVERRIDE, GIRTS_SET, GIRTS_SET_OVERRIDE;
 
     //tables
     public JFXTreeTableView<externalFramingMaterials> MATERIALS_TBL;
@@ -157,6 +157,8 @@ public class externalFramingController implements Initializable {
 
                 db.getSelectedSets(Integer.parseInt(id_indicator.getText()), PL_SECTIONS.getSelectionModel().getSelectedItem(),
                         PL_SET, PL_SET_OVERRIDE);
+                db.displayNotes(Integer.parseInt(id_indicator.getText()), PL_SECTIONS.getSelectionModel().getSelectedItem(),
+                        PL_NOTES);
                 db.showExternalFramingSD("Poles", PL_SECTIONS.getSelectionModel().getSelectedItem(), polesSec, columnsSec);
                 setComponentContents(1, PL_SET.getSelectionModel().getSelectedItem());
             }
@@ -183,6 +185,8 @@ public class externalFramingController implements Initializable {
 
                 db.getSelectedSets(Integer.parseInt(id_indicator.getText()), CL_SECTIONS.getSelectionModel().getSelectedItem(),
                         CL_SET, CL_SET_OVERRIDE);
+                db.displayNotes(Integer.parseInt(id_indicator.getText()), CL_SECTIONS.getSelectionModel().getSelectedItem(),
+                        CL_NOTES);
                 db.showExternalFramingSD("Columns", CL_SECTIONS.getSelectionModel().getSelectedItem(), polesSec, columnsSec);
                 setComponentContents(2, CL_SET.getSelectionModel().getSelectedItem());
             }
@@ -209,6 +213,8 @@ public class externalFramingController implements Initializable {
 
                 db.getSelectedSets(Integer.parseInt(id_indicator.getText()), GIRTS_SECTIONS.getSelectionModel().getSelectedItem(),
                         GIRTS_SET, GIRTS_SET_OVERRIDE);
+                db.displayNotes(Integer.parseInt(id_indicator.getText()), GIRTS_SECTIONS.getSelectionModel().getSelectedItem(),
+                        GIRTS_NOTES);
                 db.showExternalFramingSD("Girts", GIRTS_SECTIONS.getSelectionModel().getSelectedItem(), polesSec, columnsSec);
                 setComponentContents(3, GIRTS_SET.getSelectionModel().getSelectedItem());
             }
@@ -237,7 +243,8 @@ public class externalFramingController implements Initializable {
                                     PL_SECTIONS.getSelectionModel().getSelectedIndex()).getQuantity(), "Poles"));
                     break;
                 case "Building Pole H5 175-199":
-                    db.getSelectedMaterial(4 , CL_SECTIONS.getSelectionModel().getSelectedItem(), selectedMaterialCL);
+                    // insert declaration of material selected -> condition material for calculations
+                    db.getSelectedMaterial(4 , PL_SECTIONS.getSelectionModel().getSelectedItem(), selectedMaterialPL);
 
                     if (selectedMaterialPL.getText().equals("4.2M BUILDING POLE H5 175-199")) {
                         externalFramingMaterials.addAll(new externalFramingMaterials("Poles", "RWBP17542",

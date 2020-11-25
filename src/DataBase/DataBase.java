@@ -17,6 +17,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -1641,6 +1642,7 @@ public class DataBase {
         }
     }
 
+    //sync material selections to setup sheets
     public void getSelectedMaterial(int parts_id, int section, Label selectedMaterial) {
         try {
             String sql = "SELECT * FROM SHED_SECTION_TBL WHERE PARTS_ID = ? AND SECTION = ?";
@@ -1652,6 +1654,49 @@ public class DataBase {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 selectedMaterial.setText(resultSet.getString("MATERIAL"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //sync get/update notes
+    public void updateNotes(int part_id, int section, String notes) {
+        try {
+            String sql = "SELECT ID FROM SHED_SECTION_TBL WHERE PARTS_ID = ? AND SECTION = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, part_id);
+            preparedStatement.setInt(2, section);
+
+            int id = 0;
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                id = resultSet.getInt("ID");
+            }
+
+            String sql1 = "UPDATE SHED_SECTION_TBL SET NOTES = ? WHERE ID = ?";
+
+            PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
+            preparedStatement1.setString(1, notes);
+            preparedStatement1.setInt(2, id);
+
+            preparedStatement1.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void displayNotes(int part_id, int section, TextArea notes) {
+        try {
+            String sql = "SELECT * FROM SHED_SECTION_TBL WHERE PARTS_ID = ? AND SECTION = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, part_id);
+            preparedStatement.setInt(2, section);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                notes.setText(resultSet.getString("NOTES"));
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -54,6 +54,7 @@ public class foundationsController implements Initializable {
     public JFXButton PF_ADD_SECTION, PF_REMOVE_SECTION, CB_ADD_SECTION, CB_REMOVE_SECTION, CF_ADD_SECTION,
             CF_REMOVE_SECTION, REFRESH;
     public JFXComboBox<String> PF_SET, PF_SET_OVERRIDE, PLF_SET, PLF_SET_OVERRIDE, CF_SET, CF_SET_OVERRIDE;
+    public TextArea PF_NOTES, PL_NOTES, CF_NOTES;
 
     //component editor
     private double xOffset = 0;
@@ -272,6 +273,8 @@ public class foundationsController implements Initializable {
 
                 db.getSelectedSets(Integer.parseInt(id_indicator.getText()), PF_SECTIONS.getSelectionModel()
                         .getSelectedItem(), PF_SET, PF_SET_OVERRIDE);
+                db.displayNotes(Integer.parseInt(id_indicator.getText()), PF_SECTIONS.getSelectionModel().getSelectedItem(),
+                        PF_NOTES);
 
                 System.out.println("clicked on post footings " + PF_SECTIONS.getSelectionModel().getSelectedItem());
                 postFootingsData.clear();
@@ -319,6 +322,8 @@ public class foundationsController implements Initializable {
                 PLF_SET_OVERRIDE.setDisable(false);
                 db.getSelectedSets(Integer.parseInt(id_indicator.getText()), PLF_SECTIONS.getSelectionModel()
                         .getSelectedItem(), PLF_SET, PLF_SET_OVERRIDE);
+                db.displayNotes(Integer.parseInt(id_indicator.getText()), PLF_SECTIONS.getSelectionModel().getSelectedItem(),
+                        PL_NOTES);
 
                 System.out.println("clicked on " + PLF_SECTIONS.getSelectionModel().getSelectedItem());
                 concreteBoresData.clear();
@@ -358,6 +363,7 @@ public class foundationsController implements Initializable {
             CF_SET_OVERRIDE.setDisable(false);
 
             db.getSelectedSets(3, CF_SECTIONS.getSelectionModel().getSelectedItem(), CF_SET, CF_SET_OVERRIDE);
+            db.displayNotes(3, CF_SECTIONS.getSelectionModel().getSelectedItem(), CF_NOTES);
 
             setComponentsFromList();
 //            if (!CF_SET.getSelectionModel().isEmpty()) {

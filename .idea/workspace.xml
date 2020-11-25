@@ -25,9 +25,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-updated materials table for setup sheets&#10;-updated foundations stamps&#10;-added misc to workspace for parts w/ one section&#10;-layouts updated (foundations)&#10;-updated quantity calculations for foundations&#10;-foundations sheets sync w/ workspace&#10;-10/30/20;">
+      <change afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/addNotesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/addNotes.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/externalFramingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/externalFramingController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/foundationsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/foundationsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/DataBase/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/DataBase/DataBase.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/externalFraming.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/externalFraming.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/foundations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/Sheets/Shed/foundations.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/service/Tools.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/service/Tools.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/externalFramingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/externalFramingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataBase/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataBase/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/externalFraming.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/externalFraming.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/Sheets/Shed/foundations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Sheets/Shed/foundations.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/workspace.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Tools.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/svg_0.svg" beforeDir="false" afterPath="$PROJECT_DIR$/temp/svg_0.svg" afterDir="false" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
     <list id="4dddbee8-77b6-41fd-be25-1624817806eb" name="Revert &quot;#60 commit&quot;" comment="Revert &quot;#60 commit&quot;&#10;&#10;This reverts commit 096c3c72" />
@@ -111,7 +128,7 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="dynamic.classpath" value="false" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Views/Sheets/Shed" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LBP_Trades" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -132,26 +149,26 @@
       <recent name="Controllers.Sheets" />
       <recent name="Controllers" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets\Shed" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Model\data" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Controllers" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="Model.data.shed.externalFraming" />
-      <recent name="Model.stamps" />
-      <recent name="Model.data.layouts" />
-      <recent name="Model.data.shed" />
-      <recent name="Model" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets\Residential" />
       <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\data backup" />
       <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Framing" />
       <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Floors" />
       <recent name="C:\Users\User\Documents\IdeaProjects\PTGraphiQS\src\Views" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Controllers.Sheets.Shed" />
+      <recent name="Model.data.shed.externalFraming" />
+      <recent name="Model.stamps" />
+      <recent name="Model.data.layouts" />
+      <recent name="Model.data.shed" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets\Shed" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Model\data" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Controllers" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -685,14 +702,8 @@
       <workItem from="1605753820330" duration="39666000" />
       <workItem from="1606024687394" duration="610000" />
       <workItem from="1606093548367" duration="1715000" />
-      <workItem from="1606107991855" duration="4198000" />
-    </task>
-    <task id="LOCAL-00119" summary="-cladding length updated&#10;-window stamping reference for cladding">
-      <created>1593500778317</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
-      <option name="project" value="LOCAL" />
-      <updated>1593500778317</updated>
+      <workItem from="1606107991855" duration="45801000" />
+      <workItem from="1606298622074" duration="3712000" />
     </task>
     <task id="LOCAL-00120" summary="-cladding length updated&#10;-window stamping reference for cladding&#10;-setup sheets dashboard function added&#10;-7/6/20 update">
       <created>1594035874577</created>
@@ -1030,7 +1041,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606112027603</updated>
     </task>
-    <option name="localTasksCounter" value="168" />
+    <task id="LOCAL-00168" summary="-updated materials table for setup sheets&#10;-updated foundations stamps&#10;-added misc to workspace for parts w/ one section&#10;-layouts updated (foundations)&#10;-updated quantity calculations for foundations&#10;-foundations sheets sync w/ workspace&#10;-10/30/20;">
+      <created>1606114362235</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1606114362235</updated>
+    </task>
+    <option name="localTasksCounter" value="169" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1095,8 +1113,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated new layout and fixed ui" />
-    <MESSAGE value="updated new layout and fixed top list" />
     <MESSAGE value="fixed bugs and updated workspace" />
     <MESSAGE value="updated layout" />
     <MESSAGE value="updated layout and functions" />
@@ -1168,38 +1184,40 @@
     <state x="2610" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
     <state x="2610" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1602656677620" />
     <state x="2610" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="2475" y="0" key="CommitChangelistDialog2" timestamp="1606112025894">
+    <state x="2475" y="0" key="CommitChangelistDialog2" timestamp="1606114361438">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="555" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604640639125" />
-    <state x="2475" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606112025894" />
+    <state x="2475" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606114361438" />
     <state x="2139" y="85" key="DiffContextDialog" timestamp="1603174823596">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2139" y="85" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603174823596" />
-    <state x="3035" y="318" key="FileChooserDialogImpl" timestamp="1602656677620" />
+    <state x="3035" y="318" key="FileChooserDialogImpl" timestamp="1606126759004">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
     <state x="674" y="288" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
-    <state x="3035" y="318" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state width="1877" height="200" key="GridCell.Tab.0.bottom" timestamp="1606114115356">
+    <state x="3035" y="318" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606126759004" />
+    <state width="1877" height="203" key="GridCell.Tab.0.bottom" timestamp="1606298183335">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605864953834" />
-    <state width="1877" height="200" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606114115356" />
-    <state width="1877" height="200" key="GridCell.Tab.0.center" timestamp="1606114115355">
+    <state width="1877" height="200" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606188639606" />
+    <state width="1877" height="203" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606298183335" />
+    <state width="1877" height="203" key="GridCell.Tab.0.center" timestamp="1606298183335">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605864953834" />
-    <state width="1877" height="200" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606114115355" />
-    <state width="1877" height="200" key="GridCell.Tab.0.left" timestamp="1606114115355">
+    <state width="1877" height="200" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606188639606" />
+    <state width="1877" height="203" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606298183335" />
+    <state width="1877" height="203" key="GridCell.Tab.0.left" timestamp="1606298183335">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605864953834" />
-    <state width="1877" height="200" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606114115355" />
-    <state width="1877" height="200" key="GridCell.Tab.0.right" timestamp="1606114115355">
+    <state width="1877" height="200" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606188639606" />
+    <state width="1877" height="203" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606298183335" />
+    <state width="1877" height="203" key="GridCell.Tab.0.right" timestamp="1606298183335">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605864953834" />
-    <state width="1877" height="200" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606114115355" />
+    <state width="1877" height="200" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606188639606" />
+    <state width="1877" height="203" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606298183335" />
     <state width="1877" height="339" key="GridCell.Tab.1.bottom" timestamp="1604902425187">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -1220,11 +1238,11 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="273" height="539" key="HiddenNamespacesPopup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603126202517" />
-    <state x="540" y="254" key="IDE.errors.dialog" timestamp="1605585232840">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2460" y="254" key="IDE.errors.dialog" timestamp="1606299749736">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="540" y="254" key="IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605585232840" />
-    <state x="2460" y="254" key="IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605006974758" />
+    <state x="2460" y="254" key="IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606299749736" />
     <state x="103" y="56" width="1726" height="963" key="MergeDialog" timestamp="1604642304486">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -1242,11 +1260,11 @@
     </state>
     <state x="432" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
     <state x="2266" y="158" width="1054" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603175195519" />
-    <state x="2515" y="266" key="Vcs.Push.Dialog.v2" timestamp="1606112030716">
+    <state x="2515" y="266" key="Vcs.Push.Dialog.v2" timestamp="1606114373555">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604640656521" />
-    <state x="2515" y="266" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606112030716" />
+    <state x="2515" y="266" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606114373555" />
     <state x="753" y="454" key="classpath-attribute-editor" timestamp="1602656677620" />
     <state x="753" y="454" key="classpath-attribute-editor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
     <state x="2707" y="288" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1603126594621">
@@ -1262,15 +1280,15 @@
     <state x="2529" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
     <state x="2687" y="429" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602656677620" />
     <state x="2687" y="429" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="889" y="0" width="1039" height="1047" key="dock-window-1" timestamp="1606113829408">
+    <state x="889" y="0" width="1039" height="1047" key="dock-window-1" timestamp="1606200024161">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="876" y="0" width="1052" height="1023" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605686246403" />
-    <state x="889" y="0" width="1039" height="1047" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606113829408" />
-    <state x="954" y="0" width="974" height="1047" key="dock-window-2" timestamp="1605770268342">
+    <state x="889" y="0" width="1039" height="1047" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606200024161" />
+    <state x="880" y="0" width="1048" height="1047" key="dock-window-2" timestamp="1606299320664">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="954" y="0" width="974" height="1047" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605770268342" />
+    <state x="880" y="0" width="1048" height="1047" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606299320664" />
     <state x="927" y="0" width="1000" height="1047" key="dock-window-3" timestamp="1603219260637">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
