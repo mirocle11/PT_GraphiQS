@@ -206,10 +206,10 @@ public class externalFramingController implements Initializable {
             //section list event
             if (!CL_SECTIONS.getSelectionModel().isEmpty()) {
                 try {
-                    key = "external_framing_columns_" + PL_SECTIONS.getSelectionModel().getSelectedItem();
+                    key = "external_framing_columns_" + CL_SECTIONS.getSelectionModel().getSelectedItem();
 
                     componentData = new ComponentData("external framing", "poles",
-                            PL_SECTIONS.getSelectionModel().getSelectedItem().toString());
+                            CL_SECTIONS.getSelectionModel().getSelectedItem().toString());
 
                     if (setupSheetsController.componentList.containsKey(key)) {
                         componentData = setupSheetsController.componentList.get(key);
@@ -451,7 +451,7 @@ public class externalFramingController implements Initializable {
 
                     break;
                 case "Building Pole H5 175-199":
-                    db.getSelectedMaterial(4, CL_SECTIONS.getSelectionModel().getSelectedItem(), selectedMaterialCL);
+                    db.getSelectedMaterial(4, PL_SECTIONS.getSelectionModel().getSelectedItem(), selectedMaterialPL);
 
                     if (selectedMaterialPL.getText().equals("4.2M BUILDING POLE H5 175-199")) {
                         externalFramingMaterials.addAll(new externalFramingMaterials("Poles", "RWBP17542",

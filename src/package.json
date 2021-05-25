@@ -1,0 +1,77 @@
+{
+    "Operator": "estimator21",
+    "Client": "Kyle Castillion",
+    "Job Name": "2559-PRV_SCHOLTZ RESIDENCE",
+    "Street": "",
+    "Suburb": "",
+    "City": "",
+    "Branch": "",
+    "Date Started": "21/01/2021",
+    "Building Type": "Shed",
+    "Products": [
+        {
+            "Structure": [
+                {
+                    "Foundations": [
+                        {
+                            "Part": [
+                                {
+                                    "Post Footings": [
+                                        {
+                                            "Component": "Concrete",
+                                            "Code": "32100832",
+                                            "Description": "17.5MPA 19MM STRUCTURAL CONCRETE",
+                                            "Unit": "M3",
+                                            "Qty": "1.10",
+                                            "Usage": "FOOTINGS"
+                                        }
+                                    ],
+                                    "Pole Footings": [
+                                        {
+                                            "Component": "Concrete",
+                                            "Code": "32100832",
+                                            "Description": "17.5MPA 19MM STRUCTURAL CONCRETE",
+                                            "Unit": "M3",
+                                            "Qty": "0.63",
+                                            "Usage": "FOOTINGS"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "External Framing": [
+                        {
+                            "Part": [
+                                {
+                                    "Poles": [
+                                        {
+                                            "Component": "Poles",
+                                            "Code": "RWBP17542",
+                                            "Description": "4.2 BUILDING POLE H5 175-199",
+                                            "Unit": "EACH",
+                                            "Qty": "2",
+                                            "Usage": "POLES"
+                                        }
+                                    ],
+                                    "Columns": [
+                                        {
+                                            "Component": "Columns",
+                                            "Code": "20050RVH32RS48",
+                                            "Description": "200 X 50 RAD SG8 VERIFIED H3.2 WET RS 4.8M",
+                                            "Unit": "LGTH",
+                                            "Qty": "2",
+                                            "Usage": "COLUMNS"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

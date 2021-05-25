@@ -133,7 +133,7 @@ public class workspaceController implements Initializable {
     public Image[] iconImages;  // The little images that can be "stamped".
 
     //sample data
-    private final ObservableList<String> stamp_type = FXCollections.observableArrayList("Foundations",
+    private final ObservableList<String> stamp_type = FXCollections.observableArrayList("Doors", "Windows","Foundations",
             "External Framing");
     private final ObservableList<String> door_type = FXCollections.observableArrayList( "Sgl Cav", "Dbl Cav",
             "Priv Cav", "Sgl B-fold to 900", "Sgl B-fold to 901-1200", "Dbl B-fold to 1200", "Dbl B-fold to 1201-1600",

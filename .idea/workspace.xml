@@ -25,25 +25,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06660981-57d8-4909-9e13-4e708b05908b" name="Default" comment="-updated materials table for setup sheets&#10;-updated foundations stamps&#10;-added misc to workspace for parts w/ one section&#10;-layouts updated (foundations)&#10;-updated quantity calculations for foundations&#10;-foundations sheets sync w/ workspace&#10;-10/30/20;">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/fb3766c5-ce24-40cd-bbff-e14a8f7376bd.corrupted.20201123-021321.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libraries/commons-codec-1.12.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libraries/commons-collections4-4.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libraries/commons-math3-3.6.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libraries/poi-4.1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_virtuald_curvesapi_1_06.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_compress_1_18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_math3_3_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_ooxml_schemas_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_openxml4j_1_0_beta.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_4_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_4_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_4_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_scratchpad_4_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_3_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maven/maven.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maven/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/PTGraphiQS_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/PTGraphiQS_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PTGraphiQS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PTGraphiQS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libraries/poi-3.17.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libraries/poi-4.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libraries/poi-ooxml-3.17.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libraries/poi-ooxml-schemas-3.17.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/PTGraphiQS_jar/PTGraphiQS.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/externalFramingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/externalFramingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/foundationsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/Sheets/Shed/foundationsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/builderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/builderController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/materialsContoller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/materialsContoller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/DataBase/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/DataBase/DataBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/PageObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Model/PageObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Controllers/workspaceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/materials.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/materials.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/Views/workspace.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTGraphiQS/service/Tools.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTGraphiQS/service/Tools.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/externalFramingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/externalFramingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Sheets/Shed/foundationsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/builderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/builderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/materialsContoller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/materialsContoller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataBase/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataBase/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/PageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/PageObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Tools.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/workspaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/workspaceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/materials.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/materials.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/temp/svg_0.svg" beforeDir="false" afterPath="$PROJECT_DIR$/temp/svg_0.svg" afterDir="false" />
     </list>
     <list id="ac1f3f65-96a2-4f29-8961-946c932b7981" name="Revert &quot;#49 commit&quot;" comment="Revert &quot;#49 commit&quot;" />
@@ -67,6 +91,7 @@
         <option value="CSS File" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="package.json" />
       </list>
     </option>
   </component>
@@ -128,7 +153,7 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="dynamic.classpath" value="false" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LBP_Trades" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -137,24 +162,24 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Facets" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="background.image.plus" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="Controllers.Sheets" />
       <recent name="Controllers" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets\Residential" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\data backup" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Framing" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Floors" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PTGraphiQS\src\Views" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets\Shed" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Model\data" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Controllers" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Controllers.Sheets.Shed" />
@@ -163,12 +188,12 @@
       <recent name="Model.data.layouts" />
       <recent name="Model.data.shed" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets\Shed" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Model\data" />
-      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Controllers" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Sheets\Residential" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\data backup" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Framing" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PT_GraphiQS\src\Views\Floors" />
+      <recent name="C:\Users\User\Documents\IdeaProjects\PTGraphiQS\src\Views" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -704,6 +729,56 @@
       <workItem from="1606093548367" duration="1715000" />
       <workItem from="1606107991855" duration="45801000" />
       <workItem from="1606298622074" duration="3712000" />
+      <workItem from="1610076222025" duration="10728000" />
+      <workItem from="1610361796175" duration="1592000" />
+      <workItem from="1610605848209" duration="10537000" />
+      <workItem from="1610689901416" duration="3206000" />
+      <workItem from="1610780322816" duration="715000" />
+      <workItem from="1611210484363" duration="2989000" />
+      <workItem from="1611539868966" duration="1224000" />
+      <workItem from="1611620270778" duration="5070000" />
+      <workItem from="1611714973784" duration="4354000" />
+      <workItem from="1611833080181" duration="4572000" />
+      <workItem from="1611924770354" duration="599000" />
+      <workItem from="1612331157574" duration="10521000" />
+      <workItem from="1612399647119" duration="23314000" />
+      <workItem from="1613002656635" duration="65000" />
+      <workItem from="1613002739402" duration="5342000" />
+      <workItem from="1613091859117" duration="3376000" />
+      <workItem from="1613278354053" duration="4391000" />
+      <workItem from="1613364626864" duration="13706000" />
+      <workItem from="1613826084842" duration="1840000" />
+      <workItem from="1613952790002" duration="1727000" />
+      <workItem from="1615769370982" duration="1931000" />
+      <workItem from="1616137590663" duration="14000" />
+      <workItem from="1616143871169" duration="782000" />
+      <workItem from="1616253257036" duration="6000" />
+      <workItem from="1616253319248" duration="4827000" />
+      <workItem from="1616390778042" duration="8386000" />
+      <workItem from="1616641139806" duration="744000" />
+      <workItem from="1616944828431" duration="18000" />
+      <workItem from="1616944865207" duration="59000" />
+      <workItem from="1617071019211" duration="3734000" />
+      <workItem from="1617148751475" duration="1620000" />
+      <workItem from="1618384408603" duration="3615000" />
+      <workItem from="1618450458314" duration="2663000" />
+      <workItem from="1618467509984" duration="602000" />
+      <workItem from="1618536668910" duration="665000" />
+      <workItem from="1618539190730" duration="5841000" />
+      <workItem from="1618718707923" duration="86000" />
+      <workItem from="1619400545308" duration="1349000" />
+      <workItem from="1619487360674" duration="2559000" />
+      <workItem from="1619580253991" duration="3135000" />
+      <workItem from="1619659641944" duration="1328000" />
+      <workItem from="1619746678677" duration="4156000" />
+      <workItem from="1619967409704" duration="4223000" />
+      <workItem from="1620025333671" duration="1821000" />
+      <workItem from="1620108208278" duration="594000" />
+      <workItem from="1620136628558" duration="4000" />
+      <workItem from="1620136693656" duration="11000" />
+      <workItem from="1620628059099" duration="636000" />
+      <workItem from="1620793095018" duration="2619000" />
+      <workItem from="1620867430218" duration="1302000" />
     </task>
     <task id="LOCAL-00120" summary="-cladding length updated&#10;-window stamping reference for cladding&#10;-setup sheets dashboard function added&#10;-7/6/20 update">
       <created>1594035874577</created>
@@ -1051,15 +1126,6 @@
     <option name="localTasksCounter" value="169" />
     <servers />
   </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
@@ -1143,183 +1209,42 @@
     <option name="LAST_COMMIT_MESSAGE" value="-updated materials table for setup sheets&#10;-updated foundations stamps&#10;-added misc to workspace for parts w/ one section&#10;-layouts updated (foundations)&#10;-updated quantity calculations for foundations&#10;-foundations sheets sync w/ workspace&#10;-10/30/20;" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2646" y="40" key="#Auto_Import" timestamp="1602656677620" />
-    <state x="2646" y="40" key="#Auto_Import/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="2469" y="178" key="#Deployment" timestamp="1602839279052">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2469" y="178" key="#Deployment/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602839279052" />
-    <state x="2767" y="356" key="#Notifications" timestamp="1602656677620" />
-    <state x="847" y="356" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
-    <state x="2767" y="356" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="2360" y="94" key="#Project_Structure" timestamp="1602656677620" />
-    <state x="2360" y="94" key="#Project_Structure/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="2334" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603175247909">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2334" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603175247909" />
-    <state x="851" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1604338084910">
+    <state x="725" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1612771419398">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="851" y="246" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604338084910" />
-    <state x="2685" y="223" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="2608" y="306" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1602656677620" />
-    <state x="2608" y="306" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="2560" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1602656677620" />
-    <state x="2560" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="2645" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1604893542748">
+    <state x="725" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1612771419398" />
+    <state x="2686" y="266" width="440" height="502" key="FileChooserDialogImpl" timestamp="1620025177215">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="725" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604335366736" />
-    <state x="2645" y="404" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604893542748" />
-    <state x="2393" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604459911341">
+    <state x="2686" y="266" width="440" height="502" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620025177215" />
+    <state width="1877" height="203" key="GridCell.Tab.0.bottom" timestamp="1620695249964">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="475" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603195868978" />
-    <state x="2393" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604459911341" />
-    <state x="2610" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602994844612">
+    <state width="1877" height="203" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1612837664219" />
+    <state width="1877" height="203" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620695249964" />
+    <state width="1877" height="203" key="GridCell.Tab.0.center" timestamp="1620695249964">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2610" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602994844612" />
-    <state x="2610" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="2610" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1602656677620" />
-    <state x="2610" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="2475" y="0" key="CommitChangelistDialog2" timestamp="1606114361438">
+    <state width="1877" height="203" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1612837664219" />
+    <state width="1877" height="203" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620695249964" />
+    <state width="1877" height="203" key="GridCell.Tab.0.left" timestamp="1620695249964">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="555" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604640639125" />
-    <state x="2475" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606114361438" />
-    <state x="2139" y="85" key="DiffContextDialog" timestamp="1603174823596">
+    <state width="1877" height="203" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1612837664219" />
+    <state width="1877" height="203" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620695249964" />
+    <state width="1877" height="203" key="GridCell.Tab.0.right" timestamp="1620695249964">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2139" y="85" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603174823596" />
-    <state x="3035" y="318" key="FileChooserDialogImpl" timestamp="1606126759004">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="674" y="288" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
-    <state x="3035" y="318" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606126759004" />
-    <state width="955" height="203" key="GridCell.Tab.0.bottom" timestamp="1606303134949">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606188639606" />
-    <state width="955" height="203" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606303134949" />
-    <state width="955" height="203" key="GridCell.Tab.0.center" timestamp="1606303134949">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606188639606" />
-    <state width="955" height="203" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606303134949" />
-    <state width="955" height="203" key="GridCell.Tab.0.left" timestamp="1606303134949">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606188639606" />
-    <state width="955" height="203" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606303134949" />
-    <state width="955" height="203" key="GridCell.Tab.0.right" timestamp="1606303134949">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606188639606" />
-    <state width="955" height="203" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606303134949" />
-    <state width="1877" height="339" key="GridCell.Tab.1.bottom" timestamp="1604902425187">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="339" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604902425187" />
-    <state width="1877" height="339" key="GridCell.Tab.1.center" timestamp="1604902425186">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="339" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604902425186" />
-    <state width="1877" height="339" key="GridCell.Tab.1.left" timestamp="1604902425186">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="339" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604902425186" />
-    <state width="1877" height="339" key="GridCell.Tab.1.right" timestamp="1604902425187">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="339" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604902425187" />
-    <state width="273" height="539" key="HiddenNamespacesPopup" timestamp="1603126202517">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="273" height="539" key="HiddenNamespacesPopup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603126202517" />
-    <state x="2460" y="254" key="IDE.errors.dialog" timestamp="1606299749736">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="540" y="254" key="IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605585232840" />
-    <state x="2460" y="254" key="IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606299749736" />
-    <state x="103" y="56" width="1726" height="963" key="MergeDialog" timestamp="1604642304486">
+    <state width="1877" height="203" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1612837664219" />
+    <state width="1877" height="203" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620695249964" />
+    <state x="540" y="254" key="IDE.errors.dialog" timestamp="1613387638404">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="103" y="56" width="1726" height="963" key="MergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604642304486" />
-    <state x="2104" y="85" key="MergeDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603431745165" />
-    <state x="590" y="273" key="MultipleFileMergeDialog" timestamp="1604642310764">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="590" y="273" key="MultipleFileMergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604642310764" />
-    <state x="2510" y="273" key="MultipleFileMergeDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603431746107" />
-    <state x="2695" y="453" key="ReplaceDuplicatesPrompt" timestamp="1602656677620" />
-    <state x="2695" y="453" key="ReplaceDuplicatesPrompt/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="2266" y="158" width="1054" height="708" key="SettingsEditor" timestamp="1603175195519">
+    <state x="540" y="254" key="IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1613387638404" />
+    <state x="2232" y="142" width="1244" height="708" key="SettingsEditor" timestamp="1618384463690">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="432" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
-    <state x="2266" y="158" width="1054" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603175195519" />
-    <state x="2515" y="266" key="Vcs.Push.Dialog.v2" timestamp="1606114373555">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604640656521" />
-    <state x="2515" y="266" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606114373555" />
-    <state x="753" y="454" key="classpath-attribute-editor" timestamp="1602656677620" />
-    <state x="753" y="454" key="classpath-attribute-editor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
-    <state x="2707" y="288" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1603126594621">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2707" y="288" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603126594621" />
-    <state x="-180" y="-23" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1603049357451">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="92" y="92" width="1636" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
-    <state x="-180" y="-23" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603049357451" />
-    <state x="2529" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1602656677620" />
-    <state x="2529" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="2687" y="429" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602656677620" />
-    <state x="2687" y="429" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="889" y="0" width="1039" height="1047" key="dock-window-1" timestamp="1606200024161">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="876" y="0" width="1052" height="1023" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605686246403" />
-    <state x="889" y="0" width="1039" height="1047" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606200024161" />
-    <state x="880" y="0" width="1048" height="1047" key="dock-window-2" timestamp="1606299320664">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="880" y="0" width="1048" height="1047" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606299320664" />
-    <state x="927" y="0" width="1000" height="1047" key="dock-window-3" timestamp="1603219260637">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="927" y="0" width="1000" height="1047" key="dock-window-3/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603219260637" />
-    <state x="2610" y="259" key="extract.method.dialog" timestamp="1602656677620" />
-    <state x="2610" y="259" key="extract.method.dialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="2588" y="95" width="583" height="849" key="find.popup" timestamp="1603005172092">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2588" y="95" width="583" height="849" key="find.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603005172092" />
-    <state x="2601" y="293" key="git4idea.merge.GitPullDialog" timestamp="1605680986972">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="681" y="293" key="git4idea.merge.GitPullDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604640764184" />
-    <state x="2601" y="293" key="git4idea.merge.GitPullDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605680986972" />
-    <state x="2262" y="94" key="new project wizard" timestamp="1602656677620" />
-    <state x="2262" y="94" key="new project wizard/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602656677620" />
-    <state x="2589" y="273" key="refactoring.ChangeSignatureDialog" timestamp="1603043591973">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2589" y="273" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603043591973" />
-    <state x="2536" y="240" width="672" height="677" key="run.anything.popup" timestamp="1602744336027">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
-    <state x="2536" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602744336027" />
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605064035992">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602656677620" />
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605064035992" />
+    <state x="2232" y="142" width="1244" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1618384463690" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

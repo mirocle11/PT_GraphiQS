@@ -287,6 +287,7 @@ public class builderController implements Initializable {
         try {
             client_id = Integer.valueOf(treeItem.getValue().getId());
         } catch (Exception e) {
+
             e.getSuppressed();
         }
     }
@@ -302,12 +303,15 @@ public class builderController implements Initializable {
     static void closeClientStage() {
         registerClientStage.close();
     }
+
     static void closeSubtradeStage() {
         registerSubtradeStage.close();
     }
+
     static void closeViewClientStage() {
         viewClientStage.close();
     }
+
     static void closeViewSubtradeStage() {
         viewSubtradeStage.close();
     }

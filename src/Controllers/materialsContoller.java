@@ -165,7 +165,6 @@ public class materialsContoller implements Initializable {
         //Create row object
         XSSFRow row;
 
-
         Map<Integer, Object[]> foundations = new TreeMap<Integer, Object[]>();
         Map<Integer, Object[]> ext_framing = new TreeMap<Integer, Object[]>();
         //This data needs to be written (Object[])
@@ -193,6 +192,7 @@ public class materialsContoller implements Initializable {
 
         int rowid = 0;
         spreadsheet.addMergedRegion(new CellRangeAddress(rowid, rowid, 0, 3));
+
         Set<Integer> foundation_keys = foundations.keySet();
         for (Integer key : foundation_keys) {
             row = spreadsheet.createRow(rowid++);
